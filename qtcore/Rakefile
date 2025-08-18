@@ -1,0 +1,19 @@
+# frozen_string_literal: true
+
+require "bundler/gem_tasks"
+GEMSPEC = Gem::Specification.load("qtcore.gemspec")
+
+require "rake/extensiontask"
+Rake::ExtensionTask.new("qtcore", GEMSPEC) do |ext|
+  ext.ext_dir = "ext/qt6/qtcore"
+  ext.lib_dir = "lib/qt6/qtcore"
+end
+
+require "rubocop/rake_task"
+RuboCop::RakeTask.new
+
+require "rspec/core/rake_task"
+RSpec::Core::RakeTask.new(:spec)
+
+task build: :compile
+task default: %i[clobber compile]
