@@ -1,8 +1,15 @@
 PATH
+  remote: ../qtcore
+  specs:
+    ruby-qt6-qtcore (0.1.0)
+      rice (>= 4.6.1)
+
+PATH
   remote: .
   specs:
     ruby-qt6-qtgui (0.1.0)
       rice (>= 4.6.1)
+      ruby-qt6-qtcore
 
 GEM
   remote: https://rubygems.org/
@@ -144,6 +151,7 @@ DEPENDENCIES
   redcarpet
   rspec
   rubocop
+  ruby-qt6-qtcore!
   ruby-qt6-qtgui!
   solargraph
   standard

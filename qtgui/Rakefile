@@ -15,5 +15,10 @@ RuboCop::RakeTask.new
 require "rspec/core/rake_task"
 RSpec::Core::RakeTask.new(:spec)
 
+desc "Run clang-format"
+task :cformat do
+  sh "clang-format -i --style=microsoft --verbose ext/qt6/qtgui/*{hpp,cpp}"
+end
+
 task build: :compile
 task default: %i[clobber compile]
