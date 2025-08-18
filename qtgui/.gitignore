@@ -1,0 +1,18 @@
+/.bundle/
+/.yardoc
+/_yardoc/
+/coverage/
+/doc/
+/pkg/
+/spec/reports/
+/tmp/
+
+# rake-compiler
+*.bundle
+*.so
+*.o
+*.a
+mkmf.log
+
+# rspec
+.rspec_status
