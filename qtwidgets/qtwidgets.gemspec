@@ -34,6 +34,8 @@ Gem::Specification.new do |spec|
   spec.extensions = ["ext/qt6/qtwidgets/extconf.rb"]
 
   spec.add_runtime_dependency("rice", ">= 4.6.1")
+  spec.add_runtime_dependency("ruby-qt6-qtcore")
+  spec.add_runtime_dependency("ruby-qt6-qtgui")
 
   # For more information and examples about making a new gem, check out our
   # guide at: https://bundler.io/guides/creating_gem.html
