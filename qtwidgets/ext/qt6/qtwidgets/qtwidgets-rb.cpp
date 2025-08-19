@@ -1,9 +1,10 @@
 #include "qtwidgets-rb.hpp"
 
-#include "qapplication-rb.hpp"
-
-#include "qwidget-rb.hpp"
 #include "qabstractbutton-rb.hpp"
+#include "qapplication-rb.hpp"
+#include "qlayout-rb.hpp"
+#include "qpushbutton-rb.hpp"
+#include "qwidget-rb.hpp"
 
 extern "C" void Init_qtwidgets()
 {
@@ -13,7 +14,10 @@ extern "C" void Init_qtwidgets()
 
         Init_QApplication(rb_mQt6QtWidgets);
 
+        Init_QLayout(rb_mQt6QtWidgets);
+
         Init_QWidget(rb_mQt6QtWidgets);
         Init_QAbstractButton(rb_mQt6QtWidgets);
+        Init_QPushButton(rb_mQt6QtWidgets);
     });
 }
