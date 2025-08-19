@@ -17,7 +17,7 @@ RSpec::Core::RakeTask.new(:spec)
 
 desc "Run clang-format"
 task :cformat do
-  sh "clang-format -i --style=microsoft --verbose ext/qt6/qtcore/*{hpp,cpp}"
+  sh "clang-format -i -style=file --verbose ext/qt6/qtcore/*{hpp,cpp}"
 end
 
 task build: :compile
