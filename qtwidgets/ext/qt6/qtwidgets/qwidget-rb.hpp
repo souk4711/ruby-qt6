@@ -1,4 +1,3 @@
-#include <QWidget>
 #include <rice/rice.hpp>
 #include <rice/stl.hpp>
 
