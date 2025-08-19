@@ -7,6 +7,7 @@
 #include "qwidget-rb.hpp"
 #include "qabstractbutton-rb.hpp"
 #include "qpushbutton-rb.hpp"
+#include "qframe-rb.hpp"
 #include "qlabel-rb.hpp"
 // clang-format on
 
@@ -24,6 +25,7 @@ extern "C" void Init_qtwidgets()
         Init_QWidget(rb_mQt6QtWidgets);
         Init_QAbstractButton(rb_mQt6QtWidgets);
         Init_QPushButton(rb_mQt6QtWidgets);
+        Init_QFrame(rb_mQt6QtWidgets);
         Init_QLabel(rb_mQt6QtWidgets);
     });
 }
