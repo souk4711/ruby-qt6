@@ -7,9 +7,12 @@ using namespace Rice;
 
 void Init_Qt(Rice::Module rb_mQt6QtCore)
 {
-    Module rb_mQt = define_module_under(rb_mQt6QtCore, "Qt");
+    Module rb_mQt =
+        // Qt6::QtCore::Qt
+        define_module_under(rb_mQt6QtCore, "Qt");
 
-    Enum<Qt::GlobalColor> rb_cQtGlobalColor = // Qt6::QtCore::Qt::GlobalColor
+    Enum<Qt::GlobalColor> rb_cQtGlobalColor =
+        // Qt6::QtCore::Qt::GlobalColor
         define_enum_under<Qt::GlobalColor>("GlobalColor", rb_mQt)
             .define_value("color0", Qt::GlobalColor::color0)
             .define_value("color1", Qt::GlobalColor::color1)
@@ -32,13 +35,15 @@ void Init_Qt(Rice::Module rb_mQt6QtCore)
             .define_value("darkYellow", Qt::GlobalColor::darkYellow)
             .define_value("transparent", Qt::GlobalColor::transparent);
 
-    Enum<Qt::ColorScheme> rb_cQtColorScheme = // Qt6::QtCore::Qt::ColorScheme
+    Enum<Qt::ColorScheme> rb_cQtColorScheme =
+        // Qt6::QtCore::Qt::ColorScheme
         define_enum_under<Qt::ColorScheme>("ColorScheme", rb_mQt)
             .define_value("Unknown", Qt::ColorScheme::Unknown)
             .define_value("Light", Qt::ColorScheme::Light)
             .define_value("Dark", Qt::ColorScheme::Dark);
 
-    Enum<Qt::MouseButton> rb_cQtMouseButton = // Qt6::QtCore::Qt::MouseButton
+    Enum<Qt::MouseButton> rb_cQtMouseButton =
+        // Qt6::QtCore::Qt::MouseButton
         define_enum_under<Qt::MouseButton>("MouseButton", rb_mQt)
             .define_value("NoButton", Qt::MouseButton::NoButton)
             .define_value("LeftButton", Qt::MouseButton::LeftButton)
@@ -77,12 +82,14 @@ void Init_Qt(Rice::Module rb_mQt6QtCore)
             .define_value("MaxMouseButton", Qt::MouseButton::MaxMouseButton)
             .define_value("MouseButtonMask", Qt::MouseButton::MouseButtonMask);
 
-    Enum<Qt::Orientation> rb_cQtOrientation = // Qt6::QtCore::Qt::Orientation
+    Enum<Qt::Orientation> rb_cQtOrientation =
+        // Qt6::QtCore::Qt::Orientation
         define_enum_under<Qt::Orientation>("Orientation", rb_mQt)
             .define_value("Horizontal", Qt::Orientation::Horizontal)
             .define_value("Vertical", Qt::Orientation::Vertical);
 
-    Enum<Qt::FocusPolicy> rb_cQtFocusPolicy = // Qt6::QtCore::Qt::FocusPolicy
+    Enum<Qt::FocusPolicy> rb_cQtFocusPolicy =
+        // Qt6::QtCore::Qt::FocusPolicy
         define_enum_under<Qt::FocusPolicy>("FocusPolicy", rb_mQt)
             .define_value("NoFocus", Qt::FocusPolicy::NoFocus)
             .define_value("TabFocus", Qt::FocusPolicy::TabFocus)
@@ -90,30 +97,35 @@ void Init_Qt(Rice::Module rb_mQt6QtCore)
             .define_value("StrongFocus", Qt::FocusPolicy::StrongFocus)
             .define_value("WheelFocus", Qt::FocusPolicy::WheelFocus);
 
-    Enum<Qt::TabFocusBehavior> rb_cQtTabFocusBehavior = // Qt6::QtCore::Qt::TabFocusBehavior
+    Enum<Qt::TabFocusBehavior> rb_cQtTabFocusBehavior =
+        // Qt6::QtCore::Qt::TabFocusBehavior
         define_enum_under<Qt::TabFocusBehavior>("TabFocusBehavior", rb_mQt)
             .define_value("NoTabFocus", Qt::TabFocusBehavior::NoTabFocus)
             .define_value("TabFocusTextControls", Qt::TabFocusBehavior::TabFocusTextControls)
             .define_value("TabFocusListControls", Qt::TabFocusBehavior::TabFocusListControls)
             .define_value("TabFocusAllControls", Qt::TabFocusBehavior::TabFocusAllControls);
 
-    Enum<Qt::SortOrder> rb_cQtSortOrder = // Qt6::QtCore::Qt::SortOrder
+    Enum<Qt::SortOrder> rb_cQtSortOrder =
+        // Qt6::QtCore::Qt::SortOrder
         define_enum_under<Qt::SortOrder>("SortOrder", rb_mQt)
             .define_value("AscendingOrder", Qt::SortOrder::AscendingOrder)
             .define_value("DescendingOrder", Qt::SortOrder::DescendingOrder);
 
-    Enum<Qt::SplitBehaviorFlags> rb_cQtSplitBehaviorFlags = // Qt6::QtCore::Qt::SplitBehaviorFlags
+    Enum<Qt::SplitBehaviorFlags> rb_cQtSplitBehaviorFlags =
+        // Qt6::QtCore::Qt::SplitBehaviorFlags
         define_enum_under<Qt::SplitBehaviorFlags>("SplitBehaviorFlags", rb_mQt)
             .define_value("KeepEmptyParts", Qt::SplitBehaviorFlags::KeepEmptyParts)
             .define_value("SkipEmptyParts", Qt::SplitBehaviorFlags::SkipEmptyParts);
 
-    Enum<Qt::TileRule> rb_cQtTileRule = // Qt6::QtCore::Qt::TileRule
+    Enum<Qt::TileRule> rb_cQtTileRule =
+        // Qt6::QtCore::Qt::TileRule
         define_enum_under<Qt::TileRule>("TileRule", rb_mQt)
             .define_value("StretchTile", Qt::TileRule::StretchTile)
             .define_value("RepeatTile", Qt::TileRule::RepeatTile)
             .define_value("RoundTile", Qt::TileRule::RoundTile);
 
-    Enum<Qt::AlignmentFlag> rb_cQtAlignmentFlag = // Qt6::QtCore::Qt::AlignmentFlag
+    Enum<Qt::AlignmentFlag> rb_cQtAlignmentFlag =
+        // Qt6::QtCore::Qt::AlignmentFlag
         define_enum_under<Qt::AlignmentFlag>("AlignmentFlag", rb_mQt)
             .define_value("AlignLeft", Qt::AlignmentFlag::AlignLeft)
             .define_value("AlignLeading", Qt::AlignmentFlag::AlignLeading)
@@ -130,7 +142,8 @@ void Init_Qt(Rice::Module rb_mQt6QtCore)
             .define_value("AlignVertical_Mask", Qt::AlignmentFlag::AlignVertical_Mask)
             .define_value("AlignCenter", Qt::AlignmentFlag::AlignCenter);
 
-    Enum<Qt::TextFlag> rb_cQtTextFlag = // Qt6::QtCore::Qt::TextFlag
+    Enum<Qt::TextFlag> rb_cQtTextFlag =
+        // Qt6::QtCore::Qt::TextFlag
         define_enum_under<Qt::TextFlag>("TextFlag", rb_mQt)
             .define_value("TextSingleLine", Qt::TextFlag::TextSingleLine)
             .define_value("TextDontClip", Qt::TextFlag::TextDontClip)
@@ -146,26 +159,30 @@ void Init_Qt(Rice::Module rb_mQt6QtCore)
             .define_value("TextForceRightToLeft", Qt::TextFlag::TextForceRightToLeft)
             .define_value("TextLongestVariant", Qt::TextFlag::TextLongestVariant);
 
-    Enum<Qt::TextElideMode> rb_cQtTextElideMode = // Qt6::QtCore::Qt::TextElideMode
+    Enum<Qt::TextElideMode> rb_cQtTextElideMode =
+        // Qt6::QtCore::Qt::TextElideMode
         define_enum_under<Qt::TextElideMode>("TextElideMode", rb_mQt)
             .define_value("ElideLeft", Qt::TextElideMode::ElideLeft)
             .define_value("ElideRight", Qt::TextElideMode::ElideRight)
             .define_value("ElideMiddle", Qt::TextElideMode::ElideMiddle)
             .define_value("ElideNone", Qt::TextElideMode::ElideNone);
 
-    Enum<Qt::WhiteSpaceMode> rb_cQtWhiteSpaceMode = // Qt6::QtCore::Qt::WhiteSpaceMode
+    Enum<Qt::WhiteSpaceMode> rb_cQtWhiteSpaceMode =
+        // Qt6::QtCore::Qt::WhiteSpaceMode
         define_enum_under<Qt::WhiteSpaceMode>("WhiteSpaceMode", rb_mQt)
             .define_value("WhiteSpaceNormal", Qt::WhiteSpaceMode::WhiteSpaceNormal)
             .define_value("WhiteSpacePre", Qt::WhiteSpaceMode::WhiteSpacePre)
             .define_value("WhiteSpaceNoWrap", Qt::WhiteSpaceMode::WhiteSpaceNoWrap)
             .define_value("WhiteSpaceModeUndefined", Qt::WhiteSpaceMode::WhiteSpaceModeUndefined);
 
-    Enum<Qt::HitTestAccuracy> rb_cQtHitTestAccuracy = // Qt6::QtCore::Qt::HitTestAccuracy
+    Enum<Qt::HitTestAccuracy> rb_cQtHitTestAccuracy =
+        // Qt6::QtCore::Qt::HitTestAccuracy
         define_enum_under<Qt::HitTestAccuracy>("HitTestAccuracy", rb_mQt)
             .define_value("ExactHit", Qt::HitTestAccuracy::ExactHit)
             .define_value("FuzzyHit", Qt::HitTestAccuracy::FuzzyHit);
 
-    Enum<Qt::WindowType> rb_cQtWindowType = // Qt6::QtCore::Qt::WindowType
+    Enum<Qt::WindowType> rb_cQtWindowType =
+        // Qt6::QtCore::Qt::WindowType
         define_enum_under<Qt::WindowType>("WindowType", rb_mQt)
             .define_value("Widget", Qt::WindowType::Widget)
             .define_value("Window", Qt::WindowType::Window)
@@ -206,7 +223,8 @@ void Init_Qt(Rice::Module rb_mQt6QtCore)
             .define_value("NoDropShadowWindowHint", Qt::WindowType::NoDropShadowWindowHint)
             .define_value("WindowFullscreenButtonHint", Qt::WindowType::WindowFullscreenButtonHint);
 
-    Enum<Qt::WindowState> rb_cQtWindowState = // Qt6::QtCore::Qt::WindowState
+    Enum<Qt::WindowState> rb_cQtWindowState =
+        // Qt6::QtCore::Qt::WindowState
         define_enum_under<Qt::WindowState>("WindowState", rb_mQt)
             .define_value("WindowNoState", Qt::WindowState::WindowNoState)
             .define_value("WindowMinimized", Qt::WindowState::WindowMinimized)
@@ -214,14 +232,16 @@ void Init_Qt(Rice::Module rb_mQt6QtCore)
             .define_value("WindowFullScreen", Qt::WindowState::WindowFullScreen)
             .define_value("WindowActive", Qt::WindowState::WindowActive);
 
-    Enum<Qt::ApplicationState> rb_cQtApplicationState = // Qt6::QtCore::Qt::ApplicationState
+    Enum<Qt::ApplicationState> rb_cQtApplicationState =
+        // Qt6::QtCore::Qt::ApplicationState
         define_enum_under<Qt::ApplicationState>("ApplicationState", rb_mQt)
             .define_value("ApplicationSuspended", Qt::ApplicationState::ApplicationSuspended)
             .define_value("ApplicationHidden", Qt::ApplicationState::ApplicationHidden)
             .define_value("ApplicationInactive", Qt::ApplicationState::ApplicationInactive)
             .define_value("ApplicationActive", Qt::ApplicationState::ApplicationActive);
 
-    Enum<Qt::ScreenOrientation> rb_cQtScreenOrientation = // Qt6::QtCore::Qt::ScreenOrientation
+    Enum<Qt::ScreenOrientation> rb_cQtScreenOrientation =
+        // Qt6::QtCore::Qt::ScreenOrientation
         define_enum_under<Qt::ScreenOrientation>("ScreenOrientation", rb_mQt)
             .define_value("PrimaryOrientation", Qt::ScreenOrientation::PrimaryOrientation)
             .define_value("PortraitOrientation", Qt::ScreenOrientation::PortraitOrientation)
@@ -229,7 +249,8 @@ void Init_Qt(Rice::Module rb_mQt6QtCore)
             .define_value("InvertedPortraitOrientation", Qt::ScreenOrientation::InvertedPortraitOrientation)
             .define_value("InvertedLandscapeOrientation", Qt::ScreenOrientation::InvertedLandscapeOrientation);
 
-    Enum<Qt::WidgetAttribute> rb_cQtWidgetAttribute = // Qt6::QtCore::Qt::WidgetAttribute
+    Enum<Qt::WidgetAttribute> rb_cQtWidgetAttribute =
+        // Qt6::QtCore::Qt::WidgetAttribute
         define_enum_under<Qt::WidgetAttribute>("WidgetAttribute", rb_mQt)
             .define_value("WA_Disabled", Qt::WidgetAttribute::WA_Disabled)
             .define_value("WA_UnderMouse", Qt::WidgetAttribute::WA_UnderMouse)
@@ -335,7 +356,8 @@ void Init_Qt(Rice::Module rb_mQt6QtCore)
             .define_value("WA_StyleSheetTarget", Qt::WidgetAttribute::WA_StyleSheetTarget)
             .define_value("WA_AttributeCount", Qt::WidgetAttribute::WA_AttributeCount);
 
-    Enum<Qt::ApplicationAttribute> rb_cQtApplicationAttribute = // Qt6::QtCore::Qt::ApplicationAttribute
+    Enum<Qt::ApplicationAttribute> rb_cQtApplicationAttribute =
+        // Qt6::QtCore::Qt::ApplicationAttribute
         define_enum_under<Qt::ApplicationAttribute>("ApplicationAttribute", rb_mQt)
             .define_value("AA_QtQuickUseDefaultSizePolicy", Qt::ApplicationAttribute::AA_QtQuickUseDefaultSizePolicy)
             .define_value("AA_DontShowIconsInMenus", Qt::ApplicationAttribute::AA_DontShowIconsInMenus)
@@ -366,7 +388,8 @@ void Init_Qt(Rice::Module rb_mQt6QtCore)
             .define_value("AA_DisableSessionManager", Qt::ApplicationAttribute::AA_DisableSessionManager)
             .define_value("AA_AttributeCount", Qt::ApplicationAttribute::AA_AttributeCount);
 
-    Enum<Qt::ImageConversionFlag> rb_cQtImageConversionFlag = // Qt6::QtCore::Qt::ImageConversionFlag
+    Enum<Qt::ImageConversionFlag> rb_cQtImageConversionFlag =
+        // Qt6::QtCore::Qt::ImageConversionFlag
         define_enum_under<Qt::ImageConversionFlag>("ImageConversionFlag", rb_mQt)
             .define_value("ColorMode_Mask", Qt::ImageConversionFlag::ColorMode_Mask)
             .define_value("AutoColor", Qt::ImageConversionFlag::AutoColor)
@@ -388,12 +411,14 @@ void Init_Qt(Rice::Module rb_mQt6QtCore)
             .define_value("NoOpaqueDetection", Qt::ImageConversionFlag::NoOpaqueDetection)
             .define_value("NoFormatConversion", Qt::ImageConversionFlag::NoFormatConversion);
 
-    Enum<Qt::BGMode> rb_cQtBGMode = // Qt6::QtCore::Qt::BGMode
+    Enum<Qt::BGMode> rb_cQtBGMode =
+        // Qt6::QtCore::Qt::BGMode
         define_enum_under<Qt::BGMode>("BGMode", rb_mQt)
             .define_value("TransparentMode", Qt::BGMode::TransparentMode)
             .define_value("OpaqueMode", Qt::BGMode::OpaqueMode);
 
-    Enum<Qt::Key> rb_cQtKey = // Qt6::QtCore::Qt::Key
+    Enum<Qt::Key> rb_cQtKey =
+        // Qt6::QtCore::Qt::Key
         define_enum_under<Qt::Key>("Key", rb_mQt)
             .define_value("Key_Space", Qt::Key::Key_Space)
             .define_value("Key_Any", Qt::Key::Key_Any)
@@ -865,7 +890,8 @@ void Init_Qt(Rice::Module rb_mQt6QtCore)
             .define_value("Key_CameraFocus", Qt::Key::Key_CameraFocus)
             .define_value("Key_unknown", Qt::Key::Key_unknown);
 
-    Enum<Qt::KeyboardModifier> rb_cQtKeyboardModifier = // Qt6::QtCore::Qt::KeyboardModifier
+    Enum<Qt::KeyboardModifier> rb_cQtKeyboardModifier =
+        // Qt6::QtCore::Qt::KeyboardModifier
         define_enum_under<Qt::KeyboardModifier>("KeyboardModifier", rb_mQt)
             .define_value("NoModifier", Qt::KeyboardModifier::NoModifier)
             .define_value("ShiftModifier", Qt::KeyboardModifier::ShiftModifier)
@@ -876,7 +902,8 @@ void Init_Qt(Rice::Module rb_mQt6QtCore)
             .define_value("GroupSwitchModifier", Qt::KeyboardModifier::GroupSwitchModifier)
             .define_value("KeyboardModifierMask", Qt::KeyboardModifier::KeyboardModifierMask);
 
-    Enum<Qt::Modifier> rb_cQtModifier = // Qt6::QtCore::Qt::Modifier
+    Enum<Qt::Modifier> rb_cQtModifier =
+        // Qt6::QtCore::Qt::Modifier
         define_enum_under<Qt::Modifier>("Modifier", rb_mQt)
             .define_value("META", Qt::Modifier::META)
             .define_value("SHIFT", Qt::Modifier::SHIFT)
@@ -884,7 +911,8 @@ void Init_Qt(Rice::Module rb_mQt6QtCore)
             .define_value("ALT", Qt::Modifier::ALT)
             .define_value("MODIFIER_MASK", Qt::Modifier::MODIFIER_MASK);
 
-    Enum<Qt::ArrowType> rb_cQtArrowType = // Qt6::QtCore::Qt::ArrowType
+    Enum<Qt::ArrowType> rb_cQtArrowType =
+        // Qt6::QtCore::Qt::ArrowType
         define_enum_under<Qt::ArrowType>("ArrowType", rb_mQt)
             .define_value("NoArrow", Qt::ArrowType::NoArrow)
             .define_value("UpArrow", Qt::ArrowType::UpArrow)
@@ -892,7 +920,8 @@ void Init_Qt(Rice::Module rb_mQt6QtCore)
             .define_value("LeftArrow", Qt::ArrowType::LeftArrow)
             .define_value("RightArrow", Qt::ArrowType::RightArrow);
 
-    Enum<Qt::PenStyle> rb_cQtPenStyle = // Qt6::QtCore::Qt::PenStyle
+    Enum<Qt::PenStyle> rb_cQtPenStyle =
+        // Qt6::QtCore::Qt::PenStyle
         define_enum_under<Qt::PenStyle>("PenStyle", rb_mQt)
             .define_value("NoPen", Qt::PenStyle::NoPen)
             .define_value("SolidLine", Qt::PenStyle::SolidLine)
@@ -903,14 +932,16 @@ void Init_Qt(Rice::Module rb_mQt6QtCore)
             .define_value("CustomDashLine", Qt::PenStyle::CustomDashLine)
             .define_value("MPenStyle", Qt::PenStyle::MPenStyle);
 
-    Enum<Qt::PenCapStyle> rb_cQtPenCapStyle = // Qt6::QtCore::Qt::PenCapStyle
+    Enum<Qt::PenCapStyle> rb_cQtPenCapStyle =
+        // Qt6::QtCore::Qt::PenCapStyle
         define_enum_under<Qt::PenCapStyle>("PenCapStyle", rb_mQt)
             .define_value("FlatCap", Qt::PenCapStyle::FlatCap)
             .define_value("SquareCap", Qt::PenCapStyle::SquareCap)
             .define_value("RoundCap", Qt::PenCapStyle::RoundCap)
             .define_value("MPenCapStyle", Qt::PenCapStyle::MPenCapStyle);
 
-    Enum<Qt::PenJoinStyle> rb_cQtPenJoinStyle = // Qt6::QtCore::Qt::PenJoinStyle
+    Enum<Qt::PenJoinStyle> rb_cQtPenJoinStyle =
+        // Qt6::QtCore::Qt::PenJoinStyle
         define_enum_under<Qt::PenJoinStyle>("PenJoinStyle", rb_mQt)
             .define_value("MiterJoin", Qt::PenJoinStyle::MiterJoin)
             .define_value("BevelJoin", Qt::PenJoinStyle::BevelJoin)
@@ -918,7 +949,8 @@ void Init_Qt(Rice::Module rb_mQt6QtCore)
             .define_value("SvgMiterJoin", Qt::PenJoinStyle::SvgMiterJoin)
             .define_value("MPenJoinStyle", Qt::PenJoinStyle::MPenJoinStyle);
 
-    Enum<Qt::BrushStyle> rb_cQtBrushStyle = // Qt6::QtCore::Qt::BrushStyle
+    Enum<Qt::BrushStyle> rb_cQtBrushStyle =
+        // Qt6::QtCore::Qt::BrushStyle
         define_enum_under<Qt::BrushStyle>("BrushStyle", rb_mQt)
             .define_value("NoBrush", Qt::BrushStyle::NoBrush)
             .define_value("SolidPattern", Qt::BrushStyle::SolidPattern)
@@ -940,12 +972,14 @@ void Init_Qt(Rice::Module rb_mQt6QtCore)
             .define_value("ConicalGradientPattern", Qt::BrushStyle::ConicalGradientPattern)
             .define_value("TexturePattern", Qt::BrushStyle::TexturePattern);
 
-    Enum<Qt::SizeMode> rb_cQtSizeMode = // Qt6::QtCore::Qt::SizeMode
+    Enum<Qt::SizeMode> rb_cQtSizeMode =
+        // Qt6::QtCore::Qt::SizeMode
         define_enum_under<Qt::SizeMode>("SizeMode", rb_mQt)
             .define_value("AbsoluteSize", Qt::SizeMode::AbsoluteSize)
             .define_value("RelativeSize", Qt::SizeMode::RelativeSize);
 
-    Enum<Qt::UIEffect> rb_cQtUIEffect = // Qt6::QtCore::Qt::UIEffect
+    Enum<Qt::UIEffect> rb_cQtUIEffect =
+        // Qt6::QtCore::Qt::UIEffect
         define_enum_under<Qt::UIEffect>("UIEffect", rb_mQt)
             .define_value("UI_General", Qt::UIEffect::UI_General)
             .define_value("UI_AnimateMenu", Qt::UIEffect::UI_AnimateMenu)
@@ -955,7 +989,8 @@ void Init_Qt(Rice::Module rb_mQt6QtCore)
             .define_value("UI_FadeTooltip", Qt::UIEffect::UI_FadeTooltip)
             .define_value("UI_AnimateToolBox", Qt::UIEffect::UI_AnimateToolBox);
 
-    Enum<Qt::CursorShape> rb_cQtCursorShape = // Qt6::QtCore::Qt::CursorShape
+    Enum<Qt::CursorShape> rb_cQtCursorShape =
+        // Qt6::QtCore::Qt::CursorShape
         define_enum_under<Qt::CursorShape>("CursorShape", rb_mQt)
             .define_value("ArrowCursor", Qt::CursorShape::ArrowCursor)
             .define_value("UpArrowCursor", Qt::CursorShape::UpArrowCursor)
@@ -983,20 +1018,23 @@ void Init_Qt(Rice::Module rb_mQt6QtCore)
             .define_value("BitmapCursor", Qt::CursorShape::BitmapCursor)
             .define_value("CustomCursor", Qt::CursorShape::CustomCursor);
 
-    Enum<Qt::TextFormat> rb_cQtTextFormat = // Qt6::QtCore::Qt::TextFormat
+    Enum<Qt::TextFormat> rb_cQtTextFormat =
+        // Qt6::QtCore::Qt::TextFormat
         define_enum_under<Qt::TextFormat>("TextFormat", rb_mQt)
             .define_value("PlainText", Qt::TextFormat::PlainText)
             .define_value("RichText", Qt::TextFormat::RichText)
             .define_value("AutoText", Qt::TextFormat::AutoText)
             .define_value("MarkdownText", Qt::TextFormat::MarkdownText);
 
-    Enum<Qt::AspectRatioMode> rb_cQtAspectRatioMode = // Qt6::QtCore::Qt::AspectRatioMode
+    Enum<Qt::AspectRatioMode> rb_cQtAspectRatioMode =
+        // Qt6::QtCore::Qt::AspectRatioMode
         define_enum_under<Qt::AspectRatioMode>("AspectRatioMode", rb_mQt)
             .define_value("IgnoreAspectRatio", Qt::AspectRatioMode::IgnoreAspectRatio)
             .define_value("KeepAspectRatio", Qt::AspectRatioMode::KeepAspectRatio)
             .define_value("KeepAspectRatioByExpanding", Qt::AspectRatioMode::KeepAspectRatioByExpanding);
 
-    Enum<Qt::DockWidgetArea> rb_cQtDockWidgetArea = // Qt6::QtCore::Qt::DockWidgetArea
+    Enum<Qt::DockWidgetArea> rb_cQtDockWidgetArea =
+        // Qt6::QtCore::Qt::DockWidgetArea
         define_enum_under<Qt::DockWidgetArea>("DockWidgetArea", rb_mQt)
             .define_value("LeftDockWidgetArea", Qt::DockWidgetArea::LeftDockWidgetArea)
             .define_value("RightDockWidgetArea", Qt::DockWidgetArea::RightDockWidgetArea)
@@ -1006,11 +1044,13 @@ void Init_Qt(Rice::Module rb_mQt6QtCore)
             .define_value("AllDockWidgetAreas", Qt::DockWidgetArea::AllDockWidgetAreas)
             .define_value("NoDockWidgetArea", Qt::DockWidgetArea::NoDockWidgetArea);
 
-    Enum<Qt::DockWidgetAreaSizes> rb_cQtDockWidgetAreaSizes = // Qt6::QtCore::Qt::DockWidgetAreaSizes
+    Enum<Qt::DockWidgetAreaSizes> rb_cQtDockWidgetAreaSizes =
+        // Qt6::QtCore::Qt::DockWidgetAreaSizes
         define_enum_under<Qt::DockWidgetAreaSizes>("DockWidgetAreaSizes", rb_mQt)
             .define_value("NDockWidgetAreas", Qt::DockWidgetAreaSizes::NDockWidgetAreas);
 
-    Enum<Qt::ToolBarArea> rb_cQtToolBarArea = // Qt6::QtCore::Qt::ToolBarArea
+    Enum<Qt::ToolBarArea> rb_cQtToolBarArea =
+        // Qt6::QtCore::Qt::ToolBarArea
         define_enum_under<Qt::ToolBarArea>("ToolBarArea", rb_mQt)
             .define_value("LeftToolBarArea", Qt::ToolBarArea::LeftToolBarArea)
             .define_value("RightToolBarArea", Qt::ToolBarArea::RightToolBarArea)
@@ -1020,25 +1060,29 @@ void Init_Qt(Rice::Module rb_mQt6QtCore)
             .define_value("AllToolBarAreas", Qt::ToolBarArea::AllToolBarAreas)
             .define_value("NoToolBarArea", Qt::ToolBarArea::NoToolBarArea);
 
-    Enum<Qt::ToolBarAreaSizes> rb_cQtToolBarAreaSizes = // Qt6::QtCore::Qt::ToolBarAreaSizes
+    Enum<Qt::ToolBarAreaSizes> rb_cQtToolBarAreaSizes =
+        // Qt6::QtCore::Qt::ToolBarAreaSizes
         define_enum_under<Qt::ToolBarAreaSizes>("ToolBarAreaSizes", rb_mQt)
             .define_value("NToolBarAreas", Qt::ToolBarAreaSizes::NToolBarAreas);
 
-    Enum<Qt::DateFormat> rb_cQtDateFormat = // Qt6::QtCore::Qt::DateFormat
+    Enum<Qt::DateFormat> rb_cQtDateFormat =
+        // Qt6::QtCore::Qt::DateFormat
         define_enum_under<Qt::DateFormat>("DateFormat", rb_mQt)
             .define_value("TextDate", Qt::DateFormat::TextDate)
             .define_value("ISODate", Qt::DateFormat::ISODate)
             .define_value("RFC2822Date", Qt::DateFormat::RFC2822Date)
             .define_value("ISODateWithMs", Qt::DateFormat::ISODateWithMs);
 
-    Enum<Qt::TimeSpec> rb_cQtTimeSpec = // Qt6::QtCore::Qt::TimeSpec
+    Enum<Qt::TimeSpec> rb_cQtTimeSpec =
+        // Qt6::QtCore::Qt::TimeSpec
         define_enum_under<Qt::TimeSpec>("TimeSpec", rb_mQt)
             .define_value("LocalTime", Qt::TimeSpec::LocalTime)
             .define_value("UTC", Qt::TimeSpec::UTC)
             .define_value("OffsetFromUTC", Qt::TimeSpec::OffsetFromUTC)
             .define_value("TimeZone", Qt::TimeSpec::TimeZone);
 
-    Enum<Qt::DayOfWeek> rb_cQtDayOfWeek = // Qt6::QtCore::Qt::DayOfWeek
+    Enum<Qt::DayOfWeek> rb_cQtDayOfWeek =
+        // Qt6::QtCore::Qt::DayOfWeek
         define_enum_under<Qt::DayOfWeek>("DayOfWeek", rb_mQt)
             .define_value("Monday", Qt::DayOfWeek::Monday)
             .define_value("Tuesday", Qt::DayOfWeek::Tuesday)
@@ -1048,32 +1092,37 @@ void Init_Qt(Rice::Module rb_mQt6QtCore)
             .define_value("Saturday", Qt::DayOfWeek::Saturday)
             .define_value("Sunday", Qt::DayOfWeek::Sunday);
 
-    Enum<Qt::ScrollBarPolicy> rb_cQtScrollBarPolicy = // Qt6::QtCore::Qt::ScrollBarPolicy
+    Enum<Qt::ScrollBarPolicy> rb_cQtScrollBarPolicy =
+        // Qt6::QtCore::Qt::ScrollBarPolicy
         define_enum_under<Qt::ScrollBarPolicy>("ScrollBarPolicy", rb_mQt)
             .define_value("ScrollBarAsNeeded", Qt::ScrollBarPolicy::ScrollBarAsNeeded)
             .define_value("ScrollBarAlwaysOff", Qt::ScrollBarPolicy::ScrollBarAlwaysOff)
             .define_value("ScrollBarAlwaysOn", Qt::ScrollBarPolicy::ScrollBarAlwaysOn);
 
-    Enum<Qt::CaseSensitivity> rb_cQtCaseSensitivity = // Qt6::QtCore::Qt::CaseSensitivity
+    Enum<Qt::CaseSensitivity> rb_cQtCaseSensitivity =
+        // Qt6::QtCore::Qt::CaseSensitivity
         define_enum_under<Qt::CaseSensitivity>("CaseSensitivity", rb_mQt)
             .define_value("CaseInsensitive", Qt::CaseSensitivity::CaseInsensitive)
             .define_value("CaseSensitive", Qt::CaseSensitivity::CaseSensitive);
 
-    Enum<Qt::Corner> rb_cQtCorner = // Qt6::QtCore::Qt::Corner
+    Enum<Qt::Corner> rb_cQtCorner =
+        // Qt6::QtCore::Qt::Corner
         define_enum_under<Qt::Corner>("Corner", rb_mQt)
             .define_value("TopLeftCorner", Qt::Corner::TopLeftCorner)
             .define_value("TopRightCorner", Qt::Corner::TopRightCorner)
             .define_value("BottomLeftCorner", Qt::Corner::BottomLeftCorner)
             .define_value("BottomRightCorner", Qt::Corner::BottomRightCorner);
 
-    Enum<Qt::Edge> rb_cQtEdge = // Qt6::QtCore::Qt::Edge
+    Enum<Qt::Edge> rb_cQtEdge =
+        // Qt6::QtCore::Qt::Edge
         define_enum_under<Qt::Edge>("Edge", rb_mQt)
             .define_value("TopEdge", Qt::Edge::TopEdge)
             .define_value("LeftEdge", Qt::Edge::LeftEdge)
             .define_value("RightEdge", Qt::Edge::RightEdge)
             .define_value("BottomEdge", Qt::Edge::BottomEdge);
 
-    Enum<Qt::ConnectionType> rb_cQtConnectionType = // Qt6::QtCore::Qt::ConnectionType
+    Enum<Qt::ConnectionType> rb_cQtConnectionType =
+        // Qt6::QtCore::Qt::ConnectionType
         define_enum_under<Qt::ConnectionType>("ConnectionType", rb_mQt)
             .define_value("AutoConnection", Qt::ConnectionType::AutoConnection)
             .define_value("DirectConnection", Qt::ConnectionType::DirectConnection)
@@ -1082,53 +1131,62 @@ void Init_Qt(Rice::Module rb_mQt6QtCore)
             .define_value("UniqueConnection", Qt::ConnectionType::UniqueConnection)
             .define_value("SingleShotConnection", Qt::ConnectionType::SingleShotConnection);
 
-    Enum<Qt::ShortcutContext> rb_cQtShortcutContext = // Qt6::QtCore::Qt::ShortcutContext
+    Enum<Qt::ShortcutContext> rb_cQtShortcutContext =
+        // Qt6::QtCore::Qt::ShortcutContext
         define_enum_under<Qt::ShortcutContext>("ShortcutContext", rb_mQt)
             .define_value("WidgetShortcut", Qt::ShortcutContext::WidgetShortcut)
             .define_value("WindowShortcut", Qt::ShortcutContext::WindowShortcut)
             .define_value("ApplicationShortcut", Qt::ShortcutContext::ApplicationShortcut)
             .define_value("WidgetWithChildrenShortcut", Qt::ShortcutContext::WidgetWithChildrenShortcut);
 
-    Enum<Qt::FillRule> rb_cQtFillRule = // Qt6::QtCore::Qt::FillRule
+    Enum<Qt::FillRule> rb_cQtFillRule =
+        // Qt6::QtCore::Qt::FillRule
         define_enum_under<Qt::FillRule>("FillRule", rb_mQt)
             .define_value("OddEvenFill", Qt::FillRule::OddEvenFill)
             .define_value("WindingFill", Qt::FillRule::WindingFill);
 
-    Enum<Qt::MaskMode> rb_cQtMaskMode = // Qt6::QtCore::Qt::MaskMode
+    Enum<Qt::MaskMode> rb_cQtMaskMode =
+        // Qt6::QtCore::Qt::MaskMode
         define_enum_under<Qt::MaskMode>("MaskMode", rb_mQt)
             .define_value("MaskInColor", Qt::MaskMode::MaskInColor)
             .define_value("MaskOutColor", Qt::MaskMode::MaskOutColor);
 
-    Enum<Qt::ClipOperation> rb_cQtClipOperation = // Qt6::QtCore::Qt::ClipOperation
+    Enum<Qt::ClipOperation> rb_cQtClipOperation =
+        // Qt6::QtCore::Qt::ClipOperation
         define_enum_under<Qt::ClipOperation>("ClipOperation", rb_mQt)
             .define_value("NoClip", Qt::ClipOperation::NoClip)
             .define_value("ReplaceClip", Qt::ClipOperation::ReplaceClip)
             .define_value("IntersectClip", Qt::ClipOperation::IntersectClip);
 
-    Enum<Qt::ItemSelectionMode> rb_cQtItemSelectionMode = // Qt6::QtCore::Qt::ItemSelectionMode
+    Enum<Qt::ItemSelectionMode> rb_cQtItemSelectionMode =
+        // Qt6::QtCore::Qt::ItemSelectionMode
         define_enum_under<Qt::ItemSelectionMode>("ItemSelectionMode", rb_mQt)
             .define_value("ContainsItemShape", Qt::ItemSelectionMode::ContainsItemShape)
             .define_value("IntersectsItemShape", Qt::ItemSelectionMode::IntersectsItemShape)
             .define_value("ContainsItemBoundingRect", Qt::ItemSelectionMode::ContainsItemBoundingRect)
             .define_value("IntersectsItemBoundingRect", Qt::ItemSelectionMode::IntersectsItemBoundingRect);
 
-    Enum<Qt::ItemSelectionOperation> rb_cQtItemSelectionOperation = // Qt6::QtCore::Qt::ItemSelectionOperation
+    Enum<Qt::ItemSelectionOperation> rb_cQtItemSelectionOperation =
+        // Qt6::QtCore::Qt::ItemSelectionOperation
         define_enum_under<Qt::ItemSelectionOperation>("ItemSelectionOperation", rb_mQt)
             .define_value("ReplaceSelection", Qt::ItemSelectionOperation::ReplaceSelection)
             .define_value("AddToSelection", Qt::ItemSelectionOperation::AddToSelection);
 
-    Enum<Qt::TransformationMode> rb_cQtTransformationMode = // Qt6::QtCore::Qt::TransformationMode
+    Enum<Qt::TransformationMode> rb_cQtTransformationMode =
+        // Qt6::QtCore::Qt::TransformationMode
         define_enum_under<Qt::TransformationMode>("TransformationMode", rb_mQt)
             .define_value("FastTransformation", Qt::TransformationMode::FastTransformation)
             .define_value("SmoothTransformation", Qt::TransformationMode::SmoothTransformation);
 
-    Enum<Qt::Axis> rb_cQtAxis = // Qt6::QtCore::Qt::Axis
+    Enum<Qt::Axis> rb_cQtAxis =
+        // Qt6::QtCore::Qt::Axis
         define_enum_under<Qt::Axis>("Axis", rb_mQt)
             .define_value("XAxis", Qt::Axis::XAxis)
             .define_value("YAxis", Qt::Axis::YAxis)
             .define_value("ZAxis", Qt::Axis::ZAxis);
 
-    Enum<Qt::FocusReason> rb_cQtFocusReason = // Qt6::QtCore::Qt::FocusReason
+    Enum<Qt::FocusReason> rb_cQtFocusReason =
+        // Qt6::QtCore::Qt::FocusReason
         define_enum_under<Qt::FocusReason>("FocusReason", rb_mQt)
             .define_value("MouseFocusReason", Qt::FocusReason::MouseFocusReason)
             .define_value("TabFocusReason", Qt::FocusReason::TabFocusReason)
@@ -1140,7 +1198,8 @@ void Init_Qt(Rice::Module rb_mQt6QtCore)
             .define_value("OtherFocusReason", Qt::FocusReason::OtherFocusReason)
             .define_value("NoFocusReason", Qt::FocusReason::NoFocusReason);
 
-    Enum<Qt::ContextMenuPolicy> rb_cQtContextMenuPolicy = // Qt6::QtCore::Qt::ContextMenuPolicy
+    Enum<Qt::ContextMenuPolicy> rb_cQtContextMenuPolicy =
+        // Qt6::QtCore::Qt::ContextMenuPolicy
         define_enum_under<Qt::ContextMenuPolicy>("ContextMenuPolicy", rb_mQt)
             .define_value("NoContextMenu", Qt::ContextMenuPolicy::NoContextMenu)
             .define_value("DefaultContextMenu", Qt::ContextMenuPolicy::DefaultContextMenu)
@@ -1148,12 +1207,14 @@ void Init_Qt(Rice::Module rb_mQt6QtCore)
             .define_value("CustomContextMenu", Qt::ContextMenuPolicy::CustomContextMenu)
             .define_value("PreventContextMenu", Qt::ContextMenuPolicy::PreventContextMenu);
 
-    Enum<Qt::ContextMenuTrigger> rb_cQtContextMenuTrigger = // Qt6::QtCore::Qt::ContextMenuTrigger
+    Enum<Qt::ContextMenuTrigger> rb_cQtContextMenuTrigger =
+        // Qt6::QtCore::Qt::ContextMenuTrigger
         define_enum_under<Qt::ContextMenuTrigger>("ContextMenuTrigger", rb_mQt)
             .define_value("Press", Qt::ContextMenuTrigger::Press)
             .define_value("Release", Qt::ContextMenuTrigger::Release);
 
-    Enum<Qt::InputMethodQuery> rb_cQtInputMethodQuery = // Qt6::QtCore::Qt::InputMethodQuery
+    Enum<Qt::InputMethodQuery> rb_cQtInputMethodQuery =
+        // Qt6::QtCore::Qt::InputMethodQuery
         define_enum_under<Qt::InputMethodQuery>("InputMethodQuery", rb_mQt)
             .define_value("ImEnabled", Qt::InputMethodQuery::ImEnabled)
             .define_value("ImCursorRectangle", Qt::InputMethodQuery::ImCursorRectangle)
@@ -1176,7 +1237,8 @@ void Init_Qt(Rice::Module rb_mQt6QtCore)
             .define_value("ImQueryInput", Qt::InputMethodQuery::ImQueryInput)
             .define_value("ImQueryAll", Qt::InputMethodQuery::ImQueryAll);
 
-    Enum<Qt::InputMethodHint> rb_cQtInputMethodHint = // Qt6::QtCore::Qt::InputMethodHint
+    Enum<Qt::InputMethodHint> rb_cQtInputMethodHint =
+        // Qt6::QtCore::Qt::InputMethodHint
         define_enum_under<Qt::InputMethodHint>("InputMethodHint", rb_mQt)
             .define_value("ImhNone", Qt::InputMethodHint::ImhNone)
             .define_value("ImhHiddenText", Qt::InputMethodHint::ImhHiddenText)
@@ -1202,7 +1264,8 @@ void Init_Qt(Rice::Module rb_mQt6QtCore)
             .define_value("ImhLatinOnly", Qt::InputMethodHint::ImhLatinOnly)
             .define_value("ImhExclusiveInputMask", Qt::InputMethodHint::ImhExclusiveInputMask);
 
-    Enum<Qt::EnterKeyType> rb_cQtEnterKeyType = // Qt6::QtCore::Qt::EnterKeyType
+    Enum<Qt::EnterKeyType> rb_cQtEnterKeyType =
+        // Qt6::QtCore::Qt::EnterKeyType
         define_enum_under<Qt::EnterKeyType>("EnterKeyType", rb_mQt)
             .define_value("EnterKeyDefault", Qt::EnterKeyType::EnterKeyDefault)
             .define_value("EnterKeyReturn", Qt::EnterKeyType::EnterKeyReturn)
@@ -1213,7 +1276,8 @@ void Init_Qt(Rice::Module rb_mQt6QtCore)
             .define_value("EnterKeyNext", Qt::EnterKeyType::EnterKeyNext)
             .define_value("EnterKeyPrevious", Qt::EnterKeyType::EnterKeyPrevious);
 
-    Enum<Qt::ToolButtonStyle> rb_cQtToolButtonStyle = // Qt6::QtCore::Qt::ToolButtonStyle
+    Enum<Qt::ToolButtonStyle> rb_cQtToolButtonStyle =
+        // Qt6::QtCore::Qt::ToolButtonStyle
         define_enum_under<Qt::ToolButtonStyle>("ToolButtonStyle", rb_mQt)
             .define_value("ToolButtonIconOnly", Qt::ToolButtonStyle::ToolButtonIconOnly)
             .define_value("ToolButtonTextOnly", Qt::ToolButtonStyle::ToolButtonTextOnly)
@@ -1221,13 +1285,15 @@ void Init_Qt(Rice::Module rb_mQt6QtCore)
             .define_value("ToolButtonTextUnderIcon", Qt::ToolButtonStyle::ToolButtonTextUnderIcon)
             .define_value("ToolButtonFollowStyle", Qt::ToolButtonStyle::ToolButtonFollowStyle);
 
-    Enum<Qt::LayoutDirection> rb_cQtLayoutDirection = // Qt6::QtCore::Qt::LayoutDirection
+    Enum<Qt::LayoutDirection> rb_cQtLayoutDirection =
+        // Qt6::QtCore::Qt::LayoutDirection
         define_enum_under<Qt::LayoutDirection>("LayoutDirection", rb_mQt)
             .define_value("LeftToRight", Qt::LayoutDirection::LeftToRight)
             .define_value("RightToLeft", Qt::LayoutDirection::RightToLeft)
             .define_value("LayoutDirectionAuto", Qt::LayoutDirection::LayoutDirectionAuto);
 
-    Enum<Qt::AnchorPoint> rb_cQtAnchorPoint = // Qt6::QtCore::Qt::AnchorPoint
+    Enum<Qt::AnchorPoint> rb_cQtAnchorPoint =
+        // Qt6::QtCore::Qt::AnchorPoint
         define_enum_under<Qt::AnchorPoint>("AnchorPoint", rb_mQt)
             .define_value("AnchorLeft", Qt::AnchorPoint::AnchorLeft)
             .define_value("AnchorHorizontalCenter", Qt::AnchorPoint::AnchorHorizontalCenter)
@@ -1236,12 +1302,14 @@ void Init_Qt(Rice::Module rb_mQt6QtCore)
             .define_value("AnchorVerticalCenter", Qt::AnchorPoint::AnchorVerticalCenter)
             .define_value("AnchorBottom", Qt::AnchorPoint::AnchorBottom);
 
-    Enum<Qt::FindChildOption> rb_cQtFindChildOption = // Qt6::QtCore::Qt::FindChildOption
+    Enum<Qt::FindChildOption> rb_cQtFindChildOption =
+        // Qt6::QtCore::Qt::FindChildOption
         define_enum_under<Qt::FindChildOption>("FindChildOption", rb_mQt)
             .define_value("FindDirectChildrenOnly", Qt::FindChildOption::FindDirectChildrenOnly)
             .define_value("FindChildrenRecursively", Qt::FindChildOption::FindChildrenRecursively);
 
-    Enum<Qt::DropAction> rb_cQtDropAction = // Qt6::QtCore::Qt::DropAction
+    Enum<Qt::DropAction> rb_cQtDropAction =
+        // Qt6::QtCore::Qt::DropAction
         define_enum_under<Qt::DropAction>("DropAction", rb_mQt)
             .define_value("CopyAction", Qt::DropAction::CopyAction)
             .define_value("MoveAction", Qt::DropAction::MoveAction)
@@ -1250,13 +1318,15 @@ void Init_Qt(Rice::Module rb_mQt6QtCore)
             .define_value("TargetMoveAction", Qt::DropAction::TargetMoveAction)
             .define_value("IgnoreAction", Qt::DropAction::IgnoreAction);
 
-    Enum<Qt::CheckState> rb_cQtCheckState = // Qt6::QtCore::Qt::CheckState
+    Enum<Qt::CheckState> rb_cQtCheckState =
+        // Qt6::QtCore::Qt::CheckState
         define_enum_under<Qt::CheckState>("CheckState", rb_mQt)
             .define_value("Unchecked", Qt::CheckState::Unchecked)
             .define_value("PartiallyChecked", Qt::CheckState::PartiallyChecked)
             .define_value("Checked", Qt::CheckState::Checked);
 
-    Enum<Qt::ItemDataRole> rb_cQtItemDataRole = // Qt6::QtCore::Qt::ItemDataRole
+    Enum<Qt::ItemDataRole> rb_cQtItemDataRole =
+        // Qt6::QtCore::Qt::ItemDataRole
         define_enum_under<Qt::ItemDataRole>("ItemDataRole", rb_mQt)
             .define_value("DisplayRole", Qt::ItemDataRole::DisplayRole)
             .define_value("DecorationRole", Qt::ItemDataRole::DecorationRole)
@@ -1280,7 +1350,8 @@ void Init_Qt(Rice::Module rb_mQt6QtCore)
             .define_value("WhatsThisPropertyRole", Qt::ItemDataRole::WhatsThisPropertyRole)
             .define_value("UserRole", Qt::ItemDataRole::UserRole);
 
-    Enum<Qt::ItemFlag> rb_cQtItemFlag = // Qt6::QtCore::Qt::ItemFlag
+    Enum<Qt::ItemFlag> rb_cQtItemFlag =
+        // Qt6::QtCore::Qt::ItemFlag
         define_enum_under<Qt::ItemFlag>("ItemFlag", rb_mQt)
             .define_value("NoItemFlags", Qt::ItemFlag::NoItemFlags)
             .define_value("ItemIsSelectable", Qt::ItemFlag::ItemIsSelectable)
@@ -1293,7 +1364,8 @@ void Init_Qt(Rice::Module rb_mQt6QtCore)
             .define_value("ItemNeverHasChildren", Qt::ItemFlag::ItemNeverHasChildren)
             .define_value("ItemIsUserTristate", Qt::ItemFlag::ItemIsUserTristate);
 
-    Enum<Qt::MatchFlag> rb_cQtMatchFlag = // Qt6::QtCore::Qt::MatchFlag
+    Enum<Qt::MatchFlag> rb_cQtMatchFlag =
+        // Qt6::QtCore::Qt::MatchFlag
         define_enum_under<Qt::MatchFlag>("MatchFlag", rb_mQt)
             .define_value("MatchExactly", Qt::MatchFlag::MatchExactly)
             .define_value("MatchContains", Qt::MatchFlag::MatchContains)
@@ -1307,13 +1379,15 @@ void Init_Qt(Rice::Module rb_mQt6QtCore)
             .define_value("MatchWrap", Qt::MatchFlag::MatchWrap)
             .define_value("MatchRecursive", Qt::MatchFlag::MatchRecursive);
 
-    Enum<Qt::WindowModality> rb_cQtWindowModality = // Qt6::QtCore::Qt::WindowModality
+    Enum<Qt::WindowModality> rb_cQtWindowModality =
+        // Qt6::QtCore::Qt::WindowModality
         define_enum_under<Qt::WindowModality>("WindowModality", rb_mQt)
             .define_value("NonModal", Qt::WindowModality::NonModal)
             .define_value("WindowModal", Qt::WindowModality::WindowModal)
             .define_value("ApplicationModal", Qt::WindowModality::ApplicationModal);
 
-    Enum<Qt::TextInteractionFlag> rb_cQtTextInteractionFlag = // Qt6::QtCore::Qt::TextInteractionFlag
+    Enum<Qt::TextInteractionFlag> rb_cQtTextInteractionFlag =
+        // Qt6::QtCore::Qt::TextInteractionFlag
         define_enum_under<Qt::TextInteractionFlag>("TextInteractionFlag", rb_mQt)
             .define_value("NoTextInteraction", Qt::TextInteractionFlag::NoTextInteraction)
             .define_value("TextSelectableByMouse", Qt::TextInteractionFlag::TextSelectableByMouse)
@@ -1324,13 +1398,15 @@ void Init_Qt(Rice::Module rb_mQt6QtCore)
             .define_value("TextEditorInteraction", Qt::TextInteractionFlag::TextEditorInteraction)
             .define_value("TextBrowserInteraction", Qt::TextInteractionFlag::TextBrowserInteraction);
 
-    Enum<Qt::EventPriority> rb_cQtEventPriority = // Qt6::QtCore::Qt::EventPriority
+    Enum<Qt::EventPriority> rb_cQtEventPriority =
+        // Qt6::QtCore::Qt::EventPriority
         define_enum_under<Qt::EventPriority>("EventPriority", rb_mQt)
             .define_value("HighEventPriority", Qt::EventPriority::HighEventPriority)
             .define_value("NormalEventPriority", Qt::EventPriority::NormalEventPriority)
             .define_value("LowEventPriority", Qt::EventPriority::LowEventPriority);
 
-    Enum<Qt::SizeHint> rb_cQtSizeHint = // Qt6::QtCore::Qt::SizeHint
+    Enum<Qt::SizeHint> rb_cQtSizeHint =
+        // Qt6::QtCore::Qt::SizeHint
         define_enum_under<Qt::SizeHint>("SizeHint", rb_mQt)
             .define_value("MinimumSize", Qt::SizeHint::MinimumSize)
             .define_value("PreferredSize", Qt::SizeHint::PreferredSize)
@@ -1338,7 +1414,8 @@ void Init_Qt(Rice::Module rb_mQt6QtCore)
             .define_value("MinimumDescent", Qt::SizeHint::MinimumDescent)
             .define_value("NSizeHints", Qt::SizeHint::NSizeHints);
 
-    Enum<Qt::WindowFrameSection> rb_cQtWindowFrameSection = // Qt6::QtCore::Qt::WindowFrameSection
+    Enum<Qt::WindowFrameSection> rb_cQtWindowFrameSection =
+        // Qt6::QtCore::Qt::WindowFrameSection
         define_enum_under<Qt::WindowFrameSection>("WindowFrameSection", rb_mQt)
             .define_value("NoSection", Qt::WindowFrameSection::NoSection)
             .define_value("LeftSection", Qt::WindowFrameSection::LeftSection)
@@ -1351,16 +1428,19 @@ void Init_Qt(Rice::Module rb_mQt6QtCore)
             .define_value("BottomLeftSection", Qt::WindowFrameSection::BottomLeftSection)
             .define_value("TitleBarArea", Qt::WindowFrameSection::TitleBarArea);
 
-    Enum<Qt::Initialization> rb_cQtInitialization = // Qt6::QtCore::Qt::Initialization
+    Enum<Qt::Initialization> rb_cQtInitialization =
+        // Qt6::QtCore::Qt::Initialization
         define_enum_under<Qt::Initialization>("Initialization", rb_mQt)
             .define_value("Uninitialized", Qt::Initialization::Uninitialized);
 
-    Enum<Qt::CoordinateSystem> rb_cQtCoordinateSystem = // Qt6::QtCore::Qt::CoordinateSystem
+    Enum<Qt::CoordinateSystem> rb_cQtCoordinateSystem =
+        // Qt6::QtCore::Qt::CoordinateSystem
         define_enum_under<Qt::CoordinateSystem>("CoordinateSystem", rb_mQt)
             .define_value("DeviceCoordinates", Qt::CoordinateSystem::DeviceCoordinates)
             .define_value("LogicalCoordinates", Qt::CoordinateSystem::LogicalCoordinates);
 
-    Enum<Qt::TouchPointState> rb_cQtTouchPointState = // Qt6::QtCore::Qt::TouchPointState
+    Enum<Qt::TouchPointState> rb_cQtTouchPointState =
+        // Qt6::QtCore::Qt::TouchPointState
         define_enum_under<Qt::TouchPointState>("TouchPointState", rb_mQt)
             .define_value("TouchPointUnknownState", Qt::TouchPointState::TouchPointUnknownState)
             .define_value("TouchPointPressed", Qt::TouchPointState::TouchPointPressed)
@@ -1368,7 +1448,8 @@ void Init_Qt(Rice::Module rb_mQt6QtCore)
             .define_value("TouchPointStationary", Qt::TouchPointState::TouchPointStationary)
             .define_value("TouchPointReleased", Qt::TouchPointState::TouchPointReleased);
 
-    Enum<Qt::GestureState> rb_cQtGestureState = // Qt6::QtCore::Qt::GestureState
+    Enum<Qt::GestureState> rb_cQtGestureState =
+        // Qt6::QtCore::Qt::GestureState
         define_enum_under<Qt::GestureState>("GestureState", rb_mQt)
             .define_value("NoGesture", Qt::GestureState::NoGesture)
             .define_value("GestureStarted", Qt::GestureState::GestureStarted)
@@ -1376,7 +1457,8 @@ void Init_Qt(Rice::Module rb_mQt6QtCore)
             .define_value("GestureFinished", Qt::GestureState::GestureFinished)
             .define_value("GestureCanceled", Qt::GestureState::GestureCanceled);
 
-    Enum<Qt::GestureType> rb_cQtGestureType = // Qt6::QtCore::Qt::GestureType
+    Enum<Qt::GestureType> rb_cQtGestureType =
+        // Qt6::QtCore::Qt::GestureType
         define_enum_under<Qt::GestureType>("GestureType", rb_mQt)
             .define_value("TapGesture", Qt::GestureType::TapGesture)
             .define_value("TapAndHoldGesture", Qt::GestureType::TapAndHoldGesture)
@@ -1386,13 +1468,15 @@ void Init_Qt(Rice::Module rb_mQt6QtCore)
             .define_value("CustomGesture", Qt::GestureType::CustomGesture)
             .define_value("LastGestureType", Qt::GestureType::LastGestureType);
 
-    Enum<Qt::GestureFlag> rb_cQtGestureFlag = // Qt6::QtCore::Qt::GestureFlag
+    Enum<Qt::GestureFlag> rb_cQtGestureFlag =
+        // Qt6::QtCore::Qt::GestureFlag
         define_enum_under<Qt::GestureFlag>("GestureFlag", rb_mQt)
             .define_value("DontStartGestureOnChildren", Qt::GestureFlag::DontStartGestureOnChildren)
             .define_value("ReceivePartialGestures", Qt::GestureFlag::ReceivePartialGestures)
             .define_value("IgnoredGesturesPropagateToParent", Qt::GestureFlag::IgnoredGesturesPropagateToParent);
 
-    Enum<Qt::NativeGestureType> rb_cQtNativeGestureType = // Qt6::QtCore::Qt::NativeGestureType
+    Enum<Qt::NativeGestureType> rb_cQtNativeGestureType =
+        // Qt6::QtCore::Qt::NativeGestureType
         define_enum_under<Qt::NativeGestureType>("NativeGestureType", rb_mQt)
             .define_value("BeginNativeGesture", Qt::NativeGestureType::BeginNativeGesture)
             .define_value("EndNativeGesture", Qt::NativeGestureType::EndNativeGesture)
@@ -1402,7 +1486,8 @@ void Init_Qt(Rice::Module rb_mQt6QtCore)
             .define_value("RotateNativeGesture", Qt::NativeGestureType::RotateNativeGesture)
             .define_value("SwipeNativeGesture", Qt::NativeGestureType::SwipeNativeGesture);
 
-    Enum<Qt::NavigationMode> rb_cQtNavigationMode = // Qt6::QtCore::Qt::NavigationMode
+    Enum<Qt::NavigationMode> rb_cQtNavigationMode =
+        // Qt6::QtCore::Qt::NavigationMode
         define_enum_under<Qt::NavigationMode>("NavigationMode", rb_mQt)
             .define_value("NavigationModeNone", Qt::NavigationMode::NavigationModeNone)
             .define_value("NavigationModeKeypadTabOrder", Qt::NavigationMode::NavigationModeKeypadTabOrder)
@@ -1410,22 +1495,26 @@ void Init_Qt(Rice::Module rb_mQt6QtCore)
             .define_value("NavigationModeCursorAuto", Qt::NavigationMode::NavigationModeCursorAuto)
             .define_value("NavigationModeCursorForceVisible", Qt::NavigationMode::NavigationModeCursorForceVisible);
 
-    Enum<Qt::CursorMoveStyle> rb_cQtCursorMoveStyle = // Qt6::QtCore::Qt::CursorMoveStyle
+    Enum<Qt::CursorMoveStyle> rb_cQtCursorMoveStyle =
+        // Qt6::QtCore::Qt::CursorMoveStyle
         define_enum_under<Qt::CursorMoveStyle>("CursorMoveStyle", rb_mQt)
             .define_value("LogicalMoveStyle", Qt::CursorMoveStyle::LogicalMoveStyle)
             .define_value("VisualMoveStyle", Qt::CursorMoveStyle::VisualMoveStyle);
 
-    Enum<Qt::TimerType> rb_cQtTimerType = // Qt6::QtCore::Qt::TimerType
+    Enum<Qt::TimerType> rb_cQtTimerType =
+        // Qt6::QtCore::Qt::TimerType
         define_enum_under<Qt::TimerType>("TimerType", rb_mQt)
             .define_value("PreciseTimer", Qt::TimerType::PreciseTimer)
             .define_value("CoarseTimer", Qt::TimerType::CoarseTimer)
             .define_value("VeryCoarseTimer", Qt::TimerType::VeryCoarseTimer);
 
-    Enum<Qt::TimerId> rb_cQtTimerId = // Qt6::QtCore::Qt::TimerId
+    Enum<Qt::TimerId> rb_cQtTimerId =
+        // Qt6::QtCore::Qt::TimerId
         define_enum_under<Qt::TimerId>("TimerId", rb_mQt)
             .define_value("Invalid", Qt::TimerId::Invalid);
 
-    Enum<Qt::ScrollPhase> rb_cQtScrollPhase = // Qt6::QtCore::Qt::ScrollPhase
+    Enum<Qt::ScrollPhase> rb_cQtScrollPhase =
+        // Qt6::QtCore::Qt::ScrollPhase
         define_enum_under<Qt::ScrollPhase>("ScrollPhase", rb_mQt)
             .define_value("NoScrollPhase", Qt::ScrollPhase::NoScrollPhase)
             .define_value("ScrollBegin", Qt::ScrollPhase::ScrollBegin)
@@ -1433,25 +1522,29 @@ void Init_Qt(Rice::Module rb_mQt6QtCore)
             .define_value("ScrollEnd", Qt::ScrollPhase::ScrollEnd)
             .define_value("ScrollMomentum", Qt::ScrollPhase::ScrollMomentum);
 
-    Enum<Qt::MouseEventSource> rb_cQtMouseEventSource = // Qt6::QtCore::Qt::MouseEventSource
+    Enum<Qt::MouseEventSource> rb_cQtMouseEventSource =
+        // Qt6::QtCore::Qt::MouseEventSource
         define_enum_under<Qt::MouseEventSource>("MouseEventSource", rb_mQt)
             .define_value("MouseEventNotSynthesized", Qt::MouseEventSource::MouseEventNotSynthesized)
             .define_value("MouseEventSynthesizedBySystem", Qt::MouseEventSource::MouseEventSynthesizedBySystem)
             .define_value("MouseEventSynthesizedByQt", Qt::MouseEventSource::MouseEventSynthesizedByQt)
             .define_value("MouseEventSynthesizedByApplication", Qt::MouseEventSource::MouseEventSynthesizedByApplication);
 
-    Enum<Qt::MouseEventFlag> rb_cQtMouseEventFlag = // Qt6::QtCore::Qt::MouseEventFlag
+    Enum<Qt::MouseEventFlag> rb_cQtMouseEventFlag =
+        // Qt6::QtCore::Qt::MouseEventFlag
         define_enum_under<Qt::MouseEventFlag>("MouseEventFlag", rb_mQt)
             .define_value("NoMouseEventFlag", Qt::MouseEventFlag::NoMouseEventFlag)
             .define_value("MouseEventCreatedDoubleClick", Qt::MouseEventFlag::MouseEventCreatedDoubleClick)
             .define_value("MouseEventFlagMask", Qt::MouseEventFlag::MouseEventFlagMask);
 
-    Enum<Qt::ChecksumType> rb_cQtChecksumType = // Qt6::QtCore::Qt::ChecksumType
+    Enum<Qt::ChecksumType> rb_cQtChecksumType =
+        // Qt6::QtCore::Qt::ChecksumType
         define_enum_under<Qt::ChecksumType>("ChecksumType", rb_mQt)
             .define_value("ChecksumIso3309", Qt::ChecksumType::ChecksumIso3309)
             .define_value("ChecksumItuV41", Qt::ChecksumType::ChecksumItuV41);
 
-    Enum<Qt::HighDpiScaleFactorRoundingPolicy> rb_cQtHighDpiScaleFactorRoundingPolicy = // Qt6::QtCore::Qt::HighDpiScaleFactorRoundingPolicy
+    Enum<Qt::HighDpiScaleFactorRoundingPolicy> rb_cQtHighDpiScaleFactorRoundingPolicy =
+        // Qt6::QtCore::Qt::HighDpiScaleFactorRoundingPolicy
         define_enum_under<Qt::HighDpiScaleFactorRoundingPolicy>("HighDpiScaleFactorRoundingPolicy", rb_mQt)
             .define_value("Unset", Qt::HighDpiScaleFactorRoundingPolicy::Unset)
             .define_value("Round", Qt::HighDpiScaleFactorRoundingPolicy::Round)
@@ -1460,7 +1553,8 @@ void Init_Qt(Rice::Module rb_mQt6QtCore)
             .define_value("RoundPreferFloor", Qt::HighDpiScaleFactorRoundingPolicy::RoundPreferFloor)
             .define_value("PassThrough", Qt::HighDpiScaleFactorRoundingPolicy::PassThrough);
 
-    Enum<Qt::PermissionStatus> rb_cQtPermissionStatus = // Qt6::QtCore::Qt::PermissionStatus
+    Enum<Qt::PermissionStatus> rb_cQtPermissionStatus =
+        // Qt6::QtCore::Qt::PermissionStatus
         define_enum_under<Qt::PermissionStatus>("PermissionStatus", rb_mQt)
             .define_value("Undetermined", Qt::PermissionStatus::Undetermined)
             .define_value("Granted", Qt::PermissionStatus::Granted)
