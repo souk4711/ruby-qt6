@@ -279,14 +279,14 @@ void Init_QWidget(Rice::Module rb_mQt6QtWidgets)
             // Signals
             .define_method("custom_context_menu_requested", &QWidget::customContextMenuRequested, Arg("pos"))
             .define_method("window_icon_changed", &QWidget::windowIconChanged, Arg("icon"))
-            .define_method("window_title_changed", &QWidget::windowTitleChanged, Arg("title"));
+            .define_method("window_title_changed", &QWidget::windowTitleChanged, Arg("title"))
             // Static Public Members
-            // .define_singleton_function("create_window_container", &QWidget::createWindowContainer, Arg("window"), Arg("parent") = static_cast<QWidget *>(nullptr), Arg("flags") = static_cast<Qt::WindowFlags>(Qt::WindowFlags()))
-            // .define_singleton_function("find", &QWidget::find, Arg(""))
-            // .define_singleton_function("mouse_grabber", &QWidget::mouseGrabber)
-            // .define_singleton_function("keyboard_grabber", &QWidget::keyboardGrabber)
+            .define_singleton_function("create_window_container", &QWidget::createWindowContainer, Arg("window"), Arg("parent") = static_cast<QWidget *>(nullptr), Arg("flags") = static_cast<Qt::WindowFlags>(Qt::WindowFlags()))
+            .define_singleton_function("find", &QWidget::find, Arg(""))
+            .define_singleton_function("mouse_grabber", &QWidget::mouseGrabber)
+            .define_singleton_function("keyboard_grabber", &QWidget::keyboardGrabber);
             // .define_singleton_function("set_tab_order", &QWidget::setTabOrder, Arg("widgets"))
-            // .define_singleton_function<void (*)(QWidget *, QWidget *)>("set_tab_order", &QWidget::setTabOrder, Arg(""), Arg(""));
+            // .define_singleton_function<void (*)(QWidget *, QWidget *)>("set_tab_order", &QWidget::setTabOrder, Arg(""), Arg(""))
 
     Enum<QWidget::RenderFlag> rb_cQWidgetRenderFlag =
         // Qt6::QtWidgets::QWidget::RenderFlag
