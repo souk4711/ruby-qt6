@@ -37,7 +37,7 @@ void Init_QLayout(Rice::Module rb_mQt6QtWidgets)
             .define_method("take_at", &QLayout::takeAt, Arg("index"))
             .define_method("unset_contents_margins", &QLayout::unsetContentsMargins)
             .define_method("update", &QLayout::update)
-            .define_method<bool (QLayout::*)(QLayout *, Qt::Alignment)>("set_alignment", &QLayout::setAlignment, Arg("l"), Arg("alignment"));
+            .define_method<bool (QLayout::*)(QLayout *, Qt::Alignment)>("set_alignment", &QLayout::setAlignment, Arg("l"), Arg("alignment"))
             .define_method<bool (QLayout::*)(QWidget *, Qt::Alignment)>("set_alignment", &QLayout::setAlignment, Arg("w"), Arg("alignment"))
             .define_method<int (QLayout::*)(const QLayoutItem *) const>("index_of", &QLayout::indexOf, Arg(""))
             .define_method<int (QLayout::*)(const QWidget *) const>("index_of", &QLayout::indexOf, Arg(""))
@@ -60,7 +60,7 @@ void Init_QLayout(Rice::Module rb_mQt6QtWidgets)
             .define_method("total_maximum_size", &QLayout::totalMaximumSize)
             .define_method("total_minimum_height_for_width", &QLayout::totalMinimumHeightForWidth, Arg("w"))
             .define_method("total_minimum_size", &QLayout::totalMinimumSize)
-            .define_method("total_size_hint", &QLayout::totalSizeHint)
+            .define_method("total_size_hint", &QLayout::totalSizeHint);
 
     Enum<QLayout::SizeConstraint> rb_cQLayoutSizeConstraint =
         // Qt6::QtWidgets::QLayout::SizeConstraint
