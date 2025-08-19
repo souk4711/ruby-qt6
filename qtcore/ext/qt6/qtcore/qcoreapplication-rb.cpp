@@ -1,3 +1,5 @@
+// clang-format off
+
 #include "qcoreapplication-rb.hpp"
 #include <QCoreApplication>
 

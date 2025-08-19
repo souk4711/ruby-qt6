@@ -1,3 +1,5 @@
+// clang-format off
+
 #include "qpushbutton-rb.hpp"
 #include <QPushButton>
 

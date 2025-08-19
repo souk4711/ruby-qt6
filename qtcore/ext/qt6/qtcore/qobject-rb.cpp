@@ -1,3 +1,5 @@
+// clang-format off
+
 #include "qobject-rb.hpp"
 #include <QObject>
 

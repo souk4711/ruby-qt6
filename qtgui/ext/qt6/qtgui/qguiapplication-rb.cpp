@@ -1,3 +1,5 @@
+// clang-format off
+
 #include "qguiapplication-rb.hpp"
 #include <QGuiApplication>
 

@@ -1,3 +1,5 @@
+// clang-format off
+
 #include "qabstractbutton-rb.hpp"
 #include <QAbstractButton>
 

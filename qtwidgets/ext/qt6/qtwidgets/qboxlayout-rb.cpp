@@ -1,3 +1,5 @@
+// clang-format off
+
 #include "qboxlayout-rb.hpp"
 #include <QBoxLayout>
 #include <QWidget>

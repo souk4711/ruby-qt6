@@ -1,6 +1,8 @@
 #include "qtgui-rb.hpp"
 
+// clang-format off
 #include "qguiapplication-rb.hpp"
+// clang-format on
 
 extern "C" void Init_qtgui()
 {

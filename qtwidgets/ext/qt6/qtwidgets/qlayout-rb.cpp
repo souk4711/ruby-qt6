@@ -1,3 +1,5 @@
+// clang-format off
+
 #include "qlayout-rb.hpp"
 #include <QLayout>
 

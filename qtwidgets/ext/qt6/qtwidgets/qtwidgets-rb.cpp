@@ -1,11 +1,13 @@
 #include "qtwidgets-rb.hpp"
 
-#include "qabstractbutton-rb.hpp"
+// clang-format off
 #include "qapplication-rb.hpp"
 #include "qlayout-rb.hpp"
 #include "qboxlayout-rb.hpp"
-#include "qpushbutton-rb.hpp"
 #include "qwidget-rb.hpp"
+#include "qabstractbutton-rb.hpp"
+#include "qpushbutton-rb.hpp"
+// clang-format on
 
 extern "C" void Init_qtwidgets()
 {
