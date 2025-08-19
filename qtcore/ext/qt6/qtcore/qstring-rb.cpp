@@ -14,5 +14,5 @@ void Init_QString(Rice::Module rb_mQt6QtCore)
         define_class_under<QString>(rb_mQt6QtCore, "QString")
             // Public Functions
             .define_constructor(Constructor<QString, const char *>(), Arg("str"))
-            .define_method("to_s", &QString::toStdString);
+            .define_method("to_std_string", &QString::toStdString);
 }
