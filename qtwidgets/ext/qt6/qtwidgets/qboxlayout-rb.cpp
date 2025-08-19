@@ -15,8 +15,8 @@ void Init_QBoxLayout(Rice::Module rb_mQt6QtWidgets)
     rb_cQBoxLayout =
         // Qt6::QWidgets::QBoxLayout
         define_class_under<QBoxLayout, QLayout>(rb_mQt6QtWidgets, "QBoxLayout")
-            .define_constructor(Constructor<QBoxLayout, QBoxLayout::Direction, QWidget *>(), Arg(""), Arg("parent") = static_cast<QWidget *>(nullptr))
             // Public Functions
+            .define_constructor(Constructor<QBoxLayout, QBoxLayout::Direction, QWidget *>(), Arg(""), Arg("parent") = static_cast<QWidget *>(nullptr))
             .define_method("add_layout", &QBoxLayout::addLayout, Arg("layout"), Arg("stretch") = static_cast<int>(0))
             .define_method("add_spacer_item", &QBoxLayout::addSpacerItem, Arg("spacer_item"))
             .define_method("add_spacing", &QBoxLayout::addSpacing, Arg("size"))
@@ -32,9 +32,9 @@ void Init_QBoxLayout(Rice::Module rb_mQt6QtWidgets)
             .define_method("insert_widget", &QBoxLayout::insertWidget, Arg("index"), Arg("widget"), Arg("stretch") = static_cast<int>(0), Arg("alignment") = static_cast<Qt::Alignment>(Qt::Alignment()))
             .define_method("set_direction", &QBoxLayout::setDirection, Arg(""))
             .define_method("set_stretch", &QBoxLayout::setStretch, Arg("index"), Arg("stretch"))
-            .define_method("stretch", &QBoxLayout::stretch, Arg("index"))
-            .define_method<bool (QBoxLayout::*)(QWidget *, int)>("set_stretch_factor", &QBoxLayout::setStretchFactor, Arg("w"), Arg("stretch"))
             .define_method<bool (QBoxLayout::*)(QLayout *, int)>("set_stretch_factor", &QBoxLayout::setStretchFactor, Arg("l"), Arg("stretch"))
+            .define_method<bool (QBoxLayout::*)(QWidget *, int)>("set_stretch_factor", &QBoxLayout::setStretchFactor, Arg("w"), Arg("stretch"))
+            .define_method("stretch", &QBoxLayout::stretch, Arg("index"))
             // Reimplemented Public Functions
             .define_method("add_item", &QBoxLayout::addItem, Arg(""))
             .define_method("count", &QBoxLayout::count)
