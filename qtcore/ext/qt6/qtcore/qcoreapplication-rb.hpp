@@ -1,4 +1,3 @@
-#include <QCoreApplication>
 #include <rice/rice.hpp>
 #include <rice/stl.hpp>
 
