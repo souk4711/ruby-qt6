@@ -9,8 +9,11 @@ Rice::Class rb_cQGuiApplication;
 
 void Init_QGuiApplication(Rice::Module rb_mQt6QtGui)
 {
-    rb_cQGuiApplication = // Qt6::QtGui::QGuiApplication
+    rb_cQGuiApplication =
+        // Qt6::QtGui::QGuiApplication
         define_class_under<QGuiApplication, QCoreApplication>(rb_mQt6QtGui, "QGuiApplication")
+            // Public Functions
             .define_constructor(Constructor<QGuiApplication, int &, char **>(), Arg("argc"), Arg("argv"))
+            // Static Public Members
             .define_singleton_function("exec", &QGuiApplication::exec);
 }
