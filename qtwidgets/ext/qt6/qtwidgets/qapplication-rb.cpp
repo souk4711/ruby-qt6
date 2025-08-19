@@ -1,4 +1,5 @@
 #include "qapplication-rb.hpp"
+#include <QApplication>
 
 using namespace Rice;
 
@@ -19,6 +20,8 @@ void Init_QApplication(Rice::Module rb_mQt6QtWidgets)
 {
     rb_mQt6QtWidgets.define_singleton_function("_new_qapplication", &_newQApplication, Arg("argv"));
 
-    rb_cQApplication = define_class_under<QApplication, QGuiApplication>(rb_mQt6QtWidgets, "QApplication")
-                           .define_singleton_function("exec", &QApplication::exec);
+    rb_cQApplication = // Qt6::QtWidgets::QApplication
+        define_class_under<QApplication, QGuiApplication>(rb_mQt6QtWidgets, "QApplication")
+            .define_constructor(Constructor<QApplication, int &, char **, int>(), Arg("argc"), Arg("argv"))
+            .define_singleton_function("exec", &QApplication::exec);
 }
