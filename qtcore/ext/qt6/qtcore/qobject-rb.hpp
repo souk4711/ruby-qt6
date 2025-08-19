@@ -1,4 +1,3 @@
-#include <QObject>
 #include <rice/rice.hpp>
 #include <rice/stl.hpp>
 
