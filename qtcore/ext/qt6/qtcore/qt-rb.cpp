@@ -1,7 +1,7 @@
 // clang-format off
 
 #include "qt-rb.hpp"
-#include <Qt>
+#include <qnamespace.h>
 
 using namespace Rice;
 

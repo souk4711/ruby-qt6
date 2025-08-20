@@ -1,5 +1,5 @@
 #include "qstring-rb.hpp"
-#include <QString>
+#include <qstring.h>
 
 using namespace Rice;
 

@@ -1,8 +1,9 @@
 #include "qguiapplication-rb.hpp"
+#include <qguiapplication.h>
+
 #include <QClipboard>
 #include <QCursor>
 #include <QFont>
-#include <QGuiApplication>
 #include <QPalette>
 #include <QScreen>
 #include <QSessionManager>

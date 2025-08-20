@@ -1,5 +1,6 @@
 #include "qabstractbutton-rb.hpp"
-#include <QAbstractButton>
+#include <qabstractbutton.h>
+
 #include <QButtonGroup>
 
 using namespace Rice;

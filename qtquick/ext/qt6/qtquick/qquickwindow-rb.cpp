@@ -1,10 +1,11 @@
 #include "qquickwindow-rb.hpp"
+#include <qquickwindow.h>
+
 #include <QQuickGraphicsConfiguration>
 #include <QQuickGraphicsDevice>
 #include <QQuickItem>
 #include <QQuickRenderControl>
 #include <QQuickRenderTarget>
-#include <QQuickWindow>
 #include <QSGImageNode>
 #include <QSGNinePatchNode>
 #include <QSGRectangleNode>

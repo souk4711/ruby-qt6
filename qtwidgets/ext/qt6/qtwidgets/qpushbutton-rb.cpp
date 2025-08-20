@@ -1,6 +1,7 @@
 #include "qpushbutton-rb.hpp"
+#include <qpushbutton.h>
+
 #include <QMenu>
-#include <QPushButton>
 
 using namespace Rice;
 

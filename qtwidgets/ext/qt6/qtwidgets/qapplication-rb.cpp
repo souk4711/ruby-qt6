@@ -1,5 +1,6 @@
 #include "qapplication-rb.hpp"
-#include <QApplication>
+#include <qapplication.h>
+
 #include <QStyle>
 #include <QWidget>
 #include <QtGui/QFont>

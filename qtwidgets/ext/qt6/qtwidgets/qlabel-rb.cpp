@@ -1,5 +1,6 @@
 #include "qlabel-rb.hpp"
-#include <QLabel>
+#include <qlabel.h>
+
 #include <QtGui/QMovie>
 
 using namespace Rice;

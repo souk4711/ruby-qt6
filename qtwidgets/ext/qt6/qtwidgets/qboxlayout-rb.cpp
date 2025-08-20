@@ -1,5 +1,6 @@
 #include "qboxlayout-rb.hpp"
-#include <QBoxLayout>
+#include <qboxlayout.h>
+
 #include <QWidget>
 
 using namespace Rice;

@@ -1,6 +1,7 @@
 #include "qcoreapplication-rb.hpp"
+#include <qcoreapplication.h>
+
 #include <QAbstractNativeEventFilter>
-#include <QCoreApplication>
 #include <QPermission>
 #include <QTranslator>
 

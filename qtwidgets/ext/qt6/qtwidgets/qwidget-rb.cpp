@@ -1,9 +1,10 @@
 #include "qwidget-rb.hpp"
+#include <qwidget.h>
+
 #include <QGraphicsEffect>
 #include <QGraphicsProxyWidget>
 #include <QLayout>
 #include <QStyle>
-#include <QWidget>
 #include <QtCore/QLocale>
 #include <QtGui/QBackingStore>
 #include <QtGui/QPaintEngine>

@@ -1,6 +1,7 @@
 #include "qlayout-rb.hpp"
-#include <QLayout>
-#include <QtWidgets>
+#include <qlayout.h>
+
+#include <QWidget>
 
 using namespace Rice;
 

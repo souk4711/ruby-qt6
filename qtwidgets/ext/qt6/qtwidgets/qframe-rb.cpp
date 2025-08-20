@@ -1,5 +1,5 @@
 #include "qframe-rb.hpp"
-#include <QFrame>
+#include <qframe.h>
 
 using namespace Rice;
 
