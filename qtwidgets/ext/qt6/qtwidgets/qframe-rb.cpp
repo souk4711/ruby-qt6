@@ -1,4 +1,4 @@
-#include "qlabel-rb.hpp"
+#include "qframe-rb.hpp"
 #include <QFrame>
 
 using namespace Rice;

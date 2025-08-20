@@ -1,1 +1,1 @@
-# Ruby-Qt6-QtQucik
+# Ruby-Qt6-QtQuick
