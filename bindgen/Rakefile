@@ -3,36 +3,42 @@
 namespace :bindgen do
   def bindgen(extension:)
     require "ruby-bindgen"
+    require_relative "ruby-bindgen-patch"
+
     clang_args = []
     clang_args << "-I/usr/lib/clang/20/include"
     clang_args << "-I./qt6include"
     clang_args << "-I./qt6include/#{extension}"
     clang_args << "-xc++"
-    inputter = RubyBindgen::Inputter.new("qt6include/#{extension}", "*.h")
+    inputter = RubyBindgen::Inputter.new("qt6include/#{extension}", "q[a-z]*.h", ["*defs.h", "*impl.h", "*helpers.h"])
     outputter = RubyBindgen::Outputter.new("qt6rice/#{extension}")
     parser = RubyBindgen::Parser.new(inputter, clang_args)
-    format = RubyBindgen::Visitors::Rice.new(extension, outputter)
+    format = RubyBindgen::Visitors::Rice.new(extension.downcase, outputter)
     parser.generate(format, parallel: true)
   end
 
-  qt6libs = ["QtCore", "QtGui", "QtWidgets"]
+  qt6libs = [
+    "QtCore", "QtGui", "QtWidgets",
+    "QtQml", "QtQuick", "QtQuickControls2", "QtQuickWidgets"
+  ]
   qt6libs.each do |lib|
     desc "Generate Rice bindings for #{lib.sub("Qt", "libQt6")}"
     task lib.downcase do
       FileUtils.mkdir_p("qt6rice")
+      FileUtils.rm_rf("qt6rice/#{lib}")
       bindgen(extension: lib)
+      system("clang-format -i -style=file --verbose qt6rice/#{lib}/*{hpp,cpp}")
     end
   end
 
   desc "Generate Rice bindings for libQt6"
   task "all" do
-    FileUtils.mkdir_p("qt6rice")
     qt6libs.each { |lib| bindgen(extension: lib) }
   end
 end
 
 desc "Update libQt6 headers"
-namespace :upinc do
+task :upinc do
   def upinc(pkg:)
     url = "https://mirror.rackspace.com/archlinux/extra/os/x86_64/#{pkg}-x86_64.pkg.tar.zst"
     inf = "tmp/downloads/#{pkg}.pkg.tar.zst"
@@ -50,11 +56,9 @@ namespace :upinc do
     sh "cp -r #{out}/usr/include/qt6/. qt6include"
   end
 
-  task :qt6 do
-    FileUtils.rm_rf("qt6include")
-    upinc(pkg: "qt6-base-6.9.1-5")
-    upinc(pkg: "qt6-declarative-6.9.1-2")
-  end
+  FileUtils.rm_rf("qt6include")
+  upinc(pkg: "qt6-base-6.9.1-5")
+  upinc(pkg: "qt6-declarative-6.9.1-2")
 end
 
 task :default do

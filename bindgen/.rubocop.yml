@@ -9,3 +9,5 @@ AllCops:
   Exclude:
     - "bin/**/*"
     - "vendor/**/*"
+    - "qt6include/**/*"
+    - "qt6rice/**/*"
