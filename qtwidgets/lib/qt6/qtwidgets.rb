@@ -3,10 +3,9 @@
 require "qt6/qtcore"
 require "qt6/qtgui"
 
-require_relative "qtwidgets/version"
 require_relative "qtwidgets/qtwidgets"
 
-require_relative "qtwidgets/qapplication"
+require_relative "qtwidgets/version"
 
 module Qt6
   module QtWidgets

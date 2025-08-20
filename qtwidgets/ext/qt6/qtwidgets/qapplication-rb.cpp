@@ -9,23 +9,8 @@ using namespace Rice;
 
 Rice::Class rb_cQApplication;
 
-QApplication *app;
-void _newQApplication()
-{
-    int argc = 0;
-    app = new QApplication(argc, 0);
-}
-
-void _execQApplication()
-{
-    QApplication::exec();
-}
-
 void Init_QApplication(Rice::Module rb_mQt6QtWidgets)
 {
-    rb_mQt6QtWidgets.define_singleton_function("_qapp_new", &_newQApplication);
-    rb_mQt6QtWidgets.define_singleton_function("_qapp_exec", &_execQApplication);
-
     rb_cQApplication =
         // Qt6::QtWidgets::QApplication
         define_class_under<QApplication, QGuiApplication>(rb_mQt6QtWidgets, "QApplication")

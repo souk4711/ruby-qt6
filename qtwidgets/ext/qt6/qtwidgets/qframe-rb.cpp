@@ -39,12 +39,14 @@ void Init_QFrame(Rice::Module rb_mQt6QtWidgets)
             .define_value("HLine", QFrame::Shape::HLine)
             .define_value("VLine", QFrame::Shape::VLine)
             .define_value("StyledPanel", QFrame::Shape::StyledPanel);
+
     Enum<QFrame::Shadow> rb_cQFrameShadow =
         // Qt6::QtWidgets::QFrame::Shadow
         define_enum_under<QFrame::Shadow>("Shadow", rb_cQFrame)
             .define_value("Plain", QFrame::Shadow::Plain)
             .define_value("Raised", QFrame::Shadow::Raised)
             .define_value("Sunken", QFrame::Shadow::Sunken);
+
     Enum<QFrame::StyleMask> rb_cQFrameStyleMask =
         // Qt6::QtWidgets::QFrame::StyleMask
         define_enum_under<QFrame::StyleMask>("StyleMask", rb_cQFrame)

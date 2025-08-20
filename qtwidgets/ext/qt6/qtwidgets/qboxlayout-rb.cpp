@@ -60,11 +60,13 @@ void Init_QBoxLayout(Rice::Module rb_mQt6QtWidgets)
             .define_value("BottomToTop", QBoxLayout::Direction::BottomToTop)
             .define_value("Down", QBoxLayout::Direction::Down)
             .define_value("Up", QBoxLayout::Direction::Up);
+
     rb_cQHBoxLayout =
         //  Qt6::QWidgets::QHBoxLayout
         define_class_under<QHBoxLayout, QBoxLayout>(rb_mQt6QtWidgets, "QHBoxLayout")
             .define_constructor(Constructor<QHBoxLayout>())
             .define_constructor(Constructor<QHBoxLayout, QWidget *>(), Arg("parent"));
+
     rb_cQVBoxLayout =
         //  Qt6::QWidgets::QVBoxLayout
         define_class_under<QVBoxLayout, QBoxLayout>(rb_mQt6QtWidgets, "QVBoxLayout")
