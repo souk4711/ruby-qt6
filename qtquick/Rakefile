@@ -1,0 +1,27 @@
+# frozen_string_literal: true
+
+require "bundler/gem_tasks"
+GEMSPEC = Gem::Specification.load("qtquick.gemspec")
+
+require "rake/extensiontask"
+Rake::ExtensionTask.new("qtquick", GEMSPEC) do |ext|
+  ext.ext_dir = "ext/qt6/qtquick"
+  ext.lib_dir = "lib/qt6/qtquick"
+end
+
+require "rubocop/rake_task"
+RuboCop::RakeTask.new
+
+require "rspec/core/rake_task"
+RSpec::Core::RakeTask.new(:spec)
+
+desc "Run clang-format"
+task :cformat do
+  sh "clang-format -i --style=file --verbose ext/qt6/qtquick/*{hpp,cpp}"
+end
+
+task :default do
+  system("rake --tasks")
+end
+
+task build: :compile
