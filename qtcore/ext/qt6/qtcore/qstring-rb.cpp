@@ -10,7 +10,6 @@ void Init_QString(Rice::Module rb_mQt6QtCore)
     rb_cQString =
         // Qt6::QtCore::QString
         define_class_under<QString>(rb_mQt6QtCore, "QString")
-            // Public Functions
             .define_constructor(Constructor<QString, const char *>(), Arg("str"))
             .define_method("to_std_string", &QString::toStdString);
 }

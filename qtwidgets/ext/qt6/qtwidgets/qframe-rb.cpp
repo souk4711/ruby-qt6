@@ -10,23 +10,21 @@ void Init_QFrame(Rice::Module rb_mQt6QtWidgets)
     rb_cQFrame =
         // Qt6::QtWidgets::QFrame
         define_class_under<QFrame, QWidget>(rb_mQt6QtWidgets, "QFrame")
-            // Public Functions
             .define_constructor(Constructor<QFrame, QWidget *, Qt::WindowFlags>(), Arg("parent") = static_cast<QWidget *>(nullptr), Arg("f") = static_cast<Qt::WindowFlags>(Qt::WindowFlags()))
-            .define_method("frame_rect", &QFrame::frameRect)
-            .define_method("frame_shadow", &QFrame::frameShadow)
-            .define_method("frame_shape", &QFrame::frameShape)
             .define_method("frame_style", &QFrame::frameStyle)
-            .define_method("frame_width", &QFrame::frameWidth)
-            .define_method("line_width", &QFrame::lineWidth)
-            .define_method("mid_line_width", &QFrame::midLineWidth)
-            .define_method("set_frame_rect", &QFrame::setFrameRect, Arg(""))
-            .define_method("set_frame_shadow", &QFrame::setFrameShadow, Arg(""))
-            .define_method("set_frame_shape", &QFrame::setFrameShape, Arg(""))
             .define_method("set_frame_style", &QFrame::setFrameStyle, Arg(""))
+            .define_method("frame_width", &QFrame::frameWidth)
+            .define_method("size_hint", &QFrame::sizeHint)
+            .define_method("frame_shape", &QFrame::frameShape)
+            .define_method("set_frame_shape", &QFrame::setFrameShape, Arg(""))
+            .define_method("frame_shadow", &QFrame::frameShadow)
+            .define_method("set_frame_shadow", &QFrame::setFrameShadow, Arg(""))
+            .define_method("line_width", &QFrame::lineWidth)
             .define_method("set_line_width", &QFrame::setLineWidth, Arg(""))
+            .define_method("mid_line_width", &QFrame::midLineWidth)
             .define_method("set_mid_line_width", &QFrame::setMidLineWidth, Arg(""))
-            // Reimplemented Public Functions
-            .define_method("size_hint", &QFrame::sizeHint);
+            .define_method("frame_rect", &QFrame::frameRect)
+            .define_method("set_frame_rect", &QFrame::setFrameRect, Arg(""));
 
     // clang-format off
     Enum<QFrame::Shape> rb_cQFrameShape =
