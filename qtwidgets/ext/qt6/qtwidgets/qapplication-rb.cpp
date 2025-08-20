@@ -11,20 +11,21 @@ using namespace Rice;
 
 Rice::Class rb_cQApplication;
 
-QApplication *_newQApplication(std::vector<std::string> old_argv)
+QApplication *app;
+void _newQApplication()
 {
-    std::vector<char *> argv;
-    for (int i = 0; i < old_argv.size(); ++i)
-    {
-        argv.push_back(const_cast<char *>(old_argv[i].c_str()));
-    }
-    int argc = argv.size();
-    return new QApplication(argc, argv.data());
+    int argc = 0;
+    app = new QApplication(argc, 0);
+}
+
+void _execQApplication() {
+    QApplication::exec();
 }
 
 void Init_QApplication(Rice::Module rb_mQt6QtWidgets)
 {
-    rb_mQt6QtWidgets.define_singleton_function("_new_qapplication", &_newQApplication, Arg("argv"));
+    rb_mQt6QtWidgets.define_singleton_function("_qapp_new", &_newQApplication);
+    rb_mQt6QtWidgets.define_singleton_function("_qapp_exec", &_execQApplication);
 
     rb_cQApplication =
         // Qt6::QtWidgets::QApplication

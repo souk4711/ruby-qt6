@@ -2,6 +2,7 @@
 
 // clang-format off
 #include "qguiapplication-rb.hpp"
+#include "qaction-rb.hpp"
 // clang-format on
 
 extern "C" void Init_qtgui()
@@ -11,5 +12,6 @@ extern "C" void Init_qtgui()
         Rice::Module rb_mQt6QtGui = define_module_under(rb_mQt6, "QtGui");
 
         Init_QGuiApplication(rb_mQt6QtGui);
+        Init_QAction(rb_mQt6QtGui);
     });
 }
