@@ -1,5 +1,3 @@
-// clang-format off
-
 #include "qlayout-rb.hpp"
 #include <QLayout>
 #include <QtWidgets>
@@ -61,6 +59,7 @@ void Init_QLayout(Rice::Module rb_mQt6QtWidgets)
             // Static Public Members
             .define_singleton_function("closest_acceptable_size", &QLayout::closestAcceptableSize, Arg("w"), Arg("s"));
 
+    // clang-format off
     Enum<QLayout::SizeConstraint> rb_cQLayoutSizeConstraint =
         // Qt6::QtWidgets::QLayout::SizeConstraint
         define_enum_under<QLayout::SizeConstraint>("SizeConstraint", rb_cQLayout)

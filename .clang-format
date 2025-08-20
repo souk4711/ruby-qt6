@@ -1,4 +1,4 @@
 ---
 BasedOnStyle: microsoft
-ColumnLimit: 240
+ColumnLimit: 512
 ...

@@ -1,5 +1,3 @@
-// clang-format off
-
 #include "qlabel-rb.hpp"
 #include <QFrame>
 
@@ -30,6 +28,7 @@ void Init_QFrame(Rice::Module rb_mQt6QtWidgets)
             // Reimplemented Public Functions
             .define_method("size_hint", &QFrame::sizeHint);
 
+    // clang-format off
     Enum<QFrame::Shape> rb_cQFrameShape =
         // Qt6::QtWidgets::QFrame::Shape
         define_enum_under<QFrame::Shape>("Shape", rb_cQFrame)
@@ -40,13 +39,12 @@ void Init_QFrame(Rice::Module rb_mQt6QtWidgets)
             .define_value("HLine", QFrame::Shape::HLine)
             .define_value("VLine", QFrame::Shape::VLine)
             .define_value("StyledPanel", QFrame::Shape::StyledPanel);
-
     Enum<QFrame::Shadow> rb_cQFrameShadow =
         // Qt6::QtWidgets::QFrame::Shadow
         define_enum_under<QFrame::Shadow>("Shadow", rb_cQFrame)
             .define_value("Plain", QFrame::Shadow::Plain)
-            .define_value("Raised", QFrame::Shadow::Raised).define_value("Sunken", QFrame::Shadow::Sunken);
-
+            .define_value("Raised", QFrame::Shadow::Raised)
+            .define_value("Sunken", QFrame::Shadow::Sunken);
     Enum<QFrame::StyleMask> rb_cQFrameStyleMask =
         // Qt6::QtWidgets::QFrame::StyleMask
         define_enum_under<QFrame::StyleMask>("StyleMask", rb_cQFrame)

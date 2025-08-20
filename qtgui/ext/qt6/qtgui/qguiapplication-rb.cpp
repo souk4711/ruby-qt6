@@ -1,5 +1,3 @@
-// clang-format off
-
 #include "qguiapplication-rb.hpp"
 #include <QClipboard>
 #include <QCursor>

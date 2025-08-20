@@ -1,5 +1,3 @@
-// clang-format off
-
 #include "qboxlayout-rb.hpp"
 #include <QBoxLayout>
 #include <QWidget>
@@ -52,6 +50,7 @@ void Init_QBoxLayout(Rice::Module rb_mQt6QtWidgets)
             .define_method("spacing", &QBoxLayout::spacing)
             .define_method("take_at", &QBoxLayout::takeAt, Arg(""));
 
+    // clang-format off
     Enum<QBoxLayout::Direction> rb_cQBoxLayoutDirection =
         // Qt6::QWidgets::QBoxLayout::Direction
         define_enum_under<QBoxLayout::Direction>("Direction", rb_cQBoxLayout)
@@ -61,13 +60,11 @@ void Init_QBoxLayout(Rice::Module rb_mQt6QtWidgets)
             .define_value("BottomToTop", QBoxLayout::Direction::BottomToTop)
             .define_value("Down", QBoxLayout::Direction::Down)
             .define_value("Up", QBoxLayout::Direction::Up);
-
     rb_cQHBoxLayout =
         //  Qt6::QWidgets::QHBoxLayout
         define_class_under<QHBoxLayout, QBoxLayout>(rb_mQt6QtWidgets, "QHBoxLayout")
             .define_constructor(Constructor<QHBoxLayout>())
             .define_constructor(Constructor<QHBoxLayout, QWidget *>(), Arg("parent"));
-
     rb_cQVBoxLayout =
         //  Qt6::QWidgets::QVBoxLayout
         define_class_under<QVBoxLayout, QBoxLayout>(rb_mQt6QtWidgets, "QVBoxLayout")

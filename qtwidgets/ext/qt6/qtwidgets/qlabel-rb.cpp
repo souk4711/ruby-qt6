@@ -1,8 +1,6 @@
-// clang-format off
-
 #include "qlabel-rb.hpp"
-#include <QtGui/QMovie>
 #include <QLabel>
+#include <QtGui/QMovie>
 
 using namespace Rice;
 

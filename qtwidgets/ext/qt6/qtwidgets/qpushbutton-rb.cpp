@@ -1,5 +1,3 @@
-// clang-format off
-
 #include "qpushbutton-rb.hpp"
 #include <QMenu>
 #include <QPushButton>
@@ -17,7 +15,7 @@ void Init_QPushButton(Rice::Module rb_mQt6QtWidgets)
             .define_constructor(Constructor<QPushButton, QWidget *>(), Arg("parent") = static_cast<QWidget *>(nullptr))
             .define_constructor(Constructor<QPushButton, const QString &, QWidget *>(), Arg("text"), Arg("parent") = static_cast<QWidget *>(nullptr))
             //.define_constructor(Constructor<QPushButton, const QIcon &, const QString &, QWidget *>(), Arg("icon"), Arg("text"), Arg("parent") = static_cast<QWidget *>(nullptr))
-           // .define_method("auto_default", &QPushButton::autoDefault)
+            // .define_method("auto_default", &QPushButton::autoDefault)
             .define_method("is_default", &QPushButton::isDefault)
             .define_method("is_flat", &QPushButton::isFlat)
             .define_method("menu", &QPushButton::menu)

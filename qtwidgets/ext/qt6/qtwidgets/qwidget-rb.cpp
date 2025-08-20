@@ -1,14 +1,12 @@
-// clang-format off
-
 #include "qwidget-rb.hpp"
-#include <QtCore/QLocale>
-#include <QtGui/QBackingStore>
-#include <QtGui/QPaintEngine>
 #include <QGraphicsEffect>
 #include <QGraphicsProxyWidget>
 #include <QLayout>
 #include <QStyle>
 #include <QWidget>
+#include <QtCore/QLocale>
+#include <QtGui/QBackingStore>
+#include <QtGui/QPaintEngine>
 
 using namespace Rice;
 
@@ -71,7 +69,8 @@ void Init_QWidget(Rice::Module rb_mQt6QtWidgets)
             .define_method("grab_keyboard", &QWidget::grabKeyboard)
             .define_method<void (QWidget::*)(const QCursor &)>("grab_mouse", &QWidget::grabMouse, Arg(""))
             .define_method<void (QWidget::*)()>("grab_mouse", &QWidget::grabMouse)
-            .define_method("grab_shortcut", &QWidget::grabShortcut, Arg("key"), Arg("context") = static_cast<Qt::ShortcutContext>(Qt::WindowShortcut)) .define_method("release_shortcut", &QWidget::releaseShortcut, Arg("id"))
+            .define_method("grab_shortcut", &QWidget::grabShortcut, Arg("key"), Arg("context") = static_cast<Qt::ShortcutContext>(Qt::WindowShortcut))
+            .define_method("release_shortcut", &QWidget::releaseShortcut, Arg("id"))
             .define_method("grab", &QWidget::grab, Arg("rectangle") = static_cast<const QRect &>(QRect(QPoint(0, 0), QSize(-1, -1))))
             .define_method("graphics_effect", &QWidget::graphicsEffect)
             .define_method("graphics_proxy_widget", &QWidget::graphicsProxyWidget)
@@ -104,7 +103,8 @@ void Init_QWidget(Rice::Module rb_mQt6QtWidgets)
             .define_method("layout_direction", &QWidget::layoutDirection)
             .define_method("layout", &QWidget::layout)
             .define_method("locale", &QWidget::locale)
-            .define_method<QPointF (QWidget::*)(const QWidget *, const QPointF &) const>("map_from", &QWidget::mapFrom, Arg(""), Arg("")) .define_method<QPoint (QWidget::*)(const QWidget *, const QPoint &) const>("map_from", &QWidget::mapFrom, Arg(""), Arg(""))
+            .define_method<QPointF (QWidget::*)(const QWidget *, const QPointF &) const>("map_from", &QWidget::mapFrom, Arg(""), Arg(""))
+            .define_method<QPoint (QWidget::*)(const QWidget *, const QPoint &) const>("map_from", &QWidget::mapFrom, Arg(""), Arg(""))
             .define_method<QPointF (QWidget::*)(const QPointF &) const>("map_from_global", &QWidget::mapFromGlobal, Arg(""))
             .define_method<QPoint (QWidget::*)(const QPoint &) const>("map_from_global", &QWidget::mapFromGlobal, Arg(""))
             .define_method<QPointF (QWidget::*)(const QPointF &) const>("map_from_parent", &QWidget::mapFromParent, Arg(""))
@@ -288,6 +288,7 @@ void Init_QWidget(Rice::Module rb_mQt6QtWidgets)
             // .define_singleton_function("set_tab_order", &QWidget::setTabOrder, Arg("widgets"))
             // .define_singleton_function<void (*)(QWidget *, QWidget *)>("set_tab_order", &QWidget::setTabOrder, Arg(""), Arg(""))
 
+    // clang-format off
     Enum<QWidget::RenderFlag> rb_cQWidgetRenderFlag =
         // Qt6::QtWidgets::QWidget::RenderFlag
         define_enum_under<QWidget::RenderFlag>("RenderFlag", rb_cQWidget)

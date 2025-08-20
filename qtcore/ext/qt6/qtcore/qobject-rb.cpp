@@ -1,12 +1,10 @@
-// clang-format off
-
 #include "qobject-rb.hpp"
 #include <QBindable>
 #include <QEvent>
+#include <QMetaMethod>
 #include <QObject>
 #include <QThread>
 #include <QVariant>
-#include <QMetaMethod>
 
 using namespace Rice;
 

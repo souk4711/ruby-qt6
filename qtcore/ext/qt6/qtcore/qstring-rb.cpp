@@ -1,5 +1,3 @@
-// clang-format off
-
 #include "qstring-rb.hpp"
 #include <QString>
 

@@ -1,5 +1,3 @@
-// clang-format off
-
 #include "qcoreapplication-rb.hpp"
 #include <QAbstractNativeEventFilter>
 #include <QCoreApplication>

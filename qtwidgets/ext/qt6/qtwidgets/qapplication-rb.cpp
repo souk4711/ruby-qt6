@@ -1,11 +1,9 @@
-// clang-format off
-
 #include "qapplication-rb.hpp"
-#include <QtGui/QFont>
-#include <QtGui/QPalette>
 #include <QApplication>
 #include <QStyle>
 #include <QWidget>
+#include <QtGui/QFont>
+#include <QtGui/QPalette>
 
 using namespace Rice;
 
@@ -18,7 +16,8 @@ void _newQApplication()
     app = new QApplication(argc, 0);
 }
 
-void _execQApplication() {
+void _execQApplication()
+{
     QApplication::exec();
 }
 
