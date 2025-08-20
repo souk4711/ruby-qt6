@@ -1,14 +1,18 @@
 #include "qtwidgets-rb.hpp"
 
-#include "qabstractbutton-rb.hpp"
+// clang-format off
 #include "qapplication-rb.hpp"
+
+#include "qlayout-rb.hpp"
 #include "qboxlayout-rb.hpp"
+
+#include "qwidget-rb.hpp"
+#include "qabstractbutton-rb.hpp"
+#include "qpushbutton-rb.hpp"
 #include "qframe-rb.hpp"
 #include "qlabel-rb.hpp"
-#include "qlayout-rb.hpp"
-#include "qpushbutton-rb.hpp"
-#include "qwidget-rb.hpp"
 
+#include <QApplication>
 QApplication *app;
 void _newQApplication()
 {
@@ -19,6 +23,7 @@ void _execQApplication()
 {
     QApplication::exec();
 }
+// clang-format on
 
 extern "C" void Init_qtwidgets()
 {
@@ -29,13 +34,15 @@ extern "C" void Init_qtwidgets()
         rb_mQt6QtWidgets.define_singleton_function("_qapp_new", &_newQApplication);
         rb_mQt6QtWidgets.define_singleton_function("_qapp_exec", &_execQApplication);
 
-        Init_QAbstractButton(rb_mQt6QtWidgets);
         Init_QApplication(rb_mQt6QtWidgets);
+
+        Init_QLayout(rb_mQt6QtWidgets);
         Init_QBoxLayout(rb_mQt6QtWidgets);
+
+        Init_QWidget(rb_mQt6QtWidgets);
+        Init_QAbstractButton(rb_mQt6QtWidgets);
+        Init_QPushButton(rb_mQt6QtWidgets);
         Init_QFrame(rb_mQt6QtWidgets);
         Init_QLabel(rb_mQt6QtWidgets);
-        Init_QLayout(rb_mQt6QtWidgets);
-        Init_QPushButton(rb_mQt6QtWidgets);
-        Init_QWidget(rb_mQt6QtWidgets);
     });
 }
