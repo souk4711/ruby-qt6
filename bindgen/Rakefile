@@ -47,12 +47,13 @@ namespace :upinc do
 
     sh "mkdir -p #{out} && rm -rf #{out}/*"
     sh "tar --zstd -xf #{inf} --directory=#{out}"
-    sh "cp -r #{out}/usr/include/qt6 qt6include"
+    sh "cp -r #{out}/usr/include/qt6/. qt6include"
   end
 
-  task :qtbase do
+  task :qt6 do
     FileUtils.rm_rf("qt6include")
     upinc(pkg: "qt6-base-6.9.1-5")
+    upinc(pkg: "qt6-declarative-6.9.1-2")
   end
 end
 
