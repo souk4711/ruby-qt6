@@ -5,11 +5,19 @@ PATH
       rice (>= 4.6.1)
 
 PATH
+  remote: ../qtqml
+  specs:
+    ruby-qt6-qtqml (0.1.0)
+      rice (>= 4.6.1)
+      ruby-qt6-qtcore
+
+PATH
   remote: .
   specs:
     ruby-qt6-qtquick (0.1.0)
       rice (>= 4.6.1)
       ruby-qt6-qtcore
+      ruby-qt6-qtqml
 
 GEM
   remote: https://rubygems.org/
@@ -152,6 +160,7 @@ DEPENDENCIES
   rspec
   rubocop
   ruby-qt6-qtcore!
+  ruby-qt6-qtqml!
   ruby-qt6-qtquick!
   solargraph
   standard

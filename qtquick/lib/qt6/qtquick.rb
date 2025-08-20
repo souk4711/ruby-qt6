@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "qt6/qtcore"
+require "qt6/qtqml"
 
 require_relative "qtquick/qtquick"
 
