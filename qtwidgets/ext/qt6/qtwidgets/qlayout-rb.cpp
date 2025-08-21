@@ -7,7 +7,7 @@ using namespace Rice;
 
 Rice::Class rb_cQLayout;
 
-void Init_QLayout(Rice::Module rb_mQt6QtWidgets)
+void Init_qlayout(Rice::Module rb_mQt6QtWidgets)
 {
     rb_cQLayout =
         // Qt6::QtWidgets::QLayout

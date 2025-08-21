@@ -11,7 +11,7 @@ using namespace Rice;
 
 Rice::Class rb_cQObject;
 
-void Init_QObject(Rice::Module rb_mQt6QtCore)
+void Init_qobject(Rice::Module rb_mQt6QtCore)
 {
     rb_cQObject =
         // Qt6::QtCore::QObject

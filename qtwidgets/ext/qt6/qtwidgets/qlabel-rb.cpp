@@ -7,7 +7,7 @@ using namespace Rice;
 
 Rice::Class rb_cQLabel;
 
-void Init_QLabel(Rice::Module rb_mQt6QtWidgets)
+void Init_qlabel(Rice::Module rb_mQt6QtWidgets)
 {
     rb_cQLabel =
         // Qt6::QtWidgets::QLabel

@@ -9,7 +9,7 @@ Rice::Class rb_cQBoxLayout;
 Rice::Class rb_cQHBoxLayout;
 Rice::Class rb_cQVBoxLayout;
 
-void Init_QBoxLayout(Rice::Module rb_mQt6QtWidgets)
+void Init_qboxlayout(Rice::Module rb_mQt6QtWidgets)
 {
     rb_cQBoxLayout =
         // Qt6::QWidgets::QBoxLayout

@@ -7,7 +7,7 @@ using namespace Rice;
 
 Rice::Class rb_cQPushButton;
 
-void Init_QPushButton(Rice::Module rb_mQt6QtWidgets)
+void Init_qpushbutton(Rice::Module rb_mQt6QtWidgets)
 {
     rb_cQPushButton =
         // Qt6::QtWidgets::QPushButton

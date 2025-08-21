@@ -9,7 +9,7 @@ using namespace Rice;
 
 Rice::Class rb_cQCoreApplication;
 
-void Init_QCoreApplication(Rice::Module rb_mQt6QtCore)
+void Init_qcoreapplication(Rice::Module rb_mQt6QtCore)
 {
     rb_cQCoreApplication =
         // Qt6::QtCore::QCoreApplication

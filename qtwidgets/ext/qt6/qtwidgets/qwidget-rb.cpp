@@ -13,7 +13,7 @@ using namespace Rice;
 
 Rice::Class rb_cQWidget;
 
-void Init_QWidget(Rice::Module rb_mQt6QtWidgets)
+void Init_qwidget(Rice::Module rb_mQt6QtWidgets)
 {
     rb_cQWidget =
         // Qt6::QtWidgets::QWidget

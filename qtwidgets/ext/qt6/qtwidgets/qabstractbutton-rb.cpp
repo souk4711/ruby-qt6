@@ -7,7 +7,7 @@ using namespace Rice;
 
 Rice::Class rb_cQAbstractButton;
 
-void Init_QAbstractButton(Rice::Module rb_mQt6QtWidgets)
+void Init_qabstractbutton(Rice::Module rb_mQt6QtWidgets)
 {
     rb_cQAbstractButton =
         // Qt6::QtWidgets::QAbstractButton

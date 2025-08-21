@@ -34,15 +34,15 @@ extern "C" void Init_qtwidgets()
         rb_mQt6QtWidgets.define_singleton_function("_qapp_new", &_newQApplication);
         rb_mQt6QtWidgets.define_singleton_function("_qapp_exec", &_execQApplication);
 
-        Init_QApplication(rb_mQt6QtWidgets);
+        Init_qapplication(rb_mQt6QtWidgets);
 
-        Init_QLayout(rb_mQt6QtWidgets);
-        Init_QBoxLayout(rb_mQt6QtWidgets);
+        Init_qlayout(rb_mQt6QtWidgets);
+        Init_qboxlayout(rb_mQt6QtWidgets);
 
-        Init_QWidget(rb_mQt6QtWidgets);
-        Init_QAbstractButton(rb_mQt6QtWidgets);
-        Init_QPushButton(rb_mQt6QtWidgets);
-        Init_QFrame(rb_mQt6QtWidgets);
-        Init_QLabel(rb_mQt6QtWidgets);
+        Init_qwidget(rb_mQt6QtWidgets);
+        Init_qabstractbutton(rb_mQt6QtWidgets);
+        Init_qpushbutton(rb_mQt6QtWidgets);
+        Init_qframe(rb_mQt6QtWidgets);
+        Init_qlabel(rb_mQt6QtWidgets);
     });
 }

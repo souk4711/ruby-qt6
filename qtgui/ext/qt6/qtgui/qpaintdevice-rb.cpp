@@ -7,7 +7,7 @@ using namespace Rice;
 
 Rice::Class rb_cQPaintDevice;
 
-void Init_QPaintDevice(Rice::Module rb_mQt6QtGui)
+void Init_qpaintdevice(Rice::Module rb_mQt6QtGui)
 {
     rb_cQPaintDevice =
         // Qt6::QtGui::QPaintDevice

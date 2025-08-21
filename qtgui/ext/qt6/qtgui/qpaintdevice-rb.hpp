@@ -1,4 +1,4 @@
 #include <rice/rice.hpp>
 #include <rice/stl.hpp>
 
-void Init_QPaintDevice(Rice::Module rb_mQt6QtGui);
+void Init_qpaintdevice(Rice::Module rb_mQt6QtGui);

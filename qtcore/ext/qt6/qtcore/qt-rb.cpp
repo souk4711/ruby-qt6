@@ -5,7 +5,7 @@
 
 using namespace Rice;
 
-void Init_Qt(Rice::Module rb_mQt6QtCore)
+void Init_qt(Rice::Module rb_mQt6QtCore)
 {
     Module rb_mQt =
         // Qt6::QtCore::Qt

@@ -10,7 +10,7 @@ using namespace Rice;
 
 Rice::Class rb_cQApplication;
 
-void Init_QApplication(Rice::Module rb_mQt6QtWidgets)
+void Init_qapplication(Rice::Module rb_mQt6QtWidgets)
 {
     rb_cQApplication =
         // Qt6::QtWidgets::QApplication
@@ -26,14 +26,12 @@ void Init_QApplication(Rice::Module rb_mQt6QtWidgets)
             .define_singleton_function<QFont (*)(const QWidget *)>("font", &QApplication::font, Arg(""))
             .define_singleton_function<QFont (*)(const char *)>("font", &QApplication::font, Arg("class_name"))
             .define_singleton_function("set_font", &QApplication::setFont, Arg(""), Arg("class_name") = static_cast<const char *>(nullptr))
-            .define_singleton_function("font_metrics", &QApplication::fontMetrics)
             .define_singleton_function("all_widgets", &QApplication::allWidgets)
             .define_singleton_function("top_level_widgets", &QApplication::topLevelWidgets)
             .define_singleton_function("active_popup_widget", &QApplication::activePopupWidget)
             .define_singleton_function("active_modal_widget", &QApplication::activeModalWidget)
             .define_singleton_function("focus_widget", &QApplication::focusWidget)
             .define_singleton_function("active_window", &QApplication::activeWindow)
-            .define_singleton_function("set_active_window", &QApplication::setActiveWindow, Arg("act"))
             .define_singleton_function<QWidget *(*)(const QPoint &)>("widget_at", &QApplication::widgetAt, Arg("p"))
             .define_singleton_function<QWidget *(*)(int, int)>("widget_at", &QApplication::widgetAt, Arg("x"), Arg("y"))
             .define_singleton_function<QWidget *(*)(const QPoint &)>("top_level_at", &QApplication::topLevelAt, Arg("p"))

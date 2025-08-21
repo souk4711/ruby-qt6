@@ -5,7 +5,7 @@ using namespace Rice;
 
 Rice::Class rb_cQFrame;
 
-void Init_QFrame(Rice::Module rb_mQt6QtWidgets)
+void Init_qframe(Rice::Module rb_mQt6QtWidgets)
 {
     rb_cQFrame =
         // Qt6::QtWidgets::QFrame

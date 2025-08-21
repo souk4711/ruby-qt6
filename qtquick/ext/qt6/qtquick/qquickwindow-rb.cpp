@@ -19,7 +19,7 @@ using namespace Rice;
 Rice::Class rb_cQQuickWindow;
 Rice::Class rb_cQQuickWindowGraphicsStateInfo;
 
-void Init_QQuickWindow(Rice::Module rb_mQt6QtQuick)
+void Init_qquickwindow(Rice::Module rb_mQt6QtQuick)
 {
     rb_cQQuickWindow =
         // Qt6::QtQuick::QQuickWindow

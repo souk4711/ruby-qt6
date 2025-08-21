@@ -7,7 +7,7 @@ using namespace Rice;
 
 Rice::Class rb_cQWindow;
 
-void Init_QWindow(Rice::Module rb_mQt6QtGui)
+void Init_qwindow(Rice::Module rb_mQt6QtGui)
 {
     rb_cQWindow =
         // Qt6::QtGui::QWindow

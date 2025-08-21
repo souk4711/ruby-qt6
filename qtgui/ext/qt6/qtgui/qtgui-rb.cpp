@@ -13,9 +13,9 @@ extern "C" void Init_qtgui()
         Rice::Module rb_mQt6 = Rice::define_module("Qt6");
         Rice::Module rb_mQt6QtGui = define_module_under(rb_mQt6, "QtGui");
 
-        Init_QPaintDevice(rb_mQt6QtGui);
+        Init_qpaintdevice(rb_mQt6QtGui);
 
-        Init_QGuiApplication(rb_mQt6QtGui);
-        Init_QWindow(rb_mQt6QtGui);
+        Init_qguiapplication(rb_mQt6QtGui);
+        Init_qwindow(rb_mQt6QtGui);
     });
 }
