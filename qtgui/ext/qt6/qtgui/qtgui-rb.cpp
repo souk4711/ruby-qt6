@@ -4,7 +4,6 @@
 #include "qtguiversion-rb.hpp"
 
 #include "qwindow-rb.hpp"
-
 #include "qguiapplication-rb.hpp"
 // clang-format on
 
@@ -17,7 +16,6 @@ extern "C" void Init_qtgui()
         Init_qtguiversion(rb_mQt6QtGui);
 
         Init_qwindow(rb_mQt6QtGui);
-
         Init_qguiapplication(rb_mQt6QtGui);
     });
 }
