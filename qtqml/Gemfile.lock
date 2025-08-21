@@ -5,13 +5,6 @@ PATH
       rice (>= 4.6.1)
 
 PATH
-  remote: ../qtgui
-  specs:
-    ruby-qt6-qtgui (0.1.0)
-      rice (>= 4.6.1)
-      ruby-qt6-qtcore
-
-PATH
   remote: .
   specs:
     ruby-qt6-qtqml (0.1.0)
@@ -159,7 +152,6 @@ DEPENDENCIES
   rspec
   rubocop
   ruby-qt6-qtcore!
-  ruby-qt6-qtgui!
   ruby-qt6-qtqml!
   solargraph
   standard
