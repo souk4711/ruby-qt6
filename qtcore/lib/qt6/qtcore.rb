@@ -3,8 +3,3 @@
 require_relative "qtcore/qtcore"
 
 require_relative "qtcore/version"
-
-module Qt6
-  module QtCore
-  end
-end
