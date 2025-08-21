@@ -5,5 +5,5 @@ using namespace Rice;
 
 void Init_qtguiversion(Rice::Module rb_mQt6QtGui)
 {
-    rb_mQt6QtGui.define_constant("VERSION", QTGUI_VERSION_STR);
+    rb_mQt6QtGui.define_constant("QTGUI_VERSION", QTGUI_VERSION_STR);
 }

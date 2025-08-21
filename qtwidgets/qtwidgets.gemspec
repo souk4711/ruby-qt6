@@ -4,7 +4,7 @@ require_relative "lib/qt6/qtwidgets/version"
 
 Gem::Specification.new do |spec|
   spec.name = "ruby-qt6-qtwidgets"
-  spec.version = Qt6::QtWidgets::RUBYGEM_VERSION
+  spec.version = Qt6::QtWidgets::QTWIDGETS_RUBYGEM_VERSION
   spec.authors = ["John Doe"]
   spec.email = ["johndoe@example.com"]
 

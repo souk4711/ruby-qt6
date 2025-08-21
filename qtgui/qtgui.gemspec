@@ -4,7 +4,7 @@ require_relative "lib/qt6/qtgui/version"
 
 Gem::Specification.new do |spec|
   spec.name = "ruby-qt6-qtgui"
-  spec.version = Qt6::QtGui::RUBYGEM_VERSION
+  spec.version = Qt6::QtGui::QTGUI_RUBYGEM_VERSION
   spec.authors = ["John Doe"]
   spec.email = ["johndoe@example.com"]
 

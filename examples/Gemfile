@@ -1,8 +1,0 @@
-# frozen_string_literal: true
-
-source "https://rubygems.org"
-
-# ruby-qt6
-%w[qtcore qtgui qtwidgets qtqml qtquick].each do |lib|
-  gem "ruby-qt6-#{lib}", path: "../#{lib}"
-end

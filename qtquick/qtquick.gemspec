@@ -4,7 +4,7 @@ require_relative "lib/qt6/qtquick/version"
 
 Gem::Specification.new do |spec|
   spec.name = "ruby-qt6-qtquick"
-  spec.version = Qt6::QtQuick::RUBYGEM_VERSION
+  spec.version = Qt6::QtQuick::QTQUICK_RUBYGEM_VERSION
   spec.authors = ["John Doe"]
   spec.email = ["johndoe@example.com"]
 

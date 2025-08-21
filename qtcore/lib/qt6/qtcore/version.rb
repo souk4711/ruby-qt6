@@ -2,6 +2,6 @@
 
 module Qt6
   module QtCore
-    RUBYGEM_VERSION = "0.1.0"
+    QTCORE_RUBYGEM_VERSION = "0.1.0"
   end
 end

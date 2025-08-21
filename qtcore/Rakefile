@@ -20,8 +20,5 @@ task :cformat do
   sh "clang-format -i -style=file --verbose ext/qt6/qtcore/*{hpp,cpp}"
 end
 
-task :default do
-  system("rake --tasks")
-end
-
 task build: :compile
+task default: %i[clobber compile]

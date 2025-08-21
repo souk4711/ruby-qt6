@@ -5,5 +5,5 @@ using namespace Rice;
 
 void Init_qtqmlversion(Rice::Module rb_mQt6QtQml)
 {
-    rb_mQt6QtQml.define_constant("VERSION", QTQML_VERSION_STR);
+    rb_mQt6QtQml.define_constant("QTQML_VERSION", QTQML_VERSION_STR);
 }

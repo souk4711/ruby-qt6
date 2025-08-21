@@ -2,6 +2,6 @@
 
 module Qt6
   module QtQuick
-    RUBYGEM_VERSION = "0.1.0"
+    QTQUICK_RUBYGEM_VERSION = "0.1.0"
   end
 end

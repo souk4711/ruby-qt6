@@ -2,6 +2,6 @@
 
 module Qt6
   module QtQml
-    RUBYGEM_VERSION = "0.1.0"
+    QTQML_RUBYGEM_VERSION = "0.1.0"
   end
 end
