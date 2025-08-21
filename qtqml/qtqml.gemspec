@@ -4,16 +4,14 @@ require_relative "lib/qt6/qtqml/version"
 
 Gem::Specification.new do |spec|
   spec.name = "ruby-qt6-qtqml"
-  spec.version = Qt6::QtQml::VERSION
+  spec.version = Qt6::QtQml::RUBYGEM_VERSION
   spec.authors = ["John Doe"]
   spec.email = ["johndoe@example.com"]
 
-  spec.summary = "TODO: Write a short summary, because RubyGems requires one."
-  spec.description = "TODO: Write a longer description or delete this line."
+  spec.summary = "Ruby Bindings for libQ6tQml"
+  spec.description = "Ruby Bindings for libQ6tQml"
   spec.homepage = "https://github.com/souk4711/ruby-qt6/qtqml"
   spec.required_ruby_version = ">= 3.1.0"
-
-  spec.metadata["allowed_push_host"] = "TODO: Set to your gem server 'https://example.com'"
 
   spec.metadata["homepage_uri"] = spec.homepage
   spec.metadata["source_code_uri"] = "https://github.com/souk4711/ruby-qt6/qtqml"

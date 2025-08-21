@@ -2,6 +2,6 @@
 
 module Qt6
   module QtGui
-    VERSION = "0.1.0"
+    RUBYGEM_VERSION = "0.1.0"
   end
 end

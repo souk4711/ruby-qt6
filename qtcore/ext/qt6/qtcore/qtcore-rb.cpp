@@ -1,13 +1,15 @@
 #include "qtcore-rb.hpp"
 
+// clang-format off
 #include "qt-rb.hpp"
+#include "qtcoreversion-rb.hpp"
 
 #include "qstring-rb.hpp"
 #include "qurl-rb.hpp"
 
 #include "qobject-rb.hpp"
-
 #include "qcoreapplication-rb.hpp"
+// clang-format on
 
 extern "C" void Init_qtcore()
 {
@@ -16,12 +18,12 @@ extern "C" void Init_qtcore()
         Rice::Module rb_mQt6QtCore = define_module_under(rb_mQt6, "QtCore");
 
         Init_qt(rb_mQt6QtCore);
+        Init_qtcoreversion(rb_mQt6QtCore);
 
         Init_qstring(rb_mQt6QtCore);
         Init_qurl(rb_mQt6QtCore);
 
         Init_qobject(rb_mQt6QtCore);
-
         Init_qcoreapplication(rb_mQt6QtCore);
     });
 }

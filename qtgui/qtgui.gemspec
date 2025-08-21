@@ -4,16 +4,14 @@ require_relative "lib/qt6/qtgui/version"
 
 Gem::Specification.new do |spec|
   spec.name = "ruby-qt6-qtgui"
-  spec.version = Qt6::QtGui::VERSION
+  spec.version = Qt6::QtGui::RUBYGEM_VERSION
   spec.authors = ["John Doe"]
   spec.email = ["johndoe@example.com"]
 
-  spec.summary = "TODO: Write a short summary, because RubyGems requires one."
-  spec.description = "TODO: Write a longer description or delete this line."
+  spec.summary = "Ruby Bindings for libQt6Gui"
+  spec.description = "Ruby Bindings for libQt6Gui"
   spec.homepage = "https://github.com/souk4711/ruby-qt6/qtgui"
   spec.required_ruby_version = ">= 3.1.0"
-
-  spec.metadata["allowed_push_host"] = "TODO: Set to your gem server 'https://example.com'"
 
   spec.metadata["homepage_uri"] = spec.homepage
   spec.metadata["source_code_uri"] = "https://github.com/souk4711/ruby-qt6/qtgui"
