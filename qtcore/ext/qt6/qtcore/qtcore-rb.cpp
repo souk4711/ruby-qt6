@@ -6,6 +6,7 @@
 
 #include "qstring-rb.hpp"
 #include "qurl-rb.hpp"
+#include "qvariant-rb.hpp"
 
 #include "qobject-rb.hpp"
 #include "qcoreapplication-rb.hpp"
@@ -22,6 +23,7 @@ extern "C" void Init_qtcore()
 
         Init_qstring(rb_mQt6QtCore);
         Init_qurl(rb_mQt6QtCore);
+        Init_qvariant(rb_mQt6QtCore);
 
         Init_qobject(rb_mQt6QtCore);
         Init_qcoreapplication(rb_mQt6QtCore);

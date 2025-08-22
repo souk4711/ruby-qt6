@@ -2,10 +2,10 @@
 
 require 'qt6/qtquick'
 
-include Qt6::QtCore
-include Qt6::QtGui
-include Qt6::QtQml
-include Qt6::QtQuick
+include RubyQt6::QtCore
+include RubyQt6::QtGui
+include RubyQt6::QtQml
+include RubyQt6::QtQuick
 
 class PieChart < QQuickPaintedItem
   def initialize(parent=None)
