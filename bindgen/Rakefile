@@ -27,13 +27,26 @@ namespace :bindgen do
       FileUtils.mkdir_p("qt6rice")
       FileUtils.rm_rf("qt6rice/#{lib}")
       bindgen(extension: lib)
-      system("clang-format -i -style=file --verbose qt6rice/#{lib}/*{hpp,cpp}")
+      sh("clang-format -i -style=file --verbose qt6rice/#{lib}/*{hpp,cpp}")
     end
   end
 
   desc "Generate Rice bindings for libQt6"
-  task "all" do
-    qt6libs.each { |lib| bindgen(extension: lib) }
+  task :all do
+    qt6libs.each { |lib| system("rake bindgen:#{lib.downcase}") }
+  end
+end
+
+desc "Generate Rice bindings for qclass"
+task :ext, [:qclass] do |_, args|
+  name = args.qclass
+  Dir["qt6rice/*/#{name.downcase}-rb.*"].each do |file|
+    m = file.match("/(Qt.*)/(.*)")
+    submod = m[1]
+    copied = "../#{submod.downcase}/ext/qt6/#{submod.downcase}/#{m[2]}"
+    sh("cp #{file} #{copied}")
+    sh("sed -i 's/Init_#{name.downcase}(/Init_#{name.downcase}(Rice::Module rb_mQt6#{submod}/' #{copied}")
+    sh("sed -i 's/define_class<#{name}\\(.*\\)>(/define_class_under<#{name}\\1>(rb_mQt6#{submod}, /' #{copied}")
   end
 end
 
