@@ -4,6 +4,7 @@
 #include "qt-rb.hpp"
 #include "qtcoreversion-rb.hpp"
 
+#include "qanystringview-rb.hpp"
 #include "qstring-rb.hpp"
 #include "qurl-rb.hpp"
 #include "qvariant-rb.hpp"
@@ -21,6 +22,7 @@ extern "C" void Init_qtcore()
         Init_qt(rb_mQt6QtCore);
         Init_qtcoreversion(rb_mQt6QtCore);
 
+        Init_qanystringview(rb_mQt6QtCore);
         Init_qstring(rb_mQt6QtCore);
         Init_qurl(rb_mQt6QtCore);
         Init_qvariant(rb_mQt6QtCore);
