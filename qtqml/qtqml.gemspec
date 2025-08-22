@@ -4,7 +4,7 @@ require_relative "lib/qt6/qtqml/version"
 
 Gem::Specification.new do |spec|
   spec.name = "ruby-qt6-qtqml"
-  spec.version = Qt6::QtQml::QTQML_RUBYGEM_VERSION
+  spec.version = RubyQt6::QtQml::QTQML_RUBYGEM_VERSION
   spec.authors = ["John Doe"]
   spec.email = ["johndoe@example.com"]
 

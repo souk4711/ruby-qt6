@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Qt6
+module RubyQt6
   module QtGui
     class QGuiApplication
       %w[exec].each do |name|

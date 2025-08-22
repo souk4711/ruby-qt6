@@ -8,6 +8,6 @@ Rice::Class rb_cQJSEngine;
 void Init_qjsengine(Rice::Module rb_mQt6QtQml)
 {
     rb_cQJSEngine =
-        // Qt6::QtQml::QJSEngine
+        // RubyQt6::QtQml::QJSEngine
         define_class_under<QJSEngine, QObject>(rb_mQt6QtQml, "QJSEngine");
 }

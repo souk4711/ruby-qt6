@@ -8,7 +8,7 @@ Rice::Class rb_cQWindow;
 void Init_qwindow(Rice::Module rb_mQt6QtGui)
 {
     rb_cQWindow =
-        // Qt6::QtGui::QWindow
+        // RubyQt6::QtGui::QWindow
         define_class_under<QWindow, QObject>(rb_mQt6QtGui, "QWindow")
             .define_method("show", &QWindow::show)
             .define_method("show_normal", &QWindow::showNormal)
