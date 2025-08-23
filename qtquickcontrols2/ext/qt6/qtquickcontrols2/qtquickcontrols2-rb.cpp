@@ -2,6 +2,8 @@
 
 // clang-format off
 #include "qtquickcontrols2version-rb.hpp"
+
+#include "qquickstyle-rb.hpp"
 // clang-format on
 
 extern "C" void Init_qtquickcontrols2()
@@ -11,5 +13,7 @@ extern "C" void Init_qtquickcontrols2()
         Rice::Module rb_mQt6QtQuickControls2 = define_module_under(rb_mQt6, "QtQuickControls2");
 
         Init_qtquickcontrols2version(rb_mQt6QtQuickControls2);
+
+        Init_qquickstyle(rb_mQt6QtQuickControls2);
     });
 }

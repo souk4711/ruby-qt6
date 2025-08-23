@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "qt6/qtquick"
+require "qt6/qtquickcontrols2"
 
 include(*RubyQt6.qt_modules)
 
@@ -37,8 +38,8 @@ class Bridge < QObject
 end
 
 app = QGuiApplication.new
-QQuickStyle.setStyle("Material")
-engine = QQmlApplicationEngine()
-engine.add_mport_path(".")
+QQuickStyle.style = "Material"
+engine = QQmlApplicationEngine
+engine.add_import_path(".")
 engine.load_from_module("QmlIntegration", "Main")
 app.exec
