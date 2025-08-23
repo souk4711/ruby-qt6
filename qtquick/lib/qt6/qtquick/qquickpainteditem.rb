@@ -1,5 +1,6 @@
 module RubyQt6
   module QtQuick
+    # @see https://doc.qt.io/qt-6/qquickpainteditem.html
     class QQuickPaintedItem < RubyQt6::QtQuick::QQuickItem
     end
   end

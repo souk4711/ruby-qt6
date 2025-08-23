@@ -14,6 +14,5 @@ void Init_qquickview(Rice::Module rb_mQt6QtQuick)
         define_class_under<QQuickView, QQuickWindow>(rb_mQt6QtQuick, "QQuickView")
             .define_constructor(Constructor<QQuickView, QWindow *>(), Arg("parent") = static_cast<QWindow *>(nullptr))
             .define_method("engine", &QQuickView::engine)
-            .define_method("load_from_module", &QQuickView::loadFromModule, Arg("uri"), Arg("type_name"))
-            .define_method("set_source", &QQuickView::setSource, Arg("url"));
+            .define_method("_load_from_module", &QQuickView::loadFromModule, Arg("uri"), Arg("type_name"));
 }
