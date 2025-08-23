@@ -6,7 +6,7 @@ include RubyQt6::QtQuick
 
 app = QGuiApplication.new
 view = QQuickView.new
-view.engine.add_import_path(QString.new("."))
-view.load_from_module(QString.new("App"), QString.new("Main"))
+view.engine.add_import_path(".")
+view.load_from_module("App", "Main")
 view.show
 app.exec
