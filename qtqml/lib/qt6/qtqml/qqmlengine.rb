@@ -18,7 +18,7 @@ module RubyQt6
       #
       # The newly added path will be first in the importPathList().
       def add_import_path(path)
-        _add_import_path(QString.new(path))
+        _add_import_path(QtCore::QString.new(path))
       end
     end
   end

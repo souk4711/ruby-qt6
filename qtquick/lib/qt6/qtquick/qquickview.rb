@@ -29,8 +29,8 @@ module RubyQt6
       # result in the QML component being reinstantiated.
       def load_from_module(uri, type_name)
         _load_from_module(
-          QAnyStringView.new(uri),
-          QAnyStringView.new(type_name)
+          QtCore::QAnyStringView.new(uri),
+          QtCore::QAnyStringView.new(type_name)
         )
       end
     end

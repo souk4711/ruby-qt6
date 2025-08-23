@@ -15,7 +15,7 @@ module RubyQt6
         #
         # Sets the application style to style.
         def style=(style)
-          self._style = QString.new(style)
+          self._style = QtCore::QString.new(style)
         end
 
         # @param style [QString]
@@ -23,7 +23,7 @@ module RubyQt6
         #
         # Sets the application fallback style to style.
         def fallback_style=(style)
-          self._fallback_style = QString.new(style)
+          self._fallback_style = QtCore::QString.new(style)
         end
       end
     end
