@@ -1,8 +1,8 @@
+# frozen_string_literal: true
+
 require "qt6/qtquick"
 
-include RubyQt6::QtCore
-include RubyQt6::QtGui
-include RubyQt6::QtQuick
+include(*RubyQt6.qt_modules)
 
 app = QGuiApplication.new
 view = QQuickView.new
