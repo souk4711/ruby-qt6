@@ -3,6 +3,12 @@
 require "qt6/qtcore"
 
 require_relative "qtgui/qtgui"
+require_relative "qtgui/qtguiversion"
 
+require_relative "qtgui/qcolor"
+require_relative "qtgui/qpen"
+
+require_relative "qtgui/qwindow"
 require_relative "qtgui/qguiapplication"
+
 require_relative "qtgui/version"
