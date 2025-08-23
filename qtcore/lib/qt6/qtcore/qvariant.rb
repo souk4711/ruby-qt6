@@ -2,6 +2,7 @@
 
 module RubyQt6
   module QtCore
+    # @see https://doc.qt.io/qt-6/qvariant.html
     class QVariant
     end
   end
