@@ -48,6 +48,8 @@ module RubyQt6
       #   Hides the window.
       #
       #   Equivalent to calling setVisible(false).
+
+      _ = "yardoc"
     end
   end
 end
