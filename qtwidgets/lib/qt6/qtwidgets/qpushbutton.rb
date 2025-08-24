@@ -2,8 +2,8 @@
 
 module RubyQt6
   module QtWidgets
-    # @see https://doc.qt.io/qt-6/qlabel.html
-    class QLabel < RubyQt6::QtWidgets::QFrame
+    # @see https://doc.qt.io/qt-6/qpushbutton.html
+    class QPushButton < RubyQt6::QtWidgets::QAbstractButton
       # @!method initialize(text = "", parent = nil)
       #   @param str [QString]
       #   @param parent [QWidget]
