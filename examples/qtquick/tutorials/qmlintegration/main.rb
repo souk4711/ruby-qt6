@@ -5,6 +5,9 @@ require "qt6/qtquickcontrols2"
 
 include(*RubyQt6.qt_modules)
 
+QML_IMPORT_NAME = "io.qt.textproperties"
+QML_IMPORT_MAJOR_VERSION = 1
+
 class Bridge < QObject
   def getColor(s)
     case s.lower
@@ -39,7 +42,7 @@ end
 
 app = QGuiApplication.new
 QQuickStyle.style = "Material"
-engine = QQmlApplicationEngine
+engine = QQmlApplicationEngine.new
 engine.add_import_path(".")
 engine.load_from_module("QmlIntegration", "Main")
 app.exec
