@@ -12,7 +12,8 @@ module RubyQt6
       #
       # @!visibility private
       def self.new(str = "")
-        str.is_a?(QString) ? str : super
+        return str if str.is_a?(QString)
+        allocate.tap { |o| o.__send__(:initialize, str) }
       end
     end
   end

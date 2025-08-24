@@ -12,7 +12,8 @@ module RubyQt6
       #
       # @!visibility private
       def self.new(str = "")
-        str.is_a?(QAnyStringView) ? str : super(QString.new(str))
+        return str if str.is_a?(QAnyStringView)
+        allocate.tap { |o| o.__send__(:initialize, QString.new(str)) }
       end
     end
   end
