@@ -16,12 +16,13 @@ module RubyQt6
       #   (including pixmaps, bitmaps etc.).
       #
       # @!visibility private
-      def self.new
-        super
+      alias_method :_initialize, :initialize
+      def initialize
+        _initialize
       end
 
       # @!method exec
-      #   @return [Number]
+      #   @return [Integer]
       #
       #   Enters the main event loop and waits until exit() is called, and then
       #   returns the value that was set to exit() (which is 0 if exit() is
