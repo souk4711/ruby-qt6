@@ -4,13 +4,13 @@ require "qt6/qtwidgets"
 
 include(*RubyQt6.qt_modules)
 
-# @Slot()
+@Slot
 def say_hello
  print("Button clicked, Hello!")
 end
 
 app = QApplication.new
 button = QPushButton.new("Click me")
-# button.clicked.connect(say_hello)
+button.clicked.connect(:say_hello)
 button.show
 app.exec
