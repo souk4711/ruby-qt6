@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
-require "qt6/qtquick"
-require "qt6/qtquickcontrols2"
+require "qt6"
 
 include(*RubyQt6.qt_modules)
 

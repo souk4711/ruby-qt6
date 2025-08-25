@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "qt6/qtwidgets"
+require "qt6"
 
 include(*RubyQt6.qt_modules)
 
