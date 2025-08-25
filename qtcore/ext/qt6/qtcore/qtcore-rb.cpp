@@ -11,6 +11,7 @@
 
 #include "qobject-rb.hpp"
 #include "qmetaobject-rb.hpp"
+#include "qmetamethod-rb.hpp"
 #include "qcoreapplication-rb.hpp"
 // clang-format on
 
@@ -30,6 +31,7 @@ extern "C" void Init_qtcore()
 
         Init_qobject(rb_mQt6QtCore);
         Init_qmetaobject(rb_mQt6QtCore);
+        Init_qmetamethod(rb_mQt6QtCore);
         Init_qcoreapplication(rb_mQt6QtCore);
     });
 }
