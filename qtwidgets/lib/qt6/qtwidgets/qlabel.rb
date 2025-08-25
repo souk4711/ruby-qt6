@@ -5,7 +5,7 @@ module RubyQt6
     # @see https://doc.qt.io/qt-6/qlabel.html
     class QLabel < RubyQt6::QtWidgets::QFrame
       # @!method initialize(text = "", parent = nil)
-      #   @param str [QString]
+      #   @param text [QString]
       #   @param parent [QWidget]
       #   @return [QLabel]
       #

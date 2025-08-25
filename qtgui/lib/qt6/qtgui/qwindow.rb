@@ -49,7 +49,9 @@ module RubyQt6
       #
       #   Equivalent to calling setVisible(false).
 
-      _ = "yardoc"
+      # @!visibility private
+      def _yardoc
+      end
     end
   end
 end

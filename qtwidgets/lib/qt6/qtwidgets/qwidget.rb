@@ -49,7 +49,34 @@ module RubyQt6
       #
       #   Hides the widget. This function is equivalent to setVisible(false).
 
-      _ = "yardoc"
+      # @!method size
+      #   @return [QSize]
+      #
+      #   This property holds the size of the widget excluding any window frame
+      #
+      #   If the widget is visible when it is being resized, it receives a resize
+      #   event (resizeEvent()) immediately. If the widget is not currently
+      #   visible, it is guaranteed to receive an event before it is shown.
+      #
+      #   The size is adjusted if it lies outside the range defined by
+      #   minimumSize() and maximumSize().
+      #
+      #   By default, this property contains a value that depends on the user's
+      #   platform and screen geomet
+
+      # @!method resize(..)
+      #   @return [nil]
+      #   @overload rezie(w, h)
+      #     @param w [Integer]
+      #     @param h [Integer]
+      #   @overload rezie(size)
+      #     @param size [QSize]
+      #
+      #   Sets the widget size.
+
+      # @!visibility private
+      def _yardoc
+      end
     end
   end
 end

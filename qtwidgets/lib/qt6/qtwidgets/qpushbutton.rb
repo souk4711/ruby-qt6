@@ -5,7 +5,7 @@ module RubyQt6
     # @see https://doc.qt.io/qt-6/qpushbutton.html
     class QPushButton < RubyQt6::QtWidgets::QAbstractButton
       # @!method initialize(text = "", parent = nil)
-      #   @param str [QString]
+      #   @param text [QString]
       #   @param parent [QWidget]
       #   @return [QLabel]
       #
