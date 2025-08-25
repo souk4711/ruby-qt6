@@ -10,6 +10,7 @@
 #include "qvariant-rb.hpp"
 
 #include "qobject-rb.hpp"
+#include "qmetaobject-rb.hpp"
 #include "qcoreapplication-rb.hpp"
 // clang-format on
 
@@ -28,6 +29,7 @@ extern "C" void Init_qtcore()
         Init_qvariant(rb_mQt6QtCore);
 
         Init_qobject(rb_mQt6QtCore);
+        Init_qmetaobject(rb_mQt6QtCore);
         Init_qcoreapplication(rb_mQt6QtCore);
     });
 }
