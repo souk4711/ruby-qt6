@@ -10,7 +10,7 @@ namespace :bindgen do
     clang_args << "-I./qt6include"
     clang_args << "-I./qt6include/#{extension}"
     clang_args << "-xc++"
-    inputter = RubyBindgen::Inputter.new("qt6include/#{extension}", "q[a-z]*.h", ["*defs.h", "*impl.h", "*helpers.h"])
+    inputter = RubyBindgen::Inputter.new("qt6include/#{extension}", "q[a-z]*.h", ["*impl.h", "*helpers.h"])
     outputter = RubyBindgen::Outputter.new("qt6rice/#{extension}")
     parser = RubyBindgen::Parser.new(inputter, clang_args)
     format = RubyBindgen::Visitors::Rice.new(extension.downcase, outputter)
