@@ -10,7 +10,7 @@ namespace :bindgen do
     clang_args << "-I./qt6include"
     clang_args << "-I./qt6include/#{extension}"
     clang_args << "-xc++"
-    inputter = RubyBindgen::Inputter.new("qt6include/#{extension}", "q[a-z]*.h", ["*impl.h", "*helpers.h"])
+    inputter = RubyBindgen::Inputter.new("qt6include/#{extension}", "q[a-z]*.h", ["*impl.h", "*helpers.h", "qwindowdefs.h"])
     outputter = RubyBindgen::Outputter.new("qt6rice/#{extension}")
     parser = RubyBindgen::Parser.new(inputter, clang_args)
     format = RubyBindgen::Visitors::Rice.new(extension.downcase, outputter)
@@ -71,7 +71,7 @@ task :upinc do
 
   FileUtils.rm_rf("qt6include")
   upinc(pkg: "qt6-base-6.9.1-5")
-  upinc(pkg: "qt6-declarative-6.9.1-2")
+  upinc(pkg: "qt6-declarative-6.9.1-3")
 end
 
 task :default do
