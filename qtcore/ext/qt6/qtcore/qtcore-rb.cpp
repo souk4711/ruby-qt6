@@ -6,6 +6,10 @@
 
 #include "qanystringview-rb.hpp"
 #include "qstring-rb.hpp"
+#include "qmargins-rb.hpp"
+#include "qpoint-rb.hpp"
+#include "qrect-rb.hpp"
+#include "qsize-rb.hpp"
 #include "qurl-rb.hpp"
 #include "qvariant-rb.hpp"
 
@@ -26,6 +30,10 @@ extern "C" void Init_qtcore()
 
         Init_qanystringview(rb_mQt6QtCore);
         Init_qstring(rb_mQt6QtCore);
+        Init_qmargins(rb_mQt6QtCore);
+        Init_qpoint(rb_mQt6QtCore);
+        Init_qrect(rb_mQt6QtCore);
+        Init_qsize(rb_mQt6QtCore);
         Init_qurl(rb_mQt6QtCore);
         Init_qvariant(rb_mQt6QtCore);
 
