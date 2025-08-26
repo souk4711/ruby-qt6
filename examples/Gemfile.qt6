@@ -9,3 +9,6 @@ end
 
 # ruby-qt6
 gem "ruby-qt6", path: "../qt"
+
+# lsp
+gem "solargraph"
