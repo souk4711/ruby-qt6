@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # @!visibility private
 module ::Kernel
   def rubyqt6_include_constants(mod, enum)

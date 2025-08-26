@@ -4,6 +4,9 @@ module RubyQt6
   module QtCore
     # @see https://doc.qt.io/qt-6/qstring.html
     class QString
+      # @!visibility private
+      alias_method :_initialize, :initialize
+
       class << self
         # @!visibility private
         def new(str = "")
@@ -12,14 +15,12 @@ module RubyQt6
         end
       end
 
-      # @!method initialize(str = "")
-      #   @param str [String]
-      #   @return [QString]
+      # @param str [String]
+      # @return [QString]
       #
-      #   Constructs a string on str.
-
-      # @!visibility private
-      def _yardoc
+      # Constructs a string on str.
+      def initialize(str = "")
+        _initialize(str)
       end
     end
   end

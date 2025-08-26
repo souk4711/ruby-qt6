@@ -17,7 +17,6 @@ module RubyQt6
         #
         # You must use the SIGNAL() and SLOT() macros when specifying the signal
         # and the method.
-        # ```
         def connect(sender, signal, receiver, slot)
           _connect(sender, signal, receiver, slot)
         end
