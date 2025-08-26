@@ -5,17 +5,19 @@ module RubyQt6
     # @see https://doc.qt.io/qt-6/qquickstyle.html
     class QQuickStyle
       class << self
-        # @!method name
-        #   @return [QString]
+        # @return [QString]
         #
-        #   Returns the name of the application style.
+        # Returns the name of the application style.
+        def name
+          _name
+        end
 
         # @param style [QString]
         # @return [nil]
         #
         # Sets the application style.
         def style=(style)
-          self._style = QtCore::QString.new(style)
+          _set_style(QtCore::QString.new(style))
         end
 
         # @param style [QString]
@@ -23,7 +25,7 @@ module RubyQt6
         #
         # Sets the application fallback style.
         def fallback_style=(style)
-          self._fallback_style = QtCore::QString.new(style)
+          _set_fallback_style(QtCore::QString.new(style))
         end
       end
     end
