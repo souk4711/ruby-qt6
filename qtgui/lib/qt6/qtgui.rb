@@ -9,8 +9,12 @@ require_relative "qtgui/qcolor"
 require_relative "qtgui/qfont"
 require_relative "qtgui/qfontinfo"
 require_relative "qtgui/qicon"
-require_relative "qtgui/qimage"
 require_relative "qtgui/qpen"
+
+require_relative "qtgui/qpaintdevice"
+require_relative "qtgui/qimage"
+require_relative "qtgui/qpicture"
+require_relative "qtgui/qpixmap"
 
 require_relative "qtgui/qwindow"
 require_relative "qtgui/qguiapplication"
