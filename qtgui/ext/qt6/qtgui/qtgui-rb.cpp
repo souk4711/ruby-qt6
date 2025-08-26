@@ -4,6 +4,10 @@
 #include "qtguiversion-rb.hpp"
 
 #include "qcolor-rb.hpp"
+#include "qfont-rb.hpp"
+#include "qfontinfo-rb.hpp"
+#include "qicon-rb.hpp"
+#include "qimage-rb.hpp"
 #include "qpen-rb.hpp"
 
 #include "qwindow-rb.hpp"
@@ -19,6 +23,10 @@ extern "C" void Init_qtgui()
         Init_qtguiversion(rb_mQt6QtGui);
 
         Init_qcolor(rb_mQt6QtGui);
+        Init_qfont(rb_mQt6QtGui);
+        Init_qfontinfo(rb_mQt6QtGui);
+        Init_qicon(rb_mQt6QtGui);
+        Init_qimage(rb_mQt6QtGui);
         Init_qpen(rb_mQt6QtGui);
 
         Init_qwindow(rb_mQt6QtGui);
