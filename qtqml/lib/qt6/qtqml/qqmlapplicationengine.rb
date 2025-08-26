@@ -8,8 +8,8 @@ module RubyQt6
       #   @param parent [QObject]
       #   @return [QQmlApplicationEngine]
       #
-      # Create a new QQmlApplicationEngine with the given parent. You will
-      # have to call load() later in order to load a QML file.
+      #   Create a new QQmlApplicationEngine with the given parent. You will
+      #   have to call load() later in order to load a QML file.
 
       # @param uri [QString]
       # @param type_name [QString]
