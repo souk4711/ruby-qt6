@@ -10,7 +10,8 @@ void Init_qrect(Rice::Module rb_mQt6QtCore)
 {
     rb_cQRect =
         // RubyQt6::QtCore::QRect
-        define_class_under<QRect>(rb_mQt6QtCore, "QRect");
+        define_class_under<QRect>(rb_mQt6QtCore, "QRect")
+            .define_constructor(Constructor<QRect, int, int, int, int>(), Arg("x"), Arg("y"), Arg("width"), Arg("height"));
 
     rb_cQRectF =
         // RubyQt6::QtCore::QRectF
