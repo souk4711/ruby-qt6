@@ -18,5 +18,7 @@ void Init_qwidget(Rice::Module rb_mQt6QtWidgets)
             .define_method("hide", &QWidget::hide)
             .define_method("size", &QWidget::size)
             .define_method<void (QWidget::*)(int, int)>("resize", &QWidget::resize, Arg("width"), Arg("height"))
-            .define_method<void (QWidget::*)(const QSize &)>("resize", &QWidget::resize, Arg("size"));
+            .define_method<void (QWidget::*)(const QSize &)>("resize", &QWidget::resize, Arg("size"))
+            .define_method("font", &QWidget::font)
+            .define_method("font=", &QWidget::setFont, Arg("font"));
 }
