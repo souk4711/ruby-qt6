@@ -66,9 +66,9 @@ module RubyQt6
 
       # @!method resize(..)
       #   @return [nil]
-      #   @overload rezie(w, h)
-      #     @param w [Integer]
-      #     @param h [Integer]
+      #   @overload rezie(width, height)
+      #     @param width [Integer]
+      #     @param height [Integer]
       #   @overload rezie(size)
       #     @param size [QSize]
       #
