@@ -4,16 +4,23 @@ module RubyQt6
   module QtQuick
     # @see https://doc.qt.io/qt-6/qquickview.html
     class QQuickView < RubyQt6::QtQuick::QQuickWindow
-      # @!method initialize(parent = nil)
-      #   @param parent [QWindow]
-      #   @return [QQuickWindow]
-      #
-      #   Constructs a QQuickView with the given parent.
+      # @!visibility private
+      alias_method :_initialize, :initialize
 
-      # @!method engine
-      #   @return [QQmlEngine]
+      # @param parent [QWindow]
+      # @return [QQuickWindow]
       #
-      #   Returns the QQmlEngine used for instantiating QML Components.
+      # Constructs a QQuickView with the given parent.
+      def initialize(parent = nil)
+        _initialize(parent)
+      end
+
+      # @return [QQmlEngine]
+      #
+      # Returns the QQmlEngine used for instantiating QML Components.
+      def engine
+        _engine
+      end
 
       # @param uri [QString]
       # @param type_name [QString]
