@@ -4,12 +4,17 @@ module RubyQt6
   module QtQml
     # @see https://doc.qt.io/qt-6/qqmlapplicationengine.html
     class QQmlApplicationEngine < RubyQt6::QtQml::QQmlEngine
-      # @!method initialize(parent = nil)
-      #   @param parent [QObject]
-      #   @return [QQmlApplicationEngine]
+      # @!visibility private
+      alias_method :_initialize, :initialize
+
+      # @param parent [QObject]
+      # @return [QQmlApplicationEngine]
       #
-      #   Create a new QQmlApplicationEngine with the given parent. You will
-      #   have to call load() later in order to load a QML file.
+      # Create a new QQmlApplicationEngine with the given parent. You will
+      # have to call load() later in order to load a QML file.
+      def initialize(parent = nil)
+        _initialize(parent)
+      end
 
       # @param uri [QString]
       # @param type_name [QString]
