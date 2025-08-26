@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
-require 'qt6'
-
-include(*RubyQt6.qt_modules)
+require 'qt6/all'
 
 app = QGuiApplication.new
 view = QQuickView.new

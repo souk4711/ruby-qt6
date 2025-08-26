@@ -14,5 +14,3 @@ module RubyQt6
     end
   end
 end
-
-::Kernel.include(RubyQt6::QtCore::QtMetaMacro)
