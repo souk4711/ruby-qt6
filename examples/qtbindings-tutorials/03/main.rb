@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'qt6/all'
 
 app = QApplication.new
@@ -12,6 +14,3 @@ QObject.connect(quit, SIGNAL('clicked()'), app, SLOT('quit()'))
 
 window.show
 app.exec
-
-# FIXME: QPushButton double free ?
-quit._set_parent(nil)

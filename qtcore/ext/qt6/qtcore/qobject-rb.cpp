@@ -12,6 +12,7 @@ void Init_qobject(Rice::Module rb_mQt6QtCore)
     rb_cQObject =
         // RubyQt6::QtCore::QObject
         define_class_under<QObject>(rb_mQt6QtCore, "QObject")
+            .define_singleton_function("_take_ownership_from_rice", [](QObject *) -> void {}, Arg("object").takeOwnership())
             .define_singleton_function<QMetaObject::Connection (*)(const QObject *, const char *, const QObject *, const char *, Qt::ConnectionType)>("_connect", &QObject::connect, Arg("sender"), Arg("signal"), Arg("receiver"), Arg("slot"), Arg("") = static_cast<Qt::ConnectionType>(Qt::AutoConnection))
             .define_singleton_function<bool (*)(const QMetaObject::Connection &)>("_disconnect", &QObject::disconnect, Arg("connection"))
             .define_method("_parent", &QObject::parent)

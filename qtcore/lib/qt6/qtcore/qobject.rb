@@ -33,5 +33,10 @@ module RubyQt6
         end
       end
     end
+
+    # @!visibility private
+    def _take_ownership_from_rice(object)
+      self.class._take_ownership_from_rice(object)
+    end
   end
 end

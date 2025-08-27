@@ -13,6 +13,7 @@ module RubyQt6
       # Constructs a QQuickView with the given parent.
       def initialize(parent = nil)
         _initialize(parent)
+        _take_ownership_from_rice(self) if parent
       end
 
       # @return [QQmlEngine]
