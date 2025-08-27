@@ -14,6 +14,8 @@ void Init_qobject(Rice::Module rb_mQt6QtCore)
         define_class_under<QObject>(rb_mQt6QtCore, "QObject")
             .define_singleton_function<QMetaObject::Connection (*)(const QObject *, const char *, const QObject *, const char *, Qt::ConnectionType)>("_connect", &QObject::connect, Arg("sender"), Arg("signal"), Arg("receiver"), Arg("slot"), Arg("") = static_cast<Qt::ConnectionType>(Qt::AutoConnection))
             .define_singleton_function<bool (*)(const QMetaObject::Connection &)>("_disconnect", &QObject::disconnect, Arg("connection"))
+            .define_method("_parent", &QObject::parent)
+            .define_method("_set_parent", &QObject::setParent, Arg("parent"))
             .define_method("_dump_object_info", &QObject::dumpObjectInfo)
             .define_method("_dump_object_tree", &QObject::dumpObjectTree);
 }
