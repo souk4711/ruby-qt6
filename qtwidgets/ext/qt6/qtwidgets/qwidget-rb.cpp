@@ -11,6 +11,7 @@ void Init_qwidget(Rice::Module rb_mQt6QtWidgets)
         // RubyQt6::QtWidgets::QWidget
         define_class_under<QWidget, QObject>(rb_mQt6QtWidgets, "QWidget")
             .define_constructor(Constructor<QWidget, QWidget *, Qt::WindowFlags>(), Arg("parent") = static_cast<QWidget *>(nullptr), Arg("f") = static_cast<Qt::WindowFlags>(Qt::WindowFlags()))
+            .define_method("_parent_widget", &QWidget::parentWidget)
             .define_method<void (QWidget::*)(QWidget *)>("_set_parent", &QWidget::setParent, Arg("parent"))
             .define_method("_show", &QWidget::show)
             .define_method("_show_full_screen", &QWidget::showFullScreen)
