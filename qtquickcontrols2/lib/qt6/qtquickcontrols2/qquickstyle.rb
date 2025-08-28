@@ -16,7 +16,7 @@ module RubyQt6
         # @return [nil]
         #
         # Sets the application style.
-        def style=(style)
+        def set_style(style)
           _set_style(QtCore::QString.new(style))
         end
 
@@ -24,7 +24,7 @@ module RubyQt6
         # @return [nil]
         #
         # Sets the application fallback style.
-        def fallback_style=(style)
+        def set_fallback_style(style)
           _set_fallback_style(QtCore::QString.new(style))
         end
       end
