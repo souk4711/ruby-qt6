@@ -13,8 +13,8 @@ module RubyQt6
       # @param height [Integer]
       # @return [QRect]
       #
-      # Constructs a rectangle with (x, y) as its top-left corner and the
-      # given width and height.
+      # Constructs a rectangle with (x, y) as its top-left corner and the given
+      # width and height.
       def initialize(x, y, width, height)
         _initialize(x, y, width, height)
       end

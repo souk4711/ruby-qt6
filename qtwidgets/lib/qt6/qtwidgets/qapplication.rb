@@ -9,8 +9,8 @@ module RubyQt6
 
       # @return [QApplication]
       #
-      # Initializes the window system and constructs an application object
-      # with argc command line arguments in argv.
+      # Initializes the window system and constructs an application object with
+      # argc command line arguments in argv.
       #
       # The global qApp pointer refers to this application object. Only one
       # application object should be created.

@@ -23,18 +23,18 @@ module RubyQt6
       # @param italic [Boolean]
       # @return [QFont]
       #
-      # If pointSize is zero or negative, the point size of the font is set
-      # to a system-dependent default value. Generally, this is 12 points.
+      # If pointSize is zero or negative, the point size of the font is set to
+      # a system-dependent default value. Generally, this is 12 points.
       #
       # The family name may optionally also include a foundry name, e.g.
       # "Helvetica [Cronyx]". If the family is available from more than one
-      # foundry and the foundry isn't specified, an arbitrary foundry is
-      # chosen. If the family isn't available a family will be set using
-      # the font matching algorithm.
+      # foundry and the foundry isn't specified, an arbitrary foundry is chosen.
+      # If the family isn't available a family will be set using the font
+      # matching algorithm.
       #
-      # This will split the family string on a comma and call setFamilies()
-      # with the resulting list. To preserve a font that uses a comma in
-      # its name, use the constructor that takes a QStringList.
+      # This will split the family string on a comma and call setFamilies() with
+      # the resulting list. To preserve a font that uses a comma in its name,
+      # use the constructor that takes a QStringList.
       def initialize(family, point_size = -1, weight = -1, italic = false)
         _initialize(QtCore::QString.new(family), point_size, weight, italic)
       end

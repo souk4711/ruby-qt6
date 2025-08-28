@@ -12,8 +12,8 @@ module RubyQt6
         # @return [QMetaObject::Connection]
         #
         # Creates a connection of the given type from the signal in the sender
-        # object to the method in the receiver object. Returns a handle to
-        # the connection that can be used to disconnect it later.
+        # object to the method in the receiver object. Returns a handle to the
+        # connection that can be used to disconnect it later.
         #
         # You must use the SIGNAL() and SLOT() macros when specifying the signal
         # and the method.
