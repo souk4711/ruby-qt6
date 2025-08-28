@@ -27,14 +27,15 @@ module RubyQt6
       # @param type_name [QString]
       # @return [nil]
       #
-      # Loads the QML component identified by uri and typeName. If the component
-      # is backed by a QML file, source will be set accordingly. For types
-      # defined in C++, source will be empty.
+      # Loads the QML component identified by uri and typeName. If the
+      # component is backed by a QML file, source will be set accordingly.
+      # For types defined in C++, source will be empty.
       #
-      # If any source was set before this method was called, it will be cleared.
+      # If any source was set before this method was called, it will be
+      # cleared.
       #
-      # Calling this method multiple times with the same uri and typeName will
-      # result in the QML component being reinstantiated.
+      # Calling this method multiple times with the same uri and typeName
+      # will result in the QML component being reinstantiated.
       def load_from_module(uri, type_name)
         _load_from_module(
           QtCore::QAnyStringView.new(uri),

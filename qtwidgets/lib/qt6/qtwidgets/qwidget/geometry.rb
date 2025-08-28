@@ -15,7 +15,8 @@ module RubyQt6
       # move event (moveEvent()) immediately. If the widget is not currently
       # visible, it is guaranteed to receive an event before it is shown.
       #
-      # By default, this property contains a position that refers to the origin.
+      # By default, this property contains a position that refers to the
+      # origin.
       def pos
         _pos
       end
@@ -116,10 +117,11 @@ module RubyQt6
       #
       # This property holds the widget's maximum size in pixels.
       #
-      # The widget cannot be resized to a larger size than the maximum widget size.
+      # The widget cannot be resized to a larger size than the maximum widget
+      # size.
       #
-      # By default, this property contains a size in which both width and height
-      # have values of 16777215.
+      # By default, this property contains a size in which both width and
+      # height have values of 16777215.
       def maximum_size
         _maximum_size
       end
@@ -223,7 +225,8 @@ module RubyQt6
       #
       # This property holds the recommended size for the widget.
       #
-      # If the value of this property is an invalid size, no size is recommended.
+      # If the value of this property is an invalid size, no size is
+      # recommended.
       #
       # The default implementation of sizeHint() returns an invalid size if
       # there is no layout for this widget, and returns the layout's preferred
@@ -298,7 +301,8 @@ module RubyQt6
 
       # @return [QRegion]
       #
-      # This property holds the combined region occupied by the widget's children.
+      # This property holds the combined region occupied by the widget's
+      # children.
       #
       # Hidden children are excluded.
       #
@@ -338,7 +342,7 @@ module RubyQt6
       #   @param x [Integer]
       #   @param y [Integer]
       #
-      # Sets the widget's pos.
+      # Sets the widget's pos property.
       def move(*args)
         _move(*args)
       end
@@ -350,7 +354,7 @@ module RubyQt6
       #   @param w [Integer]
       #   @param h [Integer]
       #
-      # Sets the widget's size.
+      # Sets the widget's size property.
       def resize(*args)
         _resize(*args)
       end
@@ -364,7 +368,7 @@ module RubyQt6
       #   @param w [Integer]
       #   @param h [Integer]
       #
-      # Sets the widget's geometry.
+      # Sets the widget's geometry property.
       def set_geometry(*args)
         _set_geometry(*args)
       end
@@ -376,7 +380,7 @@ module RubyQt6
       #   @param w [Integer]
       #   @param h [Integer]
       #
-      # Sets the widget's maximum size.
+      # Sets the widget's maximumSize property.
       def set_maximum_size(*args)
         _set_maximum_size(*args)
       end
@@ -384,7 +388,7 @@ module RubyQt6
       # @param w [Integer]
       # @return [nil]
       #
-      # Sets the widget's maximum width.
+      # Sets the widget's maximumWidth property.
       def set_maximum_width(w)
         _set_maximum_width(w)
       end
@@ -392,7 +396,7 @@ module RubyQt6
       # @param h [Integer]
       # @return [nil]
       #
-      # Sets the widget's maximum height.
+      # Sets the widget's maximumHeight property.
       def set_maximum_height(h)
         _set_maximum_height(h)
       end
@@ -404,7 +408,7 @@ module RubyQt6
       #   @param w [Integer]
       #   @param h [Integer]
       #
-      # Sets the widget's minimum size.
+      # Sets the widget's minimumSize property.
       def set_minimum_size(*args)
         _set_minimum_size(*args)
       end
@@ -412,7 +416,7 @@ module RubyQt6
       # @param w [Integer]
       # @return [nil]
       #
-      # Sets the widget's minimum width.
+      # Sets the widget's minimumWidth property.
       def set_minimum_width(w)
         _set_minimum_width(w)
       end
@@ -420,7 +424,7 @@ module RubyQt6
       # @param h [Integer]
       # @return [nil]
       #
-      # Sets the widget's minimum height.
+      # Sets the widget's minimumHeight property.
       def set_minimum_height(h)
         _set_minimum_height(h)
       end
@@ -448,8 +452,8 @@ module RubyQt6
       # @param w [Integer]
       # @return [nil]
       #
-      # Sets both the minimum and maximum width of the widget to w without changing
-      # the heights. Provided for convenience.
+      # Sets both the minimum and maximum width of the widget to w without
+      # changing the heights. Provided for convenience.
       def set_fixed_width(w)
         _set_fixed_width(w)
       end
@@ -457,8 +461,8 @@ module RubyQt6
       # @param h [Integer]
       # @return [nil]
       #
-      # Sets both the minimum and maximum heights of the widget to h without changing
-      # the widths. Provided for convenience.
+      # Sets both the minimum and maximum heights of the widget to h without
+      # changing the widths. Provided for convenience.
       def set_fixed_height(h)
         _set_fixed_height(h)
       end
@@ -469,9 +473,9 @@ module RubyQt6
       # Sets the layout manager for this widget to layout.
       #
       # If there already is a layout manager installed on this widget, QWidget
-      # won't let you install another. You must first delete the existing layout
-      # manager (returned by layout()) before you can call setLayout() with the
-      # new layout.
+      # won't let you install another. You must first delete the existing
+      # layout manager (returned by layout()) before you can call setLayout()
+      # with the new layout.
       #
       # If layout is the layout manager on a different widget, setLayout() will
       # reparent the layout and make it the layout manager for this widget.
@@ -500,10 +504,10 @@ module RubyQt6
       # rectangle that covers all child widgets (the union of all child widget
       # rectangles).
       #
-      # For windows, the screen size is also taken into account. If the sizeHint()
-      # is less than (200, 100) and the size policy is expanding, the window will
-      # be at least (200, 100). The maximum size of a window is 2/3 of the
-      # screen's width and height.
+      # For windows, the screen size is also taken into account. If the
+      # sizeHint() is less than (200, 100) and the size policy is expanding,
+      # the window will be at least (200, 100). The maximum size of a window
+      # is 2/3 of the screen's width and height.
       def adjust_size
         _adjust_size
       end
@@ -515,7 +519,7 @@ module RubyQt6
       #   @param horizontal [QSizePolicy::Policy]
       #   @param vertical [QSizePolicy::Policy]
       #
-      # Sets the widget's size policy.
+      # Sets the widget's sizePolicy property.
       def set_size_policy(*args)
         _set_size_policy(*args)
       end
@@ -527,7 +531,7 @@ module RubyQt6
       #   @param w [Integer]
       #   @param h [Integer]
       #
-      # Sets the widget's base size.
+      # Sets the widget's baseSize property.
       def set_base_size(*args)
         _set_base_size(*args)
       end
@@ -539,7 +543,7 @@ module RubyQt6
       #   @param w [Integer]
       #   @param h [Integer]
       #
-      # Sets the widget's base increment.
+      # Sets the widget's baseIncrement property.
       def set_size_increment(*args)
         _set_size_increment(*args)
       end

@@ -204,7 +204,7 @@ module RubyQt6
       # @param modified [Boolean]
       # @return [nil]
       #
-      # Sets the window as modified.
+      # Sets the widget's windowModified property.
       def set_window_modified(modified)
         _set_window_modified(modified)
       end
@@ -212,7 +212,7 @@ module RubyQt6
       # @param title [QString]
       # @return [nil]
       #
-      # Sets the window title.
+      # Sets the widget's windowTitle property.
       def set_window_title(title)
         _set_window_title(QtCore::QString.new(title))
       end
@@ -220,29 +220,31 @@ module RubyQt6
       # @param icon [QIcon]
       # @return [nil]
       #
-      # Sets the window icon.
+      # Sets the widget's windowIcon property.
       def set_window_icon(icon)
         _set_window_icon(icon)
       end
 
       # @return [nil]
       #
-      # Sets the top-level widget containing this widget to be the active window.
+      # Sets the top-level widget containing this widget to be the active
+      # window.
       #
-      # An active window is a visible top-level window that has the keyboard input
-      # focus.
+      # An active window is a visible top-level window that has the keyboard
+      # input focus.
       #
       # This function performs the same operation as clicking the mouse on the
-      # title bar of a top-level window. On X11, the result depends on the Window
-      # Manager. If you want to ensure that the window is stacked on top as well
-      # you should also call raise(). Note that the window must be visible,
-      # otherwise activateWindow() has no effect.
+      # title bar of a top-level window. On X11, the result depends on the
+      # Window Manager. If you want to ensure that the window is stacked on
+      # top as well you should also call raise(). Note that the window must
+      # be visible, otherwise activateWindow() has no effect.
       #
-      # On Windows, if you are calling this when the application is not currently
-      # the active one then it will not make it the active window. It will change
-      # the color of the taskbar entry to indicate that the window has changed in
-      # some way. This is because Microsoft does not allow an application to
-      # interrupt what the user is currently doing in another application.
+      # On Windows, if you are calling this when the application is not
+      # currently the active one then it will not make it the active window.
+      # It will change the color of the taskbar entry to indicate that the
+      # window has changed in some way. This is because Microsoft does not
+      # allow an application to interrupt what the user is currently doing in
+      # another application.
       def activate_window
         _activate_window
       end
@@ -259,17 +261,17 @@ module RubyQt6
       #
       # Updates the widget unless updates are disabled or the widget is hidden.
       #
-      # This function does not cause an immediate repaint; instead it schedules a
-      # paint event for processing when Qt returns to the main event loop. This
-      # permits Qt to optimize for more speed and less flicker than a call to
-      # repaint() does.
+      # This function does not cause an immediate repaint; instead it schedules
+      # a paint event for processing when Qt returns to the main event loop.
+      # This permits Qt to optimize for more speed and less flicker than a call
+      # to repaint() does.
       #
-      # Calling update() several times normally results in just one paintEvent()
-      # call.
+      # Calling update() several times normally results in just one
+      # paintEvent() call.
       #
-      # Qt normally erases the widget's area before the paintEvent() call. If the
-      # Qt::WA_OpaquePaintEvent widget attribute is set, the widget is responsible
-      # for painting all its pixels with an opaque color.
+      # Qt normally erases the widget's area before the paintEvent() call. If
+      # the Qt::WA_OpaquePaintEvent widget attribute is set, the widget is
+      # responsible for painting all its pixels with an opaque color.
       def update(*args)
         _update(*args)
       end
@@ -284,8 +286,8 @@ module RubyQt6
       #   @param w [Integer]
       #   @param h [Integer]
       #
-      # Repaints the widget directly by calling paintEvent() immediately, unless
-      # updates are disabled or the widget is hidden.
+      # Repaints the widget directly by calling paintEvent() immediately,
+      # unless updates are disabled or the widget is hidden.
       #
       # We suggest only using repaint() if you need an immediate repaint, for
       # example during animation. In most circumstances update() is better, as
@@ -306,9 +308,9 @@ module RubyQt6
       # Scrolls the widget including its children dx pixels to the right and dy
       # downward. Both dx and dy may be negative.
       #
-      # After scrolling, the widgets will receive paint events for the areas that
-      # need to be repainted. For widgets that Qt knows to be opaque, this is
-      # only the newly exposed parts. For example, if an opaque widget is
+      # After scrolling, the widgets will receive paint events for the areas
+      # that need to be repainted. For widgets that Qt knows to be opaque, this
+      # is only the newly exposed parts. For example, if an opaque widget is
       # scrolled 8 pixels to the left, only an 8-pixel wide stripe at the right
       # edge needs updating.
       #
@@ -316,8 +318,8 @@ module RubyQt6
       # need to set the autoFillBackground property, or use setAttribute() to
       # set the Qt::WA_OpaquePaintEvent attribute, to make a widget opaque.
       #
-      # For widgets that use contents propagation, a scroll will cause an update
-      # of the entire scroll area.
+      # For widgets that use contents propagation, a scroll will cause an
+      # update of the entire scroll area.
       def scroll(*args)
         _scroll(*args)
       end

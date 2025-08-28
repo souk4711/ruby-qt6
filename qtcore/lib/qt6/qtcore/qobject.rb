@@ -15,8 +15,8 @@ module RubyQt6
         # object to the method in the receiver object. Returns a handle to the
         # connection that can be used to disconnect it later.
         #
-        # You must use the SIGNAL() and SLOT() macros when specifying the signal
-        # and the method.
+        # You must use the SIGNAL() and SLOT() macros when specifying the
+        # signal and the method.
         def connect(sender, signal, receiver, slot)
           _connect(sender, signal, receiver, slot)
         end

@@ -8,8 +8,8 @@ module RubyQt6
       #
       # Returns the group that this button belongs to.
       #
-      # If the button is not a member of any QButtonGroup, this function returns
-      # nullptr.
+      # If the button is not a member of any QButtonGroup, this function
+      # returns nullptr.
       def group
         _group
       end
@@ -49,8 +49,8 @@ module RubyQt6
       #
       # This property holds the initial delay of auto-repetition.
       #
-      # If autoRepeat is enabled, then autoRepeatDelay defines the initial delay
-      # in milliseconds before auto-repetition kicks in.
+      # If autoRepeat is enabled, then autoRepeatDelay defines the initial
+      # delay in milliseconds before auto-repetition kicks in.
       def auto_repeat_delay
         _auto_repeat_delay
       end
@@ -59,8 +59,8 @@ module RubyQt6
       #
       # This property holds the interval of auto-repetition.
       #
-      # If autoRepeat is enabled, then autoRepeatInterval defines the length of
-      # the auto-repetition interval in millisecons.
+      # If autoRepeat is enabled, then autoRepeatInterval defines the length
+      # of the auto-repetition interval in millisecons.
       def auto_repeat_interval
         _auto_repeat_interval
       end
@@ -99,8 +99,8 @@ module RubyQt6
       #
       # This property holds the icon shown on the button.
       #
-      # The icon's default size is defined by the GUI style, but can be adjusted
-      # by setting the iconSize property.
+      # The icon's default size is defined by the GUI style, but can be
+      # adjusted by setting the iconSize property.
       def icon
         _icon
       end
@@ -109,8 +109,8 @@ module RubyQt6
       #
       # This property holds the icon size used for this button.
       #
-      # The default size is defined by the GUI style. This is a maximum size for
-      # the icons. Smaller icons will not be scaled up.
+      # The default size is defined by the GUI style. This is a maximum size
+      # for the icons. Smaller icons will not be scaled up.
       def icon_size
         _icon_size
       end
@@ -247,8 +247,9 @@ module RubyQt6
       #
       # Performs a click.
       #
-      # All the usual signals associated with a click are emitted as appropriate.
-      # If the button is checkable, the state of the button is toggled.
+      # All the usual signals associated with a click are emitted as
+      # appropriate. If the button is checkable, the state of the button is
+      # toggled.
       #
       # This function does nothing if the button is disabled.
       def click

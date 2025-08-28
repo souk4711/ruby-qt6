@@ -53,7 +53,7 @@ module RubyQt6
       # @param tip [QString]
       # @return [nil]
       #
-      # Sets the widget's tooltip.
+      # Sets the widget's tooltip property.
       def set_tool_tip(tip)
         _set_tool_tip(QtCore::QString.new(tip))
       end
@@ -61,7 +61,7 @@ module RubyQt6
       # @param msec [Integer]
       # @return [nil]
       #
-      # Sets the widget's tooltip duration.
+      # Sets the widget's toolTipDuration property.
       def set_tool_tip_duration(msec)
         _set_tool_tip_duration(msec)
       end
@@ -69,7 +69,7 @@ module RubyQt6
       # @param tip [QString]
       # @return [nil]
       #
-      # Sets the widget's status tip.
+      # Sets the widget's statusTip property.
       def set_status_tip(tip)
         _set_status_tip(QtCore::QString.new(tip))
       end
@@ -77,7 +77,7 @@ module RubyQt6
       # @param help [QString]
       # @return [nil]
       #
-      # Sets the widget's What's This help text.
+      # Sets the widget's whatsThis property.
       def set_whats_this(help)
         _set_whats_this(QtCore::QString.new(help))
       end
