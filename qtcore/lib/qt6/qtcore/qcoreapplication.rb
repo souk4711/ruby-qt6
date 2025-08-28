@@ -131,7 +131,7 @@ module RubyQt6
         self.class._set_application_version(version)
       end
 
-      # @param name [QString]
+      # @param domain [QString]
       # @return [nil]
       #
       # Sets the application's organizationDomain property.
