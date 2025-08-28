@@ -4,16 +4,6 @@ module RubyQt6
   module QtWidgets
     # @see https://doc.qt.io/qt-6/qabstractbutton.html
     class QAbstractButton < RubyQt6::QtWidgets::QWidget
-      # @return [QButtonGroup]
-      #
-      # Returns the group that this button belongs to.
-      #
-      # If the button is not a member of any QButtonGroup, this function
-      # returns nullptr.
-      def group
-        _group
-      end
-
       # @return [Boolean]
       #
       # This property holds whether auto-exclusivity is enabled.
@@ -226,6 +216,16 @@ module RubyQt6
       # Sets the button's text property.
       def set_text(text)
         _set_text(text)
+      end
+
+      # @return [QButtonGroup]
+      #
+      # Returns the group that this button belongs to.
+      #
+      # If the button is not a member of any QButtonGroup, this function
+      # returns nullptr.
+      def group
+        _group
       end
 
       # @return [nil]
