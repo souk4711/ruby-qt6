@@ -4,10 +4,16 @@
 #include "qtwidgetsversion-rb.hpp"
 
 #include "qwidget-rb.hpp"
-#include "qframe-rb.hpp"
-#include "qlabel-rb.hpp"
+
 #include "qabstractbutton-rb.hpp"
 #include "qpushbutton-rb.hpp"
+
+#include "qabstractslider-rb.hpp"
+#include "qslider-rb.hpp"
+
+#include "qframe-rb.hpp"
+#include "qlabel-rb.hpp"
+
 #include "qapplication-rb.hpp"
 // clang-format on
 
@@ -20,10 +26,16 @@ extern "C" void Init_qtwidgets()
         Init_qtwidgetsversion(rb_mQt6QtWidgets);
 
         Init_qwidget(rb_mQt6QtWidgets);
-        Init_qframe(rb_mQt6QtWidgets);
-        Init_qlabel(rb_mQt6QtWidgets);
+
         Init_qabstractbutton(rb_mQt6QtWidgets);
         Init_qpushbutton(rb_mQt6QtWidgets);
+
+        Init_qabstractslider(rb_mQt6QtWidgets);
+        Init_qslider(rb_mQt6QtWidgets);
+
+        Init_qframe(rb_mQt6QtWidgets);
+        Init_qlabel(rb_mQt6QtWidgets);
+
         Init_qapplication(rb_mQt6QtWidgets);
     });
 }
