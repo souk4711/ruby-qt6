@@ -13,6 +13,7 @@
 
 #include "qframe-rb.hpp"
 #include "qlabel-rb.hpp"
+#include "qlcdnumber-rb.hpp"
 
 #include "qapplication-rb.hpp"
 // clang-format on
@@ -35,6 +36,7 @@ extern "C" void Init_qtwidgets()
 
         Init_qframe(rb_mQt6QtWidgets);
         Init_qlabel(rb_mQt6QtWidgets);
+        Init_qlcdnumber(rb_mQt6QtWidgets);
 
         Init_qapplication(rb_mQt6QtWidgets);
     });
