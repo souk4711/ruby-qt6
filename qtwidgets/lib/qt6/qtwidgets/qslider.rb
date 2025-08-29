@@ -34,7 +34,7 @@ module RubyQt6
         _tick_interval
       end
 
-      # @return [QSlider::TickPosition]
+      # @return [TickPosition]
       #
       # This property holds the tickmark position for this slider
       #
@@ -53,26 +53,12 @@ module RubyQt6
         _set_tick_interval(interval)
       end
 
-      # @param position [QSlider::TickPosition]
+      # @param position [TickPosition]
       # @return [nil]
       #
       # Sets the slider's tickInterval property.
       def set_tick_position(position)
         _set_tick_position(position)
-      end
-
-      # @return [QSize]
-      #
-      # Reimplements an access function for property: QWidget::sizeHint.
-      def size_hint
-        _size_hint
-      end
-
-      # @return [QSize]
-      #
-      # Reimplements an access function for property: QWidget::minimumSizeHint.
-      def minimum_size_hint
-        _minimum_size_hint
       end
     end
   end

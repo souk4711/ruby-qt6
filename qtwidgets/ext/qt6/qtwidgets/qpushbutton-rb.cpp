@@ -16,12 +16,10 @@ void Init_qpushbutton(Rice::Module rb_mQt6QtWidgets)
             .define_method("_auto_default?", &QPushButton::autoDefault)
             .define_method("_default?", &QPushButton::isDefault)
             .define_method("_flat?", &QPushButton::isFlat)
-            .define_method("_set_auto_default", &QPushButton::setAutoDefault, Arg("b"))
-            .define_method("_set_default", &QPushButton::setDefault, Arg("b"))
-            .define_method("_set_flat", &QPushButton::setFlat, Arg("b"))
+            .define_method("_set_auto_default", &QPushButton::setAutoDefault, Arg("enabled"))
+            .define_method("_set_default", &QPushButton::setDefault, Arg("enabled"))
+            .define_method("_set_flat", &QPushButton::setFlat, Arg("enabled"))
             .define_method("_menu", &QPushButton::menu)
             .define_method("_set_menu", &QPushButton::setMenu, Arg("menu"))
-            .define_method("_show_menu", &QPushButton::showMenu)
-            .define_method("_size_hint", &QPushButton::sizeHint)
-            .define_method("_minimum_size_hint", &QPushButton::minimumSizeHint);
+            .define_method("_show_menu", &QPushButton::showMenu);
 }

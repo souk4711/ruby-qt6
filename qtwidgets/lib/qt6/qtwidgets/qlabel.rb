@@ -12,7 +12,7 @@ module RubyQt6
       # @return [QLabel]
       #
       # Constructs a label that displays the text.
-      def initialize(text = "", parent = nil)
+      def initialize(text, parent = nil)
         _initialize(QtCore::QString.new(text), parent)
         _take_ownership_from_rice(self) if parent
       end

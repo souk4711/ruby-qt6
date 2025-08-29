@@ -134,20 +134,20 @@ module RubyQt6
         _value
       end
 
-      # @param b [Boolean]
+      # @param enabled [Boolean]
       # @return [nil]
       #
       # Sets the slider's invertedAppearance property.
-      def set_inverted_appearance(b)
-        _set_inverted_appearance(b)
+      def set_inverted_appearance(enabled)
+        _set_inverted_appearance(enabled)
       end
 
-      # @param b [Boolean]
+      # @param enabled [Boolean]
       # @return [nil]
       #
       # Sets the slider's invertedControls property.
-      def set_inverted_controls(b)
-        _set_inverted_controls(b)
+      def set_inverted_controls(enabled)
+        _set_inverted_controls(enabled)
       end
 
       # @param max [Integer]
@@ -174,47 +174,47 @@ module RubyQt6
         _set_orientation(orientation)
       end
 
-      # @param i [Integer]
+      # @param step [Integer]
       # @return [nil]
       #
       # Sets the slider's pageStep property.
-      def set_page_step(i)
-        _set_page_step(i)
+      def set_page_step(step)
+        _set_page_step(step)
       end
 
-      # @param i [Integer]
+      # @param step [Integer]
       # @return [nil]
       #
       # Sets the slider's singleStep property.
-      def set_single_step(i)
-        _set_single_step(i)
+      def set_single_step(step)
+        _set_single_step(step)
       end
 
-      # @param b [Boolean]
+      # @param down [Boolean]
       # @return [nil]
       #
       # Sets the slider's sliderDown property.
-      def set_slider_down(b)
-        _set_slider_down(b)
+      def set_slider_down(down)
+        _set_slider_down(down)
       end
 
-      # @param i [Integer]
+      # @param position [Integer]
       # @return [nil]
       #
       # Sets the slider's sliderPosition property.
-      def set_slider_position(i)
-        _set_slider_position(i)
+      def set_slider_position(position)
+        _set_slider_position(position)
       end
 
-      # @param b [Boolean]
+      # @param enabled [Boolean]
       # @return [nil]
       #
       # Sets the slider's tracking property.
-      def set_tracking(b)
-        _set_tracking(b)
+      def set_tracking(enabled)
+        _set_tracking(enabled)
       end
 
-      # @param i [Integer]
+      # @param value [Integer]
       # @return [nil]
       #
       # Sets the slider's value property.

@@ -150,12 +150,12 @@ module RubyQt6
         self.class._wheel_scroll_lines
       end
 
-      # @param b [Boolean]
+      # @param enabled [Boolean]
       # @return [nil]
       #
       # Sets the application's autoSipEnabled property.
-      def set_auto_sip_enabled(b)
-        _set_auto_sip_enabled(b)
+      def set_auto_sip_enabled(enabled)
+        _set_auto_sip_enabled(enabled)
       end
 
       # @param msec [Integer]

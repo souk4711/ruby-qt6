@@ -28,6 +28,6 @@ void Init_qapplication(Rice::Module rb_mQt6QtWidgets)
             .define_singleton_function("_exec", &QApplication::exec)
             .define_method("_auto_sip_enabled?", &QApplication::autoSipEnabled)
             .define_method("_style_sheet", &QApplication::styleSheet)
-            .define_method("_set_auto_sip_enabled", &QApplication::setAutoSipEnabled, Arg("b"))
+            .define_method("_set_auto_sip_enabled", &QApplication::setAutoSipEnabled, Arg("enabled"))
             .define_method("_set_style_sheet", &QApplication::setStyleSheet, Arg("style_sheet"));
 }

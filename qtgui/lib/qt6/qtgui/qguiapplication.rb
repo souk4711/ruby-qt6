@@ -126,12 +126,12 @@ module RubyQt6
         self.class._set_layout_direction(direction)
       end
 
-      # @param b [Boolean]
+      # @param quit [Boolean]
       # @return [nil]
       #
       # Sets the application's quitOnLastWindowClosed property.
-      def set_quit_on_last_window_closed(b)
-        self.class._set_quit_on_last_window_closed(b)
+      def set_quit_on_last_window_closed(quit)
+        self.class._set_quit_on_last_window_closed(quit)
       end
 
       # @param icon [QIcon]

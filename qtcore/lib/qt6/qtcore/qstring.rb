@@ -9,7 +9,7 @@ module RubyQt6
 
       class << self
         # @!visibility private
-        def new(str = "")
+        def new(str)
           return str if str.is_a?(QString)
           allocate.tap { |o| o.__send__(:initialize, str) }
         end
@@ -19,7 +19,7 @@ module RubyQt6
       # @return [QString]
       #
       # Constructs a string on str.
-      def initialize(str = "")
+      def initialize(str)
         _initialize(str)
       end
 

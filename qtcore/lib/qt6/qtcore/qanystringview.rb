@@ -9,7 +9,7 @@ module RubyQt6
 
       class << self
         # @!visibility private
-        def new(str = "")
+        def new(str)
           return str if str.is_a?(QAnyStringView)
           allocate.tap { |o| o.__send__(:initialize, str) }
         end

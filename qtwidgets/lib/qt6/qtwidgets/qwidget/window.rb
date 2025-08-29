@@ -201,12 +201,12 @@ module RubyQt6
         _close
       end
 
-      # @param b [Boolean]
+      # @param modified [Boolean]
       # @return [nil]
       #
       # Sets the widget's windowModified property.
-      def set_window_modified(b)
-        _set_window_modified(b)
+      def set_window_modified(modified)
+        _set_window_modified(modified)
       end
 
       # @param title [QString]

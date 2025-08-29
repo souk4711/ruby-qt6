@@ -12,7 +12,7 @@ module RubyQt6
       # @return [QLabel]
       #
       # Constructs a label that displays the text.
-      def initialize(text = "", parent = nil)
+      def initialize(text, parent = nil)
         _initialize(QtCore::QString.new(text), parent)
         _take_ownership_from_rice(self) if parent
       end
@@ -82,28 +82,28 @@ module RubyQt6
         _flat?
       end
 
-      # @param b [Boolean]
+      # @param enabled [Boolean]
       # @return [nil]
       #
       # Sets the button's autoDefault property.
-      def set_auto_default(b)
-        _set_auto_default(b)
+      def set_auto_default(enabled)
+        _set_auto_default(enabled)
       end
 
-      # @param b [Boolean]
+      # @param enabled [Boolean]
       # @return [nil]
       #
       # Sets the button's default property.
-      def set_default(b)
-        _set_default(b)
+      def set_default(enabled)
+        _set_default(enabled)
       end
 
-      # @param b [Boolean]
+      # @param enabled [Boolean]
       # @return [nil]
       #
       # Sets the button's flat property.
-      def set_flat(b)
-        _set_flat(b)
+      def set_flat(enabled)
+        _set_flat(enabled)
       end
 
       # @return [QMenu]
@@ -133,20 +133,6 @@ module RubyQt6
       # popup menu has been closed by the user.
       def show_menu
         _show_menu
-      end
-
-      # @return [QSize]
-      #
-      # Reimplements an access function for property: QWidget::sizeHint.
-      def size_hint
-        _size_hint
-      end
-
-      # @return [QSize]
-      #
-      # Reimplements an access function for property: QWidget::minimumSizeHint.
-      def minimum_size_hint
-        _minimum_size_hint
       end
     end
   end

@@ -130,60 +130,60 @@ module RubyQt6
         _text
       end
 
-      # @param b [Boolean]
+      # @param enabled [Boolean]
       # @return [nil]
       #
       # Sets the button's autoExclusive property.
-      def set_auto_exclusive(b)
-        _set_auto_exclusive(b)
+      def set_auto_exclusive(enabled)
+        _set_auto_exclusive(enabled)
       end
 
-      # @param b [Boolean]
+      # @param enabled [Boolean]
       # @return [nil]
       #
       # Sets the button's autoRepeat property.
-      def set_auto_repeat(b)
-        _set_auto_repeat(b)
+      def set_auto_repeat(enabled)
+        _set_auto_repeat(enabled)
       end
 
-      # @param i [Integer]
+      # @param msec [Integer]
       # @return [nil]
       #
       # Sets the button's autoRepeatDelay property.
-      def set_auto_repeat_delay(i)
-        _set_auto_repeat_delay(i)
+      def set_auto_repeat_delay(msec)
+        _set_auto_repeat_delay(msec)
       end
 
-      # @param i [Integer]
+      # @param msec [Integer]
       # @return [nil]
       #
       # Sets the button's autoRepeatInterval property.
-      def set_auto_repeat_interval(i)
-        _set_auto_repeat_interval(i)
+      def set_auto_repeat_interval(msec)
+        _set_auto_repeat_interval(msec)
       end
 
-      # @param b [Boolean]
+      # @param checkable [Boolean]
       # @return [nil]
       #
       # Sets the button's checkable property.
-      def set_checkable(b)
-        _set_checkable(b)
+      def set_checkable(checkable)
+        _set_checkable(checkable)
       end
 
-      # @param b [Boolean]
+      # @param checked [Boolean]
       # @return [nil]
       #
       # Sets the button's checked property.
-      def set_checked(b)
-        _set_checked(b)
+      def set_checked(checked)
+        _set_checked(checked)
       end
 
-      # @param b [Boolean]
+      # @param down [Boolean]
       # @return [nil]
       #
       # Sets the button's down property.
-      def set_down(b)
-        _set_down(b)
+      def set_down(down)
+        _set_down(down)
       end
 
       # @param icon [QIcon]

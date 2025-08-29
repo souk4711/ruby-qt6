@@ -14,9 +14,7 @@ void Init_qslider(Rice::Module rb_mQt6QtWidgets)
             .define_method("_tick_interval", &QSlider::tickInterval)
             .define_method("_tick_position", &QSlider::tickPosition)
             .define_method("_set_tick_interval", &QSlider::setTickInterval, Arg("interval"))
-            .define_method("_set_tick_position", &QSlider::setTickPosition, Arg("position"))
-            .define_method("_size_hint", &QSlider::sizeHint)
-            .define_method("_minimum_size_hint", &QSlider::minimumSizeHint);
+            .define_method("_set_tick_position", &QSlider::setTickPosition, Arg("position"));
 
     Enum<QSlider::TickPosition> rb_cQSliderTickPosition =
         // RubyQt6::QtWidgets::QSlider::TickPosition
