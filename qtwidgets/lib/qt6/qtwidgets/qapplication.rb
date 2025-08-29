@@ -198,12 +198,12 @@ module RubyQt6
         self.class._set_start_drag_time(msec)
       end
 
-      # @param sheet [QString]
+      # @param style_sheet [QString]
       # @return [nil]
       #
       # Sets the application's styleSheet property.
-      def set_style_sheet(sheet)
-        _set_style_sheet(sheet)
+      def set_style_sheet(style_sheet)
+        _set_style_sheet(style_sheet)
       end
 
       # @param lines [Integer]
