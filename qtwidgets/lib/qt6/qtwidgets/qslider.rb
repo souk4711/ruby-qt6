@@ -7,7 +7,7 @@ module RubyQt6
       # @!visibility private
       alias_method :_initialize, :initialize
 
-      # @!visibility private
+      # @!parse class TickPosition; end
       rubyqt6_include_constants QSlider, QSlider::TickPosition
 
       # @param orientation [Qt::Orientation]
@@ -34,7 +34,7 @@ module RubyQt6
         _tick_interval
       end
 
-      # @return [TickPosition]
+      # @return [QSlider::TickPosition]
       #
       # This property holds the tickmark position for this slider
       #
@@ -53,7 +53,7 @@ module RubyQt6
         _set_tick_interval(interval)
       end
 
-      # @param position [TickPosition]
+      # @param position [QSlider::TickPosition]
       # @return [nil]
       #
       # Sets the slider's tickInterval property.

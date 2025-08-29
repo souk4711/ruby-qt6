@@ -7,7 +7,14 @@ module RubyQt6
       # @!visibility private
       alias_method :_initialize, :initialize
 
-      # @!visibility private
+      # @!parse class Capitalization   ; end
+      # @!parse class HintingPreference; end
+      # @!parse class SpacingType      ; end
+      # @!parse class Stretch          ; end
+      # @!parse class Style            ; end
+      # @!parse class StyleHint        ; end
+      # @!parse class StyleStrategy    ; end
+      # @!parse class Weight           ; end
       rubyqt6_include_constants QFont, QFont::Capitalization
       rubyqt6_include_constants QFont, QFont::HintingPreference
       rubyqt6_include_constants QFont, QFont::SpacingType

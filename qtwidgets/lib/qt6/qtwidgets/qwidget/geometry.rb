@@ -360,8 +360,8 @@ module RubyQt6
       end
 
       # @return [nil]
-      # @overload set_geometry(r)
-      #   @param r [QRect]
+      # @overload set_geometry(rect)
+      #   @param rect [QRect]
       # @overload set_geometry(x, y, w, h)
       #   @param x [Integer]
       #   @param y [Integer]

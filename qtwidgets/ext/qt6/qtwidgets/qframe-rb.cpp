@@ -9,5 +9,36 @@ void Init_qframe(Rice::Module rb_mQt6QtWidgets)
 {
     rb_cQFrame =
         // RubyQt6::QtWidgets::QFrame
-        define_class_under<QFrame, QWidget>(rb_mQt6QtWidgets, "QFrame");
+        define_class_under<QFrame, QWidget>(rb_mQt6QtWidgets, "QFrame")
+            .define_method("_frame_rect", &QFrame::frameRect)
+            .define_method("_frame_shadow", &QFrame::frameShadow)
+            .define_method("_frame_shape", &QFrame::frameShape)
+            .define_method("_frame_width", &QFrame::frameWidth)
+            .define_method("_frame_style", &QFrame::frameStyle)
+            .define_method("_line_width", &QFrame::lineWidth)
+            .define_method("_mid_line_width", &QFrame::midLineWidth)
+            .define_method("_set_frame_rect", &QFrame::setFrameRect, Arg("rect"))
+            .define_method("_set_frame_shadow", &QFrame::setFrameShadow, Arg("shadow"))
+            .define_method("_set_frame_shape", &QFrame::setFrameShape, Arg("shape"))
+            .define_method("_set_frame_style", &QFrame::setFrameStyle, Arg("style"))
+            .define_method("_set_line_width", &QFrame::setLineWidth, Arg("width"))
+            .define_method("_set_mid_line_width", &QFrame::setMidLineWidth, Arg("width"));
+
+    Enum<QFrame::Shape> rb_cQFrameShape =
+        // RubyQt6::QtWidgets::QFrame::Shape
+        define_enum_under<QFrame::Shape>("Shape", rb_cQFrame)
+            .define_value("NoFrame", QFrame::Shape::NoFrame)
+            .define_value("Box", QFrame::Shape::Box)
+            .define_value("Panel", QFrame::Shape::Panel)
+            .define_value("WinPanel", QFrame::Shape::WinPanel)
+            .define_value("HLine", QFrame::Shape::HLine)
+            .define_value("VLine", QFrame::Shape::VLine)
+            .define_value("StyledPanel", QFrame::Shape::StyledPanel);
+
+    Enum<QFrame::Shadow> rb_cQFrameShadow =
+        // RubyQt6::QtWidgets::QFrame::Shadow
+        define_enum_under<QFrame::Shadow>("Shadow", rb_cQFrame)
+            .define_value("Plain", QFrame::Shadow::Plain)
+            .define_value("Raised", QFrame::Shadow::Raised)
+            .define_value("Sunken", QFrame::Shadow::Sunken);
 }
