@@ -8,6 +8,9 @@ require_relative "qtwidgets/qtwidgetsversion"
 
 require_relative "qtwidgets/qwidget"
 require_relative "qtwidgets/qlayout"
+require_relative "qtwidgets/qboxlayout"
+require_relative "qtwidgets/qhboxlayout"
+require_relative "qtwidgets/qvboxlayout"
 
 require_relative "qtwidgets/qabstractbutton"
 require_relative "qtwidgets/qpushbutton"

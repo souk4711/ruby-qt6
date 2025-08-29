@@ -5,6 +5,7 @@
 
 #include "qwidget-rb.hpp"
 #include "qlayout-rb.hpp"
+#include "qboxlayout-rb.hpp"
 
 #include "qabstractbutton-rb.hpp"
 #include "qpushbutton-rb.hpp"
@@ -29,6 +30,7 @@ extern "C" void Init_qtwidgets()
 
         Init_qwidget(rb_mQt6QtWidgets);
         Init_qlayout(rb_mQt6QtWidgets);
+        Init_qboxlayout(rb_mQt6QtWidgets);
 
         Init_qabstractbutton(rb_mQt6QtWidgets);
         Init_qpushbutton(rb_mQt6QtWidgets);
