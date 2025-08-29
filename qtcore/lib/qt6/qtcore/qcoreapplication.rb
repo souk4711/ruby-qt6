@@ -147,12 +147,12 @@ module RubyQt6
         self.class._set_organization_name(name)
       end
 
-      # @param b [Boolean]
+      # @param enabled [Boolean]
       # @return [nil]
       #
       # Sets the application's quitLockEnabled property.
-      def set_quit_lock_enabled(b)
-        self.class._set_quit_lock_enabled(b)
+      def set_quit_lock_enabled(enabled)
+        self.class._set_quit_lock_enabled(enabled)
       end
 
       # @param retcode [Integer]

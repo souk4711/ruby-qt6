@@ -22,7 +22,7 @@ void Init_qcoreapplication(Rice::Module rb_mQt6QtCore)
             .define_singleton_function("_set_application_version", &QCoreApplication::setApplicationVersion, Arg("version"))
             .define_singleton_function("_set_organization_domain", &QCoreApplication::setOrganizationDomain, Arg("domain"))
             .define_singleton_function("_set_organization_name", &QCoreApplication::setOrganizationName, Arg("name"))
-            .define_singleton_function("_set_quit_lock_enabled", &QCoreApplication::setQuitLockEnabled, Arg("b"))
+            .define_singleton_function("_set_quit_lock_enabled", &QCoreApplication::setQuitLockEnabled, Arg("enabled"))
             .define_singleton_function("_exit", &QCoreApplication::exit, Arg("retcode") = static_cast<int>(0))
             .define_singleton_function("_quit", &QCoreApplication::quit)
             .define_singleton_function("_exec", &QCoreApplication::exec);
