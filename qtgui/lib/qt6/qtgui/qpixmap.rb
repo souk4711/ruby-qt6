@@ -3,7 +3,7 @@
 module RubyQt6
   module QtGui
     # @see https://doc.qt.io/qt-6/qpixmap.html
-    class QPixmap
+    class QPixmap < RubyQt6::QtGui::QPaintDevice
     end
   end
 end

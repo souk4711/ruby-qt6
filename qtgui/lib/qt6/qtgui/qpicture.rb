@@ -3,7 +3,7 @@
 module RubyQt6
   module QtGui
     # @see https://doc.qt.io/qt-6/qpicture.html
-    class QPicture
+    class QPicture < RubyQt6::QtGui::QPaintDevice
     end
   end
 end

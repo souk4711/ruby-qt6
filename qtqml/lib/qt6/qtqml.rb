@@ -2,6 +2,8 @@
 
 require "qt6/qtcore"
 
+require_relative "mixins/qqmlparserstatus"
+
 require_relative "qtqml/qtqml"
 require_relative "qtqml/qtqmlversion"
 

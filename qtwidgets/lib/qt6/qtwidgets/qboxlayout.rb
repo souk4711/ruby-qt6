@@ -205,7 +205,7 @@ module RubyQt6
 
       # @param item [QLayout, QWidget]
       # @param stretch [Integer]
-      # @return [nil]
+      # @return [Boolean]
       #
       # Sets the stretch factor for the layout layout to stretch and returns
       # true if layout is found in this layout (not including child layouts);

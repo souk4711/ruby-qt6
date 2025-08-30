@@ -3,6 +3,8 @@
 require "qt6/qtcore"
 require "qt6/qtgui"
 
+require_relative "mixins/qlayoutitem"
+
 require_relative "qtwidgets/qtwidgets"
 require_relative "qtwidgets/qtwidgetsversion"
 

@@ -1,10 +1,9 @@
 # frozen_string_literal: true
 
 module RubyQt6
-  module QtGui
+  module Mixins
     # @see https://doc.qt.io/qt-6/qpaintdevice.html
-    class QPaintDevice
-      include Mixins::QPaintDevice
+    module QPaintDevice
     end
   end
 end

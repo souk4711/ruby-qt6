@@ -21,21 +21,21 @@ module RubyQt6
       # If you set the rectangle to a null rectangle (for example,
       # QRect(0, 0, 0, 0)), then the resulting frame rectangle is equivalent
       # to the widget rectangle.
-      def _frame_rect
+      def frame_rect
         _frame_rect
       end
 
       # @return [QFrame::Shadow]
       #
       # This property holds the frame shadow value from the frame style.
-      def _frame_shadow
+      def frame_shadow
         _frame_shadow
       end
 
       # @return [QFrame::Shape]
       #
       # This property holds the frame shape value from the frame style.
-      def _frame_shape
+      def frame_shape
         _frame_shape
       end
 
@@ -47,7 +47,7 @@ module RubyQt6
       # line width and the mid-line width. For example, the style specified
       # by NoFrame always has a frame width of 0, whereas the style Panel
       # has a frame width equivalent to the line width.
-      def _frame_width
+      def frame_width
         _frame_width
       end
 
@@ -56,7 +56,7 @@ module RubyQt6
       # Returns the frame style.
       #
       # The default value is QFrame::Plain.
-      def _frame_style
+      def frame_style
         _frame_style
       end
 
@@ -68,7 +68,7 @@ module RubyQt6
       # and VLine) is specified by frameWidth.
       #
       # The default value is 1.
-      def _line_width
+      def line_width
         _line_width
       end
 
@@ -77,7 +77,7 @@ module RubyQt6
       # This property holds the width of the mid-line.
       #
       # The default value is 0.
-      def _mid_line_width
+      def mid_line_width
         _mid_line_width
       end
 
@@ -85,7 +85,7 @@ module RubyQt6
       # @return [void]
       #
       # Sets the frame's rect.
-      def _set_frame_rect(rect)
+      def set_frame_rect(rect)
         _set_frame_rect(rect)
       end
 
@@ -93,7 +93,7 @@ module RubyQt6
       # @return [void]
       #
       # Sets the frame's shadow.
-      def _set_frame_shadow(shadow)
+      def set_frame_shadow(shadow)
         _set_frame_shadow(shadow)
       end
 
@@ -101,7 +101,7 @@ module RubyQt6
       # @return [void]
       #
       # Sets the frame's shape.
-      def _set_frame_shape(shape)
+      def set_frame_shape(shape)
         _set_frame_shape(shape)
       end
 
@@ -119,7 +119,7 @@ module RubyQt6
       # If a mid-line width greater than 0 is specified, an additional line
       # is drawn for Raised or Sunken Box, HLine, and VLine frames. The
       # mid-color of the current color group is used for drawing middle lines.
-      def _set_frame_style(style)
+      def set_frame_style(style)
         _set_frame_style(style)
       end
 
@@ -127,7 +127,7 @@ module RubyQt6
       # @return [void]
       #
       # Sets the frame's lineWidth property.
-      def _set_line_width(width)
+      def set_line_width(width)
         _set_line_width(width)
       end
 
@@ -135,7 +135,7 @@ module RubyQt6
       # @return [void]
       #
       # Sets the frame's midLineWidth property.
-      def _set_mid_line_width(width)
+      def set_mid_line_width(width)
         _set_mid_line_width(width)
       end
     end
