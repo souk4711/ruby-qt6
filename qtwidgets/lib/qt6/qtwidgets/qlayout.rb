@@ -83,7 +83,6 @@ module RubyQt6
       # layout's responsibility to delete it.
       def add_item(item)
         _add_item(item)
-        _take_ownership_from_rice(item)
       end
 
       # @param widget [QWidget]
@@ -93,7 +92,6 @@ module RubyQt6
       # This function uses addItem().
       def add_widget(widget)
         _add_widget(widget)
-        _take_ownership_from_rice(widget)
       end
 
       # @param item [QLayoutItem]
@@ -122,12 +120,12 @@ module RubyQt6
         # TODO: transfer ownership of item to the caller
       end
 
-      # @param item [QLayoutItem]
+      # @param item [QLayoutItem, QWidget]
       # @return [Integer]
       #
-      # Searches for layoutitem in this layout (not including child layouts).
+      # Searches for item in this layout (not including child layouts).
       #
-      # Returns the index of layoutItem, or -1 if layoutItem is not found.
+      # Returns the index of item, or -1 if item is not found.
       def index_of(item)
         _index_of(item)
       end

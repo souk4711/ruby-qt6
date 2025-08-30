@@ -492,7 +492,6 @@ module RubyQt6
       # The QWidget will take ownership of layout.
       def set_layout(layout)
         _set_layout(layout)
-        _take_ownership_from_rice(layout)
       end
 
       # @return [nil]
