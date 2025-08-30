@@ -15,9 +15,9 @@ module RubyQt6
       # The layout is set directly as the top-level layout for parent. There
       # can be only one top-level layout for a widget. It is returned
       # by QWidget::layout().
-      def initialize(parent)
+      def initialize(parent = nil)
         _initialize(parent)
-        _take_ownership_from_rice(self)
+        _take_ownership_from_rice(self) if parent
       end
     end
   end
