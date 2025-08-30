@@ -18,6 +18,7 @@ module RubyQt6
       # (including pixmaps, bitmaps etc.).
       def initialize
         _initialize
+        _initialize_qApp
       end
 
       # @return [QString]

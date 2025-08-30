@@ -237,6 +237,13 @@ module RubyQt6
       def exec
         self.class._exec
       end
+
+      # @!visibility private
+      # rubocop:disable Style/GlobalVars
+      def _initialize_qApp
+        $qApp = self
+      end
+      # rubocop:enable Style/GlobalVars
     end
   end
 end

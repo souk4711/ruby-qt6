@@ -19,6 +19,7 @@ module RubyQt6
       # (including widgets, pixmaps, bitmaps etc.).
       def initialize
         _initialize
+        _initialize_qApp
       end
 
       # @return [Boolean]
