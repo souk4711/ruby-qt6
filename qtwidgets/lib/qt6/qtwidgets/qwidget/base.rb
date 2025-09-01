@@ -4,8 +4,6 @@ module RubyQt6
   module QtWidgets
     # @see https://doc.qt.io/qt-6/qwidget.html
     class QWidget < RubyQt6::QtCore::QObject
-      include Mixins::QPaintDevice
-
       # @!visibility private
       alias_method :_initialize, :initialize
 

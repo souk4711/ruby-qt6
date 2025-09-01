@@ -4,7 +4,6 @@ module RubyQt6
   module QtGui
     # @see https://doc.qt.io/qt-6/qpaintdevice.html
     class QPaintDevice
-      include Mixins::QPaintDevice
     end
   end
 end
