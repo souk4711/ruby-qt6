@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 module RubyQt6
-  module Mixins
+  module QtGui
     # @see https://doc.qt.io/qt-6/qsurface.html
-    module QSurface
+    class QSurface
     end
   end
 end
