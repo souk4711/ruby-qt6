@@ -21,8 +21,8 @@ require_relative "qtcore/qurl"
 require_relative "qtcore/qvariant"
 
 require_relative "qtcore/qobject"
-require_relative "qtcore/qmetamethod"
 require_relative "qtcore/qmetaobject"
+require_relative "qtcore/qmetamethod"
 require_relative "qtcore/qcoreapplication"
 
 require_relative "qtcore/version"
