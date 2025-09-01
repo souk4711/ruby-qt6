@@ -14,9 +14,7 @@
 #include "qpicture-rb.hpp"
 #include "qpixmap-rb.hpp"
 
-#include "qsurface-rb.hpp"
 #include "qwindow-rb.hpp"
-
 #include "qguiapplication-rb.hpp"
 // clang-format on
 
@@ -39,9 +37,7 @@ extern "C" void Init_qtgui()
         Init_qpicture(rb_mQt6QtGui);
         Init_qpixmap(rb_mQt6QtGui);
 
-        Init_qsurface(rb_mQt6QtGui);
         Init_qwindow(rb_mQt6QtGui);
-
         Init_qguiapplication(rb_mQt6QtGui);
     });
 }

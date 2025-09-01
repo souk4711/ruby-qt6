@@ -2,9 +2,6 @@
 
 require "qt6/qtcore"
 
-require_relative "mixins/qpaintdevice"
-require_relative "mixins/qsurface"
-
 require_relative "qtgui/qtgui"
 require_relative "qtgui/qtguiversion"
 
@@ -19,9 +16,7 @@ require_relative "qtgui/qimage"
 require_relative "qtgui/qpicture"
 require_relative "qtgui/qpixmap"
 
-require_relative "qtgui/qsurface"
 require_relative "qtgui/qwindow"
-
 require_relative "qtgui/qguiapplication"
 
 require_relative "qtgui/version"

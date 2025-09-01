@@ -2,8 +2,7 @@
 
 module RubyQt6
   module QtGui
-    # @see https://doc.qt.io/qt-6/qsurface.html
-    class QSurface
+    class QWindow < RubyQt6::QtCore::QObject
     end
   end
 end
