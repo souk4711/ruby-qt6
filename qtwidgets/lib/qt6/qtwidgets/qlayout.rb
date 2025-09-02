@@ -7,6 +7,142 @@ module RubyQt6
       # @!parse class SizeConstraint; end
       rubyqt6_include_constants QLayout, QLayout::SizeConstraint
 
+      # @return [Qt::Alignment]
+      #
+      # Returns the alignment of this item.
+      def alignment
+        _alignment
+      end
+
+      # @return [QRect]
+      #
+      # Returns the rectangle covered by this layout item.
+      def geometry
+        _geometry
+      end
+
+      # @param w [Integer]
+      # @return [Integer]
+      #
+      # Returns the preferred height for this layout item, given the width,
+      # which is not used in this default implementation.
+      #
+      # The default implementation returns -1, indicating that the preferred
+      # height is independent of the width of the item. Using the function
+      # hasHeightForWidth() will typically be much faster than calling this
+      # function and testing for -1.
+      def height_for_width(w)
+        _height_for_width(w)
+      end
+
+      # @param w [Integer]
+      # @return [Integer]
+      #
+      # Returns the minimum height this widget needs for the given width, w.
+      # The default implementation simply returns heightForWidth(w).
+      def minimum_height_for_width(w)
+        _minimum_height_for_width(w)
+      end
+
+      # @param rect [QRect]
+      # @return [nil]
+      #
+      # Sets this item's geometry to geometry.
+      def set_geometry(rect)
+        _set_geometry(rect)
+      end
+
+      # @return [Boolean]
+      #
+      # Returns true if this layout's preferred height depends on its width;
+      # otherwise returns false. The default implementation returns false.
+      #
+      # Reimplement this function in layout managers that support height for
+      # width.
+      def has_height_for_width?
+        _has_height_for_width?
+      end
+
+      # @return [QSizePolicy::ControlTypes]
+      #
+      # Returns the control type(s) for the layout item. For a QWidgetItem,
+      # the control type comes from the widget's size policy; for a
+      # QLayoutItem, the control types is derived from the layout's contents.
+      def control_types
+        _control_types
+      end
+
+      # @return [Qt::Orientations]
+      #
+      # Returns whether this layout item can make use of more space than
+      # sizeHint(). A value of Qt::Vertical or Qt::Horizontal means that
+      # it wants to grow in only one dimension, whereas Qt::Vertical |
+      # Qt::Horizontal means that it wants to grow in both dimensions.
+      def expanding_directions
+        _expanding_directions
+      end
+
+      # @return [QSize]
+      #
+      # Returns the maximum size of this item.
+      def maximum_size
+        _maximum_size
+      end
+
+      # @return [QSize]
+      #
+      # Returns the minimum size of this item.
+      def minimum_size
+        _minimum_size
+      end
+
+      # @return [QSize]
+      #
+      # Returns the preferred size of this item.
+      def size_hint
+        _size_hint
+      end
+
+      # @return [nil]
+      #
+      # Invalidates any cached information in this layout item.
+      def invalidate
+        _invalidate
+      end
+
+      # @return [Boolean]
+      #
+      # Returns whether this item is empty, i.e. whether it contains any
+      # widgets.
+      def empty?
+        _empty?
+      end
+
+      # @return [QLayout]
+      #
+      # If this item is a QLayout, it is returned as a QLayout; otherwise
+      # nullptr is returned. This function provides type-safe casting.
+      def layout
+        _layout
+      end
+
+      # @return [QWidget]
+      #
+      # If this item manages a QWidget, returns that widget. Otherwise,
+      # nullptr is returned.
+      def widget
+        _widget
+      end
+
+      # @return [QSpacerItem]
+      #
+      # If this item is a QSpacerItem, it is returned as a QSpacerItem;
+      # otherwise nullptr is returned. This function provides type-safe
+      # casting.
+      def spacer_item
+        _spacer_item
+      end
+
       # @return [QLayout::SizeConstraint]
       #
       # This property holds the resize mode of the layout.

@@ -4,6 +4,9 @@ module RubyQt6
   module QtWidgets
     # @see https://doc.qt.io/qt-6/qabstractslider.html
     class QAbstractSlider < RubyQt6::QtWidgets::QWidget
+      # @!parse class SliderAction; end
+      rubyqt6_include_constants QAbstractSlider, QAbstractSlider::SliderAction
+
       # @return [Boolean]
       #
       # This property holds whether or not a slider shows its values inverted.
@@ -118,7 +121,7 @@ module RubyQt6
       # valueChanged() signal while the slider is being dragged. If tracking
       # is disabled, the slider emits the valueChanged() signal only when the
       # user releases the slider.
-      def tracking?
+      def has_tracking?
         _has_tracking?
       end
 
