@@ -120,7 +120,7 @@ module RubyQt6
       #
       # Sets the application's name.
       def set_application_name(name)
-        self.class._set_application_name(name)
+        self.class._set_application_name(QString.new(name))
       end
 
       # @param version [QString]
@@ -128,7 +128,7 @@ module RubyQt6
       #
       # Sets the application's version.
       def set_application_version(version)
-        self.class._set_application_version(version)
+        self.class._set_application_version(QString.new(version))
       end
 
       # @param domain [QString]
@@ -136,7 +136,7 @@ module RubyQt6
       #
       # Sets the application's organizationDomain property.
       def set_organization_domain(domain)
-        self.class._set_organization_domain(domain)
+        self.class._set_organization_domain(QString.new(domain))
       end
 
       # @param name [QString]
@@ -144,7 +144,7 @@ module RubyQt6
       #
       # Sets the application's organizationName property.
       def set_organization_name(name)
-        self.class._set_organization_name(name)
+        self.class._set_organization_name(QString.new(name))
       end
 
       # @param enabled [Boolean]
@@ -238,7 +238,83 @@ module RubyQt6
         self.class._exec
       end
 
-      # @!visibility private
+      # @param filter [QAbstractNativeEventFilter]
+      # @return [nil]
+      #
+      # Installs an event filter filterObj for all native events received by
+      # the application in the main thread.
+      #
+      # The event filter filterObj receives events via its nativeEventFilter()
+      # function, which is called for all native events received in the main
+      # thread.
+      #
+      # The QAbstractNativeEventFilter::nativeEventFilter() function should
+      # return true if the event should be filtered, i.e. stopped. It should
+      # return false to allow normal Qt processing to continue: the native
+      # event can then be translated into a QEvent and handled by the
+      # standard Qt event filtering, e.g. QObject::installEventFilter().
+      #
+      # If multiple event filters are installed, the filter that was
+      # installed last is activated first.
+      def install_native_event_filter(filter)
+        _install_native_event_filter(filter)
+      end
+
+      # @param filter [QAbstractNativeEventFilter]
+      # @return [nil]
+      #
+      # Removes an event filterObject from this object. The request is ignored
+      # if such an event filter has not been installed.
+      #
+      # All event filters for this object are automatically removed when this
+      # object is destroyed.
+      #
+      # It is always safe to remove an event filter, even during event filter
+      # activation (i.e. from the nativeEventFilter() function).
+      def remove_native_event_filter(filter)
+        _remove_native_event_filter(filter)
+      end
+
+      # @param receiver [QObject]
+      # @param event [QEvent]
+      # @return [Boolean]
+      #
+      # Sends event to receiver: receiver->event(event). Returns the value
+      # that is returned from the receiver's event handler. Note that this
+      # function is called for all events sent to any object in any thread.
+      #
+      # For certain types of events (e.g. mouse and key events), the event
+      # will be propagated to the receiver's parent and so on up to the
+      # top-level object if the receiver is not interested in the event
+      # (i.e., it returns false).
+      #
+      # There are five different ways that events can be processed;
+      # reimplementing this virtual function is just one of them. All five
+      # approaches are listed below:
+      #
+      # 1. Reimplementing paintEvent(), mousePressEvent() and so on. This is
+      #    the most common, easiest, and least powerful way.
+      # 2. Reimplementing this function. This is very powerful, providing
+      #    complete control; but only one subclass can be active at a time.
+      # 3. Installing an event filter on QCoreApplication::instance(). Such
+      #    an event filter is able to process all events for all widgets, so
+      #    it's just as powerful as reimplementing notify(); furthermore, it's
+      #    possible to have more than one application-global event filter.
+      #    Global event filters even see mouse events for disabled widgets.
+      #    Note that application event filters are only called for objects
+      #    that live in the main thread.
+      # 4. Reimplementing QObject::event() (as QWidget does). If you do this
+      #    you get Tab key presses, and you get to see the events before any
+      #    widget-specific event filters.
+      # 5. Installing an event filter on the object. Such an event filter
+      #    gets all the events, including Tab and Shift+Tab key press events,
+      #    as long as they do not change the focus widget.
+      def notify(receiver, event)
+        _notify(receiver, event)
+      end
+
+      private
+
       # rubocop:disable Style/GlobalVars
       def _initialize_qApp
         $qApp = self

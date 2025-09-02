@@ -1,6 +1,8 @@
 #include "qcoreapplication-rb.hpp"
 #include <qcoreapplication.h>
 
+#include <QAbstractNativeEventFilter>
+
 using namespace Rice;
 
 Rice::Class rb_cQCoreApplication;
@@ -25,5 +27,8 @@ void Init_qcoreapplication(Rice::Module rb_mQt6QtCore)
             .define_singleton_function("_set_quit_lock_enabled", &QCoreApplication::setQuitLockEnabled, Arg("enabled"))
             .define_singleton_function("_exit", &QCoreApplication::exit, Arg("retcode") = static_cast<int>(0))
             .define_singleton_function("_quit", &QCoreApplication::quit)
-            .define_singleton_function("_exec", &QCoreApplication::exec);
+            .define_singleton_function("_exec", &QCoreApplication::exec)
+            .define_method("_install_native_event_filter", &QCoreApplication::installNativeEventFilter, Arg("filter"))
+            .define_method("_remove_native_event_filter", &QCoreApplication::removeNativeEventFilter, Arg("filter"))
+            .define_method("_notify", &QCoreApplication::notify, Arg("receiver"), Arg("event"));
 }
