@@ -239,7 +239,7 @@ module RubyQt6
         _set_minimum_height(h)
       end
 
-      # @param size [QSize[
+      # @param size [QSize]
       # @return [nil]
       #
       # Sets the base size of the window.
@@ -250,7 +250,7 @@ module RubyQt6
         _set_base_size(size)
       end
 
-      # @param size [QSize[
+      # @param size [QSize]
       # @return [nil]
       #
       # Sets the size increment (size) of the window.

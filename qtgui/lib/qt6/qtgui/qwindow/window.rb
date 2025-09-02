@@ -22,6 +22,112 @@ module RubyQt6
         _icon
       end
 
+      # @return [Boolean]
+      #
+      # Returns true if the window is active.
+      #
+      # This is the case for the window that has input focus as well as
+      # windows that are in the same parent / transient parent chain as
+      # the focus window.
+      #
+      # Typically active windows should appear active from a style
+      # perspective.
+      #
+      # To get the window that currently has focus, use
+      # QGuiApplication::focusWindow().
+      def active?
+        _active?
+      end
+
+      # @return [Qt::ScreenOrientation]
+      #
+      # This property holds the orientation of the window's contents
+      #
+      # This is a hint to the window manager in case it needs to display
+      # additional content like popups, dialogs, status bars, or similar in
+      # relation to the window.
+      #
+      # The recommended orientation is QScreen::orientation() but an
+      # application doesn't have to support all possible orientations, and
+      # thus can opt to ignore the current screen orientation.
+      #
+      # The difference between the window and the content orientation
+      # determines how much to rotate the content by. QScreen::angleBetween(),
+      # QScreen::transformBetween(), and QScreen::mapBetween() can be used to
+      # compute the necessary transform.
+      #
+      # The default value is Qt::PrimaryOrientation
+      def content_orientation
+        _content_orientation
+      end
+
+      # @return [Qt::WindowFlags]
+      #
+      # This property holds the window flags of the window
+      #
+      # The window flags control the window's appearance in the windowing
+      # system, whether it's a dialog, popup, or a regular window, and
+      # whether it should have a title bar, etc.
+      #
+      # The actual window flags might differ from the flags set with
+      # setFlags() if the requested flags could not be fulfilled.
+      def flags
+        _flags
+      end
+
+      # @return [Qt::WindowType]
+      #
+      # Returns the type of the window.
+      #
+      # This returns the part of the window flags that represents whether the
+      # window is a dialog, tooltip, popup, regular window, etc.
+      def type
+        _type
+      end
+
+      # @return [Qt::WindowModality]
+      #
+      # This property holds the modality of the window
+      #
+      # A modal window prevents other windows from receiving input events. Qt
+      # supports two types of modality: Qt::WindowModal and
+      # Qt::ApplicationModal.
+      #
+      # By default, this property is Qt::NonModal.
+      def modality
+        _modality
+      end
+
+      # @return [QWindow::Visibility]
+      #
+      # This property holds the screen-occupation state of the window.
+      #
+      # Visibility is whether the window should appear in the windowing
+      # system as normal, minimized, maximized, fullscreen or hidden.
+      #
+      # To set the visibility to AutomaticVisibility means to give the window
+      # a default visible state, which might be fullscreen or windowed
+      # depending on the platform. When reading the visibility property
+      # you will always get the actual state, never AutomaticVisibility.
+      #
+      # The default value is Hidden.
+      def visibility
+        _visibility
+      end
+
+      # @return [Boolean]
+      #
+      # This property holds whether the window is visible or not.
+      #
+      # This property controls the visibility of the window in the windowing
+      # system.
+      #
+      # By default, the window is not visible, you must call setVisible(true),
+      # or show() or similar to make it visible.
+      def visible?
+        _visible?
+      end
+
       # @return [nil]
       #
       # Shows the window.
@@ -135,7 +241,7 @@ module RubyQt6
         _set_title(QtCore::QString.new(title))
       end
 
-      # @param icon [QIcon[
+      # @param icon [QIcon]
       # @return [nil]
       #
       # Sets the window's icon in the windowing system.
@@ -146,21 +252,53 @@ module RubyQt6
         _set_icon(icon)
       end
 
-      # @return [Boolean]
+      # @return [nil]
       #
-      # Returns true if the window is active.
+      # Sets the window's contentOrientation property.
+      def report_content_orientation_change(orientation)
+        _report_content_orientation_change(orientation)
+      end
+
+      # @param flags [Qt::WindowFlags]
+      # @return [nil]
       #
-      # This is the case for the window that has input focus as well as
-      # windows that are in the same parent / transient parent chain as
-      # the focus window.
+      # Sets the window's flags property.
+      def set_flags(flags)
+        _set_flags(flags)
+      end
+
+      # @param flag [Qt::WindowType]
+      # @param on [Boolean]
+      # @return [nil]
       #
-      # Typically active windows should appear active from a style
-      # perspective.
+      # Sets the window flag flag on this window if on is true; otherwise
+      # clears the flag.
+      def set_flag(flag, on)
+        _set_flag(flag, on)
+      end
+
+      # @param modality [Boolean]
+      # @return [nil]
       #
-      # To get the window that currently has focus, use
-      # QGuiApplication::focusWindow().
-      def active?
-        _active?
+      # Sets the window's modality property.
+      def set_modality(modality)
+        _set_modality(modality)
+      end
+
+      # @param visibility [QWindow::Visibility]
+      # @return [nil]
+      #
+      # Sets the window's visibility property.
+      def set_visibility(visibility)
+        _set_visibility(visibility)
+      end
+
+      # @param visible [Boolean]
+      # @return [nil]
+      #
+      # Sets the window's visible property.
+      def set_visible(visible)
+        _set_visible(visible)
       end
     end
   end

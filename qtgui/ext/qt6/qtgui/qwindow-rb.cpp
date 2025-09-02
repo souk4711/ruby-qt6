@@ -21,6 +21,13 @@ void Init_qwindow(Rice::Module rb_mQt6QtGui)
             // Window functions
             .define_method("_title", &QWindow::title)
             .define_method("_icon", &QWindow::icon)
+            .define_method("_active?", &QWindow::isActive)
+            .define_method("_content_orientation", &QWindow::contentOrientation)
+            .define_method("_flags", &QWindow::flags)
+            .define_method("_type", &QWindow::type)
+            .define_method("_modality", &QWindow::modality)
+            .define_method("_visibility", &QWindow::visibility)
+            .define_method("_visible?", &QWindow::isVisible)
             .define_method("_show", &QWindow::show)
             .define_method("_show_full_screen", &QWindow::showFullScreen)
             .define_method("_show_maximized", &QWindow::showMaximized)
@@ -33,7 +40,12 @@ void Init_qwindow(Rice::Module rb_mQt6QtGui)
             .define_method("_alert", &QWindow::alert, Arg("msec"))
             .define_method("_set_title", &QWindow::setTitle, Arg("title"))
             .define_method("_set_icon", &QWindow::setIcon, Arg("icon"))
-            .define_method("_active?", &QWindow::isActive)
+            .define_method("_report_content_orientation_change", &QWindow::reportContentOrientationChange, Arg("orientation"))
+            .define_method("_set_flags", &QWindow::setFlags, Arg("flags"))
+            .define_method("_set_flag", &QWindow::setFlag, Arg("flag"), Arg("on") = static_cast<bool>(true))
+            .define_method("_set_modality", &QWindow::setModality, Arg("modality"))
+            .define_method("_set_visibility", &QWindow::setVisibility, Arg("visibility"))
+            .define_method("_set_visible", &QWindow::setVisible, Arg("visible"))
             // Geometry
             .define_method("_position", &QWindow::position)
             .define_method("_x", &QWindow::x)
@@ -72,6 +84,18 @@ void Init_qwindow(Rice::Module rb_mQt6QtGui)
             .define_method("_set_frame_position", &QWindow::setFramePosition, Arg("position"))
             // Look and feel
             .define_method("_cursor", &QWindow::cursor)
+            .define_method("_opacity", &QWindow::opacity)
             .define_method("_set_cursor", &QWindow::setCursor, Arg("cursor"))
-            .define_method("_unset_cursor", &QWindow::unsetCursor);
+            .define_method("_unset_cursor", &QWindow::unsetCursor)
+            .define_method("_set_opacity", &QWindow::setOpacity, Arg("level"));
+
+    Enum<QWindow::Visibility> rb_cQWindowVisibility =
+        // RubyQt6::QtGui::QWindow::Visibility
+        define_enum_under<QWindow::Visibility>("Visibility", rb_cQWindow)
+            .define_value("Hidden", QWindow::Visibility::Hidden)
+            .define_value("AutomaticVisibility", QWindow::Visibility::AutomaticVisibility)
+            .define_value("Windowed", QWindow::Visibility::Windowed)
+            .define_value("Minimized", QWindow::Visibility::Minimized)
+            .define_value("Maximized", QWindow::Visibility::Maximized)
+            .define_value("FullScreen", QWindow::Visibility::FullScreen);
 }

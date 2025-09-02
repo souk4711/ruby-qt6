@@ -10,6 +10,22 @@ module RubyQt6
         _cursor
       end
 
+      # @return [Float]
+      #
+      # This property holds the opacity of the window in the windowing system.
+      #
+      # If the windowing system supports window opacity, this can be used to
+      # fade the window in and out, or to make it semitransparent.
+      #
+      # A value of 1.0 or above is treated as fully opaque, whereas a value
+      # of 0.0 or below is treated as fully transparent. Values inbetween
+      # represent varying levels of translucency between the two extremes.
+      #
+      # The default value is 1.0.
+      def opacity
+        _opacity
+      end
+
       # @param cursor [QCursor]
       # @return [nil]
       #
@@ -37,6 +53,14 @@ module RubyQt6
       # Restores the default arrow cursor for this window.
       def unset_cursor
         _unset_cursor
+      end
+
+      # @param level [Float]
+      # @return [nil]
+      #
+      # Sets the window's opacity property.
+      def set_opacity(level)
+        _set_opacity(level)
       end
     end
   end
