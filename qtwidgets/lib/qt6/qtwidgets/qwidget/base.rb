@@ -26,7 +26,7 @@ module RubyQt6
       # explicitly show the child to make it visible.
       def initialize(parent = nil)
         _initialize(parent)
-        _take_ownership_from_rice(self) if parent
+        _take_ownership_from_rubyrice(self) if parent
       end
     end
   end

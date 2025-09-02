@@ -23,7 +23,7 @@ module RubyQt6
       # QWidget::setLayout().
       def initialize(parent = nil)
         _initialize(parent)
-        _take_ownership_from_rice(self) if parent
+        _take_ownership_from_rubyrice(self) if parent
       end
 
       # @return [Integer]

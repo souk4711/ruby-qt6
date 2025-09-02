@@ -19,7 +19,7 @@ module RubyQt6
       # values are Qt::Vertical and Qt::Horizontal.
       def initialize(orientation, parent = nil)
         _initialize(orientation, parent)
-        _take_ownership_from_rice(self) if parent
+        _take_ownership_from_rubyrice(self) if parent
       end
 
       # @return [Integer]

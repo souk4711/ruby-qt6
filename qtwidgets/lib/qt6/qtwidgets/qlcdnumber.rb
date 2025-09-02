@@ -21,7 +21,7 @@ module RubyQt6
       # to a raised box. The segmentStyle() is set to Filled.
       def initialize(num, parent = nil)
         _initialize(num, parent)
-        _take_ownership_from_rice(self) if parent
+        _take_ownership_from_rubyrice(self) if parent
       end
 
       # @return [Integer]

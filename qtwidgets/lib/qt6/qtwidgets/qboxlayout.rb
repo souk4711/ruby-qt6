@@ -22,7 +22,7 @@ module RubyQt6
       # QWidget::layout().
       def initialize(direction, parent = nil)
         _initialize(direction, parent)
-        _take_ownership_from_rice(self) if parent
+        _take_ownership_from_rubyrice(self) if parent
       end
 
       # @return [QBoxLayout::Direction]

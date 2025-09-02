@@ -5,8 +5,8 @@ module RubyQt6
     class QObject
       private
 
-      def _take_ownership_from_rice(object)
-        self.class._take_ownership_from_rice(object)
+      def _take_ownership_from_rubyrice(object)
+        self.class._take_ownership_from_rubyrice(object)
       end
     end
   end
