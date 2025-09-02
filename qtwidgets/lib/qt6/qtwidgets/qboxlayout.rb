@@ -4,11 +4,11 @@ module RubyQt6
   module QtWidgets
     # @see https://doc.qt.io/qt-6/qboxlayout.html
     class QBoxLayout < RubyQt6::QtWidgets::QLayout
-      # @!visibility private
-      alias_method :_initialize, :initialize
-
       # @!parse class Direction; end
       rubyqt6_include_constants QBoxLayout, QBoxLayout::Direction
+
+      # @!visibility private
+      alias_method :_initialize, :initialize
 
       # @param direction [QBoxLayout::Direction]
       # @param parent [QWidget]

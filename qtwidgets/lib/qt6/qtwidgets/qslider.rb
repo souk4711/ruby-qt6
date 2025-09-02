@@ -4,11 +4,11 @@ module RubyQt6
   module QtWidgets
     # @see https://doc.qt.io/qt-6/qslider.html
     class QSlider < RubyQt6::QtWidgets::QAbstractSlider
-      # @!visibility private
-      alias_method :_initialize, :initialize
-
       # @!parse class TickPosition; end
       rubyqt6_include_constants QSlider, QSlider::TickPosition
+
+      # @!visibility private
+      alias_method :_initialize, :initialize
 
       # @param orientation [Qt::Orientation]
       # @param parent [QWidget]

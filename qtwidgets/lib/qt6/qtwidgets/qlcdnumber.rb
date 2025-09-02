@@ -4,13 +4,13 @@ module RubyQt6
   module QtWidgets
     # @see https://doc.qt.io/qt-6/qlcdnumber.html
     class QLCDNumber < RubyQt6::QtWidgets::QFrame
-      # @!visibility private
-      alias_method :_initialize, :initialize
-
       # @!parse class Mode        ; end
       # @!parse class SegmentStyle; end
       rubyqt6_include_constants QLCDNumber, QLCDNumber::Mode
       rubyqt6_include_constants QLCDNumber, QLCDNumber::SegmentStyle
+
+      # @!visibility private
+      alias_method :_initialize, :initialize
 
       # @param num [Integer]
       # @param parent [QWidget]

@@ -7,12 +7,10 @@ module RubyQt6
       # @!visibility private
       alias_method :_initialize, :initialize
 
-      class << self
-        # @!visibility private
-        def new(str)
-          return str if str.is_a?(QAnyStringView)
-          allocate.tap { |o| o.__send__(:initialize, str) }
-        end
+      # @!visibility private
+      def self.new(str)
+        return str if str.is_a?(QAnyStringView)
+        allocate.tap { |o| o.__send__(:initialize, str) }
       end
 
       # @param str [QString]

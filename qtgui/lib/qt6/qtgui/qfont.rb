@@ -4,9 +4,6 @@ module RubyQt6
   module QtGui
     # @see https://doc.qt.io/qt-6/qfont.html
     class QFont
-      # @!visibility private
-      alias_method :_initialize, :initialize
-
       # @!parse class Capitalization   ; end
       # @!parse class HintingPreference; end
       # @!parse class SpacingType      ; end
@@ -23,6 +20,9 @@ module RubyQt6
       rubyqt6_include_constants QFont, QFont::StyleHint
       rubyqt6_include_constants QFont, QFont::StyleStrategy
       rubyqt6_include_constants QFont, QFont::Weight
+
+      # @!visibility private
+      alias_method :_initialize, :initialize
 
       # @param family [QString]
       # @param point_size [Integer]
