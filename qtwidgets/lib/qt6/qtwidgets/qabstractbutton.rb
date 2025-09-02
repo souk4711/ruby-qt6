@@ -215,7 +215,7 @@ module RubyQt6
       #
       # Sets the button's text property.
       def set_text(text)
-        _set_text(text)
+        _set_text(QtCore::QString.new(text))
       end
 
       # @return [QButtonGroup]

@@ -268,7 +268,7 @@ module RubyQt6
       #
       # Sets the widget's styleSheet property.
       def set_style_sheet(style_sheet)
-        _set_style_sheet(style_sheet)
+        _set_style_sheet(QtCore::QString.new(style_sheet))
       end
     end
   end

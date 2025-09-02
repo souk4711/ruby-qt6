@@ -4,7 +4,7 @@ module RubyQt6
   module QtQml
     # @see https://doc.qt.io/qt-6/qqmlengine.html
     class QQmlEngine < RubyQt6::QtQml::QJSEngine
-      # @param path [String]
+      # @param path [QString]
       # @return [nil]
       #
       # Adds path as a directory where the engine searches for installed

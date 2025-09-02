@@ -252,6 +252,7 @@ module RubyQt6
         _set_icon(icon)
       end
 
+      # @param orientation [Qt::ScreenOrientation]
       # @return [nil]
       #
       # Sets the window's contentOrientation property.
