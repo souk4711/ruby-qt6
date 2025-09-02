@@ -31,5 +31,6 @@ void Init_qguiapplication(Rice::Module rb_mQt6QtGui)
             .define_method("_saving_session?", &QGuiApplication::isSavingSession)
             .define_method("_session_restored?", &QGuiApplication::isSessionRestored)
             .define_method("_session_id", &QGuiApplication::sessionId)
-            .define_method("_session_key", &QGuiApplication::sessionKey);
+            .define_method("_session_key", &QGuiApplication::sessionKey)
+            .define_method("_set_badge_number", &QGuiApplication::setBadgeNumber, Arg("number"));
 }

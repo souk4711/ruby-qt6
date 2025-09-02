@@ -108,7 +108,27 @@ module RubyQt6
       #
       # Sets the application's display name.
       def set_application_display_name(name)
-        self.class._set_application_display_name(name)
+        self.class._set_application_display_name(QtCore::QString.new(name))
+      end
+
+      # @param number [Integer]
+      # @return [nil]
+      #
+      # Sets the application's badge to number.
+      #
+      # Useful for providing feedback to the user about the number of unread
+      # messages or similar.
+      #
+      # The badge will be overlaid on the application's icon in the Dock on
+      # macOS, the home screen icon on iOS, or the task bar on Windows and Linux.
+      #
+      # If the number is outside the range supported by the platform, the
+      # number will be clamped to the supported range. If the number does not
+      # fit within the badge, the number may be visually elided.
+      #
+      # Setting the number to 0 will clear the badge.
+      def set_badge_number(number)
+        _set_badge_number(number)
       end
 
       # @param name [QString]
@@ -116,7 +136,7 @@ module RubyQt6
       #
       # Sets the application's desktopFileName property.
       def set_desktop_file_name(name)
-        self.class._set_desktop_file_name(name)
+        self.class._set_desktop_file_name(QtCore::QString.new(name))
       end
 
       # @param direction [Qt::LayoutDirection]
