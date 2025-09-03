@@ -12,6 +12,12 @@ module RubyQt6
         return str if str.is_a?(self)
         allocate.tap { |o| o.__send__(:initialize, str) }
       end
+
+      # @param str [String]
+      # @return [QString]
+      def initialize(str)
+        _initialize(str)
+      end
     end
   end
 end

@@ -7,7 +7,7 @@ module RubyQt6
       # @!visibility private
       alias_method :_initialize, :initialize
 
-      # @!visibility private
+      # @return [QCoreApplication]
       def initialize
         _initialize
         _initialize_qApp
