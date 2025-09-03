@@ -1,6 +1,4 @@
 #include "qtwidgets-rb.hpp"
-
-// clang-format off
 #include "qtwidgetsversion-rb.hpp"
 
 #include "qwidget-rb.hpp"
@@ -19,7 +17,6 @@
 #include "qlcdnumber-rb.hpp"
 
 #include "qapplication-rb.hpp"
-// clang-format on
 
 extern "C" void Init_qtwidgets()
 {

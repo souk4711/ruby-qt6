@@ -1,7 +1,6 @@
 #include "qtcore-rb.hpp"
-
-#include "qt-rb.hpp"
 #include "qtcoreversion-rb.hpp"
+#include "qt-rb.hpp"
 
 #include "qanystringview-rb.hpp"
 #include "qstring-rb.hpp"

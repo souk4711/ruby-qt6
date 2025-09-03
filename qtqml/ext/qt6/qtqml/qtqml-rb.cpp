@@ -1,12 +1,9 @@
 #include "qtqml-rb.hpp"
-
-// clang-format off
 #include "qtqmlversion-rb.hpp"
 
 #include "qjsengine-rb.hpp"
 #include "qqmlengine-rb.hpp"
 #include "qqmlapplicationengine-rb.hpp"
-// clang-format on
 
 extern "C" void Init_qtqml()
 {

@@ -1,10 +1,7 @@
 #include "qtquickcontrols2-rb.hpp"
-
-// clang-format off
 #include "qtquickcontrols2version-rb.hpp"
 
 #include "qquickstyle-rb.hpp"
-// clang-format on
 
 extern "C" void Init_qtquickcontrols2()
 {

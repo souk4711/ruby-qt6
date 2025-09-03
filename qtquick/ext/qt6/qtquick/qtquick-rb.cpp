@@ -1,6 +1,4 @@
 #include "qtquick-rb.hpp"
-
-// clang-format off
 #include "qtquickversion-rb.hpp"
 
 #include "qquickitem-rb.hpp"
@@ -8,7 +6,6 @@
 
 #include "qquickwindow-rb.hpp"
 #include "qquickview-rb.hpp"
-// clang-format on
 
 extern "C" void Init_qtquick()
 {
