@@ -8,6 +8,21 @@ module RubyQt6
       # @!parse class Visibility  ; end
       rubyqt6_include_constants QWindow, QWindow::AncestorMode
       rubyqt6_include_constants QWindow, QWindow::Visibility
+
+      # @!visibility private
+      alias_method :_initialize, :initialize
+
+      # @!visibility private
+      def initialize(parent = nil)
+        _initialize(parent)
+        _take_ownership_from_rubyrice(self) if parent
+      end
+
+      # @!visibility private
+      def set_parent(parent = nil)
+        _set_parent(parent)
+        _take_ownership_from_rubyrice(self) if parent
+      end
     end
   end
 end
