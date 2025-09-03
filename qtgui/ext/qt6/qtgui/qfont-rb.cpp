@@ -9,8 +9,7 @@ void Init_qfont(Rice::Module rb_mQt6QtGui)
 {
     rb_cQFont =
         // RubyQt6::QtGui::QFont
-        define_class_under<QFont>(rb_mQt6QtGui, "QFont")
-            .define_constructor(Constructor<QFont, const QString &, int, int, bool>(), Arg("family"), Arg("point_size") = static_cast<int>(-1), Arg("weight") = static_cast<int>(-1), Arg("italic") = static_cast<bool>(false));
+        define_class_under<QFont>(rb_mQt6QtGui, "QFont");
 
     Enum<QFont::Capitalization> rb_cQFontCapitalization =
         // RubyQt6::QtGui::QFont::Capitalization

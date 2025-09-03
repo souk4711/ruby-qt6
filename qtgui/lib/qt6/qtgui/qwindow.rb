@@ -1,7 +1,13 @@
 # frozen_string_literal: true
 
-require_relative "qwindow/base"
-require_relative "qwindow/qsurface"
-require_relative "qwindow/window"
-require_relative "qwindow/geometry"
-require_relative "qwindow/appearance"
+module RubyQt6
+  module QtGui
+    # @see https://doc.qt.io/qt-6/qwindow.html
+    class QWindow < RubyQt6::QtCore::QObject
+      # @!parse class AncestorMode; end
+      # @!parse class Visibility  ; end
+      rubyqt6_include_constants QWindow, QWindow::AncestorMode
+      rubyqt6_include_constants QWindow, QWindow::Visibility
+    end
+  end
+end
