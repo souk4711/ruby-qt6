@@ -22,8 +22,8 @@ extern "C" void Init_qtcore()
         Rice::Module rb_mQt6 = Rice::define_module("RubyQt6");
         Rice::Module rb_mQt6QtCore = define_module_under(rb_mQt6, "QtCore");
 
-        Init_qt(rb_mQt6QtCore);
         Init_qtcoreversion(rb_mQt6QtCore);
+        Init_qt(rb_mQt6QtCore);
 
         Init_qanystringview(rb_mQt6QtCore);
         Init_qstring(rb_mQt6QtCore);
