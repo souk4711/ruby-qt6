@@ -3,9 +3,9 @@
 
 #include <QBindable>
 #include <QEvent>
-#include <QThread>
 #include <QMetaMethod>
 #include <QMetaObject>
+#include <QThread>
 #include <QVariant>
 
 using namespace Rice;
