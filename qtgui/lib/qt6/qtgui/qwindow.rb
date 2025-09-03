@@ -12,7 +12,8 @@ module RubyQt6
       # @!visibility private
       alias_method :_initialize, :initialize
 
-      # @!visibility private
+      # @param parent [QWindow]
+      # @return [QWindow]
       def initialize(parent = nil)
         _initialize(parent)
         _take_ownership_from_rubyrice(self) if parent
