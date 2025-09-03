@@ -124,7 +124,13 @@
       // define to verify the Clang version we hard-code the versions
       // based on the best available info we have about the actual
       // version: http://en.wikipedia.org/wiki/Xcode#Toolchain_Versions
-#      if __apple_build_version__   >= 14030022 // Xcode 14.3
+#      if __apple_build_version__   >= 17000013 // Xcode 16.3
+#        define Q_CC_CLANG 1914
+#      elif __apple_build_version__ >= 16000026 // Xcode 16.0
+#        define Q_CC_CLANG 1706
+#      elif __apple_build_version__ >= 15000040 // Xcode 15.0
+#        define Q_CC_CLANG 1600
+#      elif __apple_build_version__ >= 14030022 // Xcode 14.3
 #        define Q_CC_CLANG 1500
 #      elif __apple_build_version__ >= 14000029 // Xcode 14.0
 #        define Q_CC_CLANG 1400
@@ -1029,7 +1035,7 @@
 // if one isn't also using C++26,
 // https://github.com/llvm/llvm-project/issues/109311
 #  if defined(__cpp_deleted_function) && __cpp_deleted_function >= 202403L \
-    && (!defined(Q_CC_CLANG_ONLY) || Q_CC_CLANG_ONLY >= 2000 || __cplusplus > 202302L) // C++26
+    && (!defined(Q_CC_CLANG_ONLY) || Q_CC_CLANG_ONLY >= 2010 || __cplusplus > 202302L) // C++26
 #    define Q_DECL_EQ_DELETE_X(reason) = delete(reason)
 #  else
 #    define Q_DECL_EQ_DELETE_X(reason) = delete

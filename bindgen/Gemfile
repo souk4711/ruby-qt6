@@ -7,5 +7,5 @@ gem "rubocop"
 gem "standard"
 gem "solargraph"
 
-gem "ffi-clang", git: "https://github.com/ioquatix/ffi-clang.git"
-gem "ruby-bindgen", path: "../../ruby-bindgen"
+gem "ffi-clang", git: "https://github.com/souk4711/ffi-clang"
+gem "ruby-bindgen", git: "https://github.com/souk4711/ruby-bindgen"

@@ -28,6 +28,8 @@
 
 #define QT_FEATURE_cxx2b -1
 
+#define QT_FEATURE_cxx2c -1
+
 #define QT_FEATURE_reduce_relocations 1
 
 #define QT_FEATURE_signaling_nan 1
@@ -57,13 +59,13 @@
 #define QT_FEATURE_test_gui 1
 
 
-#define QT_VERSION_STR "6.9.1"
+#define QT_VERSION_STR "6.9.2"
 
 #define QT_VERSION_MAJOR 6
 
 #define QT_VERSION_MINOR 9
 
-#define QT_VERSION_PATCH 1
+#define QT_VERSION_PATCH 2
 
 #define QT_COPYRIGHT "Copyright (C) The Qt Company Ltd. and other contributors."
 #define QT_LARGEFILE_SUPPORT 64

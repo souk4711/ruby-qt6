@@ -1,12 +1,13 @@
 GIT
-  remote: https://github.com/ioquatix/ffi-clang.git
+  remote: https://github.com/souk4711/ffi-clang
   revision: 0d4ef3e12fa0fa5cadaa987de85e5419ecbb4df2
   specs:
     ffi-clang (0.13.0)
       ffi
 
-PATH
-  remote: ../../ruby-bindgen
+GIT
+  remote: https://github.com/souk4711/ruby-bindgen
+  revision: 59667ff68d5feced3f80e6f4ed119ea8a369ca8f
   specs:
     ruby-bindgen (1.0.0)
       ffi (>= 1.16)

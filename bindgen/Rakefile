@@ -3,7 +3,6 @@
 namespace :bindgen do
   def bindgen(extension:)
     require "ruby-bindgen"
-    require_relative "ruby-bindgen-patch"
 
     clang_args = []
     clang_args << "-I/usr/lib/clang/20/include"
@@ -70,8 +69,8 @@ task :upinc do
   end
 
   FileUtils.rm_rf("qt6include")
-  upinc(pkg: "qt6-base-6.9.1-5")
-  upinc(pkg: "qt6-declarative-6.9.1-3")
+  upinc(pkg: "qt6-base-6.9.2-1")
+  upinc(pkg: "qt6-declarative-6.9.2-1")
 end
 
 task :default do
