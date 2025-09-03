@@ -1,5 +1,3 @@
-// clang-format off
-
 #include "qt-rb.hpp"
 #include <qnamespace.h>
 

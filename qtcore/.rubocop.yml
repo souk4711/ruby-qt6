@@ -8,3 +8,7 @@ AllCops:
   Exclude:
     - "bin/**/*"
     - "tmp/**/*"
+
+Style/GlobalVars:
+  AllowedVariables:
+    - '$qApp'

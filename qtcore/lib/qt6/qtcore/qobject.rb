@@ -1,5 +1,29 @@
 # frozen_string_literal: true
 
-require_relative "qobject/base"
-require_relative "qobject/classmethods"
-require_relative "qobject/rubyrice"
+module RubyQt6
+  module QtCore
+    # @see https://doc.qt.io/qt-6/qobject.html
+    class QObject
+      # @!visibility private
+      alias_method :_initialize, :initialize
+
+      # @!visibility private
+      def initialize(parent = nil)
+        _initialize(parent)
+        _take_ownership_from_rubyrice(self) if parent
+      end
+
+      # @!visibility private
+      def set_parent(parent = nil)
+        _set_parent(parent)
+        _take_ownership_from_rubyrice(self) if parent
+      end
+
+      private
+
+      def _take_ownership_from_rubyrice(object)
+        self.class._take_ownership_from_rubyrice(object)
+      end
+    end
+  end
+end

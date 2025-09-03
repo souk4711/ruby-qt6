@@ -1,6 +1,5 @@
 #include "qtcore-rb.hpp"
 
-// clang-format off
 #include "qt-rb.hpp"
 #include "qtcoreversion-rb.hpp"
 
@@ -17,7 +16,6 @@
 #include "qmetaobject-rb.hpp"
 #include "qmetamethod-rb.hpp"
 #include "qcoreapplication-rb.hpp"
-// clang-format on
 
 extern "C" void Init_qtcore()
 {

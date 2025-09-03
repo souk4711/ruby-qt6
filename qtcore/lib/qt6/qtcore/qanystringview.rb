@@ -9,16 +9,13 @@ module RubyQt6
 
       # @!visibility private
       def self.new(str)
-        return str if str.is_a?(QAnyStringView)
+        return str if str.is_a?(self)
         allocate.tap { |o| o.__send__(:initialize, str) }
       end
 
-      # @param str [QString]
-      # @return [QAnyStringView]
-      #
-      # Constructs a string view on str.
+      # @!visibility private
       def initialize(str)
-        _initialize(QString.new(str))
+        _initialize(QtCore::QString.new(str))
       end
     end
   end
