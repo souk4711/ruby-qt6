@@ -19,7 +19,7 @@ module RubyQt6
       end
 
       # @!visibility private
-      def set_parent(parent = nil)
+      def set_parent(parent)
         _set_parent(parent)
         _take_ownership_from_rubyrice(self) if parent
       end
