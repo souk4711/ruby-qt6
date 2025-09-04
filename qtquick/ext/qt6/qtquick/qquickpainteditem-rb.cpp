@@ -2,6 +2,7 @@
 #include <qquickpainteditem.h>
 
 #include <QPainter>
+#include <QSGTextureProvider>
 
 using namespace Rice;
 
@@ -31,6 +32,9 @@ void Init_qquickpainteditem(Rice::Module rb_mQt6QtQuick)
             .define_method("set_texture_size", &QQuickPaintedItem::setTextureSize, Arg("size"))
             .define_method("texture_size", &QQuickPaintedItem::textureSize)
             .define_method("update", &QQuickPaintedItem::update, Arg("rect") = static_cast<const QRect &>(QRect()))
+            // Reimplemented Public Functions
+            .define_method("texture_provider?", &QQuickPaintedItem::isTextureProvider)
+            .define_method("texture_provider", &QQuickPaintedItem::textureProvider)
             // Signals
             .define_method("fill_color_changed", &QQuickPaintedItem::fillColorChanged)
             .define_method("render_target_changed", &QQuickPaintedItem::renderTargetChanged)

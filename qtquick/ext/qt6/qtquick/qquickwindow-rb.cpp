@@ -58,6 +58,8 @@ void Init_qquickwindow(Rice::Module rb_mQt6QtQuick)
             .define_method("set_persistent_scene_graph", &QQuickWindow::setPersistentSceneGraph, Arg("persistent"))
             .define_method("set_render_target", &QQuickWindow::setRenderTarget, Arg("target"))
             // .define_method("swap_chain", &QQuickWindow::swapChain)
+            // Reimplemented Public Functions
+            .define_method("accessible_root", &QQuickWindow::accessibleRoot)
             // Public Slots
             .define_method("release_resources", &QQuickWindow::releaseResources)
             .define_method("update", &QQuickWindow::update)
