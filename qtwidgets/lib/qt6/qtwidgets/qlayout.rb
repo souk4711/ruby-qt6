@@ -6,6 +6,18 @@ module RubyQt6
     class QLayout < RubyQt6::QtCore::QObject
       # @!parse class SizeConstraint; end
       rubyqt6_include_constants QLayout, QLayout::SizeConstraint
+
+      # @!visibility private
+      def remove_item(item)
+        _remove_item(item)
+        # TODO: transfer ownership of item to the caller
+      end
+
+      # @!visibility private
+      def remove_widget(widget)
+        _remove_widget(widget)
+        # TODO: transfer ownership of item to the caller
+      end
     end
   end
 end
