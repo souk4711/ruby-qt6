@@ -2,8 +2,10 @@
 #include "qtwidgetsversion-rb.hpp"
 
 #include "qwidget-rb.hpp"
+#include "qlayoutitem-rb.hpp"
 #include "qlayout-rb.hpp"
 #include "qboxlayout-rb.hpp"
+#include "qformlayout-rb.hpp"
 #include "qgridlayout-rb.hpp"
 #include "qstackedlayout-rb.hpp"
 
@@ -28,8 +30,10 @@ extern "C" void Init_qtwidgets()
         Init_qtwidgetsversion(rb_mQt6QtWidgets);
 
         Init_qwidget(rb_mQt6QtWidgets);
+        Init_qlayoutitem(rb_mQt6QtWidgets);
         Init_qlayout(rb_mQt6QtWidgets);
         Init_qboxlayout(rb_mQt6QtWidgets);
+        Init_qformlayout(rb_mQt6QtWidgets);
         Init_qgridlayout(rb_mQt6QtWidgets);
         Init_qstackedlayout(rb_mQt6QtWidgets);
 

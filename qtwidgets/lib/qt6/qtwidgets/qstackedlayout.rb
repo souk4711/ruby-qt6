@@ -4,7 +4,7 @@ module RubyQt6
   module QtWidgets
     # @see https://doc.qt.io/qt-6/qstackedlayout.html
     class QStackedLayout < RubyQt6::QtWidgets::QLayout
-      # @!parse class Direction; end
+      # @!parse class StackingMode; end
       rubyqt6_include_constants QStackedLayout, QStackedLayout::StackingMode
 
       # @!visibility private
