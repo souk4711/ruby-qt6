@@ -16,6 +16,12 @@ module RubyQt6
         _initialize(parent)
         _take_ownership_from_rubyrice(self) if parent
       end
+
+      # @!visibility private
+      def set_parent(parent, f = nil)
+        f.nil? ? _set_parent(parent) : _set_parent(parent, f)
+        _take_ownership_from_rubyrice(self) if parent
+      end
     end
   end
 end

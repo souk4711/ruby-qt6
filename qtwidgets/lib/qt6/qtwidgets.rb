@@ -12,6 +12,7 @@ require_relative "qtwidgets/qboxlayout"
 require_relative "qtwidgets/qhboxlayout"
 require_relative "qtwidgets/qvboxlayout"
 require_relative "qtwidgets/qgridlayout"
+require_relative "qtwidgets/qstackedlayout"
 
 require_relative "qtwidgets/qabstractbutton"
 require_relative "qtwidgets/qpushbutton"
