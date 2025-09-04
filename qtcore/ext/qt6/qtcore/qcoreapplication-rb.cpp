@@ -18,8 +18,8 @@ void Init_qcoreapplication(Rice::Module rb_mQt6QtCore)
             .define_constructor(Constructor<QCoreApplication, int &, char **>(), Arg("argc") = static_cast<int>(0), Arg("argv") = static_cast<char **>(nullptr))
             // Public Functions
             .define_method("check_permission", &QCoreApplication::checkPermission, Arg("permission"))
-            .define_method("notify", &QCoreApplication::notify, Arg(""), Arg(""))
             .define_method("install_native_event_filter", &QCoreApplication::installNativeEventFilter, Arg("filter_obj"))
+            .define_method("notify", &QCoreApplication::notify, Arg(""), Arg(""))
             .define_method("remove_native_event_filter", &QCoreApplication::removeNativeEventFilter, Arg("filter_obj"))
             // Public Slots
             .define_singleton_function("exit", &QCoreApplication::exit, Arg("retcode") = static_cast<int>(0))
