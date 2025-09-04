@@ -1,6 +1,7 @@
 #include "qwindow-rb.hpp"
 #include <qwindow.h>
 
+#include <QAccessible>
 #include <QScreen>
 #include <QVulkanInstance>
 
@@ -23,7 +24,7 @@ void Init_qwindow(Rice::Module rb_mQt6QtGui)
             // .define_method("surface_handle", &QWindow::surfaceHandle)
             .define_method("surface_type", &QWindow::surfaceType)
             // Public Functions
-            // .define_method("accessible_root", &QWindow::accessibleRoot)
+            .define_method("accessible_root", &QWindow::accessibleRoot)
             .define_method("base_size", &QWindow::baseSize)
             .define_method("content_orientation", &QWindow::contentOrientation)
             .define_method("create", &QWindow::create)

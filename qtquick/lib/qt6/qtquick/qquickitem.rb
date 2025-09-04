@@ -13,6 +13,12 @@ module RubyQt6
         _initialize(parent)
         _take_ownership_from_rubyrice(self) if parent
       end
+
+      # @!visibility private
+      def set_parent_item(parent)
+        _set_parent_item(parent)
+        _take_ownership_from_rubyrice(self) if parent
+      end
     end
   end
 end
