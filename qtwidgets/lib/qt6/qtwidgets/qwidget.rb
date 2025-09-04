@@ -1,8 +1,21 @@
 # frozen_string_literal: true
 
-require_relative "qwidget/base"
-require_relative "qwidget/qpaintdevice"
-require_relative "qwidget/window"
-require_relative "qwidget/geometry"
-require_relative "qwidget/appearance"
-require_relative "qwidget/interactive"
+module RubyQt6
+  module QtWidgets
+    # @see https://doc.qt.io/qt-6/qwidget.html
+    class QWidget < RubyQt6::QtCore::QObject
+      # @!parse class RenderFlag; end
+      rubyqt6_include_constants QWidget, QWidget::RenderFlag
+
+      # @!visibility private
+      alias_method :_initialize, :initialize
+
+      # @param parent [QWidget]
+      # @return [QWidget]
+      def initialize(parent = nil)
+        _initialize(parent)
+        _take_ownership_from_rubyrice(self) if parent
+      end
+    end
+  end
+end
