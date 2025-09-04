@@ -16,7 +16,7 @@ void Init_qqmlengine(Rice::Module rb_mQt6QtQml)
             // Constructor
             .define_constructor(Constructor<QQmlEngine, QObject *>(), Arg("parent") = static_cast<QObject *>(nullptr))
             // Public Functions
-            .define_method("add_image_provider", &QQmlEngine::addImageProvider, Arg("id"), Arg(""))
+            .define_method("add_image_provider", &QQmlEngine::addImageProvider, Arg("id"), Arg("provider").takeOwnership())
             .define_method("add_import_path", &QQmlEngine::addImportPath, Arg("dir"))
             .define_method("add_plugin_path", &QQmlEngine::addPluginPath, Arg("dir"))
             .define_method("add_url_interceptor", &QQmlEngine::addUrlInterceptor, Arg("url_interceptor"))
