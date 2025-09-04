@@ -11,25 +11,29 @@ void Init_qlcdnumber(Rice::Module rb_mQt6QtWidgets)
         // RubyQt6::QtWidgets::QLCDNumber
         define_class_under<QLCDNumber, QFrame>(rb_mQt6QtWidgets, "QLCDNumber")
             .define_constructor(Constructor<QLCDNumber, uint, QWidget *>(), Arg("num"), Arg("parent") = static_cast<QWidget *>(nullptr))
-            .define_method("_digit_count", &QLCDNumber::digitCount)
-            .define_method("_int_value", &QLCDNumber::intValue)
-            .define_method("_mode", &QLCDNumber::mode)
-            .define_method("_segment_style", &QLCDNumber::segmentStyle)
-            .define_method("_small_decimal_point?", &QLCDNumber::smallDecimalPoint)
-            .define_method("_value", &QLCDNumber::value)
-            .define_method("_set_digit_count", &QLCDNumber::setDigitCount, Arg("num"))
-            .define_method<void (QLCDNumber::*)(double)>("_display", &QLCDNumber::display, Arg("num"))
-            .define_method<void (QLCDNumber::*)(int)>("_display", &QLCDNumber::display, Arg("num"))
-            .define_method<void (QLCDNumber::*)(const QString &)>("_display_str", &QLCDNumber::display, Arg("str"))
-            .define_method("_set_mode", &QLCDNumber::setMode, Arg("mode"))
-            .define_method("_set_hex_mode", &QLCDNumber::setHexMode)
-            .define_method("_set_dec_mode", &QLCDNumber::setDecMode)
-            .define_method("_set_oct_mode", &QLCDNumber::setOctMode)
-            .define_method("_set_bin_mode", &QLCDNumber::setBinMode)
-            .define_method("_set_segment_style", &QLCDNumber::setSegmentStyle, Arg("style"))
-            .define_method("_set_small_decimal_point", &QLCDNumber::setSmallDecimalPoint, Arg("enabled"))
-            .define_method<bool (QLCDNumber::*)(double) const>("_check_overflow", &QLCDNumber::checkOverflow, Arg("num"))
-            .define_method<bool (QLCDNumber::*)(int) const>("_check_overflow", &QLCDNumber::checkOverflow, Arg("num"));
+            // Public Functions
+            .define_method<bool (QLCDNumber::*)(double) const>("check_overflow", &QLCDNumber::checkOverflow, Arg("num"))
+            .define_method<bool (QLCDNumber::*)(int) const>("check_overflow", &QLCDNumber::checkOverflow, Arg("num"))
+            .define_method("digit_count", &QLCDNumber::digitCount)
+            .define_method("int_value", &QLCDNumber::intValue)
+            .define_method("mode", &QLCDNumber::mode)
+            .define_method("segment_style", &QLCDNumber::segmentStyle)
+            .define_method("set_digit_count", &QLCDNumber::setDigitCount, Arg("n_digits"))
+            .define_method("set_mode", &QLCDNumber::setMode, Arg(""))
+            .define_method("set_segment_style", &QLCDNumber::setSegmentStyle, Arg(""))
+            .define_method("small_decimal_point", &QLCDNumber::smallDecimalPoint)
+            .define_method("value", &QLCDNumber::value)
+            // Public Slots
+            .define_method<void (QLCDNumber::*)(const QString &)>("display", &QLCDNumber::display, Arg("str"))
+            .define_method<void (QLCDNumber::*)(double)>("display", &QLCDNumber::display, Arg("num"))
+            .define_method<void (QLCDNumber::*)(int)>("display", &QLCDNumber::display, Arg("num"))
+            .define_method("set_bin_mode", &QLCDNumber::setBinMode)
+            .define_method("set_dec_mode", &QLCDNumber::setDecMode)
+            .define_method("set_hex_mode", &QLCDNumber::setHexMode)
+            .define_method("set_oct_mode", &QLCDNumber::setOctMode)
+            .define_method("set_small_decimal_point", &QLCDNumber::setSmallDecimalPoint, Arg(""))
+            // Signals
+            .define_method("overflow", &QLCDNumber::overflow);
 
     Enum<QLCDNumber::Mode> rb_cQLCDNumberMode =
         // RubyQt6::QtWidgets::QLCDNumber::Mode

@@ -11,10 +11,11 @@ void Init_qslider(Rice::Module rb_mQt6QtWidgets)
         // RubyQt6::QtWidgets::QSlider
         define_class_under<QSlider, QAbstractSlider>(rb_mQt6QtWidgets, "QSlider")
             .define_constructor(Constructor<QSlider, Qt::Orientation, QWidget *>(), Arg("orientation"), Arg("parent") = static_cast<QWidget *>(nullptr))
-            .define_method("_tick_interval", &QSlider::tickInterval)
-            .define_method("_tick_position", &QSlider::tickPosition)
-            .define_method("_set_tick_interval", &QSlider::setTickInterval, Arg("interval"))
-            .define_method("_set_tick_position", &QSlider::setTickPosition, Arg("position"));
+            // Public Functions
+            .define_method("set_tick_interval", &QSlider::setTickInterval, Arg("ti"))
+            .define_method("set_tick_position", &QSlider::setTickPosition, Arg("position"))
+            .define_method("tick_interval", &QSlider::tickInterval)
+            .define_method("tick_position", &QSlider::tickPosition);
 
     Enum<QSlider::TickPosition> rb_cQSliderTickPosition =
         // RubyQt6::QtWidgets::QSlider::TickPosition
