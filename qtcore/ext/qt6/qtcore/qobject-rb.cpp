@@ -17,7 +17,7 @@ void Init_qobject(Rice::Module rb_mQt6QtCore)
     rb_cQObject =
         // RubyQt6::QtCore::QObject
         define_class_under<QObject>(rb_mQt6QtCore, "QObject")
-            // User Defined Functions
+            // Rice - Ruby Interface for C++ Extensions
             .define_singleton_function("_take_ownership_from_rubyrice", [](QObject *) -> void {}, Arg("object").takeOwnership())
             // Constructor
             .define_constructor(Constructor<QObject, QObject *>(), Arg("parent") = static_cast<QObject *>(nullptr))
