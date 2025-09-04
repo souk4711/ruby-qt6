@@ -28,6 +28,8 @@ void Init_qguiapplication(Rice::Module rb_mQt6QtGui)
             .define_method("session_restored?", &QGuiApplication::isSessionRestored)
             .define_method("session_id", &QGuiApplication::sessionId)
             .define_method("session_key", &QGuiApplication::sessionKey)
+            // Reimplemented Public Functions
+            .define_method("notify", &QGuiApplication::notify, Arg(""), Arg(""))
             // Public Slots
             .define_method("set_badge_number", &QGuiApplication::setBadgeNumber, Arg("number"))
             // Signals

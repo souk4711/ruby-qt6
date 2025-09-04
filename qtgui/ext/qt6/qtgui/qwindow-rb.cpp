@@ -17,12 +17,9 @@ void Init_qwindow(Rice::Module rb_mQt6QtGui)
             // Constructor
             .define_constructor(Constructor<QWindow, QWindow *>(), Arg("parent"))
             // inherits QSurface
-            .define_method("format", &QWindow::format)
-            .define_method("size", &QWindow::size)
             .define_method("supports_open_gl", &QWindow::supportsOpenGL)
             .define_method("surface_class", &QWindow::surfaceClass)
             // .define_method("surface_handle", &QWindow::surfaceHandle)
-            .define_method("surface_type", &QWindow::surfaceType)
             // Public Functions
             .define_method("accessible_root", &QWindow::accessibleRoot)
             .define_method("base_size", &QWindow::baseSize)
@@ -107,6 +104,10 @@ void Init_qwindow(Rice::Module rb_mQt6QtGui)
             .define_method("window_states", &QWindow::windowStates)
             .define_method("x", &QWindow::x)
             .define_method("y", &QWindow::y)
+            // Reimplemented Public Functions
+            .define_method("format", &QWindow::format)
+            .define_method("size", &QWindow::size)
+            .define_method("surface_type", &QWindow::surfaceType)
             // Public Slots
             .define_method("alert", &QWindow::alert, Arg("msec"))
             .define_method("close", &QWindow::close)
