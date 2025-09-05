@@ -44,6 +44,10 @@ void Init_qlabel(Rice::Module rb_mQt6QtWidgets)
             .define_method("text_format", &QLabel::textFormat)
             .define_method("text_interaction_flags", &QLabel::textInteractionFlags)
             .define_method("word_wrap", &QLabel::wordWrap)
+            // Reimplemented Public Functions
+            .define_method("height_for_width", &QLabel::heightForWidth, Arg(""))
+            .define_method("minimum_size_hint", &QLabel::minimumSizeHint)
+            .define_method("size_hint", &QLabel::sizeHint)
             // Public Slots
             .define_method("clear", &QLabel::clear)
             .define_method("set_movie", &QLabel::setMovie, Arg("movie"))

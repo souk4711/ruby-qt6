@@ -38,5 +38,20 @@ void Init_qgridlayout(Rice::Module rb_mQt6QtWidgets)
             .define_method("set_row_minimum_height", &QGridLayout::setRowMinimumHeight, Arg("row"), Arg("min_size"))
             .define_method("set_row_stretch", &QGridLayout::setRowStretch, Arg("row"), Arg("stretch"))
             .define_method("set_vertical_spacing", &QGridLayout::setVerticalSpacing, Arg("spacing"))
-            .define_method("vertical_spacing", &QGridLayout::verticalSpacing);
+            .define_method("vertical_spacing", &QGridLayout::verticalSpacing)
+            // Reimplemented Public Functions
+            .define_method("count", &QGridLayout::count)
+            .define_method("expanding_directions", &QGridLayout::expandingDirections)
+            .define_method("has_height_for_width", &QGridLayout::hasHeightForWidth)
+            .define_method("height_for_width", &QGridLayout::heightForWidth, Arg(""))
+            .define_method("invalidate", &QGridLayout::invalidate)
+            .define_method("item_at", &QGridLayout::itemAt, Arg("index"))
+            .define_method("maximum_size", &QGridLayout::maximumSize)
+            .define_method("minimum_height_for_width", &QGridLayout::minimumHeightForWidth, Arg(""))
+            .define_method("minimum_size", &QGridLayout::minimumSize)
+            .define_method("set_geometry", &QGridLayout::setGeometry, Arg(""))
+            .define_method("set_spacing", &QGridLayout::setSpacing, Arg("spacing"))
+            .define_method("size_hint", &QGridLayout::sizeHint)
+            .define_method("spacing", &QGridLayout::spacing)
+            .define_method("take_at", &QGridLayout::takeAt, Arg("index"));
 }

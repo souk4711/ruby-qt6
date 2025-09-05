@@ -62,7 +62,21 @@ void Init_qformlayout(Rice::Module rb_mQt6QtWidgets)
             .define_method<QFormLayout::TakeRowResult (QFormLayout::*)(QLayout *)>("take_row", &QFormLayout::takeRow, Arg("layout"))
             .define_method<QFormLayout::TakeRowResult (QFormLayout::*)(QWidget *)>("take_row", &QFormLayout::takeRow, Arg("widget"))
             .define_method<QFormLayout::TakeRowResult (QFormLayout::*)(int)>("take_row", &QFormLayout::takeRow, Arg("row"))
-            .define_method("vertical_spacing", &QFormLayout::verticalSpacing);
+            .define_method("vertical_spacing", &QFormLayout::verticalSpacing)
+            // Reimplemented Public Functions
+            .define_method("add_item", &QFormLayout::addItem, Arg("item"))
+            .define_method("count", &QFormLayout::count)
+            .define_method("expanding_directions", &QFormLayout::expandingDirections)
+            .define_method("has_height_for_width", &QFormLayout::hasHeightForWidth)
+            .define_method("height_for_width", &QFormLayout::heightForWidth, Arg("width"))
+            .define_method("invalidate", &QFormLayout::invalidate)
+            .define_method<QLayoutItem *(QFormLayout::*)(int) const>("item_at", &QFormLayout::itemAt, Arg("index"))
+            .define_method("minimum_size", &QFormLayout::minimumSize)
+            .define_method("set_geometry", &QFormLayout::setGeometry, Arg("rect"))
+            .define_method("set_spacing", &QFormLayout::setSpacing, Arg(""))
+            .define_method("size_hint", &QFormLayout::sizeHint)
+            .define_method("spacing", &QFormLayout::spacing)
+            .define_method("take_at", &QFormLayout::takeAt, Arg("index"));
 
     rb_cQFormLayoutTakeRowResult =
         // RubyQt6::QtWidgets::QFormLayout::TakeRowResult

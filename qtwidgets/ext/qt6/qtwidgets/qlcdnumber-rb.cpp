@@ -23,6 +23,8 @@ void Init_qlcdnumber(Rice::Module rb_mQt6QtWidgets)
             .define_method("set_segment_style", &QLCDNumber::setSegmentStyle, Arg(""))
             .define_method("small_decimal_point", &QLCDNumber::smallDecimalPoint)
             .define_method("value", &QLCDNumber::value)
+            // Reimplemented Public Functions
+            .define_method("size_hint", &QLCDNumber::sizeHint)
             // Public Slots
             .define_method<void (QLCDNumber::*)(const QString &)>("display", &QLCDNumber::display, Arg("str"))
             .define_method<void (QLCDNumber::*)(double)>("display", &QLCDNumber::display, Arg("num"))
