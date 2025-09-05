@@ -20,12 +20,6 @@ module RubyQt6
         _initialize(parent)
         _take_ownership_from_rubyrice(self) if parent
       end
-
-      # @!visibility private
-      def take_row(*args)
-        _take_row(&args)
-        # TODO: transfer ownership to the caller
-      end
     end
   end
 end
