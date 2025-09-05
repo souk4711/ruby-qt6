@@ -41,7 +41,7 @@ class MyWidget < QWidget
   end
 end
 
-app = QApplication.new
+app = QApplication.new(ARGV)
 widget = MyWidget.new
 widget.show
 app.exec
