@@ -20,6 +20,18 @@ module RubyQt6
       rubyqt6_include_constants QFont, QFont::StyleHint
       rubyqt6_include_constants QFont, QFont::StyleStrategy
       rubyqt6_include_constants QFont, QFont::Weight
+
+      # @!visibility private
+      alias_method :_initialize, :initialize
+
+      # @param family [QString]
+      # @param point_size [Integer]
+      # @param weight [Integer]
+      # @param italic [Boolean]
+      # @return [QFont]
+      def initialize(family, point_size = -1, weight = -1, italic = false)
+        _initialize(QtCore::QString.new(family), point_size, weight, italic)
+      end
     end
   end
 end
