@@ -16,7 +16,7 @@ void Init_qapplication(Rice::Module rb_mQt6QtWidgets)
         // RubyQt6::QtWidgets::QApplication
         define_class_under<QApplication, QGuiApplication>(rb_mQt6QtWidgets, "QApplication")
             // Constructor
-            .define_constructor(Constructor<QApplication, int &, char **>(), Arg("argc") = static_cast<int>(0), Arg("argv") = static_cast<char **>(nullptr))
+            .define_constructor(Constructor<QApplication, int &, char **>(), Arg("argc"), Arg("argv"))
             // Public Functions
             .define_method("auto_sip_enabled", &QApplication::autoSipEnabled)
             .define_method("style_sheet", &QApplication::styleSheet)

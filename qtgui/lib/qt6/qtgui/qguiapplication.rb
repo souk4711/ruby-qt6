@@ -7,9 +7,11 @@ module RubyQt6
       # @!visibility private
       alias_method :_initialize, :initialize
 
+      # @param argv [Array<String>]
       # @return [QGuiApplication]
-      def initialize
-        _initialize
+      def initialize(argv)
+        argv = Rice::Buffer≺char∗≻.new(argv.map(&:bytes))
+        _initialize(argv.size, argv)
         _initialize_qApp
       end
     end

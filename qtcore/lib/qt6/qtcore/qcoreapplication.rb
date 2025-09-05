@@ -7,10 +7,19 @@ module RubyQt6
       # @!visibility private
       alias_method :_initialize, :initialize
 
+      # @param argv [Array<String>]
       # @return [QCoreApplication]
-      def initialize
-        _initialize
+      def initialize(argv)
+        argv = Rice::Buffer≺char∗≻.new(argv.map(&:bytes))
+        _initialize(argv.size, argv)
         _initialize_qApp
+      end
+
+      # @!visibility private
+      %w[exec].each do |meth|
+        define_method(meth) do |*args|
+          self.class.exec(*args)
+        end
       end
 
       private

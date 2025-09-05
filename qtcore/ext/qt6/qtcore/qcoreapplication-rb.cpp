@@ -15,7 +15,7 @@ void Init_qcoreapplication(Rice::Module rb_mQt6QtCore)
         // RubyQt6::QtCore::QCoreApplication
         define_class_under<QCoreApplication, QObject>(rb_mQt6QtCore, "QCoreApplication")
             // Constructor
-            .define_constructor(Constructor<QCoreApplication, int &, char **>(), Arg("argc") = static_cast<int>(0), Arg("argv") = static_cast<char **>(nullptr))
+            .define_constructor(Constructor<QCoreApplication, int &, char **>(), Arg("argc"), Arg("argv"))
             // Public Functions
             .define_method("check_permission", &QCoreApplication::checkPermission, Arg("permission"))
             .define_method("install_native_event_filter", &QCoreApplication::installNativeEventFilter, Arg("filter_obj"))
