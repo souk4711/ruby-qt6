@@ -11,6 +11,8 @@
 #include "qurl-rb.hpp"
 #include "qvariant-rb.hpp"
 
+#include "qstringlist-rb.hpp"
+
 #include "qobject-rb.hpp"
 #include "qmetaobject-rb.hpp"
 #include "qmetamethod-rb.hpp"
@@ -29,6 +31,7 @@ extern "C" void Init_qtcore()
 
         Init_qanystringview(rb_mQt6QtCore);
         Init_qstring(rb_mQt6QtCore);
+        Init_qstringlist(rb_mQt6QtCore);
         Init_qmargins(rb_mQt6QtCore);
         Init_qpoint(rb_mQt6QtCore);
         Init_qrect(rb_mQt6QtCore);
