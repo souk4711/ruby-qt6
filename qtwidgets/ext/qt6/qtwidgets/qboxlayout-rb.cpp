@@ -35,7 +35,7 @@ void Init_qboxlayout(Rice::Module rb_mQt6QtWidgets)
             .define_method<bool (QBoxLayout::*)(QWidget *, int)>("set_stretch_factor", &QBoxLayout::setStretchFactor, Arg("w"), Arg("stretch"))
             .define_method("stretch", &QBoxLayout::stretch, Arg("index"))
             // Reimplemented Public Functions
-            .define_method("add_item", &QBoxLayout::addItem, Arg(""))
+            .define_method("add_item", &QBoxLayout::addItem, Arg("item").takeOwnership())
             .define_method("count", &QBoxLayout::count)
             .define_method("expanding_directions", &QBoxLayout::expandingDirections)
             .define_method("has_height_for_width", &QBoxLayout::hasHeightForWidth)
@@ -45,11 +45,11 @@ void Init_qboxlayout(Rice::Module rb_mQt6QtWidgets)
             .define_method("maximum_size", &QBoxLayout::maximumSize)
             .define_method("minimum_height_for_width", &QBoxLayout::minimumHeightForWidth, Arg(""))
             .define_method("minimum_size", &QBoxLayout::minimumSize)
-            .define_method("set_geometry", &QBoxLayout::setGeometry, Arg(""));
+            .define_method("set_geometry", &QBoxLayout::setGeometry, Arg(""))
             .define_method("set_spacing", &QBoxLayout::setSpacing, Arg("spacing"))
             .define_method("size_hint", &QBoxLayout::sizeHint)
             .define_method("spacing", &QBoxLayout::spacing)
-            .define_method("take_at", &QBoxLayout::takeAt, Arg(""));
+            .define_method("take_at", &QBoxLayout::takeAt, Arg(""), Return().takeOwnership());
 
     Enum<QBoxLayout::Direction> rb_cQBoxLayoutDirection =
         // RubyQt6::QtWidgets::QBoxLayout::Direction

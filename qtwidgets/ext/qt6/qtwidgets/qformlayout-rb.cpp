@@ -16,8 +16,8 @@ void Init_qformlayout(Rice::Module rb_mQt6QtWidgets)
             // Constructor
             .define_constructor(Constructor<QFormLayout, QWidget *>(), Arg("parent") = static_cast<QWidget *>(nullptr))
             // Public Functions
-            .define_method<void (QFormLayout::*)(QLayout *)>("add_row", &QFormLayout::addRow, Arg("layout").takeOwnership())
-            .define_method<void (QFormLayout::*)(QWidget *)>("add_row", &QFormLayout::addRow, Arg("widget").takeOwnership())
+            .define_method<void (QFormLayout::*)(QLayout *)>("add_row", &QFormLayout::addRow, Arg("field").takeOwnership())
+            .define_method<void (QFormLayout::*)(QWidget *)>("add_row", &QFormLayout::addRow, Arg("field").takeOwnership())
             .define_method<void (QFormLayout::*)(QWidget *, QLayout *)>("add_row", &QFormLayout::addRow, Arg("label").takeOwnership(), Arg("field").takeOwnership())
             .define_method<void (QFormLayout::*)(QWidget *, QWidget *)>("add_row", &QFormLayout::addRow, Arg("label").takeOwnership(), Arg("field").takeOwnership())
             .define_method<void (QFormLayout::*)(const QString &, QLayout *)>("add_row", &QFormLayout::addRow, Arg("label_text"), Arg("field").takeOwnership())
@@ -28,8 +28,8 @@ void Init_qformlayout(Rice::Module rb_mQt6QtWidgets)
             .define_method("get_layout_position", &QFormLayout::getLayoutPosition, Arg("layout"), Arg("row_ptr"), Arg("role_ptr"))
             .define_method("get_widget_position", &QFormLayout::getWidgetPosition, Arg("widget"), Arg("row_ptr"), Arg("role_ptr"))
             .define_method("horizontal_spacing", &QFormLayout::horizontalSpacing)
-            .define_method<void (QFormLayout::*)(int, QLayout *)>("insert_row", &QFormLayout::insertRow, Arg("row"), Arg("layout").takeOwnership())
-            .define_method<void (QFormLayout::*)(int, QWidget *)>("insert_row", &QFormLayout::insertRow, Arg("row"), Arg("widget").takeOwnership())
+            .define_method<void (QFormLayout::*)(int, QLayout *)>("insert_row", &QFormLayout::insertRow, Arg("row"), Arg("field").takeOwnership())
+            .define_method<void (QFormLayout::*)(int, QWidget *)>("insert_row", &QFormLayout::insertRow, Arg("row"), Arg("field").takeOwnership())
             .define_method<void (QFormLayout::*)(int, QWidget *, QLayout *)>("insert_row", &QFormLayout::insertRow, Arg("row"), Arg("label").takeOwnership(), Arg("field").takeOwnership())
             .define_method<void (QFormLayout::*)(int, QWidget *, QWidget *)>("insert_row", &QFormLayout::insertRow, Arg("row"), Arg("label").takeOwnership(), Arg("field").takeOwnership())
             .define_method<void (QFormLayout::*)(int, const QString &, QLayout *)>("insert_row", &QFormLayout::insertRow, Arg("row"), Arg("label_text"), Arg("field").takeOwnership())
@@ -52,19 +52,19 @@ void Init_qformlayout(Rice::Module rb_mQt6QtWidgets)
             .define_method("set_horizontal_spacing", &QFormLayout::setHorizontalSpacing, Arg("spacing"))
             .define_method("set_item", &QFormLayout::setItem, Arg("row"), Arg("role"), Arg("item"))
             .define_method("set_label_alignment", &QFormLayout::setLabelAlignment, Arg("alignment"))
-            .define_method("set_layout", &QFormLayout::setLayout, Arg("row"), Arg("role"), Arg("layout"))
+            .define_method("set_layout", &QFormLayout::setLayout, Arg("row"), Arg("role"), Arg("layout").takeOwnership())
             .define_method<void (QFormLayout::*)(QLayout *, bool)>("set_row_visible", &QFormLayout::setRowVisible, Arg("layout"), Arg("on"))
             .define_method<void (QFormLayout::*)(QWidget *, bool)>("set_row_visible", &QFormLayout::setRowVisible, Arg("widget"), Arg("on"))
             .define_method<void (QFormLayout::*)(int, bool)>("set_row_visible", &QFormLayout::setRowVisible, Arg("row"), Arg("on"))
             .define_method("set_row_wrap_policy", &QFormLayout::setRowWrapPolicy, Arg("policy"))
             .define_method("set_vertical_spacing", &QFormLayout::setVerticalSpacing, Arg("spacing"))
-            .define_method("set_widget", &QFormLayout::setWidget, Arg("row"), Arg("role"), Arg("widget"))
-            .define_method<QFormLayout::TakeRowResult (QFormLayout::*)(QLayout *)>("take_row", &QFormLayout::takeRow, Arg("layout"))
-            .define_method<QFormLayout::TakeRowResult (QFormLayout::*)(QWidget *)>("take_row", &QFormLayout::takeRow, Arg("widget"))
-            .define_method<QFormLayout::TakeRowResult (QFormLayout::*)(int)>("take_row", &QFormLayout::takeRow, Arg("row"))
+            .define_method("set_widget", &QFormLayout::setWidget, Arg("row"), Arg("role"), Arg("widget").takeOwnership())
+            .define_method<QFormLayout::TakeRowResult (QFormLayout::*)(QLayout *)>("_take_row", &QFormLayout::takeRow, Arg("layout"))
+            .define_method<QFormLayout::TakeRowResult (QFormLayout::*)(QWidget *)>("_take_row", &QFormLayout::takeRow, Arg("widget"))
+            .define_method<QFormLayout::TakeRowResult (QFormLayout::*)(int)>("_take_row", &QFormLayout::takeRow, Arg("row"))
             .define_method("vertical_spacing", &QFormLayout::verticalSpacing)
             // Reimplemented Public Functions
-            .define_method("add_item", &QFormLayout::addItem, Arg("item"))
+            .define_method("add_item", &QFormLayout::addItem, Arg("item").takeOwnership())
             .define_method("count", &QFormLayout::count)
             .define_method("expanding_directions", &QFormLayout::expandingDirections)
             .define_method("has_height_for_width", &QFormLayout::hasHeightForWidth)
@@ -76,13 +76,13 @@ void Init_qformlayout(Rice::Module rb_mQt6QtWidgets)
             .define_method("set_spacing", &QFormLayout::setSpacing, Arg(""))
             .define_method("size_hint", &QFormLayout::sizeHint)
             .define_method("spacing", &QFormLayout::spacing)
-            .define_method("take_at", &QFormLayout::takeAt, Arg("index"));
+            .define_method("take_at", &QFormLayout::takeAt, Arg("index"), Return().takeOwnership());
 
     rb_cQFormLayoutTakeRowResult =
         // RubyQt6::QtWidgets::QFormLayout::TakeRowResult
         define_class_under<QFormLayout::TakeRowResult>(rb_cQFormLayout, "TakeRowResult")
-            .define_attr("label_item", &QFormLayout::TakeRowResult::labelItem, Rice::AttrAccess::Read)
-            .define_attr("field_item", &QFormLayout::TakeRowResult::fieldItem, Rice::AttrAccess::Read);
+            .define_attr("label_item", &QFormLayout::TakeRowResult::labelItem, AttrAccess::Read)
+            .define_attr("field_item", &QFormLayout::TakeRowResult::fieldItem, AttrAccess::Read);
 
     Enum<QFormLayout::FieldGrowthPolicy> rb_cQFormLayoutFieldGrowthPolicy =
         // RubyQt6::QtWidgets::QFormLayout::FieldGrowthPolicy

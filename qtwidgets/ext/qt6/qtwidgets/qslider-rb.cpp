@@ -1,6 +1,8 @@
 #include "qslider-rb.hpp"
 #include <qslider.h>
 
+#include <QEvent>
+
 using namespace Rice;
 
 Rice::Class rb_cQSlider;

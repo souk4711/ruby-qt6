@@ -17,8 +17,8 @@ void Init_qgridlayout(Rice::Module rb_mQt6QtWidgets)
             .define_method<void (QGridLayout::*)(QLayoutItem *, int, int, int, int, Qt::Alignment)>("add_item", &QGridLayout::addItem, Arg("item").takeOwnership(), Arg("row"), Arg("column"), Arg("row_span") = static_cast<int>(1), Arg("column_span") = static_cast<int>(1), Arg("") = static_cast<Qt::Alignment>(Qt::Alignment()))
             .define_method<void (QGridLayout::*)(QLayout *, int, int, Qt::Alignment)>("add_layout", &QGridLayout::addLayout, Arg("layout").takeOwnership(), Arg("row"), Arg("column"), Arg("") = static_cast<Qt::Alignment>(Qt::Alignment()))
             .define_method<void (QGridLayout::*)(QLayout *, int, int, int, int, Qt::Alignment)>("add_layout", &QGridLayout::addLayout, Arg("layout").takeOwnership(), Arg("row"), Arg("column"), Arg("row_span"), Arg("column_span"), Arg("") = static_cast<Qt::Alignment>(Qt::Alignment()))
-            .define_method<void (QGridLayout::*)(QWidget *, int, int, Qt::Alignment)>("add_widget", &QGridLayout::addWidget, Arg("w").takeOwnership(), Arg("row"), Arg("column"), Arg("") = static_cast<Qt::Alignment>(Qt::Alignment()))
-            .define_method<void (QGridLayout::*)(QWidget *, int, int, int, int, Qt::Alignment)>("add_widget", &QGridLayout::addWidget, Arg("w").takeOwnership(), Arg("row"), Arg("column"), Arg("row_span"), Arg("column_span"), Arg("") = static_cast<Qt::Alignment>(Qt::Alignment()))
+            .define_method<void (QGridLayout::*)(QWidget *, int, int, Qt::Alignment)>("add_widget", &QGridLayout::addWidget, Arg("widget").takeOwnership(), Arg("row"), Arg("column"), Arg("") = static_cast<Qt::Alignment>(Qt::Alignment()))
+            .define_method<void (QGridLayout::*)(QWidget *, int, int, int, int, Qt::Alignment)>("add_widget", &QGridLayout::addWidget, Arg("widget").takeOwnership(), Arg("row"), Arg("column"), Arg("row_span"), Arg("column_span"), Arg("") = static_cast<Qt::Alignment>(Qt::Alignment()))
             .define_method("cell_rect", &QGridLayout::cellRect, Arg("row"), Arg("column"))
             .define_method("column_count", &QGridLayout::columnCount)
             .define_method("column_minimum_width", &QGridLayout::columnMinimumWidth, Arg("column"))
@@ -53,5 +53,5 @@ void Init_qgridlayout(Rice::Module rb_mQt6QtWidgets)
             .define_method("set_spacing", &QGridLayout::setSpacing, Arg("spacing"))
             .define_method("size_hint", &QGridLayout::sizeHint)
             .define_method("spacing", &QGridLayout::spacing)
-            .define_method("take_at", &QGridLayout::takeAt, Arg("index"));
+            .define_method("take_at", &QGridLayout::takeAt, Arg("index"), Return().takeOwnership());
 }

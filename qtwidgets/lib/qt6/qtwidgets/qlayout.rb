@@ -10,13 +10,13 @@ module RubyQt6
       # @!visibility private
       def remove_item(item)
         _remove_item(item)
-        # TODO: transfer ownership of item to the caller
+        # TODO: transfer ownership to the caller
       end
 
       # @!visibility private
       def remove_widget(widget)
         _remove_widget(widget)
-        # TODO: transfer ownership of item to the caller
+        # TODO: transfer ownership to the caller
       end
     end
   end
