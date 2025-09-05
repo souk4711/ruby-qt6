@@ -3,7 +3,7 @@
 module RubyQt6
   module QtWidgets
     # @see https://doc.qt.io/qt-6/qlayoutitem.html
-    class QLayoutItem < RubyQt6::QtCore::QObject
+    class QLayoutItem
     end
   end
 end
