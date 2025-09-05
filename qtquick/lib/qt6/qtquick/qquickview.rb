@@ -13,6 +13,14 @@ module RubyQt6
         _initialize(parent)
         _take_ownership_from_rubyrice(self) if parent
       end
+
+      # @!visibility private
+      def load_from_module(uri, type_name)
+        _load_from_module(
+          QtCore::QAnyStringView.new(uri),
+          QtCore::QAnyStringView.new(type_name)
+        )
+      end
     end
   end
 end
