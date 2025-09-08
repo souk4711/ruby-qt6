@@ -8,6 +8,10 @@ module RubyQt6
       # @!parse class Shape ; end
       rubyqt6_include_constants QFrame, QFrame::Shadow
       rubyqt6_include_constants QFrame, QFrame::Shape
+
+      # @!visibility private
+      q_object do
+      end
     end
   end
 end

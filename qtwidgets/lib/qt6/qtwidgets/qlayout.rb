@@ -8,6 +8,10 @@ module RubyQt6
       rubyqt6_include_constants QLayout, QLayout::SizeConstraint
 
       # @!visibility private
+      q_object do
+      end
+
+      # @!visibility private
       def remove_item(item)
         _remove_item(item)
         # TODO: transfer ownership to the caller

@@ -2,6 +2,7 @@ PATH
   remote: ../qtcore
   specs:
     ruby-qt6-qtcore (0.1.0)
+      dry-inflector
       rice (>= 4.6.1)
 
 PATH
@@ -45,6 +46,7 @@ GEM
     benchmark (0.4.1)
     date (3.4.1)
     diff-lcs (1.6.2)
+    dry-inflector (1.2.0)
     erb (5.0.2)
     io-console (0.8.1)
     irb (1.15.2)

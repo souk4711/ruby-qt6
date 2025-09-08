@@ -5,6 +5,18 @@ module RubyQt6
     # @see https://doc.qt.io/qt-6/qqmlapplicationengine.html
     class QQmlApplicationEngine < RubyQt6::QtQml::QQmlEngine
       # @!visibility private
+      q_object do
+        signal "objectCreated(QObject*,QUrl)"
+        signal "objectCreationFailed(QUrl)"
+        slot "load(QString)"
+        slot "load(QUrl)"
+        slot "loadData(QByteArray,QUrl)"
+        slot "loadFromModule(QAnyStringView,QAnyStringView)"
+        slot "setExtraFileSelectors(QStringList)"
+        slot "setInitialProperties(QVariantMap)"
+      end
+
+      # @!visibility private
       alias_method :_initialize, :initialize
 
       # @param parent [QObject]

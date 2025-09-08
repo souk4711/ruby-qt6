@@ -5,6 +5,10 @@ module RubyQt6
     # @see https://doc.qt.io/qt-6/qhboxlayout.html
     class QHBoxLayout < RubyQt6::QtWidgets::QBoxLayout
       # @!visibility private
+      q_object do
+      end
+
+      # @!visibility private
       alias_method :_initialize, :initialize
 
       # @param parent [QWidget]

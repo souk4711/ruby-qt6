@@ -5,6 +5,15 @@ module RubyQt6
     # @see https://doc.qt.io/qt-6/qapplication.html
     class QApplication < RubyQt6::QtGui::QGuiApplication
       # @!visibility private
+      q_object do
+        signal "focusChanged(QWidget*,QWidget*)"
+        slot "aboutQt()"
+        slot "closeAllWindows()"
+        slot "setAutoSipEnabled(bool)"
+        slot "setStyleSheet(QString)"
+      end
+
+      # @!visibility private
       alias_method :_initialize, :initialize
 
       # @param argv [Array<String>]

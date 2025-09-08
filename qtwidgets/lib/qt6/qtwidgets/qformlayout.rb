@@ -12,6 +12,10 @@ module RubyQt6
       rubyqt6_include_constants QFormLayout, QFormLayout::ItemRole
 
       # @!visibility private
+      q_object do
+      end
+
+      # @!visibility private
       alias_method :_initialize, :initialize
 
       # @param parent [QWidget]

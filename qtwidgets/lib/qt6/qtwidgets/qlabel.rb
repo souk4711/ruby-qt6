@@ -5,6 +5,19 @@ module RubyQt6
     # @see https://doc.qt.io/qt-6/qlabel.html
     class QLabel < RubyQt6::QtWidgets::QFrame
       # @!visibility private
+      q_object do
+        signal "linkActivated(QString)"
+        signal "linkHovered(QString)"
+        slot "clear()"
+        slot "setMovie(QMovie*)"
+        slot "setNum(int)"
+        slot "setNum(double)"
+        slot "setPicture(QPicture)"
+        slot "setPixmap(QPixmap)"
+        slot "setText(QString)"
+      end
+
+      # @!visibility private
       alias_method :_initialize, :initialize
 
       # @param text [QString]

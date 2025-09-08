@@ -6,6 +6,19 @@ module RubyQt6
     class QAbstractSlider < RubyQt6::QtWidgets::QWidget
       # @!parse class SliderAction; end
       rubyqt6_include_constants QAbstractSlider, QAbstractSlider::SliderAction
+
+      # @!visibility private
+      q_object do
+        signal "actionTriggered(int)"
+        signal "rangeChanged(int,int)"
+        signal "sliderMoved(int)"
+        signal "sliderPressed()"
+        signal "sliderReleased()"
+        signal "valueChanged(int)"
+        slot "setOrientation(Qt::Orientation)"
+        slot "setRange(int,int)"
+        slot "setValue(int)"
+      end
     end
   end
 end

@@ -10,6 +10,19 @@ module RubyQt6
       rubyqt6_include_constants QLCDNumber, QLCDNumber::SegmentStyle
 
       # @!visibility private
+      q_object do
+        signal "overflow()"
+        slot "display(QString)"
+        slot "display(double)"
+        slot "display(int)"
+        slot "setBinMode()"
+        slot "setDecMode()"
+        slot "setHexMode()"
+        slot "setOctMode()"
+        slot "setSmallDecimalPoint(bool)"
+      end
+
+      # @!visibility private
       alias_method :_initialize, :initialize
 
       # @param num [Integer]

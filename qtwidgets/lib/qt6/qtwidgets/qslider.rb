@@ -8,6 +8,10 @@ module RubyQt6
       rubyqt6_include_constants QSlider, QSlider::TickPosition
 
       # @!visibility private
+      q_object do
+      end
+
+      # @!visibility private
       alias_method :_initialize, :initialize
 
       # @param orientation [Qt::Orientation]

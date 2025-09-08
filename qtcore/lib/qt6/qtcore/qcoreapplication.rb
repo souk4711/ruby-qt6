@@ -5,6 +5,18 @@ module RubyQt6
     # @see https://doc.qt.io/qt-6/qcoreapplication.html
     class QCoreApplication < RubyQt6::QtCore::QObject
       # @!visibility private
+      q_object do
+        signal "aboutToQuit()"
+        signal "applicationNameChanged()"
+        signal "applicationVersionChanged()"
+        signal "organizationDomainChanged()"
+        signal "organizationNameChanged()"
+        slot "exit(int)"
+        slot "exit()"
+        slot "quit()"
+      end
+
+      # @!visibility private
       alias_method :_initialize, :initialize
 
       # @param argv [Array<String>]

@@ -31,6 +31,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
   spec.extensions = ["ext/qt6/qtcore/extconf.rb"]
 
+  spec.add_runtime_dependency("dry-inflector")
   spec.add_runtime_dependency("rice", ">= 4.6.1")
 
   # For more information and examples about making a new gem, check out our

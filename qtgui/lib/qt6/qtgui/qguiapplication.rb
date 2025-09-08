@@ -5,6 +5,23 @@ module RubyQt6
     # @see https://doc.qt.io/qt-6/qguiapplication.html
     class QGuiApplication < RubyQt6::QtCore::QCoreApplication
       # @!visibility private
+      q_object do
+        signal "applicationDisplayNameChanged()"
+        signal "applicationStateChanged(Qt::ApplicationState)"
+        signal "commitDataRequest(QSessionManager&)"
+        signal "focusObjectChanged(QObject*)"
+        signal "focusWindowChanged(QWindow*)"
+        signal "fontDatabaseChanged()"
+        signal "lastWindowClosed()"
+        signal "layoutDirectionChanged(Qt::LayoutDirection)"
+        signal "primaryScreenChanged(QScreen*)"
+        signal "saveStateRequest(QSessionManager&)"
+        signal "screenAdded(QScreen*)"
+        signal "screenRemoved(QScreen*)"
+        slot "setBadgeNumber(qlonglong)"
+      end
+
+      # @!visibility private
       alias_method :_initialize, :initialize
 
       # @param argv [Array<String>]

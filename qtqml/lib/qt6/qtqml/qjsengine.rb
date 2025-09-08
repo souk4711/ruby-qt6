@@ -5,6 +5,11 @@ module RubyQt6
     # @see https://doc.qt.io/qt-6/qjsengine.html
     class QJSEngine < RubyQt6::QtCore::QObject
       # @!visibility private
+      q_object do
+        signal "uiLanguageChanged()"
+      end
+
+      # @!visibility private
       alias_method :_initialize, :initialize
 
       # @param parent [QObject]

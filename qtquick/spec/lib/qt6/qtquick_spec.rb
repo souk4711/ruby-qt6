@@ -4,8 +4,9 @@ RSpec.describe RubyQt6::QtQuick do
     matched = contents.match(/define_constructor\(Constructor<(\w+)/)
     next unless matched
 
-    it "redefine #initialize for #{matched[1]}" do
-      contents = File.read("lib/qt6/qtquick/#{matched[1].downcase}.rb")
+    klass = matched[1]
+    it "redefine #initialize for #{klass}" do
+      contents = File.read("lib/qt6/qtquick/#{klass.downcase}.rb")
       expect(contents.match("alias_method :_initialize, :initialize")).not_to be_nil
       expect(contents.match("def initialize")).not_to be_nil
     end

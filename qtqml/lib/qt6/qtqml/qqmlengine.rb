@@ -5,6 +5,15 @@ module RubyQt6
     # @see https://doc.qt.io/qt-6/qqmlengine.html
     class QQmlEngine < RubyQt6::QtQml::QJSEngine
       # @!visibility private
+      q_object do
+        signal "exit(int)"
+        signal "offlineStoragePathChanged()"
+        signal "quit()"
+        signal "warnings(QList<QQmlError>)"
+        slot "retranslate()"
+      end
+
+      # @!visibility private
       alias_method :_initialize, :initialize
 
       # @param parent [QObject]

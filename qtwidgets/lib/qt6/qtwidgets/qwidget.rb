@@ -8,6 +8,32 @@ module RubyQt6
       rubyqt6_include_constants QWidget, QWidget::RenderFlag
 
       # @!visibility private
+      q_object do
+        signal "customContextMenuRequested(QPoint)"
+        signal "windowIconChanged(QIcon)"
+        signal "windowTitleChanged(QString)"
+        slot "close()"
+        slot "hide()"
+        slot "lower()"
+        slot "raise()"
+        slot "repaint()"
+        slot "setDisabled(bool)"
+        slot "setEnabled(bool)"
+        slot "setFocus()"
+        slot "setHidden(bool)"
+        slot "setStyleSheet(QString)"
+        slot "setVisible(bool)"
+        slot "setWindowModified(bool)"
+        slot "setWindowTitle(QString)"
+        slot "show()"
+        slot "showFullScreen()"
+        slot "showMaximized()"
+        slot "showMinimized()"
+        slot "showNormal()"
+        slot "update()"
+      end
+
+      # @!visibility private
       alias_method :_initialize, :initialize
 
       # @param parent [QWidget]

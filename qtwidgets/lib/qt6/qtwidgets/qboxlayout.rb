@@ -8,6 +8,10 @@ module RubyQt6
       rubyqt6_include_constants QBoxLayout, QBoxLayout::Direction
 
       # @!visibility private
+      q_object do
+      end
+
+      # @!visibility private
       alias_method :_initialize, :initialize
 
       # @param direction [QBoxLayout::Direction]

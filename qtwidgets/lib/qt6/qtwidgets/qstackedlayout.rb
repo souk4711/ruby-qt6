@@ -8,6 +8,15 @@ module RubyQt6
       rubyqt6_include_constants QStackedLayout, QStackedLayout::StackingMode
 
       # @!visibility private
+      q_object do
+        signal "currentChanged(int)"
+        signal "widgetAdded(int)"
+        signal "widgetRemoved(int)"
+        slot "setCurrentIndex(int)"
+        slot "setCurrentWidget(QWidget*)"
+      end
+
+      # @!visibility private
       alias_method :_initialize, :initialize
 
       # @param parent [QWidget, QLayout]

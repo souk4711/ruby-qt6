@@ -2,6 +2,10 @@
 
 require_relative "refinements/kernel"
 
+require_relative "internal/inflector"
+require_relative "internal/metamethod"
+require_relative "internal/metaobject"
+
 require_relative "qtcore/qtcore"
 require_relative "qtcore/qtcoreversion"
 require_relative "qtcore/qtmetamacro"
