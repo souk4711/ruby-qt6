@@ -3,13 +3,23 @@
 module RubyQt6
   module QtCore
     class QObject
+      # @!visibility private
       def self.q_object(&blk)
-        m = Internal::MetaObject.new
-        m.instance_exec(&blk)
+        underlying = name.start_with?("RubyQt6::") ? :libQt6 : :ruby
+        mo = Internal::MetaObject.new(underlying)
+        mo.instance_exec(&blk)
 
-        @__qmetaobject__ = m
+        mo.metamethods.each do |meth|
+          next unless meth.signal?
+          define_method(meth.rb_name) do
+            Internal::Signal.new(self, meth)
+          end
+        end
+
+        @__qmetaobject__ = mo
       end
 
+      # @!visibility private
       def self.__qmetaobject__
         @__qmetaobject__
       end

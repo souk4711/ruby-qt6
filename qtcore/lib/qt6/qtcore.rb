@@ -2,13 +2,15 @@
 
 require_relative "refinements/kernel"
 
+require_relative "internal/_nodoc"
 require_relative "internal/inflector"
 require_relative "internal/metamethod"
 require_relative "internal/metaobject"
+require_relative "internal/signal"
+require_relative "internal/signalmanager"
 
 require_relative "qtcore/qtcore"
 require_relative "qtcore/qtcoreversion"
-require_relative "qtcore/qtmetamacro"
 require_relative "qtcore/qt"
 
 require_relative "qtcore/qanystringview"
