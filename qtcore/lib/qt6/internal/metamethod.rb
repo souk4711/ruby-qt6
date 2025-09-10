@@ -9,13 +9,18 @@ module RubyQt6
       attr_reader :parameters
       attr_reader :signature
 
+      def self.normalized_signature(name, parameters)
+        name = Internal.inflector.camelize_lower(name)
+        name + "(" + parameters.join(",") + ")"
+      end
+
       def initialize(signature, type, underlying)
         matched = signature.match(RE)
         raise ArgumentError if matched.nil?
 
         @name = Internal.inflector.camelize_lower(matched[1])
         @parameters = matched[2].split(",").map(&->(param) { param.delete(" ") })
-        @signature = _normalized_signature(@name, @parameters)
+        @signature = self.class.normalized_signature(@name, @parameters)
         @type = type.to_sym
         @underlying = underlying.to_sym
       end
@@ -29,7 +34,7 @@ module RubyQt6
       end
 
       def qsignature
-        signature = _normalized_signature(_qsignature_name(@name), @parameters)
+        signature = self.class.normalized_signature(_qsignature_name(@name), @parameters)
         signal? ? "2#{signature}" : "1#{signature}"
       end
 
@@ -40,10 +45,6 @@ module RubyQt6
         when :ruby then "rb_#{name}"
         else name
         end
-      end
-
-      def _normalized_signature(name, parameters)
-        "#{name}(#{parameters.join(",")})"
       end
     end
   end

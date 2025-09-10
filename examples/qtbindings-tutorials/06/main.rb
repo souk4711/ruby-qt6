@@ -10,7 +10,7 @@ class LCDRange < QWidget
     slider = QSlider.new(Qt::Horizontal)
     slider.set_range(0, 99)
     slider.set_value(0)
-    QObject.connect(slider, SIGNAL('valueChanged(int)'), lcd, SLOT('display(int)'))
+    slider.value_changed.connect(lcd, :display)
 
     layout = QVBoxLayout.new
     layout.add_widget(lcd)
@@ -25,7 +25,7 @@ class MyWidget < QWidget
 
     quit = QPushButton.new('Quit')
     quit.set_font(QFont.new('Times', 18, QFont::Bold))
-    QObject.connect(quit, SIGNAL('clicked()'), $qApp, SLOT('quit()'))
+    quit.clicked.connect($qApp, :quit)
 
     grid = QGridLayout.new
     (0..3).each do |row|

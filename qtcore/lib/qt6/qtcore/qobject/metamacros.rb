@@ -9,7 +9,8 @@ module RubyQt6
         mo = Internal::MetaObject.new(underlying)
         mo.instance_exec(&blk)
 
-        mo.metamethods.each do |meth|
+        metamethods = mo.metamethods.sort_by { |meth| [meth.name, meth.parameters.size] }
+        metamethods.each do |meth|
           next unless meth.signal?
           define_method(meth.rb_name) do
             Internal::Signal.new(self, meth)

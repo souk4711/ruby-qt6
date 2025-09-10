@@ -8,14 +8,14 @@ class MyWidget < QWidget
 
     quit = QPushButton.new('Quit')
     quit.set_font(QFont.new('Times', 18, QFont::Bold))
-    QObject.connect(quit, SIGNAL('clicked()'), $qApp, SLOT('quit()'))
+    quit.clicked.connect($qApp, :quit)
 
     lcd = QLCDNumber.new(2)
     slider = QSlider.new(Qt::Horizontal)
     slider.set_range(0, 99)
     slider.set_value(0)
-    QObject.connect(quit, SIGNAL('clicked()'), $qApp, SLOT('quit()'))
-    QObject.connect(slider, SIGNAL('valueChanged(int)'), lcd, SLOT('display(int)'))
+    quit.clicked.connect($qApp, :quit)
+    slider.value_changed.connect(lcd, :display)
 
     layout = QVBoxLayout.new
     layout.add_widget(quit)
