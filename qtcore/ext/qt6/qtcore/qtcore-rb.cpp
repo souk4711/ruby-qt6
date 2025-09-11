@@ -13,9 +13,11 @@
 
 #include "qstringlist-rb.hpp"
 
-#include "qobject-rb.hpp"
+#include "qmetaobjectbuilder-rb.hpp"
 #include "qmetaobject-rb.hpp"
 #include "qmetamethod-rb.hpp"
+
+#include "qobject-rb.hpp"
 #include "qcoreapplication-rb.hpp"
 
 extern "C" void Init_qtcore()
@@ -39,9 +41,11 @@ extern "C" void Init_qtcore()
         Init_qurl(rb_mQt6QtCore);
         Init_qvariant(rb_mQt6QtCore);
 
-        Init_qobject(rb_mQt6QtCore);
+        Init_qmetaobjectbuilder(rb_mQt6QtCore);
         Init_qmetaobject(rb_mQt6QtCore);
         Init_qmetamethod(rb_mQt6QtCore);
+
+        Init_qobject(rb_mQt6QtCore);
         Init_qcoreapplication(rb_mQt6QtCore);
     });
 }
