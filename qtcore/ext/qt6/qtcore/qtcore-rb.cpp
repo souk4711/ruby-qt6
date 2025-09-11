@@ -3,6 +3,7 @@
 #include "qt-rb.hpp"
 
 #include "qanystringview-rb.hpp"
+#include "qbytearray-rb.hpp"
 #include "qstring-rb.hpp"
 #include "qmargins-rb.hpp"
 #include "qpoint-rb.hpp"
@@ -32,6 +33,7 @@ extern "C" void Init_qtcore()
         Init_qt(rb_mQt6QtCore);
 
         Init_qanystringview(rb_mQt6QtCore);
+        Init_qbytearray(rb_mQt6QtCore);
         Init_qstring(rb_mQt6QtCore);
         Init_qstringlist(rb_mQt6QtCore);
         Init_qmargins(rb_mQt6QtCore);

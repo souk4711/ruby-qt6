@@ -10,5 +10,8 @@ void Init_qstring(Rice::Module rb_mQt6QtCore)
     rb_cQString =
         // RubyQt6::QtCore::QString
         define_class_under<QString>(rb_mQt6QtCore, "QString")
-            .define_constructor(Constructor<QString, const char *>(), Arg("str"));
+            // Constructor
+            .define_constructor(Constructor<QString, const char *>(), Arg("str"))
+            // Public Functions
+            .define_method("to_std_string", &QString::toStdString);
 }
