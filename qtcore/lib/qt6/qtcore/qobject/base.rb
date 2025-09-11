@@ -5,6 +5,14 @@ module RubyQt6
     # @see https://doc.qt.io/qt-6/qobject.html
     class QObject
       # @!visibility private
+      q_object do
+        signal "destroyed(QObject*)"
+        signal "destroyed()"
+        signal "objectNameChanged(QString)"
+        slot "deleteLater()"
+      end
+
+      # @!visibility private
       alias_method :_initialize, :initialize
 
       # @param parent [QObject]

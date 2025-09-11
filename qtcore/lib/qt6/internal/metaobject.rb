@@ -12,12 +12,12 @@ module RubyQt6
         end
 
         cls = receiver.class
-        mo = cls.__qmetaobject__
+        mo = cls._rubyqt6_metaobject
         until mo.nil?
           meth = mo.metamethods.find { |meth| compatible_methods.include?(meth.signature) }
           return meth if meth
           cls = cls.superclass
-          mo = cls.__qmetaobject__
+          mo = cls._rubyqt6_metaobject
         end
 
         klass = receiver.class.name.split("::").last

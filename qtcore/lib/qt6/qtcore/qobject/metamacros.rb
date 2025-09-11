@@ -17,12 +17,12 @@ module RubyQt6
           end
         end
 
-        @__qmetaobject__ = mo
+        @_rubyqt6_metaobject = mo
       end
 
       # @!visibility private
-      def self.__qmetaobject__
-        @__qmetaobject__
+      def self._rubyqt6_metaobject
+        @_rubyqt6_metaobject
       end
     end
   end

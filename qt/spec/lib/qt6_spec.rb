@@ -11,14 +11,14 @@ RSpec.describe RubyQt6 do
     end
   end
 
-  describe ".__qmetaobject__" do
+  describe "._rubyqt6_metaobject" do
     ::Object.constants.grep(/^Q/).each do |klass|
       cls = ::Object.const_get(klass)
       next unless cls.is_a?(Class)
-      next unless cls.ancestors.include?(RubyQt6::QtCore::QObject) && cls != RubyQt6::QtCore::QObject
+      next unless cls.ancestors.include?(RubyQt6::QtCore::QObject)
 
-      it "define .__qmetaobject__ @ #{klass}" do
-        expect(cls.__qmetaobject__).to be_a(RubyQt6::Internal::MetaObject)
+      it "define ._rubyqt6_metaobject @ #{klass}" do
+        expect(cls._rubyqt6_metaobject).to be_a(RubyQt6::Internal::MetaObject)
       end
     end
   end
