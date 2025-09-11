@@ -12,6 +12,9 @@ void Init_qlabel(Rice::Module rb_mQt6QtWidgets)
     rb_cQLabel =
         // RubyQt6::QtWidgets::QLabel
         define_class_under<QLabel, QFrame>(rb_mQt6QtWidgets, "QLabel")
+            // RubyQt6-Defined Functions
+            .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QLabel::staticMetaObject; })
+            // Constructor
             .define_constructor(Constructor<QLabel, const QString &, QWidget *, Qt::WindowFlags>(), Arg("text"), Arg("parent") = static_cast<QWidget *>(nullptr), Arg("f") = static_cast<Qt::WindowFlags>(Qt::WindowFlags()))
             // Public Functions
             .define_method("alignment", &QLabel::alignment)

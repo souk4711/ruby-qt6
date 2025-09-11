@@ -10,6 +10,8 @@ void Init_qabstractslider(Rice::Module rb_mQt6QtWidgets)
     rb_cQAbstractSlider =
         // RubyQt6::QtWidgets::QAbstractSlider
         define_class_under<QAbstractSlider, QWidget>(rb_mQt6QtWidgets, "QAbstractSlider")
+            // RubyQt6-Defined Functions
+            .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QAbstractSlider::staticMetaObject; })
             // Public Functions
             .define_method("has_tracking", &QAbstractSlider::hasTracking)
             .define_method("inverted_appearance", &QAbstractSlider::invertedAppearance)

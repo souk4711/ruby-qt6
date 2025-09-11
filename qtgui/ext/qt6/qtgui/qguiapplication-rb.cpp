@@ -20,6 +20,8 @@ void Init_qguiapplication(Rice::Module rb_mQt6QtGui)
     rb_cQGuiApplication =
         // RubyQt6::QtGui::QGuiApplication
         define_class_under<QGuiApplication, QCoreApplication>(rb_mQt6QtGui, "QGuiApplication")
+            // RubyQt6-Defined Functions
+            .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QGuiApplication::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QGuiApplication, int &, char **>(), Arg("argc"), Arg("argv"))
             // Public Functions

@@ -10,6 +10,9 @@ void Init_qlcdnumber(Rice::Module rb_mQt6QtWidgets)
     rb_cQLCDNumber =
         // RubyQt6::QtWidgets::QLCDNumber
         define_class_under<QLCDNumber, QFrame>(rb_mQt6QtWidgets, "QLCDNumber")
+            // RubyQt6-Defined Functions
+            .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QLCDNumber::staticMetaObject; })
+            // Constructor
             .define_constructor(Constructor<QLCDNumber, uint, QWidget *>(), Arg("num"), Arg("parent") = static_cast<QWidget *>(nullptr))
             // Public Functions
             .define_method<bool (QLCDNumber::*)(double) const>("check_overflow", &QLCDNumber::checkOverflow, Arg("num"))

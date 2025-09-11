@@ -13,6 +13,8 @@ void Init_qquickpainteditem(Rice::Module rb_mQt6QtQuick)
     rb_cQQuickPaintedItem =
         // RubyQt6::QtQuick::QQuickPaintedItem
         define_class_under<QQuickPaintedItem, QQuickItem>(rb_mQt6QtQuick, "QQuickPaintedItem")
+            // RubyQt6-Defined Functions
+            .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QQuickPaintedItem::staticMetaObject; })
             // Public Functions
             .define_method("antialiasing", &QQuickPaintedItem::antialiasing)
             .define_method("contents_bounding_rect", &QQuickPaintedItem::contentsBoundingRect)

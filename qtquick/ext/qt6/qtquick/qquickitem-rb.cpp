@@ -13,6 +13,8 @@ void Init_qquickitem(Rice::Module rb_mQt6QtQuick)
     rb_cQQuickItem =
         // RubyQt6::QtQuick::QQuickItem
         define_class_under<QQuickItem, QObject>(rb_mQt6QtQuick, "QQuickItem")
+            // RubyQt6-Defined Functions
+            .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QQuickItem::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QQuickItem, QQuickItem *>(), Arg("parent") = static_cast<QQuickItem *>(nullptr))
             // inherits QQmlParserStatus

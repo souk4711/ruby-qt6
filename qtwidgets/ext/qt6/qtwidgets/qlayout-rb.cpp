@@ -12,6 +12,8 @@ void Init_qlayout(Rice::Module rb_mQt6QtWidgets)
     rb_cQLayout =
         // RubyQt6::QtWidgets::QLayout
         define_class_under<QLayout, QObject>(rb_mQt6QtWidgets, "QLayout")
+            // RubyQt6-Defined Functions
+            .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QLayout::staticMetaObject; })
             // inherits QLayoutItem
             .define_method("alignment", &QLayout::alignment)
             .define_method("has_height_for_width", &QLayout::hasHeightForWidth)

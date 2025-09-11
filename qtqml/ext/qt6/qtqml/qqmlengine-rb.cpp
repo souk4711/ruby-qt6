@@ -13,6 +13,8 @@ void Init_qqmlengine(Rice::Module rb_mQt6QtQml)
     rb_cQQmlEngine =
         // RubyQt6::QtQml::QQmlEngine
         define_class_under<QQmlEngine, QJSEngine>(rb_mQt6QtQml, "QQmlEngine")
+            // RubyQt6-Defined Functions
+            .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QQmlEngine::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QQmlEngine, QObject *>(), Arg("parent") = static_cast<QObject *>(nullptr))
             // Public Functions

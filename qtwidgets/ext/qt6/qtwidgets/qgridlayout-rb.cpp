@@ -12,6 +12,9 @@ void Init_qgridlayout(Rice::Module rb_mQt6QtWidgets)
     rb_cQGridLayout =
         // RubyQt6::QtWidgets::QGridLayout
         define_class_under<QGridLayout, QLayout>(rb_mQt6QtWidgets, "QGridLayout")
+            // RubyQt6-Defined Functions
+            .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QGridLayout::staticMetaObject; })
+            // Constructor
             .define_constructor(Constructor<QGridLayout, QWidget *>(), Arg("parent") = static_cast<QWidget *>(nullptr))
             // Public Functions
             .define_method<void (QGridLayout::*)(QLayoutItem *, int, int, int, int, Qt::Alignment)>("add_item", &QGridLayout::addItem, Arg("item").takeOwnership(), Arg("row"), Arg("column"), Arg("row_span") = static_cast<int>(1), Arg("column_span") = static_cast<int>(1), Arg("") = static_cast<Qt::Alignment>(Qt::Alignment()))

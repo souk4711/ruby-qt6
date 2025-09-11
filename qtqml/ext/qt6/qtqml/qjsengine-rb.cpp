@@ -10,6 +10,8 @@ void Init_qjsengine(Rice::Module rb_mQt6QtQml)
     rb_cQJSEngine =
         // RubyQt6::QtQml::QJSEngine
         define_class_under<QJSEngine, QObject>(rb_mQt6QtQml, "QJSEngine")
+            // RubyQt6-Defined Functions
+            .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QJSEngine::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QJSEngine, QObject *>(), Arg("parent"))
             // Public Functions

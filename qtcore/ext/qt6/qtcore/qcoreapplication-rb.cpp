@@ -14,6 +14,8 @@ void Init_qcoreapplication(Rice::Module rb_mQt6QtCore)
     rb_cQCoreApplication =
         // RubyQt6::QtCore::QCoreApplication
         define_class_under<QCoreApplication, QObject>(rb_mQt6QtCore, "QCoreApplication")
+            // RubyQt6-Defined Functions
+            .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QCoreApplication::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QCoreApplication, int &, char **>(), Arg("argc"), Arg("argv"))
             // Public Functions

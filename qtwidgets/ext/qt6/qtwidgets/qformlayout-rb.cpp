@@ -13,6 +13,8 @@ void Init_qformlayout(Rice::Module rb_mQt6QtWidgets)
     rb_cQFormLayout =
         // RubyQt6::QtWidgets::QFormLayout
         define_class_under<QFormLayout, QLayout>(rb_mQt6QtWidgets, "QFormLayout")
+            // RubyQt6-Defined Functions
+            .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QFormLayout::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QFormLayout, QWidget *>(), Arg("parent") = static_cast<QWidget *>(nullptr))
             // Public Functions

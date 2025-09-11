@@ -17,7 +17,8 @@ void Init_qobject(Rice::Module rb_mQt6QtCore)
     rb_cQObject =
         // RubyQt6::QtCore::QObject
         define_class_under<QObject>(rb_mQt6QtCore, "QObject")
-            // Rice - Ruby Interface for C++ Extensions
+            // RubyQt6-Defined Functions
+            .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QObject::staticMetaObject; })
             .define_singleton_function("_take_ownership_from_rubyrice", [](QObject *) -> void {}, Arg("object").takeOwnership())
             // Constructor
             .define_constructor(Constructor<QObject, QObject *>(), Arg("parent") = static_cast<QObject *>(nullptr))
@@ -30,8 +31,8 @@ void Init_qobject(Rice::Module rb_mQt6QtCore)
             .define_method<QMetaObject::Connection (QObject::*)(const QObject *, const char *, const char *, Qt::ConnectionType) const>("_connect", &QObject::connect, Arg("sender"), Arg("signal"), Arg("member"), Arg("type") = static_cast<Qt::ConnectionType>(Qt::AutoConnection))
             .define_method<bool (QObject::*)(const QObject *, const char *) const>("_disconnect", &QObject::disconnect, Arg("receiver"), Arg("member") = static_cast<const char *>(nullptr))
             .define_method<bool (QObject::*)(const char *, const QObject *, const char *) const>("_disconnect", &QObject::disconnect, Arg("signal") = static_cast<const char *>(nullptr), Arg("receiver") = static_cast<const QObject *>(nullptr), Arg("member") = static_cast<const char *>(nullptr))
-            .define_method("dump_object_info", &QObject::dumpObjectInfo)
-            .define_method("dump_object_tree", &QObject::dumpObjectTree)
+            .define_method("_dump_object_info", &QObject::dumpObjectInfo)
+            .define_method("_dump_object_tree", &QObject::dumpObjectTree)
             .define_method("dynamic_property_names", &QObject::dynamicPropertyNames)
             .define_method("event", &QObject::event, Arg("event"))
             .define_method("event_filter", &QObject::eventFilter, Arg("watched"), Arg("event"))

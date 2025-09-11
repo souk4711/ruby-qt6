@@ -12,6 +12,8 @@ void Init_qstackedlayout(Rice::Module rb_mQt6QtWidgets)
     rb_cQStackedLayout =
         // RubyQt6::QtWidgets::QStackedLayout
         define_class_under<QStackedLayout, QLayout>(rb_mQt6QtWidgets, "QStackedLayout")
+            // RubyQt6-Defined Functions
+            .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QStackedLayout::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QStackedLayout, QWidget *>(), Arg("parent"))
             .define_constructor(Constructor<QStackedLayout, QLayout *>(), Arg("parent_layout"))

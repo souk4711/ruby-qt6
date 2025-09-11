@@ -20,6 +20,9 @@ void Init_qwidget(Rice::Module rb_mQt6QtWidgets)
     rb_cQWidget =
         // RubyQt6::QtWidgets::QWidget
         define_class_under<QWidget, QObject>(rb_mQt6QtWidgets, "QWidget")
+            // RubyQt6-Defined Functions
+            .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QWidget::staticMetaObject; })
+            // Constructor
             .define_constructor(Constructor<QWidget, QWidget *, Qt::WindowFlags>(), Arg("parent") = static_cast<QWidget *>(nullptr), Arg("f") = static_cast<Qt::WindowFlags>(Qt::WindowFlags()))
             // inherits QPaintDevice
             .define_method("color_count", &QWidget::colorCount)

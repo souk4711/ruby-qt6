@@ -14,6 +14,8 @@ void Init_qwindow(Rice::Module rb_mQt6QtGui)
     rb_cQWindow =
         // RubyQt6::QtGui::QWindow
         define_class_under<QWindow, QObject>(rb_mQt6QtGui, "QWindow")
+            // RubyQt6-Defined Functions
+            .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QWindow::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QWindow, QWindow *>(), Arg("parent"))
             // inherits QSurface
