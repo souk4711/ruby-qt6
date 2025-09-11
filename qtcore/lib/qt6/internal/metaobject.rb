@@ -6,9 +6,9 @@ module RubyQt6
       attr_reader :metamethods
 
       def self.find_receiver_metamethod!(receiver, method, signal)
-        name = method.to_s
+        name = Internal.inflector.ruby_fn_name(method.to_s)
         compatible_methods = signal.parameters.count.downto(0).map do |n|
-          Internal::MetaMethod.normalized_signature(name, signal.parameters[0...n])
+          name + "(" + signal.parameters[0...n].join(",") + ")"
         end
 
         cls = receiver.class
@@ -20,8 +20,7 @@ module RubyQt6
           mo = cls.__qmetaobject__
         end
 
-        klass = Internal.inflector.demodulize(receiver.class.name)
-        name = Internal.inflector.underscore(name)
+        klass = receiver.class.name.split("::").last
         raise "No such metamethod #{klass}##{name}"
       end
 

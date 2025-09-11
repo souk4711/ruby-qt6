@@ -12,7 +12,7 @@ module RubyQt6
         metamethods = mo.metamethods.sort_by { |meth| [meth.name, meth.parameters.size] }
         metamethods.each do |meth|
           next unless meth.signal?
-          define_method(meth.rb_name) do
+          define_method(meth.name) do
             Internal::Signal.new(self, meth)
           end
         end
