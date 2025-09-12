@@ -5,8 +5,7 @@ module RubyQt6
     class QObject
       # @!visibility private
       def self.q_object(&blk)
-        underlying = name.start_with?("RubyQt6::") ? :libQt6 : :ruby
-        mo = Internal::MetaObject.new(underlying)
+        mo = Internal::MetaObject.new(self)
         mo.instance_exec(&blk)
 
         metamethods = mo.metamethods.sort_by { |meth| [meth.name, meth.parameters.size] }
