@@ -17,11 +17,17 @@ module RubyQt6
         end
 
         @_rubyqt6_metaobject = mo
+        @_qmetaobject = mo.to_qmetaobject
       end
 
       # @!visibility private
       def self._rubyqt6_metaobject
         @_rubyqt6_metaobject
+      end
+
+      # @!visibility private
+      def self._qmetaobject
+        @_qmetaobject
       end
     end
   end

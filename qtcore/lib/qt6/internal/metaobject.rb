@@ -26,23 +26,46 @@ module RubyQt6
 
       def initialize(qlass)
         @qlass = qlass
+        @qlass_underlying = @qlass.name.start_with?("RubyQt6::") ? :libQt6 : :ruby
         @metamethods = []
       end
 
       def add_signal(signature)
-        @metamethods << Internal::MetaMethod.new(signature, :signal, _underlying)
+        @metamethods << Internal::MetaMethod.new(signature, :signal, @qlass_underlying)
       end
       alias_method :signal, :add_signal
 
       def add_slot(signature)
-        @metamethods << Internal::MetaMethod.new(signature, :slot, _underlying)
+        @metamethods << Internal::MetaMethod.new(signature, :slot, @qlass_underlying)
       end
       alias_method :slot, :add_slot
 
+      def to_qmetaobject
+        return @qlass._static_meta_object if @qlass_underlying == :libQt6
+
+        builder = QtCore::QMetaObjectBuilder.new
+        builder.set_class_name(@qlass.name)
+        builder.set_super_class(@qlass.superclass._qmetaobject)
+        @metamethods.each { |meth| _to_qmetaobject_method(builder, meth) }
+        builder.to_meta_object
+      end
+
       private
 
-      def _underlying
-        @qlass.name.start_with?("RubyQt6::") ? :libQt6 : :ruby
+      def _to_qmetaobject_method(builder, meth)
+        case meth.type
+        when :signal then _to_qmetaobject_method_signal(builder, meth)
+        when :slot then _to_qmetaobject_method_slot(builder, meth)
+        else raise ArgumentError
+        end
+      end
+
+      def _to_qmetaobject_method_signal(builder, meth)
+        _methbuilder = builder.add_signal(meth.qsignature[1..])
+      end
+
+      def _to_qmetaobject_method_slot(builder, meth)
+        _methbuilder = builder.add_slot(meth.qsignature[1..])
       end
     end
   end

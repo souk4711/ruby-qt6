@@ -8,6 +8,7 @@ module RubyQt6
       attr_reader :name
       attr_reader :parameters
       attr_reader :signature
+      attr_reader :type
 
       def self.normalized_name(name)
         Internal.inflector.underscore(name)
