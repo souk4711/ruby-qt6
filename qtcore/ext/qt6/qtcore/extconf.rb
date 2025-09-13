@@ -1,12 +1,11 @@
 # frozen_string_literal: true
 
 require "mkmf-rice"
+require "mkmf-rubyqt6"
 
-includedir = "/usr/include/qt6"
-append_cppflags("-I#{includedir}")
+includedir = find_qt6_includedir
+includedir_private = Dir["#{includedir}/QtCore/*.*.*"][0]
 append_cppflags("-I#{includedir}/QtCore")
-
-includedir_private = Dir["#{includedir}/QtCore/6.*.*"][0]
 append_cppflags("-I#{includedir_private}")
 append_cppflags("-I#{includedir_private}/QtCore")
 
