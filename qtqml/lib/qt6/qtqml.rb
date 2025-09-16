@@ -10,3 +10,7 @@ require_relative "qtqml/qqmlengine"
 require_relative "qtqml/qqmlapplicationengine"
 
 require_relative "qtqml/version"
+
+require_relative "bando/qjsengine"
+require_relative "bando/qqmlengine"
+require_relative "bando/qqmlapplicationengine"
