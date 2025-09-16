@@ -51,6 +51,10 @@ module RubyQt6
           builder.to_meta_object
         end
 
+        def qlass_name
+          @qlass.name
+        end
+
         private
 
         def _to_qmetaobject_method(builder, meth)

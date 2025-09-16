@@ -18,7 +18,7 @@ RSpec.describe RubyQt6 do
       next unless cls.ancestors.include?(RubyQt6::QtCore::QObject)
 
       it "define ._rubyqt6_metaobject @ #{klass}" do
-        expect(cls._rubyqt6_metaobject).to be_a(RubyQt6::QtCore::Private::MetaObject)
+        expect(cls._rubyqt6_metaobject.qlass_name.split("::").last).to eq(klass.to_s)
       end
     end
   end
