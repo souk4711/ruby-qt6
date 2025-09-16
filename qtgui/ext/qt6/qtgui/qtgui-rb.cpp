@@ -15,6 +15,8 @@
 #include "qwindow-rb.hpp"
 #include "qguiapplication-rb.hpp"
 
+#include "bando-rb.hpp"
+
 extern "C" void Init_qtgui()
 {
     return Rice::detail::cpp_protect([] {
@@ -36,5 +38,8 @@ extern "C" void Init_qtgui()
 
         Init_qwindow(rb_mQt6QtGui);
         Init_qguiapplication(rb_mQt6QtGui);
+
+        Rice::Module rb_mQt6Bando = define_module_under(rb_mQt6, "Bando");
+        Init_bando(rb_mQt6Bando);
     });
 }

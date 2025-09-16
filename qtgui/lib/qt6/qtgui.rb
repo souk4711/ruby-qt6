@@ -16,7 +16,10 @@ require_relative "qtgui/qimage"
 require_relative "qtgui/qpicture"
 require_relative "qtgui/qpixmap"
 
-require_relative "qtgui/qwindow"
 require_relative "qtgui/qguiapplication"
+require_relative "qtgui/qwindow"
 
 require_relative "qtgui/version"
+
+require_relative "bando/qguiapplication"
+require_relative "bando/qwindow"
