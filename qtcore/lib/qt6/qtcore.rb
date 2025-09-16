@@ -36,3 +36,6 @@ require_relative "qtcore/qobject"
 require_relative "qtcore/qcoreapplication"
 
 require_relative "qtcore/version"
+
+require_relative "bando/qobject"
+require_relative "bando/qcoreapplication"

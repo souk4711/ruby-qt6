@@ -3,9 +3,11 @@
 require "mkmf-rice"
 require "mkmf-rubyqt6"
 
-includedir = find_qt6_includedir
-includedir_private = Dir["#{includedir}/QtCore/*.*.*"][0]
+includedir = qt_install_headers
+append_cppflags("-I#{includedir}")
 append_cppflags("-I#{includedir}/QtCore")
+
+includedir_private = Dir["#{includedir}/QtCore/*.*.*"][0]
 append_cppflags("-I#{includedir_private}")
 append_cppflags("-I#{includedir_private}/QtCore")
 
