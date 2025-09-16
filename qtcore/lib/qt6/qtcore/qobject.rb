@@ -1,4 +1,65 @@
 # frozen_string_literal: true
 
-require_relative "qobject/metamacros"
-require_relative "qobject/base"
+module RubyQt6
+  module QtCore
+    # @see https://doc.qt.io/qt-6/qobject.html
+    class QObject
+      # @!visibility private
+      def self.q_object(&blk)
+        mo = QtCore::Private::MetaObject.new(self)
+        mo.instance_exec(&blk)
+
+        metamethods = mo.metamethods.sort_by { |meth| [meth.name, meth.parameters.size] }
+        metamethods.each do |meth|
+          next unless meth.signal?
+          define_method(meth.name) do
+            QtCore::Private::Signal.new(self, meth)
+          end
+        end
+
+        @_rubyqt6_metaobject = mo
+        @_qmetaobject = mo.to_qmetaobject
+      end
+
+      # @!visibility private
+      def self._rubyqt6_metaobject
+        @_rubyqt6_metaobject
+      end
+
+      # @!visibility private
+      def self._qmetaobject
+        @_qmetaobject
+      end
+
+      # @!visibility private
+      q_object do
+        signal "destroyed(QObject*)"
+        signal "destroyed()"
+        signal "objectNameChanged(QString)"
+        slot "deleteLater()"
+      end
+
+      # @!visibility private
+      alias_method :_initialize, :initialize
+
+      # @param parent [QObject]
+      # @return [QObject]
+      def initialize(parent = nil)
+        _initialize(parent)
+        _take_ownership_from_rubyrice(self) if parent
+      end
+
+      # @!visibility private
+      def set_parent(parent)
+        _set_parent(parent)
+        _take_ownership_from_rubyrice(self) if parent
+      end
+
+      private
+
+      def _take_ownership_from_rubyrice(object)
+        self.class._take_ownership_from_rubyrice(object)
+      end
+    end
+  end
+end

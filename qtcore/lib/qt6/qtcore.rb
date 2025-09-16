@@ -2,12 +2,12 @@
 
 require_relative "refinements/kernel"
 
-require_relative "internal/_nodoc"
-require_relative "internal/inflector"
-require_relative "internal/metamethod"
-require_relative "internal/metaobject"
-require_relative "internal/signal"
-require_relative "internal/signalmanager"
+require_relative "qtcore/private/_nodoc"
+require_relative "qtcore/private/inflector"
+require_relative "qtcore/private/metamethod"
+require_relative "qtcore/private/metaobject"
+require_relative "qtcore/private/signal"
+require_relative "qtcore/private/signalmanager"
 
 require_relative "qtcore/qtcore"
 require_relative "qtcore/qtcoreversion"
