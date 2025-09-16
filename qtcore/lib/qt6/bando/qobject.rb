@@ -3,7 +3,7 @@
 module RubyQt6
   module Bando
     class QObject < RubyQt6::QtCore::QObject
-      alias_method :_initialize, :initialize
+      Bando.define_bando_qlass Bando::QObject
     end
   end
 end

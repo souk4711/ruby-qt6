@@ -3,7 +3,7 @@
 module RubyQt6
   module Bando
     class QCoreApplication < RubyQt6::QtCore::QCoreApplication
-      alias_method :_initialize, :initialize
+      Bando.define_bando_qlass Bando::QCoreApplication
     end
   end
 end

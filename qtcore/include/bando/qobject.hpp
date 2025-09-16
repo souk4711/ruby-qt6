@@ -10,17 +10,17 @@
 template <typename Class_T, typename... Arg_Ts> class BandoQObject : public Class_T
 {
   public:
-    BandoQObject(Arg_Ts... args) : Class_T(args...), mo_(nullptr), value_(Qnil) {};
+    BandoQObject(Arg_Ts... args) : Class_T(args...), value_(Qnil), mo_(nullptr) {};
     BandoQObject(const BandoQObject &) = delete;
     BandoQObject &operator=(const BandoQObject &) = delete;
     BandoQObject(BandoQObject &&) = delete;
     BandoQObject &operator=(BandoQObject &&) = delete;
     ~BandoQObject() override {};
 
-    void initializeValue(QMetaObject *mo, Rice::Object value)
+    void initializeValue(Rice::Object value, QMetaObject *mo)
     {
-        mo_ = mo;
         value_ = value;
+        mo_ = mo;
     }
 
     const QMetaObject *metaObject() const override
@@ -43,8 +43,8 @@ template <typename Class_T, typename... Arg_Ts> class BandoQObject : public Clas
     };
 
   private:
-    QMetaObject *mo_;
     Rice::Object value_;
+    QMetaObject *mo_;
 };
 
 #endif
