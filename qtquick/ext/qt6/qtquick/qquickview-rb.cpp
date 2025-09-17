@@ -17,7 +17,7 @@ void Init_qquickview(Rice::Module rb_mQt6QtQuick)
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QQuickView::staticMetaObject; })
             // Constructor
-            .define_constructor(Constructor<QQuickView, QWindow *>(), Arg("parent") = static_cast<QWindow *>(nullptr))
+            .define_constructor(Constructor<QQuickView, QWindow *>(), Arg("parent"))
             // Public Functions
             .define_method("engine", &QQuickView::engine)
             .define_method("errors", &QQuickView::errors)

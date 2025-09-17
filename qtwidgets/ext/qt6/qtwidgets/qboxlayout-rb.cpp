@@ -17,7 +17,7 @@ void Init_qboxlayout(Rice::Module rb_mQt6QtWidgets)
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QBoxLayout::staticMetaObject; })
             // Constructor
-            .define_constructor(Constructor<QBoxLayout, QBoxLayout::Direction, QWidget *>(), Arg("direction"), Arg("parent") = static_cast<QWidget *>(nullptr))
+            .define_constructor(Constructor<QBoxLayout, QBoxLayout::Direction, QWidget *>(), Arg("direction"), Arg("parent"))
             // Public Functions
             .define_method("add_layout", &QBoxLayout::addLayout, Arg("layout").takeOwnership(), Arg("stretch") = static_cast<int>(0))
             .define_method("add_spacer_item", &QBoxLayout::addSpacerItem, Arg("item").takeOwnership())

@@ -13,7 +13,7 @@ void Init_qqmlapplicationengine(Rice::Module rb_mQt6QtQml)
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QQmlApplicationEngine::staticMetaObject; })
             // Constructor
-            .define_constructor(Constructor<QQmlApplicationEngine, QObject *>(), Arg("parent") = static_cast<QObject *>(nullptr))
+            .define_constructor(Constructor<QQmlApplicationEngine, QObject *>(), Arg("parent"))
             // Public Functions
             .define_method("root_objects", &QQmlApplicationEngine::rootObjects)
             // Public Slots

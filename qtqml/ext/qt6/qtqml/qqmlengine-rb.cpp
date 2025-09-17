@@ -16,7 +16,7 @@ void Init_qqmlengine(Rice::Module rb_mQt6QtQml)
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QQmlEngine::staticMetaObject; })
             // Constructor
-            .define_constructor(Constructor<QQmlEngine, QObject *>(), Arg("parent") = static_cast<QObject *>(nullptr))
+            .define_constructor(Constructor<QQmlEngine, QObject *>(), Arg("parent"))
             // Public Functions
             .define_method("add_image_provider", &QQmlEngine::addImageProvider, Arg("id"), Arg("provider").takeOwnership())
             .define_method("_add_import_path", &QQmlEngine::addImportPath, Arg("dir"))

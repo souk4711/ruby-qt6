@@ -2,6 +2,7 @@
 
 require "qt6/qtcore"
 
+require_relative "qtgui/version"
 require_relative "qtgui/qtgui"
 require_relative "qtgui/qtguiversion"
 
@@ -18,8 +19,6 @@ require_relative "qtgui/qpixmap"
 
 require_relative "qtgui/qguiapplication"
 require_relative "qtgui/qwindow"
-
-require_relative "qtgui/version"
 
 require_relative "bando/qguiapplication"
 require_relative "bando/qwindow"

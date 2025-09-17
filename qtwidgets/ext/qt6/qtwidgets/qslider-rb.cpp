@@ -15,7 +15,7 @@ void Init_qslider(Rice::Module rb_mQt6QtWidgets)
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QSlider::staticMetaObject; })
             // Constructor
-            .define_constructor(Constructor<QSlider, Qt::Orientation, QWidget *>(), Arg("orientation"), Arg("parent") = static_cast<QWidget *>(nullptr))
+            .define_constructor(Constructor<QSlider, Qt::Orientation, QWidget *>(), Arg("orientation"), Arg("parent"))
             // Public Functions
             .define_method("set_tick_interval", &QSlider::setTickInterval, Arg("ti"))
             .define_method("set_tick_position", &QSlider::setTickPosition, Arg("position"))

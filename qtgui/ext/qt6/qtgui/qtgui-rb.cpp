@@ -12,8 +12,8 @@
 #include "qpicture-rb.hpp"
 #include "qpixmap-rb.hpp"
 
-#include "qwindow-rb.hpp"
 #include "qguiapplication-rb.hpp"
+#include "qwindow-rb.hpp"
 
 #include "bando-rb.hpp"
 
@@ -36,8 +36,8 @@ extern "C" void Init_qtgui()
         Init_qpicture(rb_mQt6QtGui);
         Init_qpixmap(rb_mQt6QtGui);
 
-        Init_qwindow(rb_mQt6QtGui);
         Init_qguiapplication(rb_mQt6QtGui);
+        Init_qwindow(rb_mQt6QtGui);
 
         Rice::Module rb_mQt6Bando = define_module_under(rb_mQt6, "Bando");
         Init_bando(rb_mQt6Bando);

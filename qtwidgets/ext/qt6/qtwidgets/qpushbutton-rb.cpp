@@ -15,7 +15,7 @@ void Init_qpushbutton(Rice::Module rb_mQt6QtWidgets)
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QPushButton::staticMetaObject; })
             // Constructor
-            .define_constructor(Constructor<QPushButton, const QString &, QWidget *>(), Arg("text"), Arg("parent") = static_cast<QWidget *>(nullptr))
+            .define_constructor(Constructor<QPushButton, const QString &, QWidget *>(), Arg("text"), Arg("parent"))
             // Public Functions
             .define_method("auto_default", &QPushButton::autoDefault)
             .define_method("default?", &QPushButton::isDefault)

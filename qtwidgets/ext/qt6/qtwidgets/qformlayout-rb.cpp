@@ -16,7 +16,7 @@ void Init_qformlayout(Rice::Module rb_mQt6QtWidgets)
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QFormLayout::staticMetaObject; })
             // Constructor
-            .define_constructor(Constructor<QFormLayout, QWidget *>(), Arg("parent") = static_cast<QWidget *>(nullptr))
+            .define_constructor(Constructor<QFormLayout, QWidget *>(), Arg("parent"))
             // Public Functions
             .define_method<void (QFormLayout::*)(QLayout *)>("add_row", &QFormLayout::addRow, Arg("field").takeOwnership())
             .define_method<void (QFormLayout::*)(QWidget *)>("add_row", &QFormLayout::addRow, Arg("field").takeOwnership())

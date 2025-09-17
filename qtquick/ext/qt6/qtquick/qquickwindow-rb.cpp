@@ -25,7 +25,7 @@ void Init_qquickwindow(Rice::Module rb_mQt6QtQuick)
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QQuickWindow::staticMetaObject; })
             // Constructor
-            .define_constructor(Constructor<QQuickWindow, QWindow *>(), Arg("parent") = static_cast<QWindow *>(nullptr))
+            .define_constructor(Constructor<QQuickWindow, QWindow *>(), Arg("parent"))
             // Public Functions
             .define_method("active_focus_item", &QQuickWindow::activeFocusItem)
             .define_method("begin_external_commands", &QQuickWindow::beginExternalCommands)

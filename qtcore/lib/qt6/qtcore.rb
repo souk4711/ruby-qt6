@@ -9,6 +9,7 @@ require_relative "qtcore/private/metaobject"
 require_relative "qtcore/private/signal"
 require_relative "qtcore/private/signalmanager"
 
+require_relative "qtcore/version"
 require_relative "qtcore/qtcore"
 require_relative "qtcore/qtcoreversion"
 require_relative "qtcore/qt"
@@ -34,8 +35,6 @@ require_relative "qtcore/qmetamethod"
 
 require_relative "qtcore/qobject"
 require_relative "qtcore/qcoreapplication"
-
-require_relative "qtcore/version"
 
 require_relative "bando/dsl"
 require_relative "bando/qobject"

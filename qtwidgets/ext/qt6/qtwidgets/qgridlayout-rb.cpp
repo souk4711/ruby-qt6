@@ -15,7 +15,7 @@ void Init_qgridlayout(Rice::Module rb_mQt6QtWidgets)
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QGridLayout::staticMetaObject; })
             // Constructor
-            .define_constructor(Constructor<QGridLayout, QWidget *>(), Arg("parent") = static_cast<QWidget *>(nullptr))
+            .define_constructor(Constructor<QGridLayout, QWidget *>(), Arg("parent"))
             // Public Functions
             .define_method<void (QGridLayout::*)(QLayoutItem *, int, int, int, int, Qt::Alignment)>("add_item", &QGridLayout::addItem, Arg("item").takeOwnership(), Arg("row"), Arg("column"), Arg("row_span") = static_cast<int>(1), Arg("column_span") = static_cast<int>(1), Arg("") = static_cast<Qt::Alignment>(Qt::Alignment()))
             .define_method<void (QGridLayout::*)(QLayout *, int, int, Qt::Alignment)>("add_layout", &QGridLayout::addLayout, Arg("layout").takeOwnership(), Arg("row"), Arg("column"), Arg("") = static_cast<Qt::Alignment>(Qt::Alignment()))

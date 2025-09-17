@@ -15,7 +15,7 @@ void Init_qlabel(Rice::Module rb_mQt6QtWidgets)
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QLabel::staticMetaObject; })
             // Constructor
-            .define_constructor(Constructor<QLabel, const QString &, QWidget *, Qt::WindowFlags>(), Arg("text"), Arg("parent") = static_cast<QWidget *>(nullptr), Arg("f") = static_cast<Qt::WindowFlags>(Qt::WindowFlags()))
+            .define_constructor(Constructor<QLabel, const QString &, QWidget *>(), Arg("text"), Arg("parent"))
             // Public Functions
             .define_method("alignment", &QLabel::alignment)
             .define_method("buddy", &QLabel::buddy)
