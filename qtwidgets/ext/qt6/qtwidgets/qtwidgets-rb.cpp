@@ -18,7 +18,7 @@
 #include "qlabel-rb.hpp"
 #include "qlcdnumber-rb.hpp"
 
-#include "bando-rb.hpp"
+#include "bando-qtwidgets-rb.hpp"
 
 extern "C" void Init_qtwidgets()
 {
@@ -46,6 +46,6 @@ extern "C" void Init_qtwidgets()
         Init_qlcdnumber(rb_mQt6QtWidgets);
 
         Rice::Module rb_mQt6Bando = define_module_under(rb_mQt6, "Bando");
-        Init_bando(rb_mQt6Bando);
+        Init_bando_qtwidgets(rb_mQt6Bando);
     });
 }

@@ -1,4 +1,4 @@
-#include "bando-rb.hpp"
+#include "bando-qtqml-rb.hpp"
 #include <bando/qobject.hpp>
 
 #include <QJSEngine>
@@ -15,7 +15,7 @@ Rice::Class rb_mBando_cQJSEngine;
 Rice::Class rb_mBando_cQQmlEngine;
 Rice::Class rb_mBando_cQQmlApplicationEngine;
 
-void Init_bando(Rice::Module rb_mQt6Bando)
+void Init_bando_qtqml(Rice::Module rb_mQt6Bando)
 {
     rb_mBando_cQJSEngine =
         define_class_under<Bando_QJSEngine, QJSEngine>(rb_mQt6Bando, "QJSEngine")

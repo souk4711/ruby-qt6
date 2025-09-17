@@ -1,4 +1,4 @@
-#include "bando-rb.hpp"
+#include "bando-qtcore-rb.hpp"
 #include <bando/qobject.hpp>
 
 #include <QObject>
@@ -12,7 +12,7 @@ using Bando_QCoreApplication = BandoQObject<QCoreApplication, int &, char **>;
 Rice::Class rb_mBando_cQObject;
 Rice::Class rb_mBando_cQCoreApplication;
 
-void Init_bando(Rice::Module rb_mQt6Bando)
+void Init_bando_qtcore(Rice::Module rb_mQt6Bando)
 {
     rb_mBando_cQObject =
         define_class_under<Bando_QObject, QObject>(rb_mQt6Bando, "QObject")

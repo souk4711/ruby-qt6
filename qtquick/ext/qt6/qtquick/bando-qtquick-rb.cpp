@@ -1,4 +1,4 @@
-#include "bando-rb.hpp"
+#include "bando-qtquick-rb.hpp"
 #include <bando/qwindow.hpp>
 #include <bando/qquickitem.hpp>
 
@@ -16,7 +16,7 @@ Rice::Class rb_mBando_cQQuickWindow;
 Rice::Class rb_mBando_cQQuickView;
 Rice::Class rb_mBando_cQQuickItem;
 
-void Init_bando(Rice::Module rb_mQt6Bando)
+void Init_bando_qtquick(Rice::Module rb_mQt6Bando)
 {
     rb_mBando_cQQuickWindow =
         define_class_under<Bando_QQuickWindow, QQuickWindow>(rb_mQt6Bando, "QQuickWindow")

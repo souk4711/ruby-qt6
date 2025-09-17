@@ -1,4 +1,4 @@
-#include "bando-rb.hpp"
+#include "bando-qtgui-rb.hpp"
 #include <bando/qobject.hpp>
 #include <bando/qwindow.hpp>
 
@@ -13,7 +13,7 @@ using Bando_QWindow = BandoQWindow<QWindow, QWindow *>;
 Rice::Class rb_mBando_cQGuiApplication;
 Rice::Class rb_mBando_cQWindow;
 
-void Init_bando(Rice::Module rb_mQt6Bando)
+void Init_bando_qtgui(Rice::Module rb_mQt6Bando)
 {
     rb_mBando_cQGuiApplication =
         define_class_under<Bando_QGuiApplication, QGuiApplication>(rb_mQt6Bando, "QGuiApplication")

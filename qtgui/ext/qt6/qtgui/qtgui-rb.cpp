@@ -15,7 +15,7 @@
 #include "qguiapplication-rb.hpp"
 #include "qwindow-rb.hpp"
 
-#include "bando-rb.hpp"
+#include "bando-qtgui-rb.hpp"
 
 extern "C" void Init_qtgui()
 {
@@ -40,6 +40,6 @@ extern "C" void Init_qtgui()
         Init_qwindow(rb_mQt6QtGui);
 
         Rice::Module rb_mQt6Bando = define_module_under(rb_mQt6, "Bando");
-        Init_bando(rb_mQt6Bando);
+        Init_bando_qtgui(rb_mQt6Bando);
     });
 }

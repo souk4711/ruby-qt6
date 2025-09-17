@@ -1,4 +1,4 @@
-#include "bando-rb.hpp"
+#include "bando-qtwidgets-rb.hpp"
 #include <bando/qobject.hpp>
 #include <bando/qwidget.hpp>
 
@@ -13,7 +13,7 @@ using Bando_QWidget = BandoQWidget<QWidget, QWidget *>;
 Rice::Class rb_mBando_cQApplication;
 Rice::Class rb_mBando_cQWidget;
 
-void Init_bando(Rice::Module rb_mQt6Bando)
+void Init_bando_qtwidgets(Rice::Module rb_mQt6Bando)
 {
     rb_mBando_cQApplication =
         define_class_under<Bando_QApplication, QApplication>(rb_mQt6Bando, "QApplication")
