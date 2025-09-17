@@ -1,13 +1,11 @@
 RSpec.describe RubyQt6::QtWidgets do
   describe "#initialize" do
-    Dir.glob("ext/**/*.cpp").each do |f|
+    Dir.glob("ext/**/q*.cpp").each do |f|
       File.read(f).each_line do |line|
         matched = line.match(/define_constructor\(Constructor<(\w+)/)
         next unless matched
 
         klass = matched[1]
-        next if klass.start_with?("Bando_")
-
         it "redefine #initialize @ #{klass}" do
           contents = File.read("lib/qt6/qtwidgets/#{klass.downcase}.rb")
           expect(contents.match("alias_method :_initialize, :initialize")).not_to be_nil
@@ -32,7 +30,7 @@ RSpec.describe RubyQt6::QtWidgets do
       ["setLayout", "layout"],
       ["setWidget", "widget"]
     ].each do |fname, argname|
-      Dir.glob("ext/**/*.cpp").each do |f|
+      Dir.glob("ext/**/q*.cpp").each do |f|
         File.read(f).each_line do |line|
           matched = line.match(/&(\w+)::#{fname},(.+)/)
           next unless matched
@@ -51,7 +49,7 @@ RSpec.describe RubyQt6::QtWidgets do
     [
       "takeAt"
     ].each do |fname|
-      Dir.glob("ext/**/*.cpp").each do |f|
+      Dir.glob("ext/**/q*.cpp").each do |f|
         File.read(f).each_line do |line|
           matched = line.match(/&(\w+)::#{fname},(.+)/)
           next unless matched
