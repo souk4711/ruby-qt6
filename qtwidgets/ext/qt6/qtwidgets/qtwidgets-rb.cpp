@@ -1,6 +1,8 @@
 #include "qtwidgets-rb.hpp"
 #include "qtwidgetsversion-rb.hpp"
 
+#include "qapplication-rb.hpp"
+
 #include "qwidget-rb.hpp"
 #include "qlayoutitem-rb.hpp"
 #include "qlayout-rb.hpp"
@@ -19,7 +21,7 @@
 #include "qlabel-rb.hpp"
 #include "qlcdnumber-rb.hpp"
 
-#include "qapplication-rb.hpp"
+#include "bando-rb.hpp"
 
 extern "C" void Init_qtwidgets()
 {
@@ -28,6 +30,8 @@ extern "C" void Init_qtwidgets()
         Rice::Module rb_mQt6QtWidgets = define_module_under(rb_mQt6, "QtWidgets");
 
         Init_qtwidgetsversion(rb_mQt6QtWidgets);
+
+        Init_qapplication(rb_mQt6QtWidgets);
 
         Init_qwidget(rb_mQt6QtWidgets);
         Init_qlayoutitem(rb_mQt6QtWidgets);
@@ -47,6 +51,7 @@ extern "C" void Init_qtwidgets()
         Init_qlabel(rb_mQt6QtWidgets);
         Init_qlcdnumber(rb_mQt6QtWidgets);
 
-        Init_qapplication(rb_mQt6QtWidgets);
+        Rice::Module rb_mQt6Bando = define_module_under(rb_mQt6, "Bando");
+        Init_bando(rb_mQt6Bando);
     });
 }
