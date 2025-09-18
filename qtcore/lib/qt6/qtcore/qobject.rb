@@ -18,17 +18,14 @@ module RubyQt6
         end
 
         @_rubyqt6_metaobject = mo
+        define_singleton_method("_rubyqt6_metaobject") do
+          @_rubyqt6_metaobject
+        end
+
         @_qmetaobject = mo.to_qmetaobject
-      end
-
-      # @!visibility private
-      def self._rubyqt6_metaobject
-        @_rubyqt6_metaobject
-      end
-
-      # @!visibility private
-      def self._qmetaobject
-        @_qmetaobject
+        define_singleton_method("_qmetaobject") do
+          @_qmetaobject
+        end
       end
 
       # @!visibility private

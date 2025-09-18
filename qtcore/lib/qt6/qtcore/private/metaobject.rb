@@ -15,10 +15,9 @@ module RubyQt6
           cls = receiver.class
           mo = cls._rubyqt6_metaobject
           until mo.nil?
-            meth = mo.metamethods.find { |meth| compatible_methods.include?(meth.signature) }
-            return meth if meth
-            cls = cls.superclass
-            mo = cls._rubyqt6_metaobject
+            mo.metamethods.each { |meth| return meth if compatible_methods.include?(meth.signature) }
+            mo.metamethods.each { |meth| return meth if name == meth.name } if mo.ruby?
+            mo = mo.superclass
           end
 
           klass = receiver.class.name.split("::").last
@@ -41,6 +40,19 @@ module RubyQt6
         end
         alias_method :slot, :add_slot
 
+        def name
+          @qlass.name
+        end
+
+        def superclass
+          return nil if @qlass == RubyQt6::QtCore::QObject
+          @qlass.superclass._rubyqt6_metaobject
+        end
+
+        def ruby?
+          @qlass_underlying == :ruby
+        end
+
         def to_qmetaobject
           return @qlass._static_meta_object if @qlass_underlying == :libQt6
 
@@ -49,10 +61,6 @@ module RubyQt6
           builder.set_super_class(@qlass.superclass._qmetaobject)
           @metamethods.each { |meth| _to_qmetaobject_method(builder, meth) }
           builder.to_meta_object
-        end
-
-        def qlass_name
-          @qlass.name
         end
 
         private
