@@ -17,7 +17,7 @@ module RubyQt6
           until mo.nil?
             mo.metamethods.each { |meth| return meth if compatible_methods.include?(meth.signature) }
             mo.metamethods.each { |meth| return meth if name == meth.name } if mo.ruby?
-            mo = mo.superclass
+            mo = mo.super_class
           end
 
           klass = receiver.class.name.split("::").last
@@ -40,11 +40,11 @@ module RubyQt6
         end
         alias_method :slot, :add_slot
 
-        def name
+        def class_name
           @qlass.name
         end
 
-        def superclass
+        def super_class
           return nil if @qlass == RubyQt6::QtCore::QObject
           @qlass.superclass._rubyqt6_metaobject
         end
