@@ -1,23 +1,12 @@
 #ifndef BANDO_COMMON_HPP
 #define BANDO_COMMON_HPP
 
-#include <ruby/thread.h>
-
 #include <rice/rice.hpp>
 #include <rice/stl.hpp>
 
 #include <QMetaMethod>
 #include <QMetaObject>
 #include <QObject>
-
-template <typename F> void rubyqt6_with_gvl(F &&func)
-{
-    auto wrapper = [](void *ptr) -> void * {
-        (*static_cast<F *>(ptr))();
-        return nullptr;
-    };
-    rb_thread_call_with_gvl(wrapper, nullptr);
-}
 
 template <typename Class_T> void QObject_initializeValue(Class_T *self, Rice::Object value, QMetaObject *mo)
 {
@@ -40,19 +29,16 @@ template <typename Class_T> int QObject_qt_metacall(Class_T *self, QMetaObject::
     {
         auto mo = self->metaObject();
         auto method = mo->method(id);
-
         if (!method.isValid())
         {
             qDebug() << "RubyQt6::Bando: qt_metacall: invalid method";
             return -1;
         }
-
         if (method.methodType() == QMetaMethod::Signal)
         {
             QMetaObject::activate(self, method.methodIndex(), args);
             return -1;
         }
-
         if (method.methodType() == QMetaMethod::Slot)
         {
             auto name = method.name().toStdString();
@@ -65,7 +51,7 @@ template <typename Class_T> int QObject_qt_metacall(Class_T *self, QMetaObject::
                 arguments.push(std::move(argument));
             }
 
-            rubyqt6_with_gvl([&] { self->value_.vcall(name.substr(3), arguments); });
+            self->value_.vcall(name.substr(3), arguments);
             return -1;
         }
     }
