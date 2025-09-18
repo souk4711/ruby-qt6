@@ -4,6 +4,7 @@
 #include <rice/rice.hpp>
 #include <rice/stl.hpp>
 
+#include <QMetaMethod>
 #include <QMetaObject>
 #include <QObject>
 
@@ -24,11 +25,37 @@ template <typename Class_T> const QMetaObject *QObject_metaObject(const Class_T 
 
 template <typename Class_T> int QObject_qt_metacall(Class_T *self, QMetaObject::Call call, int id, void **args)
 {
-    int result = self->Class_T::qt_metacall(call, id, args);
-    if (result < 0)
-        return result;
+    if (call == QMetaObject::InvokeMetaMethod)
+    {
+        auto mo = self->metaObject();
+        auto method = mo->method(id);
+        if (!method.isValid())
+        {
+            qDebug() << "RubyQt6::Bando: qt_metacall: invalid method";
+            return -1;
+        }
+        if (method.methodType() == QMetaMethod::Signal)
+        {
+            QMetaObject::activate(self, method.methodIndex(), args);
+            return -1;
+        }
+        if (method.methodType() == QMetaMethod::Slot)
+        {
+            auto name = method.name().toStdString();
+            Q_ASSERT(name.rfind("rb_", 0) == 0);
 
-    std::cout << "invoke qt_metacall(.., " << id << ", ..)" << std::endl;
+            auto arguments = Rice::Array();
+            for (int i = 0; i < method.parameterCount(); ++i)
+            {
+                QVariant argument(method.parameterMetaType(i), args[i]);
+                arguments.push(std::move(argument));
+            }
+
+            self->value_.vcall(name.substr(3), arguments);
+            return -1;
+        }
+    }
+
     return -1;
 };
 
