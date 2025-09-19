@@ -47,7 +47,7 @@ template <typename Class_T> int QObject_qt_metacall(Class_T *self, QMetaObject::
             auto arguments = Rice::Array();
             for (int i = 0; i < method.parameterCount(); ++i)
             {
-                QVariant argument(method.parameterMetaType(i), args[i]);
+                QVariant argument(method.parameterMetaType(i), args[i + 1]);
                 arguments.push(std::move(argument));
             }
 
