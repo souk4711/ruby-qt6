@@ -28,9 +28,9 @@ module RubyQt6
       end
 
       # @!visibility private
-      %w[exec].each do |meth|
+      %w[exec quit].each do |meth|
         define_method(meth) do |*args|
-          self.class.exec(*args)
+          self.class.__send__(meth, *args)
         end
       end
 
