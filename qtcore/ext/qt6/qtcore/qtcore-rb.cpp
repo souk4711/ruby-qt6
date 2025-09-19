@@ -7,13 +7,13 @@
 #include "qanystringview-rb.hpp"
 #include "qbytearray-rb.hpp"
 #include "qdatetime-rb.hpp"
-#include "qdate-rb.hpp"
-#include "qtime-rb.hpp"
+#include "qline-rb.hpp"
 #include "qmargins-rb.hpp"
 #include "qpoint-rb.hpp"
 #include "qrect-rb.hpp"
 #include "qsize-rb.hpp"
 #include "qurl-rb.hpp"
+#include "quuid-rb.hpp"
 #include "qvariant-rb.hpp"
 
 #include "qstringlist-rb.hpp"
@@ -44,13 +44,13 @@ extern "C" void Init_qtcore()
         Init_qanystringview(rb_mQt6QtCore);
         Init_qbytearray(rb_mQt6QtCore);
         Init_qdatetime(rb_mQt6QtCore);
-        Init_qdate(rb_mQt6QtCore);
-        Init_qtime(rb_mQt6QtCore);
+        Init_qline(rb_mQt6QtCore);
         Init_qmargins(rb_mQt6QtCore);
         Init_qpoint(rb_mQt6QtCore);
         Init_qrect(rb_mQt6QtCore);
         Init_qsize(rb_mQt6QtCore);
         Init_qurl(rb_mQt6QtCore);
+        Init_quuid(rb_mQt6QtCore);
         Init_qvariant(rb_mQt6QtCore);
 
         Init_qstringlist(rb_mQt6QtCore);
