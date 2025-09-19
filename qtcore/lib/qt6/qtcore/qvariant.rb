@@ -5,6 +5,11 @@ module RubyQt6
     # @see https://doc.qt.io/qt-6/qvariant.html
     class QVariant
       # @!visibility private
+      def self.from_rb_value(value, qmetatype)
+        QVariant.new(value)
+      end
+
+      # @!visibility private
       alias_method :_initialize, :initialize
 
       # @param obj [Object]
@@ -20,7 +25,7 @@ module RubyQt6
         when QtCore::QMetaType::Type::Int then to_int
         when QtCore::QMetaType::Type::Double then to_double
         when QtCore::QMetaType::Type::QString then to_string
-        else raise "Unsupported type: #{type_name}"
+        else raise "Unsupported type: #{type_id}, #{type_name}"
         end
       end
     end

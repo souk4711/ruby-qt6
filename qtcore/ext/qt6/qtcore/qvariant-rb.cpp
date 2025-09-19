@@ -1,7 +1,6 @@
 #include "qvariant-rb.hpp"
 #include <qvariant.h>
 
-#include <QMetaType>
 #include <QBitArray>
 #include <QByteArray>
 #include <QChar>
@@ -18,6 +17,7 @@
 #include <QList>
 #include <QLocale>
 #include <QMap>
+#include <QMetaType>
 #include <QModelIndex>
 #include <QPersistentModelIndex>
 #include <QPoint>
@@ -48,13 +48,27 @@ void Init_qvariant(Rice::Module rb_mQt6QtCore)
             .define_constructor(Constructor<QVariant, double>(), Arg("d"))
             .define_constructor(Constructor<QVariant, QChar>(), Arg("qchar"))
             .define_constructor(Constructor<QVariant, QDate>(), Arg("date"))
+            .define_constructor(Constructor<QVariant, QLatin1StringView>(), Arg("string"))
+            .define_constructor(Constructor<QVariant, QLine>(), Arg("line"))
+            .define_constructor(Constructor<QVariant, QLineF>(), Arg("line"))
+            .define_constructor(Constructor<QVariant, QPoint>(), Arg("pt"))
+            .define_constructor(Constructor<QVariant, QPointF>(), Arg("pt"))
+            .define_constructor(Constructor<QVariant, QRect>(), Arg("rect"))
+            .define_constructor(Constructor<QVariant, QRectF>(), Arg("rect"))
+            .define_constructor(Constructor<QVariant, QSize>(), Arg("size"))
+            .define_constructor(Constructor<QVariant, QSizeF>(), Arg("size"))
             .define_constructor(Constructor<QVariant, QTime>(), Arg("time"))
+            .define_constructor(Constructor<QVariant, QUuid>(), Arg("uuid"))
+            .define_constructor(Constructor<QVariant, const char *>(), Arg("str"))
             .define_constructor(Constructor<QVariant, const QBitArray &>(), Arg("bitarray"))
             .define_constructor(Constructor<QVariant, const QByteArray &>(), Arg("bytearray"))
             .define_constructor(Constructor<QVariant, const QDateTime &>(), Arg("datetime"))
+            .define_constructor(Constructor<QVariant, const QEasingCurve &>(), Arg("easing"))
             // .define_constructor(Constructor<QVariant, const QHash &>(), Arg("hash"))
             .define_constructor(Constructor<QVariant, const QJsonArray &>(), Arg("json_array"))
+            .define_constructor(Constructor<QVariant, const QJsonDocument &>(), Arg("json_document"))
             .define_constructor(Constructor<QVariant, const QJsonObject &>(), Arg("json_object"))
+            .define_constructor(Constructor<QVariant, const QJsonValue &>(), Arg("json_value"))
             // .define_constructor(Constructor<QVariant, const QList &>(), Arg("list"))
             .define_constructor(Constructor<QVariant, const QLocale &>(), Arg("locale"))
             // .define_constructor(Constructor<QVariant, const QMap &>(), Arg("map"))
@@ -62,22 +76,8 @@ void Init_qvariant(Rice::Module rb_mQt6QtCore)
             .define_constructor(Constructor<QVariant, const QString &>(), Arg("string"))
             .define_constructor(Constructor<QVariant, const QStringList &>(), Arg("stringlist"))
             .define_constructor(Constructor<QVariant, const QUrl &>(), Arg("url"))
-            .define_constructor(Constructor<QVariant, const QJsonValue &>(), Arg("json_value"))
             .define_constructor(Constructor<QVariant, const QModelIndex &>(), Arg("model_index"))
-            .define_constructor(Constructor<QVariant, QUuid>(), Arg("uuid"))
-            .define_constructor(Constructor<QVariant, QSize>(), Arg("size"))
-            .define_constructor(Constructor<QVariant, QSizeF>(), Arg("size"))
-            .define_constructor(Constructor<QVariant, QPoint>(), Arg("pt"))
-            .define_constructor(Constructor<QVariant, QPointF>(), Arg("pt"))
-            .define_constructor(Constructor<QVariant, QLine>(), Arg("line"))
-            .define_constructor(Constructor<QVariant, QLineF>(), Arg("line"))
-            .define_constructor(Constructor<QVariant, QRect>(), Arg("rect"))
-            .define_constructor(Constructor<QVariant, QRectF>(), Arg("rect"))
-            .define_constructor(Constructor<QVariant, const QEasingCurve &>(), Arg("easing"))
-            .define_constructor(Constructor<QVariant, const QJsonDocument &>(), Arg("json_document"))
             .define_constructor(Constructor<QVariant, const QPersistentModelIndex &>(), Arg("model_index"))
-            .define_constructor(Constructor<QVariant, const char *>(), Arg("str"))
-            .define_constructor(Constructor<QVariant, QLatin1StringView>(), Arg("string"))
             // Public Functions
             .define_method<bool (QVariant::*)(QMetaType) const>("can_convert", &QVariant::canConvert, Arg("target_type"))
             // .define_method("can_view", &QVariant::canView, Arg("target_type"))
