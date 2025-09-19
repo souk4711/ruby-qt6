@@ -17,8 +17,8 @@ module RubyQt6
           qmo = sender.class._qmetaobject
           qmetamethod = qmo.method(qmo.index_of_signal(signal.qsignature[1..]))
 
-          raise "Not enough arguments" if qmetamethod.parameter_count > args.count
           raise "Too many arguments" if qmetamethod.parameter_count < args.count
+          raise "Not enough arguments" if qmetamethod.parameter_count > args.count
           args = args.map.with_index { |v, i| QtCore::QVariant.from_rb_value(v, qmetamethod.parameter_meta_type(i)) }
 
           QtCore::QObject._emit(sender, qmetamethod, args)
