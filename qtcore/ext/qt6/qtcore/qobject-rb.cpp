@@ -12,12 +12,26 @@ using namespace Rice;
 
 Rice::Class rb_cQObject;
 
+int qobject_emit(QObject *sender, const QMetaMethod *signal, const std::vector<QVariant> &args)
+{
+    Q_ASSERT(signal->isValid());
+    Q_ASSERT(signal->methodType() == QMetaMethod::Signal);
+
+    std::vector<void *> arguments(args.size() + 1, nullptr);
+    for (size_t i = 0; i < args.size(); ++i)
+        arguments[i + 1] = const_cast<void *>(args[i].constData());
+    QMetaObject::activate(sender, signal->methodIndex(), arguments.data());
+
+    return -1;
+}
+
 void Init_qobject(Rice::Module rb_mQt6QtCore)
 {
     rb_cQObject =
         // RubyQt6::QtCore::QObject
         define_class_under<QObject>(rb_mQt6QtCore, "QObject")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_emit", qobject_emit, Arg("sender"), Arg("signal"), Arg("args"))
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QObject::staticMetaObject; })
             .define_singleton_function("_take_ownership_from_rubyrice", [](QObject *) -> void {}, Arg("object").takeOwnership())
             // Constructor
