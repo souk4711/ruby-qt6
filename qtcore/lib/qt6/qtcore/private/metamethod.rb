@@ -25,7 +25,7 @@ module RubyQt6
 
         def initialize(signature, type, underlying)
           matched = signature.match(RE)
-          raise ArgumentError if matched.nil?
+          raise "Invalid metamethod signature: #{signature}" if matched.nil?
 
           @name = self.class.normalized_name(matched[1])
           @parameters = self.class.normalized_parameters(matched[2].split(","))
@@ -51,7 +51,7 @@ module RubyQt6
           case @underlying
           when :libQt6 then QtCore::Private.inflector.camelize_lower(@name)
           when :ruby then "_rubyqt6_#{QtCore::Private.inflector.underscore(@name)}"
-          else raise ArgumentError
+          else raise "Unknown underlying type: #{@underlying}"
           end
         end
       end

@@ -17,8 +17,10 @@ module RubyQt6
             end
           elsif meth.slot? && mo.ruby?
             define_method(meth.qsignature_name) do |*args|
-              # TODO:
-            rescue
+              __send__(meth.name, *args.map(&:to_rb_value))
+            rescue => e
+              puts e.message
+              puts e.backtrace.join("\n")
             end
           end
         end

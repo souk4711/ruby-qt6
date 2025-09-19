@@ -12,8 +12,7 @@ module RubyQt6
             QtCore::Private::MetaMethod.normalized_signature(name, signal.parameters[0...n])
           end
 
-          cls = receiver.class
-          mo = cls._rubyqt6_metaobject
+          mo = receiver.class._rubyqt6_metaobject
           until mo.nil?
             mo.metamethods.each { |meth| return meth if compatible_methods.include?(meth.signature) }
             mo.metamethods.each { |meth| return meth if name == meth.name } if mo.ruby?
@@ -21,7 +20,7 @@ module RubyQt6
           end
 
           klass = receiver.class.name.split("::").last
-          raise "No such metamethod #{klass}##{name}"
+          raise "No compatible metamethod: #{klass}##{name}"
         end
 
         def initialize(qlass)
@@ -45,7 +44,7 @@ module RubyQt6
         end
 
         def super_class
-          return nil if @qlass == RubyQt6::QtCore::QObject
+          return nil if @qlass == QtCore::QObject
           @qlass.superclass._rubyqt6_metaobject
         end
 
@@ -54,7 +53,7 @@ module RubyQt6
         end
 
         def to_qmetaobject
-          return @qlass._static_meta_object if @qlass_underlying == :libQt6
+          return @qlass._static_meta_object unless ruby?
 
           builder = QtCore::QMetaObjectBuilder.new
           builder.set_class_name(@qlass.name)
@@ -69,7 +68,7 @@ module RubyQt6
           case meth.type
           when :signal then _to_qmetaobject_method_signal(builder, meth)
           when :slot then _to_qmetaobject_method_slot(builder, meth)
-          else raise ArgumentError
+          else raise "Unknown metamethod type: #{meth.type}"
           end
         end
 
