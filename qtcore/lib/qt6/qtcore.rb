@@ -32,6 +32,7 @@ require_relative "qtcore/qstringlist"
 require_relative "qtcore/qmetaobjectbuilder"
 require_relative "qtcore/qmetaobject"
 require_relative "qtcore/qmetamethod"
+require_relative "qtcore/qmetatype"
 
 require_relative "qtcore/qobject"
 require_relative "qtcore/qcoreapplication"

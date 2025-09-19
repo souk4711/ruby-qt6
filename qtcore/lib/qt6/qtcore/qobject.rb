@@ -11,9 +11,15 @@ module RubyQt6
 
         metamethods = mo.metamethods.sort_by { |meth| [meth.name, meth.parameters.size] }
         metamethods.each do |meth|
-          next unless meth.signal?
-          define_method(meth.name) do
-            QtCore::Private::Signal.new(self, meth)
+          if meth.signal?
+            define_method(meth.name) do
+              QtCore::Private::Signal.new(self, meth)
+            end
+          elsif meth.slot? && mo.ruby?
+            define_method(meth.qsignature_name) do |*args|
+              # TODO:
+            rescue
+            end
           end
         end
 

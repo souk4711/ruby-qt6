@@ -38,23 +38,21 @@ module RubyQt6
           @type == :signal
         end
 
+        def slot?
+          @type == :slot
+        end
+
         def qsignature
-          signature = self.class.normalized_signature(_qsignature_name(@name), _qsignature_parameters(@parameters))
+          signature = self.class.normalized_signature(qsignature_name, @parameters)
           signal? ? "2#{signature}" : "1#{signature}"
         end
 
-        private
-
-        def _qsignature_name(name)
+        def qsignature_name
           case @underlying
-          when :libQt6 then QtCore::Private.inflector.camelize_lower(name)
-          when :ruby then "rb_#{QtCore::Private.inflector.underscore(name)}"
+          when :libQt6 then QtCore::Private.inflector.camelize_lower(@name)
+          when :ruby then "_rubyqt6_#{QtCore::Private.inflector.underscore(@name)}"
           else raise ArgumentError
           end
-        end
-
-        def _qsignature_parameters(parameters)
-          parameters
         end
       end
     end

@@ -42,7 +42,7 @@ template <typename Class_T> int QObject_qt_metacall(Class_T *self, QMetaObject::
         if (method.methodType() == QMetaMethod::Slot)
         {
             auto name = method.name().toStdString();
-            Q_ASSERT(name.rfind("rb_", 0) == 0);
+            Q_ASSERT(name.rfind("_rubyqt6_", 0) == 0);
 
             auto arguments = Rice::Array();
             for (int i = 0; i < method.parameterCount(); ++i)
@@ -51,7 +51,7 @@ template <typename Class_T> int QObject_qt_metacall(Class_T *self, QMetaObject::
                 arguments.push(std::move(argument));
             }
 
-            self->value_.vcall(name.substr(3), arguments);
+            self->value_.vcall(name, arguments);
             return -1;
         }
     }

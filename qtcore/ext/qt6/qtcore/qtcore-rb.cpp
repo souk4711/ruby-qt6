@@ -17,6 +17,7 @@
 #include "qmetaobjectbuilder-rb.hpp"
 #include "qmetaobject-rb.hpp"
 #include "qmetamethod-rb.hpp"
+#include "qmetatype-rb.hpp"
 
 #include "qobject-rb.hpp"
 #include "qcoreapplication-rb.hpp"
@@ -48,6 +49,7 @@ extern "C" void Init_qtcore()
         Init_qmetaobjectbuilder(rb_mQt6QtCore);
         Init_qmetaobject(rb_mQt6QtCore);
         Init_qmetamethod(rb_mQt6QtCore);
+        Init_qmetatype(rb_mQt6QtCore);
 
         Init_qobject(rb_mQt6QtCore);
         Init_qcoreapplication(rb_mQt6QtCore);
