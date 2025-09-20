@@ -21,6 +21,7 @@ void Init_qwidget(Rice::Module rb_mQt6QtWidgets)
         // RubyQt6::QtWidgets::QWidget
         define_class_under<QWidget, QObject>(rb_mQt6QtWidgets, "QWidget")
             // RubyQt6-Defined Functions
+            .define_method("_new_painter", [](QWidget *self) -> QPainter * { return new QPainter(self); }, Return().takeOwnership())
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QWidget::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QWidget, QWidget *>(), Arg("parent"))
@@ -46,7 +47,7 @@ void Init_qwidget(Rice::Module rb_mQt6QtWidgets)
             .define_method("accessible_name", &QWidget::accessibleName)
             .define_method("actions", &QWidget::actions)
             .define_method("activate_window", &QWidget::activateWindow)
-            .define_method<QAction *(QWidget::*)(const QIcon &, const QString &)>("add_action", &QWidget::addAction, Arg("icon"), Arg("text"))
+           .define_method<QAction *(QWidget::*)(const QIcon &, const QString &)>("add_action", &QWidget::addAction, Arg("icon"), Arg("text"))
             .define_method<QAction *(QWidget::*)(const QIcon &, const QString &, const QKeySequence &)>("add_action", &QWidget::addAction, Arg("icon"), Arg("text"), Arg("shortcut"))
             .define_method<QAction *(QWidget::*)(const QIcon &, const QString &, const QKeySequence &, const QObject *, const char *, Qt::ConnectionType)>("add_action", &QWidget::addAction, Arg("icon"), Arg("text"), Arg("shortcut"), Arg("receiver"), Arg("member"), Arg("type") = static_cast<Qt::ConnectionType>(Qt::AutoConnection))
             .define_method<QAction *(QWidget::*)(const QIcon &, const QString &, const QObject *, const char *, Qt::ConnectionType)>("add_action", &QWidget::addAction, Arg("icon"), Arg("text"), Arg("receiver"), Arg("member"), Arg("type") = static_cast<Qt::ConnectionType>(Qt::AutoConnection))
