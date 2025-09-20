@@ -18,6 +18,13 @@ module RubyQt6
         def self._qmetaobject
           superclass._qmetaobject
         end
+
+        def _rubyqt6_handle_event(event, *args)
+          __send__(event, *args)
+        rescue => e
+          puts e.message
+          puts e.backtrace.join("\n")
+        end
       end
     end
   end
