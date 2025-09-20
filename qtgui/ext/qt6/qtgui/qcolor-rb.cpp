@@ -97,6 +97,12 @@ void Init_qcolor(Rice::Module rb_mQt6QtGui)
             .define_singleton_function<QColor (*)(int, int, int, int)>("from_rgb", &QColor::fromRgb, Arg("r"), Arg("g"), Arg("b"), Arg("a") = static_cast<int>(255))
             .define_singleton_function("from_rgb_f", &QColor::fromRgbF, Arg("r"), Arg("g"), Arg("b"), Arg("a") = static_cast<float>(1.0));
 
+    Enum<QColor::NameFormat> rb_cQColorNameFormat =
+        // RubyQt6::QtGui::QColor::NameFormat
+        define_enum_under<QColor::NameFormat>("NameFormat", rb_cQColor)
+            .define_value("HexRgb", QColor::NameFormat::HexRgb)
+            .define_value("HexArgb", QColor::NameFormat::HexArgb);
+
     Enum<QColor::Spec> rb_cQColorSpec =
         // RubyQt6::QtGui::QColor::Spec
         define_enum_under<QColor::Spec>("Spec", rb_cQColor)
@@ -106,10 +112,4 @@ void Init_qcolor(Rice::Module rb_mQt6QtGui)
             .define_value("Cmyk", QColor::Spec::Cmyk)
             .define_value("Hsl", QColor::Spec::Hsl)
             .define_value("ExtendedRgb", QColor::Spec::ExtendedRgb);
-
-    Enum<QColor::NameFormat> rb_cQColorNameFormat =
-        // RubyQt6::QtGui::QColor::NameFormat
-        define_enum_under<QColor::NameFormat>("NameFormat", rb_cQColor)
-            .define_value("HexRgb", QColor::NameFormat::HexRgb)
-            .define_value("HexArgb", QColor::NameFormat::HexArgb);
 }

@@ -5,11 +5,13 @@ module RubyQt6
     # @see https://doc.qt.io/qt-6/qformlayout.html
     class QFormLayout < RubyQt6::QtWidgets::QLayout
       # @!parse class FieldGrowthPolicy; end
-      # @!parse class RowWrapPolicy    ; end
       # @!parse class ItemRole         ; end
+      # @!parse class RowWrapPolicy    ; end
+      # @!parse class TakeRowResult    ; end
       rubyqt6_include_constants QFormLayout, QFormLayout::FieldGrowthPolicy
-      rubyqt6_include_constants QFormLayout, QFormLayout::RowWrapPolicy
       rubyqt6_include_constants QFormLayout, QFormLayout::ItemRole
+      rubyqt6_include_constants QFormLayout, QFormLayout::RowWrapPolicy
+      rubyqt6_include_constants QFormLayout, QFormLayout::TakeRowResult
 
       # @!visibility private
       q_object do

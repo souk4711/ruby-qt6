@@ -14,6 +14,8 @@
 #include "qpicture-rb.hpp"
 #include "qpixmap-rb.hpp"
 
+#include "qpainter-rb.hpp"
+
 #include "qguiapplication-rb.hpp"
 #include "qwindow-rb.hpp"
 
@@ -39,6 +41,8 @@ extern "C" void Init_qtgui()
         Init_qimage(rb_mQt6QtGui);
         Init_qpicture(rb_mQt6QtGui);
         Init_qpixmap(rb_mQt6QtGui);
+
+        Init_qpainter(rb_mQt6QtGui);
 
         Init_qguiapplication(rb_mQt6QtGui);
         Init_qwindow(rb_mQt6QtGui);

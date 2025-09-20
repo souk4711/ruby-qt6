@@ -4,10 +4,10 @@ module RubyQt6
   module QtGui
     # @see https://doc.qt.io/qt-6/qcolor.html
     class QColor
-      # @!parse class Spec      ; end
       # @!parse class NameFormat; end
-      rubyqt6_include_constants QColor, QColor::Spec
+      # @!parse class Spec      ; end
       rubyqt6_include_constants QColor, QColor::NameFormat
+      rubyqt6_include_constants QColor, QColor::Spec
 
       # @!visibility private
       alias_method :_initialize, :initialize

@@ -18,6 +18,8 @@ require_relative "qtgui/qimage"
 require_relative "qtgui/qpicture"
 require_relative "qtgui/qpixmap"
 
+require_relative "qtgui/qpainter"
+
 require_relative "qtgui/qguiapplication"
 require_relative "qtgui/qwindow"
 

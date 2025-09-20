@@ -48,6 +48,13 @@ void Init_qmetamethod(Rice::Module rb_mQt6QtCore)
             .define_value("Protected", QMetaMethod::Access::Protected)
             .define_value("Public", QMetaMethod::Access::Public);
 
+    Enum<QMetaMethod::Attributes> rb_cQMetaMethodAttributes =
+        // RubyQt6::QtCore::QMetaMethod::Attributes
+        define_enum_under<QMetaMethod::Attributes>("Attributes", rb_cQMetaMethod)
+            .define_value("Compatibility", QMetaMethod::Attributes::Compatibility)
+            .define_value("Cloned", QMetaMethod::Attributes::Cloned)
+            .define_value("Scriptable", QMetaMethod::Attributes::Scriptable);
+
     Enum<QMetaMethod::MethodType> rb_cQMetaMethodMethodType =
         // RubyQt6::QtCore::QMetaMethod::MethodType
         define_enum_under<QMetaMethod::MethodType>("MethodType", rb_cQMetaMethod)
@@ -55,11 +62,4 @@ void Init_qmetamethod(Rice::Module rb_mQt6QtCore)
             .define_value("Signal", QMetaMethod::MethodType::Signal)
             .define_value("Slot", QMetaMethod::MethodType::Slot)
             .define_value("Constructor", QMetaMethod::MethodType::Constructor);
-
-    Enum<QMetaMethod::Attributes> rb_cQMetaMethodAttributes =
-        // RubyQt6::QtCore::QMetaMethod::Attributes
-        define_enum_under<QMetaMethod::Attributes>("Attributes", rb_cQMetaMethod)
-            .define_value("Compatibility", QMetaMethod::Attributes::Compatibility)
-            .define_value("Cloned", QMetaMethod::Attributes::Cloned)
-            .define_value("Scriptable", QMetaMethod::Attributes::Scriptable);
 }

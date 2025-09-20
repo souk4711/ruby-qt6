@@ -80,18 +80,19 @@ void Init_qformlayout(Rice::Module rb_mQt6QtWidgets)
             .define_method("spacing", &QFormLayout::spacing)
             .define_method("take_at", &QFormLayout::takeAt, Arg("index"), Return().takeOwnership());
 
-    rb_cQFormLayoutTakeRowResult =
-        // RubyQt6::QtWidgets::QFormLayout::TakeRowResult
-        define_class_under<QFormLayout::TakeRowResult>(rb_cQFormLayout, "TakeRowResult")
-            .define_attr("label_item", &QFormLayout::TakeRowResult::labelItem, AttrAccess::Read)
-            .define_attr("field_item", &QFormLayout::TakeRowResult::fieldItem, AttrAccess::Read);
-
     Enum<QFormLayout::FieldGrowthPolicy> rb_cQFormLayoutFieldGrowthPolicy =
         // RubyQt6::QtWidgets::QFormLayout::FieldGrowthPolicy
         define_enum_under<QFormLayout::FieldGrowthPolicy>("FieldGrowthPolicy", rb_cQFormLayout)
             .define_value("FieldsStayAtSizeHint", QFormLayout::FieldGrowthPolicy::FieldsStayAtSizeHint)
             .define_value("ExpandingFieldsGrow", QFormLayout::FieldGrowthPolicy::ExpandingFieldsGrow)
             .define_value("AllNonFixedFieldsGrow", QFormLayout::FieldGrowthPolicy::AllNonFixedFieldsGrow);
+
+    Enum<QFormLayout::ItemRole> rb_cQFormLayoutItemRole =
+        // RubyQt6::QtWidgets::QFormLayout::ItemRole
+        define_enum_under<QFormLayout::ItemRole>("ItemRole", rb_cQFormLayout)
+            .define_value("LabelRole", QFormLayout::ItemRole::LabelRole)
+            .define_value("FieldRole", QFormLayout::ItemRole::FieldRole)
+            .define_value("SpanningRole", QFormLayout::ItemRole::SpanningRole);
 
     Enum<QFormLayout::RowWrapPolicy> rb_cQFormLayoutRowWrapPolicy =
         // RubyQt6::QtWidgets::QFormLayout::RowWrapPolicy
@@ -100,10 +101,9 @@ void Init_qformlayout(Rice::Module rb_mQt6QtWidgets)
             .define_value("WrapLongRows", QFormLayout::RowWrapPolicy::WrapLongRows)
             .define_value("WrapAllRows", QFormLayout::RowWrapPolicy::WrapAllRows);
 
-    Enum<QFormLayout::ItemRole> rb_cQFormLayoutItemRole =
-        // RubyQt6::QtWidgets::QFormLayout::ItemRole
-        define_enum_under<QFormLayout::ItemRole>("ItemRole", rb_cQFormLayout)
-            .define_value("LabelRole", QFormLayout::ItemRole::LabelRole)
-            .define_value("FieldRole", QFormLayout::ItemRole::FieldRole)
-            .define_value("SpanningRole", QFormLayout::ItemRole::SpanningRole);
+    rb_cQFormLayoutTakeRowResult =
+        // RubyQt6::QtWidgets::QFormLayout::TakeRowResult
+        define_class_under<QFormLayout::TakeRowResult>(rb_cQFormLayout, "TakeRowResult")
+            .define_attr("label_item", &QFormLayout::TakeRowResult::labelItem, AttrAccess::Read)
+            .define_attr("field_item", &QFormLayout::TakeRowResult::fieldItem, AttrAccess::Read);
 }
