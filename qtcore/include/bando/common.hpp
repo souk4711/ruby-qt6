@@ -152,7 +152,7 @@ template <typename BandoClass_T> int bando_qt_metacall(BandoClass_T *self, QMeta
     return -1;
 };
 
-template <typename BandoClass_T, typename Class_T, typename Event_T> void bando_handleEvent(BandoClass_T *self, Event_T *event, bando_FunctionName name)
+template <typename BandoClass_T, typename Event_T> void bando_handleEvent(BandoClass_T *self, Event_T *event, bando_FunctionName name)
 {
     auto rb_name = bando_FunctionName_underscore(name);
     if (!self->value_.respond_to(Rice::Identifier(rb_name)))
