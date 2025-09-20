@@ -51,6 +51,7 @@ template <typename Class_T> int QObject_qt_metacall(Class_T *self, QMetaObject::
                 arguments.push(std::move(argument));
             }
 
+            Q_ASSERT(self->value_.rb_type() != RUBY_T_NONE);
             self->value_.vcall(name, arguments);
             return -1;
         }
