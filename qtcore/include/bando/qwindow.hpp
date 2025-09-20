@@ -13,13 +13,13 @@ template <typename Class_T, typename... Arg_Ts> class BandoQWindow : public Clas
     BandoQWindow &operator=(BandoQWindow &&) = delete;
     ~BandoQWindow() override {};
 
-    void initializeValue(Rice::Object value, QMetaObject *mo) { QObject_initializeValue<BandoQWindow>(this, value, mo); }
+    void initializeValue(Rice::Object value, QMetaObject *mo) { bando_initializeValue<BandoQWindow>(this, value, mo); }
 
-    const QMetaObject *metaObject() const override { return QObject_metaObject<BandoQWindow>(this); };
-    int qt_metacall(QMetaObject::Call call, int id, void **args) override { return QObject_qt_metacall<BandoQWindow>(this, call, id, args); };
+    const QMetaObject *metaObject() const override { return bando_metaObject<BandoQWindow>(this); };
+    int qt_metacall(QMetaObject::Call call, int id, void **args) override { return bando_qt_metacall<BandoQWindow>(this, call, id, args); };
 
   public:
-    template <typename T> friend const QMetaObject *QObject_metaObject(const T *self);
+    template <typename T> friend const QMetaObject *bando_metaObject(const T *self);
 
     Rice::Object value_;
     QMetaObject *mo_;
