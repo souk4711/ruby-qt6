@@ -37,6 +37,11 @@ require_relative "qtcore/qvariant"
 
 require_relative "qtcore/qstringlist"
 
+require_relative "qtcore/qevent"
+require_relative "qtcore/qtimerevent"
+require_relative "qtcore/qchildevent"
+require_relative "qtcore/qdynamicpropertychangeevent"
+
 require_relative "qtcore/qmetaobjectbuilder"
 require_relative "qtcore/qmetaobject"
 require_relative "qtcore/qmetamethod"
