@@ -60,4 +60,18 @@ template <typename BandoClass_T> int bando_qt_metacall(BandoClass_T *self, QMeta
     return -1;
 };
 
+template <typename BandoClass_T, typename Class_T, typename Event_T> void bando_handleEvent(BandoClass_T *self, Event_T* event, const char* rb_name)
+{
+    if (!self->value_.respond_to(rb_name)) {
+        self->ClassT_handleEvent(event);
+        return;
+    }
+
+    auto arguments = Rice::Array();
+    arguments.push(Rice::Object(Rice::detail::to_ruby(event)));
+
+    Q_ASSERT(self->value_.rb_type() != RUBY_T_NONE);
+    self->value_.vcall(rb_name, arguments);
+}
+
 #endif

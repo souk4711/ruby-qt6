@@ -13,7 +13,7 @@ template <typename Class_T, typename... Arg_Ts> class BandoQObject : public Clas
     BandoQObject &operator=(BandoQObject &&) = delete;
     ~BandoQObject() override {};
 
-    void initializeValue(Rice::Object value, QMetaObject *mo) { bando_initializeValue<BandoQObject>(this, value, mo); }
+    void initializeValue(Rice::Object value, QMetaObject *mo) { bando_initializeValue<BandoQObject>(this, value, mo); };
 
     const QMetaObject *metaObject() const override { return bando_metaObject<BandoQObject, Class_T>(this); };
     int qt_metacall(QMetaObject::Call call, int id, void **args) override { return bando_qt_metacall<BandoQObject>(this, call, id, args); };
