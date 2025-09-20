@@ -1,6 +1,8 @@
 #include "qtgui-rb.hpp"
 #include "qtguiversion-rb.hpp"
 
+#include "qbrush-rb.hpp"
+#include "qcolor-rb.hpp"
 #include "qcolor-rb.hpp"
 #include "qfont-rb.hpp"
 #include "qfontinfo-rb.hpp"
@@ -30,6 +32,7 @@ extern "C" void Init_qtgui()
 
         Init_qtguiversion(rb_mQt6QtGui);
 
+        Init_qbrush(rb_mQt6QtGui);
         Init_qcolor(rb_mQt6QtGui);
         Init_qfont(rb_mQt6QtGui);
         Init_qfontinfo(rb_mQt6QtGui);
