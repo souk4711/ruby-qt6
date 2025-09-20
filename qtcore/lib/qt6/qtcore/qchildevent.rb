@@ -3,7 +3,7 @@
 module RubyQt6
   module QtCore
     # @see https://doc.qt.io/qt-6/qchildevent.html
-    class QChildEvent
+    class QChildEvent < RubyQt6::QtCore::QEvent
     end
   end
 end

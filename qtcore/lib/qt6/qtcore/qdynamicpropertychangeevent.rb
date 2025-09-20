@@ -3,7 +3,7 @@
 module RubyQt6
   module QtCore
     # @see https://doc.qt.io/qt-6/qdynamicpropertychangeevent.html
-    class QDynamicPropertyChangeEvent
+    class QDynamicPropertyChangeEvent < RubyQt6::QtCore::QEvent
     end
   end
 end
