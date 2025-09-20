@@ -7,10 +7,10 @@ module RubyQt6
       # @!visibility private
       alias_method :_initialize, :initialize
 
-      # @param color [Qt::BrushStyle, Qt::GlobalColor, QImage, QPixmap, QColor]
+      # @param color [Qt::GlobalColor, QColor]
       # @return [QBrush]
-      def initialize(*args)
-        _initialize(*args)
+      def initialize(color)
+        _initialize(color)
       end
     end
   end
