@@ -8,13 +8,13 @@
 #include <QMetaObject>
 #include <QObject>
 
-template <typename Class_T> void bando_initializeValue(Class_T *self, Rice::Object value, QMetaObject *mo)
+template <typename BandoClass_T> void bando_initializeValue(BandoClass_T *self, Rice::Object value, QMetaObject *mo)
 {
     self->value_ = value;
     self->mo_ = mo;
 }
 
-template <typename Class_T> const QMetaObject *bando_metaObject(const Class_T *self)
+template <typename BandoClass_T, typename Class_T> const QMetaObject *bando_metaObject(const BandoClass_T *self)
 {
     if (self->QObject::d_ptr->metaObject != nullptr)
         return self->QObject::d_ptr->dynamicMetaObject();
@@ -23,7 +23,7 @@ template <typename Class_T> const QMetaObject *bando_metaObject(const Class_T *s
     return &Class_T::staticMetaObject;
 };
 
-template <typename Class_T> int bando_qt_metacall(Class_T *self, QMetaObject::Call call, int id, void **args)
+template <typename BandoClass_T> int bando_qt_metacall(BandoClass_T *self, QMetaObject::Call call, int id, void **args)
 {
     if (call == QMetaObject::InvokeMetaMethod)
     {

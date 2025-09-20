@@ -15,11 +15,11 @@ template <typename Class_T, typename... Arg_Ts> class BandoQQuickItem : public C
 
     void initializeValue(Rice::Object value, QMetaObject *mo) { bando_initializeValue<BandoQQuickItem>(this, value, mo); }
 
-    const QMetaObject *metaObject() const override { return bando_metaObject<BandoQQuickItem>(this); };
+    const QMetaObject *metaObject() const override { return bando_metaObject<BandoQQuickItem, Class_T>(this); };
     int qt_metacall(QMetaObject::Call call, int id, void **args) override { return bando_qt_metacall<BandoQQuickItem>(this, call, id, args); };
 
   public:
-    template <typename T> friend const QMetaObject *bando_metaObject(const T *self);
+    template <typename BC_T, typename C_T> friend const QMetaObject *bando_metaObject(const BC_T *self);
 
     Rice::Object value_;
     QMetaObject *mo_;
