@@ -1,9 +1,6 @@
-# frozen_string_literal: true
-
 require 'qt6/all'
 
 app = QApplication.new(ARGV)
-
 window = QWidget.new
 window.resize(200, 120)
 

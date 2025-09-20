@@ -3,12 +3,10 @@
 source "https://rubygems.org"
 
 # ruby-qt6
-%w[qtcore qtgui qtqml qtquick qtquickcontrols2 qtwidgets].each do |lib|
-  gem "ruby-qt6-#{lib}", path: "../#{lib}"
+%w[qtcore qtgui qtqml qtquick qtquickcontrols2 qtwidgets qt].each do |lib|
+  if lib == "qt"
+    gem "ruby-qt6", path: "../#{lib}"
+  else
+    gem "ruby-qt6-#{lib}", path: "../#{lib}"
+  end
 end
-
-# ruby-qt6
-gem "ruby-qt6", path: "../qt"
-
-# lsp
-gem "solargraph"

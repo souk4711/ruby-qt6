@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require 'qt6/all'
 
 a = QApplication.new(ARGV)

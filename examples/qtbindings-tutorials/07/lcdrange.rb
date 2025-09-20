@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require 'qt6/all'
 
 class LCDRange < QWidget
@@ -12,7 +10,6 @@ class LCDRange < QWidget
     super
 
     lcd = QLCDNumber.new(2)
-
     @slider = QSlider.new(Qt::Horizontal)
     @slider.set_range(0, 99)
     @slider.set_value(0)
@@ -23,10 +20,6 @@ class LCDRange < QWidget
     layout.add_widget(lcd)
     layout.add_widget(@slider)
     set_layout(layout)
-  end
-
-  def value
-    @slider.value
   end
 
   def set_value(value)

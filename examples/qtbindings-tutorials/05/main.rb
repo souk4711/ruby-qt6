@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require 'qt6/all'
 
 class MyWidget < QWidget
@@ -14,7 +12,6 @@ class MyWidget < QWidget
     slider = QSlider.new(Qt::Horizontal)
     slider.set_range(0, 99)
     slider.set_value(0)
-    quit.clicked.connect($qApp, :quit)
     slider.value_changed.connect(lcd, :display)
 
     layout = QVBoxLayout.new

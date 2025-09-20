@@ -1,11 +1,9 @@
-# frozen_string_literal: true
-
 require 'qt6/all'
 require_relative 'lcdrange'
 
 class MyWidget < QWidget
-  def initialize(parent = nil)
-    super(parent)
+  def initialize
+    super
 
     quit = QPushButton.new('Quit')
     quit.set_font(QFont.new('Times', 18, QFont::Bold))
