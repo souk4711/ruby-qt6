@@ -16,10 +16,10 @@ module RubyQt6
 
       # @param orientation [Qt::Orientation]
       # @param parent [QWidget]
-      # @return [QLabel]
+      # @return [QSlider]
       def initialize(orientation, parent = nil)
         _initialize(orientation, parent)
-        _take_ownership_from_rubyrice(self) if parent
+        _take_ownership_from_ruby(self) if parent
       end
     end
   end

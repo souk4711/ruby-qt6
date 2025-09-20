@@ -51,19 +51,19 @@ module RubyQt6
       # @return [QObject]
       def initialize(parent = nil)
         _initialize(parent)
-        _take_ownership_from_rubyrice(self) if parent
+        _take_ownership_from_ruby(self) if parent
       end
 
       # @!visibility private
       def set_parent(parent)
         _set_parent(parent)
-        _take_ownership_from_rubyrice(self) if parent
+        _take_ownership_from_ruby(self) if parent
       end
 
       private
 
-      def _take_ownership_from_rubyrice(object)
-        self.class._take_ownership_from_rubyrice(object)
+      def _take_ownership_from_ruby(object)
+        self.class._take_ownership_from_ruby(object)
       end
     end
   end

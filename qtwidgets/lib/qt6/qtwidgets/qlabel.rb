@@ -25,7 +25,7 @@ module RubyQt6
       # @return [QLabel]
       def initialize(text, parent = nil)
         _initialize(QtCore::QString.new(text), parent)
-        _take_ownership_from_rubyrice(self) if parent
+        _take_ownership_from_ruby(self) if parent
       end
     end
   end

@@ -44,13 +44,13 @@ module RubyQt6
       # @return [QQuickItem]
       def initialize(parent = nil)
         _initialize(parent)
-        _take_ownership_from_rubyrice(self) if parent
+        _take_ownership_from_ruby(self) if parent
       end
 
       # @!visibility private
       def set_parent_item(parent)
         _set_parent_item(parent)
-        _take_ownership_from_rubyrice(self) if parent
+        _take_ownership_from_ruby(self) if parent
       end
     end
   end

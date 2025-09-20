@@ -30,7 +30,7 @@ module RubyQt6
       # @return [QLCDNumber]
       def initialize(num, parent = nil)
         _initialize(num, parent)
-        _take_ownership_from_rubyrice(self) if parent
+        _take_ownership_from_ruby(self) if parent
       end
     end
   end

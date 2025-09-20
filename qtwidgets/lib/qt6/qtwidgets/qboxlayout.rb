@@ -19,7 +19,7 @@ module RubyQt6
       # @return [QBoxLayout]
       def initialize(direction, parent = nil)
         _initialize(direction, parent)
-        _take_ownership_from_rubyrice(self) if parent
+        _take_ownership_from_ruby(self) if parent
       end
     end
   end
