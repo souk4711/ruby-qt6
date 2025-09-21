@@ -13,6 +13,7 @@ require_relative "qtgui/qfontinfo"
 require_relative "qtgui/qicon"
 require_relative "qtgui/qpalette"
 require_relative "qtgui/qpen"
+require_relative "qtgui/qregion"
 require_relative "qtgui/qtextoption"
 
 require_relative "qtgui/qpaintdevice"

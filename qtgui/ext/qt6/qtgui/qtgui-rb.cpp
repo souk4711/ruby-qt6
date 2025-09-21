@@ -9,7 +9,9 @@
 #include "qicon-rb.hpp"
 #include "qpalette-rb.hpp"
 #include "qpen-rb.hpp"
+#include "qregion-rb.hpp"
 #include "qtextoption-rb.hpp"
+
 #include "qevent-rb.hpp"
 
 #include "qpaintdevice-rb.hpp"
@@ -39,7 +41,9 @@ extern "C" void Init_qtgui()
         Init_qicon(rb_mQt6QtGui);
         Init_qpalette(rb_mQt6QtGui);
         Init_qpen(rb_mQt6QtGui);
+        Init_qregion(rb_mQt6QtGui);
         Init_qtextoption(rb_mQt6QtGui);
+
         Init_qevent(rb_mQt6QtGui);
 
         Init_qpaintdevice(rb_mQt6QtGui);
