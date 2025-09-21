@@ -4,6 +4,19 @@ module RubyQt6
   module QtCore
     # @see https://doc.qt.io/qt-6/qmargins.html
     class QMargins
+      # @!visibility private
+      alias_method :_initialize, :initialize
+
+      # @return [QMargins]
+      #
+      # @overload initialize(left, top, right, bottom)
+      #   @param left [Integer]
+      #   @param top [Integer]
+      #   @param right [Integer]
+      #   @param bottom [Integer]
+      def initialize(*args)
+        _initialize(*args)
+      end
     end
   end
 end
