@@ -7,13 +7,23 @@ module RubyQt6
       # @!visibility private
       alias_method :_initialize, :initialize
 
-      # @param w [Float]
-      # @param y [Float]
-      # @param width [Float]
-      # @param height [Float]
       # @return [QRectF]
-      def initialize(x, y, width, height)
-        _initialize(x, y, width, height)
+      #
+      # @overload initialize(x, y, width, height)
+      #   @param x [Float]
+      #   @param y [Float]
+      #   @param width [Float]
+      #   @param height [Float]
+      #
+      # @overload initialize(top_left, bottom_right)
+      #   @param top_left [QPointF]
+      #   @param bottom_right [QPointF]
+      #
+      # @overload initialize(top_left, size)
+      #   @param top_left [QPointF]
+      #   @param size [QSizeF]
+      def initialize(*args)
+        _initialize(*args)
       end
     end
   end

@@ -4,6 +4,26 @@ module RubyQt6
   module QtCore
     # @see https://doc.qt.io/qt-6/qlinef.html
     class QLineF
+      # @!visibility private
+      alias_method :_initialize, :initialize
+
+      # @return [QLineF]
+      #
+      # @overload initialize(x1, y1, x2, y2)
+      #   @param x1 [Float]
+      #   @param y1 [Float]
+      #   @param x2 [Float]
+      #   @param y2 [Float]
+      #
+      # @overload initialize(p1, p2)
+      #   @param p1 [QPointF]
+      #   @param p2 [QPointF]
+      #
+      # @overload initialize(line)
+      #   @param line [QLine]
+      def initialize(*args)
+        _initialize(*args)
+      end
     end
   end
 end

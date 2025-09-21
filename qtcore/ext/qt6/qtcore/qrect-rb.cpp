@@ -13,6 +13,8 @@ void Init_qrect(Rice::Module rb_mQt6QtCore)
         define_class_under<QRect>(rb_mQt6QtCore, "QRect")
             // Constructor
             .define_constructor(Constructor<QRect, int, int, int, int>(), Arg("x"), Arg("y"), Arg("width"), Arg("height"))
+            .define_constructor(Constructor<QRect, const QPoint &, const QPoint &>(), Arg("top_left"), Arg("bottom_right"))
+            .define_constructor(Constructor<QRect, const QPoint &, const QSize &>(), Arg("top_left"), Arg("size"))
             // Public Functions
             .define_method("bottom", &QRect::bottom)
             .define_method("bottom_left", &QRect::bottomLeft)
@@ -52,6 +54,8 @@ void Init_qrect(Rice::Module rb_mQt6QtCore)
         define_class_under<QRectF>(rb_mQt6QtCore, "QRectF")
             // Constructor
             .define_constructor(Constructor<QRectF, qreal, qreal, qreal, qreal>(), Arg("x"), Arg("y"), Arg("width"), Arg("height"))
+            .define_constructor(Constructor<QRectF, const QPointF &, const QPointF &>(), Arg("top_left"), Arg("bottom_right"))
+            .define_constructor(Constructor<QRectF, const QPointF &, const QSizeF &>(), Arg("top_left"), Arg("size"))
             // Public Functions
             .define_method("bottom", &QRectF::bottom)
             .define_method("bottom_left", &QRectF::bottomLeft)
