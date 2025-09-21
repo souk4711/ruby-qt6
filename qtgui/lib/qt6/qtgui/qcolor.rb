@@ -12,13 +12,21 @@ module RubyQt6
       # @!visibility private
       alias_method :_initialize, :initialize
 
-      # @param r [Integer]
-      # @param g [Integer]
-      # @param b [Integer]
-      # @param a [Integer]
       # @return [QColor]
-      def initialize(r, g, b, a = 255)
-        _initialize(r, g, b, a)
+      #
+      # @overload initialize(r, g, b, a = 255)
+      #   @param r [Integer]
+      #   @param g [Integer]
+      #   @param b [Integer]
+      #   @param a [Integer]
+      #
+      # @overload initialize(color)
+      #   @param color [Qt::GlobalColor]
+      #
+      # @overload initialize(name)
+      #   @param name [String, QString]
+      def initialize(*args)
+        _initialize(*args)
       end
     end
   end

@@ -30,7 +30,7 @@ void Init_qmargins(Rice::Module rb_mQt6QtCore)
         define_class_under<QMarginsF>(rb_mQt6QtCore, "QMarginsF")
             // Constructor
             .define_constructor(Constructor<QMarginsF, int, int, int, int>(), Arg("left"), Arg("top"), Arg("right"), Arg("bottom"))
-            .define_constructor(Constructor<QMarginsF, const QMargins &>(), Arg("margin"))
+            .define_constructor(Constructor<QMarginsF, const QMargins &>(), Arg("margins"))
             // Public Functions
             .define_method("bottom", &QMarginsF::bottom)
             .define_method("null?", &QMarginsF::isNull)

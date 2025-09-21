@@ -16,9 +16,6 @@ module RubyQt6
       # @overload initialize(size)
       #   @param size [QSize]
       #
-      # @overload initialize(xpm)
-      #   @param xpm [String]
-      #
       # @overload initialize(file_name, format = "", flags = Qt::AutoColor)
       #   @param file_name [QString]
       #   @param format [String]

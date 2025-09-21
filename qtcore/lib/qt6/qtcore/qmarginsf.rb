@@ -15,8 +15,8 @@ module RubyQt6
       #   @param right [Float]
       #   @param bottom [Float]
       #
-      # @overload initialize(margin)
-      #   @param margin [QMargins]
+      # @overload initialize(margins)
+      #   @param margins [QMargins]
       def initialize(*args)
         _initialize(*args)
       end

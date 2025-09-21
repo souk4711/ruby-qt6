@@ -24,13 +24,22 @@ module RubyQt6
       # @!visibility private
       alias_method :_initialize, :initialize
 
-      # @param family [QString]
-      # @param point_size [Integer]
-      # @param weight [Integer]
-      # @param italic [Boolean]
       # @return [QFont]
-      def initialize(family, point_size = -1, weight = -1, italic = false)
-        _initialize(QtCore::QString.new(family), point_size, weight, italic)
+      #
+      # @overload initialize(family, point_size = -1, Weight = -1, italic = false)
+      #   @param family [QString]
+      #   @param point_size [Integer]
+      #   @param weight [Integer]
+      #   @param italic [Boolean]
+      #
+      # @overload initialize(families, point_size = -1, Weight = -1, italic = false)
+      #   @param families [QStringList]
+      #   @param point_size [Integer]
+      #   @param weight [Integer]
+      #   @param italic [Boolean]
+      def initialize(*args)
+        args[0] = QtCore::QString.new(args[0]) if args[0].is_a?(String)
+        _initialize(*args)
       end
     end
   end
