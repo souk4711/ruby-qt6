@@ -20,12 +20,12 @@ void Init_qframe(Rice::Module rb_mQt6QtWidgets)
             .define_method("frame_width", &QFrame::frameWidth)
             .define_method("line_width", &QFrame::lineWidth)
             .define_method("mid_line_width", &QFrame::midLineWidth)
-            .define_method("set_frame_rect", &QFrame::setFrameRect, Arg(""))
-            .define_method("set_frame_shadow", &QFrame::setFrameShadow, Arg(""))
-            .define_method("set_frame_shape", &QFrame::setFrameShape, Arg(""))
-            .define_method("set_frame_style", &QFrame::setFrameStyle, Arg(""))
-            .define_method("set_line_width", &QFrame::setLineWidth, Arg(""))
-            .define_method("set_mid_line_width", &QFrame::setMidLineWidth, Arg(""))
+            .define_method("set_frame_rect", &QFrame::setFrameRect, Arg("rect"))
+            .define_method("set_frame_shadow", &QFrame::setFrameShadow, Arg("shadow"))
+            .define_method("set_frame_shape", &QFrame::setFrameShape, Arg("shape"))
+            .define_method("set_frame_style", &QFrame::setFrameStyle, Arg("style"))
+            .define_method("set_line_width", &QFrame::setLineWidth, Arg("w"))
+            .define_method("set_mid_line_width", &QFrame::setMidLineWidth, Arg("w"))
             // Reimplemented Public Functions
             .define_method("size_hint", &QFrame::sizeHint);
 

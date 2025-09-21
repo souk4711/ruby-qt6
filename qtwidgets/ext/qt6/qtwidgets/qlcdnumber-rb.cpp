@@ -22,8 +22,8 @@ void Init_qlcdnumber(Rice::Module rb_mQt6QtWidgets)
             .define_method("mode", &QLCDNumber::mode)
             .define_method("segment_style", &QLCDNumber::segmentStyle)
             .define_method("set_digit_count", &QLCDNumber::setDigitCount, Arg("n_digits"))
-            .define_method("set_mode", &QLCDNumber::setMode, Arg(""))
-            .define_method("set_segment_style", &QLCDNumber::setSegmentStyle, Arg(""))
+            .define_method("set_mode", &QLCDNumber::setMode, Arg("mode"))
+            .define_method("set_segment_style", &QLCDNumber::setSegmentStyle, Arg("style"))
             .define_method("small_decimal_point", &QLCDNumber::smallDecimalPoint)
             .define_method("value", &QLCDNumber::value)
             // Reimplemented Public Functions
@@ -36,7 +36,7 @@ void Init_qlcdnumber(Rice::Module rb_mQt6QtWidgets)
             .define_method("set_dec_mode", &QLCDNumber::setDecMode)
             .define_method("set_hex_mode", &QLCDNumber::setHexMode)
             .define_method("set_oct_mode", &QLCDNumber::setOctMode)
-            .define_method("set_small_decimal_point", &QLCDNumber::setSmallDecimalPoint, Arg(""))
+            .define_method("set_small_decimal_point", &QLCDNumber::setSmallDecimalPoint, Arg("enabled"))
             // Signals
             .define_method("overflow", &QLCDNumber::overflow);
 

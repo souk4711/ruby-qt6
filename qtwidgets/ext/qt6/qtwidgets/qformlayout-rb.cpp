@@ -75,7 +75,7 @@ void Init_qformlayout(Rice::Module rb_mQt6QtWidgets)
             .define_method<QLayoutItem *(QFormLayout::*)(int) const>("item_at", &QFormLayout::itemAt, Arg("index"))
             .define_method("minimum_size", &QFormLayout::minimumSize)
             .define_method("set_geometry", &QFormLayout::setGeometry, Arg("rect"))
-            .define_method("set_spacing", &QFormLayout::setSpacing, Arg(""))
+            .define_method("set_spacing", &QFormLayout::setSpacing, Arg("spacing"))
             .define_method("size_hint", &QFormLayout::sizeHint)
             .define_method("spacing", &QFormLayout::spacing)
             .define_method("take_at", &QFormLayout::takeAt, Arg("index"), Return().takeOwnership());

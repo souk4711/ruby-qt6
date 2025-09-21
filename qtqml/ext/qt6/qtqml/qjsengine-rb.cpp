@@ -40,6 +40,6 @@ void Init_qjsengine(Rice::Module rb_mQt6QtQml)
             // Signals
             .define_method("ui_language_changed", &QJSEngine::uiLanguageChanged)
             // Static Public Members
-            .define_singleton_function("object_ownership", &QJSEngine::objectOwnership, Arg(""))
-            .define_singleton_function("set_object_ownership", &QJSEngine::setObjectOwnership, Arg(""), Arg(""));
+            .define_singleton_function("object_ownership", &QJSEngine::objectOwnership, Arg("obj"))
+            .define_singleton_function("set_object_ownership", &QJSEngine::setObjectOwnership, Arg("obj"), Arg("ownership"));
 }
