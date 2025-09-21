@@ -22,6 +22,9 @@ module RubyQt6
       # @overload initialize(top_left, size)
       #   @param top_left [QPointF]
       #   @param size [QSizeF]
+      #
+      # @overload initialize(rect)
+      #   @param rect [QRect]
       def initialize(*args)
         _initialize(*args)
       end
