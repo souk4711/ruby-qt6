@@ -19,6 +19,9 @@ module RubyQt6
       # @overload initialize(color, pixmap)
       #   @param color [Qt::GlobalColor, QColor]
       #   @param pixmap [QPixmap]
+      #
+      # @overload initialize(image)
+      #   @param image [QImage, QPixmap]
       def initialize(*args)
         _initialize(*args)
       end

@@ -65,7 +65,7 @@ void Init_qmetaobjectbuilder(Rice::Module rb_mQt6QtCore)
             .define_method("set_super_class", &QMetaObjectBuilder::setSuperClass, Arg("meta"))
             // .define_method("static_metacall_function", &QMetaObjectBuilder::staticMetacallFunction)
             .define_method("super_class", &QMetaObjectBuilder::superClass)
-            .define_method("to_meta_object", &QMetaObjectBuilder::toMetaObject);
+            .define_method("to_meta_object", &QMetaObjectBuilder::toMetaObject, Return().takeOwnership());
 
     rb_cQMetaMethodBuilder =
         // RubyQt6::QtCore::QMetaMethodBuilder

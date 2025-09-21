@@ -46,7 +46,6 @@ void Init_qabstractslider(Rice::Module rb_mQt6QtWidgets)
             .define_method("slider_released", &QAbstractSlider::sliderReleased)
             .define_method("value_changed", &QAbstractSlider::valueChanged, Arg("value"));
 
-
     Enum<QAbstractSlider::SliderAction> rb_cQAbstractSliderSliderAction =
         // RubyQt6::QtWidgets::QAbstractSlider::SliderAction
         define_enum_under<QAbstractSlider::SliderAction>("SliderAction", rb_cQAbstractSlider)
