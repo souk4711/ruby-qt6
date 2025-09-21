@@ -22,13 +22,6 @@ module RubyQt6
       # @overload initialize(r, t = QRegion::Rectangle)
       #   @param r [QRect]
       #   @param t [QRegion::RegionType]
-      #
-      # @overload initialize(a, fill_rule = Qt::OddEvenFill)
-      #   @param a [QPolygon]
-      #   @param fill_rule [Qt::FillRule]
-      #
-      # @overload initialize(bm)
-      #   @param bm [QBitmap]
       def initialize(*args)
         _initialize(*args)
       end

@@ -16,8 +16,6 @@ void Init_qregion(Rice::Module rb_mQt6QtGui)
             // Constructor
             .define_constructor(Constructor<QRegion, int, int, int, int, QRegion::RegionType>(), Arg("x"), Arg("y"), Arg("w"), Arg("h"), Arg("t") = static_cast<QRegion::RegionType>(QRegion::RegionType::Rectangle))
             .define_constructor(Constructor<QRegion, const QRect &, QRegion::RegionType>(), Arg("r"), Arg("t") = static_cast<QRegion::RegionType>(QRegion::RegionType::Rectangle))
-            .define_constructor(Constructor<QRegion, const QPolygon &, Qt::FillRule>(), Arg("pa"), Arg("fill_rule") = static_cast<Qt::FillRule>(Qt::OddEvenFill))
-            .define_constructor(Constructor<QRegion, const QBitmap &>(), Arg("bitmap"))
             // Public Functions
             .define_method("bounding_rect", &QRegion::boundingRect)
             .define_method("cbegin", &QRegion::cbegin)

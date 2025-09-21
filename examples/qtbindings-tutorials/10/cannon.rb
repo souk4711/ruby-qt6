@@ -41,11 +41,11 @@ class CannonField < QWidget
 
     cr = cannon_rect
     pix = QPixmap.new(cr.size)
-    pix.fill(self, cr.top_left)
+    pix.fill(QColor.new(250, 250, 200))
 
     painter = QPainter.new(pix)
-    painter.set_brush(QBrush.new(Qt::Blue))
     painter.set_pen(Qt::NoPen)
+    painter.set_brush(QBrush.new(Qt::Blue))
     painter.translate(0, pix.height - 1)
     painter.draw_pie(QRect.new(-35, -35, 70, 70), 0, 90 * 16)
     painter.rotate(- @ang)
