@@ -22,6 +22,7 @@ void Init_qpainter(Rice::Module rb_mQt6QtGui)
             // Public Functions
             .define_method("background", &QPainter::background)
             .define_method("background_mode", &QPainter::backgroundMode)
+            .define_method("_begin", &QPainter::begin, Arg("device"))
             .define_method("begin_native_painting", &QPainter::beginNativePainting)
             .define_method<QRect (QPainter::*)(const QRect &, int, const QString &)>("bounding_rect", &QPainter::boundingRect, Arg("rect"), Arg("flags"), Arg("text"))
             .define_method<QRect (QPainter::*)(int, int, int, int, int, const QString &)>("bounding_rect", &QPainter::boundingRect, Arg("x"), Arg("y"), Arg("w"), Arg("h"), Arg("flags"), Arg("text"))

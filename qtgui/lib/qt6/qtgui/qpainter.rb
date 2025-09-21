@@ -13,7 +13,7 @@ module RubyQt6
 
       # @!visibility private
       def self.new(device)
-        return device._new_painter if device.respond_to?(:_new_painter)
+        return device._ioc_painter_new if device.respond_to?(:_ioc_painter_new)
         allocate.tap { |o| o.__send__(:initialize, device) }
       end
 
@@ -24,6 +24,12 @@ module RubyQt6
       # @return [QPainter]
       def initialize(device)
         _initialize(device)
+      end
+
+      # @!visibility private
+      def begin(device)
+        return device._ioc_painter_begin(self) if device.respond_to?(:_ioc_painter_begin)
+        _begin(device)
       end
     end
   end

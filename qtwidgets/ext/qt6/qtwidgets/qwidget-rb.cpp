@@ -21,7 +21,8 @@ void Init_qwidget(Rice::Module rb_mQt6QtWidgets)
         // RubyQt6::QtWidgets::QWidget
         define_class_under<QWidget, QObject>(rb_mQt6QtWidgets, "QWidget")
             // RubyQt6-Defined Functions
-            .define_method("_new_painter", [](QWidget *self) -> QPainter * { return new QPainter(self); }, Return().takeOwnership())
+            .define_method("_ioc_painter_new", [](QWidget *self) -> QPainter * { return new QPainter(self); }, Return().takeOwnership())
+            .define_method("_ioc_painter_begin", [](QWidget *self, QPainter *painter) -> bool { return painter->begin(self); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QWidget::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QWidget, QWidget *>(), Arg("parent"))
