@@ -27,6 +27,7 @@
 
 #include "qobject-rb.hpp"
 #include "qcoreapplication-rb.hpp"
+#include "qtimer-rb.hpp"
 
 #include "bando-qtcore-rb.hpp"
 
@@ -66,6 +67,7 @@ extern "C" void Init_qtcore()
 
         Init_qobject(rb_mQt6QtCore);
         Init_qcoreapplication(rb_mQt6QtCore);
+        Init_qtimer(rb_mQt6QtCore);
 
         Rice::Module rb_mQt6Bando = define_module_under(rb_mQt6, "Bando");
         Init_bando_qtcore(rb_mQt6Bando);

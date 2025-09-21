@@ -49,6 +49,7 @@ require_relative "qtcore/qmetatype"
 
 require_relative "qtcore/qobject"
 require_relative "qtcore/qcoreapplication"
+require_relative "qtcore/qtimer"
 
 require_relative "bando/dsl"
 require_relative "bando/qobject"
