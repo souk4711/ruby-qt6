@@ -22,7 +22,7 @@ void Init_qmargins(Rice::Module rb_mQt6QtCore)
             .define_method("set_left", &QMargins::setLeft, Arg("left"))
             .define_method("set_right", &QMargins::setRight, Arg("right"))
             .define_method("set_top", &QMargins::setTop, Arg("top"))
-            .define_method("to_marginsf", &QMargins::toMarginsF)
+            .define_method("to_margins_f", &QMargins::toMarginsF)
             .define_method("top", &QMargins::top);
 
     rb_cQMarginsF =

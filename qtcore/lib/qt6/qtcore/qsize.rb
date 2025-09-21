@@ -4,6 +4,17 @@ module RubyQt6
   module QtCore
     # @see https://doc.qt.io/qt-6/qsize.html
     class QSize
+      # @!visibility private
+      alias_method :_initialize, :initialize
+
+      # @return [QSize]
+      #
+      # @overload initialize(width, height)
+      #   @param width [Integer]
+      #   @param height [Integer]
+      def initialize(*args)
+        _initialize(*args)
+      end
     end
   end
 end

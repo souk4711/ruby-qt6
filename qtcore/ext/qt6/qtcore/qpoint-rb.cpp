@@ -20,7 +20,7 @@ void Init_qpoint(Rice::Module rb_mQt6QtCore)
             .define_method("ry", &QPoint::ry)
             .define_method("set_x", &QPoint::setX)
             .define_method("set_y", &QPoint::setY)
-            .define_method("to_pointf", &QPoint::toPointF)
+            .define_method("to_point_f", &QPoint::toPointF)
             .define_method("transposed", &QPoint::transposed)
             .define_method("x", &QPoint::x)
             .define_method("y", &QPoint::y);
