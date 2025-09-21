@@ -4,6 +4,9 @@ module RubyQt6
   module QtCore
     # @see https://doc.qt.io/qt-6/qdatetime.html
     class QDateTime
+      # @!parse class TransitionResolution; end
+      rubyqt6_include_constants QDateTime, QDateTime::TransitionResolution
+
       # @!visibility private
       alias_method :_initialize, :initialize
 

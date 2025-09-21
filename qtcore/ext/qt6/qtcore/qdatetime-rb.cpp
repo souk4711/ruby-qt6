@@ -68,6 +68,18 @@ void Init_qdatetime(Rice::Module rb_mQt6QtCore)
             .define_singleton_function<QDateTime (*)(const QString &, const QString &, int)>("from_string", &QDateTime::fromString, Arg("string"), Arg("format"), Arg("base_year") = static_cast<int>(QLocale::DefaultTwoDigitBaseYear))
             .define_singleton_function<QDateTime (*)(const QString &, const QString &, int, QCalendar)>("from_string", &QDateTime::fromString, Arg("string"), Arg("format"), Arg("base_year"), Arg("cal"));
 
+    Enum<QDateTime::TransitionResolution> rb_cQDateTimeTransitionResolution =
+        // RubyQt6::QtCore::QDateTime::TransitionResolution
+        define_enum_under<QDateTime::TransitionResolution>("TransitionResolution", rb_cQDateTime)
+            .define_value("Reject", QDateTime::TransitionResolution::Reject)
+            .define_value("RelativeToBefore", QDateTime::TransitionResolution::RelativeToBefore)
+            .define_value("RelativeToAfter", QDateTime::TransitionResolution::RelativeToAfter)
+            .define_value("PreferBefore", QDateTime::TransitionResolution::PreferBefore)
+            .define_value("PreferAfter", QDateTime::TransitionResolution::PreferAfter)
+            .define_value("PreferStandard", QDateTime::TransitionResolution::PreferStandard)
+            .define_value("PreferDaylightSaving", QDateTime::TransitionResolution::PreferDaylightSaving)
+            .define_value("LegacyBehavior", QDateTime::TransitionResolution::LegacyBehavior);
+
     rb_cQDate =
         // RubyQt6::QtCore::QDate
         define_class_under<QDate>(rb_mQt6QtCore, "QDate")
