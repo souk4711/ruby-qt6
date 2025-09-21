@@ -78,11 +78,7 @@ void Init_qrect(Rice::Module rb_mQt6QtCore)
             .define_method("united", &QRect::united, Arg("other"))
             .define_method("width", &QRect::width)
             .define_method("x", &QRect::x)
-            .define_method("y", &QRect::y)
-            .define_method("&", &QRect::operator&, Arg("rect"))
-            .define_method("&=", &QRect::operator&=, Arg("rect"))
-            .define_method("|", &QRect::operator|, Arg("rect"))
-            .define_method("|=", &QRect::operator|=, Arg("rect"));
+            .define_method("y", &QRect::y);
 
     rb_cQRectF =
         // RubyQt6::QtCore::QRectF
@@ -154,9 +150,5 @@ void Init_qrect(Rice::Module rb_mQt6QtCore)
             .define_method("united", &QRectF::united, Arg("other"))
             .define_method("width", &QRectF::width)
             .define_method("x", &QRectF::x)
-            .define_method("y", &QRectF::y)
-            .define_method("&", &QRectF::operator&, Arg("rect"))
-            .define_method("&=", &QRectF::operator&=, Arg("rect"))
-            .define_method("|", &QRectF::operator|, Arg("rect"))
-            .define_method("|=", &QRectF::operator|=, Arg("rect"));
+            .define_method("y", &QRectF::y);
 }
