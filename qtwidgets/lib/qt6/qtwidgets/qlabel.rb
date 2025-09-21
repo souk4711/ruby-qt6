@@ -27,6 +27,11 @@ module RubyQt6
         _initialize(QtCore::QString.new(text), parent)
         _take_ownership_from_ruby(self) if parent
       end
+
+      # @!visibility private
+      def set_text(text)
+        _set_text(QtCore::QString.new(text))
+      end
     end
   end
 end
