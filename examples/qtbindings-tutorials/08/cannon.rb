@@ -19,15 +19,16 @@ class CannonField < QWidget
     degrees = 70 if degrees > 70
 
     return if @current_angle == degrees
+
     @current_angle = degrees
 
-    repaint()
+    repaint
     angle_changed.emit(@current_angle)
   end
 
-  def paint_event(event)
+  def paint_event(_event)
     p = QPainter.new(self)
-    p.draw_text(200, 200, QString.new("Angle = %d" % @current_angle))
+    p.draw_text(200, 200, QString.new(format('Angle = %d', @current_angle)))
     p.end
   end
 end

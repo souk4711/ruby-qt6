@@ -21,7 +21,7 @@ class CannonField < QWidget
     return if @current_angle == degrees
     @current_angle = degrees
 
-    repaint()
+    repaint
     angle_changed.emit(@current_angle)
   end
 
@@ -29,7 +29,7 @@ class CannonField < QWidget
     painter = QPainter.new(self)
     painter.set_pen(Qt::NoPen)
     painter.set_brush(QBrush.new(Qt::Blue))
-    painter.translate(0, rect().bottom())
+    painter.translate(0, rect.bottom)
     painter.draw_pie(QRect.new(-35, -35, 70, 70), 0, 90 * 16)
     painter.rotate(- @current_angle)
     painter.draw_rect(QRect.new(33, -4, 15, 8))

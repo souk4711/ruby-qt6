@@ -15,7 +15,7 @@ class LCDRange < QWidget
     @slider.set_range(0, 99)
     @slider.set_value(0)
     @slider.value_changed.connect(lcd, :display)
-    @slider.value_changed.connect(self, :valueChanged)
+    @slider.value_changed.connect(self, :value_changed)
 
     layout = QVBoxLayout.new
     layout.add_widget(lcd)

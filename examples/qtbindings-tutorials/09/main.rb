@@ -1,6 +1,6 @@
 require 'qt6/all'
-require_relative 'lcdrange.rb'
-require_relative 'cannon.rb'
+require_relative 'lcdrange'
+require_relative 'cannon'
 
 class MyWidget < QWidget
   def initialize
