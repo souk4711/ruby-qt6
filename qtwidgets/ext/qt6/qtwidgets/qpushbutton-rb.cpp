@@ -21,12 +21,11 @@ void Init_qpushbutton(Rice::Module rb_mQt6QtWidgets)
             .define_method("default?", &QPushButton::isDefault)
             .define_method("flat?", &QPushButton::isFlat)
             .define_method("menu", &QPushButton::menu)
+            .define_method("minimum_size_hint", &QPushButton::minimumSizeHint)
             .define_method("set_auto_default", &QPushButton::setAutoDefault, Arg("auto_default"))
             .define_method("set_default", &QPushButton::setDefault, Arg("default"))
             .define_method("set_flat", &QPushButton::setFlat, Arg("flat"))
             .define_method("set_menu", &QPushButton::setMenu, Arg("menu"))
-            // Reimplemented Public Functions
-            .define_method("minimum_size_hint", &QPushButton::minimumSizeHint)
             .define_method("size_hint", &QPushButton::sizeHint)
             // Public Slots
             .define_method("show_menu", &QPushButton::showMenu);

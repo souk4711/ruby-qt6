@@ -21,9 +21,8 @@ void Init_qapplication(Rice::Module rb_mQt6QtWidgets)
             .define_constructor(Constructor<QApplication, int &, char **>(), Arg("argc"), Arg("argv"))
             // Public Functions
             .define_method("auto_sip_enabled", &QApplication::autoSipEnabled)
-            .define_method("style_sheet", &QApplication::styleSheet)
-            // Reimplemented Public Functions
             .define_method("notify", &QApplication::notify, Arg("receiver"), Arg("event"))
+            .define_method("style_sheet", &QApplication::styleSheet)
             // Public Slots
             .define_singleton_function("about_qt", &QApplication::aboutQt)
             .define_singleton_function("close_all_windows", &QApplication::closeAllWindows)

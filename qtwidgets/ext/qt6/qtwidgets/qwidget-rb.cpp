@@ -26,7 +26,7 @@ void Init_qwidget(Rice::Module rb_mQt6QtWidgets)
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QWidget::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QWidget, QWidget *>(), Arg("parent"))
-            // inherits QPaintDevice
+            // Inherits QPaintDevice
             .define_method("color_count", &QWidget::colorCount)
             .define_method("depth", &QWidget::depth)
             .define_method("dev_type", &QWidget::devType)
@@ -152,6 +152,7 @@ void Init_qwidget(Rice::Module rb_mQt6QtWidgets)
             .define_method("normal_geometry", &QWidget::normalGeometry)
             .define_method("override_window_flags", &QWidget::overrideWindowFlags, Arg("type"))
             .define_method("override_window_state", &QWidget::overrideWindowState, Arg("state"))
+            .define_method("paint_engine", &QWidget::paintEngine)
             .define_method("palette", &QWidget::palette)
             .define_method("parent_widget", &QWidget::parentWidget)
             .define_method("pos", &QWidget::pos)
@@ -279,8 +280,6 @@ void Init_qwidget(Rice::Module rb_mQt6QtWidgets)
             .define_method("window_type", &QWidget::windowType)
             .define_method("x", &QWidget::x)
             .define_method("y", &QWidget::y)
-            // Reimplemented Public Functions
-            .define_method("paint_engine", &QWidget::paintEngine)
             // Public Slots
             .define_method("close", &QWidget::close)
             .define_method("hide", &QWidget::hide)

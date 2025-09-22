@@ -1,5 +1,5 @@
 RSpec.describe RubyQt6::QtWidgets do
-  describe "verify cppfiles" do
+  describe "Bindings" do
     qmod = OpenStruct.new(name: "QtWidgets")
 
     Dir.glob("ext/**/bando*.cpp").each do |cppfile|
@@ -18,7 +18,7 @@ RSpec.describe RubyQt6::QtWidgets do
     end
   end
 
-  describe "transfer ownership to callee" do
+  describe "Transfer ownership to callee" do
     [
       ["addItem", "item"],
       ["addLayout", "layout"],
@@ -48,7 +48,7 @@ RSpec.describe RubyQt6::QtWidgets do
     end
   end
 
-  describe "take ownership from callee" do
+  describe "Take ownership from callee" do
     [
       "takeAt"
     ].each do |fname|

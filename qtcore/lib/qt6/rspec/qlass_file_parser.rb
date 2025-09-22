@@ -3,6 +3,11 @@
 module RubyQt6
   module RSpec
     class QlassFileParser
+      NESTED_QLASSES = [
+        "QMetaObjectConnection",
+        "QFormLayoutTakeRowResult"
+      ]
+
       class MissingLine < StandardError
         def initialize(expected, got)
           super("Missing line: expected '#{expected}', but got '#{got}'")
@@ -18,6 +23,7 @@ module RubyQt6
       def parse
         parse_qlass_variants_declaration
         parse_qlass_definitions
+        raise MissingLine.new("}", line) unless line == "}"
         @qlasses
       end
 
@@ -27,7 +33,7 @@ module RubyQt6
         end
 
         while (matched = line.match(/^Rice::Class rb_c(\w+)/))
-          @qlasses << OpenStruct.new(name: matched[1], enums: [])
+          @qlasses << OpenStruct.new(name: matched[1], methods: [], enums: [])
           take_next_line
         end
 
@@ -46,6 +52,10 @@ module RubyQt6
 
       def parse_qlass_definitions
         @qlasses.each do |qlass|
+          if NESTED_QLASSES.include?(qlass.name)
+            take_next_line until line == "" || line == "}"
+            next
+          end
           parse_qlass_definition(qlass)
         end
       end
@@ -53,10 +63,6 @@ module RubyQt6
       def parse_qlass_definition(qlass)
         qmod_name = @qmod.name
         name = qlass.name
-
-        while line == ""
-          take_next_line
-        end
 
         expected = "rb_c#{name} ="
         if line == expected
@@ -81,17 +87,19 @@ module RubyQt6
         loop do
           case line
           when /\/\/ RubyQt6-Defined Functions/
-            qlass.methods_rubyqt6_defined_functions = parse_qlass_definition_methods(qlass)
+            qlass.methods.concat parse_qlass_definition_methods(qlass, :rubyqt6_defined_functions)
           when /\/\/ Constructor/
-            qlass.methods_constructor = parse_qlass_definition_methods(qlass)
+            qlass.methods.concat parse_qlass_definition_methods(qlass, :constructor)
+          when /\/\/ Inherits/
+            qlass.methods.concat parse_qlass_definition_methods(qlass, :inherits)
           when /\/\/ Public Functions/
-            qlass.methods_public_functions = parse_qlass_definition_methods(qlass)
+            qlass.methods.concat parse_qlass_definition_methods(qlass, :public_functions)
           when /\/\/ Public Slots/
-            qlass.methods_public_slots = parse_qlass_definition_methods(qlass)
+            qlass.methods.concat parse_qlass_definition_methods(qlass, :public_slots)
           when /\/\/ Signals/
-            qlass.methods_signals = parse_qlass_definition_methods(qlass)
+            qlass.methods.concat parse_qlass_definition_methods(qlass, :signals)
           when /\/\/ Static Public Members/
-            qlass.methods_static_public_members = parse_qlass_definition_methods(qlass)
+            qlass.methods.concat parse_qlass_definition_methods(qlass, :static_public_members)
           when "", "}"
             break
           else
@@ -111,16 +119,16 @@ module RubyQt6
         end
       end
 
-      def parse_qlass_definition_methods(qlass)
+      def parse_qlass_definition_methods(qlass, type)
         [].tap do |methods|
           loop do
             take_next_line
-            break if line.start_with?(/\/\/ (RubyQt6|Constructor|Public|Signals|Static)/) || line == "" || line == "}"
+            break if line.start_with?(/\/\/ (RubyQt6|Constructor|Inherits|Public|Signals|Static)/) || line == "" || line == "}"
 
             if line.start_with?("// .define_")
               next
             elsif line.start_with?(".define_")
-              methods << parse_qlass_definition_method(line, qlass)
+              methods << parse_qlass_definition_method(line, qlass, type)
             else
               raise MissingLine.new(".define_...", line)
             end
@@ -128,7 +136,8 @@ module RubyQt6
         end
       end
 
-      def parse_qlass_definition_method(line, qlass)
+      def parse_qlass_definition_method(line, qlass, type)
+        rawline = line
         line = line.sub(".define_constructor", "")
         line = line.sub(".define_singleton_function", "")
         line = line.sub(".define_method", "")
@@ -145,17 +154,13 @@ module RubyQt6
         else
           raise "Invalid method line: #{line}"
         end
-        OpenStruct.new(rbname:, cppname:)
+        OpenStruct.new(type:, rbname:, cppname:, rawline:)
       end
 
       def parse_qlass_definition_enum(qlass, enum)
         qmod_name = @qmod.name
         name = qlass.name
         enum_name = enum.name
-
-        while line == ""
-          take_next_line
-        end
 
         expected = "Enum<#{name}::#{enum_name}> rb_c#{name}#{enum_name} ="
         if line == expected
@@ -178,7 +183,7 @@ module RubyQt6
           raise MissingLine.new(expected, line)
         end
 
-        while line.start_with?(".define_value")
+        while line == "" || line.start_with?(".define_value")
           take_next_line
         end
       end

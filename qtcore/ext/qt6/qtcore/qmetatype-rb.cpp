@@ -11,7 +11,7 @@ void Init_qmetatype(Rice::Module rb_mQt6QtCore)
         // RubyQt6::QtCore::QMetaType
         define_class_under<QMetaType>(rb_mQt6QtCore, "QMetaType")
             // Public Functions
-            .define_method("id", &QMetaType::id, Arg("") = static_cast<int>(0))
+            .define_method("id", &QMetaType::id, Arg("_") = static_cast<int>(0))
             .define_method("name", &QMetaType::name);
 
     Enum<QMetaType::Type> rb_cQMetaTypeType =

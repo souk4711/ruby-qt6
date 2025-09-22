@@ -8,7 +8,7 @@ module RubyQt6
       def self.from_rb_value(value, qmetatype)
         QVariant.new(value).tap(&->(variant) {
           return if variant.type_id == qmetatype.id
-          raise "Type mismatch, expected '#{qmetatype.name}', got '#{variant.type_name}'"
+          raise "Type mismatch, expected '#{qmetatype.name}', but got '#{variant.type_name}'"
         })
       end
 

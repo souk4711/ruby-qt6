@@ -27,6 +27,7 @@ void Init_qquickwindow(Rice::Module rb_mQt6QtQuick)
             // Constructor
             .define_constructor(Constructor<QQuickWindow, QWindow *>(), Arg("parent"))
             // Public Functions
+            .define_method("accessible_root", &QQuickWindow::accessibleRoot)
             .define_method("active_focus_item", &QQuickWindow::activeFocusItem)
             .define_method("begin_external_commands", &QQuickWindow::beginExternalCommands)
             .define_method("color", &QQuickWindow::color)
@@ -60,8 +61,6 @@ void Init_qquickwindow(Rice::Module rb_mQt6QtQuick)
             .define_method("set_persistent_scene_graph", &QQuickWindow::setPersistentSceneGraph, Arg("persistent"))
             .define_method("set_render_target", &QQuickWindow::setRenderTarget, Arg("target"))
             // .define_method("swap_chain", &QQuickWindow::swapChain)
-            // Reimplemented Public Functions
-            .define_method("accessible_root", &QQuickWindow::accessibleRoot)
             // Public Slots
             .define_method("release_resources", &QQuickWindow::releaseResources)
             .define_method("update", &QQuickWindow::update)

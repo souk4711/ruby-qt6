@@ -1,5 +1,5 @@
 RSpec.describe RubyQt6::QtQuickControls2 do
-  describe "verify cppfiles" do
+  describe "Bindings" do
     qmod = OpenStruct.new(name: "QtQuickControls2")
 
     Dir.glob("ext/**/bando*.cpp").each do |cppfile|
