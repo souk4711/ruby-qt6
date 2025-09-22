@@ -12,6 +12,8 @@ void Init_qtimer(Rice::Module rb_mQt6QtCore)
     rb_cQTimer =
         // RubyQt6::QtCore::QTimer
         define_class_under<QTimer, QObject>(rb_mQt6QtCore, "QTimer")
+            // RubyQt6-Defined Functions
+            .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QTimer::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QTimer, QObject *>(), Arg("parent"))
             // Public Functions
