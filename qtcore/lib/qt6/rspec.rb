@@ -28,7 +28,20 @@ module RubyQt6
 
     def self.verify_bando_cppfile(cppfile, qmod)
       parser = BandoFileParser.new(cppfile, qmod)
-      _ = parser.parse
+      bandoes = parser.parse
+
+      rs = {}
+      bandoes.each do |bando|
+        r = OpenStruct.new(bando:)
+        rs[bando.name] = r
+
+        rbfile = "lib/qt6/bando/#{bando.name.downcase}.rb"
+        rbfile_contents = File.read(rbfile) if File.exist?(rbfile)
+
+        raise rbfile unless rbfile_contents.include?("class #{bando.name} < RubyQt6::#{qmod.name}::#{bando.name}")
+        raise rbfile unless rbfile_contents.include?("Bando.define_bando_qlass Bando::#{bando.name}")
+      end
+      rs
     end
 
     def self.verify_qlass_cppfile(cppfile, qmod)
@@ -105,7 +118,6 @@ module RubyQt6
           r.verified_enums_count += 1
         end
       end
-
       rs
     end
   end
