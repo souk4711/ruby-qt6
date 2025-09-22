@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require_relative "refinements/kernel"
+require_relative "refinements/string"
 
 require_relative "qtcore/private/_nodoc"
 require_relative "qtcore/private/inflector"
