@@ -3,7 +3,7 @@ RSpec.describe RubyQt6::QtWidgets do
     qmod = OpenStruct.new(name: "QtWidgets")
 
     Dir.glob("ext/**/bando*.cpp").each do |cppfile|
-      it "BandoFile: #{cppfile}" do
+      it cppfile do
         RubyQt6::RSpec.verify_bando_cppfile cppfile, qmod
       end
     end
@@ -12,7 +12,7 @@ RSpec.describe RubyQt6::QtWidgets do
       next if cppfile == "ext/qt6/qtwidgets/qtwidgets-rb.cpp"
       next if cppfile == "ext/qt6/qtwidgets/qtwidgetsversion-rb.cpp"
 
-      it "QlassFile: #{cppfile}" do
+      it cppfile do
         RubyQt6::RSpec.verify_qlass_cppfile cppfile, qmod
       end
     end

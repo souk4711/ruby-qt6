@@ -6,6 +6,11 @@ require_relative "rspec/qlass_file_parser"
 
 module RubyQt6
   module RSpec
+    NO_VERIFY_INITIALIZE = QlassFileParser::NESTED_QLASSES + [
+      "QStackedLayout",
+      "QVariant"
+    ]
+
     def self.inflector
       @inflector ||= ::Dry::Inflector.new do |inflections|
         inflections.acronym "QBitmap"
@@ -24,6 +29,23 @@ module RubyQt6
       qlasses = parser.parse
 
       qlasses.each do |qlass|
+        rbfile = "lib/qt6/#{qmod.name.downcase}/#{qlass.name.downcase}.rb"
+        rbfile_contents = File.read(rbfile) if File.exist?(rbfile)
+
+        unless NO_VERIFY_INITIALIZE.include?(qlass.name)
+          constructor_methods = qlass.methods.select { |method| method.type == :constructor }
+          case constructor_methods.size
+          when 2..99
+            raise rbfile unless rbfile_contents.include?("alias_method :_initialize, :initialize")
+            raise rbfile unless rbfile_contents.include?("def initialize(*args)")
+            raise rbfile unless rbfile_contents.include?("_initialize(*args)")
+          when 1
+            raise rbfile unless rbfile_contents.include?("alias_method :_initialize, :initialize")
+            raise rbfile unless rbfile_contents.include?("def initialize")
+            raise rbfile unless rbfile_contents.include?("_initialize")
+          end
+        end
+
         qlass.methods.each do |method|
           # Expected 'Arg("name")', but got 'Arg("")'
           if method.rawline.include?('Arg("")')

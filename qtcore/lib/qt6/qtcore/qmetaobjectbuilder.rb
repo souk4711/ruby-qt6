@@ -4,6 +4,12 @@ module RubyQt6
   module QtCore
     # @!visibility private
     class QMetaObjectBuilder
+      alias_method :_initialize, :initialize
+
+      def initialize
+        _initialize
+      end
+
       def set_class_name(name)
         _set_class_name(QtCore::QByteArray.new(name))
       end
