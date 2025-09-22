@@ -36,7 +36,7 @@ void Init_qsize(Rice::Module rb_mQt6QtCore)
             .define_method("width", &QSize::width);
 
     rb_cQSizeF =
-        // RubyQt6::QtCore::QSize
+        // RubyQt6::QtCore::QSizeF
         define_class_under<QSizeF>(rb_mQt6QtCore, "QSizeF")
             // Constructor
             .define_constructor(Constructor<QSizeF, qreal, qreal>(), Arg("width"), Arg("height"))

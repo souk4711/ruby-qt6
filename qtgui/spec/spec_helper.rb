@@ -1,4 +1,5 @@
 require "qt6/qtgui"
+require "qt6/rspec"
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|

@@ -28,6 +28,7 @@ void Init_qpoint(Rice::Module rb_mQt6QtCore)
     rb_cQPointF =
         // RubyQt6::QtCore::QPointF
         define_class_under<QPointF>(rb_mQt6QtCore, "QPointF")
+            // Constructor
             .define_constructor(Constructor<QPointF, qreal, qreal>(), Arg("xpos"), Arg("ypos"))
             .define_constructor(Constructor<QPointF, const QPoint &>(), Arg("point"))
             // Public Functions

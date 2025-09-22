@@ -1,14 +1,20 @@
 RSpec.describe RubyQt6::QtQml do
-  Dir.glob("ext/**/q*.cpp").each do |f|
-    contents = File.read(f)
-    matched = contents.match(/define_constructor\(Constructor<(\w+)/)
-    next unless matched
+  describe "verify cppfiles" do
+    qmod = OpenStruct.new(name: "QtQml")
 
-    klass = matched[1]
-    it "redefine #initialize for #{klass}" do
-      contents = File.read("lib/qt6/qtqml/#{klass.downcase}.rb")
-      expect(contents.match("alias_method :_initialize, :initialize")).not_to be_nil
-      expect(contents.match("def initialize")).not_to be_nil
+    Dir.glob("ext/**/bando*.cpp").each do |cppfile|
+      it "BandoFile: #{cppfile}" do
+        RubyQt6::RSpec.verify_bando_cppfile cppfile, qmod
+      end
+    end
+
+    Dir.glob("ext/**/q*.cpp").each do |cppfile|
+      next if cppfile == "ext/qt6/qtqml/qtqml-rb.cpp"
+      next if cppfile == "ext/qt6/qtqml/qtqmlversion-rb.cpp"
+
+      it "QlassFile: #{cppfile}" do
+        RubyQt6::RSpec.verify_qlass_cppfile cppfile, qmod
+      end
     end
   end
 end

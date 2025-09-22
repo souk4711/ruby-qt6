@@ -1,16 +1,19 @@
 RSpec.describe RubyQt6::QtWidgets do
-  describe "#initialize" do
-    Dir.glob("ext/**/q*.cpp").each do |f|
-      File.read(f).each_line do |line|
-        matched = line.match(/define_constructor\(Constructor<(\w+)/)
-        next unless matched
+  describe "verify cppfiles" do
+    qmod = OpenStruct.new(name: "QtWidgets")
 
-        klass = matched[1]
-        it "redefine #initialize @ #{klass}" do
-          contents = File.read("lib/qt6/qtwidgets/#{klass.downcase}.rb")
-          expect(contents.match("alias_method :_initialize, :initialize")).not_to be_nil
-          expect(contents.match("def initialize")).not_to be_nil
-        end
+    Dir.glob("ext/**/bando*.cpp").each do |cppfile|
+      it "BandoFile: #{cppfile}" do
+        RubyQt6::RSpec.verify_bando_cppfile cppfile, qmod
+      end
+    end
+
+    Dir.glob("ext/**/q*.cpp").each do |cppfile|
+      next if cppfile == "ext/qt6/qtwidgets/qtwidgets-rb.cpp"
+      next if cppfile == "ext/qt6/qtwidgets/qtwidgetsversion-rb.cpp"
+
+      it "QlassFile: #{cppfile}" do
+        RubyQt6::RSpec.verify_qlass_cppfile cppfile, qmod
       end
     end
   end

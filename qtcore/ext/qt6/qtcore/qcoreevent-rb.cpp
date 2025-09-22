@@ -208,14 +208,6 @@ void Init_qcoreevent(Rice::Module rb_mQt6QtCore)
             .define_value("User", QEvent::Type::User)
             .define_value("MaxUser", QEvent::Type::MaxUser);
 
-    rb_cQTimerEvent =
-        // RubyQt6::QtCore::QTimerEvent
-        define_class_under<QTimerEvent, QEvent>(rb_mQt6QtCore, "QTimerEvent")
-            // Public Functions
-            .define_method("id", &QTimerEvent::id)
-            .define_method("matches", &QTimerEvent::matches, Arg("timer"))
-            .define_method("timer_id", &QTimerEvent::timerId);
-
     rb_cQChildEvent =
         // RubyQt6::QtCore::QChildEvent
         define_class_under<QChildEvent, QEvent>(rb_mQt6QtCore, "QChildEvent")
@@ -224,6 +216,14 @@ void Init_qcoreevent(Rice::Module rb_mQt6QtCore)
             .define_method("child", &QChildEvent::child)
             .define_method("polished", &QChildEvent::polished)
             .define_method("removed", &QChildEvent::removed);
+
+    rb_cQTimerEvent =
+        // RubyQt6::QtCore::QTimerEvent
+        define_class_under<QTimerEvent, QEvent>(rb_mQt6QtCore, "QTimerEvent")
+            // Public Functions
+            .define_method("id", &QTimerEvent::id)
+            .define_method("matches", &QTimerEvent::matches, Arg("timer"))
+            .define_method("timer_id", &QTimerEvent::timerId);
 
     rb_cQDynamicPropertyChangeEvent =
         // RubyQt6::QtCore::QDynamicPropertyChangeEvent
