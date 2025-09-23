@@ -2,28 +2,29 @@ PATH
   remote: ../qtcore
   specs:
     ruby-qt6-qtcore (0.1.0)
-      dry-inflector
-      rice (>= 4.6.1)
+      dry-inflector (~> 1.2)
+      rice (~> 4.6)
+      semantic_logger (~> 4.17)
 
 PATH
   remote: ../qtgui
   specs:
     ruby-qt6-qtgui (0.1.0)
-      rice (>= 4.6.1)
+      rice (~> 4.6)
       ruby-qt6-qtcore
 
 PATH
   remote: ../qtqml
   specs:
     ruby-qt6-qtqml (0.1.0)
-      rice (>= 4.6.1)
+      rice (~> 4.6)
       ruby-qt6-qtcore
 
 PATH
   remote: ../qtquick
   specs:
     ruby-qt6-qtquick (0.1.0)
-      rice (>= 4.6.1)
+      rice (~> 4.6)
       ruby-qt6-qtcore
       ruby-qt6-qtgui
       ruby-qt6-qtqml
@@ -32,7 +33,7 @@ PATH
   remote: .
   specs:
     ruby-qt6-qtquickcontrols2 (0.1.0)
-      rice (>= 4.6.1)
+      rice (~> 4.6)
       ruby-qt6-qtcore
       ruby-qt6-qtgui
       ruby-qt6-qtqml
@@ -44,6 +45,7 @@ GEM
     ast (2.4.3)
     backport (1.2.0)
     benchmark (0.4.1)
+    concurrent-ruby (1.3.5)
     date (3.4.1)
     diff-lcs (1.6.2)
     dry-inflector (1.2.0)
@@ -127,6 +129,8 @@ GEM
       rubocop (>= 1.75.0, < 2.0)
       rubocop-ast (>= 1.38.0, < 2.0)
     ruby-progressbar (1.13.0)
+    semantic_logger (4.17.0)
+      concurrent-ruby (~> 1.0)
     solargraph (0.56.2)
       backport (~> 1.2)
       benchmark (~> 0.4)

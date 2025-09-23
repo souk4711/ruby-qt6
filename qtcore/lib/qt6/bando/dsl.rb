@@ -22,8 +22,7 @@ module RubyQt6
         def _rubyqt6_handle_event(event, *args)
           __send__(event, *args)
         rescue => e
-          puts e.message
-          puts e.backtrace.join("\n")
+          ::RubyQt6.logger.error e
         end
       end
     end

@@ -31,8 +31,9 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
   spec.extensions = ["ext/qt6/qtcore/extconf.rb"]
 
-  spec.add_runtime_dependency("dry-inflector")
-  spec.add_runtime_dependency("rice", ">= 4.6.1")
+  spec.add_runtime_dependency("dry-inflector", "~> 1.2")
+  spec.add_runtime_dependency("rice", "~> 4.6")
+  spec.add_runtime_dependency("semantic_logger", "~> 4.17")
 
   # For more information and examples about making a new gem, check out our
   # guide at: https://bundler.io/guides/creating_gem.html

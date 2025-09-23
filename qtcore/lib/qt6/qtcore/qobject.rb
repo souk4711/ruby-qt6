@@ -19,8 +19,7 @@ module RubyQt6
             define_method(meth.qsignature_name) do |*args|
               __send__(meth.name, *args.map(&:to_rb_value))
             rescue => e
-              puts e.message
-              puts e.backtrace.join("\n")
+              ::RubyQt6.logger.error e
             end
           end
         end

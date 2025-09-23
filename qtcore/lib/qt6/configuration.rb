@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "semantic_logger"
+
 module RubyQt6
   def self.load_defaults
     mods = [::RubyQt6::Bando]
@@ -10,5 +12,11 @@ module RubyQt6
         ::Object.const_set(const, mod.const_get(const)) if const.start_with?("Q")
       end
     end
+
+    ::SemanticLogger.add_appender(io: $stdout, formatter: :color)
+  end
+
+  def self.logger
+    @logger ||= ::SemanticLogger["RubyQt6"]
   end
 end
