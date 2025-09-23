@@ -1,0 +1,16 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    parallel (1.27.0)
+    rake (13.3.0)
+
+PLATFORMS
+  ruby
+  x86_64-linux
+
+DEPENDENCIES
+  parallel
+  rake (~> 13.0)
+
+BUNDLED WITH
+   2.6.9
