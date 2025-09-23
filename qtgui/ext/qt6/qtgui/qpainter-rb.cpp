@@ -17,6 +17,15 @@ void Init_qpainter(Rice::Module rb_mQt6QtGui)
     rb_cQPainter =
         // RubyQt6::QtGui::QPainter
         define_class_under<QPainter>(rb_mQt6QtGui, "QPainter")
+            // RubyQt6-Defined Functions
+            .define_method("draw_text", [](QPainter *self, const QPoint &p, const char *s) -> void { return self->drawText(p, s); }, Arg("p"), Arg("s"))
+            .define_method("draw_text", [](QPainter *self, const QPointF &p, const char *s) -> void { return self->drawText(p, s); }, Arg("p"), Arg("s"))
+            .define_method("draw_text", [](QPainter *self, const QPointF &p, const char *str, int tf, int justification_padding) -> void { return self->drawText(p, str, tf, justification_padding); }, Arg("p"), Arg("str"), Arg("tf"), Arg("justification_padding"))
+            .define_method("draw_text", [](QPainter *self, const QRect &r, int flags, const char *text, QRect *br) -> void { return self->drawText(r, flags, text, br); }, Arg("r"), Arg("flags"), Arg("text"), Arg("br") = static_cast<QRect *>(nullptr))
+            .define_method("draw_text", [](QPainter *self, const QRectF &r, const char *text, const QTextOption &o) -> void { return self->drawText(r, text, o); }, Arg("r"), Arg("text"), Arg("o") = static_cast<const QTextOption &>(QTextOption()))
+            .define_method("draw_text", [](QPainter *self, const QRectF &r, int flags, const char *text, QRectF *br) -> void { return self->drawText(r, flags, text, br); }, Arg("r"), Arg("flags"), Arg("text"), Arg("br") = static_cast<QRectF *>(nullptr))
+            .define_method("draw_text", [](QPainter *self, int x, int y, const char *s) -> void { return self->drawText(x, y, s); }, Arg("x"), Arg("y"), Arg("s"))
+            .define_method("draw_text", [](QPainter *self, int x, int y, int w, int h, int flags, const char *text, QRect *br) -> void { return self->drawText(x, y, w, h, flags, text, br); }, Arg("x"), Arg("y"), Arg("w"), Arg("h"), Arg("flags"), Arg("text"), Arg("br") = static_cast<QRect *>(nullptr))
             // Constructor
             .define_constructor(Constructor<QPainter, QPaintDevice *>(), Arg("device"))
             // Public Functions

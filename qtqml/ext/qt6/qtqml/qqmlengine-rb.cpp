@@ -14,13 +14,13 @@ void Init_qqmlengine(Rice::Module rb_mQt6QtQml)
         // RubyQt6::QtQml::QQmlEngine
         define_class_under<QQmlEngine, QJSEngine>(rb_mQt6QtQml, "QQmlEngine")
             // RubyQt6-Defined Functions
+            .define_method("add_import_path", [](QQmlEngine *self, const char *dir) -> void { return self->addImportPath(dir); }, Arg("dir"))
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QQmlEngine::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QQmlEngine, QObject *>(), Arg("parent"))
             // Public Functions
             .define_method("add_image_provider", &QQmlEngine::addImageProvider, Arg("id"), Arg("provider").takeOwnership())
             .define_method("add_import_path", &QQmlEngine::addImportPath, Arg("dir"))
-            .define_method("add_import_path", [](QQmlEngine *self, const char *dir) -> void { return self->addImportPath(QString(dir)); }, Arg("dir"))
             .define_method("add_plugin_path", &QQmlEngine::addPluginPath, Arg("dir"))
             .define_method("add_url_interceptor", &QQmlEngine::addUrlInterceptor, Arg("url_interceptor"))
             .define_method("base_url", &QQmlEngine::baseUrl)
