@@ -1,6 +1,25 @@
+GIT
+  remote: https://github.com/souk4711/ffi-clang
+  revision: 0d4ef3e12fa0fa5cadaa987de85e5419ecbb4df2
+  specs:
+    ffi-clang (0.13.0)
+      ffi
+
+GIT
+  remote: https://github.com/souk4711/ruby-bindgen
+  revision: 6d0137df51581e1d1461523c994b90aa715998fa
+  specs:
+    ruby-bindgen (1.0.0)
+      ffi (>= 1.16)
+      ffi-clang (>= 0.10)
+      ostruct (>= 0.6.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
+    ffi (1.17.2)
+    ffi (1.17.2-x86_64-linux-gnu)
+    ostruct (0.6.3)
     parallel (1.27.0)
     rake (13.3.0)
 
@@ -9,8 +28,10 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  ffi-clang!
   parallel
   rake (~> 13.0)
+  ruby-bindgen!
 
 BUNDLED WITH
    2.6.9
