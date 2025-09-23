@@ -33,11 +33,6 @@ module RubyQt6
         alignment = QtCore::Qt::Alignment.new || alignment
         _set_alignment(alignment)
       end
-
-      # @!visibility private
-      def set_text(text)
-        _set_text(QtCore::QString.new(text))
-      end
     end
   end
 end
