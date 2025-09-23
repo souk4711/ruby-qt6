@@ -27,12 +27,6 @@ module RubyQt6
         _initialize(QtCore::QString.new(text), parent)
         _take_ownership_from_ruby(self) if parent
       end
-
-      # @!visibility private
-      def set_alignment(alignment)
-        alignment = QtCore::Qt::Alignment.new || alignment
-        _set_alignment(alignment)
-      end
     end
   end
 end
