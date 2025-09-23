@@ -23,10 +23,10 @@ namespace :bindgen do
   qt6libs.each do |lib|
     desc "Generate Rice bindings for #{lib.sub("Qt", "libQt6")}"
     task lib.downcase do
-      FileUtils.mkdir_p("qt6rice")
-      FileUtils.rm_rf("qt6rice/#{lib}")
+      FileUtils.mkdir_p("vendor/qt6rice")
+      FileUtils.rm_rf("vendor/qt6rice/#{lib}")
       bindgen(extension: lib)
-      sh("clang-format -i -style=file --verbose qt6rice/#{lib}/*{hpp,cpp}")
+      sh("clang-format -i -style=file --verbose vendor/qt6rice/#{lib}/*{hpp,cpp}")
     end
   end
 
@@ -42,7 +42,7 @@ task :ext, [:qclass] do |_, args|
   Dir["vendor/qt6rice/*/#{name.downcase}-rb.*"].each do |file|
     m = file.match("/(Qt.*)/(.*)")
     submod = m[1]
-    copied = "../#{submod.downcase}/ext/qt6/#{submod.downcase}/#{m[2]}"
+    copied = "#{submod.downcase}/ext/qt6/#{submod.downcase}/#{m[2]}"
     sh("cp #{file} #{copied}")
     sh("sed -i 's/Init_Q#{name.downcase[1..]}(/Init_#{name.downcase}(Rice::Module rb_mQt6#{submod}/' #{copied}")
     sh("sed -i 's/define_class<#{name}\\(.*\\)>(/define_class_under<#{name}\\1>(rb_mQt6#{submod}, /' #{copied}")
@@ -65,10 +65,10 @@ task :upinc do
 
     sh "mkdir -p #{out} && rm -rf #{out}/*"
     sh "tar --zstd -xf #{inf} --directory=#{out}"
-    sh "cp -r #{out}/usr/include/qt6/. qt6include"
+    sh "cp -r #{out}/usr/include/qt6/. vendor/qt6include"
   end
 
-  FileUtils.rm_rf("qt6include")
+  FileUtils.rm_rf("vendor/qt6include")
   upinc(pkg: "qt6-base-6.9.2-1")
   upinc(pkg: "qt6-declarative-6.9.2-1")
 end
