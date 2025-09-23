@@ -28,7 +28,7 @@ class CannonField < QWidget
 
   def paint_event(_event)
     p = QPainter.new(self)
-    p.draw_text(200, 200, QString.new(format('Angle = %d', @current_angle)))
+    p.draw_text(200, 200, format('Angle = %d', @current_angle).to_qstr)
     p.end
   end
 end
