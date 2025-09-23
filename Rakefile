@@ -36,9 +36,9 @@ namespace :bindgen do
   end
 end
 
-desc "Generate Rice bindings for qclass"
-task :ext, [:qclass] do |_, args|
-  name = args.qclass
+desc "Generate Rice bindings for qlass"
+task :ext, [:qlass] do |_, args|
+  name = args.qlass
   Dir["vendor/qt6rice/*/#{name.downcase}-rb.*"].each do |file|
     m = file.match("/(Qt.*)/(.*)")
     submod = m[1]
