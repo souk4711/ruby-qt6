@@ -32,7 +32,7 @@ class CannonField < QWidget
 
     @game_ended = false
     @barrel_pressed = false
-    @barrel_rect = QRect.new(33, -4, 15, 8)
+    @barrel_rect = QRect.new(30, -5, 20, 10)
     @target = QPoint.new(0, 0)
     new_target
   end
@@ -123,8 +123,8 @@ class CannonField < QWidget
   def mouse_move_event(e)
     return unless @barrel_pressed
     pnt = e.position
-    pnt.setX(1) if pnt.x <= 0
-    pnt.setY(height - 1) if pnt.y >= height
+    pnt.set_x(1) if pnt.x <= 0
+    pnt.set_y(height - 1) if pnt.y >= height
     rad = Math.atan2((rect.bottom - pnt.y), pnt.x)
     set_angle((rad * 180 / 3.14159265).round)
   end
@@ -213,11 +213,11 @@ class CannonField < QWidget
   end
 
   def barrel_hit(pos)
-    matrix = QMatrix.new
+    matrix = QTransform.new
     matrix.translate(0, height)
     matrix.rotate(- @current_angle)
     matrix = matrix.inverted
-    @barrel_rect.contains(matrix.map(pos))
+    @barrel_rect.contains(matrix.map(pos.to_point))
   end
 
   def shooting?
