@@ -12,14 +12,14 @@ module RubyQt6
 
       # @return [QRegion]
       #
-      # @overload initialize(x, y, w, h, t = QRegion::Rectangle)
+      # @overload initialize(x, y, w, h, t = QRegion::RegionType::Rectangle)
       #   @param x [Integer]
       #   @param y [Integer]
       #   @param w [Integer]
       #   @param h [Integer]
       #   @param t [QRegion::RegionType]
       #
-      # @overload initialize(r, t = QRegion::Rectangle)
+      # @overload initialize(r, t = QRegion::RegionType::Rectangle)
       #   @param r [QRect]
       #   @param t [QRegion::RegionType]
       def initialize(*args)
