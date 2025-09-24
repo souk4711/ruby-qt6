@@ -60,15 +60,15 @@ module RubyQt6
           constructor_methods = qlass.methods.select { |method| method.type == :constructor }
           case constructor_methods.size
           when 2..99
-            raise rbfile unless NO_VERIFY_QLASS_INITIALIZE_YARDOC.include?(qlass.name) || rbfile_contents.scan("# @overload initialize").count == constructor_methods.size
-            raise rbfile unless rbfile_contents.include?("alias_method :_initialize, :initialize")
-            raise rbfile unless rbfile_contents.include?("def initialize(*args)")
-            raise rbfile unless rbfile_contents.include?("_initialize(*args)")
+            raise "#{rbfile}: initialize: Missing `# @overload initialize...`" unless NO_VERIFY_QLASS_INITIALIZE_YARDOC.include?(qlass.name) || rbfile_contents.scan("# @overload initialize").count == constructor_methods.size
+            raise "#{rbfile}: initialize: Missing `alias_method :_initialize, :initialize`" unless rbfile_contents.include?("alias_method :_initialize, :initialize")
+            raise "#{rbfile}: initialize: Missing `def initialize(*args)`" unless rbfile_contents.include?("def initialize(*args)")
+            raise "#{rbfile}: initialize: Missing `_initialize(*args)`" unless rbfile_contents.include?("_initialize(*args)")
             r.verified_initialize = 2
           when 1
-            raise rbfile unless rbfile_contents.include?("alias_method :_initialize, :initialize")
-            raise rbfile unless rbfile_contents.include?("def initialize")
-            raise rbfile unless rbfile_contents.include?("_initialize")
+            raise "#{rbfile}: initialize: Missing `alias_method :_initialize, :initialize`" unless rbfile_contents.include?("alias_method :_initialize, :initialize")
+            raise "#{rbfile}: initialize: Missing `def initialize...`" unless rbfile_contents.include?("def initialize")
+            raise "#{rbfile}: initialize: Missing `_initialize...`" unless rbfile_contents.include?("_initialize")
             r.verified_initialize = 1
           end
         end
@@ -112,8 +112,8 @@ module RubyQt6
         end
 
         qlass.enums.each do |enum|
-          raise rbfile unless rbfile_contents.include?("# @!parse class #{enum.name}")
-          raise rbfile unless rbfile_contents.include?("rubyqt6_include_constants #{qlass.name}, #{qlass.name}::#{enum.name}")
+          raise "#{rbfile}: #{enum.name}: Missing `# @!parse class ...`" unless rbfile_contents.include?("# @!parse class #{enum.name}")
+          raise "#{rbfile}: #{enum.name}: Missing `rubyqt6_include_constants ...`" unless rbfile_contents.include?("rubyqt6_include_constants #{qlass.name}, #{qlass.name}::#{enum.name}")
           r.verified_enums_count ||= 0
           r.verified_enums_count += 1
         end
