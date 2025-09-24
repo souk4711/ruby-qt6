@@ -11,6 +11,7 @@
 #include "qpen-rb.hpp"
 #include "qregion-rb.hpp"
 #include "qtextoption-rb.hpp"
+#include "qtransform-rb.hpp"
 
 #include "qevent-rb.hpp"
 
@@ -43,6 +44,7 @@ extern "C" void Init_qtgui()
         Init_qpen(rb_mQt6QtGui);
         Init_qregion(rb_mQt6QtGui);
         Init_qtextoption(rb_mQt6QtGui);
+        Init_qtransform(rb_mQt6QtGui);
 
         Init_qevent(rb_mQt6QtGui);
 
