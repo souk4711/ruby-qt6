@@ -322,6 +322,7 @@ void Init_qevent(Rice::Module rb_mQt6QtGui)
         // RubyQt6::QtGui::QSinglePointEvent
         define_class_under<QSinglePointEvent, QPointerEvent>(rb_mQt6QtGui, "QSinglePointEvent")
             // Public Functions
+            .define_method("button", &QSinglePointEvent::button)
             .define_method("buttons", &QSinglePointEvent::buttons)
             .define_method("exclusive_point_grabber", &QSinglePointEvent::exclusivePointGrabber)
             .define_method("global_position", &QSinglePointEvent::globalPosition)
