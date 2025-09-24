@@ -16,7 +16,7 @@ module RubyQt6
       # @param str [QString]
       # @return [QAnyStringView]
       def initialize(str)
-        _initialize(QtCore::QString.new(str))
+        _initialize(T.to_qstr(str))
       end
     end
   end

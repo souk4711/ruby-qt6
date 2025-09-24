@@ -2,6 +2,7 @@
 
 module RubyQt6
   module Bando
+    # @!visibility private
     def self.define_bando_qlass(klass)
       klass.class_eval do
         alias_method :_initialize, :initialize

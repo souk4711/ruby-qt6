@@ -5,6 +5,7 @@ require_relative "rspec/bando_file_parser"
 require_relative "rspec/qlass_file_parser"
 
 module RubyQt6
+  # @!visibility private
   module RSpec
     NO_VERIFY_QLASS_INITIALIZE = QlassFileParser::NESTED_QLASSES + [
       "QStackedLayout",

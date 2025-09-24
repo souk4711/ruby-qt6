@@ -3,6 +3,6 @@
 # @!visibility private
 class ::String
   def to_qstr
-    ::RubyQt6::QtCore::QString.new(self)
+    ::RubyQt6::T.to_qstr(self)
   end
 end
