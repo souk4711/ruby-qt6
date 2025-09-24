@@ -14,7 +14,7 @@ void Init_qicon(Rice::Module rb_mQt6QtGui)
         // RubyQt6::QtGui::QIcon
         define_class_under<QIcon>(rb_mQt6QtGui, "QIcon")
             // Constructor
-            .define_constructor(Constructor<QIcon, const QString &>(), Arg("filename"))
+            .define_constructor(Constructor<QIcon, const QString &>(), Arg("file_name"))
             .define_constructor(Constructor<QIcon, const QPixmap &>(), Arg("pixmap"))
             // Public Functions
             .define_method<QSize (QIcon::*)(const QSize &, QIcon::Mode, QIcon::State) const>("actual_size", &QIcon::actualSize, Arg("size"), Arg("mode") = static_cast<QIcon::Mode>(QIcon::Mode::Normal), Arg("state") = static_cast<QIcon::State>(QIcon::State::Off))

@@ -16,8 +16,8 @@ module RubyQt6
 
       # @return [QIcon]
       #
-      # @overload initialize(filename)
-      #   @param filename [String, QString]
+      # @overload initialize(file_name)
+      #   @param file_name [String, QString]
       #
       # @overload initialize(pixmap)
       #   @param pixmap [QPixmap]
