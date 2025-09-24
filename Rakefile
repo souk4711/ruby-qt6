@@ -1,5 +1,10 @@
 # frozen_string_literal: true
 
+QT6_LIBS = [
+  "QtCore", "QtGui", "QtWidgets",
+  "QtQml", "QtQuick", "QtQuickControls2", "QtQuickWidgets"
+]
+
 namespace :bindgen do
   def bindgen(extension:)
     require "ruby-bindgen"
@@ -16,11 +21,7 @@ namespace :bindgen do
     parser.generate(format, parallel: true)
   end
 
-  qt6libs = [
-    "QtCore", "QtGui", "QtWidgets",
-    "QtQml", "QtQuick", "QtQuickControls2", "QtQuickWidgets"
-  ]
-  qt6libs.each do |lib|
+  QT6_LIBS.each do |lib|
     desc "Generate Rice bindings for #{lib.sub("Qt", "libQt6")}"
     task lib.downcase do
       FileUtils.mkdir_p("vendor/qt6rice")
@@ -34,43 +35,56 @@ namespace :bindgen do
   task :all do
     qt6libs.each { |lib| system("rake bindgen:#{lib.downcase}") }
   end
-end
 
-desc "Generate Rice bindings for qlass"
-task :ext, [:qlass] do |_, args|
-  name = args.qlass
-  Dir["vendor/qt6rice/*/#{name.downcase}-rb.*"].each do |file|
-    m = file.match("/(Qt.*)/(.*)")
-    submod = m[1]
-    copied = "#{submod.downcase}/ext/qt6/#{submod.downcase}/#{m[2]}"
-    sh("cp #{file} #{copied}")
-    sh("sed -i 's/Init_Q#{name.downcase[1..]}(/Init_#{name.downcase}(Rice::Module rb_mQt6#{submod}/' #{copied}")
-    sh("sed -i 's/define_class<#{name}\\(.*\\)>(/define_class_under<#{name}\\1>(rb_mQt6#{submod}, /' #{copied}")
+  desc "Generate Rice bindings for qlass"
+  task :rbext, [:qlass] do |_, args|
+    name = args.qlass
+    Dir["vendor/qt6rice/*/#{name.downcase}-rb.*"].each do |file|
+      m = file.match("/(Qt.*)/(.*)")
+      submod = m[1]
+      copied = "#{submod.downcase}/ext/qt6/#{submod.downcase}/#{m[2]}"
+      sh("cp #{file} #{copied}")
+      sh("sed -i 's/Init_Q#{name.downcase[1..]}(/Init_#{name.downcase}(Rice::Module rb_mQt6#{submod}/' #{copied}")
+      sh("sed -i 's/define_class<#{name}\\(.*\\)>(/define_class_under<#{name}\\1>(rb_mQt6#{submod}, /' #{copied}")
+    end
   end
-end
 
-desc "Update libQt6 headers"
-task :upinc do
-  def upinc(pkg:)
-    url = "https://mirror.rackspace.com/archlinux/extra/os/x86_64/#{pkg}-x86_64.pkg.tar.zst"
-    inf = "tmp/downloads/#{pkg}.pkg.tar.zst"
-    out = "tmp/downloads/#{pkg}"
+  desc "Update libQt6 headers"
+  task :upinc do
+    def upinc(pkg:)
+      url = "https://mirror.rackspace.com/archlinux/extra/os/x86_64/#{pkg}-x86_64.pkg.tar.zst"
+      inf = "tmp/downloads/#{pkg}.pkg.tar.zst"
+      out = "tmp/downloads/#{pkg}"
 
-    if File.exist?(inf)
-      puts "found #{inf}"
-    else
-      sh "mkdir -p tmp/downloads"
-      sh "curl -L --progress-bar -o #{inf} #{url}"
+      if File.exist?(inf)
+        puts "found #{inf}"
+      else
+        sh "mkdir -p tmp/downloads"
+        sh "curl -L --progress-bar -o #{inf} #{url}"
+      end
+
+      sh "mkdir -p #{out} && rm -rf #{out}/*"
+      sh "tar --zstd -xf #{inf} --directory=#{out}"
+      sh "cp -r #{out}/usr/include/qt6/. vendor/qt6include"
     end
 
-    sh "mkdir -p #{out} && rm -rf #{out}/*"
-    sh "tar --zstd -xf #{inf} --directory=#{out}"
-    sh "cp -r #{out}/usr/include/qt6/. vendor/qt6include"
+    FileUtils.rm_rf("vendor/qt6include")
+    upinc(pkg: "qt6-base-6.9.2-1")
+    upinc(pkg: "qt6-declarative-6.9.2-1")
   end
+end
 
-  FileUtils.rm_rf("vendor/qt6include")
-  upinc(pkg: "qt6-base-6.9.2-1")
-  upinc(pkg: "qt6-declarative-6.9.2-1")
+desc "Run RSpec code examples"
+task :spec do
+  QT6_LIBS.concat(["Qt"]).each do |lib|
+    folder = lib.downcase
+    next unless File.exist?(folder)
+
+    Dir.chdir(folder) do
+      sh "bundle check || bundle install"
+      sh "BUNDLE_GEMFILE= bundle exec rspec"
+    end
+  end
 end
 
 task :default do
