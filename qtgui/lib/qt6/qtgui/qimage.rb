@@ -4,6 +4,11 @@ module RubyQt6
   module QtGui
     # @see https://doc.qt.io/qt-6/qimage.html
     class QImage < RubyQt6::QtGui::QPaintDevice
+      # @!parse class Format    ; end
+      # @!parse class InvertMode; end
+      rubyqt6_include_constants QImage, QImage::Format
+      rubyqt6_include_constants QImage, QImage::InvertMode
+
       # @!visibility private
       alias_method :_initialize, :initialize
 
