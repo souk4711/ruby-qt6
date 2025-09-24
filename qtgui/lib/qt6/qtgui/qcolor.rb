@@ -21,10 +21,13 @@ module RubyQt6
       #   @param a [Integer]
       #
       # @overload initialize(color)
+      #   @param color [String]
+      #
+      # @overload initialize(color)
       #   @param color [Qt::GlobalColor]
       #
-      # @overload initialize(name)
-      #   @param name [String, QString]
+      # @overload initialize(color)
+      #   @param color [QString]
       def initialize(*args)
         _initialize(*args)
       end

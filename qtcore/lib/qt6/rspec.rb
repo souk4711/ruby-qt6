@@ -11,10 +11,6 @@ module RubyQt6
       "QStackedLayout",
       "QVariant"
     ]
-    NO_VERIFY_QLASS_INITIALIZE_YARDOC = [
-      "QBrush",
-      "QColor"
-    ]
     NO_VERIFY_QLASS_LEADING_UNDERSCORE_METHODS = {
       "QObject" => ["_connect", "_disconnect"]
     }
@@ -61,7 +57,7 @@ module RubyQt6
           constructor_methods = qlass.methods.select { |method| method.type == :constructor }
           case constructor_methods.size
           when 2..99
-            raise "#{rbfile}: initialize: Missing `# @overload initialize...`" unless NO_VERIFY_QLASS_INITIALIZE_YARDOC.include?(qlass.name) || rbfile_contents.scan("# @overload initialize").count == constructor_methods.size
+            raise "#{rbfile}: initialize: Missing `# @overload initialize...`" unless rbfile_contents.scan("# @overload initialize").count == constructor_methods.size
             raise "#{rbfile}: initialize: Missing `alias_method :_initialize, :initialize`" unless rbfile_contents.include?("alias_method :_initialize, :initialize")
             raise "#{rbfile}: initialize: Missing `def initialize(*args)`" unless rbfile_contents.include?("def initialize(*args)")
             raise "#{rbfile}: initialize: Missing `_initialize(*args)`" unless rbfile_contents.include?("_initialize(*args)")
