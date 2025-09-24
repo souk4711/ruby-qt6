@@ -6,6 +6,12 @@ module RubyQt6
     class QObject
       # @!visibility private
       def self.q_object(&blk)
+        if !name.start_with?("RubyQt6::")
+          if !superclass.name.start_with?("RubyQt6::Bando::")
+            raise "Invalid superclass: macro `q_object` only available for subclass of ::RubyQt6::Bando::<...>"
+          end
+        end
+
         mo = QtCore::Private::MetaObject.new(self)
         mo.instance_exec(&blk)
 
@@ -33,6 +39,8 @@ module RubyQt6
         define_singleton_method("_qmetaobject") do
           @_qmetaobject
         end
+
+        nil
       end
 
       # @!visibility private

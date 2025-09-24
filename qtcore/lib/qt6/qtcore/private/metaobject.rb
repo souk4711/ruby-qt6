@@ -19,8 +19,8 @@ module RubyQt6
             mo = mo.super_class
           end
 
-          klass = receiver.class.name.split("::").last
-          raise "No compatible metamethod: #{klass}##{name}"
+          qlass = receiver.class.name.split("::").last
+          raise "No compatible metamethod: #{qlass}##{name}"
         end
 
         def initialize(qlass)
