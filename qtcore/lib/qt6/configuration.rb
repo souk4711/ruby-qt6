@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "semantic_logger"
+require "semantic_logger/sync"
 
 module RubyQt6
   def self.load_defaults
