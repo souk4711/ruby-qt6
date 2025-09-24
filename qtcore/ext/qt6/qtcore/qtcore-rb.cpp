@@ -16,7 +16,6 @@
 #include "quuid-rb.hpp"
 #include "qvariant-rb.hpp"
 
-#include "qflags-rb.hpp"
 #include "qstringlist-rb.hpp"
 
 #include "qcoreevent-rb.hpp"
@@ -57,7 +56,6 @@ extern "C" void Init_qtcore()
         Init_quuid(rb_mQt6QtCore);
         Init_qvariant(rb_mQt6QtCore);
 
-        Init_qflags(rb_mQt6QtCore);
         Init_qstringlist(rb_mQt6QtCore);
 
         Init_qcoreevent(rb_mQt6QtCore);
