@@ -65,10 +65,8 @@ void define_qlist_to_s(Data_Type<QList<Element_T>> qlist)
 template<typename Element_T>
 Data_Type<QList<Element_T>> define_qlist_under(Module module, char const* name)
 {
-    std::cout << "?????" << std::endl;
     using QList_T = QList<Element_T>;
-    Data_Type<QList_T> qlist = define_class_under<QList_T>(module, name)
-        .template define_method("size", &QList_T::size);
+    Data_Type<QList_T> qlist = define_class_under<QList_T>(module, name);
     define_qlist_constructors(qlist);
     define_qlist_constructable_methods(qlist);
     define_qlist_capacity_methods(qlist);

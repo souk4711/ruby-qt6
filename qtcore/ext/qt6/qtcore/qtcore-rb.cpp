@@ -16,6 +16,7 @@
 #include "quuid-rb.hpp"
 #include "qvariant-rb.hpp"
 
+#include "t-qtcore-rb.hpp"
 #include "qstringlist-rb.hpp"
 
 #include "qcoreevent-rb.hpp"
@@ -56,6 +57,8 @@ extern "C" void Init_qtcore()
         Init_quuid(rb_mQt6QtCore);
         Init_qvariant(rb_mQt6QtCore);
 
+        Rice::Module rb_mQt6T = define_module_under(rb_mQt6, "T");
+        Init_t_qtcore(rb_mQt6);
         Init_qstringlist(rb_mQt6QtCore);
 
         Init_qcoreevent(rb_mQt6QtCore);

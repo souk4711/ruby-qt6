@@ -1,6 +1,8 @@
 #include "qt-rb.hpp"
 #include <qnamespace.h>
 
+#include <rice/qflags.hpp>
+
 using namespace Rice;
 
 void Init_qt(Rice::Module rb_mQt6QtCore)
