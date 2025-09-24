@@ -2,7 +2,7 @@
 
 module RubyQt6
   module QtGui
-    # @see https://doc.qt.io/qt-6/QRegion.html
+    # @see https://doc.qt.io/qt-6/qregion.html
     class QRegion
       # @!parse class RegionType; end
       rubyqt6_include_constants QRegion, QRegion::RegionType
