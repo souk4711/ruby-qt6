@@ -24,7 +24,7 @@ class LCDRange < QWidget
 
     @label = QLabel.new(" ")
     @label.set_alignment(Qt::AlignHCenter | Qt::AlignTop)
-    # @label.set_size_policy(QSizePolicy::Preferred, QSizePolicy::Fixed)
+    @label.set_size_policy(QSizePolicy::Preferred, QSizePolicy::Fixed)
 
     layout = QVBoxLayout.new
     layout.add_widget(lcd)

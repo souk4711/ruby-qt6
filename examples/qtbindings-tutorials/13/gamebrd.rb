@@ -93,7 +93,7 @@ class GameBoard < QWidget
   end
 
   def new_game
-    @shots_left.display(1)
+    @shots_left.display(15)
     @hits.display(0)
     @cannon_field.restart_game
     @cannon_field.new_target
