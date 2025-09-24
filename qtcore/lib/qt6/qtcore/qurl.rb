@@ -4,10 +4,10 @@ module RubyQt6
   module QtCore
     # @see https://doc.qt.io/qt-6/qurl.html
     class QUrl
-      # @!parse class AceProcessingOption; end
+      # @!parse class AceProcessingOption      ; end
       # @!parse class ComponentFormattingOption; end
-      # @!parse class ParsingMode; end
-      # @!parse class UrlFormattingOption; end
+      # @!parse class ParsingMode              ; end
+      # @!parse class UrlFormattingOption      ; end
       # @!parse class UserInputResolutionOption; end
       rubyqt6_include_constants QUrl, QUrl::AceProcessingOption
       rubyqt6_include_constants QUrl, QUrl::ComponentFormattingOption
