@@ -12,6 +12,16 @@ module RubyQt6
       # @!visibility private
       q_object do
       end
+
+      # @!visibility private
+      alias_method :_initialize, :initialize
+
+      # @param parent [QWidget]
+      # @return [QFormLayout]
+      def initialize(parent = nil)
+        _initialize(parent)
+        _take_ownership_from_ruby(self) if parent
+      end
     end
   end
 end

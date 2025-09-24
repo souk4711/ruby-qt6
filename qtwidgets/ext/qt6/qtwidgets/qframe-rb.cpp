@@ -12,6 +12,8 @@ void Init_qframe(Rice::Module rb_mQt6QtWidgets)
         define_class_under<QFrame, QWidget>(rb_mQt6QtWidgets, "QFrame")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QFrame::staticMetaObject; })
+            // Constructor
+            .define_constructor(Constructor<QFrame, QWidget *>(), Arg("parent"))
             // Public Functions
             .define_method("frame_rect", &QFrame::frameRect)
             .define_method("frame_shadow", &QFrame::frameShadow)
