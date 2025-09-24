@@ -86,7 +86,7 @@ module RubyQt6
           if method.cppname
             expected =
               case method.cppname
-              when /is[A-Z]/ then "#{inflector.underscore(method.cppname)}?".sub(/^is_/, "")
+              when /^is[A-Z]/ then "#{inflector.underscore(method.cppname)}?".sub(/^is_/, "")
               else inflector.underscore(method.cppname)
               end
             if expected != method.rbname.sub(/^_/, "")
