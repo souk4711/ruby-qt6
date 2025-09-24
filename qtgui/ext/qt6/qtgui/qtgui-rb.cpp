@@ -9,10 +9,12 @@
 #include "qicon-rb.hpp"
 #include "qpalette-rb.hpp"
 #include "qpen-rb.hpp"
-#include "qpolygon-rb.hpp"
 #include "qregion-rb.hpp"
 #include "qtextoption-rb.hpp"
 #include "qtransform-rb.hpp"
+
+#include "t-qtgui-rb.hpp"
+#include "qpolygon-rb.hpp"
 
 #include "qevent-rb.hpp"
 
@@ -43,10 +45,13 @@ extern "C" void Init_qtgui()
         Init_qicon(rb_mQt6QtGui);
         Init_qpalette(rb_mQt6QtGui);
         Init_qpen(rb_mQt6QtGui);
-        Init_qpolygon(rb_mQt6QtGui);
         Init_qregion(rb_mQt6QtGui);
         Init_qtextoption(rb_mQt6QtGui);
         Init_qtransform(rb_mQt6QtGui);
+
+        Rice::Module rb_mQt6T = define_module_under(rb_mQt6, "T");
+        Init_t_qtgui(rb_mQt6T);
+        Init_qpolygon(rb_mQt6QtGui);
 
         Init_qevent(rb_mQt6QtGui);
 
