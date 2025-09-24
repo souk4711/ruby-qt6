@@ -12,7 +12,7 @@ module RubyQt6
       # @!visibility private
       alias_method :_initialize, :initialize
 
-      # @param text [QString]
+      # @param text [String, QString]
       # @param parent [QWidget]
       # @return [QLabel]
       def initialize(text, parent = nil)

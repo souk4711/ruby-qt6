@@ -13,7 +13,7 @@ module RubyQt6
         allocate.tap { |o| o.__send__(:initialize, str) }
       end
 
-      # @param str [QString]
+      # @param str [String, QString]
       # @return [QAnyStringView]
       def initialize(str)
         _initialize(T.to_qstr(str))

@@ -25,8 +25,8 @@ module RubyQt6
       # @!visibility private
       def load_from_module(uri, type_name)
         _load_from_module(
-          QtCore::QAnyStringView.new(uri),
-          QtCore::QAnyStringView.new(type_name)
+          T.to_qanystringview(uri),
+          T.to_qanystringview(type_name)
         )
       end
     end

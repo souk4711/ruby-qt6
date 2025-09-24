@@ -3,6 +3,10 @@
 module RubyQt6
   # @!visibility private
   module T
+    def self.to_qanystringview(str)
+      QtCore::QAnyStringView.new(str)
+    end
+
     def self.to_qstr(str)
       QtCore::QString.new(str)
     end

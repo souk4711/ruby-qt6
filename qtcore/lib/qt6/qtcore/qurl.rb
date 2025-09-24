@@ -18,7 +18,7 @@ module RubyQt6
       # @!visibility private
       alias_method :_initialize, :initialize
 
-      # @param url [QString]
+      # @param url [String, QString]
       # @param mode [QUrl::ParsingMode]
       # @return [QUrl]
       def initialize(url, mode = QUrl::ParsingMode::TolerantMode)

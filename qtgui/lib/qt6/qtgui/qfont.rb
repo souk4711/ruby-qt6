@@ -27,7 +27,7 @@ module RubyQt6
       # @return [QFont]
       #
       # @overload initialize(family, point_size = -1, Weight = -1, italic = false)
-      #   @param family [QString]
+      #   @param family [String, QString]
       #   @param point_size [Integer]
       #   @param weight [Integer]
       #   @param italic [Boolean]
