@@ -6,14 +6,17 @@ class CannonField < QWidget
     signal 'missed()'
     signal 'angleChanged(int)'
     signal 'forceChanged(int)'
+    signal 'canShoot(bool)'
     slot 'setAngle(int)'
     slot 'setForce(int)'
     slot 'shoot()'
     slot 'moveShot()'
     slot 'newTarget()'
+    slot 'setGameOver()'
+    slot 'restartGame()'
   end
 
- def initialize(parent = nil)
+  def initialize(parent = nil)
     super
 
     @current_angle = 45
@@ -27,9 +30,14 @@ class CannonField < QWidget
     set_palette(QPalette.new(QColor.new(250, 250, 200)))
     set_auto_fill_background(true)
 
+    @game_ended = false
     @barrel_rect = QRect.new(33, -4, 15, 8)
     @target = QPoint.new(0, 0)
     new_target
+  end
+
+  def game_over
+    @game_ended
   end
 
   def set_angle(degrees)
@@ -51,25 +59,39 @@ class CannonField < QWidget
   end
 
   def shoot
-    return if @auto_shoot_timer.active?
+    return if shooting?
 
     @timer_count = 0
     @shoot_angle = @current_angle
     @shoot_force = @current_force
-    @auto_shoot_timer.start(5)
+    @auto_shoot_timer.start(50)
+    can_shoot.emit(false)
   end
 
-  @@current_forceirst_time = true
+  @@first_time = true
   def new_target
-    if @@current_forceirst_time
-      @@current_forceirst_time = false
+    if @@first_time
+      @@first_time = false
       midnight = QTime.new(0, 0, 0)
       srand(midnight.secs_to(QTime.current_time))
     end
 
-    r = QRegion.new(target_rect)
     @target = QPoint.new(200 + rand(190), 10 + rand(255))
-    repaint(r.united(QRegion.new(target_rect)))
+    update
+  end
+
+  def set_game_over
+    return if @game_ended
+    @auto_shoot_timer.stop if shooting?
+    @game_ended = true
+    update
+  end
+
+  def restart_game
+    @auto_shoot_timer.stop if shooting?
+    @game_ended = false
+    update
+    can_shoot.emit(true)
   end
 
   def move_shot
@@ -80,9 +102,11 @@ class CannonField < QWidget
     if shot_r.intersects(target_rect)
       @auto_shoot_timer.stop
       hit.emit
+      can_shoot.emit(true)
     elsif shot_r.x > width || shot_r.y > height
       @auto_shoot_timer.stop
       missed.emit
+      can_shoot.emit(true)
     else
       r = r.united(QRegion.new(shot_r))
     end
@@ -92,9 +116,14 @@ class CannonField < QWidget
 
   def paint_event(e)
     p = QPainter.new(self)
+    if @game_ended
+      p.set_pen(QColor.new(Qt::Black))
+      p.set_font(QFont.new("Courier", 48, QFont::Bold))
+      p.draw_text(rect, Qt::AlignCenter, "Game Over")
+    end
     paint_cannon(p)
-    paint_shot(p) if @auto_shoot_timer.active?
-    paint_target(p)
+    paint_shot(p) if shooting?
+    paint_target(p) unless @game_ended
     p.end
   end
 
@@ -131,7 +160,7 @@ class CannonField < QWidget
   def shot_rect
     gravity = 4.0
 
-    time      = @timer_count / 40.0
+    time      = @timer_count / 4.0
     velocity  = @shoot_force
     radians   = @shoot_angle * 3.14159265 / 180.0
 
@@ -151,5 +180,9 @@ class CannonField < QWidget
     r = QRect.new(0, 0, 20, 10)
     r.move_center(QPoint.new(@target.x, height - 1 - @target.y));
     r
+  end
+
+  def shooting?
+    @auto_shoot_timer.active?
   end
 end
