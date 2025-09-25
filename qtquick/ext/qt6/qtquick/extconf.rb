@@ -6,6 +6,7 @@ require "mkmf-rubyqt6"
 includedir = qt_install_headers
 append_cppflags("-I#{includedir}")
 append_cppflags("-I#{includedir}/QtCore")
+append_cppflags("-I#{includedir}/QtQGui")
 append_cppflags("-I#{includedir}/QtQml")
 append_cppflags("-I#{includedir}/QtQuick")
 abort "libQt6Quick is missing, please install qt6-declarative" unless have_library("Qt6Quick")
