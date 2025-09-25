@@ -10,4 +10,4 @@ require_relative "qtquickwidgets/version"
 require_relative "qtquickwidgets/qtquickwidgets"
 require_relative "qtquickwidgets/qtquickwidgetsversion"
 
-require_relative "qtquickwidgets/qquickswidget"
+require_relative "qtquickwidgets/qquickwidget"
