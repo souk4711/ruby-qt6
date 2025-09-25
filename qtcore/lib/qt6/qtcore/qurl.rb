@@ -24,6 +24,16 @@ module RubyQt6
       def initialize(url, mode = QUrl::ParsingMode::TolerantMode)
         _initialize(T.to_qstr(url), mode)
       end
+
+      # @!visibility private
+      def to_s
+        to_string.to_s
+      end
+
+      # @!visibility private
+      def inspect
+        T.q_inspect(self, str: to_s)
+      end
     end
   end
 end

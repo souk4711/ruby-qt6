@@ -13,5 +13,6 @@ void Init_qanystringview(Rice::Module rb_mQt6QtCore)
         // RubyQt6::QtCore::QAnyStringView
         define_class_under<QAnyStringView>(rb_mQt6QtCore, "QAnyStringView")
             // Constructor
-            .define_constructor(Constructor<QAnyStringView, const QString &>(), Arg("str"));
+            .define_constructor(Constructor<QAnyStringView, const QString &>(), Arg("str"))
+            .define_method("to_string", &QAnyStringView::toString);
 }

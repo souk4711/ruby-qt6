@@ -19,6 +19,16 @@ module RubyQt6
       def initialize(string)
         _initialize(T.to_qanystringview(string))
       end
+
+      # @!visibility private
+      def to_s
+        to_string.to_s
+      end
+
+      # @!visibility private
+      def inspect
+        T.q_inspect(self, str: to_s)
+      end
     end
   end
 end

@@ -10,5 +10,11 @@ module RubyQt6
     def self.to_qstr(str)
       QtCore::QString.new(str)
     end
+
+    def self.q_inspect(object, **attributes)
+      name = object.class.name.split("::").last + " "
+      attributes = Array(attributes).map { |(name, value)| "#{name}=#{value.inspect}" }.join(", ")
+      ["#<", name, attributes, ">"].join
+    end
   end
 end

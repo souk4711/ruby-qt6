@@ -18,6 +18,11 @@ module RubyQt6
       def initialize(*args)
         _initialize(*args)
       end
+
+      # @!visibility private
+      def inspect
+        T.q_inspect(self, width: width, height: height)
+      end
     end
   end
 end

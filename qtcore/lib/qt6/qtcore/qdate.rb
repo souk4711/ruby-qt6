@@ -14,6 +14,11 @@ module RubyQt6
       def initialize(y, m, d)
         _initialize(y, m, d)
       end
+
+      # @!visibility private
+      def inspect
+        T.q_inspect(self, year: year, month: month, day: day)
+      end
     end
   end
 end

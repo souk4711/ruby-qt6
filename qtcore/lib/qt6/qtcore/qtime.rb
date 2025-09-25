@@ -15,6 +15,11 @@ module RubyQt6
       def initialize(h, m, s = 0, ms = 0)
         _initialize(h, m, s, ms)
       end
+
+      # @!visibility private
+      def inspect
+        T.q_inspect(self, hour: hour, minute: minute, second: second, msec: msec)
+      end
     end
   end
 end

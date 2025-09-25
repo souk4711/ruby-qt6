@@ -18,6 +18,16 @@ module RubyQt6
       def initialize(str)
         _initialize(str)
       end
+
+      # @!visibility private
+      def to_s
+        to_std_string
+      end
+
+      # @!visibility private
+      def inspect
+        T.q_inspect(self, str: to_s)
+      end
     end
   end
 end

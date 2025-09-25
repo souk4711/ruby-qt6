@@ -25,6 +25,16 @@ module RubyQt6
       def initialize(*args)
         _initialize(*args)
       end
+
+      # @!visibility private
+      def to_s
+        to_string(Qt::RFC2822Date).to_s
+      end
+
+      # @!visibility private
+      def inspect
+        T.q_inspect(self, str: to_s)
+      end
     end
   end
 end
