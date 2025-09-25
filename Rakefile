@@ -77,10 +77,7 @@ end
 desc "Run RSpec code examples"
 task :spec do
   QT6_LIBS.concat(["Qt"]).each do |lib|
-    folder = lib.downcase
-    next unless File.exist?(folder)
-
-    Dir.chdir(folder) do
+    Dir.chdir(lib.downcase) do
       sh "bundle check || bundle install"
       sh "BUNDLE_GEMFILE= bundle exec rspec"
     end
