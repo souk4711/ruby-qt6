@@ -7,7 +7,7 @@ module RubyQt6
     mods = [::RubyQt6::Bando]
     mods.each do |mod|
       mod.constants.each do |const|
-        ::Object.const_set(const, mod.const_get(const))
+        ::Object.const_set(const, mod.const_get(const)) if const.start_with?("Q")
       end
     end
 
@@ -15,8 +15,8 @@ module RubyQt6
     mods.each do |mod|
       mod.constants.each do |const|
         next if ::RubyQt6::Bando.const_defined?(const)
-        next if const.match?("VERSION") || !const.start_with?("Q")
-        ::Object.const_set(const, mod.const_get(const))
+        next if const.match?("VERSION")
+        ::Object.const_set(const, mod.const_get(const)) if const.start_with?("Q")
       end
     end
 
