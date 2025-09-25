@@ -35,6 +35,7 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency("ruby-qt6-qtqml")
   spec.add_runtime_dependency("ruby-qt6-qtquick")
   spec.add_runtime_dependency("ruby-qt6-qtquickcontrols2")
+  spec.add_runtime_dependency("ruby-qt6-qtquickwidgets")
   spec.add_runtime_dependency("ruby-qt6-qtwidgets")
 
   # For more information and examples about making a new gem, check out our

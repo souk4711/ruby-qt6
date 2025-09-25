@@ -40,6 +40,17 @@ PATH
       ruby-qt6-qtquick
 
 PATH
+  remote: ../qtquickwidgets
+  specs:
+    ruby-qt6-qtquickwidgets (0.1.0)
+      rice (~> 4.6)
+      ruby-qt6-qtcore
+      ruby-qt6-qtgui
+      ruby-qt6-qtqml
+      ruby-qt6-qtquick
+      ruby-qt6-qtwidgets
+
+PATH
   remote: ../qtwidgets
   specs:
     ruby-qt6-qtwidgets (0.1.0)
@@ -56,6 +67,7 @@ PATH
       ruby-qt6-qtqml
       ruby-qt6-qtquick
       ruby-qt6-qtquickcontrols2
+      ruby-qt6-qtquickwidgets
       ruby-qt6-qtwidgets
 
 GEM
@@ -205,6 +217,7 @@ DEPENDENCIES
   ruby-qt6-qtqml!
   ruby-qt6-qtquick!
   ruby-qt6-qtquickcontrols2!
+  ruby-qt6-qtquickwidgets!
   ruby-qt6-qtwidgets!
   solargraph
   standard
