@@ -22,4 +22,35 @@ RSpec.describe RubyQt6 do
       end
     end
   end
+
+  describe "Bando::<...>" do
+    qlasses = [
+      RubyQt6::QtWidgets::QLayout,
+      RubyQt6::QtWidgets::QBoxLayout,
+      RubyQt6::QtWidgets::QHBoxLayout,
+      RubyQt6::QtWidgets::QVBoxLayout,
+      RubyQt6::QtWidgets::QFormLayout,
+      RubyQt6::QtWidgets::QGridLayout,
+      RubyQt6::QtWidgets::QStackedLayout,
+      RubyQt6::QtWidgets::QAbstractButton,
+      RubyQt6::QtWidgets::QPushButton,
+      RubyQt6::QtWidgets::QAbstractSlider,
+      RubyQt6::QtWidgets::QSlider,
+      RubyQt6::QtWidgets::QFrame,
+      RubyQt6::QtWidgets::QLabel,
+      RubyQt6::QtWidgets::QLCDNumber,
+      RubyQt6::QtQuickWidgets::QQuickWidget
+    ]
+
+    ::Object.constants.grep(/^Q/).each do |klass|
+      cls = ::Object.const_get(klass)
+      next unless cls.is_a?(Class)
+      next unless cls.ancestors.include?(RubyQt6::QtCore::QObject)
+
+      it "define Bando::#{klass}" do
+        skip if qlasses.include?(cls)
+        expect(RubyQt6::Bando.constants).to include(klass)
+      end
+    end
+  end
 end
