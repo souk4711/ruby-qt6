@@ -28,6 +28,7 @@ require_relative "qtgui/qpixmap"
 require_relative "qtgui/qpainter"
 
 require_relative "qtgui/qguiapplication"
+require_relative "qtgui/qshortcut"
 require_relative "qtgui/qwindow"
 
 require_relative "bando/qguiapplication"

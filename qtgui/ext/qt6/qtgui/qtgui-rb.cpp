@@ -26,6 +26,7 @@
 #include "qpainter-rb.hpp"
 
 #include "qguiapplication-rb.hpp"
+#include "qshortcut-rb.hpp"
 #include "qwindow-rb.hpp"
 
 #include "bando-qtgui-rb.hpp"
@@ -63,6 +64,7 @@ extern "C" void Init_qtgui()
         Init_qpainter(rb_mQt6QtGui);
 
         Init_qguiapplication(rb_mQt6QtGui);
+        Init_qshortcut(rb_mQt6QtGui);
         Init_qwindow(rb_mQt6QtGui);
 
         Rice::Module rb_mQt6Bando = define_module_under(rb_mQt6, "Bando");
