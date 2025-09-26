@@ -33,4 +33,5 @@ require_relative "qtgui/qshortcut"
 require_relative "qtgui/qwindow"
 
 require_relative "bando/qguiapplication"
+require_relative "bando/qshortcut"
 require_relative "bando/qwindow"

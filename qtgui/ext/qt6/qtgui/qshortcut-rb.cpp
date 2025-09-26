@@ -13,9 +13,7 @@ void Init_qshortcut(Rice::Module rb_mQt6QtGui)
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QShortcut::staticMetaObject; })
             // Constructor
-            .define_constructor(Constructor<QShortcut, QObject *>(), Arg("parent"))
-            .define_constructor(Constructor<QShortcut, QKeySequence::StandardKey, QObject *, const char *, const char *, Qt::ShortcutContext>(), Arg("key"), Arg("parent"), Arg("member") = static_cast<const char *>(nullptr), Arg("ambiguous_member") = static_cast<const char *>(nullptr), Arg("context") = static_cast<Qt::ShortcutContext>(Qt::WindowShortcut))
-            .define_constructor(Constructor<QShortcut, const QKeySequence &, QObject *, const char *, const char *, Qt::ShortcutContext>(), Arg("key"), Arg("parent"), Arg("member") = static_cast<const char *>(nullptr), Arg("ambiguous_member") = static_cast<const char *>(nullptr), Arg("context") = static_cast<Qt::ShortcutContext>(Qt::WindowShortcut))
+            .define_constructor(Constructor<QShortcut, const QKeySequence &, QObject *>(), Arg("key"), Arg("parent"))
             // Public Functions
             .define_method("auto_repeat", &QShortcut::autoRepeat)
             .define_method("context", &QShortcut::context)
