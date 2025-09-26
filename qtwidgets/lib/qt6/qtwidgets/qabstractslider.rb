@@ -7,7 +7,7 @@ module RubyQt6
       # @!parse class SliderAction; end
       rubyqt6_include_constants QAbstractSlider, QAbstractSlider::SliderAction
 
-      # @!visibility private
+      # @!parse
       q_object do
         signal "actionTriggered(int)"
         signal "rangeChanged(int,int)"

@@ -17,21 +17,41 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
-    ffi (1.17.2)
+    date (3.4.1)
+    erb (5.0.2)
     ffi (1.17.2-x86_64-linux-gnu)
+    nio4r (2.7.4)
     ostruct (0.6.3)
     parallel (1.27.0)
+    psych (5.2.6)
+      date
+      stringio
+    puma (6.6.1)
+      nio4r (~> 2.0)
+    rack (3.2.0)
+    rackup (2.2.1)
+      rack (>= 3)
     rake (13.3.0)
+    rdoc (6.14.2)
+      erb
+      psych (>= 4.0.0)
+    redcarpet (3.6.1)
+    stringio (3.1.7)
+    yard (0.9.37)
 
 PLATFORMS
-  ruby
   x86_64-linux
 
 DEPENDENCIES
   ffi-clang!
   parallel
+  puma
+  rackup
   rake (~> 13.0)
+  rdoc
+  redcarpet
   ruby-bindgen!
+  yard
 
 BUNDLED WITH
    2.6.9

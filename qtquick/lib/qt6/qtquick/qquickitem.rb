@@ -4,7 +4,7 @@ module RubyQt6
   module QtQuick
     # @see https://doc.qt.io/qt-6/qquickitem.html
     class QQuickItem < RubyQt6::QtCore::QObject
-      # @!visibility private
+      # @!parse
       q_object do
         signal "activeFocusChanged(bool)"
         signal "activeFocusOnTabChanged(bool)"

@@ -4,7 +4,7 @@ module RubyQt6
   module QtQml
     # @see https://doc.qt.io/qt-6/qqmlengine.html
     class QQmlEngine < RubyQt6::QtQml::QJSEngine
-      # @!visibility private
+      # @!parse
       q_object do
         signal "exit(int)"
         signal "offlineStoragePathChanged()"

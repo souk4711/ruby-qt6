@@ -4,7 +4,7 @@ module RubyQt6
   module QtCore
     # @see https://doc.qt.io/qt-6/qtimer.html
     class QTimer < RubyQt6::QtCore::QObject
-      # @!visibility private
+      # @!parse
       q_object do
         signal "timeout()"
         slot "start(int)"

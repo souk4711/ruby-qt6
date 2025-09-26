@@ -4,7 +4,7 @@ module RubyQt6
   module QtWidgets
     # @see https://doc.qt.io/qt-6/qapplication.html
     class QApplication < RubyQt6::QtGui::QGuiApplication
-      # @!visibility private
+      # @!parse
       q_object do
         signal "focusChanged(QWidget*,QWidget*)"
         slot "aboutQt()"

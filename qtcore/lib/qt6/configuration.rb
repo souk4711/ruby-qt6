@@ -3,6 +3,7 @@
 require "semantic_logger/sync"
 
 module RubyQt6
+  # @!visibility private
   def self.load_defaults
     mods = [::RubyQt6::Bando]
     mods.each do |mod|
@@ -23,6 +24,7 @@ module RubyQt6
     ::SemanticLogger.add_appender(io: $stdout, formatter: :color)
   end
 
+  # @!visibility private
   def self.logger
     @logger ||= ::SemanticLogger["RubyQt6"]
   end

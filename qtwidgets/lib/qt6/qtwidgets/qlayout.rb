@@ -7,7 +7,7 @@ module RubyQt6
       # @!parse class SizeConstraint; end
       rubyqt6_include_constants QLayout, QLayout::SizeConstraint
 
-      # @!visibility private
+      # @!parse
       q_object do
       end
 

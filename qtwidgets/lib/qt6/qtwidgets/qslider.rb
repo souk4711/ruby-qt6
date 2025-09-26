@@ -7,7 +7,7 @@ module RubyQt6
       # @!parse class TickPosition; end
       rubyqt6_include_constants QSlider, QSlider::TickPosition
 
-      # @!visibility private
+      # @!parse
       q_object do
       end
 

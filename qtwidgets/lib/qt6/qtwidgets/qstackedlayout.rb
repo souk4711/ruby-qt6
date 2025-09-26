@@ -7,7 +7,7 @@ module RubyQt6
       # @!parse class StackingMode; end
       rubyqt6_include_constants QStackedLayout, QStackedLayout::StackingMode
 
-      # @!visibility private
+      # @!parse
       q_object do
         signal "currentChanged(int)"
         signal "widgetAdded(int)"

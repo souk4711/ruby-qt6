@@ -4,7 +4,7 @@ module RubyQt6
   module QtQml
     # @see https://doc.qt.io/qt-6/qjsengine.html
     class QJSEngine < RubyQt6::QtCore::QObject
-      # @!visibility private
+      # @!parse
       q_object do
         signal "uiLanguageChanged()"
       end

@@ -7,7 +7,7 @@ module RubyQt6
       # @!parse class Direction; end
       rubyqt6_include_constants QBoxLayout, QBoxLayout::Direction
 
-      # @!visibility private
+      # @!parse
       q_object do
       end
 

@@ -4,7 +4,7 @@ module RubyQt6
   module QtWidgets
     # @see https://doc.qt.io/qt-6/qhboxlayout.html
     class QHBoxLayout < RubyQt6::QtWidgets::QBoxLayout
-      # @!visibility private
+      # @!parse
       q_object do
       end
 

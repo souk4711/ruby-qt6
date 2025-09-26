@@ -4,7 +4,7 @@ module RubyQt6
   module QtWidgets
     # @see https://doc.qt.io/qt-6/qgridlayout.html
     class QGridLayout < RubyQt6::QtWidgets::QLayout
-      # @!visibility private
+      # @!parse
       q_object do
       end
 

@@ -4,7 +4,7 @@ module RubyQt6
   module QtWidgets
     # @see https://doc.qt.io/qt-6/qabstractbutton.html
     class QAbstractButton < RubyQt6::QtWidgets::QWidget
-      # @!visibility private
+      # @!parse
       q_object do
         signal "clicked(bool)"
         signal "clicked()"

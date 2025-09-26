@@ -7,7 +7,7 @@ module RubyQt6
       # @!parse class RenderFlag; end
       rubyqt6_include_constants QWidget, QWidget::RenderFlag
 
-      # @!visibility private
+      # @!parse
       q_object do
         signal "customContextMenuRequested(QPoint)"
         signal "windowIconChanged(QIcon)"

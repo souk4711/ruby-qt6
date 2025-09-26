@@ -4,7 +4,7 @@ module RubyQt6
   module QtCore
     # @see https://doc.qt.io/qt-6/qcoreapplication.html
     class QCoreApplication < RubyQt6::QtCore::QObject
-      # @!visibility private
+      # @!parse
       q_object do
         signal "aboutToQuit()"
         signal "applicationNameChanged()"

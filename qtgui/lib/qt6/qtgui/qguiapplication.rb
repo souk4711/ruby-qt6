@@ -4,7 +4,7 @@ module RubyQt6
   module QtGui
     # @see https://doc.qt.io/qt-6/qguiapplication.html
     class QGuiApplication < RubyQt6::QtCore::QCoreApplication
-      # @!visibility private
+      # @!parse
       q_object do
         signal "applicationDisplayNameChanged()"
         signal "applicationStateChanged(Qt::ApplicationState)"

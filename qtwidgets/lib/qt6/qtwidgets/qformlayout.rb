@@ -13,7 +13,7 @@ module RubyQt6
       rubyqt6_include_constants QFormLayout, QFormLayout::RowWrapPolicy
       rubyqt6_include_constants QFormLayout, QFormLayout::TakeRowResult
 
-      # @!visibility private
+      # @!parse
       q_object do
       end
 

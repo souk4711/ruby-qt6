@@ -9,7 +9,7 @@ module RubyQt6
       rubyqt6_include_constants QFrame, QFrame::Shadow
       rubyqt6_include_constants QFrame, QFrame::Shape
 
-      # @!visibility private
+      # @!parse
       q_object do
       end
 

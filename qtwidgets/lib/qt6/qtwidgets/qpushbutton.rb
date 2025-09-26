@@ -4,7 +4,7 @@ module RubyQt6
   module QtWidgets
     # @see https://doc.qt.io/qt-6/qpushbutton.html
     class QPushButton < RubyQt6::QtWidgets::QAbstractButton
-      # @!visibility private
+      # @!parse
       q_object do
         slot "showMenu()"
       end

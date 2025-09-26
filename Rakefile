@@ -38,7 +38,7 @@ namespace :bindgen do
 
   desc "Generate Rice bindings for qlass"
   task :rbext, [:qlass] do |_, args|
-    name = args.qlass
+    name = args.qlass.to_s
     Dir["vendor/qt6rice/*/#{name.downcase}-rb.*"].each do |file|
       m = file.match("/(Qt.*)/(.*)")
       submod = m[1]
@@ -81,6 +81,22 @@ task :spec do
       sh "bundle check || bundle install"
       sh "BUNDLE_GEMFILE= bundle exec rspec"
     end
+  end
+end
+
+desc "Generate YARD Documentation"
+task :yard, [:server] do |_, args|
+  src = "tmp/tasks/yardoc/src"
+
+  sh "rm -rf #{src} && mkdir -p #{src}"
+  sh "cp -rv qt*/lib #{src}"
+
+  Dir.chdir(src) do
+    yardopts = []
+    yardopts << "-n"
+    yardopts << "--exclude lib/mkmf-rubyqt6.rb"
+    sh "yard #{yardopts.join(" ")}"
+    sh "yard server" if args.server
   end
 end
 

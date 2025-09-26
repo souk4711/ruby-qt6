@@ -43,7 +43,7 @@ module RubyQt6
         nil
       end
 
-      # @!visibility private
+      # @!parse
       q_object do
         signal "destroyed(QObject*)"
         signal "destroyed()"

@@ -4,7 +4,7 @@ module RubyQt6
   module QtWidgets
     # @see https://doc.qt.io/qt-6/qlabel.html
     class QLabel < RubyQt6::QtWidgets::QFrame
-      # @!visibility private
+      # @!parse
       q_object do
         signal "linkActivated(QString)"
         signal "linkHovered(QString)"

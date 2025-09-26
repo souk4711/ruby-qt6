@@ -9,7 +9,7 @@ module RubyQt6
       rubyqt6_include_constants QLCDNumber, QLCDNumber::Mode
       rubyqt6_include_constants QLCDNumber, QLCDNumber::SegmentStyle
 
-      # @!visibility private
+      # @!parse
       q_object do
         signal "overflow()"
         slot "display(QString)"

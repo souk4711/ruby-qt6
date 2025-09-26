@@ -9,7 +9,7 @@ module RubyQt6
       rubyqt6_include_constants QWindow, QWindow::AncestorMode
       rubyqt6_include_constants QWindow, QWindow::Visibility
 
-      # @!visibility private
+      # @!parse
       q_object do
         signal "activeChanged()"
         signal "contentOrientationChanged(Qt::ScreenOrientation)"
