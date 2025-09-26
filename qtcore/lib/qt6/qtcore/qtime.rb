@@ -17,8 +17,13 @@ module RubyQt6
       end
 
       # @!visibility private
+      def to_s
+        to_string(Qt::RFC2822Date).to_s
+      end
+
+      # @!visibility private
       def inspect
-        T.q_inspect(self, hour: hour, minute: minute, second: second, msec: msec)
+        T.q_inspect(self, str: to_s)
       end
     end
   end

@@ -31,6 +31,12 @@ module RubyQt6
       def initialize(*args)
         _initialize(*args)
       end
+
+      # @!visibility private
+      def inspect
+        rgb = name(QColor::NameFormat::HexRgb).to_s
+        T.q_inspect(self, rgb:)
+      end
     end
   end
 end

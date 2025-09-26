@@ -41,6 +41,16 @@ module RubyQt6
         args[0] = T.to_qstr(args[0]) if args[0].is_a?(String)
         _initialize(*args)
       end
+
+      # @!visibility private
+      def to_s
+        to_string.to_s
+      end
+
+      # @!visibility private
+      def inspect
+        T.q_inspect(self, str: to_s)
+      end
     end
   end
 end

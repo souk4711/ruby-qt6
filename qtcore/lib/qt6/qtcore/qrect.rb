@@ -28,7 +28,7 @@ module RubyQt6
 
       # @!visibility private
       def inspect
-        T.q_inspect(self, x: x, y: y, width: width, height: height)
+        T.q_inspect(self, x:, y:, width:, height:)
       end
     end
   end
