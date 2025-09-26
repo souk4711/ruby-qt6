@@ -4,6 +4,8 @@ module RubyQt6
   module QtCore
     # @see https://doc.qt.io/qt-6/quuid.html
     class QUuid
+      include ::Comparable
+
       # @!parse class StringFormat; end
       # @!parse class Variant     ; end
       # @!parse class Version     ; end
@@ -22,7 +24,13 @@ module RubyQt6
 
       # @!visibility private
       def to_s
-        to_string.to_s
+        to_string(QUuid::StringFormat::WithoutBraces).to_s
+      end
+
+      # @!visibility private
+      def <=>(other)
+        return nil unless other.is_a?(QtCore::QUuid)
+        self.class._compare(self, other)
       end
 
       # @!visibility private
