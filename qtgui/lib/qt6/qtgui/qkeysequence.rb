@@ -31,7 +31,7 @@ module RubyQt6
       #   @param k3 [Integer]
       #   @param k4 [Integer]
       def initialize(*args)
-        args[0] = T.to_qstr(args[0]) if args[0].is_a?(String)
+        args[0] = T.to_qstr(args[0]) if args[0].is_a?(::String)
         _initialize(*args)
       end
 

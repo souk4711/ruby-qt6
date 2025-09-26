@@ -22,7 +22,7 @@ module RubyQt6
       # @overload initialize(pixmap)
       #   @param pixmap [QPixmap]
       def initialize(*args)
-        args[0] = T.to_qstr(args[0]) if args[0].is_a?(String)
+        args[0] = T.to_qstr(args[0]) if args[0].is_a?(::String)
         _initialize(*args)
       end
     end
