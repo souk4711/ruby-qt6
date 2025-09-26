@@ -74,6 +74,16 @@ namespace :bindgen do
   end
 end
 
+desc "Run Rubocop linter"
+task :rubocop do
+  QT6_LIBS.concat(["Qt"]).each do |lib|
+    Dir.chdir(lib.downcase) do
+      sh "bundle check || bundle install"
+      sh "BUNDLE_GEMFILE= bundle exec rubocop -A"
+    end
+  end
+end
+
 desc "Run RSpec code examples"
 task :spec do
   QT6_LIBS.concat(["Qt"]).each do |lib|
@@ -84,7 +94,7 @@ task :spec do
   end
 end
 
-desc "Generate YARD Documentation"
+desc "Run YARD documentation"
 task :yard, [:server] do |_, args|
   src = "tmp/tasks/yardoc/src"
 
