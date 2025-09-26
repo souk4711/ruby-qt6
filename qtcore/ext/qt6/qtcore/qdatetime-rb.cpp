@@ -9,18 +9,41 @@ Rice::Class rb_cQDateTime;
 Rice::Class rb_cQDate;
 Rice::Class rb_cQTime;
 
+int QDateTime_compare(QDateTime *lhs, QDateTime *rhs)
+{
+    if (*lhs < *rhs) return -1;
+    if (*lhs > *rhs) return  1;
+    return 0;
+}
+
+int QDate_compare(QDate *lhs, QDate *rhs)
+{
+    if (*lhs < *rhs) return -1;
+    if (*lhs > *rhs) return  1;
+    return 0;
+}
+
+int QTime_compare(QTime *lhs, QTime *rhs)
+{
+    if (*lhs < *rhs) return -1;
+    if (*lhs > *rhs) return  1;
+    return 0;
+}
+
 void Init_qdatetime(Rice::Module rb_mQt6QtCore)
 {
     rb_cQDateTime =
         // RubyQt6::QtCore::QDateTime
         define_class_under<QDateTime>(rb_mQt6QtCore, "QDateTime")
+            // RubyQt6-Defined Functions
+            .define_singleton_function("_compare", QDateTime_compare, Arg("lhs"), Arg("rhs"))
             // Constructor
             .define_constructor(Constructor<QDateTime, QDate, QTime, const QTimeZone &, QDateTime::TransitionResolution>(), Arg("date"), Arg("time"), Arg("time_zone"), Arg("resolve") = static_cast<QDateTime::TransitionResolution>(QDateTime::TransitionResolution::LegacyBehavior))
             .define_constructor(Constructor<QDateTime, QDate, QTime, QDateTime::TransitionResolution>(), Arg("date"), Arg("time"), Arg("resolve") = static_cast<QDateTime::TransitionResolution>(QDateTime::TransitionResolution::LegacyBehavior))
             // Public Functions
             .define_method("add_days", &QDateTime::addDays, Arg("days"))
             .define_method("add_duration", &QDateTime::addDuration, Arg("msecs"))
-            .define_method("add_m_secs", &QDateTime::addMSecs, Arg("msecs"))
+            .define_method("add_msecs", &QDateTime::addMSecs, Arg("msecs"))
             .define_method("add_months", &QDateTime::addMonths, Arg("months"))
             .define_method("add_secs", &QDateTime::addSecs, Arg("secs"))
             .define_method("add_years", &QDateTime::addYears, Arg("years"))
@@ -33,7 +56,7 @@ void Init_qdatetime(Rice::Module rb_mQt6QtCore)
             .define_method("offset_from_utc", &QDateTime::offsetFromUtc)
             .define_method("secs_to", &QDateTime::secsTo, Arg("other"))
             .define_method("set_date", &QDateTime::setDate, Arg("date"), Arg("resolve") = static_cast<QDateTime::TransitionResolution>(QDateTime::TransitionResolution::LegacyBehavior))
-            .define_method("set_m_secs_since_epoch", &QDateTime::setMSecsSinceEpoch, Arg("msecs"))
+            .define_method("set_msecs_since_epoch", &QDateTime::setMSecsSinceEpoch, Arg("msecs"))
             .define_method("set_secs_since_epoch", &QDateTime::setSecsSinceEpoch, Arg("secs"))
             .define_method("set_time", &QDateTime::setTime, Arg("time"), Arg("resolve") = static_cast<QDateTime::TransitionResolution>(QDateTime::TransitionResolution::LegacyBehavior))
             .define_method("set_time_zone", &QDateTime::setTimeZone, Arg("to_zone"), Arg("resolve") = static_cast<QDateTime::TransitionResolution>(QDateTime::TransitionResolution::LegacyBehavior))
@@ -44,7 +67,7 @@ void Init_qdatetime(Rice::Module rb_mQt6QtCore)
             .define_method("time_zone", &QDateTime::timeZone)
             .define_method("time_zone_abbreviation", &QDateTime::timeZoneAbbreviation)
             .define_method("to_local_time", &QDateTime::toLocalTime)
-            .define_method("to_m_secs_since_epoch", &QDateTime::toMSecsSinceEpoch)
+            .define_method("to_msecs_since_epoch", &QDateTime::toMSecsSinceEpoch)
             .define_method("to_offset_from_utc", &QDateTime::toOffsetFromUtc, Arg("offset_seconds"))
             .define_method("to_secs_since_epoch", &QDateTime::toSecsSinceEpoch)
             .define_method<QString (QDateTime::*)(Qt::DateFormat) const>("to_string", &QDateTime::toString, Arg("format") = static_cast<Qt::DateFormat>(Qt::TextDate))
@@ -56,10 +79,10 @@ void Init_qdatetime(Rice::Module rb_mQt6QtCore)
             .define_singleton_function<QDateTime (*)()>("current_date_time", &QDateTime::currentDateTime)
             .define_singleton_function<QDateTime (*)(const QTimeZone &)>("current_date_time", &QDateTime::currentDateTime, Arg("zone"))
             .define_singleton_function("current_date_time_utc", &QDateTime::currentDateTimeUtc)
-            // .define_singleton_function("current_m_secs_since_epoch", &QDateTime::currentMSecsSinceEpoch)
+            // .define_singleton_function("current_msecs_since_epoch", &QDateTime::currentMSecsSinceEpoch)
             // .define_singleton_function("current_secs_since_epoch", &QDateTime::currentSecsSinceEpoch)
-            .define_singleton_function<QDateTime (*)(qint64)>("from_m_secs_since_epoch", &QDateTime::fromMSecsSinceEpoch, Arg("msecs"))
-            .define_singleton_function<QDateTime (*)(qint64, const QTimeZone &)>("from_m_secs_since_epoch", &QDateTime::fromMSecsSinceEpoch, Arg("msecs"), Arg("time_zone"))
+            .define_singleton_function<QDateTime (*)(qint64)>("from_msecs_since_epoch", &QDateTime::fromMSecsSinceEpoch, Arg("msecs"))
+            .define_singleton_function<QDateTime (*)(qint64, const QTimeZone &)>("from_msecs_since_epoch", &QDateTime::fromMSecsSinceEpoch, Arg("msecs"), Arg("time_zone"))
             .define_singleton_function<QDateTime (*)(qint64)>("from_secs_since_epoch", &QDateTime::fromSecsSinceEpoch, Arg("secs"))
             .define_singleton_function<QDateTime (*)(qint64, const QTimeZone &)>("from_secs_since_epoch", &QDateTime::fromSecsSinceEpoch, Arg("secs"), Arg("time_zone"))
             .define_singleton_function("from_std_time_point", &QDateTime::fromStdTimePoint, Arg("time"))
@@ -83,6 +106,8 @@ void Init_qdatetime(Rice::Module rb_mQt6QtCore)
     rb_cQDate =
         // RubyQt6::QtCore::QDate
         define_class_under<QDate>(rb_mQt6QtCore, "QDate")
+            // RubyQt6-Defined Functions
+            .define_singleton_function("_compare", QDate_compare, Arg("lhs"), Arg("rhs"))
             // Constructor
             .define_constructor(Constructor<QDate, int, int, int>(), Arg("y"), Arg("m"), Arg("d"))
             // Public Functions
@@ -133,10 +158,12 @@ void Init_qdatetime(Rice::Module rb_mQt6QtCore)
     rb_cQTime =
         // RubyQt6::QtCore::QTime
         define_class_under<QTime>(rb_mQt6QtCore, "QTime")
+            // RubyQt6-Defined Functions
+            .define_singleton_function("_compare", QTime_compare, Arg("lhs"), Arg("rhs"))
             // Constructor
             .define_constructor(Constructor<QTime, int, int, int, int>(), Arg("h"), Arg("m"), Arg("s") = static_cast<int>(0), Arg("ms") = static_cast<int>(0))
             // Public Functions
-            .define_method("add_m_secs", &QTime::addMSecs, Arg("ms"))
+            .define_method("add_msecs", &QTime::addMSecs, Arg("ms"))
             .define_method("add_secs", &QTime::addSecs, Arg("secs"))
             .define_method("hour", &QTime::hour)
             .define_method("null?", &QTime::isNull)
@@ -152,7 +179,7 @@ void Init_qdatetime(Rice::Module rb_mQt6QtCore)
             .define_method<QString (QTime::*)(const QString &) const>("to_string", &QTime::toString, Arg("format"))
             // Static Public Members
             .define_singleton_function("current_time", &QTime::currentTime)
-            .define_singleton_function("from_m_secs_since_start_of_day", &QTime::fromMSecsSinceStartOfDay, Arg("msecs"))
+            .define_singleton_function("from_msecs_since_start_of_day", &QTime::fromMSecsSinceStartOfDay, Arg("msecs"))
             .define_singleton_function<QTime (*)(const QString &, Qt::DateFormat)>("from_string", &QTime::fromString, Arg("string"), Arg("format") = static_cast<Qt::DateFormat>(Qt::TextDate))
             .define_singleton_function<QTime (*)(const QString &, const QString &)>("from_string", &QTime::fromString, Arg("string"), Arg("format"))
             .define_singleton_function<bool (*)(int, int, int, int)>("valid?", &QTime::isValid, Arg("h"), Arg("m"), Arg("s"), Arg("ms") = static_cast<int>(0));

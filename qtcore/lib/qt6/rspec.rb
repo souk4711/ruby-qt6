@@ -17,6 +17,7 @@ module RubyQt6
 
     def self.inflector
       @inflector ||= ::Dry::Inflector.new do |inflections|
+        inflections.acronym "MSecs"
         inflections.acronym "QBitmap"
         inflections.acronym "QMetaObject"
         inflections.acronym "QObject"

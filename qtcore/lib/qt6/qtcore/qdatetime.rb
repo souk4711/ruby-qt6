@@ -4,6 +4,8 @@ module RubyQt6
   module QtCore
     # @see https://doc.qt.io/qt-6/qdatetime.html
     class QDateTime
+      include ::Comparable
+
       # @!parse class TransitionResolution; end
       rubyqt6_include_constants QDateTime, QDateTime::TransitionResolution
 
@@ -28,7 +30,13 @@ module RubyQt6
 
       # @!visibility private
       def to_s
-        to_string(Qt::RFC2822Date).to_s
+        to_string(QtCore::Qt::RFC2822Date).to_s
+      end
+
+      # @!visibility private
+      def <=>(other)
+        return nil unless other.is_a?(QtCore::QDateTime)
+        self.class._compare(self, other)
       end
 
       # @!visibility private

@@ -4,6 +4,8 @@ module RubyQt6
   module QtCore
     # @see https://doc.qt.io/qt-6/qdate.html
     class QDate
+      include ::Comparable
+
       # @!visibility private
       alias_method :_initialize, :initialize
 
@@ -17,7 +19,13 @@ module RubyQt6
 
       # @!visibility private
       def to_s
-        to_string(Qt::RFC2822Date).to_s
+        to_string(QtCore::Qt::RFC2822Date).to_s
+      end
+
+      # @!visibility private
+      def <=>(other)
+        return nil unless other.is_a?(QtCore::QDate)
+        self.class._compare(self, other)
       end
 
       # @!visibility private
