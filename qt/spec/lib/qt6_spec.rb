@@ -24,7 +24,7 @@ RSpec.describe RubyQt6 do
   end
 
   describe "Bando::<...>" do
-    qlasses = [
+    todo_qlasses = [
       RubyQt6::QtWidgets::QLayout,
       RubyQt6::QtWidgets::QBoxLayout,
       RubyQt6::QtWidgets::QHBoxLayout,
@@ -48,7 +48,7 @@ RSpec.describe RubyQt6 do
       next unless cls.ancestors.include?(RubyQt6::QtCore::QObject)
 
       it "define Bando::#{klass}" do
-        skip if qlasses.include?(cls)
+        skip if todo_qlasses.include?(cls)
         expect(RubyQt6::Bando.constants).to include(klass)
       end
     end

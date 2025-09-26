@@ -25,6 +25,17 @@ module RubyQt6
       end
 
       # @!visibility private
+      def to_str
+        to_s
+      end
+
+      # @!visibility private
+      def ==(other)
+        return false unless other.respond_to?(:to_str)
+        to_str == other.to_str
+      end
+
+      # @!visibility private
       def inspect
         T.q_inspect(self, str: to_s)
       end
