@@ -9,17 +9,11 @@ RSpec.describe RubyQt6::QtCore::QString do
     expect("ハロー・" + o).to eq("ハロー・ワールド")
   end
 
-  it "#==" do
-    o = described_class.new("foo")
-    expect(o == "foo").to be_truthy
-    expect(o == "food").to be_falsy
-    expect(o == "FOO").to be_falsy
-  end
-
-  it "#===" do
-    o = described_class.new("foo")
-    expect(o === "foo").to be_truthy
-    expect(o === "food").to be_falsy
-    expect(o === "FOO").to be_falsy
+  it "#<=>" do
+    ["foo", "food", "FOO", 1, nil].each do |other|
+      rstr = "foo"
+      qstr = described_class.new(rstr)
+      expect(qstr <=> other).to eq(rstr <=> other)
+    end
   end
 end

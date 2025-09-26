@@ -4,6 +4,8 @@ module RubyQt6
   module QtCore
     # @see https://doc.qt.io/qt-6/qstring.html
     class QString
+      include ::Comparable
+
       # @!visibility private
       alias_method :_initialize, :initialize
 
@@ -26,13 +28,13 @@ module RubyQt6
 
       # @!visibility private
       def to_str
-        to_s
+        to_std_string
       end
 
       # @!visibility private
-      def ==(other)
-        return false unless other.respond_to?(:to_str)
-        to_str == other.to_str
+      def <=>(other)
+        return nil unless other.respond_to?(:to_str)
+        to_str <=> other.to_str
       end
 
       # @!visibility private
