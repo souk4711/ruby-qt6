@@ -78,6 +78,7 @@ desc "Run Rake compiler"
 task :compile, [:clobber] do |_, args|
   compile =  -> (lib) do
     Dir.chdir(lib.downcase) do
+      puts "cd #{lib.downcase}"
       sh "rm -rf tmp" if args.clobber
       sh "bundle check || bundle install"
       sh "BUNDLE_GEMFILE= bundle exec rake compile"
@@ -96,6 +97,7 @@ desc "Run Rubocop linter"
 task :rubocop do
   QT6_LIBS.concat(["Qt"]).each do |lib|
     Dir.chdir(lib.downcase) do
+      puts "cd #{lib.downcase}"
       sh "bundle check || bundle install"
       sh "BUNDLE_GEMFILE= bundle exec rubocop -A"
     end
@@ -106,6 +108,7 @@ desc "Run RSpec code examples"
 task :spec do
   QT6_LIBS.concat(["Qt"]).each do |lib|
     Dir.chdir(lib.downcase) do
+      puts "cd #{lib.downcase}"
       sh "bundle check || bundle install"
       sh "BUNDLE_GEMFILE= bundle exec rspec"
     end
