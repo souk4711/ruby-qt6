@@ -3,6 +3,7 @@ PATH
   specs:
     ruby-qt6-qtcore (0.1.0)
       dry-inflector (~> 1.2)
+      logger
       rice (~> 4.6)
       semantic_logger (~> 4.17)
 
