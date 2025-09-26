@@ -22,7 +22,7 @@ module RubyQt6
 
       # @!visibility private
       def inspect
-        T.q_inspect(self, str: to_s)
+        T.q_inspect(self, year:, month:, day:)
       end
     end
   end
