@@ -74,6 +74,24 @@ namespace :bindgen do
   end
 end
 
+desc "Run Rake compiler"
+task :compile, [:clobber] do |_, args|
+  compile =  -> (lib) do
+    Dir.chdir(lib.downcase) do
+      sh "rm -rf tmp" if args.clobber
+      sh "bundle check || bundle install"
+      sh "BUNDLE_GEMFILE= bundle exec rake compile"
+    end
+  end
+
+  if args.clobber
+    require "parallel"
+    Parallel.each(QT6_LIBS, &compile)
+  else
+    QT6_LIBS.each(&compile)
+  end
+end
+
 desc "Run Rubocop linter"
 task :rubocop do
   QT6_LIBS.concat(["Qt"]).each do |lib|
