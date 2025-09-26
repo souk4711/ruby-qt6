@@ -45,9 +45,9 @@ class GameBoard < QWidget
     hits_label = QLabel.new('HITS', self)
     shots_left_label = QLabel.new('SHOTS LEFT', self)
 
-    # QShortcut.new(Qt::KeySequence.new(Qt::Key_Enter), self, SLOT('fire()'))
-    # QShortcut.new(Qt::KeySequence.new(Qt::Key_Return), self, SLOT('fire()'))
-    # QShortcut.new(Qt::KeySequence.new(Qt::CTRL + Qt::Key_Q), self, SLOT('close()'))
+    QShortcut.new(QKeySequence.new(Qt::Key_Enter), self).activated.connect(self, :fire)
+    QShortcut.new(QKeySequence.new(Qt::Key_Return), self).activated.connect(self, :fire)
+    QShortcut.new(QKeySequence.new(Qt::CTRL.to_i + Qt::Key_Q.to_i), self).activated.connect(self, :close)
 
     top_layout = QHBoxLayout.new
     top_layout.add_widget(shoot)
