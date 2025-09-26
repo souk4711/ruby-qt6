@@ -16,4 +16,4 @@ require "rspec/core/rake_task"
 RSpec::Core::RakeTask.new(:spec)
 
 task build: :compile
-task default: %i[clobber compile]
+task default: %i[compile spec]
