@@ -21,5 +21,6 @@ RSpec.describe RubyQt6::QtCore::QDateTime do
     expect(described_class.new(date, time)).to be > described_class.new(date, time).add_msecs(-7)
     expect(described_class.new(date, time)).to be == described_class.new(date, time)
     expect(described_class.new(date, time) <=> 7777).to be_nil
+    expect(described_class.new(date, time) <=> nil).to be_nil
   end
 end

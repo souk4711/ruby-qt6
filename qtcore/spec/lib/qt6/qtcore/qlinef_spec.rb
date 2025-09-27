@@ -21,5 +21,8 @@ RSpec.describe RubyQt6::QtCore::QLineF do
 
     expect(described_class.new(1.0, 2.0, 3.0, 4.0)).to eq(RubyQt6::QtCore::QLine.new(1, 2, 3, 4))
     expect(described_class.new(1.0, 2.0, 3.0, 4.0)).not_to eq(RubyQt6::QtCore::QLine.new(1, 2, 3, 5))
+
+    expect(described_class.new(1.0, 2.0, 3.0, 4.0)).not_to eq(1.0)
+    expect(described_class.new(1.0, 2.0, 3.0, 4.0)).not_to eq(nil)
   end
 end

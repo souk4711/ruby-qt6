@@ -21,5 +21,6 @@ RSpec.describe RubyQt6::QtCore::QString do
     expect(described_class.new("FOO") <=> "foo").to eq(-1)
     expect(described_class.new("foo") <=> "FOO").to eq(1)
     expect(described_class.new("foo") <=> 1).to eq(nil)
+    expect(described_class.new("foo") <=> nil).to eq(nil)
   end
 end

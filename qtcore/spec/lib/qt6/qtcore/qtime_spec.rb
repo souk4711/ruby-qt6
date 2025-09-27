@@ -17,5 +17,6 @@ RSpec.describe RubyQt6::QtCore::QTime do
     expect(described_class.new(7, 7, 7)).to be > described_class.new(7, 7, 6)
     expect(described_class.new(7, 7, 7)).to be == described_class.new(7, 7, 7)
     expect(described_class.new(7, 7, 7) <=> 7).to be_nil
+    expect(described_class.new(7, 7, 7) <=> nil).to be_nil
   end
 end

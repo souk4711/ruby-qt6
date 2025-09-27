@@ -11,5 +11,8 @@ RSpec.describe RubyQt6::QtCore::QSize do
 
     expect(described_class.new(3, 7)).to eq(RubyQt6::QtCore::QSizeF.new(3.0, 7.0))
     expect(described_class.new(3, 7)).not_to eq(RubyQt6::QtCore::QSizeF.new(3.0, 7.1))
+
+    expect(described_class.new(3, 7)).not_to eq(3)
+    expect(described_class.new(3, 7)).not_to eq(nil)
   end
 end
