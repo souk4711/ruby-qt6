@@ -26,10 +26,6 @@ RSpec.describe RubyQt6 do
   describe "Bando::<...>" do
     todo_qlasses = [
       RubyQt6::QtWidgets::QLayout,
-      RubyQt6::QtWidgets::QBoxLayout,
-      RubyQt6::QtWidgets::QHBoxLayout,
-      RubyQt6::QtWidgets::QVBoxLayout,
-      RubyQt6::QtWidgets::QFormLayout,
       RubyQt6::QtWidgets::QGridLayout,
       RubyQt6::QtWidgets::QStackedLayout,
       RubyQt6::QtWidgets::QAbstractButton,
