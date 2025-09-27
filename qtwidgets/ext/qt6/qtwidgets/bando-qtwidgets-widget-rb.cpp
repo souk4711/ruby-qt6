@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QPushButton>
 #include <QSlider>
+#include <QDialog>
 #include <QFrame>
 #include <QLabel>
 #include <QLCDNumber>
@@ -13,6 +14,7 @@ using namespace Rice;
 using Bando_QWidget = BandoQWidget<QWidget, QWidget *>;
 using Bando_QPushButton = BandoQWidget<QPushButton, const QString &, QWidget *>;
 using Bando_QSlider = BandoQWidget<QSlider, Qt::Orientation, QWidget *>;
+using Bando_QDialog = BandoQWidget<QDialog, QWidget *>;
 using Bando_QFrame = BandoQWidget<QFrame, QWidget *>;
 using Bando_QLabel = BandoQWidget<QLabel, const QString &, QWidget *>;
 using Bando_QLCDNumber = BandoQWidget<QLCDNumber, uint, QWidget *>;
@@ -20,6 +22,7 @@ using Bando_QLCDNumber = BandoQWidget<QLCDNumber, uint, QWidget *>;
 Rice::Class rb_mBando_cQWidget;
 Rice::Class rb_mBando_cQPushButton;
 Rice::Class rb_mBando_cQSlider;
+Rice::Class rb_mBando_cQDialog;
 Rice::Class rb_mBando_cQFrame;
 Rice::Class rb_mBando_cQLabel;
 Rice::Class rb_mBando_cQLCDNumber;
@@ -40,6 +43,11 @@ void Init_bando_qtwidgets_widget(Rice::Module rb_mQt6Bando)
         define_class_under<Bando_QSlider, QSlider>(rb_mQt6Bando, "QSlider")
             .define_constructor(Constructor<Bando_QSlider, Qt::Orientation, QWidget *>(), Arg("orientation"), Arg("parent"))
             .define_method("_initialize_value", &Bando_QSlider::initializeValue, Arg("mo"), Arg("value"));
+
+    rb_mBando_cQDialog =
+        define_class_under<Bando_QDialog, QDialog>(rb_mQt6Bando, "QDialog")
+            .define_constructor(Constructor<Bando_QDialog, QWidget *>(), Arg("parent"))
+            .define_method("_initialize_value", &Bando_QDialog::initializeValue, Arg("mo"), Arg("value"));
 
     rb_mBando_cQFrame =
         define_class_under<Bando_QFrame, QFrame>(rb_mQt6Bando, "QFrame")
