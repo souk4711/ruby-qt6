@@ -8,7 +8,6 @@ module RubyQt6
   # @!visibility private
   module RSpec
     NO_VERIFY_QLASS_INITIALIZE = QlassFileParser::NESTED_QLASSES + [
-      "QStackedLayout",
       "QVariant"
     ]
     NO_VERIFY_QLASS_LEADING_UNDERSCORE_METHODS = {
