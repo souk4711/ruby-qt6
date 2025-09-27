@@ -8,6 +8,7 @@
 #include <QVBoxLayout>
 #include <QFormLayout>
 #include <QGridLayout>
+#include <QStackedLayout>
 #include <QWidget>
 
 using namespace Rice;
@@ -18,6 +19,7 @@ using Bando_QHBoxLayout = BandoQLayout<QHBoxLayout, QWidget *>;
 using Bando_QVBoxLayout = BandoQLayout<QVBoxLayout, QWidget *>;
 using Bando_QFormLayout = BandoQLayout<QFormLayout, QWidget *>;
 using Bando_QGridLayout = BandoQLayout<QGridLayout, QWidget *>;
+using Bando_QStackedLayout = BandoQLayout<QStackedLayout, QWidget *>;
 
 Rice::Class rb_mBando_cQApplication;
 Rice::Class rb_mBando_cQBoxLayout;
@@ -25,6 +27,7 @@ Rice::Class rb_mBando_cQHBoxLayout;
 Rice::Class rb_mBando_cQVBoxLayout;
 Rice::Class rb_mBando_cQFormLayout;
 Rice::Class rb_mBando_cQGridLayout;
+Rice::Class rb_mBando_cQStackedLayout;
 
 void Init_bando_qtwidgets_layout(Rice::Module rb_mQt6Bando)
 {
@@ -57,4 +60,9 @@ void Init_bando_qtwidgets_layout(Rice::Module rb_mQt6Bando)
         define_class_under<Bando_QGridLayout, QGridLayout>(rb_mQt6Bando, "QGridLayout")
             .define_constructor(Constructor<Bando_QGridLayout, QWidget *>(), Arg("parent"))
             .define_method("_initialize_value", &Bando_QGridLayout::initializeValue, Arg("mo"), Arg("value"));
+
+    rb_mBando_cQStackedLayout =
+        define_class_under<Bando_QStackedLayout, QStackedLayout>(rb_mQt6Bando, "QStackedLayout")
+            .define_constructor(Constructor<Bando_QStackedLayout, QWidget *>(), Arg("parent"))
+            .define_method("_initialize_value", &Bando_QStackedLayout::initializeValue, Arg("mo"), Arg("value"));
 }

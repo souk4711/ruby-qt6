@@ -19,7 +19,7 @@ module RubyQt6
       # @!visibility private
       alias_method :_initialize, :initialize
 
-      # @param parent [QWidget, QLayout]
+      # @param parent [QWidget]
       # @return [QStackedLayout]
       def initialize(parent = nil)
         _initialize(parent)

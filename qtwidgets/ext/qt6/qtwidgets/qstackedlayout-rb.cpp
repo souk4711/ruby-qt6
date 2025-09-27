@@ -16,7 +16,6 @@ void Init_qstackedlayout(Rice::Module rb_mQt6QtWidgets)
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QStackedLayout::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QStackedLayout, QWidget *>(), Arg("parent"))
-            .define_constructor(Constructor<QStackedLayout, QLayout *>(), Arg("parent_layout"))
             // Public Functions
             .define_method("add_item", &QStackedLayout::addItem, Arg("item").takeOwnership())
             .define_method("add_widget", &QStackedLayout::addWidget, Arg("widget").takeOwnership())

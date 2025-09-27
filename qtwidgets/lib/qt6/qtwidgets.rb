@@ -34,6 +34,7 @@ require_relative "bando/qhboxlayout"
 require_relative "bando/qvboxlayout"
 require_relative "bando/qformlayout"
 require_relative "bando/qgridlayout"
+require_relative "bando/qstackedlayout"
 
 require_relative "bando/qwidget"
 require_relative "bando/qpushbutton"
