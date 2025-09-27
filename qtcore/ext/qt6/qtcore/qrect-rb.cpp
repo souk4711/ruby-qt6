@@ -11,6 +11,9 @@ void Init_qrect(Rice::Module rb_mQt6QtCore)
     rb_cQRect =
         // RubyQt6::QtCore::QRect
         define_class_under<QRect>(rb_mQt6QtCore, "QRect")
+            // RubyQt6-Defined Functions
+            .define_singleton_function("_operator_equal", [](QRect *lhs, QRect  *rhs) -> bool { return *lhs == *rhs; }, Arg("lhs"), Arg("rhs"))
+            .define_singleton_function("_operator_equal", [](QRect *lhs, QRectF *rhs) -> bool { return *lhs == *rhs; }, Arg("lhs"), Arg("rhs"))
             // Constructor
             .define_constructor(Constructor<QRect, int, int, int, int>(), Arg("x"), Arg("y"), Arg("width"), Arg("height"))
             .define_constructor(Constructor<QRect, const QPoint &, const QPoint &>(), Arg("top_left"), Arg("bottom_right"))
@@ -83,6 +86,9 @@ void Init_qrect(Rice::Module rb_mQt6QtCore)
     rb_cQRectF =
         // RubyQt6::QtCore::QRectF
         define_class_under<QRectF>(rb_mQt6QtCore, "QRectF")
+            // RubyQt6-Defined Functions
+            .define_singleton_function("_operator_equal", [](QRectF *lhs, QRect  *rhs) -> bool { return *lhs == *rhs; }, Arg("lhs"), Arg("rhs"))
+            .define_singleton_function("_operator_equal", [](QRectF *lhs, QRectF *rhs) -> bool { return *lhs == *rhs; }, Arg("lhs"), Arg("rhs"))
             // Constructor
             .define_constructor(Constructor<QRectF, qreal, qreal, qreal, qreal>(), Arg("x"), Arg("y"), Arg("width"), Arg("height"))
             .define_constructor(Constructor<QRectF, const QPointF &, const QPointF &>(), Arg("top_left"), Arg("bottom_right"))

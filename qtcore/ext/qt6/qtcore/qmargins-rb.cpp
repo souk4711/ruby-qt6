@@ -35,7 +35,7 @@ void Init_qmargins(Rice::Module rb_mQt6QtCore)
             .define_singleton_function("_operator_equal", [](QMarginsF *lhs, QMargins  *rhs) -> bool { return *lhs == *rhs; }, Arg("lhs"), Arg("rhs"))
             .define_singleton_function("_operator_equal", [](QMarginsF *lhs, QMarginsF *rhs) -> bool { return *lhs == *rhs; }, Arg("lhs"), Arg("rhs"))
             // Constructor
-            .define_constructor(Constructor<QMarginsF, int, int, int, int>(), Arg("left"), Arg("top"), Arg("right"), Arg("bottom"))
+            .define_constructor(Constructor<QMarginsF, qreal, qreal, qreal, qreal>(), Arg("left"), Arg("top"), Arg("right"), Arg("bottom"))
             .define_constructor(Constructor<QMarginsF, const QMargins &>(), Arg("margins"))
             // Public Functions
             .define_method("bottom", &QMarginsF::bottom)
