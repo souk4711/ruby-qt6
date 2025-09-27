@@ -10,6 +10,9 @@ module RubyQt6
     NO_VERIFY_QLASS_INITIALIZE = QlassFileParser::NESTED_QLASSES + [
       "QVariant"
     ]
+    NO_VERIFY_QLASS_VIRTUAL_METHODS = {
+      "QCoreApplication" => ["post_event", "send_event"]
+    }
     NO_VERIFY_QLASS_LEADING_UNDERSCORE_METHODS = {
       "QObject" => ["_connect", "_disconnect"]
     }
@@ -96,6 +99,12 @@ module RubyQt6
               raise method.inspect
             end
           end
+
+          # No virtual method
+          lambda do
+            return if NO_VERIFY_QLASS_VIRTUAL_METHODS[qlass.name]&.include?(method.rbname)
+            raise method.inspect if method.rbname.end_with?("_event")
+          end.call
 
           # No unknonwn leading underscore method
           if method.rbname.start_with?("_")

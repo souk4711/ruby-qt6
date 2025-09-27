@@ -79,7 +79,6 @@ void Init_qlineedit(Rice::Module rb_mQt6QtWidgets)
             .define_method("size_hint", &QLineEdit::sizeHint)
             .define_method("text", &QLineEdit::text)
             .define_method("text_margins", &QLineEdit::textMargins)
-            .define_method("timer_event", &QLineEdit::timerEvent, Arg("e"))
             .define_method("validator", &QLineEdit::validator)
             // Public Slots
             .define_method("clear", &QLineEdit::clear)
