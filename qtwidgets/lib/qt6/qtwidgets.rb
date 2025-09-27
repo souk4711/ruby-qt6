@@ -29,6 +29,10 @@ require_relative "qtwidgets/qlabel"
 require_relative "qtwidgets/qlcdnumber"
 
 require_relative "bando/qapplication"
+require_relative "bando/qboxlayout"
+require_relative "bando/qhboxlayout"
+require_relative "bando/qvboxlayout"
+
 require_relative "bando/qwidget"
 require_relative "bando/qpushbutton"
 require_relative "bando/qslider"

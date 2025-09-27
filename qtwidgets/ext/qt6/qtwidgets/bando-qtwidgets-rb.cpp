@@ -1,8 +1,10 @@
 #include "bando-qtwidgets-rb.hpp"
 #include <bando/qobject.hpp>
+#include <bando/qlayout.hpp>
 #include <bando/qwidget.hpp>
 
 #include <QApplication>
+#include <QBoxLayout>
 #include <QWidget>
 #include <QPushButton>
 #include <QSlider>
@@ -13,6 +15,9 @@
 using namespace Rice;
 
 using Bando_QApplication = BandoQObject<QApplication, int &, char **>;
+using Bando_QBoxLayout = BandoQLayout<QBoxLayout, QBoxLayout::Direction, QWidget *>;
+using Bando_QHBoxLayout = BandoQLayout<QHBoxLayout, QWidget *>;
+using Bando_QVBoxLayout = BandoQLayout<QVBoxLayout, QWidget *>;
 using Bando_QWidget = BandoQWidget<QWidget, QWidget *>;
 using Bando_QPushButton = BandoQWidget<QPushButton, const QString &, QWidget *>;
 using Bando_QSlider = BandoQWidget<QSlider, Qt::Orientation, QWidget *>;
@@ -21,6 +26,9 @@ using Bando_QLabel = BandoQWidget<QLabel, const QString &, QWidget *>;
 using Bando_QLCDNumber = BandoQWidget<QLCDNumber, uint, QWidget *>;
 
 Rice::Class rb_mBando_cQApplication;
+Rice::Class rb_mBando_cQBoxLayout;
+Rice::Class rb_mBando_cQHBoxLayout;
+Rice::Class rb_mBando_cQVBoxLayout;
 Rice::Class rb_mBando_cQWidget;
 Rice::Class rb_mBando_cQPushButton;
 Rice::Class rb_mBando_cQSlider;
@@ -34,6 +42,21 @@ void Init_bando_qtwidgets(Rice::Module rb_mQt6Bando)
         define_class_under<Bando_QApplication, QApplication>(rb_mQt6Bando, "QApplication")
             .define_constructor(Constructor<Bando_QApplication, int &, char **>(), Arg("argc"), Arg("argv"))
             .define_method("_initialize_value", &Bando_QApplication::initializeValue, Arg("mo"), Arg("value"));
+
+    rb_mBando_cQBoxLayout =
+        define_class_under<Bando_QBoxLayout, QBoxLayout>(rb_mQt6Bando, "QBoxLayout")
+            .define_constructor(Constructor<Bando_QBoxLayout, QBoxLayout::Direction, QWidget *>(), Arg("direction"), Arg("parent"))
+            .define_method("_initialize_value", &Bando_QBoxLayout::initializeValue, Arg("mo"), Arg("value"));
+
+    rb_mBando_cQHBoxLayout =
+        define_class_under<Bando_QHBoxLayout, QHBoxLayout>(rb_mQt6Bando, "QHBoxLayout")
+            .define_constructor(Constructor<Bando_QHBoxLayout, QWidget *>(), Arg("parent"))
+            .define_method("_initialize_value", &Bando_QHBoxLayout::initializeValue, Arg("mo"), Arg("value"));
+
+    rb_mBando_cQVBoxLayout =
+        define_class_under<Bando_QVBoxLayout, QVBoxLayout>(rb_mQt6Bando, "QVBoxLayout")
+            .define_constructor(Constructor<Bando_QVBoxLayout, QWidget *>(), Arg("parent"))
+            .define_method("_initialize_value", &Bando_QVBoxLayout::initializeValue, Arg("mo"), Arg("value"));
 
     rb_mBando_cQWidget =
         define_class_under<Bando_QWidget, QWidget>(rb_mQt6Bando, "QWidget")
