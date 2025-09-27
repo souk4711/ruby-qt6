@@ -17,6 +17,12 @@ module RubyQt6
       end
 
       # @!visibility private
+      def ==(other)
+        return false unless other.is_a?(QtCore::QSize) || other.is_a?(QtCore::QSizeF)
+        self.class._operator_equal(self, other)
+      end
+
+      # @!visibility private
       def inspect
         T.q_inspect(self, width:, height:)
       end

@@ -11,6 +11,9 @@ void Init_qsize(Rice::Module rb_mQt6QtCore)
     rb_cQSize =
         // RubyQt6::QtCore::QSize
         define_class_under<QSize>(rb_mQt6QtCore, "QSize")
+            // RubyQt6-Defined Functions
+            .define_singleton_function("_operator_equal", [](QSize *lhs, QSize  *rhs) -> bool { return *lhs == *rhs; }, Arg("lhs"), Arg("rhs"))
+            .define_singleton_function("_operator_equal", [](QSize *lhs, QSizeF *rhs) -> bool { return *lhs == *rhs; }, Arg("lhs"), Arg("rhs"))
             // Constructor
             .define_constructor(Constructor<QSize, int, int>(), Arg("width"), Arg("height"))
             // Public Functions
@@ -38,6 +41,9 @@ void Init_qsize(Rice::Module rb_mQt6QtCore)
     rb_cQSizeF =
         // RubyQt6::QtCore::QSizeF
         define_class_under<QSizeF>(rb_mQt6QtCore, "QSizeF")
+            // RubyQt6-Defined Functions
+            .define_singleton_function("_operator_equal", [](QSizeF *lhs, QSize  *rhs) -> bool { return *lhs == *rhs; }, Arg("lhs"), Arg("rhs"))
+            .define_singleton_function("_operator_equal", [](QSizeF *lhs, QSizeF *rhs) -> bool { return *lhs == *rhs; }, Arg("lhs"), Arg("rhs"))
             // Constructor
             .define_constructor(Constructor<QSizeF, qreal, qreal>(), Arg("width"), Arg("height"))
             .define_constructor(Constructor<QSizeF, const QSize &>(), Arg("size"))
