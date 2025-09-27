@@ -20,6 +20,12 @@ module RubyQt6
       end
 
       # @!visibility private
+      def ==(other)
+        return false unless other.is_a?(QtCore::QPoint) || other.is_a?(QtCore::QPointF)
+        self.class._operator_equal(self, other)
+      end
+
+      # @!visibility private
       def inspect
         T.q_inspect(self, x:, y:)
       end
