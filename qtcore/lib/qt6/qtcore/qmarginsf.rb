@@ -22,6 +22,12 @@ module RubyQt6
       end
 
       # @!visibility private
+      def ==(other)
+        return false unless other.is_a?(QtCore::QMargins) || other.is_a?(QtCore::QMarginsF)
+        self.class._operator_equal(self, other)
+      end
+
+      # @!visibility private
       def inspect
         T.q_inspect(self, left:, top:, right:, bottom:)
       end

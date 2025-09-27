@@ -11,6 +11,9 @@ void Init_qmargins(Rice::Module rb_mQt6QtCore)
     rb_cQMargins =
         // RubyQt6::QtCore::QMargins
         define_class_under<QMargins>(rb_mQt6QtCore, "QMargins")
+            // RubyQt6-Defined Functions
+            .define_singleton_function("_operator_equal", [](QMargins *lhs, QMargins  *rhs) -> bool { return *lhs == *rhs; }, Arg("lhs"), Arg("rhs"))
+            .define_singleton_function("_operator_equal", [](QMargins *lhs, QMarginsF *rhs) -> bool { return *lhs == *rhs; }, Arg("lhs"), Arg("rhs"))
             // Constructor
             .define_constructor(Constructor<QMargins, int, int, int, int>(), Arg("left"), Arg("top"), Arg("right"), Arg("bottom"))
             // Public Functions
@@ -28,6 +31,9 @@ void Init_qmargins(Rice::Module rb_mQt6QtCore)
     rb_cQMarginsF =
         // RubyQt6::QtCore::QMarginsF
         define_class_under<QMarginsF>(rb_mQt6QtCore, "QMarginsF")
+            // RubyQt6-Defined Functions
+            .define_singleton_function("_operator_equal", [](QMarginsF *lhs, QMargins  *rhs) -> bool { return *lhs == *rhs; }, Arg("lhs"), Arg("rhs"))
+            .define_singleton_function("_operator_equal", [](QMarginsF *lhs, QMarginsF *rhs) -> bool { return *lhs == *rhs; }, Arg("lhs"), Arg("rhs"))
             // Constructor
             .define_constructor(Constructor<QMarginsF, int, int, int, int>(), Arg("left"), Arg("top"), Arg("right"), Arg("bottom"))
             .define_constructor(Constructor<QMarginsF, const QMargins &>(), Arg("margins"))
