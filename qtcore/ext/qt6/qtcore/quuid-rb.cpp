@@ -5,7 +5,7 @@ using namespace Rice;
 
 Rice::Class rb_cQUuid;
 
-int QUuid_compare(QUuid *lhs, QUuid *rhs)
+int QUuid_operator_compare(QUuid *lhs, QUuid *rhs)
 {
     if (*lhs < *rhs) return -1;
     if (*lhs > *rhs) return  1;
@@ -18,7 +18,7 @@ void Init_quuid(Rice::Module rb_mQt6QtCore)
         // RubyQt6::QtCore::QUuid
         define_class_under<QUuid>(rb_mQt6QtCore, "QUuid")
             // RubyQt6-Defined Functions
-            .define_singleton_function("_compare", QUuid_compare, Arg("lhs"), Arg("rhs"))
+            .define_singleton_function("_operator_compare", QUuid_operator_compare, Arg("lhs"), Arg("rhs"))
             // Constructor
             .define_constructor(Constructor<QUuid, QAnyStringView>(), Arg("string"))
             // Public Functions

@@ -9,21 +9,21 @@ Rice::Class rb_cQDateTime;
 Rice::Class rb_cQDate;
 Rice::Class rb_cQTime;
 
-int QDateTime_compare(QDateTime *lhs, QDateTime *rhs)
+int QDateTime_operator_compare(QDateTime *lhs, QDateTime *rhs)
 {
     if (*lhs < *rhs) return -1;
     if (*lhs > *rhs) return  1;
     return 0;
 }
 
-int QDate_compare(QDate *lhs, QDate *rhs)
+int QDate_operator_compare(QDate *lhs, QDate *rhs)
 {
     if (*lhs < *rhs) return -1;
     if (*lhs > *rhs) return  1;
     return 0;
 }
 
-int QTime_compare(QTime *lhs, QTime *rhs)
+int QTime_operator_compare(QTime *lhs, QTime *rhs)
 {
     if (*lhs < *rhs) return -1;
     if (*lhs > *rhs) return  1;
@@ -36,7 +36,7 @@ void Init_qdatetime(Rice::Module rb_mQt6QtCore)
         // RubyQt6::QtCore::QDateTime
         define_class_under<QDateTime>(rb_mQt6QtCore, "QDateTime")
             // RubyQt6-Defined Functions
-            .define_singleton_function("_compare", QDateTime_compare, Arg("lhs"), Arg("rhs"))
+            .define_singleton_function("_operator_compare", QDateTime_operator_compare, Arg("lhs"), Arg("rhs"))
             // Constructor
             .define_constructor(Constructor<QDateTime, QDate, QTime, const QTimeZone &, QDateTime::TransitionResolution>(), Arg("date"), Arg("time"), Arg("time_zone"), Arg("resolve") = static_cast<QDateTime::TransitionResolution>(QDateTime::TransitionResolution::LegacyBehavior))
             .define_constructor(Constructor<QDateTime, QDate, QTime, QDateTime::TransitionResolution>(), Arg("date"), Arg("time"), Arg("resolve") = static_cast<QDateTime::TransitionResolution>(QDateTime::TransitionResolution::LegacyBehavior))
@@ -107,7 +107,7 @@ void Init_qdatetime(Rice::Module rb_mQt6QtCore)
         // RubyQt6::QtCore::QDate
         define_class_under<QDate>(rb_mQt6QtCore, "QDate")
             // RubyQt6-Defined Functions
-            .define_singleton_function("_compare", QDate_compare, Arg("lhs"), Arg("rhs"))
+            .define_singleton_function("_operator_compare", QDate_operator_compare, Arg("lhs"), Arg("rhs"))
             // Constructor
             .define_constructor(Constructor<QDate, int, int, int>(), Arg("y"), Arg("m"), Arg("d"))
             // Public Functions
@@ -159,7 +159,7 @@ void Init_qdatetime(Rice::Module rb_mQt6QtCore)
         // RubyQt6::QtCore::QTime
         define_class_under<QTime>(rb_mQt6QtCore, "QTime")
             // RubyQt6-Defined Functions
-            .define_singleton_function("_compare", QTime_compare, Arg("lhs"), Arg("rhs"))
+            .define_singleton_function("_operator_compare", QTime_operator_compare, Arg("lhs"), Arg("rhs"))
             // Constructor
             .define_constructor(Constructor<QTime, int, int, int, int>(), Arg("h"), Arg("m"), Arg("s") = static_cast<int>(0), Arg("ms") = static_cast<int>(0))
             // Public Functions
