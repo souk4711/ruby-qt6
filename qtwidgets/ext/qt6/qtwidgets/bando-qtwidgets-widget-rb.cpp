@@ -7,6 +7,7 @@
 #include <QDialog>
 #include <QFrame>
 #include <QLabel>
+#include <QLineEdit>
 #include <QLCDNumber>
 
 using namespace Rice;
@@ -17,6 +18,7 @@ using Bando_QSlider = BandoQWidget<QSlider, Qt::Orientation, QWidget *>;
 using Bando_QDialog = BandoQWidget<QDialog, QWidget *>;
 using Bando_QFrame = BandoQWidget<QFrame, QWidget *>;
 using Bando_QLabel = BandoQWidget<QLabel, const QString &, QWidget *>;
+using Bando_QLineEdit = BandoQWidget<QLineEdit, const QString &, QWidget *>;
 using Bando_QLCDNumber = BandoQWidget<QLCDNumber, uint, QWidget *>;
 
 Rice::Class rb_mBando_cQWidget;
@@ -25,6 +27,7 @@ Rice::Class rb_mBando_cQSlider;
 Rice::Class rb_mBando_cQDialog;
 Rice::Class rb_mBando_cQFrame;
 Rice::Class rb_mBando_cQLabel;
+Rice::Class rb_mBando_cQLineEdit;
 Rice::Class rb_mBando_cQLCDNumber;
 
 void Init_bando_qtwidgets_widget(Rice::Module rb_mQt6Bando)
@@ -58,6 +61,11 @@ void Init_bando_qtwidgets_widget(Rice::Module rb_mQt6Bando)
         define_class_under<Bando_QLabel, QLabel>(rb_mQt6Bando, "QLabel")
             .define_constructor(Constructor<Bando_QLabel, const QString &, QWidget *>(), Arg("text"), Arg("parent"))
             .define_method("_initialize_value", &Bando_QLabel::initializeValue, Arg("mo"), Arg("value"));
+
+    rb_mBando_cQLineEdit =
+        define_class_under<Bando_QLineEdit, QLineEdit>(rb_mQt6Bando, "QLineEdit")
+            .define_constructor(Constructor<Bando_QLineEdit, const QString &, QWidget *>(), Arg("contents"), Arg("parent"))
+            .define_method("_initialize_value", &Bando_QLineEdit::initializeValue, Arg("mo"), Arg("value"));
 
     rb_mBando_cQLCDNumber =
         define_class_under<Bando_QLCDNumber, QLCDNumber>(rb_mQt6Bando, "QLCDNumber")

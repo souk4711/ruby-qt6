@@ -10,6 +10,8 @@ void Init_qdialog(Rice::Module rb_mQt6QtWidgets)
     rb_cQDialog =
         // RubyQt6::QtWidgets::QDialog
         define_class_under<QDialog, QWidget>(rb_mQt6QtWidgets, "QDialog")
+            // RubyQt6-Defined Functions
+            .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QDialog::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QDialog, QWidget *>(), Arg("parent"))
             // Public Functions
