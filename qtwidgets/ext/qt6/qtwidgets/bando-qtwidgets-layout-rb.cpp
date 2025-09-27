@@ -1,17 +1,14 @@
-#include "bando-qtwidgets-rb.hpp"
+#include "bando-qtwidgets-layout-rb.hpp"
 #include <bando/qobject.hpp>
 #include <bando/qlayout.hpp>
-#include <bando/qwidget.hpp>
 
 #include <QApplication>
 #include <QBoxLayout>
+#include <QHBoxLayout>
+#include <QVBoxLayout>
 #include <QFormLayout>
+#include <QGridLayout>
 #include <QWidget>
-#include <QPushButton>
-#include <QSlider>
-#include <QFrame>
-#include <QLabel>
-#include <QLCDNumber>
 
 using namespace Rice;
 
@@ -21,12 +18,6 @@ using Bando_QHBoxLayout = BandoQLayout<QHBoxLayout, QWidget *>;
 using Bando_QVBoxLayout = BandoQLayout<QVBoxLayout, QWidget *>;
 using Bando_QFormLayout = BandoQLayout<QFormLayout, QWidget *>;
 using Bando_QGridLayout = BandoQLayout<QGridLayout, QWidget *>;
-using Bando_QWidget = BandoQWidget<QWidget, QWidget *>;
-using Bando_QPushButton = BandoQWidget<QPushButton, const QString &, QWidget *>;
-using Bando_QSlider = BandoQWidget<QSlider, Qt::Orientation, QWidget *>;
-using Bando_QFrame = BandoQWidget<QFrame, QWidget *>;
-using Bando_QLabel = BandoQWidget<QLabel, const QString &, QWidget *>;
-using Bando_QLCDNumber = BandoQWidget<QLCDNumber, uint, QWidget *>;
 
 Rice::Class rb_mBando_cQApplication;
 Rice::Class rb_mBando_cQBoxLayout;
@@ -34,14 +25,8 @@ Rice::Class rb_mBando_cQHBoxLayout;
 Rice::Class rb_mBando_cQVBoxLayout;
 Rice::Class rb_mBando_cQFormLayout;
 Rice::Class rb_mBando_cQGridLayout;
-Rice::Class rb_mBando_cQWidget;
-Rice::Class rb_mBando_cQPushButton;
-Rice::Class rb_mBando_cQSlider;
-Rice::Class rb_mBando_cQFrame;
-Rice::Class rb_mBando_cQLabel;
-Rice::Class rb_mBando_cQLCDNumber;
 
-void Init_bando_qtwidgets(Rice::Module rb_mQt6Bando)
+void Init_bando_qtwidgets_layout(Rice::Module rb_mQt6Bando)
 {
     rb_mBando_cQApplication =
         define_class_under<Bando_QApplication, QApplication>(rb_mQt6Bando, "QApplication")
@@ -72,34 +57,4 @@ void Init_bando_qtwidgets(Rice::Module rb_mQt6Bando)
         define_class_under<Bando_QGridLayout, QGridLayout>(rb_mQt6Bando, "QGridLayout")
             .define_constructor(Constructor<Bando_QGridLayout, QWidget *>(), Arg("parent"))
             .define_method("_initialize_value", &Bando_QGridLayout::initializeValue, Arg("mo"), Arg("value"));
-
-    rb_mBando_cQWidget =
-        define_class_under<Bando_QWidget, QWidget>(rb_mQt6Bando, "QWidget")
-            .define_constructor(Constructor<Bando_QWidget, QWidget *>(), Arg("parent"))
-            .define_method("_initialize_value", &Bando_QWidget::initializeValue, Arg("mo"), Arg("value"));
-
-    rb_mBando_cQPushButton =
-        define_class_under<Bando_QPushButton, QPushButton>(rb_mQt6Bando, "QPushButton")
-            .define_constructor(Constructor<Bando_QPushButton, const QString &, QWidget *>(), Arg("text"), Arg("parent"))
-            .define_method("_initialize_value", &Bando_QPushButton::initializeValue, Arg("mo"), Arg("value"));
-
-    rb_mBando_cQSlider =
-        define_class_under<Bando_QSlider, QSlider>(rb_mQt6Bando, "QSlider")
-            .define_constructor(Constructor<Bando_QSlider, Qt::Orientation, QWidget *>(), Arg("orientation"), Arg("parent"))
-            .define_method("_initialize_value", &Bando_QSlider::initializeValue, Arg("mo"), Arg("value"));
-
-    rb_mBando_cQFrame =
-        define_class_under<Bando_QFrame, QFrame>(rb_mQt6Bando, "QFrame")
-            .define_constructor(Constructor<Bando_QFrame, QWidget *>(), Arg("parent"))
-            .define_method("_initialize_value", &Bando_QFrame::initializeValue, Arg("mo"), Arg("value"));
-
-    rb_mBando_cQLabel =
-        define_class_under<Bando_QLabel, QLabel>(rb_mQt6Bando, "QLabel")
-            .define_constructor(Constructor<Bando_QLabel, const QString &, QWidget *>(), Arg("text"), Arg("parent"))
-            .define_method("_initialize_value", &Bando_QLabel::initializeValue, Arg("mo"), Arg("value"));
-
-    rb_mBando_cQLCDNumber =
-        define_class_under<Bando_QLCDNumber, QLCDNumber>(rb_mQt6Bando, "QLCDNumber")
-            .define_constructor(Constructor<Bando_QLCDNumber, uint, QWidget *>(), Arg("num"), Arg("parent"))
-            .define_method("_initialize_value", &Bando_QLCDNumber::initializeValue, Arg("mo"), Arg("value"));
 }
