@@ -19,6 +19,7 @@
 #include "qdialog-rb.hpp"
 #include "qframe-rb.hpp"
 #include "qlabel-rb.hpp"
+#include "qlineedit-rb.hpp"
 #include "qlcdnumber-rb.hpp"
 
 #include "bando-qtwidgets-layout-rb.hpp"
@@ -50,6 +51,7 @@ extern "C" void Init_qtwidgets()
         Init_qdialog(rb_mQt6QtWidgets);
         Init_qframe(rb_mQt6QtWidgets);
         Init_qlabel(rb_mQt6QtWidgets);
+        Init_qlineedit(rb_mQt6QtWidgets);
         Init_qlcdnumber(rb_mQt6QtWidgets);
 
         Rice::Module rb_mQt6Bando = define_module_under(rb_mQt6, "Bando");

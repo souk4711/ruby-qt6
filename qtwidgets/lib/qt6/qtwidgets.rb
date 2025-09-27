@@ -27,6 +27,7 @@ require_relative "qtwidgets/qslider"
 require_relative "qtwidgets/qdialog"
 require_relative "qtwidgets/qframe"
 require_relative "qtwidgets/qlabel"
+require_relative "qtwidgets/qlineedit"
 require_relative "qtwidgets/qlcdnumber"
 
 require_relative "bando/qapplication"
