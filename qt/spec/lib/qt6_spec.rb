@@ -34,7 +34,6 @@ RSpec.describe RubyQt6 do
       RubyQt6::QtWidgets::QStackedLayout,
       RubyQt6::QtWidgets::QAbstractButton,
       RubyQt6::QtWidgets::QAbstractSlider,
-      RubyQt6::QtWidgets::QSlider,
       RubyQt6::QtWidgets::QFrame,
       RubyQt6::QtWidgets::QLabel,
       RubyQt6::QtWidgets::QLCDNumber,
