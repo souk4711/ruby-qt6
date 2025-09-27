@@ -11,6 +11,9 @@ void Init_qline(Rice::Module rb_mQt6QtCore)
     rb_cQLine =
         // RubyQt6::QtCore::QLine
         define_class_under<QLine>(rb_mQt6QtCore, "QLine")
+            // RubyQt6-Defined Functions
+            .define_singleton_function("_operator_equal", [](QLine *lhs, QLine  *rhs) -> bool { return *lhs == *rhs; }, Arg("lhs"), Arg("rhs"))
+            .define_singleton_function("_operator_equal", [](QLine *lhs, QLineF *rhs) -> bool { return *lhs == *rhs; }, Arg("lhs"), Arg("rhs"))
             // Constructor
             .define_constructor(Constructor<QLine, int, int, int, int>(), Arg("x1"), Arg("y1"), Arg("x2"), Arg("y2"))
             .define_constructor(Constructor<QLine, const QPoint &, const QPoint &>(), Arg("p1"), Arg("p2"))
@@ -38,6 +41,9 @@ void Init_qline(Rice::Module rb_mQt6QtCore)
     rb_cQLineF =
         // RubyQt6::QtCore::QLineF
         define_class_under<QLineF>(rb_mQt6QtCore, "QLineF")
+            // RubyQt6-Defined Functions
+            .define_singleton_function("_operator_equal", [](QLineF *lhs, QLine  *rhs) -> bool { return *lhs == *rhs; }, Arg("lhs"), Arg("rhs"))
+            .define_singleton_function("_operator_equal", [](QLineF *lhs, QLineF *rhs) -> bool { return *lhs == *rhs; }, Arg("lhs"), Arg("rhs"))
             // Constructor
             .define_constructor(Constructor<QLineF, qreal, qreal, qreal, qreal>(), Arg("x1"), Arg("y1"), Arg("x2"), Arg("y2"))
             .define_constructor(Constructor<QLineF, const QPointF &, const QPointF &>(), Arg("p1"), Arg("p2"))
