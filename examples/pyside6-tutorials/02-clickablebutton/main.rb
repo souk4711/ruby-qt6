@@ -1,6 +1,6 @@
 require "qt6/all"
 
-class PushButton < QPushButton
+class Greetings < QObject
   q_object do
     slot "say_hello()"
   end
@@ -11,7 +11,7 @@ class PushButton < QPushButton
 end
 
 app = QApplication.new(ARGV)
-button = PushButton.new("Click me")
-button.clicked.connect(button, :say_hello)
+button = QPushButton.new("Click me")
+button.clicked.connect(Greetings.new, :say_hello)
 button.show
 app.exec
