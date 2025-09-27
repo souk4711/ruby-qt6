@@ -8,6 +8,7 @@
 #include <QSlider>
 #include <QFrame>
 #include <QLabel>
+#include <QLCDNumber>
 
 using namespace Rice;
 
@@ -17,6 +18,7 @@ using Bando_QPushButton = BandoQWidget<QPushButton, const QString &, QWidget *>;
 using Bando_QSlider = BandoQWidget<QSlider, Qt::Orientation, QWidget *>;
 using Bando_QFrame = BandoQWidget<QFrame, QWidget *>;
 using Bando_QLabel = BandoQWidget<QLabel, const QString &, QWidget *>;
+using Bando_QLCDNumber = BandoQWidget<QLCDNumber, uint, QWidget *>;
 
 Rice::Class rb_mBando_cQApplication;
 Rice::Class rb_mBando_cQWidget;
@@ -24,6 +26,7 @@ Rice::Class rb_mBando_cQPushButton;
 Rice::Class rb_mBando_cQSlider;
 Rice::Class rb_mBando_cQFrame;
 Rice::Class rb_mBando_cQLabel;
+Rice::Class rb_mBando_cQLCDNumber;
 
 void Init_bando_qtwidgets(Rice::Module rb_mQt6Bando)
 {
@@ -56,4 +59,9 @@ void Init_bando_qtwidgets(Rice::Module rb_mQt6Bando)
         define_class_under<Bando_QLabel, QLabel>(rb_mQt6Bando, "QLabel")
             .define_constructor(Constructor<Bando_QLabel, const QString &, QWidget *>(), Arg("text"), Arg("parent"))
             .define_method("_initialize_value", &Bando_QLabel::initializeValue, Arg("mo"), Arg("value"));
+
+    rb_mBando_cQLCDNumber =
+        define_class_under<Bando_QLCDNumber, QLCDNumber>(rb_mQt6Bando, "QLCDNumber")
+            .define_constructor(Constructor<Bando_QLCDNumber, uint, QWidget *>(), Arg("num"), Arg("parent"))
+            .define_method("_initialize_value", &Bando_QLCDNumber::initializeValue, Arg("mo"), Arg("value"));
 }
