@@ -20,6 +20,7 @@ using Bando_QBoxLayout = BandoQLayout<QBoxLayout, QBoxLayout::Direction, QWidget
 using Bando_QHBoxLayout = BandoQLayout<QHBoxLayout, QWidget *>;
 using Bando_QVBoxLayout = BandoQLayout<QVBoxLayout, QWidget *>;
 using Bando_QFormLayout = BandoQLayout<QFormLayout, QWidget *>;
+using Bando_QGridLayout = BandoQLayout<QGridLayout, QWidget *>;
 using Bando_QWidget = BandoQWidget<QWidget, QWidget *>;
 using Bando_QPushButton = BandoQWidget<QPushButton, const QString &, QWidget *>;
 using Bando_QSlider = BandoQWidget<QSlider, Qt::Orientation, QWidget *>;
@@ -32,6 +33,7 @@ Rice::Class rb_mBando_cQBoxLayout;
 Rice::Class rb_mBando_cQHBoxLayout;
 Rice::Class rb_mBando_cQVBoxLayout;
 Rice::Class rb_mBando_cQFormLayout;
+Rice::Class rb_mBando_cQGridLayout;
 Rice::Class rb_mBando_cQWidget;
 Rice::Class rb_mBando_cQPushButton;
 Rice::Class rb_mBando_cQSlider;
@@ -65,6 +67,11 @@ void Init_bando_qtwidgets(Rice::Module rb_mQt6Bando)
         define_class_under<Bando_QFormLayout, QFormLayout>(rb_mQt6Bando, "QFormLayout")
             .define_constructor(Constructor<Bando_QFormLayout, QWidget *>(), Arg("parent"))
             .define_method("_initialize_value", &Bando_QFormLayout::initializeValue, Arg("mo"), Arg("value"));
+
+    rb_mBando_cQGridLayout =
+        define_class_under<Bando_QGridLayout, QGridLayout>(rb_mQt6Bando, "QGridLayout")
+            .define_constructor(Constructor<Bando_QGridLayout, QWidget *>(), Arg("parent"))
+            .define_method("_initialize_value", &Bando_QGridLayout::initializeValue, Arg("mo"), Arg("value"));
 
     rb_mBando_cQWidget =
         define_class_under<Bando_QWidget, QWidget>(rb_mQt6Bando, "QWidget")
