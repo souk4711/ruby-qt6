@@ -30,3 +30,4 @@ require_relative "qtwidgets/qlcdnumber"
 
 require_relative "bando/qapplication"
 require_relative "bando/qwidget"
+require_relative "bando/qpushbutton"
