@@ -11,15 +11,15 @@ module RubyQt6
       end
 
       def set_class_name(name)
-        _set_class_name(QtCore::QByteArray.new(name))
+        _set_class_name(T.to_qbytearray(name))
       end
 
       def add_signal(signature)
-        _add_signal(QtCore::QByteArray.new(signature))
+        _add_signal(T.to_qbytearray(signature))
       end
 
       def add_slot(signature)
-        _add_slot(QtCore::QByteArray.new(signature))
+        _add_slot(T.to_qbytearray(signature))
       end
     end
   end

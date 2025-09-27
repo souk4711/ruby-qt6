@@ -7,6 +7,10 @@ module RubyQt6
       QtCore::QAnyStringView.new(str)
     end
 
+    def self.to_qbytearray(str)
+      QtCore::QByteArray.new(str)
+    end
+
     def self.to_qstr(str)
       QtCore::QString.new(str)
     end
