@@ -2,7 +2,6 @@
 #include <qlineedit.h>
 
 #include <QCompleter>
-#include <QEvent>
 #include <QMenu>
 #include <QValidator>
 
@@ -38,7 +37,6 @@ void Init_qlineedit(Rice::Module rb_mQt6QtWidgets)
             .define_method("display_text", &QLineEdit::displayText)
             .define_method("drag_enabled", &QLineEdit::dragEnabled)
             .define_method("echo_mode", &QLineEdit::echoMode)
-            .define_method("event", &QLineEdit::event, Arg("e"))
             .define_method("has_acceptable_input", &QLineEdit::hasAcceptableInput)
             .define_method("has_frame", &QLineEdit::hasFrame)
             .define_method("has_selected_text", &QLineEdit::hasSelectedText)

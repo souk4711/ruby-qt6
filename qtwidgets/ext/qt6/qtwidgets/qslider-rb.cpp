@@ -1,8 +1,6 @@
 #include "qslider-rb.hpp"
 #include <qslider.h>
 
-#include <QEvent>
-
 using namespace Rice;
 
 Rice::Class rb_cQSlider;
@@ -17,7 +15,6 @@ void Init_qslider(Rice::Module rb_mQt6QtWidgets)
             // Constructor
             .define_constructor(Constructor<QSlider, Qt::Orientation, QWidget *>(), Arg("orientation"), Arg("parent"))
             // Public Functions
-            .define_method("event", &QSlider::event, Arg("event"))
             .define_method("minimum_size_hint", &QSlider::minimumSizeHint)
             .define_method("set_tick_interval", &QSlider::setTickInterval, Arg("ti"))
             .define_method("set_tick_position", &QSlider::setTickPosition, Arg("position"))

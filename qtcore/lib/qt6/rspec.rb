@@ -103,6 +103,7 @@ module RubyQt6
           # No virtual method
           lambda do
             return if NO_VERIFY_QLASS_VIRTUAL_METHODS[qlass.name]&.include?(method.rbname)
+            raise method.inspect if ["event"].include?(method.rbname)
             raise method.inspect if method.rbname.end_with?("_event")
           end.call
 

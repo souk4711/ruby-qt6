@@ -1,8 +1,6 @@
 #include "qscrollbar-rb.hpp"
 #include <qscrollbar.h>
 
-#include <QEvent>
-
 using namespace Rice;
 
 Rice::Class rb_cQScrollBar;
@@ -17,6 +15,5 @@ void Init_qscrollbar(Rice::Module rb_mQt6QtWidgets)
             // Constructor
             .define_constructor(Constructor<QScrollBar, Qt::Orientation, QWidget *>(), Arg("orientation"), Arg("parent"))
             // Public Functions
-            .define_method("event", &QScrollBar::event, Arg("event"))
             .define_method("size_hint", &QScrollBar::sizeHint);
 }
