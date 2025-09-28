@@ -6,6 +6,7 @@
 #include <QSlider>
 #include <QDialog>
 #include <QFrame>
+#include <QAbstractScrollArea>
 #include <QLabel>
 #include <QLineEdit>
 #include <QLCDNumber>
@@ -17,6 +18,7 @@ using Bando_QPushButton = BandoQWidget<QPushButton, const QString &, QWidget *>;
 using Bando_QSlider = BandoQWidget<QSlider, Qt::Orientation, QWidget *>;
 using Bando_QDialog = BandoQWidget<QDialog, QWidget *>;
 using Bando_QFrame = BandoQWidget<QFrame, QWidget *>;
+using Bando_QAbstractScrollArea = BandoQWidget<QAbstractScrollArea, QWidget *>;
 using Bando_QLabel = BandoQWidget<QLabel, const QString &, QWidget *>;
 using Bando_QLineEdit = BandoQWidget<QLineEdit, const QString &, QWidget *>;
 using Bando_QLCDNumber = BandoQWidget<QLCDNumber, uint, QWidget *>;
@@ -26,6 +28,7 @@ Rice::Class rb_mBando_cQPushButton;
 Rice::Class rb_mBando_cQSlider;
 Rice::Class rb_mBando_cQDialog;
 Rice::Class rb_mBando_cQFrame;
+Rice::Class rb_mBando_cQAbstractScrollArea;
 Rice::Class rb_mBando_cQLabel;
 Rice::Class rb_mBando_cQLineEdit;
 Rice::Class rb_mBando_cQLCDNumber;
@@ -56,6 +59,11 @@ void Init_bando_qtwidgets_widget(Rice::Module rb_mQt6Bando)
         define_class_under<Bando_QFrame, QFrame>(rb_mQt6Bando, "QFrame")
             .define_constructor(Constructor<Bando_QFrame, QWidget *>(), Arg("parent"))
             .define_method("_initialize_value", &Bando_QFrame::initializeValue, Arg("mo"), Arg("value"));
+
+    rb_mBando_cQAbstractScrollArea =
+        define_class_under<Bando_QAbstractScrollArea, QAbstractScrollArea>(rb_mQt6Bando, "QAbstractScrollArea")
+            .define_constructor(Constructor<Bando_QAbstractScrollArea, QWidget *>(), Arg("parent"))
+            .define_method("_initialize_value", &Bando_QAbstractScrollArea::initializeValue, Arg("mo"), Arg("value"));
 
     rb_mBando_cQLabel =
         define_class_under<Bando_QLabel, QLabel>(rb_mQt6Bando, "QLabel")
