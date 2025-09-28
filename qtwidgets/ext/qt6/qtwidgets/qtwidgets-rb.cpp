@@ -1,10 +1,10 @@
 #include "qtwidgets-rb.hpp"
 #include "qtwidgetsversion-rb.hpp"
 
+#include "qlayoutitem-rb.hpp"
 #include "qsizepolicy-rb.hpp"
 
 #include "qapplication-rb.hpp"
-#include "qlayoutitem-rb.hpp"
 #include "qlayout-rb.hpp"
 #include "qboxlayout-rb.hpp"
 #include "qformlayout-rb.hpp"
@@ -20,8 +20,8 @@
 #include "qframe-rb.hpp"
 #include "qabstractscrollarea-rb.hpp"
 #include "qlabel-rb.hpp"
-#include "qlineedit-rb.hpp"
 #include "qlcdnumber-rb.hpp"
+#include "qlineedit-rb.hpp"
 
 #include "bando-qtwidgets-layout-rb.hpp"
 #include "bando-qtwidgets-widget-rb.hpp"
@@ -35,9 +35,9 @@ extern "C" void Init_qtwidgets()
         Init_qtwidgetsversion(rb_mQt6QtWidgets);
 
         Init_qsizepolicy(rb_mQt6QtWidgets);
+        Init_qlayoutitem(rb_mQt6QtWidgets);
 
         Init_qapplication(rb_mQt6QtWidgets);
-        Init_qlayoutitem(rb_mQt6QtWidgets);
         Init_qlayout(rb_mQt6QtWidgets);
         Init_qboxlayout(rb_mQt6QtWidgets);
         Init_qformlayout(rb_mQt6QtWidgets);
@@ -53,8 +53,8 @@ extern "C" void Init_qtwidgets()
         Init_qframe(rb_mQt6QtWidgets);
         Init_qabstractscrollarea(rb_mQt6QtWidgets);
         Init_qlabel(rb_mQt6QtWidgets);
-        Init_qlineedit(rb_mQt6QtWidgets);
         Init_qlcdnumber(rb_mQt6QtWidgets);
+        Init_qlineedit(rb_mQt6QtWidgets);
 
         Rice::Module rb_mQt6Bando = define_module_under(rb_mQt6, "Bando");
         Init_bando_qtwidgets_layout(rb_mQt6Bando);

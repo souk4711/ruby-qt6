@@ -1,6 +1,6 @@
 #include "bando-qtwidgets-layout-rb.hpp"
-#include <bando/qobject.hpp>
 #include <bando/qlayout.hpp>
+#include <bando/qobject.hpp>
 
 #include <QApplication>
 #include <QBoxLayout>
