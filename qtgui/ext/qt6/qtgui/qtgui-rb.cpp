@@ -3,11 +3,16 @@
 
 #include "qbrush-rb.hpp"
 #include "qcolor-rb.hpp"
-#include "qcolor-rb.hpp"
+#include "qevent-rb.hpp"
 #include "qfont-rb.hpp"
 #include "qfontinfo-rb.hpp"
 #include "qicon-rb.hpp"
 #include "qkeysequence-rb.hpp"
+#include "qpaintdevice-rb.hpp"
+#include "qimage-rb.hpp"
+#include "qpicture-rb.hpp"
+#include "qpixmap-rb.hpp"
+#include "qpainter-rb.hpp"
 #include "qpalette-rb.hpp"
 #include "qpen-rb.hpp"
 #include "qregion-rb.hpp"
@@ -16,15 +21,6 @@
 
 #include "t-qtgui-rb.hpp"
 #include "qpolygon-rb.hpp"
-
-#include "qevent-rb.hpp"
-
-#include "qpaintdevice-rb.hpp"
-#include "qimage-rb.hpp"
-#include "qpicture-rb.hpp"
-#include "qpixmap-rb.hpp"
-
-#include "qpainter-rb.hpp"
 
 #include "qguiapplication-rb.hpp"
 #include "qshortcut-rb.hpp"
@@ -42,10 +38,16 @@ extern "C" void Init_qtgui()
 
         Init_qbrush(rb_mQt6QtGui);
         Init_qcolor(rb_mQt6QtGui);
+        Init_qevent(rb_mQt6QtGui);
         Init_qfont(rb_mQt6QtGui);
         Init_qfontinfo(rb_mQt6QtGui);
         Init_qicon(rb_mQt6QtGui);
         Init_qkeysequence(rb_mQt6QtGui);
+        Init_qpaintdevice(rb_mQt6QtGui);
+        Init_qimage(rb_mQt6QtGui);
+        Init_qpicture(rb_mQt6QtGui);
+        Init_qpixmap(rb_mQt6QtGui);
+        Init_qpainter(rb_mQt6QtGui);
         Init_qpalette(rb_mQt6QtGui);
         Init_qpen(rb_mQt6QtGui);
         Init_qregion(rb_mQt6QtGui);
@@ -55,15 +57,6 @@ extern "C" void Init_qtgui()
         Rice::Module rb_mQt6T = define_module_under(rb_mQt6, "T");
         Init_t_qtgui(rb_mQt6T);
         Init_qpolygon(rb_mQt6QtGui);
-
-        Init_qevent(rb_mQt6QtGui);
-
-        Init_qpaintdevice(rb_mQt6QtGui);
-        Init_qimage(rb_mQt6QtGui);
-        Init_qpicture(rb_mQt6QtGui);
-        Init_qpixmap(rb_mQt6QtGui);
-
-        Init_qpainter(rb_mQt6QtGui);
 
         Init_qguiapplication(rb_mQt6QtGui);
         Init_qshortcut(rb_mQt6QtGui);
