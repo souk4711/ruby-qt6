@@ -10,6 +10,11 @@
 #include <QDial>
 #include <QScrollBar>
 #include <QSlider>
+#include <QDateTimeEdit>
+#include <QDateEdit>
+#include <QTimeEdit>
+#include <QDoubleSpinBox>
+#include <QSpinBox>
 #include <QDialog>
 #include <QFrame>
 #include <QAbstractScrollArea>
@@ -28,6 +33,11 @@ using Bando_QToolButton = BandoQWidget<QToolButton, QWidget *>;
 using Bando_QDial = BandoQWidget<QDial, QWidget *>;
 using Bando_QScrollBar = BandoQWidget<QScrollBar, Qt::Orientation, QWidget *>;
 using Bando_QSlider = BandoQWidget<QSlider, Qt::Orientation, QWidget *>;
+using Bando_QDateTimeEdit = BandoQWidget<QDateTimeEdit, const QDateTime &, QWidget *>;
+using Bando_QDateEdit = BandoQWidget<QDateEdit, QDate, QWidget *>;
+using Bando_QTimeEdit = BandoQWidget<QTimeEdit, QTime, QWidget *>;
+using Bando_QDoubleSpinBox = BandoQWidget<QDoubleSpinBox, QWidget *>;
+using Bando_QSpinBox = BandoQWidget<QSpinBox, QWidget *>;
 using Bando_QDialog = BandoQWidget<QDialog, QWidget *>;
 using Bando_QFrame = BandoQWidget<QFrame, QWidget *>;
 using Bando_QAbstractScrollArea = BandoQWidget<QAbstractScrollArea, QWidget *>;
@@ -44,6 +54,11 @@ Rice::Class rb_mBando_cQToolButton;
 Rice::Class rb_mBando_cQDial;
 Rice::Class rb_mBando_cQScrollBar;
 Rice::Class rb_mBando_cQSlider;
+Rice::Class rb_mBando_cQDateTimeEdit;
+Rice::Class rb_mBando_cQDateEdit;
+Rice::Class rb_mBando_cQTimeEdit;
+Rice::Class rb_mBando_cQDoubleSpinBox;
+Rice::Class rb_mBando_cQSpinBox;
 Rice::Class rb_mBando_cQDialog;
 Rice::Class rb_mBando_cQFrame;
 Rice::Class rb_mBando_cQAbstractScrollArea;
@@ -97,6 +112,31 @@ void Init_bando_qtwidgets_widget(Rice::Module rb_mQt6Bando)
         define_class_under<Bando_QSlider, QSlider>(rb_mQt6Bando, "QSlider")
             .define_constructor(Constructor<Bando_QSlider, Qt::Orientation, QWidget *>(), Arg("orientation"), Arg("parent"))
             .define_method("_initialize_value", &Bando_QSlider::initializeValue, Arg("mo"), Arg("value"));
+
+    rb_mBando_cQDateTimeEdit =
+        define_class_under<Bando_QDateTimeEdit, QDateTimeEdit>(rb_mQt6Bando, "QDateTimeEdit")
+            .define_constructor(Constructor<Bando_QDateTimeEdit, const QDateTime &, QWidget *>(), Arg("datetime"), Arg("parent"))
+            .define_method("_initialize_value", &Bando_QDateTimeEdit::initializeValue, Arg("mo"), Arg("value"));
+
+    rb_mBando_cQDateEdit =
+        define_class_under<Bando_QDateEdit, QDateEdit>(rb_mQt6Bando, "QDateEdit")
+            .define_constructor(Constructor<Bando_QDateEdit, QDate, QWidget *>(), Arg("date"), Arg("parent"))
+            .define_method("_initialize_value", &Bando_QDateEdit::initializeValue, Arg("mo"), Arg("value"));
+
+    rb_mBando_cQTimeEdit =
+        define_class_under<Bando_QTimeEdit, QTimeEdit>(rb_mQt6Bando, "QTimeEdit")
+            .define_constructor(Constructor<Bando_QTimeEdit, QTime, QWidget *>(), Arg("time"), Arg("parent"))
+            .define_method("_initialize_value", &Bando_QTimeEdit::initializeValue, Arg("mo"), Arg("value"));
+
+    rb_mBando_cQDoubleSpinBox =
+        define_class_under<Bando_QDoubleSpinBox, QDoubleSpinBox>(rb_mQt6Bando, "QDoubleSpinBox")
+            .define_constructor(Constructor<Bando_QDoubleSpinBox, QWidget *>(), Arg("parent"))
+            .define_method("_initialize_value", &Bando_QDoubleSpinBox::initializeValue, Arg("mo"), Arg("value"));
+
+    rb_mBando_cQSpinBox =
+        define_class_under<Bando_QSpinBox, QSpinBox>(rb_mQt6Bando, "QSpinBox")
+            .define_constructor(Constructor<Bando_QSpinBox, QWidget *>(), Arg("parent"))
+            .define_method("_initialize_value", &Bando_QSpinBox::initializeValue, Arg("mo"), Arg("value"));
 
     rb_mBando_cQDialog =
         define_class_under<Bando_QDialog, QDialog>(rb_mQt6Bando, "QDialog")
