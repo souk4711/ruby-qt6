@@ -7,6 +7,8 @@
 #include <QCommandLinkButton>
 #include <QRadioButton>
 #include <QToolButton>
+#include <QDial>
+#include <QScrollBar>
 #include <QSlider>
 #include <QDialog>
 #include <QFrame>
@@ -23,6 +25,8 @@ using Bando_QPushButton = BandoQWidget<QPushButton, const QString &, QWidget *>;
 using Bando_QCommandLinkButton = BandoQWidget<QCommandLinkButton, const QString &, const QString &, QWidget *>;
 using Bando_QRadioButton = BandoQWidget<QRadioButton, const QString &, QWidget *>;
 using Bando_QToolButton = BandoQWidget<QToolButton, QWidget *>;
+using Bando_QDial = BandoQWidget<QDial, QWidget *>;
+using Bando_QScrollBar = BandoQWidget<QScrollBar, Qt::Orientation, QWidget *>;
 using Bando_QSlider = BandoQWidget<QSlider, Qt::Orientation, QWidget *>;
 using Bando_QDialog = BandoQWidget<QDialog, QWidget *>;
 using Bando_QFrame = BandoQWidget<QFrame, QWidget *>;
@@ -37,6 +41,8 @@ Rice::Class rb_mBando_cQPushButton;
 Rice::Class rb_mBando_cQCommandLinkButton;
 Rice::Class rb_mBando_cQRadioButton;
 Rice::Class rb_mBando_cQToolButton;
+Rice::Class rb_mBando_cQDial;
+Rice::Class rb_mBando_cQScrollBar;
 Rice::Class rb_mBando_cQSlider;
 Rice::Class rb_mBando_cQDialog;
 Rice::Class rb_mBando_cQFrame;
@@ -76,6 +82,16 @@ void Init_bando_qtwidgets_widget(Rice::Module rb_mQt6Bando)
         define_class_under<Bando_QToolButton, QToolButton>(rb_mQt6Bando, "QToolButton")
             .define_constructor(Constructor<Bando_QToolButton, QWidget *>(), Arg("parent"))
             .define_method("_initialize_value", &Bando_QToolButton::initializeValue, Arg("mo"), Arg("value"));
+
+    rb_mBando_cQDial =
+        define_class_under<Bando_QDial, QDial>(rb_mQt6Bando, "QDial")
+            .define_constructor(Constructor<Bando_QDial, QWidget *>(), Arg("parent"))
+            .define_method("_initialize_value", &Bando_QDial::initializeValue, Arg("mo"), Arg("value"));
+
+    rb_mBando_cQScrollBar =
+        define_class_under<Bando_QScrollBar, QScrollBar>(rb_mQt6Bando, "QScrollBar")
+            .define_constructor(Constructor<Bando_QScrollBar, Qt::Orientation, QWidget *>(), Arg("orientation"), Arg("parent"))
+            .define_method("_initialize_value", &Bando_QScrollBar::initializeValue, Arg("mo"), Arg("value"));
 
     rb_mBando_cQSlider =
         define_class_under<Bando_QSlider, QSlider>(rb_mQt6Bando, "QSlider")

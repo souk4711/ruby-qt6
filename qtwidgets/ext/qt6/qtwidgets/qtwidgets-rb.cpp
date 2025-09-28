@@ -19,6 +19,8 @@
 #include "qradiobutton-rb.hpp"
 #include "qtoolbutton-rb.hpp"
 #include "qabstractslider-rb.hpp"
+#include "qdial-rb.hpp"
+#include "qscrollbar-rb.hpp"
 #include "qslider-rb.hpp"
 #include "qdialog-rb.hpp"
 #include "qframe-rb.hpp"
@@ -56,6 +58,8 @@ extern "C" void Init_qtwidgets()
         Init_qradiobutton(rb_mQt6QtWidgets);
         Init_qtoolbutton(rb_mQt6QtWidgets);
         Init_qabstractslider(rb_mQt6QtWidgets);
+        Init_qdial(rb_mQt6QtWidgets);
+        Init_qscrollbar(rb_mQt6QtWidgets);
         Init_qslider(rb_mQt6QtWidgets);
         Init_qdialog(rb_mQt6QtWidgets);
         Init_qframe(rb_mQt6QtWidgets);
