@@ -2,7 +2,11 @@
 #include <bando/qwidget.hpp>
 
 #include <QWidget>
+#include <QCheckBox>
 #include <QPushButton>
+#include <QCommandLinkButton>
+#include <QRadioButton>
+#include <QToolButton>
 #include <QSlider>
 #include <QDialog>
 #include <QFrame>
@@ -14,7 +18,11 @@
 using namespace Rice;
 
 using Bando_QWidget = BandoQWidget<QWidget, QWidget *>;
+using Bando_QCheckBox = BandoQWidget<QCheckBox, const QString &, QWidget *>;
 using Bando_QPushButton = BandoQWidget<QPushButton, const QString &, QWidget *>;
+using Bando_QCommandLinkButton = BandoQWidget<QCommandLinkButton, const QString &, const QString &, QWidget *>;
+using Bando_QRadioButton = BandoQWidget<QRadioButton, const QString &, QWidget *>;
+using Bando_QToolButton = BandoQWidget<QToolButton, QWidget *>;
 using Bando_QSlider = BandoQWidget<QSlider, Qt::Orientation, QWidget *>;
 using Bando_QDialog = BandoQWidget<QDialog, QWidget *>;
 using Bando_QFrame = BandoQWidget<QFrame, QWidget *>;
@@ -24,7 +32,11 @@ using Bando_QLCDNumber = BandoQWidget<QLCDNumber, uint, QWidget *>;
 using Bando_QLineEdit = BandoQWidget<QLineEdit, const QString &, QWidget *>;
 
 Rice::Class rb_mBando_cQWidget;
+Rice::Class rb_mBando_cQCheckBox;
 Rice::Class rb_mBando_cQPushButton;
+Rice::Class rb_mBando_cQCommandLinkButton;
+Rice::Class rb_mBando_cQRadioButton;
+Rice::Class rb_mBando_cQToolButton;
 Rice::Class rb_mBando_cQSlider;
 Rice::Class rb_mBando_cQDialog;
 Rice::Class rb_mBando_cQFrame;
@@ -40,10 +52,30 @@ void Init_bando_qtwidgets_widget(Rice::Module rb_mQt6Bando)
             .define_constructor(Constructor<Bando_QWidget, QWidget *>(), Arg("parent"))
             .define_method("_initialize_value", &Bando_QWidget::initializeValue, Arg("mo"), Arg("value"));
 
+    rb_mBando_cQCheckBox =
+        define_class_under<Bando_QCheckBox, QCheckBox>(rb_mQt6Bando, "QCheckBox")
+            .define_constructor(Constructor<Bando_QCheckBox, const QString &, QWidget *>(), Arg("text"), Arg("parent"))
+            .define_method("_initialize_value", &Bando_QCheckBox::initializeValue, Arg("mo"), Arg("value"));
+
     rb_mBando_cQPushButton =
         define_class_under<Bando_QPushButton, QPushButton>(rb_mQt6Bando, "QPushButton")
             .define_constructor(Constructor<Bando_QPushButton, const QString &, QWidget *>(), Arg("text"), Arg("parent"))
             .define_method("_initialize_value", &Bando_QPushButton::initializeValue, Arg("mo"), Arg("value"));
+
+    rb_mBando_cQCommandLinkButton =
+        define_class_under<Bando_QCommandLinkButton, QCommandLinkButton>(rb_mQt6Bando, "QCommandLinkButton")
+            .define_constructor(Constructor<Bando_QCommandLinkButton, const QString &, const QString &, QWidget *>(), Arg("text"), Arg("description"), Arg("parent"))
+            .define_method("_initialize_value", &Bando_QCommandLinkButton::initializeValue, Arg("mo"), Arg("value"));
+
+    rb_mBando_cQRadioButton =
+        define_class_under<Bando_QRadioButton, QRadioButton>(rb_mQt6Bando, "QRadioButton")
+            .define_constructor(Constructor<Bando_QRadioButton, const QString &, QWidget *>(), Arg("text"), Arg("parent"))
+            .define_method("_initialize_value", &Bando_QRadioButton::initializeValue, Arg("mo"), Arg("value"));
+
+    rb_mBando_cQToolButton =
+        define_class_under<Bando_QToolButton, QToolButton>(rb_mQt6Bando, "QToolButton")
+            .define_constructor(Constructor<Bando_QToolButton, QWidget *>(), Arg("parent"))
+            .define_method("_initialize_value", &Bando_QToolButton::initializeValue, Arg("mo"), Arg("value"));
 
     rb_mBando_cQSlider =
         define_class_under<Bando_QSlider, QSlider>(rb_mQt6Bando, "QSlider")

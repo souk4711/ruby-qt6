@@ -13,7 +13,11 @@
 
 #include "qwidget-rb.hpp"
 #include "qabstractbutton-rb.hpp"
+#include "qcheckbox-rb.hpp"
 #include "qpushbutton-rb.hpp"
+#include "qcommandlinkbutton-rb.hpp"
+#include "qradiobutton-rb.hpp"
+#include "qtoolbutton-rb.hpp"
 #include "qabstractslider-rb.hpp"
 #include "qslider-rb.hpp"
 #include "qdialog-rb.hpp"
@@ -46,7 +50,11 @@ extern "C" void Init_qtwidgets()
 
         Init_qwidget(rb_mQt6QtWidgets);
         Init_qabstractbutton(rb_mQt6QtWidgets);
+        Init_qcheckbox(rb_mQt6QtWidgets);
         Init_qpushbutton(rb_mQt6QtWidgets);
+        Init_qcommandlinkbutton(rb_mQt6QtWidgets);
+        Init_qradiobutton(rb_mQt6QtWidgets);
+        Init_qtoolbutton(rb_mQt6QtWidgets);
         Init_qabstractslider(rb_mQt6QtWidgets);
         Init_qslider(rb_mQt6QtWidgets);
         Init_qdialog(rb_mQt6QtWidgets);
