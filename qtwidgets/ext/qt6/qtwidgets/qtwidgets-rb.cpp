@@ -41,7 +41,24 @@
 #include "qabstractscrollarea-rb.hpp"
 #include "qlabel-rb.hpp"
 #include "qlcdnumber-rb.hpp"
+#include "qdialogbuttonbox-rb.hpp"
+#include "qdockwidget-rb.hpp"
+#include "qfocusframe-rb.hpp"
+#include "qgroupbox-rb.hpp"
+#include "qkeysequenceedit-rb.hpp"
 #include "qlineedit-rb.hpp"
+#include "qmainwindow-rb.hpp"
+#include "qmdisubwindow-rb.hpp"
+#include "qmenu-rb.hpp"
+#include "qmenubar-rb.hpp"
+#include "qprogressbar-rb.hpp"
+#include "qrubberband-rb.hpp"
+#include "qsizegrip-rb.hpp"
+#include "qsplashscreen-rb.hpp"
+#include "qstatusbar-rb.hpp"
+#include "qtabbar-rb.hpp"
+#include "qtabwidget-rb.hpp"
+#include "qtoolbar-rb.hpp"
 
 #include "bando-qtwidgets-layout-rb.hpp"
 #include "bando-qtwidgets-widget-rb.hpp"
@@ -94,7 +111,24 @@ extern "C" void Init_qtwidgets()
         Init_qabstractscrollarea(rb_mQt6QtWidgets);
         Init_qlabel(rb_mQt6QtWidgets);
         Init_qlcdnumber(rb_mQt6QtWidgets);
+        Init_qdialogbuttonbox(rb_mQt6QtWidgets);
+        Init_qdockwidget(rb_mQt6QtWidgets);
+        Init_qfocusframe(rb_mQt6QtWidgets);
+        Init_qgroupbox(rb_mQt6QtWidgets);
+        Init_qkeysequenceedit(rb_mQt6QtWidgets);
         Init_qlineedit(rb_mQt6QtWidgets);
+        Init_qmainwindow(rb_mQt6QtWidgets);
+        Init_qmdisubwindow(rb_mQt6QtWidgets);
+        Init_qmenu(rb_mQt6QtWidgets);
+        Init_qmenubar(rb_mQt6QtWidgets);
+        Init_qprogressbar(rb_mQt6QtWidgets);
+        Init_qrubberband(rb_mQt6QtWidgets);
+        Init_qsizegrip(rb_mQt6QtWidgets);
+        Init_qsplashscreen(rb_mQt6QtWidgets);
+        Init_qstatusbar(rb_mQt6QtWidgets);
+        Init_qtabbar(rb_mQt6QtWidgets);
+        Init_qtabwidget(rb_mQt6QtWidgets);
+        Init_qtoolbar(rb_mQt6QtWidgets);
 
         Rice::Module rb_mQt6Bando = define_module_under(rb_mQt6, "Bando");
         Init_bando_qtwidgets_layout(rb_mQt6Bando);

@@ -32,7 +32,24 @@
 #include <QAbstractScrollArea>
 #include <QLabel>
 #include <QLCDNumber>
+#include <QDialogButtonBox>
+#include <QDockWidget>
+#include <QFocusFrame>
+#include <QGroupBox>
+#include <QKeySequenceEdit>
 #include <QLineEdit>
+#include <QMainWindow>
+#include <QMdiSubWindow>
+#include <QMenu>
+#include <QMenuBar>
+#include <QProgressBar>
+#include <QRubberBand>
+#include <QSizeGrip>
+#include <QSplashScreen>
+#include <QStatusBar>
+#include <QTabBar>
+#include <QTabWidget>
+#include <QToolBar>
 
 using namespace Rice;
 
@@ -67,7 +84,24 @@ using Bando_QFrame = BandoQWidget<QFrame, QWidget *>;
 using Bando_QAbstractScrollArea = BandoQWidget<QAbstractScrollArea, QWidget *>;
 using Bando_QLabel = BandoQWidget<QLabel, const QString &, QWidget *>;
 using Bando_QLCDNumber = BandoQWidget<QLCDNumber, uint, QWidget *>;
+using Bando_QDialogButtonBox = BandoQWidget<QDialogButtonBox, QDialogButtonBox::StandardButtons, Qt::Orientation, QWidget *>;
+using Bando_QDockWidget = BandoQWidget<QDockWidget, const QString &, QWidget *>;
+using Bando_QFocusFrame = BandoQWidget<QFocusFrame, QWidget *>;
+using Bando_QGroupBox = BandoQWidget<QGroupBox, const QString &, QWidget *>;
+using Bando_QKeySequenceEdit = BandoQWidget<QKeySequenceEdit, const QKeySequence &, QWidget *>;
 using Bando_QLineEdit = BandoQWidget<QLineEdit, const QString &, QWidget *>;
+using Bando_QMainWindow = BandoQWidget<QMainWindow, QWidget *>;
+using Bando_QMdiSubWindow = BandoQWidget<QMdiSubWindow, QWidget *>;
+using Bando_QMenu = BandoQWidget<QMenu, const QString &, QWidget *>;
+using Bando_QMenuBar = BandoQWidget<QMenuBar, QWidget *>;
+using Bando_QProgressBar = BandoQWidget<QProgressBar, QWidget *>;
+using Bando_QRubberBand = BandoQWidget<QRubberBand, QRubberBand::Shape, QWidget *>;
+using Bando_QSizeGrip = BandoQWidget<QSizeGrip, QWidget *>;
+using Bando_QSplashScreen = BandoQWidget<QSplashScreen, const QPixmap &>;
+using Bando_QStatusBar = BandoQWidget<QStatusBar, QWidget *>;
+using Bando_QTabBar = BandoQWidget<QTabBar, QWidget *>;
+using Bando_QTabWidget = BandoQWidget<QTabWidget, QWidget *>;
+using Bando_QToolBar = BandoQWidget<QToolBar, const QString &, QWidget *>;
 
 Rice::Class rb_mBando_cQWidget;
 Rice::Class rb_mBando_cQCheckBox;
@@ -100,7 +134,24 @@ Rice::Class rb_mBando_cQFrame;
 Rice::Class rb_mBando_cQAbstractScrollArea;
 Rice::Class rb_mBando_cQLabel;
 Rice::Class rb_mBando_cQLCDNumber;
+Rice::Class rb_mBando_cQDialogButtonBox;
+Rice::Class rb_mBando_cQDockWidget;
+Rice::Class rb_mBando_cQFocusFrame;
+Rice::Class rb_mBando_cQGroupBox;
+Rice::Class rb_mBando_cQKeySequenceEdit;
 Rice::Class rb_mBando_cQLineEdit;
+Rice::Class rb_mBando_cQMainWindow;
+Rice::Class rb_mBando_cQMdiSubWindow;
+Rice::Class rb_mBando_cQMenu;
+Rice::Class rb_mBando_cQMenuBar;
+Rice::Class rb_mBando_cQProgressBar;
+Rice::Class rb_mBando_cQRubberBand;
+Rice::Class rb_mBando_cQSizeGrip;
+Rice::Class rb_mBando_cQSplashScreen;
+Rice::Class rb_mBando_cQStatusBar;
+Rice::Class rb_mBando_cQTabBar;
+Rice::Class rb_mBando_cQTabWidget;
+Rice::Class rb_mBando_cQToolBar;
 
 void Init_bando_qtwidgets_widget(Rice::Module rb_mQt6Bando)
 {
@@ -259,8 +310,93 @@ void Init_bando_qtwidgets_widget(Rice::Module rb_mQt6Bando)
             .define_constructor(Constructor<Bando_QLCDNumber, uint, QWidget *>(), Arg("num"), Arg("parent"))
             .define_method("_initialize_value", &Bando_QLCDNumber::initializeValue, Arg("mo"), Arg("value"));
 
+    rb_mBando_cQDialogButtonBox =
+        define_class_under<Bando_QDialogButtonBox, QDialogButtonBox>(rb_mQt6Bando, "QDialogButtonBox")
+            .define_constructor(Constructor<Bando_QDialogButtonBox, QDialogButtonBox::StandardButtons, Qt::Orientation, QWidget *>(), Arg("buttons"), Arg("orientation"), Arg("parent"))
+            .define_method("_initialize_value", &Bando_QDialogButtonBox::initializeValue, Arg("mo"), Arg("value"));
+
+    rb_mBando_cQDockWidget =
+        define_class_under<Bando_QDockWidget, QDockWidget>(rb_mQt6Bando, "QDockWidget")
+            .define_constructor(Constructor<Bando_QDockWidget, const QString &, QWidget *>(), Arg("title"), Arg("parent"))
+            .define_method("_initialize_value", &Bando_QDockWidget::initializeValue, Arg("mo"), Arg("value"));
+
+    rb_mBando_cQFocusFrame =
+        define_class_under<Bando_QFocusFrame, QFocusFrame>(rb_mQt6Bando, "QFocusFrame")
+            .define_constructor(Constructor<Bando_QFocusFrame, QWidget *>(), Arg("parent"))
+            .define_method("_initialize_value", &Bando_QFocusFrame::initializeValue, Arg("mo"), Arg("value"));
+
+    rb_mBando_cQGroupBox =
+        define_class_under<Bando_QGroupBox, QGroupBox>(rb_mQt6Bando, "QGroupBox")
+            .define_constructor(Constructor<Bando_QGroupBox, const QString &, QWidget *>(), Arg("title"), Arg("parent"))
+            .define_method("_initialize_value", &Bando_QGroupBox::initializeValue, Arg("mo"), Arg("value"));
+
+    rb_mBando_cQKeySequenceEdit =
+        define_class_under<Bando_QKeySequenceEdit, QKeySequenceEdit>(rb_mQt6Bando, "QKeySequenceEdit")
+            .define_constructor(Constructor<Bando_QKeySequenceEdit, const QKeySequence &, QWidget *>(), Arg("key_sequence"), Arg("parent"))
+            .define_method("_initialize_value", &Bando_QKeySequenceEdit::initializeValue, Arg("mo"), Arg("value"));
+
     rb_mBando_cQLineEdit =
         define_class_under<Bando_QLineEdit, QLineEdit>(rb_mQt6Bando, "QLineEdit")
             .define_constructor(Constructor<Bando_QLineEdit, const QString &, QWidget *>(), Arg("contents"), Arg("parent"))
             .define_method("_initialize_value", &Bando_QLineEdit::initializeValue, Arg("mo"), Arg("value"));
+
+    rb_mBando_cQMainWindow =
+        define_class_under<Bando_QMainWindow, QMainWindow>(rb_mQt6Bando, "QMainWindow")
+            .define_constructor(Constructor<Bando_QMainWindow, QWidget *>(), Arg("parent"))
+            .define_method("_initialize_value", &Bando_QMainWindow::initializeValue, Arg("mo"), Arg("value"));
+
+    rb_mBando_cQMdiSubWindow =
+        define_class_under<Bando_QMdiSubWindow, QMdiSubWindow>(rb_mQt6Bando, "QMdiSubWindow")
+            .define_constructor(Constructor<Bando_QMdiSubWindow, QWidget *>(), Arg("parent"))
+            .define_method("_initialize_value", &Bando_QMdiSubWindow::initializeValue, Arg("mo"), Arg("value"));
+
+    rb_mBando_cQMenu =
+        define_class_under<Bando_QMenu, QMenu>(rb_mQt6Bando, "QMenu")
+            .define_constructor(Constructor<Bando_QMenu, const QString &, QWidget *>(), Arg("title"), Arg("parent"))
+            .define_method("_initialize_value", &Bando_QMenu::initializeValue, Arg("mo"), Arg("value"));
+
+    rb_mBando_cQMenuBar =
+        define_class_under<Bando_QMenuBar, QMenuBar>(rb_mQt6Bando, "QMenuBar")
+            .define_constructor(Constructor<Bando_QMenuBar, QWidget *>(), Arg("parent"))
+            .define_method("_initialize_value", &Bando_QMenuBar::initializeValue, Arg("mo"), Arg("value"));
+
+    rb_mBando_cQProgressBar =
+        define_class_under<Bando_QProgressBar, QProgressBar>(rb_mQt6Bando, "QProgressBar")
+            .define_constructor(Constructor<Bando_QProgressBar, QWidget *>(), Arg("parent"))
+            .define_method("_initialize_value", &Bando_QProgressBar::initializeValue, Arg("mo"), Arg("value"));
+
+    rb_mBando_cQRubberBand =
+        define_class_under<Bando_QRubberBand, QRubberBand>(rb_mQt6Bando, "QRubberBand")
+            .define_constructor(Constructor<Bando_QRubberBand, QRubberBand::Shape, QWidget *>(), Arg("shape"), Arg("parent"))
+            .define_method("_initialize_value", &Bando_QRubberBand::initializeValue, Arg("mo"), Arg("value"));
+
+    rb_mBando_cQSizeGrip =
+        define_class_under<Bando_QSizeGrip, QSizeGrip>(rb_mQt6Bando, "QSizeGrip")
+            .define_constructor(Constructor<Bando_QSizeGrip, QWidget *>(), Arg("parent"))
+            .define_method("_initialize_value", &Bando_QSizeGrip::initializeValue, Arg("mo"), Arg("value"));
+
+    rb_mBando_cQSplashScreen =
+        define_class_under<Bando_QSplashScreen, QSplashScreen>(rb_mQt6Bando, "QSplashScreen")
+            .define_constructor(Constructor<Bando_QSplashScreen, const QPixmap &>(), Arg("pixmap"))
+            .define_method("_initialize_value", &Bando_QSplashScreen::initializeValue, Arg("mo"), Arg("value"));
+
+    rb_mBando_cQStatusBar =
+        define_class_under<Bando_QStatusBar, QStatusBar>(rb_mQt6Bando, "QStatusBar")
+            .define_constructor(Constructor<Bando_QStatusBar, QWidget *>(), Arg("parent"))
+            .define_method("_initialize_value", &Bando_QStatusBar::initializeValue, Arg("mo"), Arg("value"));
+
+    rb_mBando_cQTabBar =
+        define_class_under<Bando_QTabBar, QTabBar>(rb_mQt6Bando, "QTabBar")
+            .define_constructor(Constructor<Bando_QTabBar, QWidget *>(), Arg("parent"))
+            .define_method("_initialize_value", &Bando_QTabBar::initializeValue, Arg("mo"), Arg("value"));
+
+    rb_mBando_cQTabWidget =
+        define_class_under<Bando_QTabWidget, QTabWidget>(rb_mQt6Bando, "QTabWidget")
+            .define_constructor(Constructor<Bando_QTabWidget, QWidget *>(), Arg("parent"))
+            .define_method("_initialize_value", &Bando_QTabWidget::initializeValue, Arg("mo"), Arg("value"));
+
+    rb_mBando_cQToolBar =
+        define_class_under<Bando_QToolBar, QToolBar>(rb_mQt6Bando, "QToolBar")
+            .define_constructor(Constructor<Bando_QToolBar, const QString &, QWidget *>(), Arg("title"), Arg("parent"))
+            .define_method("_initialize_value", &Bando_QToolBar::initializeValue, Arg("mo"), Arg("value"));
 }

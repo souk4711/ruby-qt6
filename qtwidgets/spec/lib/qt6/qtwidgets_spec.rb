@@ -22,19 +22,24 @@ RSpec.describe RubyQt6::QtWidgets do
     [
       ["addItem", "item"],
       ["addLayout", "layout"],
+      ["addPermanentWidget", "widget"],
       ["addWidget", "widget"],
       ["addSpacerItem", "item"],
       ["addRow", "field"],
+      ["addTab", "widget"],
       ["insertItem", "item"],
       ["insertLayout", "layout"],
+      ["insertPermanentWidget", "widget"],
       ["insertWidget", "widget"],
       ["insertSpacerItem", "item"],
       ["insertRow", "field"],
+      ["insertTab", "widget"],
       ["setLayout", "layout"],
       ["setWidget", "widget"]
     ].each do |fname, argname|
       Dir.glob("ext/**/q*.cpp").each do |cppfile|
         next if cppfile == "ext/qt6/qtwidgets/qcombobox-rb.cpp"
+        next if cppfile == "ext/qt6/qtwidgets/qtabbar-rb.cpp"
 
         File.read(cppfile).each_line do |line|
           matched = line.match(/&(\w+)::#{fname},(.+)/)
