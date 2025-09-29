@@ -172,8 +172,21 @@ module RubyQt6
       raise "#{cppfile}: Found default value in constructor method" if rawline.include?("static_cast")
 
       unless NO_VERIFY_QLASS_QOBJECT_INITIALIZE.include?(qlass.name)
-        args = rawline.scan(/Arg\("(\w+)"\)/).map { |arg| "#{arg[0]}( = .*)?" }
+        rawargs = rawline.scan(/Arg\("(\w+)"\)/).map { |arg| arg[0] }
+        rawargs.each do |arg|
+          line = "@param #{arg} ["
+          raise "#{rbfile}: initialize: Missing `#{line}`" unless rbfile_contents.include?(line)
+        end
+
+        line = "@return [#{qlass.name}]"
+        raise "#{rbfile}: initialize: Missing `#{line}`" unless rbfile_contents.include?(line)
+
+        args = rawargs.map { |arg| "#{arg}( = .*)?" }
         line = /def initialize\(#{args.join(", ")}\)/
+        raise "#{rbfile}: initialize: Mismatch `#{line}`" unless rbfile_contents.match?(line)
+
+        args = rawargs.map { |arg| ".*#{arg}.*" }
+        line = /_initialize\(#{args.join(", ")}\)/
         raise "#{rbfile}: initialize: Mismatch `#{line}`" unless rbfile_contents.match?(line)
       end
     end
