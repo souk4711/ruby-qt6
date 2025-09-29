@@ -6,6 +6,8 @@ module RubyQt6
     class QDial < RubyQt6::QtWidgets::QAbstractSlider
       # @!parse
       q_object do
+        slot "setNotchesVisible(bool)"
+        slot "setWrapping(bool)"
       end
 
       # @!visibility private

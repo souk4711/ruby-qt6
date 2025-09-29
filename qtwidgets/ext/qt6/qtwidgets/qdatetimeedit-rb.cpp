@@ -17,7 +17,7 @@ void Init_qdatetimeedit(Rice::Module rb_mQt6QtWidgets)
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QDateTimeEdit::staticMetaObject; })
             // Constructor
-            .define_constructor(Constructor<QDateTimeEdit, const QDateTime &, QWidget *>(), Arg("dt"), Arg("parent"))
+            .define_constructor(Constructor<QDateTimeEdit, const QDateTime &, QWidget *>(), Arg("datetime"), Arg("parent"))
             // Public Functions
             .define_method("calendar", &QDateTimeEdit::calendar)
             .define_method("calendar_popup", &QDateTimeEdit::calendarPopup)

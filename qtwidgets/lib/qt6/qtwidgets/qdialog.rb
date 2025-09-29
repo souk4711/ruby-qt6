@@ -9,13 +9,13 @@ module RubyQt6
 
       # @!parse
       q_object do
-        signal "finished(int)"
         signal "accepted()"
+        signal "finished(int)"
         signal "rejected()"
-        slot "open()"
-        slot "exec()"
-        slot "done(int)"
         slot "accept()"
+        slot "done(int)"
+        slot "exec()"
+        slot "open()"
         slot "reject()"
       end
 

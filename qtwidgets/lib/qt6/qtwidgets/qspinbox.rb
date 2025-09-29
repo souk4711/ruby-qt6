@@ -6,8 +6,8 @@ module RubyQt6
     class QSpinBox < RubyQt6::QtWidgets::QAbstractSpinBox
       # @!parse
       q_object do
-        signal "valueChanged(int)"
         signal "textChanged(QString)"
+        signal "valueChanged(int)"
         slot "setValue(int)"
       end
 

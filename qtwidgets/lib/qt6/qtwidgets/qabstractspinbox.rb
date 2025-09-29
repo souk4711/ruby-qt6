@@ -16,10 +16,10 @@ module RubyQt6
       # @!parse
       q_object do
         signal "editingFinished()"
-        slot "stepUp()"
-        slot "stepDown()"
-        slot "selectAll()"
         slot "clear()"
+        slot "selectAll()"
+        slot "stepDown()"
+        slot "stepUp()"
       end
     end
   end

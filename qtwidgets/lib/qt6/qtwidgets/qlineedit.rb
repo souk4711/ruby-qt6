@@ -11,21 +11,21 @@ module RubyQt6
 
       # @!parse
       q_object do
+        signal "cursorPositionChanged(int,int)"
+        signal "editingFinished()"
+        signal "inputRejected()"
+        signal "returnPressed()"
+        signal "selectionChanged()"
         signal "textChanged(QString)"
         signal "textEdited(QString)"
-        signal "cursorPositionChanged(int,int)"
-        signal "returnPressed()"
-        signal "editingFinished()"
-        signal "selectionChanged()"
-        signal "inputRejected()"
-        slot "setText(QString)"
         slot "clear()"
-        slot "selectAll()"
-        slot "undo()"
-        slot "redo()"
-        slot "cut()"
         slot "copy()"
+        slot "cut()"
         slot "paste()"
+        slot "redo()"
+        slot "selectAll()"
+        slot "setText(QString)"
+        slot "undo()"
       end
 
       # @!visibility private

@@ -6,6 +6,7 @@ module RubyQt6
     class QDateEdit < RubyQt6::QtWidgets::QDateTimeEdit
       # @!parse
       q_object do
+        signal "userDateChanged(QDate)"
       end
 
       # @!visibility private

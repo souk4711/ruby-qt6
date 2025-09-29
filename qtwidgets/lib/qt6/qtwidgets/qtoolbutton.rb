@@ -10,9 +10,9 @@ module RubyQt6
       # @!parse
       q_object do
         signal "triggered(QAction*)"
-        slot "showMenu()"
-        slot "setToolButtonStyle(Qt::ToolButtonStyle)"
         slot "setDefaultAction(QAction*)"
+        slot "setToolButtonStyle(Qt::ToolButtonStyle)"
+        slot "showMenu()"
       end
 
       # @!visibility private
