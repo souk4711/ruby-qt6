@@ -16,11 +16,11 @@ module RubyQt6
       # @!visibility private
       alias_method :_initialize, :initialize
 
-      # @param key_sequence [QKeySequence]
+      # @param key [QKeySequence]
       # @param parent [QWidget]
       # @return [QKeySequenceEdit]
-      def initialize(key_sequence, parent = nil)
-        _initialize(key_sequence, parent)
+      def initialize(key, parent = nil)
+        _initialize(key, parent)
         _take_ownership_from_ruby(self) if parent
       end
     end

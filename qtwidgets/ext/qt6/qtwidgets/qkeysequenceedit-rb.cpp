@@ -13,7 +13,7 @@ void Init_qkeysequenceedit(Rice::Module rb_mQt6QtWidgets)
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QKeySequenceEdit::staticMetaObject; })
             // Constructor
-            .define_constructor(Constructor<QKeySequenceEdit, const QKeySequence &, QWidget *>(), Arg("key_sequence"), Arg("parent"))
+            .define_constructor(Constructor<QKeySequenceEdit, const QKeySequence &, QWidget *>(), Arg("key"), Arg("parent"))
             // Public Functions
             .define_method("finishing_key_combinations", &QKeySequenceEdit::finishingKeyCombinations)
             .define_method("clear_button_enabled?", &QKeySequenceEdit::isClearButtonEnabled)

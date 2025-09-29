@@ -28,7 +28,7 @@ module RubyQt6
       # @param parent [QWidget]
       # @return [QProgressDialog]
       def initialize(label_text, cancel_button_text, minimum, maximum, parent = nil)
-        _initialize(label_text, cancel_button_text, minimum, maximum, parent)
+        _initialize(T.to_qstr(label_text), T.to_qstr(cancel_button_text), minimum, maximum, parent)
         _take_ownership_from_ruby(self) if parent
       end
     end
