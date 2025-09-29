@@ -7,6 +7,9 @@ require_relative "rspec/qlass_file_parser"
 module RubyQt6
   # @!visibility private
   module RSpec
+    NO_VERIFY_QLASS_DOCS = [
+      "QMetaObjectBuilder"
+    ]
     NO_VERIFY_QLASS_INITIALIZE = QlassFileParser::NESTED_QLASSES + [
       "QVariant"
     ]
@@ -64,6 +67,7 @@ module RubyQt6
         rbfile = "lib/qt6/#{qmod.name.downcase}/#{qlass.name.downcase}.rb"
         rbfile_contents = File.read(rbfile) if File.exist?(rbfile)
 
+        verify_qlass_cppfile_qlass_docs(qlass, cppfile, rbfile, rbfile_contents, r)
         verify_qlass_cppfile_qlass_initialize(qlass, cppfile, rbfile, rbfile_contents, r)
         verify_qlass_cppfile_qlass_methods(qlass, cppfile, rbfile, rbfile_contents, r)
         verify_qlass_cppfile_qlass_enums(qlass, cppfile, rbfile, rbfile_contents, r)
@@ -73,6 +77,14 @@ module RubyQt6
         verify_qlass_cppfile_qlass_qobject_methods(qlass, cppfile, rbfile, rbfile_contents, r) if qobject
       end
       rs
+    end
+
+    def self.verify_qlass_cppfile_qlass_docs(qlass, cppfile, rbfile, rbfile_contents, r)
+      return if NO_VERIFY_QLASS_DOCS.include?(qlass.name)
+
+      return if rbfile_contents.nil?
+      return if rbfile_contents.include?("# @see https://doc.qt.io/qt-6/#{qlass.name.downcase}.html")
+      raise "#{rbfile}: docs: Missing `# @see https://doc.qt.io/qt-6/...`"
     end
 
     def self.verify_qlass_cppfile_qlass_initialize(qlass, cppfile, rbfile, rbfile_contents, r)

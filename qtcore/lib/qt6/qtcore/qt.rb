@@ -173,30 +173,30 @@ module RubyQt6
       rubyqt6_include_constants Qt, Qt::WindowState
       rubyqt6_include_constants Qt, Qt::WindowType
 
-      # @!parse class Alignment           ; end
-      # @!parse class ApplicationStates   ; end
-      # @!parse class DockWidgetAreas     ; end
-      # @!parse class DropActions         ; end
-      # @!parse class Edges               ; end
-      # @!parse class FindChildOptions    ; end
-      # @!parse class GestureFlags        ; end
-      # @!parse class ImageConversionFlags; end
-      # @!parse class InputMethodHints    ; end
-      # @!parse class InputMethodQueries  ; end
-      # @!parse class ItemFlags           ; end
-      # @!parse class KeyboardModifiers   ; end
-      # @!parse class MatchFlags          ; end
-      # @!parse class Modifiers           ; end
-      # @!parse class MouseButtons        ; end
-      # @!parse class MouseEventFlags     ; end
-      # @!parse class Orientations        ; end
-      # @!parse class ScreenOrientations  ; end
-      # @!parse class SplitBehavior       ; end
-      # @!parse class TextInteractionFlags; end
-      # @!parse class ToolBarAreas        ; end
-      # @!parse class TouchPointStates    ; end
-      # @!parse class WindowStates        ; end
-      # @!parse class WindowFlags         ; end
+      # @!parse class Alignment             ; end
+      # @!parse class ApplicationStates     ; end
+      # @!parse class DockWidgetAreas       ; end
+      # @!parse class DropActions           ; end
+      # @!parse class Edges                 ; end
+      # @!parse class FindChildOptions      ; end
+      # @!parse class GestureFlags          ; end
+      # @!parse class ImageConversionFlags  ; end
+      # @!parse class InputMethodHints      ; end
+      # @!parse class InputMethodQueries    ; end
+      # @!parse class ItemFlags             ; end
+      # @!parse class KeyboardModifiers     ; end
+      # @!parse class MatchFlags            ; end
+      # @!parse class Modifiers             ; end
+      # @!parse class MouseButtons          ; end
+      # @!parse class MouseEventFlags       ; end
+      # @!parse class Orientations          ; end
+      # @!parse class ScreenOrientations    ; end
+      # @!parse class SplitBehavior         ; end
+      # @!parse class TextInteractionFlags  ; end
+      # @!parse class ToolBarAreas          ; end
+      # @!parse class TouchPointStates      ; end
+      # @!parse class WindowStates          ; end
+      # @!parse class WindowFlags           ; end
     end
   end
 end

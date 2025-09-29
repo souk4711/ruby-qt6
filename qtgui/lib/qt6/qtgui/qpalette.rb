@@ -5,7 +5,7 @@ module RubyQt6
     # @see https://doc.qt.io/qt-6/qpalette.html
     class QPalette
       # @!parse class ColorGroup; end
-      # @!parse class ColorRole; end
+      # @!parse class ColorRole ; end
       rubyqt6_include_constants QPalette, QPalette::ColorGroup
       rubyqt6_include_constants QPalette, QPalette::ColorRole
 
