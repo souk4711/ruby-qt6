@@ -25,6 +25,9 @@
 #include "qabstractspinbox-rb.hpp"
 #include "qdatetimeedit-rb.hpp"
 #include "qspinbox-rb.hpp"
+#include "qcalendarwidget-rb.hpp"
+#include "qcombobox-rb.hpp"
+#include "qfontcombobox-rb.hpp"
 #include "qdialog-rb.hpp"
 #include "qframe-rb.hpp"
 #include "qabstractscrollarea-rb.hpp"
@@ -67,6 +70,9 @@ extern "C" void Init_qtwidgets()
         Init_qabstractspinbox(rb_mQt6QtWidgets);
         Init_qdatetimeedit(rb_mQt6QtWidgets);
         Init_qspinbox(rb_mQt6QtWidgets);
+        Init_qcalendarwidget(rb_mQt6QtWidgets);
+        Init_qcombobox(rb_mQt6QtWidgets);
+        Init_qfontcombobox(rb_mQt6QtWidgets);
         Init_qdialog(rb_mQt6QtWidgets);
         Init_qframe(rb_mQt6QtWidgets);
         Init_qabstractscrollarea(rb_mQt6QtWidgets);

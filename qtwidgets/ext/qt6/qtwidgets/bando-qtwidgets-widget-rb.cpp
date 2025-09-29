@@ -15,6 +15,9 @@
 #include <QTimeEdit>
 #include <QDoubleSpinBox>
 #include <QSpinBox>
+#include <QCalendarWidget>
+#include <QComboBox>
+#include <QFontComboBox>
 #include <QDialog>
 #include <QFrame>
 #include <QAbstractScrollArea>
@@ -38,6 +41,9 @@ using Bando_QDateEdit = BandoQWidget<QDateEdit, QDate, QWidget *>;
 using Bando_QTimeEdit = BandoQWidget<QTimeEdit, QTime, QWidget *>;
 using Bando_QDoubleSpinBox = BandoQWidget<QDoubleSpinBox, QWidget *>;
 using Bando_QSpinBox = BandoQWidget<QSpinBox, QWidget *>;
+using Bando_QCalendarWidget = BandoQWidget<QCalendarWidget, QWidget *>;
+using Bando_QComboBox = BandoQWidget<QComboBox, QWidget *>;
+using Bando_QFontComboBox = BandoQWidget<QFontComboBox, QWidget *>;
 using Bando_QDialog = BandoQWidget<QDialog, QWidget *>;
 using Bando_QFrame = BandoQWidget<QFrame, QWidget *>;
 using Bando_QAbstractScrollArea = BandoQWidget<QAbstractScrollArea, QWidget *>;
@@ -59,6 +65,9 @@ Rice::Class rb_mBando_cQDateEdit;
 Rice::Class rb_mBando_cQTimeEdit;
 Rice::Class rb_mBando_cQDoubleSpinBox;
 Rice::Class rb_mBando_cQSpinBox;
+Rice::Class rb_mBando_cQCalendarWidget;
+Rice::Class rb_mBando_cQComboBox;
+Rice::Class rb_mBando_cQFontComboBox;
 Rice::Class rb_mBando_cQDialog;
 Rice::Class rb_mBando_cQFrame;
 Rice::Class rb_mBando_cQAbstractScrollArea;
@@ -137,6 +146,22 @@ void Init_bando_qtwidgets_widget(Rice::Module rb_mQt6Bando)
         define_class_under<Bando_QSpinBox, QSpinBox>(rb_mQt6Bando, "QSpinBox")
             .define_constructor(Constructor<Bando_QSpinBox, QWidget *>(), Arg("parent"))
             .define_method("_initialize_value", &Bando_QSpinBox::initializeValue, Arg("mo"), Arg("value"));
+
+    rb_mBando_cQCalendarWidget =
+        define_class_under<Bando_QCalendarWidget, QCalendarWidget>(rb_mQt6Bando, "QCalendarWidget")
+            .define_constructor(Constructor<Bando_QCalendarWidget, QWidget *>(), Arg("parent"))
+            .define_method("_initialize_value", &Bando_QCalendarWidget::initializeValue, Arg("mo"), Arg("value"));
+
+    rb_mBando_cQComboBox =
+        define_class_under<Bando_QComboBox, QComboBox>(rb_mQt6Bando, "QComboBox")
+            .define_constructor(Constructor<Bando_QComboBox, QWidget *>(), Arg("parent"))
+            .define_method("_initialize_value", &Bando_QComboBox::initializeValue, Arg("mo"), Arg("value"));
+
+    rb_mBando_cQFontComboBox =
+        define_class_under<Bando_QFontComboBox, QFontComboBox>(rb_mQt6Bando, "QFontComboBox")
+            .define_constructor(Constructor<Bando_QFontComboBox, QWidget *>(), Arg("parent"))
+            .define_method("_initialize_value", &Bando_QFontComboBox::initializeValue, Arg("mo"), Arg("value"));
+
 
     rb_mBando_cQDialog =
         define_class_under<Bando_QDialog, QDialog>(rb_mQt6Bando, "QDialog")

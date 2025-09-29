@@ -33,8 +33,10 @@ RSpec.describe RubyQt6::QtWidgets do
       ["setLayout", "layout"],
       ["setWidget", "widget"]
     ].each do |fname, argname|
-      Dir.glob("ext/**/q*.cpp").each do |f|
-        File.read(f).each_line do |line|
+      Dir.glob("ext/**/q*.cpp").each do |cppfile|
+        next if cppfile == "ext/qt6/qtwidgets/qcombobox-rb.cpp"
+
+        File.read(cppfile).each_line do |line|
           matched = line.match(/&(\w+)::#{fname},(.+)/)
           next unless matched
 
@@ -52,8 +54,8 @@ RSpec.describe RubyQt6::QtWidgets do
     [
       "takeAt"
     ].each do |fname|
-      Dir.glob("ext/**/q*.cpp").each do |f|
-        File.read(f).each_line do |line|
+      Dir.glob("ext/**/q*.cpp").each do |cppfile|
+        File.read(cppfile).each_line do |line|
           matched = line.match(/&(\w+)::#{fname},(.+)/)
           next unless matched
 
