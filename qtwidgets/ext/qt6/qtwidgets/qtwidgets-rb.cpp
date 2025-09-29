@@ -41,6 +41,9 @@
 #include "qabstractscrollarea-rb.hpp"
 #include "qlabel-rb.hpp"
 #include "qlcdnumber-rb.hpp"
+#include "qsplitter-rb.hpp"
+#include "qstackedwidget-rb.hpp"
+#include "qtoolbox-rb.hpp"
 #include "qdialogbuttonbox-rb.hpp"
 #include "qdockwidget-rb.hpp"
 #include "qfocusframe-rb.hpp"
@@ -111,6 +114,9 @@ extern "C" void Init_qtwidgets()
         Init_qabstractscrollarea(rb_mQt6QtWidgets);
         Init_qlabel(rb_mQt6QtWidgets);
         Init_qlcdnumber(rb_mQt6QtWidgets);
+        Init_qsplitter(rb_mQt6QtWidgets);
+        Init_qstackedwidget(rb_mQt6QtWidgets);
+        Init_qtoolbox(rb_mQt6QtWidgets);
         Init_qdialogbuttonbox(rb_mQt6QtWidgets);
         Init_qdockwidget(rb_mQt6QtWidgets);
         Init_qfocusframe(rb_mQt6QtWidgets);

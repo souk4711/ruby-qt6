@@ -32,6 +32,10 @@
 #include <QAbstractScrollArea>
 #include <QLabel>
 #include <QLCDNumber>
+#include <QSplitter>
+#include <QSplitterHandle>
+#include <QStackedWidget>
+#include <QToolBox>
 #include <QDialogButtonBox>
 #include <QDockWidget>
 #include <QFocusFrame>
@@ -84,6 +88,10 @@ using Bando_QFrame = BandoQWidget<QFrame, QWidget *>;
 using Bando_QAbstractScrollArea = BandoQWidget<QAbstractScrollArea, QWidget *>;
 using Bando_QLabel = BandoQWidget<QLabel, const QString &, QWidget *>;
 using Bando_QLCDNumber = BandoQWidget<QLCDNumber, uint, QWidget *>;
+using Bando_QSplitter = BandoQWidget<QSplitter, Qt::Orientation, QWidget *>;
+using Bando_QSplitterHandle = BandoQWidget<QSplitterHandle, Qt::Orientation, QSplitter *>;
+using Bando_QStackedWidget = BandoQWidget<QStackedWidget, QWidget *>;
+using Bando_QToolBox = BandoQWidget<QToolBox, QWidget *>;
 using Bando_QDialogButtonBox = BandoQWidget<QDialogButtonBox, QDialogButtonBox::StandardButtons, Qt::Orientation, QWidget *>;
 using Bando_QDockWidget = BandoQWidget<QDockWidget, const QString &, QWidget *>;
 using Bando_QFocusFrame = BandoQWidget<QFocusFrame, QWidget *>;
@@ -134,6 +142,10 @@ Rice::Class rb_mBando_cQFrame;
 Rice::Class rb_mBando_cQAbstractScrollArea;
 Rice::Class rb_mBando_cQLabel;
 Rice::Class rb_mBando_cQLCDNumber;
+Rice::Class rb_mBando_cQSplitter;
+Rice::Class rb_mBando_cQSplitterHandle;
+Rice::Class rb_mBando_cQStackedWidget;
+Rice::Class rb_mBando_cQToolBox;
 Rice::Class rb_mBando_cQDialogButtonBox;
 Rice::Class rb_mBando_cQDockWidget;
 Rice::Class rb_mBando_cQFocusFrame;
@@ -309,6 +321,26 @@ void Init_bando_qtwidgets_widget(Rice::Module rb_mQt6Bando)
         define_class_under<Bando_QLCDNumber, QLCDNumber>(rb_mQt6Bando, "QLCDNumber")
             .define_constructor(Constructor<Bando_QLCDNumber, uint, QWidget *>(), Arg("num"), Arg("parent"))
             .define_method("_initialize_value", &Bando_QLCDNumber::initializeValue, Arg("mo"), Arg("value"));
+
+    rb_mBando_cQSplitter =
+        define_class_under<Bando_QSplitter, QSplitter>(rb_mQt6Bando, "QSplitter")
+            .define_constructor(Constructor<Bando_QSplitter, Qt::Orientation, QWidget *>(), Arg("orientation"), Arg("parent"))
+            .define_method("_initialize_value", &Bando_QSplitter::initializeValue, Arg("mo"), Arg("value"));
+
+    rb_mBando_cQSplitterHandle =
+        define_class_under<Bando_QSplitterHandle, QSplitterHandle>(rb_mQt6Bando, "QSplitterHandle")
+            .define_constructor(Constructor<Bando_QSplitterHandle, Qt::Orientation, QSplitter *>(), Arg("orientation"), Arg("parent"))
+            .define_method("_initialize_value", &Bando_QSplitterHandle::initializeValue, Arg("mo"), Arg("value"));
+
+    rb_mBando_cQStackedWidget =
+        define_class_under<Bando_QStackedWidget, QStackedWidget>(rb_mQt6Bando, "QStackedWidget")
+            .define_constructor(Constructor<Bando_QStackedWidget, QWidget *>(), Arg("parent"))
+            .define_method("_initialize_value", &Bando_QStackedWidget::initializeValue, Arg("mo"), Arg("value"));
+
+    rb_mBando_cQToolBox =
+        define_class_under<Bando_QToolBox, QToolBox>(rb_mQt6Bando, "QToolBox")
+            .define_constructor(Constructor<Bando_QToolBox, QWidget *>(), Arg("parent"))
+            .define_method("_initialize_value", &Bando_QToolBox::initializeValue, Arg("mo"), Arg("value"));
 
     rb_mBando_cQDialogButtonBox =
         define_class_under<Bando_QDialogButtonBox, QDialogButtonBox>(rb_mQt6Bando, "QDialogButtonBox")
