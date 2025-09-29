@@ -29,6 +29,14 @@
 #include "qcombobox-rb.hpp"
 #include "qfontcombobox-rb.hpp"
 #include "qdialog-rb.hpp"
+#include "qcolordialog-rb.hpp"
+#include "qerrormessage-rb.hpp"
+#include "qfiledialog-rb.hpp"
+#include "qfontdialog-rb.hpp"
+#include "qinputdialog-rb.hpp"
+#include "qmessagebox-rb.hpp"
+#include "qprogressdialog-rb.hpp"
+#include "qwizard-rb.hpp"
 #include "qframe-rb.hpp"
 #include "qabstractscrollarea-rb.hpp"
 #include "qlabel-rb.hpp"
@@ -74,6 +82,14 @@ extern "C" void Init_qtwidgets()
         Init_qcombobox(rb_mQt6QtWidgets);
         Init_qfontcombobox(rb_mQt6QtWidgets);
         Init_qdialog(rb_mQt6QtWidgets);
+        Init_qcolordialog(rb_mQt6QtWidgets);
+        Init_qerrormessage(rb_mQt6QtWidgets);
+        Init_qfiledialog(rb_mQt6QtWidgets);
+        Init_qfontdialog(rb_mQt6QtWidgets);
+        Init_qinputdialog(rb_mQt6QtWidgets);
+        Init_qmessagebox(rb_mQt6QtWidgets);
+        Init_qprogressdialog(rb_mQt6QtWidgets);
+        Init_qwizard(rb_mQt6QtWidgets);
         Init_qframe(rb_mQt6QtWidgets);
         Init_qabstractscrollarea(rb_mQt6QtWidgets);
         Init_qlabel(rb_mQt6QtWidgets);

@@ -19,6 +19,15 @@
 #include <QComboBox>
 #include <QFontComboBox>
 #include <QDialog>
+#include <QColorDialog>
+#include <QErrorMessage>
+#include <QFileDialog>
+#include <QFontDialog>
+#include <QInputDialog>
+#include <QMessageBox>
+#include <QProgressDialog>
+#include <QWizard>
+#include <QWizardPage>
 #include <QFrame>
 #include <QAbstractScrollArea>
 #include <QLabel>
@@ -45,6 +54,15 @@ using Bando_QCalendarWidget = BandoQWidget<QCalendarWidget, QWidget *>;
 using Bando_QComboBox = BandoQWidget<QComboBox, QWidget *>;
 using Bando_QFontComboBox = BandoQWidget<QFontComboBox, QWidget *>;
 using Bando_QDialog = BandoQWidget<QDialog, QWidget *>;
+using Bando_QColorDialog = BandoQWidget<QColorDialog, const QColor &, QWidget *>;
+using Bando_QErrorMessage = BandoQWidget<QErrorMessage, QWidget *>;
+using Bando_QFileDialog = BandoQWidget<QFileDialog, QWidget *, const QString &, const QString &, const QString &>;
+using Bando_QFontDialog = BandoQWidget<QFontDialog, const QFont &, QWidget *>;
+using Bando_QInputDialog = BandoQWidget<QInputDialog, QWidget *>;
+using Bando_QMessageBox = BandoQWidget<QMessageBox, QMessageBox::Icon, const QString &, const QString &, QMessageBox::StandardButtons, QWidget *>;
+using Bando_QProgressDialog = BandoQWidget<QProgressDialog, const QString &, const QString &, int, int, QWidget *>;
+using Bando_QWizard = BandoQWidget<QWizard, QWidget *>;
+using Bando_QWizardPage = BandoQWidget<QWizardPage, QWidget *>;
 using Bando_QFrame = BandoQWidget<QFrame, QWidget *>;
 using Bando_QAbstractScrollArea = BandoQWidget<QAbstractScrollArea, QWidget *>;
 using Bando_QLabel = BandoQWidget<QLabel, const QString &, QWidget *>;
@@ -69,6 +87,15 @@ Rice::Class rb_mBando_cQCalendarWidget;
 Rice::Class rb_mBando_cQComboBox;
 Rice::Class rb_mBando_cQFontComboBox;
 Rice::Class rb_mBando_cQDialog;
+Rice::Class rb_mBando_cQColorDialog;
+Rice::Class rb_mBando_cQErrorMessage;
+Rice::Class rb_mBando_cQFileDialog;
+Rice::Class rb_mBando_cQFontDialog;
+Rice::Class rb_mBando_cQInputDialog;
+Rice::Class rb_mBando_cQMessageBox;
+Rice::Class rb_mBando_cQProgressDialog;
+Rice::Class rb_mBando_cQWizard;
+Rice::Class rb_mBando_cQWizardPage;
 Rice::Class rb_mBando_cQFrame;
 Rice::Class rb_mBando_cQAbstractScrollArea;
 Rice::Class rb_mBando_cQLabel;
@@ -162,11 +189,55 @@ void Init_bando_qtwidgets_widget(Rice::Module rb_mQt6Bando)
             .define_constructor(Constructor<Bando_QFontComboBox, QWidget *>(), Arg("parent"))
             .define_method("_initialize_value", &Bando_QFontComboBox::initializeValue, Arg("mo"), Arg("value"));
 
-
     rb_mBando_cQDialog =
         define_class_under<Bando_QDialog, QDialog>(rb_mQt6Bando, "QDialog")
             .define_constructor(Constructor<Bando_QDialog, QWidget *>(), Arg("parent"))
             .define_method("_initialize_value", &Bando_QDialog::initializeValue, Arg("mo"), Arg("value"));
+
+    rb_mBando_cQColorDialog =
+        define_class_under<Bando_QColorDialog, QColorDialog>(rb_mQt6Bando, "QColorDialog")
+            .define_constructor(Constructor<Bando_QColorDialog, const QColor &, QWidget *>(), Arg("initial"), Arg("parent"))
+            .define_method("_initialize_value", &Bando_QColorDialog::initializeValue, Arg("mo"), Arg("value"));
+
+    rb_mBando_cQErrorMessage =
+        define_class_under<Bando_QErrorMessage, QErrorMessage>(rb_mQt6Bando, "QErrorMessage")
+            .define_constructor(Constructor<Bando_QErrorMessage, QWidget *>(), Arg("parent"))
+            .define_method("_initialize_value", &Bando_QErrorMessage::initializeValue, Arg("mo"), Arg("value"));
+
+    rb_mBando_cQFileDialog =
+        define_class_under<Bando_QFileDialog, QFileDialog>(rb_mQt6Bando, "QFileDialog")
+            .define_constructor(Constructor<Bando_QFileDialog, QWidget *, const QString &, const QString &, const QString &>(), Arg("parent"), Arg("caption"), Arg("directory"), Arg("filter"))
+            .define_method("_initialize_value", &Bando_QFileDialog::initializeValue, Arg("mo"), Arg("value"));
+
+    rb_mBando_cQFontDialog =
+        define_class_under<Bando_QFontDialog, QFontDialog>(rb_mQt6Bando, "QFontDialog")
+            .define_constructor(Constructor<Bando_QFontDialog, const QFont &, QWidget *>(), Arg("initial"), Arg("parent"))
+            .define_method("_initialize_value", &Bando_QFontDialog::initializeValue, Arg("mo"), Arg("value"));
+
+    rb_mBando_cQInputDialog =
+        define_class_under<Bando_QInputDialog, QInputDialog>(rb_mQt6Bando, "QInputDialog")
+            .define_constructor(Constructor<Bando_QInputDialog, QWidget *>(), Arg("parent"))
+            .define_method("_initialize_value", &Bando_QInputDialog::initializeValue, Arg("mo"), Arg("value"));
+
+    rb_mBando_cQMessageBox =
+        define_class_under<Bando_QMessageBox, QMessageBox>(rb_mQt6Bando, "QMessageBox")
+            .define_constructor(Constructor<Bando_QMessageBox, QMessageBox::Icon, const QString &, const QString &, QMessageBox::StandardButtons, QWidget *>(), Arg("icon"), Arg("title"), Arg("text"), Arg("buttons"), Arg("parent"))
+            .define_method("_initialize_value", &Bando_QMessageBox::initializeValue, Arg("mo"), Arg("value"));
+
+    rb_mBando_cQProgressDialog =
+        define_class_under<Bando_QProgressDialog, QProgressDialog>(rb_mQt6Bando, "QProgressDialog")
+            .define_constructor(Constructor<Bando_QProgressDialog, const QString &, const QString &, int, int, QWidget *>(), Arg("label_text"), Arg("cancel_button_text"), Arg("minimum"), Arg("maximum"), Arg("parent"))
+            .define_method("_initialize_value", &Bando_QProgressDialog::initializeValue, Arg("mo"), Arg("value"));
+
+    rb_mBando_cQWizard =
+        define_class_under<Bando_QWizard, QWizard>(rb_mQt6Bando, "QWizard")
+            .define_constructor(Constructor<Bando_QWizard, QWidget *>(), Arg("parent"))
+            .define_method("_initialize_value", &Bando_QWizard::initializeValue, Arg("mo"), Arg("value"));
+
+    rb_mBando_cQWizardPage =
+        define_class_under<Bando_QWizardPage, QWizardPage>(rb_mQt6Bando, "QWizardPage")
+            .define_constructor(Constructor<Bando_QWizardPage, QWidget *>(), Arg("parent"))
+            .define_method("_initialize_value", &Bando_QWizardPage::initializeValue, Arg("mo"), Arg("value"));
 
     rb_mBando_cQFrame =
         define_class_under<Bando_QFrame, QFrame>(rb_mQt6Bando, "QFrame")
