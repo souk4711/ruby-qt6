@@ -1,0 +1,110 @@
+#include "qheaderview-rb.hpp"
+#include <qheaderview.h>
+
+using namespace Rice;
+
+Rice::Class rb_cQHeaderView;
+
+void Init_qheaderview(Rice::Module rb_mQt6QtWidgets)
+{
+    rb_cQHeaderView =
+        // RubyQt6::QtWidgets::QHeaderView
+        define_class_under<QHeaderView, QAbstractItemView>(rb_mQt6QtWidgets, "QHeaderView")
+            // RubyQt6-Defined Functions
+            .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QHeaderView::staticMetaObject; })
+            // Constructor
+            .define_constructor(Constructor<QHeaderView, Qt::Orientation, QWidget *>(), Arg("orientation"), Arg("parent"))
+            // Public Functions
+            .define_method("cascading_section_resizes", &QHeaderView::cascadingSectionResizes)
+            .define_method("count", &QHeaderView::count)
+            .define_method("default_alignment", &QHeaderView::defaultAlignment)
+            .define_method("default_section_size", &QHeaderView::defaultSectionSize)
+            .define_method("do_items_layout", &QHeaderView::doItemsLayout)
+            .define_method("hidden_section_count", &QHeaderView::hiddenSectionCount)
+            .define_method("hide_section", &QHeaderView::hideSection, Arg("logical_index"))
+            .define_method("highlight_sections", &QHeaderView::highlightSections)
+            .define_method("first_section_movable?", &QHeaderView::isFirstSectionMovable)
+            .define_method("section_hidden?", &QHeaderView::isSectionHidden, Arg("logical_index"))
+            .define_method("sort_indicator_clearable?", &QHeaderView::isSortIndicatorClearable)
+            .define_method("sort_indicator_shown?", &QHeaderView::isSortIndicatorShown)
+            .define_method("length", &QHeaderView::length)
+            .define_method("logical_index", &QHeaderView::logicalIndex, Arg("visual_index"))
+            .define_method<int (QHeaderView::*)(const QPoint &) const>("logical_index_at", &QHeaderView::logicalIndexAt, Arg("pos"))
+            .define_method<int (QHeaderView::*)(int) const>("logical_index_at", &QHeaderView::logicalIndexAt, Arg("position"))
+            .define_method<int (QHeaderView::*)(int, int) const>("logical_index_at", &QHeaderView::logicalIndexAt, Arg("x"), Arg("y"))
+            .define_method("maximum_section_size", &QHeaderView::maximumSectionSize)
+            .define_method("minimum_section_size", &QHeaderView::minimumSectionSize)
+            .define_method("move_section", &QHeaderView::moveSection, Arg("from"), Arg("to"))
+            .define_method("offset", &QHeaderView::offset)
+            .define_method("orientation", &QHeaderView::orientation)
+            .define_method("reset", &QHeaderView::reset)
+            .define_method("reset_default_section_size", &QHeaderView::resetDefaultSectionSize)
+            .define_method("resize_contents_precision", &QHeaderView::resizeContentsPrecision)
+            .define_method("resize_section", &QHeaderView::resizeSection, Arg("logical_index"), Arg("size"))
+            .define_method<void (QHeaderView::*)(QHeaderView::ResizeMode)>("resize_sections", &QHeaderView::resizeSections, Arg("mode"))
+            .define_method("restore_state", &QHeaderView::restoreState, Arg("state"))
+            .define_method("save_state", &QHeaderView::saveState)
+            .define_method("section_position", &QHeaderView::sectionPosition, Arg("logical_index"))
+            .define_method("section_resize_mode", &QHeaderView::sectionResizeMode, Arg("logical_index"))
+            .define_method("section_size", &QHeaderView::sectionSize, Arg("logical_index"))
+            .define_method("section_size_hint", &QHeaderView::sectionSizeHint, Arg("logical_index"))
+            .define_method("section_viewport_position", &QHeaderView::sectionViewportPosition, Arg("logical_index"))
+            .define_method("sections_clickable", &QHeaderView::sectionsClickable)
+            .define_method("sections_hidden", &QHeaderView::sectionsHidden)
+            .define_method("sections_movable", &QHeaderView::sectionsMovable)
+            .define_method("sections_moved", &QHeaderView::sectionsMoved)
+            .define_method("set_cascading_section_resizes", &QHeaderView::setCascadingSectionResizes, Arg("enable"))
+            .define_method("set_default_alignment", &QHeaderView::setDefaultAlignment, Arg("alignment"))
+            .define_method("set_default_section_size", &QHeaderView::setDefaultSectionSize, Arg("size"))
+            .define_method("set_first_section_movable", &QHeaderView::setFirstSectionMovable, Arg("movable"))
+            .define_method("set_highlight_sections", &QHeaderView::setHighlightSections, Arg("highlight"))
+            .define_method("set_maximum_section_size", &QHeaderView::setMaximumSectionSize, Arg("size"))
+            .define_method("set_minimum_section_size", &QHeaderView::setMinimumSectionSize, Arg("size"))
+            .define_method("set_model", &QHeaderView::setModel, Arg("model"))
+            .define_method("set_resize_contents_precision", &QHeaderView::setResizeContentsPrecision, Arg("precision"))
+            .define_method("set_section_hidden", &QHeaderView::setSectionHidden, Arg("logical_index"), Arg("hide"))
+            .define_method<void (QHeaderView::*)(QHeaderView::ResizeMode)>("set_section_resize_mode", &QHeaderView::setSectionResizeMode, Arg("mode"))
+            .define_method<void (QHeaderView::*)(int, QHeaderView::ResizeMode)>("set_section_resize_mode", &QHeaderView::setSectionResizeMode, Arg("logical_index"), Arg("mode"))
+            .define_method("set_sections_clickable", &QHeaderView::setSectionsClickable, Arg("clickable"))
+            .define_method("set_sections_movable", &QHeaderView::setSectionsMovable, Arg("movable"))
+            .define_method("set_sort_indicator", &QHeaderView::setSortIndicator, Arg("logical_index"), Arg("order"))
+            .define_method("set_sort_indicator_clearable", &QHeaderView::setSortIndicatorClearable, Arg("clearable"))
+            .define_method("set_sort_indicator_shown", &QHeaderView::setSortIndicatorShown, Arg("show"))
+            .define_method("set_stretch_last_section", &QHeaderView::setStretchLastSection, Arg("stretch"))
+            .define_method("set_visible", &QHeaderView::setVisible, Arg("v"))
+            .define_method("show_section", &QHeaderView::showSection, Arg("logical_index"))
+            .define_method("size_hint", &QHeaderView::sizeHint)
+            .define_method("sort_indicator_order", &QHeaderView::sortIndicatorOrder)
+            .define_method("sort_indicator_section", &QHeaderView::sortIndicatorSection)
+            .define_method("stretch_last_section", &QHeaderView::stretchLastSection)
+            .define_method("stretch_section_count", &QHeaderView::stretchSectionCount)
+            .define_method("swap_sections", &QHeaderView::swapSections, Arg("first"), Arg("second"))
+            .define_method("visual_index", &QHeaderView::visualIndex, Arg("logical_index"))
+            .define_method("visual_index_at", &QHeaderView::visualIndexAt, Arg("position"))
+            // Public Slots
+            .define_method("header_data_changed", &QHeaderView::headerDataChanged, Arg("orientation"), Arg("logical_first"), Arg("logical_last"))
+            .define_method("set_offset", &QHeaderView::setOffset, Arg("offset"))
+            .define_method("set_offset_to_last_section", &QHeaderView::setOffsetToLastSection)
+            .define_method("set_offset_to_section_position", &QHeaderView::setOffsetToSectionPosition, Arg("visual_index"))
+            // Signals
+            .define_method("geometries_changed", &QHeaderView::geometriesChanged)
+            .define_method("section_clicked", &QHeaderView::sectionClicked, Arg("logical_index"))
+            .define_method("section_count_changed", &QHeaderView::sectionCountChanged, Arg("old_count"), Arg("new_count"))
+            .define_method("section_double_clicked", &QHeaderView::sectionDoubleClicked, Arg("logical_index"))
+            .define_method("section_entered", &QHeaderView::sectionEntered, Arg("logical_index"))
+            .define_method("section_handle_double_clicked", &QHeaderView::sectionHandleDoubleClicked, Arg("logical_index"))
+            .define_method("section_moved", &QHeaderView::sectionMoved, Arg("logical_index"), Arg("old_visual_index"), Arg("new_visual_index"))
+            .define_method("section_pressed", &QHeaderView::sectionPressed, Arg("logical_index"))
+            .define_method("section_resized", &QHeaderView::sectionResized, Arg("logical_index"), Arg("old_size"), Arg("new_size"))
+            .define_method("sort_indicator_changed", &QHeaderView::sortIndicatorChanged, Arg("logical_index"), Arg("order"))
+            .define_method("sort_indicator_clearable_changed", &QHeaderView::sortIndicatorClearableChanged, Arg("clearable"));
+
+    Enum<QHeaderView::ResizeMode> rb_cQHeaderViewResizeMode =
+        // RubyQt6::QtWidgets::QHeaderView::ResizeMode
+        define_enum_under<QHeaderView::ResizeMode>("ResizeMode", rb_cQHeaderView)
+            .define_value("Interactive", QHeaderView::ResizeMode::Interactive)
+            .define_value("Stretch", QHeaderView::ResizeMode::Stretch)
+            .define_value("Fixed", QHeaderView::ResizeMode::Fixed)
+            .define_value("ResizeToContents", QHeaderView::ResizeMode::ResizeToContents)
+            .define_value("Custom", QHeaderView::ResizeMode::Custom);
+}

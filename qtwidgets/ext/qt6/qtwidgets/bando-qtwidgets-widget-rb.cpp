@@ -30,6 +30,15 @@
 #include <QWizardPage>
 #include <QFrame>
 #include <QAbstractScrollArea>
+#include <QColumnView>
+#include <QHeaderView>
+#include <QListView>
+#include <QListWidget>
+#include <QUndoView>
+#include <QTableView>
+#include <QTableWidget>
+#include <QTreeView>
+#include <QTreeWidget>
 #include <QGraphicsView>
 #include <QMdiArea>
 #include <QPlainTextEdit>
@@ -92,6 +101,15 @@ using Bando_QWizard = BandoQWidget<QWizard, QWidget *>;
 using Bando_QWizardPage = BandoQWidget<QWizardPage, QWidget *>;
 using Bando_QFrame = BandoQWidget<QFrame, QWidget *>;
 using Bando_QAbstractScrollArea = BandoQWidget<QAbstractScrollArea, QWidget *>;
+using Bando_QColumnView = BandoQWidget<QColumnView, QWidget *>;
+using Bando_QHeaderView = BandoQWidget<QHeaderView, Qt::Orientation, QWidget *>;
+using Bando_QListView = BandoQWidget<QListView, QWidget *>;
+using Bando_QListWidget = BandoQWidget<QListWidget, QWidget *>;
+using Bando_QUndoView = BandoQWidget<QUndoView, QWidget *>;
+using Bando_QTableView = BandoQWidget<QTableView, QWidget *>;
+using Bando_QTableWidget = BandoQWidget<QTableWidget, int, int, QWidget *>;
+using Bando_QTreeView = BandoQWidget<QTreeView, QWidget *>;
+using Bando_QTreeWidget = BandoQWidget<QTreeWidget, QWidget *>;
 using Bando_QGraphicsView = BandoQWidget<QGraphicsView, QWidget *>;
 using Bando_QMdiArea = BandoQWidget<QMdiArea, QWidget *>;
 using Bando_QPlainTextEdit = BandoQWidget<QPlainTextEdit, const QString &, QWidget *>;
@@ -152,6 +170,15 @@ Rice::Class rb_mBando_cQWizard;
 Rice::Class rb_mBando_cQWizardPage;
 Rice::Class rb_mBando_cQFrame;
 Rice::Class rb_mBando_cQAbstractScrollArea;
+Rice::Class rb_mBando_cQColumnView;
+Rice::Class rb_mBando_cQHeaderView;
+Rice::Class rb_mBando_cQListView;
+Rice::Class rb_mBando_cQListWidget;
+Rice::Class rb_mBando_cQUndoView;
+Rice::Class rb_mBando_cQTableView;
+Rice::Class rb_mBando_cQTableWidget;
+Rice::Class rb_mBando_cQTreeView;
+Rice::Class rb_mBando_cQTreeWidget;
 Rice::Class rb_mBando_cQGraphicsView;
 Rice::Class rb_mBando_cQMdiArea;
 Rice::Class rb_mBando_cQPlainTextEdit;
@@ -329,6 +356,51 @@ void Init_bando_qtwidgets_widget(Rice::Module rb_mQt6Bando)
         define_class_under<Bando_QAbstractScrollArea, QAbstractScrollArea>(rb_mQt6Bando, "QAbstractScrollArea")
             .define_constructor(Constructor<Bando_QAbstractScrollArea, QWidget *>(), Arg("parent"))
             .define_method("_initialize_value", &Bando_QAbstractScrollArea::initializeValue, Arg("mo"), Arg("value"));
+
+    rb_mBando_cQColumnView =
+        define_class_under<Bando_QColumnView, QColumnView>(rb_mQt6Bando, "QColumnView")
+            .define_constructor(Constructor<Bando_QColumnView, QWidget *>(), Arg("parent"))
+            .define_method("_initialize_value", &Bando_QColumnView::initializeValue, Arg("mo"), Arg("value"));
+
+    rb_mBando_cQHeaderView =
+        define_class_under<Bando_QHeaderView, QHeaderView>(rb_mQt6Bando, "QHeaderView")
+            .define_constructor(Constructor<Bando_QHeaderView, Qt::Orientation, QWidget *>(), Arg("orientation"), Arg("parent"))
+            .define_method("_initialize_value", &Bando_QHeaderView::initializeValue, Arg("mo"), Arg("value"));
+
+    rb_mBando_cQListView =
+        define_class_under<Bando_QListView, QListView>(rb_mQt6Bando, "QListView")
+            .define_constructor(Constructor<Bando_QListView, QWidget *>(), Arg("parent"))
+            .define_method("_initialize_value", &Bando_QListView::initializeValue, Arg("mo"), Arg("value"));
+
+    rb_mBando_cQListWidget =
+        define_class_under<Bando_QListWidget, QListWidget>(rb_mQt6Bando, "QListWidget")
+            .define_constructor(Constructor<Bando_QListWidget, QWidget *>(), Arg("parent"))
+            .define_method("_initialize_value", &Bando_QListWidget::initializeValue, Arg("mo"), Arg("value"));
+
+    rb_mBando_cQUndoView =
+        define_class_under<Bando_QUndoView, QUndoView>(rb_mQt6Bando, "QUndoView")
+            .define_constructor(Constructor<Bando_QUndoView, QWidget *>(), Arg("parent"))
+            .define_method("_initialize_value", &Bando_QUndoView::initializeValue, Arg("mo"), Arg("value"));
+
+    rb_mBando_cQTableView =
+        define_class_under<Bando_QTableView, QTableView>(rb_mQt6Bando, "QTableView")
+            .define_constructor(Constructor<Bando_QTableView, QWidget *>(), Arg("parent"))
+            .define_method("_initialize_value", &Bando_QTableView::initializeValue, Arg("mo"), Arg("value"));
+
+    rb_mBando_cQTableWidget =
+        define_class_under<Bando_QTableWidget, QTableWidget>(rb_mQt6Bando, "QTableWidget")
+            .define_constructor(Constructor<Bando_QTableWidget, int, int, QWidget *>(), Arg("rows"), Arg("columns"), Arg("parent"))
+            .define_method("_initialize_value", &Bando_QTableWidget::initializeValue, Arg("mo"), Arg("value"));
+
+    rb_mBando_cQTreeView =
+        define_class_under<Bando_QTreeView, QTreeView>(rb_mQt6Bando, "QTreeView")
+            .define_constructor(Constructor<Bando_QTreeView, QWidget *>(), Arg("parent"))
+            .define_method("_initialize_value", &Bando_QTreeView::initializeValue, Arg("mo"), Arg("value"));
+
+    rb_mBando_cQTreeWidget =
+        define_class_under<Bando_QTreeWidget, QTreeWidget>(rb_mQt6Bando, "QTreeWidget")
+            .define_constructor(Constructor<Bando_QTreeWidget, QWidget *>(), Arg("parent"))
+            .define_method("_initialize_value", &Bando_QTreeWidget::initializeValue, Arg("mo"), Arg("value"));
 
     rb_mBando_cQGraphicsView =
         define_class_under<Bando_QGraphicsView, QGraphicsView>(rb_mQt6Bando, "QGraphicsView")

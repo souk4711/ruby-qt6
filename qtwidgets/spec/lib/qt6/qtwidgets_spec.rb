@@ -20,26 +20,36 @@ RSpec.describe RubyQt6::QtWidgets do
 
   describe "Transfer ownership to callee" do
     [
-      ["addItem", "item"],
       ["addLayout", "layout"],
-      ["addPermanentWidget", "widget"],
       ["addWidget", "widget"],
-      ["addSpacerItem", "item"],
-      ["addRow", "field"],
+      ["addPermanentWidget", "widget"],
       ["addTab", "widget"],
-      ["insertItem", "item"],
+      ["addItem", "item"],
+      ["addSpacerItem", "item"],
+      ["addTopLevelItem", "item"],
+      ["addRow", "field"],
       ["insertLayout", "layout"],
-      ["insertPermanentWidget", "widget"],
       ["insertWidget", "widget"],
+      ["insertPermanentWidget", "widget"],
+      ["insertTab", "widget"],
+      ["insertItem", "item"],
       ["insertSpacerItem", "item"],
       ["insertRow", "field"],
-      ["insertTab", "widget"],
       ["setLayout", "layout"],
-      ["setWidget", "widget"]
+      ["setWidget", "widget"],
+      ["setCellWidget", "widget"],
+      ["setItemWidget", "widget"],
+      ["setHeaderItem", "item"],
+      ["setHorizontalHeaderItem", "item"],
+      ["setVerticalHeaderItem", "item"],
+      ["setItem", "item"],
+      ["setItemPrototype", "item"]
     ].each do |fname, argname|
       Dir.glob("ext/**/q*.cpp").each do |cppfile|
         next if cppfile == "ext/qt6/qtwidgets/qcombobox-rb.cpp"
         next if cppfile == "ext/qt6/qtwidgets/qtabbar-rb.cpp"
+        next if cppfile == "ext/qt6/qtwidgets/qtablewidget-rb.cpp"
+        next if cppfile == "ext/qt6/qtwidgets/qlistwidget-rb.cpp"
 
         File.read(cppfile).each_line do |line|
           matched = line.match(/&(\w+)::#{fname},(.+)/)

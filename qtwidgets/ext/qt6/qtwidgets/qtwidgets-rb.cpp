@@ -40,6 +40,15 @@
 #include "qframe-rb.hpp"
 #include "qabstractscrollarea-rb.hpp"
 #include "qabstractitemview-rb.hpp"
+#include "qcolumnview-rb.hpp"
+#include "qheaderview-rb.hpp"
+#include "qlistview-rb.hpp"
+#include "qlistwidget-rb.hpp"
+#include "qtableview-rb.hpp"
+#include "qtablewidget-rb.hpp"
+#include "qtreeview-rb.hpp"
+#include "qtreewidget-rb.hpp"
+#include "qundoview-rb.hpp"
 #include "qgraphicsview-rb.hpp"
 #include "qmdiarea-rb.hpp"
 #include "qplaintextedit-rb.hpp"
@@ -120,6 +129,15 @@ extern "C" void Init_qtwidgets()
         Init_qframe(rb_mQt6QtWidgets);
         Init_qabstractscrollarea(rb_mQt6QtWidgets);
         Init_qabstractitemview(rb_mQt6QtWidgets);
+        Init_qcolumnview(rb_mQt6QtWidgets);
+        Init_qheaderview(rb_mQt6QtWidgets);
+        Init_qlistview(rb_mQt6QtWidgets);
+        Init_qlistwidget(rb_mQt6QtWidgets);
+        Init_qtableview(rb_mQt6QtWidgets);
+        Init_qtablewidget(rb_mQt6QtWidgets);
+        Init_qtreeview(rb_mQt6QtWidgets);
+        Init_qtreewidget(rb_mQt6QtWidgets);
+        Init_qundoview(rb_mQt6QtWidgets);
         Init_qgraphicsview(rb_mQt6QtWidgets);
         Init_qmdiarea(rb_mQt6QtWidgets);
         Init_qplaintextedit(rb_mQt6QtWidgets);
