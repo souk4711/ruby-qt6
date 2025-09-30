@@ -4,7 +4,6 @@
 #include <QColorTransform>
 #include <QColorSpace>
 #include <QIODevice>
-#include <QList>
 #include <QPaintEngine>
 
 using namespace Rice;

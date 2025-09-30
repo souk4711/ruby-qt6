@@ -39,6 +39,13 @@
 #include "qwizard-rb.hpp"
 #include "qframe-rb.hpp"
 #include "qabstractscrollarea-rb.hpp"
+#include "qabstractitemview-rb.hpp"
+#include "qgraphicsview-rb.hpp"
+#include "qmdiarea-rb.hpp"
+#include "qplaintextedit-rb.hpp"
+#include "qscrollarea-rb.hpp"
+#include "qtextedit-rb.hpp"
+#include "qtextbrowser-rb.hpp"
 #include "qlabel-rb.hpp"
 #include "qlcdnumber-rb.hpp"
 #include "qsplitter-rb.hpp"
@@ -112,6 +119,13 @@ extern "C" void Init_qtwidgets()
         Init_qwizard(rb_mQt6QtWidgets);
         Init_qframe(rb_mQt6QtWidgets);
         Init_qabstractscrollarea(rb_mQt6QtWidgets);
+        Init_qabstractitemview(rb_mQt6QtWidgets);
+        Init_qgraphicsview(rb_mQt6QtWidgets);
+        Init_qmdiarea(rb_mQt6QtWidgets);
+        Init_qplaintextedit(rb_mQt6QtWidgets);
+        Init_qscrollarea(rb_mQt6QtWidgets);
+        Init_qtextedit(rb_mQt6QtWidgets);
+        Init_qtextbrowser(rb_mQt6QtWidgets);
         Init_qlabel(rb_mQt6QtWidgets);
         Init_qlcdnumber(rb_mQt6QtWidgets);
         Init_qsplitter(rb_mQt6QtWidgets);

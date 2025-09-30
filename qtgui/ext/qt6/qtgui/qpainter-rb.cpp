@@ -2,7 +2,6 @@
 #include <qpainter.h>
 
 #include <QGlyphRun>
-#include <QList>
 #include <QPainterPath>
 #include <QPicture>
 #include <QStaticText>

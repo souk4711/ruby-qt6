@@ -27,6 +27,7 @@ RSpec.describe RubyQt6 do
     todo_qlasses = [
       RubyQt6::QtWidgets::QLayout,
       RubyQt6::QtWidgets::QAbstractButton,
+      RubyQt6::QtWidgets::QAbstractItemView,
       RubyQt6::QtWidgets::QAbstractSlider,
       RubyQt6::QtWidgets::QAbstractSpinBox,
       RubyQt6::QtQuickWidgets::QQuickWidget

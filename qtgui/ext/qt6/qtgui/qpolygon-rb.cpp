@@ -1,8 +1,6 @@
 #include "qpolygon-rb.hpp"
 #include <qpolygon.h>
 
-#include <QList>
-
 using namespace Rice;
 
 Rice::Class rb_cQPolygon;

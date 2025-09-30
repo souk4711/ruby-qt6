@@ -30,6 +30,12 @@
 #include <QWizardPage>
 #include <QFrame>
 #include <QAbstractScrollArea>
+#include <QGraphicsView>
+#include <QMdiArea>
+#include <QPlainTextEdit>
+#include <QScrollArea>
+#include <QTextEdit>
+#include <QTextBrowser>
 #include <QLabel>
 #include <QLCDNumber>
 #include <QSplitter>
@@ -86,6 +92,12 @@ using Bando_QWizard = BandoQWidget<QWizard, QWidget *>;
 using Bando_QWizardPage = BandoQWidget<QWizardPage, QWidget *>;
 using Bando_QFrame = BandoQWidget<QFrame, QWidget *>;
 using Bando_QAbstractScrollArea = BandoQWidget<QAbstractScrollArea, QWidget *>;
+using Bando_QGraphicsView = BandoQWidget<QGraphicsView, QWidget *>;
+using Bando_QMdiArea = BandoQWidget<QMdiArea, QWidget *>;
+using Bando_QPlainTextEdit = BandoQWidget<QPlainTextEdit, const QString &, QWidget *>;
+using Bando_QScrollArea = BandoQWidget<QScrollArea, QWidget *>;
+using Bando_QTextEdit = BandoQWidget<QTextEdit, const QString &, QWidget *>;
+using Bando_QTextBrowser = BandoQWidget<QTextBrowser, QWidget *>;
 using Bando_QLabel = BandoQWidget<QLabel, const QString &, QWidget *>;
 using Bando_QLCDNumber = BandoQWidget<QLCDNumber, uint, QWidget *>;
 using Bando_QSplitter = BandoQWidget<QSplitter, Qt::Orientation, QWidget *>;
@@ -140,6 +152,12 @@ Rice::Class rb_mBando_cQWizard;
 Rice::Class rb_mBando_cQWizardPage;
 Rice::Class rb_mBando_cQFrame;
 Rice::Class rb_mBando_cQAbstractScrollArea;
+Rice::Class rb_mBando_cQGraphicsView;
+Rice::Class rb_mBando_cQMdiArea;
+Rice::Class rb_mBando_cQPlainTextEdit;
+Rice::Class rb_mBando_cQScrollArea;
+Rice::Class rb_mBando_cQTextEdit;
+Rice::Class rb_mBando_cQTextBrowser;
 Rice::Class rb_mBando_cQLabel;
 Rice::Class rb_mBando_cQLCDNumber;
 Rice::Class rb_mBando_cQSplitter;
@@ -311,6 +329,36 @@ void Init_bando_qtwidgets_widget(Rice::Module rb_mQt6Bando)
         define_class_under<Bando_QAbstractScrollArea, QAbstractScrollArea>(rb_mQt6Bando, "QAbstractScrollArea")
             .define_constructor(Constructor<Bando_QAbstractScrollArea, QWidget *>(), Arg("parent"))
             .define_method("_initialize_value", &Bando_QAbstractScrollArea::initializeValue, Arg("mo"), Arg("value"));
+
+    rb_mBando_cQGraphicsView =
+        define_class_under<Bando_QGraphicsView, QGraphicsView>(rb_mQt6Bando, "QGraphicsView")
+            .define_constructor(Constructor<Bando_QGraphicsView, QWidget *>(), Arg("parent"))
+            .define_method("_initialize_value", &Bando_QGraphicsView::initializeValue, Arg("mo"), Arg("value"));
+
+    rb_mBando_cQMdiArea =
+        define_class_under<Bando_QMdiArea, QMdiArea>(rb_mQt6Bando, "QMdiArea")
+            .define_constructor(Constructor<Bando_QMdiArea, QWidget *>(), Arg("parent"))
+            .define_method("_initialize_value", &Bando_QMdiArea::initializeValue, Arg("mo"), Arg("value"));
+
+    rb_mBando_cQPlainTextEdit =
+        define_class_under<Bando_QPlainTextEdit, QPlainTextEdit>(rb_mQt6Bando, "QPlainTextEdit")
+            .define_constructor(Constructor<Bando_QPlainTextEdit, const QString &, QWidget *>(), Arg("text"), Arg("parent"))
+            .define_method("_initialize_value", &Bando_QPlainTextEdit::initializeValue, Arg("mo"), Arg("value"));
+
+    rb_mBando_cQScrollArea =
+        define_class_under<Bando_QScrollArea, QScrollArea>(rb_mQt6Bando, "QScrollArea")
+            .define_constructor(Constructor<Bando_QScrollArea, QWidget *>(), Arg("parent"))
+            .define_method("_initialize_value", &Bando_QScrollArea::initializeValue, Arg("mo"), Arg("value"));
+
+    rb_mBando_cQTextEdit =
+        define_class_under<Bando_QTextEdit, QTextEdit>(rb_mQt6Bando, "QTextEdit")
+            .define_constructor(Constructor<Bando_QTextEdit, const QString &, QWidget *>(), Arg("text"), Arg("parent"))
+            .define_method("_initialize_value", &Bando_QTextEdit::initializeValue, Arg("mo"), Arg("value"));
+
+    rb_mBando_cQTextBrowser =
+        define_class_under<Bando_QTextBrowser, QTextBrowser>(rb_mQt6Bando, "QTextBrowser")
+            .define_constructor(Constructor<Bando_QTextBrowser, QWidget *>(), Arg("parent"))
+            .define_method("_initialize_value", &Bando_QTextBrowser::initializeValue, Arg("mo"), Arg("value"));
 
     rb_mBando_cQLabel =
         define_class_under<Bando_QLabel, QLabel>(rb_mQt6Bando, "QLabel")

@@ -5,7 +5,8 @@ module RubyQt6
     class QlassFileParser
       NESTED_QLASSES = [
         "QMetaObjectConnection",
-        "QFormLayoutTakeRowResult"
+        "QFormLayoutTakeRowResult",
+        "QTextEditExtraSelection"
       ]
 
       class MissingLine < StandardError
