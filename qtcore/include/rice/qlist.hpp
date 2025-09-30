@@ -55,11 +55,11 @@ private:
     qsizetype normalizeIndex(qsizetype size, qsizetype index, bool enforceBounds = false)
     {
         if (index < 0) {
-          index = ((-index) % size);
-          index = index > 0 ? size - index : index;
+            index = ((-index) % size);
+            index = index > 0 ? size - index : index;
         }
         if (enforceBounds && (index < 0 || index >= size)) {
-          throw std::out_of_range("Invalid index: " + std::to_string(index));
+            throw std::out_of_range("Invalid index: " + std::to_string(index));
         }
         return index;
     }
@@ -92,9 +92,11 @@ private:
     void define_access_methods()
     {
         klass_.define_method("at", [this](QList_T *self, qsizetype index) -> std::optional<Value_T> {
-            index = normalizeIndex(self->size(), index);
-            if (index >= 0 && index < self->size())
-                return self->at(index);
+            if (self->size() > 0) {
+                index = normalizeIndex(self->size(), index);
+                if (index >= 0 && index < self->size())
+                    return self->at(index);
+            }
             return std::nullopt;
         });
 
@@ -126,15 +128,22 @@ private:
             return self->contains(element);
         });
 
-        klass_.define_method("index", [](QList_T *self, Parameter_T element) -> qsizetype {
-            return self->indexOf(element);
+        klass_.define_method("index", [](QList_T *self, Parameter_T element) -> std::optional<qsizetype> {
+            qsizetype index = self->indexOf(element);
+            if (index != -1)
+                return index;
+            return std::nullopt;
         });
     }
 
     void define_insert_methods()
     {
         klass_.define_method("insert", [this](QList_T *self, qsizetype index, Parameter_T element) -> QList_T* {
-            index = normalizeIndex(self->size(), index, true);
+            if (self->size() > 0) {
+                if (index != self->size()) index = normalizeIndex(self->size(), index, true);
+            } else {
+                if (index != 0) throw std::out_of_range("Invalid index: " + std::to_string(index));
+            }
             self->insert(index, element);
             return self;
         });
@@ -171,9 +180,11 @@ private:
         });
 
         klass_.define_method("delete_at", [this](QList_T *self, qsizetype index) -> std::optional<Value_T> {
-            index = normalizeIndex(self->size(), index);
-            if (index >= 0 && index < self->size())
-                return self->takeAt(index);
+            if (self->size() > 0) {
+                index = normalizeIndex(self->size(), index);
+                if (index >= 0 && index < self->size())
+                    return self->takeAt(index);
+            }
             return std::nullopt;
         });
     }
@@ -181,7 +192,11 @@ private:
     void define_replace_methods()
     {
         klass_.define_method("[]=", [this](QList_T*self, qsizetype index, Parameter_T element) -> Parameter_T {
-            index = normalizeIndex(self->size(), index, true);
+            if (self->size() > 0) {
+                index = normalizeIndex(self->size(), index, true);
+            } else {
+                throw std::out_of_range("Invalid index: " + std::to_string(index));
+            }
             self->replace(index, element);
             return element;
         });

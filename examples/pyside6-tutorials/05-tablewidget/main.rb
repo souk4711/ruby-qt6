@@ -13,7 +13,7 @@ COLORS = [
 
 app = QApplication.new(ARGV)
 table = QTableWidget.new(COLORS.length, COLORS[0].length + 1)
-# table.set_horizontal_header_labels(["Name", "Hex Code", "Color"])
+table.set_horizontal_header_labels(QStringList.new << "Name" << "Hex Code" << "Color")
 COLORS.each_with_index do |(name, code), i|
   item_name = QTableWidgetItem.new(name)
   item_code = QTableWidgetItem.new(code)

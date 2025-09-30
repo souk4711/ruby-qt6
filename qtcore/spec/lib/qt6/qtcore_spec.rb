@@ -13,6 +13,7 @@ RSpec.describe RubyQt6::QtCore do
       next if cppfile == "ext/qt6/qtcore/qtcoreversion-rb.cpp"
       next if cppfile == "ext/qt6/qtcore/qt-enum-rb.cpp"
       next if cppfile == "ext/qt6/qtcore/qt-flags-rb.cpp"
+      next if cppfile == "ext/qt6/qtcore/qstringlist-rb.cpp"
 
       it cppfile do
         RubyQt6::RSpec.verify_qlass_cppfile cppfile, qmod
