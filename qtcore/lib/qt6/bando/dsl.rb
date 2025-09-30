@@ -23,7 +23,8 @@ module RubyQt6
         def _rubyqt6_handle_event(event, *args)
           __send__(event, *args)
         rescue => e
-          ::RubyQt6.logger.error e
+          log = "#{e.class.name}: #{e.message.force_encoding(::Encoding::UTF_8)}\n#{(e.backtrace || []).join("\n")}"
+          ::RubyQt6.logger.error(log)
         end
       end
     end
