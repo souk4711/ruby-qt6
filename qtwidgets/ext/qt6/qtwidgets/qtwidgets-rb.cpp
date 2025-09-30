@@ -4,6 +4,8 @@
 #include "qlayoutitem-rb.hpp"
 #include "qsizepolicy-rb.hpp"
 
+#include "t-qtwidgets-rb.hpp"
+
 #include "qapplication-rb.hpp"
 #include "qlayout-rb.hpp"
 #include "qboxlayout-rb.hpp"
@@ -92,6 +94,9 @@ extern "C" void Init_qtwidgets()
 
         Init_qsizepolicy(rb_mQt6QtWidgets);
         Init_qlayoutitem(rb_mQt6QtWidgets);
+
+        Rice::Module rb_mQt6T = define_module_under(rb_mQt6, "T");
+        Init_t_qtwidgets(rb_mQt6T);
 
         Init_qapplication(rb_mQt6QtWidgets);
         Init_qlayout(rb_mQt6QtWidgets);
