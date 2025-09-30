@@ -6,12 +6,16 @@ RSpec.describe RubyQt6::QtCore::QString do
 
   it "#to_s" do
     o = described_class.new("ワールド")
-    expect(o.to_s).to eq("ワールド")
+    s = o.to_s
+    expect(s).to be_a(String)
+    expect(s).to eq("ワールド")
   end
 
   it "#to_str" do
     o = described_class.new("ワールド")
-    expect("ハロー・" + o).to eq("ハロー・ワールド")
+    s = o.to_str
+    expect(s).to be_a(String)
+    expect(s).to eq("ワールド")
   end
 
   it "#<=>" do

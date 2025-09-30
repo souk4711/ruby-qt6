@@ -128,4 +128,20 @@ RSpec.describe RubyQt6::QtCore::QStringList do
 
     expect { list_e[0] = "err" }.to raise_error(/Invalid index: 0/)
   end
+
+  it "#to_a" do
+    a = list_a.to_a
+    expect(a).to be_a(Array)
+    expect(a[0]).to be_a(RubyQt6::QtCore::QString)
+    expect(a[0]).to eq("1")
+    expect(a[-1]).to eq("5")
+  end
+
+  it "#to_ary" do
+    a = list_a.to_ary
+    expect(a).to be_a(Array)
+    expect(a[0]).to be_a(RubyQt6::QtCore::QString)
+    expect(a[0]).to eq("1")
+    expect(a[-1]).to eq("5")
+  end
 end
