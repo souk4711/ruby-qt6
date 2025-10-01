@@ -29,8 +29,26 @@ module RubyQt6
       # @overload initialize(family)
       #   @param family [String, QString]
       #
+      # @overload initialize(family, point_size)
+      #   @param family [String, QString]
+      #   @param point_size [Integer]
+      #
+      # @overload initialize(family, point_size, weight)
+      #   @param family [String, QString]
+      #   @param point_size [Integer]
+      #   @param weight [QFont::Weight]
+      #
       # @overload initialize(families)
       #   @param families [QStringList]
+      #
+      # @overload initialize(families, point_size)
+      #   @param families [QStringList]
+      #   @param point_size [Integer]
+      #
+      # @overload initialize(families, point_size, weight)
+      #   @param families [QStringList]
+      #   @param point_size [Integer]
+      #   @param weight [QFont::Weight]
       def initialize(*args)
         args[0] = T.to_qstr(args[0]) if args[0].is_a?(::String)
         _initialize(*args)

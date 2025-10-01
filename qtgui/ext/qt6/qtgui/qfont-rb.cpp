@@ -14,7 +14,11 @@ void Init_qfont(Rice::Module rb_mQt6QtGui)
         define_class_under<QFont>(rb_mQt6QtGui, "QFont")
             // Constructor
             .define_constructor(Constructor<QFont, const QString &>(), Arg("family"))
+            .define_constructor(Constructor<QFont, const QString &, int>(), Arg("family"), Arg("point_size"))
+            .define_constructor(Constructor<QFont, const QString &, int, int>(), Arg("family"), Arg("point_size"), Arg("weight"))
             .define_constructor(Constructor<QFont, const QStringList &>(), Arg("families"))
+            .define_constructor(Constructor<QFont, const QStringList &, int>(), Arg("families"), Arg("point_size"))
+            .define_constructor(Constructor<QFont, const QStringList &, int, int>(), Arg("families"), Arg("point_size"), Arg("weight"))
             // Public Functions
             .define_method("bold", &QFont::bold)
             .define_method("capitalization", &QFont::capitalization)
