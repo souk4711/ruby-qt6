@@ -14,16 +14,14 @@ module RubyQt6
 
       # @return [QDateTime]
       #
-      # @overload initialize(date, time, time_zone, resolve = QDateTime::LegacyBehavior)
+      # @overload initialize(date, time)
+      #   @param date [QDate]
+      #   @param time [QTime]
+      #
+      # @overload initialize(date, time, time_zone)
       #   @param date [QDate]
       #   @param time [QTime]
       #   @param time_zone [QTimeZone]
-      #   @param resolve [QDateTime::TransitionResolution]
-      #
-      # @overload initialize(date, time, resolve = QDateTime::LegacyBehavior)
-      #   @param date [QDate]
-      #   @param time [QTime]
-      #   @param resolve [QDateTime::TransitionResolution]
       def initialize(*args)
         _initialize(*args)
       end

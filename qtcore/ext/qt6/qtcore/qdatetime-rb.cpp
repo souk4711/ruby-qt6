@@ -38,8 +38,8 @@ void Init_qdatetime(Rice::Module rb_mQt6QtCore)
             // RubyQt6-Defined Functions
             .define_singleton_function("_operator_compare", QDateTime_operator_compare, Arg("lhs"), Arg("rhs"))
             // Constructor
-            .define_constructor(Constructor<QDateTime, QDate, QTime, const QTimeZone &, QDateTime::TransitionResolution>(), Arg("date"), Arg("time"), Arg("time_zone"), Arg("resolve") = static_cast<QDateTime::TransitionResolution>(QDateTime::TransitionResolution::LegacyBehavior))
-            .define_constructor(Constructor<QDateTime, QDate, QTime, QDateTime::TransitionResolution>(), Arg("date"), Arg("time"), Arg("resolve") = static_cast<QDateTime::TransitionResolution>(QDateTime::TransitionResolution::LegacyBehavior))
+            .define_constructor(Constructor<QDateTime, QDate, QTime>(), Arg("date"), Arg("time"))
+            .define_constructor(Constructor<QDateTime, QDate, QTime, const QTimeZone &>(), Arg("date"), Arg("time"), Arg("time_zone"))
             // Public Functions
             .define_method("add_days", &QDateTime::addDays, Arg("days"))
             .define_method("add_duration", &QDateTime::addDuration, Arg("msecs"))
@@ -161,7 +161,7 @@ void Init_qdatetime(Rice::Module rb_mQt6QtCore)
             // RubyQt6-Defined Functions
             .define_singleton_function("_operator_compare", QTime_operator_compare, Arg("lhs"), Arg("rhs"))
             // Constructor
-            .define_constructor(Constructor<QTime, int, int, int, int>(), Arg("h"), Arg("m"), Arg("s") = static_cast<int>(0), Arg("ms") = static_cast<int>(0))
+            .define_constructor(Constructor<QTime, int, int, int, int>(), Arg("h"), Arg("m"), Arg("s"), Arg("ms"))
             // Public Functions
             .define_method("add_msecs", &QTime::addMSecs, Arg("ms"))
             .define_method("add_secs", &QTime::addSecs, Arg("secs"))
