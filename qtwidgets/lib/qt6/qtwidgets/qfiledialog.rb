@@ -32,12 +32,9 @@ module RubyQt6
       alias_method :_initialize, :initialize
 
       # @param parent [QWidget]
-      # @param caption [String, QString]
-      # @param directory [String, QString]
-      # @param filter [String, QString]
       # @return [QFileDialog]
-      def initialize(parent = nil, caption = "", directory = "", filter = "")
-        _initialize(parent, T.to_qstr(caption), T.to_qstr(directory), T.to_qstr(filter))
+      def initialize(parent = nil)
+        _initialize(parent)
         _take_ownership_from_ruby(self) if parent
       end
     end

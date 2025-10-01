@@ -92,7 +92,7 @@ using Bando_QFontComboBox = BandoQWidget<QFontComboBox, QWidget *>;
 using Bando_QDialog = BandoQWidget<QDialog, QWidget *>;
 using Bando_QColorDialog = BandoQWidget<QColorDialog, const QColor &, QWidget *>;
 using Bando_QErrorMessage = BandoQWidget<QErrorMessage, QWidget *>;
-using Bando_QFileDialog = BandoQWidget<QFileDialog, QWidget *, const QString &, const QString &, const QString &>;
+using Bando_QFileDialog = BandoQWidget<QFileDialog, QWidget *>;
 using Bando_QFontDialog = BandoQWidget<QFontDialog, const QFont &, QWidget *>;
 using Bando_QInputDialog = BandoQWidget<QInputDialog, QWidget *>;
 using Bando_QMessageBox = BandoQWidget<QMessageBox, QMessageBox::Icon, const QString &, const QString &, QMessageBox::StandardButtons, QWidget *>;
@@ -314,7 +314,7 @@ void Init_bando_qtwidgets_widget(Rice::Module rb_mQt6Bando)
 
     rb_mBando_cQFileDialog =
         define_class_under<Bando_QFileDialog, QFileDialog>(rb_mQt6Bando, "QFileDialog")
-            .define_constructor(Constructor<Bando_QFileDialog, QWidget *, const QString &, const QString &, const QString &>(), Arg("parent"), Arg("caption"), Arg("directory"), Arg("filter"))
+            .define_constructor(Constructor<Bando_QFileDialog, QWidget *>(), Arg("parent"))
             .define_method("_initialize_value", &Bando_QFileDialog::initializeValue, Arg("mo"), Arg("value"));
 
     rb_mBando_cQFontDialog =

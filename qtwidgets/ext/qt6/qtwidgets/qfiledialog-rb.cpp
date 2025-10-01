@@ -17,7 +17,7 @@ void Init_qfiledialog(Rice::Module rb_mQt6QtWidgets)
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QFileDialog::staticMetaObject; })
             // Constructor
-            .define_constructor(Constructor<QFileDialog, QWidget *, const QString &, const QString &, const QString &>(), Arg("parent"), Arg("caption"), Arg("directory"), Arg("filter"))
+            .define_constructor(Constructor<QFileDialog, QWidget *>(), Arg("parent"))
             // Public Functions
             .define_method("accept_mode", &QFileDialog::acceptMode)
             .define_method("default_suffix", &QFileDialog::defaultSuffix)

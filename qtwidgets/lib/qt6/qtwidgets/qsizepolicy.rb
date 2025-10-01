@@ -14,12 +14,18 @@ module RubyQt6
       # @!visibility private
       alias_method :_initialize, :initialize
 
-      # @param horizontal [QSizePolicy::Policy]
-      # @param vertical [QSizePolicy::Policy]
-      # @param type [QSizePolicy::ControlType]
       # @return [QSizePolicy]
-      def initialize(horizontal, vertical, type = QSizePolicy::ControlType::DefaultType)
-        _initialize(horizontal, vertical, type)
+      #
+      # @overload initialize(horizontal, vertical)
+      #   @param horizontal [QSizePolicy::Policy]
+      #   @param vertical [QSizePolicy::Policy]
+      #
+      # @overload initialize(horizontal, vertical, type)
+      #   @param horizontal [QSizePolicy::Policy]
+      #   @param vertical [QSizePolicy::Policy]
+      #   @param type [QSizePolicy::ControlType]
+      def initialize(*args)
+        _initialize(*args)
       end
     end
   end
