@@ -12,6 +12,8 @@ void Init_qfile(Rice::Module rb_mQt6QtCore)
         define_class_under<QFile, QFileDevice>(rb_mQt6QtCore, "QFile")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QFile::staticMetaObject; })
+            // Constructor
+            .define_constructor(Constructor<QFile, const QString &, QObject *>(), Arg("name"), Arg("parent"))
             // Public Functions
             .define_method<bool (QFile::*)(const QString &)>("copy", &QFile::copy, Arg("new_name"))
             .define_method<bool (QFile::*)() const>("exists", &QFile::exists)
