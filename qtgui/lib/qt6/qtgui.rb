@@ -26,10 +26,13 @@ require_relative "qtgui/qtransform"
 require_relative "qtgui/qpolygon"
 require_relative "qtgui/qpolygonf"
 
+require_relative "qtgui/qaction"
 require_relative "qtgui/qguiapplication"
 require_relative "qtgui/qshortcut"
 require_relative "qtgui/qwindow"
 
+require_relative "bando/qaction"
+require_relative "bando/qactiongroup"
 require_relative "bando/qguiapplication"
 require_relative "bando/qshortcut"
 require_relative "bando/qwindow"

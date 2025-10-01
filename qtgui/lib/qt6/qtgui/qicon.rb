@@ -16,6 +16,8 @@ module RubyQt6
 
       # @return [QIcon]
       #
+      # @overload initialize
+      #
       # @overload initialize(file_name)
       #   @param file_name [String, QString]
       #

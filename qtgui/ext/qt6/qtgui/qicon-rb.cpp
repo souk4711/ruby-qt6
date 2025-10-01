@@ -14,6 +14,7 @@ void Init_qicon(Rice::Module rb_mQt6QtGui)
         // RubyQt6::QtGui::QIcon
         define_class_under<QIcon>(rb_mQt6QtGui, "QIcon")
             // Constructor
+            .define_constructor(Constructor<QIcon>())
             .define_constructor(Constructor<QIcon, const QString &>(), Arg("file_name"))
             .define_constructor(Constructor<QIcon, const QPixmap &>(), Arg("pixmap"))
             // Public Functions

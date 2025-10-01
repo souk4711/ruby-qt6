@@ -22,6 +22,8 @@
 #include "t-qtgui-rb.hpp"
 #include "qpolygon-rb.hpp"
 
+#include "qaction-rb.hpp"
+#include "qactiongroup-rb.hpp"
 #include "qguiapplication-rb.hpp"
 #include "qshortcut-rb.hpp"
 #include "qwindow-rb.hpp"
@@ -58,6 +60,8 @@ extern "C" void Init_qtgui()
         Init_t_qtgui(rb_mQt6T);
         Init_qpolygon(rb_mQt6QtGui);
 
+        Init_qaction(rb_mQt6QtGui);
+        Init_qactiongroup(rb_mQt6QtGui);
         Init_qguiapplication(rb_mQt6QtGui);
         Init_qshortcut(rb_mQt6QtGui);
         Init_qwindow(rb_mQt6QtGui);
