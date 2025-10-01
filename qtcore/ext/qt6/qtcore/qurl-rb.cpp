@@ -13,7 +13,7 @@ void Init_qurl(Rice::Module rb_mQt6QtCore)
         // RubyQt6::QtCore::QUrl
         define_class_under<QUrl>(rb_mQt6QtCore, "QUrl")
             // Constructor
-            .define_constructor(Constructor<QUrl, const QString &, QUrl::ParsingMode>(), Arg("url"), Arg("mode") = static_cast<QUrl::ParsingMode>(QUrl::ParsingMode::TolerantMode))
+            .define_constructor(Constructor<QUrl, const QString &, QUrl::ParsingMode>(), Arg("url"), Arg("mode"))
             // Public Functions
             .define_method("adjusted", &QUrl::adjusted, Arg("options"))
             .define_method("authority", &QUrl::authority, Arg("options") = static_cast<QUrl::ComponentFormattingOptions>(QUrl::ComponentFormattingOption::PrettyDecoded))
