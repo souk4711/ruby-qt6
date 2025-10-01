@@ -12,6 +12,9 @@ void Init_qresource(Rice::Module rb_mQt6QtCore)
     rb_cQResource =
         // RubyQt6::QtCore::QResource
         define_class_under<QResource>(rb_mQt6QtCore, "QResource")
+            // RubyQt6-Defined Functions
+            .define_singleton_function("register_resource", [](const char *rcc_filename, const char *resource_root) -> bool { return QResource::registerResource(QString(rcc_filename), QString(resource_root)); }, Arg("rcc_filename"), Arg("resource_root") = static_cast<const char *>(nullptr))
+            .define_singleton_function("unregister_resource", [](const char *rcc_filename, const char *resource_root) -> bool { return QResource::unregisterResource(QString(rcc_filename), QString(resource_root)); }, Arg("rcc_filename"), Arg("resource_root") = static_cast<const char *>(nullptr))
             // Constructor
             .define_constructor(Constructor<QResource>())
             .define_constructor(Constructor<QResource, const QString &>(), Arg("file"))

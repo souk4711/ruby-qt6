@@ -18,15 +18,15 @@ void Init_quuid(Rice::Module rb_mQt6QtCore)
         // RubyQt6::QtCore::QUuid
         define_class_under<QUuid>(rb_mQt6QtCore, "QUuid")
             // RubyQt6-Defined Functions
+            .define_method("variant", [](QUuid *self) -> QUuid::Variant { return self->variant(); })
+            .define_method("version", [](QUuid *self) -> QUuid::Version { return self->version(); })
             .define_singleton_function("_operator_compare", QUuid_operator_compare, Arg("lhs"), Arg("rhs"))
             // Constructor
             .define_constructor(Constructor<QUuid, QAnyStringView>(), Arg("string"))
             // Public Functions
             .define_method("null?", &QUuid::isNull)
             .define_method("to_byte_array", &QUuid::toByteArray, Arg("mode") = static_cast<QUuid::StringFormat>(QUuid::StringFormat::WithBraces))
-            .define_method("to_string", &QUuid::toString, Arg("mode") = static_cast<QUuid::StringFormat>(QUuid::StringFormat::WithBraces))
-            .define_method("variant", [](QUuid *self) -> QUuid::Variant { return self->variant(); })
-            .define_method("version", [](QUuid *self) -> QUuid::Version { return self->version(); });
+            .define_method("to_string", &QUuid::toString, Arg("mode") = static_cast<QUuid::StringFormat>(QUuid::StringFormat::WithBraces));
 
     Enum<QUuid::StringFormat> rb_cQUuidStringFormat =
         // RubyQt6::QtCore::QUuid::StringFormat
