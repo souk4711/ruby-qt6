@@ -161,7 +161,8 @@ void Init_qdatetime(Rice::Module rb_mQt6QtCore)
             // RubyQt6-Defined Functions
             .define_singleton_function("_operator_compare", QTime_operator_compare, Arg("lhs"), Arg("rhs"))
             // Constructor
-            .define_constructor(Constructor<QTime, int, int, int, int>(), Arg("h"), Arg("m"), Arg("s"), Arg("ms"))
+            .define_constructor(Constructor<QTime, int, int>(), Arg("h"), Arg("m"))
+            .define_constructor(Constructor<QTime, int, int, int>(), Arg("h"), Arg("m"), Arg("s"))
             // Public Functions
             .define_method("add_msecs", &QTime::addMSecs, Arg("ms"))
             .define_method("add_secs", &QTime::addSecs, Arg("secs"))

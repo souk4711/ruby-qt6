@@ -9,13 +9,18 @@ module RubyQt6
       # @!visibility private
       alias_method :_initialize, :initialize
 
-      # @param h [Integer]
-      # @param m [Integer]
-      # @param s [Integer]
-      # @param ms [Integer]
       # @return [QTime]
-      def initialize(h, m, s = 0, ms = 0)
-        _initialize(h, m, s, ms)
+      #
+      # @overload initialize(h, m)
+      #   @param h [Integer]
+      #   @param m [Integer]
+      #
+      # @overload initialize(h, m, s)
+      #   @param h [Integer]
+      #   @param m [Integer]
+      #   @param s [Integer]
+      def initialize(*args)
+        _initialize(*args)
       end
 
       # @!visibility private

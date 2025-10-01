@@ -14,9 +14,9 @@ void Init_qkeysequence(Rice::Module rb_mQt6QtGui)
         define_class_under<QKeySequence>(rb_mQt6QtGui, "QKeySequence")
             // Constructor
             .define_constructor(Constructor<QKeySequence>())
+            .define_constructor(Constructor<QKeySequence, int>(), Arg("key"))
             .define_constructor(Constructor<QKeySequence, QKeySequence::StandardKey>(), Arg("key"))
-            .define_constructor(Constructor<QKeySequence, const QString &, QKeySequence::SequenceFormat>(), Arg("key"), Arg("format") = static_cast<QKeySequence::SequenceFormat>(QKeySequence::SequenceFormat::NativeText))
-            .define_constructor(Constructor<QKeySequence, int, int, int, int>(), Arg("k1"), Arg("k2") = static_cast<int>(0), Arg("k3") = static_cast<int>(0), Arg("k4") = static_cast<int>(0))
+            .define_constructor(Constructor<QKeySequence, const QString &>(), Arg("key"))
             // Public Functions
             .define_method("count", &QKeySequence::count)
             .define_method("detached?", &QKeySequence::isDetached)

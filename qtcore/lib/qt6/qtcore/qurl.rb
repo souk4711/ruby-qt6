@@ -18,11 +18,17 @@ module RubyQt6
       # @!visibility private
       alias_method :_initialize, :initialize
 
-      # @param url [String, QString]
-      # @param mode [QUrl::ParsingMode]
       # @return [QUrl]
-      def initialize(url, mode = QUrl::ParsingMode::TolerantMode)
-        _initialize(T.to_qstr(url), mode)
+      #
+      # @overload initialize(url)
+      #   @param url [String, QString]
+      #
+      # @overload initialize(url, mode)
+      #   @param url [String, QString]
+      #   @param mode [QUrl::ParsingMode]
+      def initialize(*args)
+        args[0] = T.to_qstr(args[0]) if args[0].is_a?(::String)
+        _initialize(*args)
       end
 
       # @!visibility private

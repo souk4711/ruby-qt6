@@ -14,8 +14,10 @@ void Init_qregion(Rice::Module rb_mQt6QtGui)
         // RubyQt6::QtGui::QRegion
         define_class_under<QRegion>(rb_mQt6QtGui, "QRegion")
             // Constructor
-            .define_constructor(Constructor<QRegion, int, int, int, int, QRegion::RegionType>(), Arg("x"), Arg("y"), Arg("w"), Arg("h"), Arg("t") = static_cast<QRegion::RegionType>(QRegion::RegionType::Rectangle))
-            .define_constructor(Constructor<QRegion, const QRect &, QRegion::RegionType>(), Arg("r"), Arg("t") = static_cast<QRegion::RegionType>(QRegion::RegionType::Rectangle))
+            .define_constructor(Constructor<QRegion, int, int, int, int>(), Arg("x"), Arg("y"), Arg("w"), Arg("h"))
+            .define_constructor(Constructor<QRegion, int, int, int, int, QRegion::RegionType>(), Arg("x"), Arg("y"), Arg("w"), Arg("h"), Arg("t"))
+            .define_constructor(Constructor<QRegion, const QRect &>(), Arg("r"))
+            .define_constructor(Constructor<QRegion, const QRect &, QRegion::RegionType>(), Arg("r"), Arg("t"))
             // Public Functions
             .define_method("bounding_rect", &QRegion::boundingRect)
             .define_method("cbegin", &QRegion::cbegin)
