@@ -3,7 +3,7 @@
 source "https://rubygems.org"
 
 # ruby-qt6
-%w[qtcore qtgui qtqml qtquick qtquickcontrols2 qtquickwidgets qtwidgets qt].each do |lib|
+%w[qtcore qtgui qtwidgets qtqml qtquick qtquickcontrols2 qtquickwidgets qtuitools qt].each do |lib|
   if lib == "qt"
     gem "ruby-qt6", path: "../#{lib}"
   else
