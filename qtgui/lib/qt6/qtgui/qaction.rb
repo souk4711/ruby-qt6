@@ -11,6 +11,26 @@ module RubyQt6
       rubyqt6_include_constants QAction, QAction::Priority
       rubyqt6_include_constants QAction, QAction::ActionEvent
 
+      # @!parse
+      q_object do
+        signal "changed()"
+        signal "checkableChanged(bool)"
+        signal "enabledChanged(bool)"
+        signal "hovered()"
+        signal "toggled(bool)"
+        signal "triggered(bool)"
+        signal "triggered()"
+        signal "visibleChanged()"
+        slot "hover()"
+        slot "resetEnabled()"
+        slot "setChecked(bool)"
+        slot "setDisabled(bool)"
+        slot "setEnabled(bool)"
+        slot "setVisible(bool)"
+        slot "toggle()"
+        slot "trigger()"
+      end
+
       # @!visibility private
       alias_method :_initialize, :initialize
 

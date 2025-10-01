@@ -7,6 +7,17 @@ module RubyQt6
       # @!parse class ExclusionPolicy; end
       rubyqt6_include_constants QActionGroup, QActionGroup::ExclusionPolicy
 
+      # @!parse
+      q_object do
+        signal "hovered(QAction*)"
+        signal "triggered(QAction*)"
+        slot "setDisabled(bool)"
+        slot "setEnabled(bool)"
+        slot "setExclusionPolicy(ExclusionPolicy)"
+        slot "setExclusive(bool)"
+        slot "setVisible(bool)"
+      end
+
       # @!visibility private
       alias_method :_initialize, :initialize
 
