@@ -10,6 +10,9 @@ void Init_qdir(Rice::Module rb_mQt6QtCore)
     rb_cQDir =
         // RubyQt6::QtCore::QDir
         define_class_under<QDir>(rb_mQt6QtCore, "QDir")
+            // Constructor
+            .define_constructor(Constructor<QDir, const QString &>(), Arg("path"))
+            .define_constructor(Constructor<QDir, const QString &, const QString &>(), Arg("path"), Arg("name_filter"))
             // Public Functions
             .define_method("absolute_file_path", &QDir::absoluteFilePath, Arg("file_name"))
             .define_method("absolute_path", &QDir::absolutePath)
