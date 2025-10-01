@@ -33,7 +33,8 @@ RSpec.describe RubyQt6 do
       RubyQt6::QtWidgets::QAbstractItemView,
       RubyQt6::QtWidgets::QAbstractSlider,
       RubyQt6::QtWidgets::QAbstractSpinBox,
-      RubyQt6::QtQuickWidgets::QQuickWidget
+      RubyQt6::QtQuickWidgets::QQuickWidget,
+      RubyQt6::QtUiTools::QUiLoader
     ]
 
     ::Object.constants.grep(/^Q/).each do |klass|

@@ -21,6 +21,7 @@
 #include "qmargins-rb.hpp"
 #include "qpoint-rb.hpp"
 #include "qrect-rb.hpp"
+#include "qresource-rb.hpp"
 #include "qsize-rb.hpp"
 #include "qurl-rb.hpp"
 #include "quuid-rb.hpp"
@@ -68,6 +69,7 @@ extern "C" void Init_qtcore()
         Init_qmargins(rb_mQt6QtCore);
         Init_qpoint(rb_mQt6QtCore);
         Init_qrect(rb_mQt6QtCore);
+        Init_qresource(rb_mQt6QtCore);
         Init_qsize(rb_mQt6QtCore);
         Init_qurl(rb_mQt6QtCore);
         Init_quuid(rb_mQt6QtCore);
