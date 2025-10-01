@@ -96,9 +96,9 @@ void Init_qtablewidget(Rice::Module rb_mQt6QtWidgets)
         // RubyQt6::QtWidgets::QTableWidgetItem
         define_class_under<QTableWidgetItem>(rb_mQt6QtWidgets, "QTableWidgetItem")
             // Constructor
-            .define_constructor(Constructor<QTableWidgetItem, int>(), Arg("type") = static_cast<int>(QTableWidgetItem::ItemType::Type))
-            .define_constructor(Constructor<QTableWidgetItem, const QString &, int>(), Arg("text"), Arg("type") = static_cast<int>(QTableWidgetItem::ItemType::Type))
-            .define_constructor(Constructor<QTableWidgetItem, const QIcon &, const QString &, int>(), Arg("icon"), Arg("text"), Arg("type") = static_cast<int>(QTableWidgetItem::ItemType::Type))
+            .define_constructor(Constructor<QTableWidgetItem>())
+            .define_constructor(Constructor<QTableWidgetItem, const QString &>(), Arg("text"))
+            .define_constructor(Constructor<QTableWidgetItem, const QIcon &, const QString &>(), Arg("icon"), Arg("text"))
             // Public Functions
             .define_method("background", &QTableWidgetItem::background)
             .define_method("check_state", &QTableWidgetItem::checkState)

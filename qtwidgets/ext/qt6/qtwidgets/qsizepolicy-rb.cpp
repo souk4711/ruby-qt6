@@ -11,7 +11,7 @@ void Init_qsizepolicy(Rice::Module rb_mQt6QtWidgets)
         // RubyQt6::QtWidgets::QSizePolicy
         define_class_under<QSizePolicy>(rb_mQt6QtWidgets, "QSizePolicy")
             // Constructor
-            .define_constructor(Constructor<QSizePolicy, QSizePolicy::Policy, QSizePolicy::Policy, QSizePolicy::ControlType>(), Arg("horizontal"), Arg("vertical"), Arg("type") = static_cast<QSizePolicy::ControlType>(QSizePolicy::ControlType::DefaultType))
+            .define_constructor(Constructor<QSizePolicy, QSizePolicy::Policy, QSizePolicy::Policy, QSizePolicy::ControlType>(), Arg("horizontal"), Arg("vertical"), Arg("type"))
             // Public Functions
             .define_method("control_type", &QSizePolicy::controlType)
             .define_method("expanding_directions", &QSizePolicy::expandingDirections)

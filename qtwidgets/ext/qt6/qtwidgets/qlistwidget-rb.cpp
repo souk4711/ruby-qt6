@@ -72,9 +72,9 @@ void Init_qlistwidget(Rice::Module rb_mQt6QtWidgets)
         // RubyQt6::QtWidgets::QListWidgetItem
         define_class_under<QListWidgetItem>(rb_mQt6QtWidgets, "QListWidgetItem")
             // Constructor
-            .define_constructor(Constructor<QListWidgetItem, QListWidget *, int>(), Arg("listview") = static_cast<QListWidget *>(nullptr), Arg("type") = static_cast<int>(QListWidgetItem::ItemType::Type))
-            .define_constructor(Constructor<QListWidgetItem, const QString &, QListWidget *, int>(), Arg("text"), Arg("listview") = static_cast<QListWidget *>(nullptr), Arg("type") = static_cast<int>(QListWidgetItem::ItemType::Type))
-            .define_constructor(Constructor<QListWidgetItem, const QIcon &, const QString &, QListWidget *, int>(), Arg("icon"), Arg("text"), Arg("listview") = static_cast<QListWidget *>(nullptr), Arg("type") = static_cast<int>(QListWidgetItem::ItemType::Type))
+            .define_constructor(Constructor<QListWidgetItem>())
+            .define_constructor(Constructor<QListWidgetItem, const QString &>(), Arg("text"))
+            .define_constructor(Constructor<QListWidgetItem, const QIcon &, const QString &>(), Arg("icon"), Arg("text"))
             // Public Functions
             .define_method("background", &QListWidgetItem::background)
             .define_method("check_state", &QListWidgetItem::checkState)

@@ -12,17 +12,14 @@ module RubyQt6
 
       # @return [QTableWidgetItem]
       #
-      # @overload initialize(type = QTableWidgetItem::ItemType::Type)
-      #   @param type [QTableWidgetItem::ItemType]
+      # @overload initialize
       #
-      # @overload initialize(text, type = QTableWidgetItem::ItemType::Type)
+      # @overload initialize(text)
       #   @param text [String, QString]
-      #   @param type [QTableWidgetItem::ItemType]
       #
-      # @overload initialize(icon, text, type = QTableWidgetItem::ItemType::Type)
+      # @overload initialize(icon, text)
       #   @param icon [QIcon]
       #   @param text [String, QString]
-      #   @param type [QTableWidgetItem::ItemType]
       def initialize(*args)
         args[0] = T.to_qstr(args[0]) if args[0].is_a?(::String)
         args[1] = T.to_qstr(args[1]) if args[1].is_a?(::String)

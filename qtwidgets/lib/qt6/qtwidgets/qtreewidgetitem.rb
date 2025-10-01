@@ -14,40 +14,32 @@ module RubyQt6
 
       # @return [QTreeWidgetItem]
       #
-      # @overload initialize(type = QTreeWidgetItem::ItemType::Type)
-      #   @param type [QTreeWidgetItem::ItemType]
+      # @overload initialize
       #
-      # @overload initialize(parent, type = QTreeWidgetItem::ItemType::Type)
+      # @overload initialize(parent)
       #   @param parent [QTreeWidget]
-      #   @param type [QTreeWidgetItem::ItemType]
       #
-      # @overload initialize(parent, type = QTreeWidgetItem::ItemType::Type)
+      # @overload initialize(parent)
       #   @param parent [QTreeWidgetItem]
-      #   @param type [QTreeWidgetItem::ItemType]
       #
-      # @overload initialize(parent, after, type = QTreeWidgetItem::ItemType::Type)
+      # @overload initialize(parent, after)
       #   @param parent [QTreeWidget]
       #   @param after [QTreeWidgetItem]
-      #   @param type [QTreeWidgetItem::ItemType]
       #
-      # @overload initialize(parent, after, type = QTreeWidgetItem::ItemType::Type)
+      # @overload initialize(parent, after)
       #   @param parent [QTreeWidgetItem]
       #   @param after [QTreeWidgetItem]
-      #   @param type [QTreeWidgetItem::ItemType]
       #
-      # @overload initialize(strings, type = QTreeWidgetItem::ItemType::Type)
+      # @overload initialize(strings)
       #   @param strings [QStringList]
-      #   @param type [QTreeWidgetItem::ItemType]
       #
-      # @overload initialize(parent, strings, type = QTreeWidgetItem::ItemType::Type)
+      # @overload initialize(parent, strings)
       #   @param parent [QTreeWidget]
       #   @param strings [QStringList]
-      #   @param type [QTreeWidgetItem::ItemType]
       #
-      # @overload initialize(parent, strings, type = QTreeWidgetItem::ItemType::Type)
+      # @overload initialize(parent, strings)
       #   @param parent [QTreeWidgetItem]
       #   @param strings [QStringList]
-      #   @param type [QTreeWidgetItem::ItemType]
       def initialize(*args)
         _initialize(*args)
 
