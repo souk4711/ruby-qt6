@@ -19,17 +19,13 @@ module RubyQt6
       # @overload initialize
       #
       # @overload initialize(key)
+      #   @param key [Integer]
+      #
+      # @overload initialize(key)
       #   @param key [QKeySequence::StandardKey]
       #
-      # @overload initialize(key, format = QKeySequence::SequenceFormat::NativeText)
+      # @overload initialize(key)
       #   @param key [String, QString]
-      #   @param format [QKeySequence::SequenceFormat]
-      #
-      # @overload initialize(k1, k2 = 0, k3 = 0, k4 = 0)
-      #   @param k1 [Integer]
-      #   @param k2 [Integer]
-      #   @param k3 [Integer]
-      #   @param k4 [Integer]
       def initialize(*args)
         args[0] = T.to_qstr(args[0]) if args[0].is_a?(::String)
         _initialize(*args)

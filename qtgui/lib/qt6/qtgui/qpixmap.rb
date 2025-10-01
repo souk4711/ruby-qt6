@@ -16,10 +16,8 @@ module RubyQt6
       # @overload initialize(size)
       #   @param size [QSize]
       #
-      # @overload initialize(file_name, format = "", flags = Qt::AutoColor)
+      # @overload initialize(file_name)
       #   @param file_name [String, QString]
-      #   @param format [String]
-      #   @param flags [Qt::ImageConversionFlags]
       def initialize(*args)
         args[0] = T.to_qstr(args[0]) if args[0].is_a?(::String)
         _initialize(*args)

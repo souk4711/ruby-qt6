@@ -12,17 +12,23 @@ module RubyQt6
       # @overload initialize(bs)
       #   @param bs [Qt::BrushStyle]
       #
-      # @overload initialize(color, bs = Qt::SolidPattern)
+      # @overload initialize(color)
       #   @param color [Qt::GlobalColor]
-      #   @param bs [Qt::BrushStyle]
       #
-      # @overload initialize(color, bs = Qt::SolidPattern)
-      #   @param color [QColor]
+      # @overload initialize(color, bs)
+      #   @param color [Qt::GlobalColor]
       #   @param bs [Qt::BrushStyle]
       #
       # @overload initialize(color, pixmap)
       #   @param color [Qt::GlobalColor]
       #   @param pixmap [QPixmap]
+      #
+      # @overload initialize(color)
+      #   @param color [QColor]
+      #
+      # @overload initialize(color, bs)
+      #   @param color [QColor]
+      #   @param bs [Qt::BrushStyle]
       #
       # @overload initialize(color, pixmap)
       #   @param color [QColor]

@@ -15,12 +15,9 @@ module RubyQt6
       # @overload initialize(color)
       #   @param color [QColor]
       #
-      # @overload initialize(brush, width, s = Qt::SolidLine, c = Qt::SquareCap, j = Qt::BevelJoin)
+      # @overload initialize(brush, width)
       #   @param brush [QBrush]
       #   @param width [Float]
-      #   @param s [Qt::PenStyle]
-      #   @param c [Qt::PenCapStyle]
-      #   @param j [Qt::PenJoinStyle]
       def initialize(*args)
         _initialize(*args)
       end

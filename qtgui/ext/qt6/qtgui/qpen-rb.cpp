@@ -13,7 +13,7 @@ void Init_qpen(Rice::Module rb_mQt6QtGui)
             // Constructor
             .define_constructor(Constructor<QPen, Qt::PenStyle>(), Arg("style"))
             .define_constructor(Constructor<QPen, const QColor &>(), Arg("color"))
-            .define_constructor(Constructor<QPen, const QBrush &, qreal, Qt::PenStyle, Qt::PenCapStyle, Qt::PenJoinStyle>(), Arg("brush"), Arg("width"), Arg("s") = static_cast<Qt::PenStyle>(Qt::SolidLine), Arg("c") = static_cast<Qt::PenCapStyle>(Qt::SquareCap), Arg("j") = static_cast<Qt::PenJoinStyle>(Qt::BevelJoin))
+            .define_constructor(Constructor<QPen, const QBrush &, qreal>(), Arg("brush"), Arg("width"))
             // Public Functions
             .define_method("brush", &QPen::brush)
             .define_method("cap_style", &QPen::capStyle)

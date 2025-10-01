@@ -18,7 +18,7 @@ void Init_qpixmap(Rice::Module rb_mQt6QtGui)
             // Constructor
             .define_constructor(Constructor<QPixmap, int, int>(), Arg("w"), Arg("h"))
             .define_constructor(Constructor<QPixmap, const QSize &>(), Arg("size"))
-            .define_constructor(Constructor<QPixmap, const QString &, const char *, Qt::ImageConversionFlags>(), Arg("file_name"), Arg("format") = static_cast<const char *>(nullptr), Arg("flags") = static_cast<Qt::ImageConversionFlags>(Qt::AutoColor))
+            .define_constructor(Constructor<QPixmap, const QString &>(), Arg("file_name"))
             // Public Functions
             .define_method("cache_key", &QPixmap::cacheKey)
             .define_method("convert_from_image", &QPixmap::convertFromImage, Arg("img"), Arg("flags") = static_cast<Qt::ImageConversionFlags>(Qt::AutoColor))

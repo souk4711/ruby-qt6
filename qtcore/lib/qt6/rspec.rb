@@ -91,6 +91,13 @@ module RubyQt6
       return if NO_VERIFY_QLASS_INITIALIZE.include?(qlass.name)
 
       constructor_methods = qlass.methods.select { |method| method.type == :constructor }
+
+      constructor_methods.each do |method|
+        rawline = method.rawline
+        raise "#{cppfile}: Found default value in constructor method" if rawline.include?("nullptr")
+        raise "#{cppfile}: Found default value in constructor method" if rawline.include?("static_cast")
+      end
+
       case constructor_methods.size
       when 2..99
         raise "#{rbfile}: initialize: Missing `# @overload initialize...`" unless rbfile_contents.scan("# @overload initialize").count == constructor_methods.size
@@ -167,11 +174,8 @@ module RubyQt6
       return if constructor_methods.size == 0
       raise "#{cppfile}: Too many constructor methods" if constructor_methods.size > 1
 
-      rawline = constructor_methods[0].rawline
-      raise "#{cppfile}: Found default value in constructor method" if rawline.include?("nullptr")
-      raise "#{cppfile}: Found default value in constructor method" if rawline.include?("static_cast")
-
       unless NO_VERIFY_QLASS_QOBJECT_INITIALIZE.include?(qlass.name)
+        rawline = constructor_methods[0].rawline
         rawargs = rawline.scan(/Arg\("(\w+)"\)/).map { |arg| arg[0] }
         rawargs.each do |arg|
           line = "@param #{arg} ["

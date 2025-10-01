@@ -9,8 +9,7 @@ module RubyQt6
 
       # @return [QPicture]
       #
-      # @overload initialize(format_version = -1)
-      #   @param format_version [Integer]
+      # @overload initialize
       def initialize(*args)
         _initialize(*args)
       end

@@ -14,7 +14,7 @@ void Init_qpicture(Rice::Module rb_mQt6QtGui)
         // RubyQt6::QtGui::QPicture
         define_class_under<QPicture, QPaintDevice>(rb_mQt6QtGui, "QPicture")
             // Constructor
-            .define_constructor(Constructor<QPicture, int>(), Arg("format_version") = static_cast<int>(-1))
+            .define_constructor(Constructor<QPicture>())
             // Public Functions
             .define_method("bounding_rect", &QPicture::boundingRect)
             .define_method("data", &QPicture::data)

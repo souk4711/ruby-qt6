@@ -13,8 +13,8 @@ void Init_qfont(Rice::Module rb_mQt6QtGui)
         // RubyQt6::QtGui::QFont
         define_class_under<QFont>(rb_mQt6QtGui, "QFont")
             // Constructor
-            .define_constructor(Constructor<QFont, const QString &, int, int, bool>(), Arg("family"), Arg("point_size") = static_cast<int>(-1), Arg("weight") = static_cast<int>(-1), Arg("italic") = static_cast<bool>(false))
-            .define_constructor(Constructor<QFont, const QStringList &, int, int, bool>(), Arg("families"), Arg("point_size") = static_cast<int>(-1), Arg("weight") = static_cast<int>(-1), Arg("italic") = static_cast<bool>(false))
+            .define_constructor(Constructor<QFont, const QString &>(), Arg("family"))
+            .define_constructor(Constructor<QFont, const QStringList &>(), Arg("families"))
             // Public Functions
             .define_method("bold", &QFont::bold)
             .define_method("capitalization", &QFont::capitalization)

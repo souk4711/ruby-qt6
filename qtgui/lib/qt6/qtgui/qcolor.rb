@@ -14,17 +14,22 @@ module RubyQt6
 
       # @return [QColor]
       #
-      # @overload initialize(r, g, b, a = 255)
+      # @overload initialize(r, g, b)
+      #   @param r [Integer]
+      #   @param g [Integer]
+      #   @param b [Integer]
+      #
+      # @overload initialize(r, g, b, a)
       #   @param r [Integer]
       #   @param g [Integer]
       #   @param b [Integer]
       #   @param a [Integer]
       #
       # @overload initialize(color)
-      #   @param color [String]
+      #   @param color [Qt::GlobalColor]
       #
       # @overload initialize(color)
-      #   @param color [Qt::GlobalColor]
+      #   @param color [String]
       #
       # @overload initialize(color)
       #   @param color [QString]
