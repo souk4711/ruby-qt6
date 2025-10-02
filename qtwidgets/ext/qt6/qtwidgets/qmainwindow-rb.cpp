@@ -16,6 +16,7 @@ void Init_qmainwindow(Rice::Module rb_mQt6QtWidgets)
         // RubyQt6::QtWidgets::QMainWindow
         define_class_under<QMainWindow, QWidget>(rb_mQt6QtWidgets, "QMainWindow")
             // RubyQt6-Defined Functions
+            .define_method("add_tool_bar", [](QMainWindow *self, const char *title) -> QToolBar * { return self->addToolBar(QString(title)); }, Arg("menu"))
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QMainWindow::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QMainWindow, QWidget *>(), Arg("parent"))

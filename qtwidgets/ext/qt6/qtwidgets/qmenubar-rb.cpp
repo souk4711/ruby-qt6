@@ -11,6 +11,8 @@ void Init_qmenubar(Rice::Module rb_mQt6QtWidgets)
         // RubyQt6::QtWidgets::QMenuBar
         define_class_under<QMenuBar, QWidget>(rb_mQt6QtWidgets, "QMenuBar")
             // RubyQt6-Defined Functions
+            .define_method("add_menu", [](QMenuBar *self, const char *title) -> QMenu * { return self->addMenu(QString(title)); }, Arg("menu"))
+            .define_method("add_menu", [](QMenuBar *self, const QIcon &icon, const char *title) -> QMenu * { return self->addMenu(icon, QString(title)); }, Arg("menu"))
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QMenuBar::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QMenuBar, QWidget *>(), Arg("parent"))

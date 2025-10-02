@@ -21,6 +21,10 @@ void Init_qwidget(Rice::Module rb_mQt6QtWidgets)
         // RubyQt6::QtWidgets::QWidget
         define_class_under<QWidget, QObject>(rb_mQt6QtWidgets, "QWidget")
             // RubyQt6-Defined Functions
+            .define_method("add_action", [](QWidget *self, const char *text) -> QAction * { return self->addAction(QString(text)); }, Arg("text"))
+            .define_method("add_action", [](QWidget *self, const char *text, const QKeySequence &shortcut) -> QAction * { return self->addAction(QString(text), shortcut); }, Arg("text"), Arg("shortcut"))
+            .define_method("add_action", [](QWidget *self, const QIcon &icon, const char *text) -> QAction * { return self->addAction(icon, QString(text)); }, Arg("icon"), Arg("text"))
+            .define_method("add_action", [](QWidget *self, const QIcon &icon, const char *text, const QKeySequence &shortcut) -> QAction * { return self->addAction(icon, QString(text), shortcut); }, Arg("icon"), Arg("text"), Arg("shortcut"))
             .define_method("_ioc_painter_new", [](QWidget *self) -> QPainter * { return new QPainter(self); }, Return().takeOwnership())
             .define_method("_ioc_painter_begin", [](QWidget *self, QPainter *painter) -> bool { return painter->begin(self); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QWidget::staticMetaObject; })
