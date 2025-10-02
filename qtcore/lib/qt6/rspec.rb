@@ -30,6 +30,8 @@ module RubyQt6
         inflections.acronym "LongLong"
         inflections.acronym "UInt"
         inflections.acronym "ULongLong"
+        inflections.acronym "ULong"
+        inflections.acronym "UShort"
         inflections.acronym "MSecs"
         inflections.acronym "QBitmap"
         inflections.acronym "QMetaObject"
@@ -134,6 +136,8 @@ module RubyQt6
             else inflector.underscore(method.cppname)
             end
           if expected != method.rbname.sub(/^_/, "")
+            pp expected
+            pp method.rbname
             raise method.inspect
           end
         end
