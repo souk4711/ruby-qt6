@@ -1,6 +1,6 @@
 require "qt6/all"
 
-class Form < QDialog
+class Form < RubyQt6::Bando::QDialog
   q_object do
     slot "greetings()"
   end

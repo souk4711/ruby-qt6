@@ -1,6 +1,6 @@
 require "qt6/all"
 
-class Communicate < QObject
+class Communicate < RubyQt6::Bando::QObject
   q_object do
     signal 'speak_int(int)'
     signal 'speak_str(QString)'

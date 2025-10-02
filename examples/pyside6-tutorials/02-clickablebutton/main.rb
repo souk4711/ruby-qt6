@@ -1,6 +1,6 @@
 require "qt6/all"
 
-class Greetings < QObject
+class Greetings < RubyQt6::Bando::QObject
   q_object do
     slot "say_hello()"
   end

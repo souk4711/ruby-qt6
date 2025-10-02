@@ -1,6 +1,6 @@
 require "qt6/all"
 
-class MainWindow < QMainWindow
+class MainWindow < RubyQt6::Bando::QMainWindow
   def initialize
     super
 
