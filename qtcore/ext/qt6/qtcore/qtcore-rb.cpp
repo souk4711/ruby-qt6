@@ -21,6 +21,7 @@
 #include "qline-rb.hpp"
 #include "qlocale-rb.hpp"
 #include "qmargins-rb.hpp"
+#include "qmodelindex-rb.hpp"
 #include "qpoint-rb.hpp"
 #include "qrect-rb.hpp"
 #include "qresource-rb.hpp"
@@ -29,16 +30,18 @@
 #include "quuid-rb.hpp"
 #include "qvariant-rb.hpp"
 
-#include "t-qtcore-rb.hpp"
-#include "qstringlist-rb.hpp"
-
 #include "qobject-rb.hpp"
 #include "qcoreapplication-rb.hpp"
 #include "qiodevice-rb.hpp"
 #include "qfiledevice-rb.hpp"
 #include "qfile-rb.hpp"
+#include "qitemselectionmodel-rb.hpp"
 #include "qtimer-rb.hpp"
 #include "qtranslator-rb.hpp"
+
+#include "t-qtcore-rb.hpp"
+#include "qitemselection-rb.hpp"
+#include "qstringlist-rb.hpp"
 
 #include "bando-qtcore-rb.hpp"
 
@@ -72,6 +75,7 @@ extern "C" void Init_qtcore()
         Init_qline(rb_mQt6QtCore);
         Init_qlocale(rb_mQt6QtCore);
         Init_qmargins(rb_mQt6QtCore);
+        Init_qmodelindex(rb_mQt6QtCore);
         Init_qpoint(rb_mQt6QtCore);
         Init_qrect(rb_mQt6QtCore);
         Init_qresource(rb_mQt6QtCore);
@@ -80,17 +84,19 @@ extern "C" void Init_qtcore()
         Init_quuid(rb_mQt6QtCore);
         Init_qvariant(rb_mQt6QtCore);
 
-        Rice::Module rb_mQt6T = define_module_under(rb_mQt6, "T");
-        Init_t_qtcore(rb_mQt6T);
-        Init_qstringlist(rb_mQt6QtCore);
-
         Init_qobject(rb_mQt6QtCore);
         Init_qcoreapplication(rb_mQt6QtCore);
         Init_qiodevice(rb_mQt6QtCore);
         Init_qfiledevice(rb_mQt6QtCore);
         Init_qfile(rb_mQt6QtCore);
+        Init_qitemselectionmodel(rb_mQt6QtCore);
         Init_qtimer(rb_mQt6QtCore);
         Init_qtranslator(rb_mQt6QtCore);
+
+        Rice::Module rb_mQt6T = define_module_under(rb_mQt6, "T");
+        Init_t_qtcore(rb_mQt6T);
+        Init_qitemselection(rb_mQt6QtCore);
+        Init_qstringlist(rb_mQt6QtCore);
 
         Rice::Module rb_mQt6Bando = define_module_under(rb_mQt6, "Bando");
         Init_bando_qtcore(rb_mQt6Bando);

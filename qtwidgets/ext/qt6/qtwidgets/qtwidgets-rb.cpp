@@ -4,8 +4,6 @@
 #include "qlayoutitem-rb.hpp"
 #include "qsizepolicy-rb.hpp"
 
-#include "t-qtwidgets-rb.hpp"
-
 #include "qapplication-rb.hpp"
 #include "qlayout-rb.hpp"
 #include "qboxlayout-rb.hpp"
@@ -81,6 +79,8 @@
 #include "qtabwidget-rb.hpp"
 #include "qtoolbar-rb.hpp"
 
+#include "t-qtwidgets-rb.hpp"
+
 #include "bando-qtwidgets-layout-rb.hpp"
 #include "bando-qtwidgets-widget-rb.hpp"
 
@@ -94,9 +94,6 @@ extern "C" void Init_qtwidgets()
 
         Init_qsizepolicy(rb_mQt6QtWidgets);
         Init_qlayoutitem(rb_mQt6QtWidgets);
-
-        Rice::Module rb_mQt6T = define_module_under(rb_mQt6, "T");
-        Init_t_qtwidgets(rb_mQt6T);
 
         Init_qapplication(rb_mQt6QtWidgets);
         Init_qlayout(rb_mQt6QtWidgets);
@@ -172,6 +169,9 @@ extern "C" void Init_qtwidgets()
         Init_qtabbar(rb_mQt6QtWidgets);
         Init_qtabwidget(rb_mQt6QtWidgets);
         Init_qtoolbar(rb_mQt6QtWidgets);
+
+        Rice::Module rb_mQt6T = define_module_under(rb_mQt6, "T");
+        Init_t_qtwidgets(rb_mQt6T);
 
         Rice::Module rb_mQt6Bando = define_module_under(rb_mQt6, "Bando");
         Init_bando_qtwidgets_layout(rb_mQt6Bando);

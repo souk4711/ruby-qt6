@@ -19,14 +19,14 @@
 #include "qtextoption-rb.hpp"
 #include "qtransform-rb.hpp"
 
-#include "t-qtgui-rb.hpp"
-#include "qpolygon-rb.hpp"
-
 #include "qaction-rb.hpp"
 #include "qactiongroup-rb.hpp"
 #include "qguiapplication-rb.hpp"
 #include "qshortcut-rb.hpp"
 #include "qwindow-rb.hpp"
+
+#include "t-qtgui-rb.hpp"
+#include "qpolygon-rb.hpp"
 
 #include "bando-qtgui-rb.hpp"
 
@@ -56,15 +56,15 @@ extern "C" void Init_qtgui()
         Init_qtextoption(rb_mQt6QtGui);
         Init_qtransform(rb_mQt6QtGui);
 
-        Rice::Module rb_mQt6T = define_module_under(rb_mQt6, "T");
-        Init_t_qtgui(rb_mQt6T);
-        Init_qpolygon(rb_mQt6QtGui);
-
         Init_qaction(rb_mQt6QtGui);
         Init_qactiongroup(rb_mQt6QtGui);
         Init_qguiapplication(rb_mQt6QtGui);
         Init_qshortcut(rb_mQt6QtGui);
         Init_qwindow(rb_mQt6QtGui);
+
+        Rice::Module rb_mQt6T = define_module_under(rb_mQt6, "T");
+        Init_t_qtgui(rb_mQt6T);
+        Init_qpolygon(rb_mQt6QtGui);
 
         Rice::Module rb_mQt6Bando = define_module_under(rb_mQt6, "Bando");
         Init_bando_qtgui(rb_mQt6Bando);
