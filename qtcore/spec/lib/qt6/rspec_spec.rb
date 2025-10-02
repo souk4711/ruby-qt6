@@ -18,7 +18,7 @@ RSpec.describe RubyQt6::RSpec do
 
       r = rs["QObject"]
       expect(r.verified_initialize).to eq(1)
-      expect(r.verified_methods_count).to eq(44)
+      expect(r.verified_methods_count).to eq(45)
       expect(r.verified_enums_count).to eq(nil)
 
       qlass = r.qlass
@@ -29,7 +29,7 @@ RSpec.describe RubyQt6::RSpec do
       expect(qlass_methods[:public_functions].count).to eq(32)
       expect(qlass_methods[:public_slots].count).to eq(1)
       expect(qlass_methods[:signals].count).to eq(2)
-      expect(qlass_methods[:static_public_members].count).to eq(5)
+      expect(qlass_methods[:static_public_members].count).to eq(6)
 
       method = qlass.methods.find { |method| method.rbname == "set_object_name" }
       expect(method.cppname).to eq("setObjectName")

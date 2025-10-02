@@ -79,5 +79,6 @@ void Init_qobject(Rice::Module rb_mQt6QtCore)
             .define_singleton_function<QMetaObject::Connection (*)(const QObject *, const char *, const QObject *, const char *, Qt::ConnectionType)>("_connect", &QObject::connect, Arg("sender"), Arg("signal"), Arg("receiver"), Arg("member"), Arg("type") = static_cast<Qt::ConnectionType>(Qt::AutoConnection))
             .define_singleton_function<bool (*)(const QMetaObject::Connection &)>("_disconnect", &QObject::disconnect, Arg("conn"))
             .define_singleton_function<bool (*)(const QObject *, const QMetaMethod &, const QObject *, const QMetaMethod &)>("_disconnect", &QObject::disconnect, Arg("sender"), Arg("signal"), Arg("receiver"), Arg("member"))
-            .define_singleton_function<bool (*)(const QObject *, const char *, const QObject *, const char *)>("_disconnect", &QObject::disconnect, Arg("sender"), Arg("signal"), Arg("receiver"), Arg("member"));
+            .define_singleton_function<bool (*)(const QObject *, const char *, const QObject *, const char *)>("_disconnect", &QObject::disconnect, Arg("sender"), Arg("signal"), Arg("receiver"), Arg("member"))
+            .define_singleton_function("tr", &QObject::tr, Arg("source_text"), Arg("disambiguation") = static_cast<const char *>(nullptr), Arg("n") = static_cast<int>(-1));
 }

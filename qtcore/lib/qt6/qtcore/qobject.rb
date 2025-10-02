@@ -68,6 +68,11 @@ module RubyQt6
         _take_ownership_from_ruby(self) if parent
       end
 
+      # @!visibility private
+      def tr(*args)
+        self.class.tr(*args)
+      end
+
       private
 
       def _take_ownership_from_ruby(object)

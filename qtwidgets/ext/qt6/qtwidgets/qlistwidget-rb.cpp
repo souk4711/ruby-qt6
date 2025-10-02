@@ -14,6 +14,7 @@ void Init_qlistwidget(Rice::Module rb_mQt6QtWidgets)
         // RubyQt6::QtWidgets::QListWidget
         define_class_under<QListWidget, QListView>(rb_mQt6QtWidgets, "QListWidget")
             // RubyQt6-Defined Functions
+            .define_method("add_item", [](QListWidget *self, const char *label) -> void { return self->addItem(QString(label)); }, Arg("label"))
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QListWidget::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QListWidget, QWidget *>(), Arg("parent"))
