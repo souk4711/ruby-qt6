@@ -2,7 +2,7 @@ require 'qt6/all'
 require_relative 'lcdrange'
 require_relative 'cannon'
 
-class MyWidget < QWidget
+class MyWidget < RubyQt6::Bando::QWidget
   def initialize
     super
 

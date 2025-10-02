@@ -1,6 +1,6 @@
 require 'qt6/all'
 
-class LCDRange < QWidget
+class LCDRange < RubyQt6::Bando::QWidget
   q_object do
     signal 'valueChanged(int)'
     slot 'setValue(int)'

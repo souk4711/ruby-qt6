@@ -1,6 +1,6 @@
 require 'qt6/all'
 
-class LCDRange < QWidget
+class LCDRange < RubyQt6::Bando::QWidget
   def initialize
     super
 
@@ -17,7 +17,7 @@ class LCDRange < QWidget
   end
 end
 
-class MyWidget < QWidget
+class MyWidget < RubyQt6::Bando::QWidget
   def initialize
     super
 

@@ -2,7 +2,7 @@ require 'qt6/all'
 require_relative 'lcdrange'
 require_relative 'cannon'
 
-class GameBoard < QWidget
+class GameBoard < RubyQt6::Bando::QWidget
   q_object do
     slot 'fire()'
     slot 'hit()'

@@ -1,6 +1,6 @@
 require 'qt6/all'
 
-class CannonField < QWidget
+class CannonField < RubyQt6::Bando::QWidget
   q_object do
     signal 'hit()'
     signal 'missed()'

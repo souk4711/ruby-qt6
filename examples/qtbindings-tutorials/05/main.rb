@@ -1,6 +1,6 @@
 require 'qt6/all'
 
-class MyWidget < QWidget
+class MyWidget < RubyQt6::Bando::QWidget
   def initialize
     super
 
