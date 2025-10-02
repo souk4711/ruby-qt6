@@ -17,6 +17,7 @@
 #include "qcoreevent-rb.hpp"
 #include "qdatetime-rb.hpp"
 #include "qdir-rb.hpp"
+#include "qlibraryinfo-rb.hpp"
 #include "qline-rb.hpp"
 #include "qmargins-rb.hpp"
 #include "qpoint-rb.hpp"
@@ -36,6 +37,7 @@
 #include "qfiledevice-rb.hpp"
 #include "qfile-rb.hpp"
 #include "qtimer-rb.hpp"
+#include "qtranslator-rb.hpp"
 
 #include "bando-qtcore-rb.hpp"
 
@@ -65,6 +67,7 @@ extern "C" void Init_qtcore()
         Init_qcoreevent(rb_mQt6QtCore);
         Init_qdatetime(rb_mQt6QtCore);
         Init_qdir(rb_mQt6QtCore);
+        Init_qlibraryinfo(rb_mQt6QtCore);
         Init_qline(rb_mQt6QtCore);
         Init_qmargins(rb_mQt6QtCore);
         Init_qpoint(rb_mQt6QtCore);
@@ -85,6 +88,7 @@ extern "C" void Init_qtcore()
         Init_qfiledevice(rb_mQt6QtCore);
         Init_qfile(rb_mQt6QtCore);
         Init_qtimer(rb_mQt6QtCore);
+        Init_qtranslator(rb_mQt6QtCore);
 
         Rice::Module rb_mQt6Bando = define_module_under(rb_mQt6, "Bando");
         Init_bando_qtcore(rb_mQt6Bando);
