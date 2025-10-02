@@ -13,6 +13,8 @@ void Init_qtranslator(Rice::Module rb_mQt6QtCore)
         // RubyQt6::QtCore::QTranslator
         define_class_under<QTranslator, QObject>(rb_mQt6QtCore, "QTranslator")
             // RubyQt6-Defined Functions
+            .define_method("load", [](QTranslator *self, const QLocale &locale, const char *filename, const char *prefix, const char *directory, const char *suffix) -> bool { return self->load(locale, QString(filename), QString(prefix), QString(directory), QString(suffix)); }, Arg("locale"), Arg("filename"), Arg("prefix") = static_cast<const char *>(nullptr), Arg("directory") = static_cast<const char *>(nullptr), Arg("suffix") = static_cast<const char *>(nullptr))
+            .define_method("load", [](QTranslator *self, const char *filename, const char *directory, const char *search_delimiters, const char *suffix) -> bool { return self->load(QString(filename), QString(directory), QString(search_delimiters), QString(suffix)); }, Arg("filename"), Arg("directory") = static_cast<const char *>(nullptr), Arg("search_delimiters") = static_cast<const char *>(nullptr), Arg("suffix") = static_cast<const char *>(nullptr))
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QTranslator::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QTranslator, QObject *>(), Arg("parent"))

@@ -28,7 +28,7 @@ module RubyQt6
       end
 
       # @!visibility private
-      %w[exec quit].each do |meth|
+      %w[exec quit install_translator].each do |meth|
         define_method(meth) do |*args|
           self.class.__send__(meth, *args)
         end
