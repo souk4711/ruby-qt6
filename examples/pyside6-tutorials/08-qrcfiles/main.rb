@@ -1,4 +1,5 @@
 require "qt6/all"
+require_relative "rc_icons"
 
 class MainWindow < RubyQt6::Bando::QMainWindow
   def initialize
@@ -35,9 +36,6 @@ class MainWindow < RubyQt6::Bando::QMainWindow
     tool_bar.add_action(stop_action)
   end
 end
-
-# rcc icons.qrc -binary -o icons.qrc.rcc
-QResource.register_resource(File.join(__dir__, "icons.qrc.rcc"))
 
 app = QApplication.new(ARGV)
 window = MainWindow.new
