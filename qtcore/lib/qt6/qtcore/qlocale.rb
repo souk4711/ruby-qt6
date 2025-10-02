@@ -28,6 +28,11 @@ module RubyQt6
       rubyqt6_include_constants QLocale, QLocale::DataSizeFormat
       rubyqt6_include_constants QLocale, QLocale::LanguageCodeType
       rubyqt6_include_constants QLocale, QLocale::QuotationStyle
+
+      # @!visibility private
+      def inspect
+        T.q_inspect(self, name: name.to_s)
+      end
     end
   end
 end

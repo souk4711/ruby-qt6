@@ -136,8 +136,6 @@ module RubyQt6
             else inflector.underscore(method.cppname)
             end
           if expected != method.rbname.sub(/^_/, "")
-            pp expected
-            pp method.rbname
             raise method.inspect
           end
         end
