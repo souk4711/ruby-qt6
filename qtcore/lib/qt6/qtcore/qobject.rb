@@ -69,8 +69,9 @@ module RubyQt6
       end
 
       # @!visibility private
-      def tr(*args)
-        self.class.tr(*args)
+      def tr(source_text, disambiguation = "", n = -1)
+        context = self.class.name
+        QtCore::QCoreApplication.translate(context, source_text, disambiguation, n)
       end
 
       private
