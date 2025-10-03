@@ -12,4 +12,4 @@ append_cppflags("-I#{includedir}/QtQuick")
 append_cppflags("-I#{includedir}/QtQuickWidgets")
 abort "libQt6QuickWidgets is missing, please install qt6-declarative" unless have_library("Qt6QuickWidgets")
 
-create_makefile("qt6/qtquickwidgets")
+create_makefile("qt6/qtquickwidgets/qtquickwidgets")

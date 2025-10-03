@@ -9,4 +9,4 @@ append_cppflags("-I#{includedir}/QtCore")
 append_cppflags("-I#{includedir}/QtGui")
 abort "libQt6Gui is missing, please install qt6-base" unless have_library("Qt6Gui")
 
-create_makefile("qt6/qtgui")
+create_makefile("qt6/qtgui/qtgui")

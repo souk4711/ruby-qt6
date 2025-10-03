@@ -11,4 +11,4 @@ append_cppflags("-I#{includedir}/QtWidgets")
 append_cppflags("-I#{includedir}/QtUiTools")
 abort "libQt6UiTools is missing, please install qt6-tools" unless have_library("Qt6UiTools")
 
-create_makefile("qt6/qtuitools")
+create_makefile("qt6/qtuitools/qtuitools")

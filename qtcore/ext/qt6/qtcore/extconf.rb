@@ -11,4 +11,4 @@ append_cppflags("-I#{includedir_private}")
 append_cppflags("-I#{includedir_private}/QtCore")
 abort "libQt6Core is missing, please install qt6-base" unless have_library("Qt6Core")
 
-create_makefile("qt6/qtcore")
+create_makefile("qt6/qtcore/qtcore")

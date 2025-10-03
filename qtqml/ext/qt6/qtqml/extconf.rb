@@ -9,4 +9,4 @@ append_cppflags("-I#{includedir}/QtCore")
 append_cppflags("-I#{includedir}/QtQml")
 abort "libQt6Qml is missing, please install qt6-declarative" unless have_library("Qt6Qml")
 
-create_makefile("qt6/qtqml")
+create_makefile("qt6/qtqml/qtqml")

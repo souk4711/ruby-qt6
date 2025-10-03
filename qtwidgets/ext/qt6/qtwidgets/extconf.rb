@@ -10,4 +10,4 @@ append_cppflags("-I#{includedir}/QtGui")
 append_cppflags("-I#{includedir}/QtWidgets")
 abort "libQt6Widgets is missing, please install qt6-base" unless have_library("Qt6Widgets")
 
-create_makefile("qt6/qtwidgets")
+create_makefile("qt6/qtwidgets/qtwidgets")

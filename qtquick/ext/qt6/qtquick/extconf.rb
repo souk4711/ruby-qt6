@@ -11,4 +11,4 @@ append_cppflags("-I#{includedir}/QtQml")
 append_cppflags("-I#{includedir}/QtQuick")
 abort "libQt6Quick is missing, please install qt6-declarative" unless have_library("Qt6Quick")
 
-create_makefile("qt6/qtquick")
+create_makefile("qt6/qtquick/qtquick")
