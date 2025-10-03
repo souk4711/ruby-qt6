@@ -33,6 +33,7 @@ template<typename Enum_T>
 Data_Type<QFlags<Enum_T>> define_qflags_under(Module module, char const* name)
 {
     using QFlags_T = QFlags<Enum_T>;
+
     Data_Type<QFlags_T> flags = define_class_under<QFlags_T>(module, name)
         .define_constructor(Constructor<QFlags_T>())
         .define_constructor(Constructor<QFlags_T, Enum_T>(), Arg("flags"))
@@ -60,6 +61,12 @@ Data_Type<QFlags<Enum_T>> define_qflags_under(Module module, char const* name)
         .template define_method<QFlags_T &(QFlags_T::*)(QFlags_T) noexcept>("|=", &QFlags_T::operator|=, Arg("other"))
         .template define_method("~", &QFlags_T::operator~)
         .template define_singleton_function("from_int", [](int i) -> QFlags_T { return QFlags_T::fromInt(i); }, Arg("i"));
+
+    flags
+        .template define_method("==", [](QFlags_T *self, int other) -> bool { return self->toInt() == other; })
+        .template define_method("==", [](QFlags_T *self, Enum_T other) -> bool { return self->toInt() == other; })
+        .template define_method("==", [](QFlags_T *self, QFlags_T other) -> bool { return self->toInt() == other.toInt(); });
+
     return flags;
 }
 
