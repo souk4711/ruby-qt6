@@ -39,7 +39,7 @@ module RubyQt6
         blk.call(qvariant)
       end
 
-      # @!visibility private
+      # @!parse
       register(QtCore::QMetaType::Type::Bool, method(:from_bool), method(:to_bool))
       register(QtCore::QMetaType::Type::Int, method(:from_int), method(:to_int))
       register(QtCore::QMetaType::Type::Double, method(:from_double), method(:to_double))
