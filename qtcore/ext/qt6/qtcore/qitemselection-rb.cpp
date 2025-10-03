@@ -38,6 +38,10 @@ void Init_qitemselection(Rice::Module rb_mQt6QtCore)
     rb_cQItemSelection =
         // RubyQt6::QtCore::QItemSelection
         define_class_under<QItemSelection, QList<QItemSelectionRange>>(rb_mQt6QtCore, "QItemSelection")
+            // RubyQt6-Defined Functions
+            .define_singleton_function("_qvariant_register_metatype", []() -> int { return qRegisterMetaType<QItemSelection>(); })
+            .define_singleton_function("_qvariant_from_value", [](const QItemSelection &value) -> QVariant { return QVariant::fromValue(value); })
+            .define_singleton_function("_qvariant_to_value", [](const QVariant &qvariant) -> QItemSelection { return qvariant.value<QItemSelection>(); })
             // Public Functions
             .define_method("contains", &QItemSelection::contains, Arg("index"))
             .define_method("indexes", &QItemSelection::indexes)

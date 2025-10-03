@@ -34,16 +34,16 @@ module RubyQt6
       # @!visibility private
       def self.to_rb_value(qvariant)
         blk = to_rb_value_blks[qvariant.type_id]
-        raise "Unsupported type '#{qvarian.type_name}'" if blk.nil?
+        raise "Unsupported type '#{qvariant.type_name}'" if blk.nil?
 
         blk.call(qvariant)
       end
 
       # @!visibility private
-      register(QtCore::QMetaType::Type::Bool, ->(value) { from_bool(value) }, ->(qvariant) { to_bool(qvariant) })
-      register(QtCore::QMetaType::Type::Int, ->(value) { from_int(value) }, ->(qvariant) { to_int(qvariant) })
-      register(QtCore::QMetaType::Type::Double, ->(value) { from_double(value) }, ->(qvariant) { to_double(qvariant) })
-      register(QtCore::QMetaType::Type::QString, ->(value) { from_qstring(value) }, ->(qvariant) { to_qstring(qvariant) })
+      register(QtCore::QMetaType::Type::Bool, method(:from_bool), method(:to_bool))
+      register(QtCore::QMetaType::Type::Int, method(:from_int), method(:to_int))
+      register(QtCore::QMetaType::Type::Double, method(:from_double), method(:to_double))
+      register(QtCore::QMetaType::Type::QString, method(:from_qstring), method(:to_qstring))
     end
   end
 end
