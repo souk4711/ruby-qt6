@@ -15,8 +15,7 @@ namespace :bindgen do
     clang_args << "-I./vendor/qt6include"
     clang_args << "-I./vendor/qt6include/#{extension}"
     clang_args << "-xc++"
-    inputter = RubyBindgen::Inputter.new("vendor/qt6include/#{extension}", "q[a-z]*.h",
-      ["*impl.h", "*helpers.h", "qwindowdefs.h"])
+    inputter = RubyBindgen::Inputter.new("vendor/qt6include/#{extension}", "q[a-z]*.h", ["*impl.h", "*helpers.h", "qwindowdefs.h"])
     outputter = RubyBindgen::Outputter.new("vendor/qt6rice/#{extension}")
     parser = RubyBindgen::Parser.new(inputter, clang_args)
     format = RubyBindgen::Visitors::Rice.new(extension.downcase, outputter)
@@ -106,7 +105,7 @@ task :rubocop do
     end
   end
 
-  Bundler.with_unbundled_env { QT6_LIBS.concat(["Qt"]).each(&rubocop) }
+  Bundler.with_unbundled_env { (QT6_LIBS + ["Qt"]).each(&rubocop) }
 end
 
 desc "Run RSpec code examples"
@@ -119,7 +118,7 @@ task :spec do
     end
   end
 
-  Bundler.with_unbundled_env { QT6_LIBS.concat(["Qt"]).each(&rspec) }
+  Bundler.with_unbundled_env { (QT6_LIBS + ["Qt"]).each(&rspec) }
 end
 
 desc "Run YARD documentation"
