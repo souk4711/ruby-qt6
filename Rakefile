@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-QT6_LIBS = [
-  "QtCore", "QtGui", "QtWidgets",
-  "QtQml", "QtQuick", "QtQuickControls2", "QtQuickWidgets",
-  "QtUiTools"
-]
+QT6_LIBS = %w[
+  QtCore QtGui QtWidgets
+  QtQml QtQuick QtQuickControls2 QtQuickWidgets
+  QtUiTools
+].freeze
 
 namespace :bindgen do
   def bindgen(extension:)
@@ -15,7 +15,8 @@ namespace :bindgen do
     clang_args << "-I./vendor/qt6include"
     clang_args << "-I./vendor/qt6include/#{extension}"
     clang_args << "-xc++"
-    inputter = RubyBindgen::Inputter.new("vendor/qt6include/#{extension}", "q[a-z]*.h", ["*impl.h", "*helpers.h", "qwindowdefs.h"])
+    inputter = RubyBindgen::Inputter.new("vendor/qt6include/#{extension}", "q[a-z]*.h",
+      ["*impl.h", "*helpers.h", "qwindowdefs.h"])
     outputter = RubyBindgen::Outputter.new("vendor/qt6rice/#{extension}")
     parser = RubyBindgen::Parser.new(inputter, clang_args)
     format = RubyBindgen::Visitors::Rice.new(extension.downcase, outputter)
@@ -78,43 +79,47 @@ end
 
 desc "Run Rake compiler"
 task :compile, [:clobber] do |_, args|
-  compile =  -> (lib) do
+  compile = lambda do |lib|
     Dir.chdir(lib.downcase) do
       puts "cd #{lib.downcase}"
       sh "rm -rf tmp" if args.clobber
       sh "bundle check || bundle install"
-      sh "BUNDLE_GEMFILE= bundle exec rake compile"
+      sh "bundle exec rake compile"
     end
   end
 
   if args.clobber
     require "parallel"
-    Parallel.each(QT6_LIBS, &compile)
+    Bundler.with_unbundled_env { Parallel.each(QT6_LIBS, &compile) }
   else
-    QT6_LIBS.each(&compile)
+    Bundler.with_unbundled_env { QT6_LIBS.each(&compile) }
   end
 end
 
 desc "Run Rubocop linter"
 task :rubocop do
-  QT6_LIBS.concat(["Qt"]).each do |lib|
+  rubocop = lambda do |lib|
     Dir.chdir(lib.downcase) do
       puts "cd #{lib.downcase}"
       sh "bundle check || bundle install"
-      sh "BUNDLE_GEMFILE= bundle exec rubocop -A"
+      sh "bundle exec rubocop -A"
     end
   end
+
+  Bundler.with_unbundled_env { QT6_LIBS.concat(["Qt"]).each(&rubocop) }
 end
 
 desc "Run RSpec code examples"
 task :spec do
-  QT6_LIBS.concat(["Qt"]).each do |lib|
+  rspec = lambda do |lib|
     Dir.chdir(lib.downcase) do
       puts "cd #{lib.downcase}"
       sh "bundle check || bundle install"
-      sh "BUNDLE_GEMFILE= bundle exec rspec"
+      sh "bundle exec rspec"
     end
   end
+
+  Bundler.with_unbundled_env { QT6_LIBS.concat(["Qt"]).each(&rspec) }
 end
 
 desc "Run YARD documentation"
