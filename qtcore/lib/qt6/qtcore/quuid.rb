@@ -9,9 +9,9 @@ module RubyQt6
       # @!parse class StringFormat; end
       # @!parse class Variant     ; end
       # @!parse class Version     ; end
-      rubyqt6_include_constants QUuid, QUuid::StringFormat
-      rubyqt6_include_constants QUuid, QUuid::Variant
-      rubyqt6_include_constants QUuid, QUuid::Version
+      rubyqt6_declare_enum_under QUuid, QUuid::StringFormat
+      rubyqt6_declare_enum_under QUuid, QUuid::Variant
+      rubyqt6_declare_enum_under QUuid, QUuid::Version
 
       # @!visibility private
       alias_method :_initialize, :initialize

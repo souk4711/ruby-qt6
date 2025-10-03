@@ -6,8 +6,8 @@ module RubyQt6
     class QPalette
       # @!parse class ColorGroup; end
       # @!parse class ColorRole ; end
-      rubyqt6_include_constants QPalette, QPalette::ColorGroup
-      rubyqt6_include_constants QPalette, QPalette::ColorRole
+      rubyqt6_declare_enum_under QPalette, QPalette::ColorGroup
+      rubyqt6_declare_enum_under QPalette, QPalette::ColorRole
 
       # @!visibility private
       alias_method :_initialize, :initialize

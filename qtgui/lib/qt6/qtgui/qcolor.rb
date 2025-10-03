@@ -6,8 +6,8 @@ module RubyQt6
     class QColor
       # @!parse class NameFormat; end
       # @!parse class Spec      ; end
-      rubyqt6_include_constants QColor, QColor::NameFormat
-      rubyqt6_include_constants QColor, QColor::Spec
+      rubyqt6_declare_enum_under QColor, QColor::NameFormat
+      rubyqt6_declare_enum_under QColor, QColor::Spec
 
       # @!visibility private
       alias_method :_initialize, :initialize

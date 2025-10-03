@@ -5,7 +5,7 @@ module RubyQt6
     # @see https://doc.qt.io/qt-6/qmetatype.html
     class QMetaType
       # @!parse class Type; end
-      rubyqt6_include_constants QMetaType, QMetaType::Type
+      rubyqt6_declare_enum_under QMetaType, QMetaType::Type
     end
   end
 end

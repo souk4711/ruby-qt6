@@ -7,9 +7,9 @@ module RubyQt6
       # @!parse class AreaOption ; end
       # @!parse class ViewMode   ; end
       # @!parse class WindowOrder; end
-      rubyqt6_include_constants QMdiArea, QMdiArea::AreaOption
-      rubyqt6_include_constants QMdiArea, QMdiArea::ViewMode
-      rubyqt6_include_constants QMdiArea, QMdiArea::WindowOrder
+      rubyqt6_declare_enum_under QMdiArea, QMdiArea::AreaOption
+      rubyqt6_declare_enum_under QMdiArea, QMdiArea::ViewMode
+      rubyqt6_declare_enum_under QMdiArea, QMdiArea::WindowOrder
 
       # @!parse
       q_object do

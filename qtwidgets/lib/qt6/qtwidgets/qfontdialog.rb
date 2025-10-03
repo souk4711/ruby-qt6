@@ -5,7 +5,7 @@ module RubyQt6
     # @see https://doc.qt.io/qt-6/qfontdialog.html
     class QFontDialog < RubyQt6::QtWidgets::QDialog
       # @!parse class FontDialogOption; end
-      rubyqt6_include_constants QFontDialog, QFontDialog::FontDialogOption
+      rubyqt6_declare_enum_under QFontDialog, QFontDialog::FontDialogOption
 
       # @!parse
       q_object do

@@ -5,7 +5,7 @@ module RubyQt6
     # @see https://doc.qt.io/qt-6/qiodevicebase.html
     class QIODeviceBase
       # @!parse class OpenModeFlag; end
-      rubyqt6_include_constants QIODeviceBase, QIODeviceBase::OpenModeFlag
+      rubyqt6_declare_enum_under QIODeviceBase, QIODeviceBase::OpenModeFlag
     end
   end
 end

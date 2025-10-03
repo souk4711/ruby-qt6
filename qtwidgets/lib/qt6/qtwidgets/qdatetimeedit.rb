@@ -5,7 +5,7 @@ module RubyQt6
     # @see https://doc.qt.io/qt-6/qdatetimeedit.html
     class QDateTimeEdit < RubyQt6::QtWidgets::QAbstractSpinBox
       # @!parse class Section; end
-      rubyqt6_include_constants QDateTimeEdit, QDateTimeEdit::Section
+      rubyqt6_declare_enum_under QDateTimeEdit, QDateTimeEdit::Section
 
       # @!parse
       q_object do

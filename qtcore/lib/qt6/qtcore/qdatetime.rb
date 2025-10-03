@@ -7,7 +7,7 @@ module RubyQt6
       include ::Comparable
 
       # @!parse class TransitionResolution; end
-      rubyqt6_include_constants QDateTime, QDateTime::TransitionResolution
+      rubyqt6_declare_enum_under QDateTime, QDateTime::TransitionResolution
 
       # @!visibility private
       alias_method :_initialize, :initialize

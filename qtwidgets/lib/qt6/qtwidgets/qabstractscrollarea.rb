@@ -5,7 +5,7 @@ module RubyQt6
     # @see https://doc.qt.io/qt-6/qabstractscrollarea.html
     class QAbstractScrollArea < RubyQt6::QtWidgets::QFrame
       # @!parse class SizeAdjustPolicy; end
-      rubyqt6_include_constants QAbstractScrollArea, QAbstractScrollArea::SizeAdjustPolicy
+      rubyqt6_declare_enum_under QAbstractScrollArea, QAbstractScrollArea::SizeAdjustPolicy
 
       # @!parse
       q_object do

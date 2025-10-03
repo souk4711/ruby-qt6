@@ -5,7 +5,7 @@ module RubyQt6
     # @see https://doc.qt.io/qt-6/qregion.html
     class QRegion
       # @!parse class RegionType; end
-      rubyqt6_include_constants QRegion, QRegion::RegionType
+      rubyqt6_declare_enum_under QRegion, QRegion::RegionType
 
       # @!visibility private
       alias_method :_initialize, :initialize

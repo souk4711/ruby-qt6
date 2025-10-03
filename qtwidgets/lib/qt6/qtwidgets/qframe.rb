@@ -6,8 +6,8 @@ module RubyQt6
     class QFrame < RubyQt6::QtWidgets::QWidget
       # @!parse class Shadow; end
       # @!parse class Shape ; end
-      rubyqt6_include_constants QFrame, QFrame::Shadow
-      rubyqt6_include_constants QFrame, QFrame::Shape
+      rubyqt6_declare_enum_under QFrame, QFrame::Shadow
+      rubyqt6_declare_enum_under QFrame, QFrame::Shape
 
       # @!parse
       q_object do

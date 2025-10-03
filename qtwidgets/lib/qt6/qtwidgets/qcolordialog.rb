@@ -5,7 +5,7 @@ module RubyQt6
     # @see https://doc.qt.io/qt-6/qcolordialog.html
     class QColorDialog < RubyQt6::QtWidgets::QDialog
       # @!parse class ColorDialogOption; end
-      rubyqt6_include_constants QColorDialog, QColorDialog::ColorDialogOption
+      rubyqt6_declare_enum_under QColorDialog, QColorDialog::ColorDialogOption
 
       # @!parse
       q_object do

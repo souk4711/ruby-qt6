@@ -5,7 +5,7 @@ module RubyQt6
     # @see https://doc.qt.io/qt-6/qlibraryinfo.html
     class QLibraryInfo
       # @!parse class LibraryPath; end
-      rubyqt6_include_constants QLibraryInfo, QLibraryInfo::LibraryPath
+      rubyqt6_declare_enum_under QLibraryInfo, QLibraryInfo::LibraryPath
     end
   end
 end

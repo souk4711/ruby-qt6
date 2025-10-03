@@ -6,8 +6,8 @@ module RubyQt6
     class QInputDialog < RubyQt6::QtWidgets::QDialog
       # @!parse class InputDialogOption; end
       # @!parse class InputMode        ; end
-      rubyqt6_include_constants QInputDialog, QInputDialog::InputDialogOption
-      rubyqt6_include_constants QInputDialog, QInputDialog::InputMode
+      rubyqt6_declare_enum_under QInputDialog, QInputDialog::InputDialogOption
+      rubyqt6_declare_enum_under QInputDialog, QInputDialog::InputMode
 
       # @!parse
       q_object do

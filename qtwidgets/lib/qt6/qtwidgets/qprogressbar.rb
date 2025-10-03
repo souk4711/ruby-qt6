@@ -5,7 +5,7 @@ module RubyQt6
     # @see https://doc.qt.io/qt-6/qprogressbar.html
     class QProgressBar < RubyQt6::QtWidgets::QWidget
       # @!parse class Direction; end
-      rubyqt6_include_constants QProgressBar, QProgressBar::Direction
+      rubyqt6_declare_enum_under QProgressBar, QProgressBar::Direction
 
       # @!parse
       q_object do

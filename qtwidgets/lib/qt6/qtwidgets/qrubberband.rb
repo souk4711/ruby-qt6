@@ -5,7 +5,7 @@ module RubyQt6
     # @see https://doc.qt.io/qt-6/qrubberband.html
     class QRubberBand < RubyQt6::QtWidgets::QWidget
       # @!parse class Shape; end
-      rubyqt6_include_constants QRubberBand, QRubberBand::Shape
+      rubyqt6_declare_enum_under QRubberBand, QRubberBand::Shape
 
       # @!parse
       q_object do

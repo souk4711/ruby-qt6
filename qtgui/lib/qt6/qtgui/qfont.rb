@@ -12,14 +12,14 @@ module RubyQt6
       # @!parse class StyleHint        ; end
       # @!parse class StyleStrategy    ; end
       # @!parse class Weight           ; end
-      rubyqt6_include_constants QFont, QFont::Capitalization
-      rubyqt6_include_constants QFont, QFont::HintingPreference
-      rubyqt6_include_constants QFont, QFont::SpacingType
-      rubyqt6_include_constants QFont, QFont::Stretch
-      rubyqt6_include_constants QFont, QFont::Style
-      rubyqt6_include_constants QFont, QFont::StyleHint
-      rubyqt6_include_constants QFont, QFont::StyleStrategy
-      rubyqt6_include_constants QFont, QFont::Weight
+      rubyqt6_declare_enum_under QFont, QFont::Capitalization
+      rubyqt6_declare_enum_under QFont, QFont::HintingPreference
+      rubyqt6_declare_enum_under QFont, QFont::SpacingType
+      rubyqt6_declare_enum_under QFont, QFont::Stretch
+      rubyqt6_declare_enum_under QFont, QFont::Style
+      rubyqt6_declare_enum_under QFont, QFont::StyleHint
+      rubyqt6_declare_enum_under QFont, QFont::StyleStrategy
+      rubyqt6_declare_enum_under QFont, QFont::Weight
 
       # @!visibility private
       alias_method :_initialize, :initialize

@@ -6,8 +6,8 @@ module RubyQt6
     class QImage < RubyQt6::QtGui::QPaintDevice
       # @!parse class Format    ; end
       # @!parse class InvertMode; end
-      rubyqt6_include_constants QImage, QImage::Format
-      rubyqt6_include_constants QImage, QImage::InvertMode
+      rubyqt6_declare_enum_under QImage, QImage::Format
+      rubyqt6_declare_enum_under QImage, QImage::InvertMode
 
       # @!visibility private
       alias_method :_initialize, :initialize

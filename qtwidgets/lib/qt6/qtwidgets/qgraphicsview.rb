@@ -9,11 +9,11 @@ module RubyQt6
       # @!parse class OptimizationFlag  ; end
       # @!parse class ViewportAnchor    ; end
       # @!parse class ViewportUpdateMode; end
-      rubyqt6_include_constants QGraphicsView, QGraphicsView::CacheModeFlag
-      rubyqt6_include_constants QGraphicsView, QGraphicsView::DragMode
-      rubyqt6_include_constants QGraphicsView, QGraphicsView::OptimizationFlag
-      rubyqt6_include_constants QGraphicsView, QGraphicsView::ViewportAnchor
-      rubyqt6_include_constants QGraphicsView, QGraphicsView::ViewportUpdateMode
+      rubyqt6_declare_enum_under QGraphicsView, QGraphicsView::CacheModeFlag
+      rubyqt6_declare_enum_under QGraphicsView, QGraphicsView::DragMode
+      rubyqt6_declare_enum_under QGraphicsView, QGraphicsView::OptimizationFlag
+      rubyqt6_declare_enum_under QGraphicsView, QGraphicsView::ViewportAnchor
+      rubyqt6_declare_enum_under QGraphicsView, QGraphicsView::ViewportUpdateMode
 
       # @!parse
       q_object do

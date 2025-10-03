@@ -9,11 +9,11 @@ module RubyQt6
       # @!parse class FileTime      ; end
       # @!parse class MemoryMapFlag ; end
       # @!parse class Permission    ; end
-      rubyqt6_include_constants QFileDevice, QFileDevice::FileError
-      rubyqt6_include_constants QFileDevice, QFileDevice::FileHandleFlag
-      rubyqt6_include_constants QFileDevice, QFileDevice::FileTime
-      rubyqt6_include_constants QFileDevice, QFileDevice::MemoryMapFlag
-      rubyqt6_include_constants QFileDevice, QFileDevice::Permission
+      rubyqt6_declare_enum_under QFileDevice, QFileDevice::FileError
+      rubyqt6_declare_enum_under QFileDevice, QFileDevice::FileHandleFlag
+      rubyqt6_declare_enum_under QFileDevice, QFileDevice::FileTime
+      rubyqt6_declare_enum_under QFileDevice, QFileDevice::MemoryMapFlag
+      rubyqt6_declare_enum_under QFileDevice, QFileDevice::Permission
 
       # @!parse
       q_object do

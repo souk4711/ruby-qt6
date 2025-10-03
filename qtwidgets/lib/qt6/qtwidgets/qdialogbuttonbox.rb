@@ -7,9 +7,9 @@ module RubyQt6
       # @!parse class ButtonLayout  ; end
       # @!parse class ButtonRole    ; end
       # @!parse class StandardButton; end
-      rubyqt6_include_constants QDialogButtonBox, QDialogButtonBox::ButtonLayout
-      rubyqt6_include_constants QDialogButtonBox, QDialogButtonBox::ButtonRole
-      rubyqt6_include_constants QDialogButtonBox, QDialogButtonBox::StandardButton
+      rubyqt6_declare_enum_under QDialogButtonBox, QDialogButtonBox::ButtonLayout
+      rubyqt6_declare_enum_under QDialogButtonBox, QDialogButtonBox::ButtonRole
+      rubyqt6_declare_enum_under QDialogButtonBox, QDialogButtonBox::StandardButton
 
       # @!parse
       q_object do

@@ -5,7 +5,7 @@ module RubyQt6
     # @see https://doc.qt.io/qt-6/qplaintextedit.html
     class QPlainTextEdit < RubyQt6::QtWidgets::QAbstractScrollArea
       # @!parse class LineWrapMode; end
-      rubyqt6_include_constants QPlainTextEdit, QPlainTextEdit::LineWrapMode
+      rubyqt6_declare_enum_under QPlainTextEdit, QPlainTextEdit::LineWrapMode
 
       # @!parse
       q_object do

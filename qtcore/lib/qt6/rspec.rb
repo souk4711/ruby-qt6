@@ -165,7 +165,7 @@ module RubyQt6
     def self.verify_qlass_cppfile_qlass_enums(qlass, cppfile, rbfile, rbfile_contents, r)
       qlass.enums.each do |enum|
         raise "#{rbfile}: #{enum.name}: Missing `# @!parse class ...`" unless rbfile_contents.include?("# @!parse class #{enum.name}")
-        raise "#{rbfile}: #{enum.name}: Missing `rubyqt6_include_constants ...`" unless rbfile_contents.include?("rubyqt6_include_constants #{qlass.name}, #{qlass.name}::#{enum.name}")
+        raise "#{rbfile}: #{enum.name}: Missing `rubyqt6_declare_enum_under ...`" unless rbfile_contents.include?("rubyqt6_declare_enum_under #{qlass.name}, #{qlass.name}::#{enum.name}")
         r.verified_enums_count ||= 0
         r.verified_enums_count += 1
       end

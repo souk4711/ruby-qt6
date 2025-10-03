@@ -7,9 +7,9 @@ module RubyQt6
       # @!parse class ButtonPosition   ; end
       # @!parse class SelectionBehavior; end
       # @!parse class Shape            ; end
-      rubyqt6_include_constants QTabBar, QTabBar::ButtonPosition
-      rubyqt6_include_constants QTabBar, QTabBar::SelectionBehavior
-      rubyqt6_include_constants QTabBar, QTabBar::Shape
+      rubyqt6_declare_enum_under QTabBar, QTabBar::ButtonPosition
+      rubyqt6_declare_enum_under QTabBar, QTabBar::SelectionBehavior
+      rubyqt6_declare_enum_under QTabBar, QTabBar::Shape
 
       # @!parse
       q_object do

@@ -7,9 +7,9 @@ module RubyQt6
       # @!parse class Access    ; end
       # @!parse class Attributes; end
       # @!parse class MethodType; end
-      rubyqt6_include_constants QMetaMethod, QMetaMethod::Access
-      rubyqt6_include_constants QMetaMethod, QMetaMethod::Attributes
-      rubyqt6_include_constants QMetaMethod, QMetaMethod::MethodType
+      rubyqt6_declare_enum_under QMetaMethod, QMetaMethod::Access
+      rubyqt6_declare_enum_under QMetaMethod, QMetaMethod::Attributes
+      rubyqt6_declare_enum_under QMetaMethod, QMetaMethod::MethodType
     end
   end
 end

@@ -8,10 +8,10 @@ module RubyQt6
       # @!parse class CorrectionMode ; end
       # @!parse class StepEnabledFlag; end
       # @!parse class StepType       ; end
-      rubyqt6_include_constants QAbstractSpinBox, QAbstractSpinBox::ButtonSymbols
-      rubyqt6_include_constants QAbstractSpinBox, QAbstractSpinBox::CorrectionMode
-      rubyqt6_include_constants QAbstractSpinBox, QAbstractSpinBox::StepEnabledFlag
-      rubyqt6_include_constants QAbstractSpinBox, QAbstractSpinBox::StepType
+      rubyqt6_declare_enum_under QAbstractSpinBox, QAbstractSpinBox::ButtonSymbols
+      rubyqt6_declare_enum_under QAbstractSpinBox, QAbstractSpinBox::CorrectionMode
+      rubyqt6_declare_enum_under QAbstractSpinBox, QAbstractSpinBox::StepEnabledFlag
+      rubyqt6_declare_enum_under QAbstractSpinBox, QAbstractSpinBox::StepType
 
       # @!parse
       q_object do

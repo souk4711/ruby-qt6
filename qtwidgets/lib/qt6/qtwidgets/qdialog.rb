@@ -5,7 +5,7 @@ module RubyQt6
     # @see https://doc.qt.io/qt-6/qdialog.html
     class QDialog < RubyQt6::QtWidgets::QWidget
       # @!parse class DialogCode; end
-      rubyqt6_include_constants QDialog, QDialog::DialogCode
+      rubyqt6_declare_enum_under QDialog, QDialog::DialogCode
 
       # @!parse
       q_object do

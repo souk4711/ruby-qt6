@@ -5,7 +5,7 @@ module RubyQt6
     # @see https://doc.qt.io/qt-6/qmainwindow.html
     class QMainWindow < RubyQt6::QtWidgets::QWidget
       # @!parse class DockOption; end
-      rubyqt6_include_constants QMainWindow, QMainWindow::DockOption
+      rubyqt6_declare_enum_under QMainWindow, QMainWindow::DockOption
 
       # @!parse
       q_object do

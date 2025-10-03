@@ -5,7 +5,7 @@ module RubyQt6
     # @see https://doc.qt.io/qt-6/qboxlayout.html
     class QBoxLayout < RubyQt6::QtWidgets::QLayout
       # @!parse class Direction; end
-      rubyqt6_include_constants QBoxLayout, QBoxLayout::Direction
+      rubyqt6_declare_enum_under QBoxLayout, QBoxLayout::Direction
 
       # @!parse
       q_object do

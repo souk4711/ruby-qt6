@@ -7,9 +7,9 @@ module RubyQt6
       # @!parse class HorizontalHeaderFormat; end
       # @!parse class VerticalHeaderFormat  ; end
       # @!parse class SelectionMode         ; end
-      rubyqt6_include_constants QCalendarWidget, QCalendarWidget::HorizontalHeaderFormat
-      rubyqt6_include_constants QCalendarWidget, QCalendarWidget::VerticalHeaderFormat
-      rubyqt6_include_constants QCalendarWidget, QCalendarWidget::SelectionMode
+      rubyqt6_declare_enum_under QCalendarWidget, QCalendarWidget::HorizontalHeaderFormat
+      rubyqt6_declare_enum_under QCalendarWidget, QCalendarWidget::VerticalHeaderFormat
+      rubyqt6_declare_enum_under QCalendarWidget, QCalendarWidget::SelectionMode
 
       # @!parse
       q_object do

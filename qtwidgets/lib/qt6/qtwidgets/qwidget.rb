@@ -5,7 +5,7 @@ module RubyQt6
     # @see https://doc.qt.io/qt-6/qwidget.html
     class QWidget < RubyQt6::QtCore::QObject
       # @!parse class RenderFlag; end
-      rubyqt6_include_constants QWidget, QWidget::RenderFlag
+      rubyqt6_declare_enum_under QWidget, QWidget::RenderFlag
 
       # @!parse
       q_object do

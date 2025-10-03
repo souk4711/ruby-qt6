@@ -5,7 +5,7 @@ module RubyQt6
     # @see https://doc.qt.io/qt-6/qtransform.html
     class QTransform
       # @!parse class TransformationType; end
-      rubyqt6_include_constants QTransform, QTransform::TransformationType
+      rubyqt6_declare_enum_under QTransform, QTransform::TransformationType
 
       # @!visibility private
       alias_method :_initialize, :initialize

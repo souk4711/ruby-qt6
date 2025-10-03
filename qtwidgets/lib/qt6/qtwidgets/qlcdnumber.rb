@@ -6,8 +6,8 @@ module RubyQt6
     class QLCDNumber < RubyQt6::QtWidgets::QFrame
       # @!parse class Mode        ; end
       # @!parse class SegmentStyle; end
-      rubyqt6_include_constants QLCDNumber, QLCDNumber::Mode
-      rubyqt6_include_constants QLCDNumber, QLCDNumber::SegmentStyle
+      rubyqt6_declare_enum_under QLCDNumber, QLCDNumber::Mode
+      rubyqt6_declare_enum_under QLCDNumber, QLCDNumber::SegmentStyle
 
       # @!parse
       q_object do

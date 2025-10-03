@@ -7,9 +7,9 @@ module RubyQt6
       # @!parse class ControlType; end
       # @!parse class Policy     ; end
       # @!parse class PolicyFlag ; end
-      rubyqt6_include_constants QSizePolicy, QSizePolicy::ControlType
-      rubyqt6_include_constants QSizePolicy, QSizePolicy::Policy
-      rubyqt6_include_constants QSizePolicy, QSizePolicy::PolicyFlag
+      rubyqt6_declare_enum_under QSizePolicy, QSizePolicy::ControlType
+      rubyqt6_declare_enum_under QSizePolicy, QSizePolicy::Policy
+      rubyqt6_declare_enum_under QSizePolicy, QSizePolicy::PolicyFlag
 
       # @!visibility private
       alias_method :_initialize, :initialize

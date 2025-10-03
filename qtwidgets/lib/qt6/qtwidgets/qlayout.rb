@@ -5,7 +5,7 @@ module RubyQt6
     # @see https://doc.qt.io/qt-6/qlayout.html
     class QLayout < RubyQt6::QtCore::QObject
       # @!parse class SizeConstraint; end
-      rubyqt6_include_constants QLayout, QLayout::SizeConstraint
+      rubyqt6_declare_enum_under QLayout, QLayout::SizeConstraint
 
       # @!parse
       q_object do

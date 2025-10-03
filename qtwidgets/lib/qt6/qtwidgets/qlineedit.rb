@@ -6,8 +6,8 @@ module RubyQt6
     class QLineEdit < RubyQt6::QtWidgets::QWidget
       # @!parse class ActionPosition; end
       # @!parse class EchoMode      ; end
-      rubyqt6_include_constants QLineEdit, QLineEdit::ActionPosition
-      rubyqt6_include_constants QLineEdit, QLineEdit::EchoMode
+      rubyqt6_declare_enum_under QLineEdit, QLineEdit::ActionPosition
+      rubyqt6_declare_enum_under QLineEdit, QLineEdit::EchoMode
 
       # @!parse
       q_object do

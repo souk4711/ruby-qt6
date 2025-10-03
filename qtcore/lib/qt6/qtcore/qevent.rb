@@ -5,7 +5,7 @@ module RubyQt6
     # @see https://doc.qt.io/qt-6/qevent.html
     class QEvent
       # @!parse class Type; end
-      rubyqt6_include_constants QEvent, QEvent::Type
+      rubyqt6_declare_enum_under QEvent, QEvent::Type
     end
   end
 end

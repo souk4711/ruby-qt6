@@ -5,7 +5,7 @@ module RubyQt6
     # @see https://doc.qt.io/qt-6/qstackedlayout.html
     class QStackedLayout < RubyQt6::QtWidgets::QLayout
       # @!parse class StackingMode; end
-      rubyqt6_include_constants QStackedLayout, QStackedLayout::StackingMode
+      rubyqt6_declare_enum_under QStackedLayout, QStackedLayout::StackingMode
 
       # @!parse
       q_object do

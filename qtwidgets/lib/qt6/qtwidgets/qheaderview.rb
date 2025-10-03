@@ -5,7 +5,7 @@ module RubyQt6
     # @see https://doc.qt.io/qt-6/qheaderview.html
     class QHeaderView < RubyQt6::QtWidgets::QAbstractItemView
       # @!parse class ResizeMode; end
-      rubyqt6_include_constants QHeaderView, QHeaderView::ResizeMode
+      rubyqt6_declare_enum_under QHeaderView, QHeaderView::ResizeMode
 
       # @!parse
       q_object do

@@ -16,18 +16,18 @@ module RubyQt6
       # @!parse class DataSizeFormat              ; end
       # @!parse class LanguageCodeType            ; end
       # @!parse class QuotationStyle              ; end
-      rubyqt6_include_constants QLocale, QLocale::Language
-      rubyqt6_include_constants QLocale, QLocale::Script
-      rubyqt6_include_constants QLocale, QLocale::Country
-      rubyqt6_include_constants QLocale, QLocale::MeasurementSystem
-      rubyqt6_include_constants QLocale, QLocale::FormatType
-      rubyqt6_include_constants QLocale, QLocale::NumberOption
-      rubyqt6_include_constants QLocale, QLocale::FloatingPointPrecisionOption
-      rubyqt6_include_constants QLocale, QLocale::TagSeparator
-      rubyqt6_include_constants QLocale, QLocale::CurrencySymbolFormat
-      rubyqt6_include_constants QLocale, QLocale::DataSizeFormat
-      rubyqt6_include_constants QLocale, QLocale::LanguageCodeType
-      rubyqt6_include_constants QLocale, QLocale::QuotationStyle
+      rubyqt6_declare_enum_under QLocale, QLocale::Language
+      rubyqt6_declare_enum_under QLocale, QLocale::Script
+      rubyqt6_declare_enum_under QLocale, QLocale::Country
+      rubyqt6_declare_enum_under QLocale, QLocale::MeasurementSystem
+      rubyqt6_declare_enum_under QLocale, QLocale::FormatType
+      rubyqt6_declare_enum_under QLocale, QLocale::NumberOption
+      rubyqt6_declare_enum_under QLocale, QLocale::FloatingPointPrecisionOption
+      rubyqt6_declare_enum_under QLocale, QLocale::TagSeparator
+      rubyqt6_declare_enum_under QLocale, QLocale::CurrencySymbolFormat
+      rubyqt6_declare_enum_under QLocale, QLocale::DataSizeFormat
+      rubyqt6_declare_enum_under QLocale, QLocale::LanguageCodeType
+      rubyqt6_declare_enum_under QLocale, QLocale::QuotationStyle
 
       # @!visibility private
       def inspect

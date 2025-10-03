@@ -5,7 +5,7 @@ module RubyQt6
     # @see https://doc.qt.io/qt-6/qabstractslider.html
     class QAbstractSlider < RubyQt6::QtWidgets::QWidget
       # @!parse class SliderAction; end
-      rubyqt6_include_constants QAbstractSlider, QAbstractSlider::SliderAction
+      rubyqt6_declare_enum_under QAbstractSlider, QAbstractSlider::SliderAction
 
       # @!parse
       q_object do

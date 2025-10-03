@@ -7,9 +7,9 @@ module RubyQt6
       # @!parse class Mode     ; end
       # @!parse class State    ; end
       # @!parse class ThemeIcon; end
-      rubyqt6_include_constants QIcon, QIcon::Mode
-      rubyqt6_include_constants QIcon, QIcon::State
-      rubyqt6_include_constants QIcon, QIcon::ThemeIcon
+      rubyqt6_declare_enum_under QIcon, QIcon::Mode
+      rubyqt6_declare_enum_under QIcon, QIcon::State
+      rubyqt6_declare_enum_under QIcon, QIcon::ThemeIcon
 
       # @!visibility private
       alias_method :_initialize, :initialize

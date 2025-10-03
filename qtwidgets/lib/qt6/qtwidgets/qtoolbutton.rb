@@ -5,7 +5,7 @@ module RubyQt6
     # @see https://doc.qt.io/qt-6/qtoolbutton.html
     class QToolButton < RubyQt6::QtWidgets::QAbstractButton
       # @!parse class ToolButtonPopupMode; end
-      rubyqt6_include_constants QToolButton, QToolButton::ToolButtonPopupMode
+      rubyqt6_declare_enum_under QToolButton, QToolButton::ToolButtonPopupMode
 
       # @!parse
       q_object do

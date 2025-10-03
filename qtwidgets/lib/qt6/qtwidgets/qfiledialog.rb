@@ -9,11 +9,11 @@ module RubyQt6
       # @!parse class FileMode   ; end
       # @!parse class Option     ; end
       # @!parse class ViewMode   ; end
-      rubyqt6_include_constants QFileDialog, QFileDialog::AcceptMode
-      rubyqt6_include_constants QFileDialog, QFileDialog::DialogLabel
-      rubyqt6_include_constants QFileDialog, QFileDialog::FileMode
-      rubyqt6_include_constants QFileDialog, QFileDialog::Option
-      rubyqt6_include_constants QFileDialog, QFileDialog::ViewMode
+      rubyqt6_declare_enum_under QFileDialog, QFileDialog::AcceptMode
+      rubyqt6_declare_enum_under QFileDialog, QFileDialog::DialogLabel
+      rubyqt6_declare_enum_under QFileDialog, QFileDialog::FileMode
+      rubyqt6_declare_enum_under QFileDialog, QFileDialog::Option
+      rubyqt6_declare_enum_under QFileDialog, QFileDialog::ViewMode
 
       # @!parse
       q_object do

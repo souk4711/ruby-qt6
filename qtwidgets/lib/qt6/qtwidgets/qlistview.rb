@@ -9,11 +9,11 @@ module RubyQt6
       # @!parse class Movement  ; end
       # @!parse class ResizeMode; end
       # @!parse class ViewMode  ; end
-      rubyqt6_include_constants QListView, QListView::Flow
-      rubyqt6_include_constants QListView, QListView::LayoutMode
-      rubyqt6_include_constants QListView, QListView::Movement
-      rubyqt6_include_constants QListView, QListView::ResizeMode
-      rubyqt6_include_constants QListView, QListView::ViewMode
+      rubyqt6_declare_enum_under QListView, QListView::Flow
+      rubyqt6_declare_enum_under QListView, QListView::LayoutMode
+      rubyqt6_declare_enum_under QListView, QListView::Movement
+      rubyqt6_declare_enum_under QListView, QListView::ResizeMode
+      rubyqt6_declare_enum_under QListView, QListView::ViewMode
 
       # @!parse
       q_object do

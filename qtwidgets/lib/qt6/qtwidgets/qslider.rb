@@ -5,7 +5,7 @@ module RubyQt6
     # @see https://doc.qt.io/qt-6/qslider.html
     class QSlider < RubyQt6::QtWidgets::QAbstractSlider
       # @!parse class TickPosition; end
-      rubyqt6_include_constants QSlider, QSlider::TickPosition
+      rubyqt6_declare_enum_under QSlider, QSlider::TickPosition
 
       # @!parse
       q_object do

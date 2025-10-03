@@ -10,12 +10,12 @@ module RubyQt6
       # @!parse class ScrollMode       ; end
       # @!parse class SelectionBehavior; end
       # @!parse class SelectionMode    ; end
-      rubyqt6_include_constants QAbstractItemView, QAbstractItemView::DragDropMode
-      rubyqt6_include_constants QAbstractItemView, QAbstractItemView::EditTrigger
-      rubyqt6_include_constants QAbstractItemView, QAbstractItemView::ScrollHint
-      rubyqt6_include_constants QAbstractItemView, QAbstractItemView::ScrollMode
-      rubyqt6_include_constants QAbstractItemView, QAbstractItemView::SelectionBehavior
-      rubyqt6_include_constants QAbstractItemView, QAbstractItemView::SelectionMode
+      rubyqt6_declare_enum_under QAbstractItemView, QAbstractItemView::DragDropMode
+      rubyqt6_declare_enum_under QAbstractItemView, QAbstractItemView::EditTrigger
+      rubyqt6_declare_enum_under QAbstractItemView, QAbstractItemView::ScrollHint
+      rubyqt6_declare_enum_under QAbstractItemView, QAbstractItemView::ScrollMode
+      rubyqt6_declare_enum_under QAbstractItemView, QAbstractItemView::SelectionBehavior
+      rubyqt6_declare_enum_under QAbstractItemView, QAbstractItemView::SelectionMode
 
       # @!parse
       q_object do

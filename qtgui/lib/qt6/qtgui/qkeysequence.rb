@@ -7,9 +7,9 @@ module RubyQt6
       # @!parse class SequenceFormat; end
       # @!parse class SequenceMatch ; end
       # @!parse class StandardKey   ; end
-      rubyqt6_include_constants QKeySequence, QKeySequence::SequenceFormat
-      rubyqt6_include_constants QKeySequence, QKeySequence::SequenceMatch
-      rubyqt6_include_constants QKeySequence, QKeySequence::StandardKey
+      rubyqt6_declare_enum_under QKeySequence, QKeySequence::SequenceFormat
+      rubyqt6_declare_enum_under QKeySequence, QKeySequence::SequenceMatch
+      rubyqt6_declare_enum_under QKeySequence, QKeySequence::StandardKey
 
       # @!visibility private
       alias_method :_initialize, :initialize

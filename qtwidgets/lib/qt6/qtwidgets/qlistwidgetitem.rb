@@ -5,7 +5,7 @@ module RubyQt6
     # @see https://doc.qt.io/qt-6/qlistwidgetitem.html
     class QListWidgetItem
       # @!parse class ItemType; end
-      rubyqt6_include_constants QListWidgetItem, QListWidgetItem::ItemType
+      rubyqt6_declare_enum_under QListWidgetItem, QListWidgetItem::ItemType
 
       # @!visibility private
       alias_method :_initialize, :initialize

@@ -7,9 +7,9 @@ module RubyQt6
       # @!parse class MenuRole   ; end
       # @!parse class Priority   ; end
       # @!parse class ActionEvent; end
-      rubyqt6_include_constants QAction, QAction::MenuRole
-      rubyqt6_include_constants QAction, QAction::Priority
-      rubyqt6_include_constants QAction, QAction::ActionEvent
+      rubyqt6_declare_enum_under QAction, QAction::MenuRole
+      rubyqt6_declare_enum_under QAction, QAction::Priority
+      rubyqt6_declare_enum_under QAction, QAction::ActionEvent
 
       # @!parse
       q_object do

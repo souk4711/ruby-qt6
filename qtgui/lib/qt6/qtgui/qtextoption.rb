@@ -7,9 +7,9 @@ module RubyQt6
       # @!parse class Flag    ; end
       # @!parse class TabType ; end
       # @!parse class WrapMode; end
-      rubyqt6_include_constants QTextOption, QTextOption::Flag
-      rubyqt6_include_constants QTextOption, QTextOption::TabType
-      rubyqt6_include_constants QTextOption, QTextOption::WrapMode
+      rubyqt6_declare_enum_under QTextOption, QTextOption::Flag
+      rubyqt6_declare_enum_under QTextOption, QTextOption::TabType
+      rubyqt6_declare_enum_under QTextOption, QTextOption::WrapMode
     end
   end
 end

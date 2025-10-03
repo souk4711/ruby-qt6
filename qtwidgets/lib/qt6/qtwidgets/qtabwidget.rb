@@ -6,8 +6,8 @@ module RubyQt6
     class QTabWidget < RubyQt6::QtWidgets::QWidget
       # @!parse class TabPosition; end
       # @!parse class TabShape   ; end
-      rubyqt6_include_constants QTabWidget, QTabWidget::TabPosition
-      rubyqt6_include_constants QTabWidget, QTabWidget::TabShape
+      rubyqt6_declare_enum_under QTabWidget, QTabWidget::TabPosition
+      rubyqt6_declare_enum_under QTabWidget, QTabWidget::TabShape
 
       # @!parse
       q_object do

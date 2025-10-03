@@ -6,8 +6,8 @@ module RubyQt6
     class QTreeWidgetItem
       # @!parse class ChildIndicatorPolicy; end
       # @!parse class ItemType            ; end
-      rubyqt6_include_constants QTreeWidgetItem, QTreeWidgetItem::ChildIndicatorPolicy
-      rubyqt6_include_constants QTreeWidgetItem, QTreeWidgetItem::ItemType
+      rubyqt6_declare_enum_under QTreeWidgetItem, QTreeWidgetItem::ChildIndicatorPolicy
+      rubyqt6_declare_enum_under QTreeWidgetItem, QTreeWidgetItem::ItemType
 
       # @!visibility private
       alias_method :_initialize, :initialize

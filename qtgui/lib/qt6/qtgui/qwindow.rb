@@ -6,8 +6,8 @@ module RubyQt6
     class QWindow < RubyQt6::QtCore::QObject
       # @!parse class AncestorMode; end
       # @!parse class Visibility  ; end
-      rubyqt6_include_constants QWindow, QWindow::AncestorMode
-      rubyqt6_include_constants QWindow, QWindow::Visibility
+      rubyqt6_declare_enum_under QWindow, QWindow::AncestorMode
+      rubyqt6_declare_enum_under QWindow, QWindow::Visibility
 
       # @!parse
       q_object do

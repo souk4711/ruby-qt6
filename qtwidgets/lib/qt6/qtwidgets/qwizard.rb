@@ -8,10 +8,10 @@ module RubyQt6
       # @!parse class WizardOption; end
       # @!parse class WizardPixmap; end
       # @!parse class WizardStyle ; end
-      rubyqt6_include_constants QWizard, QWizard::WizardButton
-      rubyqt6_include_constants QWizard, QWizard::WizardOption
-      rubyqt6_include_constants QWizard, QWizard::WizardPixmap
-      rubyqt6_include_constants QWizard, QWizard::WizardStyle
+      rubyqt6_declare_enum_under QWizard, QWizard::WizardButton
+      rubyqt6_declare_enum_under QWizard, QWizard::WizardOption
+      rubyqt6_declare_enum_under QWizard, QWizard::WizardPixmap
+      rubyqt6_declare_enum_under QWizard, QWizard::WizardStyle
 
       # @!parse
       q_object do

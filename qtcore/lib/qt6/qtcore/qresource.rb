@@ -5,7 +5,7 @@ module RubyQt6
     # @see https://doc.qt.io/qt-6/qresource.html
     class QResource
       # @!parse class Compression; end
-      rubyqt6_include_constants QResource, QResource::Compression
+      rubyqt6_declare_enum_under QResource, QResource::Compression
 
       # @!visibility private
       alias_method :_initialize, :initialize

@@ -5,7 +5,7 @@ module RubyQt6
     # @see https://doc.qt.io/qt-6/qitemselectionmodel.html
     class QItemSelectionModel < RubyQt6::QtCore::QObject
       # @!parse class SelectionFlag; end
-      rubyqt6_include_constants QItemSelectionModel, QItemSelectionModel::SelectionFlag
+      rubyqt6_declare_enum_under QItemSelectionModel, QItemSelectionModel::SelectionFlag
 
       # @!parse
       q_object do

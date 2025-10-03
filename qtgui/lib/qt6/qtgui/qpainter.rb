@@ -7,9 +7,9 @@ module RubyQt6
       # @!parse class CompositionMode   ; end
       # @!parse class PixmapFragmentHint; end
       # @!parse class RenderHint        ; end
-      rubyqt6_include_constants QPainter, QPainter::CompositionMode
-      rubyqt6_include_constants QPainter, QPainter::PixmapFragmentHint
-      rubyqt6_include_constants QPainter, QPainter::RenderHint
+      rubyqt6_declare_enum_under QPainter, QPainter::CompositionMode
+      rubyqt6_declare_enum_under QPainter, QPainter::PixmapFragmentHint
+      rubyqt6_declare_enum_under QPainter, QPainter::RenderHint
 
       # @!visibility private
       def self.new(device)

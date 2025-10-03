@@ -8,10 +8,10 @@ module RubyQt6
       # @!parse class ItemRole         ; end
       # @!parse class RowWrapPolicy    ; end
       # @!parse class TakeRowResult    ; end
-      rubyqt6_include_constants QFormLayout, QFormLayout::FieldGrowthPolicy
-      rubyqt6_include_constants QFormLayout, QFormLayout::ItemRole
-      rubyqt6_include_constants QFormLayout, QFormLayout::RowWrapPolicy
-      rubyqt6_include_constants QFormLayout, QFormLayout::TakeRowResult
+      rubyqt6_declare_enum_under QFormLayout, QFormLayout::FieldGrowthPolicy
+      rubyqt6_declare_enum_under QFormLayout, QFormLayout::ItemRole
+      rubyqt6_declare_enum_under QFormLayout, QFormLayout::RowWrapPolicy
+      rubyqt6_declare_enum_under QFormLayout, QFormLayout::TakeRowResult
 
       # @!parse
       q_object do

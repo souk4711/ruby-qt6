@@ -8,10 +8,10 @@ module RubyQt6
       # @!parse class Icon          ; end
       # @!parse class Option        ; end
       # @!parse class StandardButton; end
-      rubyqt6_include_constants QMessageBox, QMessageBox::ButtonRole
-      rubyqt6_include_constants QMessageBox, QMessageBox::Icon
-      rubyqt6_include_constants QMessageBox, QMessageBox::Option
-      rubyqt6_include_constants QMessageBox, QMessageBox::StandardButton
+      rubyqt6_declare_enum_under QMessageBox, QMessageBox::ButtonRole
+      rubyqt6_declare_enum_under QMessageBox, QMessageBox::Icon
+      rubyqt6_declare_enum_under QMessageBox, QMessageBox::Option
+      rubyqt6_declare_enum_under QMessageBox, QMessageBox::StandardButton
 
       # @!parse
       q_object do

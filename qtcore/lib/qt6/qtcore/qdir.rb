@@ -6,8 +6,8 @@ module RubyQt6
     class QDir
       # @!parse class Filter  ; end
       # @!parse class SortFlag; end
-      rubyqt6_include_constants QDir, QDir::Filter
-      rubyqt6_include_constants QDir, QDir::SortFlag
+      rubyqt6_declare_enum_under QDir, QDir::Filter
+      rubyqt6_declare_enum_under QDir, QDir::SortFlag
 
       # @!visibility private
       alias_method :_initialize, :initialize

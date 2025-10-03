@@ -5,7 +5,7 @@ module RubyQt6
     # @see https://doc.qt.io/qt-6/qdockwidget.html
     class QDockWidget < RubyQt6::QtWidgets::QWidget
       # @!parse class DockWidgetFeature; end
-      rubyqt6_include_constants QDockWidget, QDockWidget::DockWidgetFeature
+      rubyqt6_declare_enum_under QDockWidget, QDockWidget::DockWidgetFeature
 
       # @!parse
       q_object do

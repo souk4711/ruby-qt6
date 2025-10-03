@@ -7,9 +7,9 @@ module RubyQt6
       # @!parse class InsertPolicy    ; end
       # @!parse class LabelDrawingMode; end
       # @!parse class SizeAdjustPolicy; end
-      rubyqt6_include_constants QComboBox, QComboBox::InsertPolicy
-      rubyqt6_include_constants QComboBox, QComboBox::LabelDrawingMode
-      rubyqt6_include_constants QComboBox, QComboBox::SizeAdjustPolicy
+      rubyqt6_declare_enum_under QComboBox, QComboBox::InsertPolicy
+      rubyqt6_declare_enum_under QComboBox, QComboBox::LabelDrawingMode
+      rubyqt6_declare_enum_under QComboBox, QComboBox::SizeAdjustPolicy
 
       # @!parse
       q_object do

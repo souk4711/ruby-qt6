@@ -9,11 +9,11 @@ module RubyQt6
       # @!parse class ParsingMode              ; end
       # @!parse class UrlFormattingOption      ; end
       # @!parse class UserInputResolutionOption; end
-      rubyqt6_include_constants QUrl, QUrl::AceProcessingOption
-      rubyqt6_include_constants QUrl, QUrl::ComponentFormattingOption
-      rubyqt6_include_constants QUrl, QUrl::ParsingMode
-      rubyqt6_include_constants QUrl, QUrl::UrlFormattingOption
-      rubyqt6_include_constants QUrl, QUrl::UserInputResolutionOption
+      rubyqt6_declare_enum_under QUrl, QUrl::AceProcessingOption
+      rubyqt6_declare_enum_under QUrl, QUrl::ComponentFormattingOption
+      rubyqt6_declare_enum_under QUrl, QUrl::ParsingMode
+      rubyqt6_declare_enum_under QUrl, QUrl::UrlFormattingOption
+      rubyqt6_declare_enum_under QUrl, QUrl::UserInputResolutionOption
 
       # @!visibility private
       alias_method :_initialize, :initialize
