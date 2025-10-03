@@ -28,7 +28,7 @@ class Window < RubyQt6::Bando::QMainWindow
   end
 
   def selection_changed(selected, deselected)
-    count = @_list_widget.selection_model.selected_rows
+    count = @_list_widget.selection_model.selected_rows.count
     message = tr("%n language(s) selected", "", count)
     status_bar.show_message(message)
   end
