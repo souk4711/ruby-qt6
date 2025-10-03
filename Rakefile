@@ -2,7 +2,8 @@
 
 QT6_LIBS = [
   "QtCore", "QtGui", "QtWidgets",
-  "QtQml", "QtQuick", "QtQuickControls2", "QtQuickWidgets"
+  "QtQml", "QtQuick", "QtQuickControls2", "QtQuickWidgets",
+  "QtUiTools"
 ]
 
 namespace :bindgen do
@@ -71,6 +72,7 @@ namespace :bindgen do
     FileUtils.rm_rf("vendor/qt6include")
     upinc(pkg: "qt6-base-6.9.2-1")
     upinc(pkg: "qt6-declarative-6.9.2-1")
+    upinc(pkg: "qt6-tools-6.9.2-1")
   end
 end
 
