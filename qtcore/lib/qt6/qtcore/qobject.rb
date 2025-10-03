@@ -23,7 +23,7 @@ module RubyQt6
             end
           elsif meth.slot? && mo.ruby?
             define_method(meth.qsignature_name) do |*args|
-              __send__(meth.name, *args.map(&:to_rb_value))
+              __send__(meth.name, *args.map { |arg| QtCore::QVariant.to_rb_value(arg) })
             rescue => e
               log = "#{e.class.name}: #{e.message.force_encoding(::Encoding::UTF_8)}\n#{(e.backtrace || []).join("\n")}"
               ::RubyQt6.logger.error(log)
