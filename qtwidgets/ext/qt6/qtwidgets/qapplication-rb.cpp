@@ -16,6 +16,7 @@ void Init_qapplication(Rice::Module rb_mQt6QtWidgets)
         // RubyQt6::QtWidgets::QApplication
         define_class_under<QApplication, QGuiApplication>(rb_mQt6QtWidgets, "QApplication")
             // RubyQt6-Defined Functions
+            .define_method("set_style_sheet", [](QApplication *self, const char *sheet) -> void { return self->setStyleSheet(QString(sheet)); }, Arg("sheet"))
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QApplication::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QApplication, int &, char **>(), Arg("argc"), Arg("argv"))
