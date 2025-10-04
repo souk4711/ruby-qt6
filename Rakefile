@@ -6,6 +6,9 @@ QT6_LIBS = %w[
   QtUiTools
 ].freeze
 
+QT6_LIBS_Z =
+  QT6_LIBS + ["Qt"]
+
 namespace :bindgen do
   def bindgen(extension:)
     require "ruby-bindgen"
@@ -76,7 +79,7 @@ namespace :bindgen do
   end
 end
 
-desc "Run Rake compiler"
+desc "Run Rake compile task to compile all the extensions"
 task :compile, [:clobber] do |_, args|
   compile = lambda do |lib|
     Dir.chdir(lib.downcase) do
@@ -87,12 +90,21 @@ task :compile, [:clobber] do |_, args|
     end
   end
 
-  if args.clobber
-    require "parallel"
-    Bundler.with_unbundled_env { Parallel.each(QT6_LIBS, &compile) }
-  else
-    Bundler.with_unbundled_env { QT6_LIBS.each(&compile) }
+  require "parallel"
+  Bundler.with_unbundled_env { Parallel.each(QT6_LIBS, &compile) }
+end
+
+desc "Run Rake install task to build and install ruby-qt6-<...>.gem into system gems"
+task :install do |_, args|
+  install = lambda do |lib|
+    Dir.chdir(lib.downcase) do
+      puts "cd #{lib.downcase}"
+      sh "bundle check || bundle install"
+      sh "bundle exec rake install"
+    end
   end
+
+  Bundler.with_unbundled_env { QT6_LIBS_Z.each(&install) }
 end
 
 desc "Run Rubocop linter"
@@ -105,7 +117,7 @@ task :rubocop do
     end
   end
 
-  Bundler.with_unbundled_env { (QT6_LIBS + ["Qt"]).each(&rubocop) }
+  Bundler.with_unbundled_env { QT6_LIBS_Z.each(&rubocop) }
 end
 
 desc "Run RSpec code examples"
@@ -118,7 +130,7 @@ task :spec do
     end
   end
 
-  Bundler.with_unbundled_env { (QT6_LIBS + ["Qt"]).each(&rspec) }
+  Bundler.with_unbundled_env { QT6_LIBS_Z.each(&rspec) }
 end
 
 desc "Run YARD documentation"
