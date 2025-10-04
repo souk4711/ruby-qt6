@@ -11,7 +11,8 @@ RSpec.describe RubyQt6::QtCore do
     Dir.glob("ext/**/q*.cpp").each do |cppfile|
       next if cppfile == "ext/qt6/qtcore/qtcore-rb.cpp"
       next if cppfile == "ext/qt6/qtcore/qtcoreversion-rb.cpp"
-      next if cppfile == "ext/qt6/qtcore/qt-enum-rb.cpp"
+      next if cppfile == "ext/qt6/qtcore/qt-enum-al-rb.cpp"
+      next if cppfile == "ext/qt6/qtcore/qt-enum-mz-rb.cpp"
       next if cppfile == "ext/qt6/qtcore/qt-flags-rb.cpp"
       next if cppfile == "ext/qt6/qtcore/qstringlist-rb.cpp"
 
