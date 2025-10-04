@@ -38,6 +38,7 @@ source "https://rubygems.org/"
 %w[
   qtcore qtgui qtwidgets
 ].each do |lib|
+  gem_name = "ruby-qt6-#{lib}"
   git = "https://github.com/souk4711/ruby-qt6.git"
   glob = "#{lib}/#{lib}.gemspec"
   gem gem_name, git:, glob:
