@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require "mkmf-rice"
-require "mkmf-rubyqt6"
+require_relative "../../../lib/mkmf-rubyqt6"
 
 includedir = qt_install_headers
 includedir_private = Dir["#{includedir}/QtCore/*.*.*"][0]
