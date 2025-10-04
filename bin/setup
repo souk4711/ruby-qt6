@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+
+set -euo pipefail
+
+
+echo "cd $PWD"
+echo "bundle install"
+bundle install
+
+
+for lib in ./qt*/; do
+  echo ""
+  lib=${lib%*/}
+
+  echo "cd ${lib##*/}"
+  cd "$lib"
+
+  echo "bundle install"
+  bundle install
+
+  cd ..
+done
