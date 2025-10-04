@@ -12,6 +12,7 @@ Then compile all C extensions:
 
 ```sh
 cd ruby-qt6
+bin/setup
 bin/rake compile
 ```
 
@@ -19,6 +20,7 @@ And now enter a specified example folder, and launch it:
 
 ```sh
 cd examples/qtbindings-tutorials/14
+bundle install
 bundle exec ruby main.rb
 ```
 
