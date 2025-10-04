@@ -11,13 +11,13 @@ pacman -S --noconfirm qtcreator ruby libyaml
 ### Debian and Ubuntu based distributions
 
 ```sh
-apt install -y qtcreator ruby-dev libyaml-dev
+apt install -y qtcreator qt6-base-dev qt6-base-private-dev qt6-declarative-dev ruby-dev libyaml-dev
 ```
 
 ### RHEL, Fedora and Rocky based distributions
 
 ```sh
-dnf install -y qt-creator ruby-devel libyaml-devel
+dnf install -y qt-creator qt6-qtbase-devel qt6-qtbase-private-devel qt6-qtdeclarative-devel ruby-devel libyaml-devel
 ```
 
 ## Install ruby-qt6 gem

@@ -90,8 +90,12 @@ task :compile, [:clobber] do |_, args|
     end
   end
 
-  require "parallel"
-  Bundler.with_unbundled_env { Parallel.each(QT6_LIBS, &compile) }
+  if args.clobber
+    require "parallel"
+    Bundler.with_unbundled_env { Parallel.each(QT6_LIBS, &compile) }
+  else
+    Bundler.with_unbundled_env { QT6_LIBS.each(&compile) }
+  end
 end
 
 desc "Run Rake install task to build and install ruby-qt6-<...>.gem into system gems"
