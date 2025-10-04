@@ -1,6 +1,7 @@
 #include "qtcore-rb.hpp"
 #include "qtcoreversion-rb.hpp"
-#include "qt-enum-rb.hpp"
+#include "qt-enum-al-rb.hpp"
+#include "qt-enum-mz-rb.hpp"
 #include "qt-flags-rb.hpp"
 
 #include "qmetamethod-rb.hpp"
@@ -54,7 +55,8 @@ extern "C" void Init_qtcore()
         Rice::Module rb_mQt6QtCore = define_module_under(rb_mQt6, "QtCore");
 
         Init_qtcoreversion(rb_mQt6QtCore);
-        Init_qt_enum(rb_mQt6QtCore);
+        Init_qt_enum_al(rb_mQt6QtCore);
+        Init_qt_enum_mz(rb_mQt6QtCore);
         Init_qt_flags(rb_mQt6QtCore);
 
         Init_qmetaobjectbuilder(rb_mQt6QtCore);
