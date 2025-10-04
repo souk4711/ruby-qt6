@@ -98,19 +98,6 @@ task :compile, [:clobber] do |_, args|
   end
 end
 
-desc "Run Rake install task to build and install ruby-qt6-<...>.gem into system gems"
-task :install do |_, args|
-  install = lambda do |lib|
-    Dir.chdir(lib.downcase) do
-      puts "cd #{lib.downcase}"
-      sh "bundle check || bundle install"
-      sh "bundle exec rake install"
-    end
-  end
-
-  Bundler.with_unbundled_env { QT6_LIBS_Z.each(&install) }
-end
-
 desc "Run Rubocop linter"
 task :rubocop do
   rubocop = lambda do |lib|
