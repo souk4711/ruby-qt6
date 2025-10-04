@@ -5,25 +5,47 @@
 ### Arch, Manjaro and EndeavourOS based distributions
 
 ```sh
-pacman -S --noconfirm qtcreator ruby libyaml
+pacman -S --noconfirm qt6-base ruby
 ```
 
 ### Debian and Ubuntu based distributions
 
 ```sh
-apt install -y qtcreator qt6-base-dev qt6-base-private-dev qt6-declarative-dev ruby-dev libyaml-dev
+apt install -y qt6-base-dev qt6-base-private-dev ruby-dev
 ```
 
 ### RHEL, Fedora and Rocky based distributions
 
 ```sh
-dnf install -y qt-creator qt6-qtbase-devel qt6-qtbase-private-devel qt6-qtdeclarative-devel ruby-devel libyaml-devel
+dnf install -y qt6-qtbase-devel qt6-qtbase-private-devel ruby-devel
 ```
 
-## Install ruby-qt6 gem
+## Install ruby-qt6-qtwidgets gem
 
 ### From RubyGems
 
 ```sh
-gem install ruby-qt6
+gem install ruby-qt6-qtwidgets
+```
+
+### From GitHub master branch
+
+Create `Gemfile` like the following:
+
+```ruby
+source "https://rubygems.org/"
+
+%w[
+  qtcore qtgui qtwidgets
+].each do |lib|
+  git = "https://github.com/souk4711/ruby-qt6.git"
+  glob = "#{lib}/#{lib}.gemspec"
+  gem gem_name, git:, glob:
+end
+```
+
+Install these gems by Bundler:
+
+```sh
+bundle install
 ```

@@ -2,11 +2,12 @@
 
 source "https://rubygems.org"
 
-# ruby-qt6
-%w[qtcore qtgui qtwidgets qtqml qtquick qtquickcontrols2 qtquickwidgets qtuitools qt].each do |lib|
-  if lib == "qt"
-    gem "ruby-qt6", path: "../#{lib}"
-  else
-    gem "ruby-qt6-#{lib}", path: "../#{lib}"
-  end
+%w[
+  qtcore qtgui qtwidgets
+  qtqml qtquick qtquickcontrols2 qtquickwidgets
+  qtuitools
+  qt
+].each do |lib|
+  gem_name = (lib != "qt" ? "ruby-qt6-#{lib}" : "ruby-qt6")
+  gem gem_name, path: "../#{lib}"
 end
