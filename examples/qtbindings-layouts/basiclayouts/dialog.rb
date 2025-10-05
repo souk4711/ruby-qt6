@@ -1,84 +1,84 @@
 # frozen_string_literal: true
 
 class Dialog < RubyQt6::Bando::QDialog
-  NumGridRows = 3
-  NumButtons = 4
+  NUM_GRID_ROWS = 3
+  NUM_BUTTONS = 4
 
   def initialize
     super
 
     @labels = []
-    @lineEdits = []
+    @line_edits = []
     @buttons = []
 
-    createMenu
-    createHorizontalGroupBox
-    createGridGroupBox
+    create_menu
+    create_horizontal_group_box
+    create_grid_group_box
 
-    @bigEditor = QTextEdit.new('')
-    @bigEditor.set_plain_text(tr('This widget takes up all the remaining space in the top-level layout.'))
+    @big_editor = QTextEdit.new('')
+    @big_editor.set_plain_text(tr('This widget takes up all the remaining space in the top-level layout.'))
 
-    @okButton = QPushButton.new(tr('OK'))
-    @cancelButton = QPushButton.new(tr('Cancel'))
-    @okButton.set_default(true)
+    @ok_button = QPushButton.new(tr('OK'))
+    @ok_button.set_default(true)
+    @ok_button.clicked.connect(self, :accept)
 
-    @okButton.clicked.connect(self, :accept)
-    @cancelButton.clicked.connect(self, :reject)
+    @cancel_button = QPushButton.new(tr('Cancel'))
+    @cancel_button.clicked.connect(self, :reject)
 
     b = QHBoxLayout.new
     b.add_stretch(1)
-    b.add_widget(@okButton)
-    b.add_widget(@cancelButton)
+    b.add_widget(@ok_button)
+    b.add_widget(@cancel_button)
 
     m = QVBoxLayout.new
-    m.set_menu_bar(@menuBar)
-    m.add_widget(@horizontalGroupBox)
-    m.add_widget(@gridGroupBox)
-    m.add_widget(@bigEditor)
+    m.set_menu_bar(@menu_bar)
+    m.add_widget(@horizontal_group_box)
+    m.add_widget(@grid_group_box)
+    m.add_widget(@big_editor)
     m.add_layout(b)
     set_layout(m)
 
     set_window_title(tr('Basic Layouts'))
   end
 
-  def createMenu
-    @menuBar = QMenuBar.new
+  def create_menu
+    @menu_bar = QMenuBar.new
 
-    @fileMenu = QMenu.new(tr('&File'), self)
-    @exitAction = @fileMenu.add_action(tr('E&xit'))
-    @menuBar.add_menu(@fileMenu)
+    @file_menu = QMenu.new(tr('&File'), self)
+    @exit_action = @file_menu.add_action(tr('E&xit'))
+    @menu_bar.add_menu(@file_menu)
 
-    @exitAction.triggered.connect(self, :accept)
+    @exit_action.triggered.connect(self, :accept)
   end
 
-  def createHorizontalGroupBox
-    @horizontalGroupBox = QGroupBox.new(tr('Horizontal layout'))
+  def create_horizontal_group_box
+    @horizontal_group_box = QGroupBox.new(tr('Horizontal layout'))
     layout = QHBoxLayout.new
 
-    (0...NumButtons).each do |i|
+    (0...NUM_BUTTONS).each do |i|
       @buttons[i] = QPushButton.new(tr(format('Button %d', i + 1)))
       layout.add_widget(@buttons[i])
     end
-    @horizontalGroupBox.set_layout(layout)
+    @horizontal_group_box.set_layout(layout)
   end
 
-  def createGridGroupBox
-    @gridGroupBox = QGroupBox.new(tr('Grid layout'))
+  def create_grid_group_box
+    @grid_group_box = QGroupBox.new(tr('Grid layout'))
     layout = QGridLayout.new
 
-    (0...NumGridRows).each do |i|
+    (0...NUM_GRID_ROWS).each do |i|
       @labels[i] = QLabel.new(tr(format('Line %d:', i + 1)))
-      @lineEdits[i] = QLineEdit.new('')
+      @line_edits[i] = QLineEdit.new('')
       layout.add_widget(@labels[i], i, 0)
-      layout.add_widget(@lineEdits[i], i, 1)
+      layout.add_widget(@line_edits[i], i, 1)
     end
 
-    @smallEditor = QTextEdit.new('')
-    @smallEditor.set_plain_text(tr('This widget takes up about two thirds of the grid layout.'))
-    layout.add_widget(@smallEditor, 0, 2, 3, 1)
+    @small_editor = QTextEdit.new('')
+    @small_editor.set_plain_text(tr('This widget takes up about two thirds of the grid layout.'))
+    layout.add_widget(@small_editor, 0, 2, 3, 1)
 
     layout.set_column_stretch(1, 10)
     layout.set_column_stretch(2, 20)
-    @gridGroupBox.set_layout(layout)
+    @grid_group_box.set_layout(layout)
   end
 end
