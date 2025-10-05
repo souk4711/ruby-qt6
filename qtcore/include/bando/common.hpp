@@ -28,6 +28,7 @@
 #include <QMetaMethod>
 #include <QMetaObject>
 #include <QObject>
+#include <QEvent>
 
 enum bando_FunctionName
 {
