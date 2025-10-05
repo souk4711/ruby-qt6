@@ -5,38 +5,34 @@ module RubyQt6
     # @see https://doc.qt.io/qt-6/qvariant.html
     class QVariant
       # @!visibility private
-      def self.from_rb_value_blks
-        @from_rb_value_blks ||= {}
+      def self.from_object_methods
+        @from_object_methods ||= {}
       end
 
       # @!visibility private
-      def self.to_rb_value_blks
-        @to_rb_value_blks ||= {}
+      def self.from_object(o, qmetatype)
+        meth = from_object_methods[qmetatype.id]
+        meth ? meth.call(o) : raise("Unsupported qmetatype '#{qmetatype.name}'")
       end
 
       # @!visibility private
-      def self.register(id, from_rb_value_blk, to_rb_value_blk)
+      def self.to_object_methods
+        @to_object_methods ||= {}
+      end
+
+      # @!visibility private
+      def self.to_object(v)
+        meth = to_object_methods[v.type_id]
+        meth ? meth.call(v) : raise("Unsupported qmetatype '#{v.type_name}'")
+      end
+
+      # @!visibility private
+      def self.register(id, from_object_meth, to_object_meth)
         id = id.to_i
-        raise "QVariant with id alread registered: #{id}" if from_rb_value_blks.key?(id)
+        raise "QVariant with id already registered: #{id}" if from_object_methods.key?(id)
 
-        from_rb_value_blks[id] = from_rb_value_blk
-        to_rb_value_blks[id] = to_rb_value_blk
-      end
-
-      # @!visibility private
-      def self.from_rb_value(value, qmetatype)
-        blk = from_rb_value_blks[qmetatype.id]
-        raise "Unsupported type '#{qmetatype.name}'" if blk.nil?
-
-        blk.call(value)
-      end
-
-      # @!visibility private
-      def self.to_rb_value(qvariant)
-        blk = to_rb_value_blks[qvariant.type_id]
-        raise "Unsupported type '#{qvariant.type_name}'" if blk.nil?
-
-        blk.call(qvariant)
+        from_object_methods[id] = from_object_meth
+        to_object_methods[id] = to_object_meth
       end
 
       # @!parse

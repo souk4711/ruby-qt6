@@ -39,7 +39,7 @@ module RubyQt6
 
       # @!visibility private
       def inspect
-        rgb = name(QColor::NameFormat::HexRgb).to_s
+        rgb = name(QtGui::QColor::NameFormat::HexRgb).to_s
         T.q_inspect(self, rgb:)
       end
     end
