@@ -65,6 +65,8 @@ template <typename Class_T, typename... Arg_Ts> class BandoQWidget : public Clas
     const QMetaObject *metaObject() const override { return bando_metaObject<BandoQWidget, Class_T>(this); };
     int qt_metacall(QMetaObject::Call call, int id, void **args) override { return bando_qt_metacall<BandoQWidget>(this, call, id, args); };
 
+    bool eventFilter(QObject *watched, QEvent *event) override { return bando_handleQObjectEventFilter<BandoQWidget>(this, watched, event); };
+
     void actionEvent(QActionEvent *event) override { bando_handleEvent<BandoQWidget, QActionEvent>(this, event, bando_FunctionName::actionEvent); };
     void changeEvent(QEvent *event) override { bando_handleEvent<BandoQWidget, QEvent>(this, event, bando_FunctionName::changeEvent); };
     void closeEvent(QCloseEvent *event) override { bando_handleEvent<BandoQWidget, QCloseEvent>(this, event, bando_FunctionName::closeEvent); };

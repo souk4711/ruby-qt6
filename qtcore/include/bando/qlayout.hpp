@@ -39,6 +39,8 @@ template <typename Class_T, typename... Arg_Ts> class BandoQLayout : public Clas
     const QMetaObject *metaObject() const override { return bando_metaObject<BandoQLayout, Class_T>(this); };
     int qt_metacall(QMetaObject::Call call, int id, void **args) override { return bando_qt_metacall<BandoQLayout>(this, call, id, args); };
 
+    bool eventFilter(QObject *watched, QEvent *event) override { return bando_handleQObjectEventFilter<BandoQLayout>(this, watched, event); };
+
   public:
     template <typename BC_T, typename C_T> friend const QMetaObject *bando_metaObject(const BC_T *self);
 

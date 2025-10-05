@@ -20,4 +20,10 @@ module RubyQt6
   def self.logger
     @logger ||= ::SemanticLogger["RubyQt6"]
   end
+
+  # @!visibility private
+  def self.logger_log_exception(e)
+    message = "#{e.class.name}: #{e.message.force_encoding(::Encoding::UTF_8)}\n#{(e.backtrace || []).join("\n")}"
+    ::RubyQt6.logger.error(message)
+  end
 end

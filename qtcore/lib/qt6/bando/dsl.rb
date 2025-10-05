@@ -20,11 +20,18 @@ module RubyQt6
           superclass._qmetaobject
         end
 
+        def _rubyqt6_handle_qobject_event_filter(watched, event)
+          event_filter(watched, event)
+        rescue
+          ::RubyQt6.logger_log_exception(e)
+          false
+        end
+
         def _rubyqt6_handle_event(event, *args)
           __send__(event, *args)
         rescue => e
-          log = "#{e.class.name}: #{e.message.force_encoding(::Encoding::UTF_8)}\n#{(e.backtrace || []).join("\n")}"
-          ::RubyQt6.logger.error(log)
+          ::RubyQt6.logger_log_exception(e)
+          nil
         end
       end
     end

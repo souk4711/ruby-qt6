@@ -134,7 +134,7 @@ template <typename BandoClass_T, typename Class_T> const QMetaObject *bando_meta
     if (self->mo_ != nullptr)
         return self->mo_;
     return &Class_T::staticMetaObject;
-};
+}
 
 template <typename BandoClass_T> int bando_qt_metacall(BandoClass_T *self, QMetaObject::Call call, int id, void **args)
 {
@@ -171,7 +171,23 @@ template <typename BandoClass_T> int bando_qt_metacall(BandoClass_T *self, QMeta
     }
 
     return -1;
-};
+}
+
+template <typename BandoClass_T> bool bando_handleQObjectEventFilter(BandoClass_T *self, QObject *watched, QEvent *event)
+{
+    auto rb_name = "event_filter";
+    if (!self->value_.respond_to(Rice::Identifier(rb_name)))
+    {
+        return self->eventFilter(watched, event);
+    }
+
+    auto arguments = Rice::Array();
+    arguments.push(Rice::Object(Rice::detail::to_ruby(watched)));
+    arguments.push(Rice::Object(Rice::detail::to_ruby(event)));
+
+    Q_ASSERT(self->value_.rb_type() != RUBY_T_NONE);
+    return self->value_.vcall("_rubyqt6_handle_qobject_event_filter", arguments);
+}
 
 template <typename BandoClass_T, typename Event_T> void bando_handleEvent(BandoClass_T *self, Event_T *event, bando_FunctionName name)
 {
