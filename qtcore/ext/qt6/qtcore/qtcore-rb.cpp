@@ -37,6 +37,7 @@
 #include "qfiledevice-rb.hpp"
 #include "qfile-rb.hpp"
 #include "qitemselectionmodel-rb.hpp"
+#include "qsettings-rb.hpp"
 #include "qtimer-rb.hpp"
 #include "qtranslator-rb.hpp"
 
@@ -92,6 +93,7 @@ extern "C" void Init_qtcore()
         Init_qfiledevice(rb_mQt6QtCore);
         Init_qfile(rb_mQt6QtCore);
         Init_qitemselectionmodel(rb_mQt6QtCore);
+        Init_qsettings(rb_mQt6QtCore);
         Init_qtimer(rb_mQt6QtCore);
         Init_qtranslator(rb_mQt6QtCore);
 

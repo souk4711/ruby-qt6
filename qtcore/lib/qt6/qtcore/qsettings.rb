@@ -1,0 +1,33 @@
+# frozen_string_literal: true
+
+module RubyQt6
+  module QtCore
+    # @see https://doc.qt.io/qt-6/qsettings.html
+    class QSettings < RubyQt6::QtCore::QObject
+      # @!parse class Format; end
+      # @!parse class Scope ; end
+      # @!parse class Status; end
+      rubyqt6_declare_enum_under QSettings, QSettings::Format
+      rubyqt6_declare_enum_under QSettings, QSettings::Scope
+      rubyqt6_declare_enum_under QSettings, QSettings::Status
+
+      # @!parse
+      q_object do
+      end
+
+      # @!visibility private
+      alias_method :_initialize, :initialize
+
+      # @param organization [QString]
+      # @param application [QString]
+      # @param parent [QObject]
+      # @return [QSettings]
+      def initialize(organization, application, parent = nil)
+        format = QtCore::QSettings.default_format
+        scope = QtCore::QSettings::Scope::UserScope
+        _initialize(format, scope, T.to_qstr(organization), T.to_qstr(application), parent)
+        _take_ownership_from_ruby(self) if parent
+      end
+    end
+  end
+end

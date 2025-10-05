@@ -22,7 +22,8 @@ module RubyQt6
     NO_VERIFY_QLASS_QOBJECT_INITIALIZE = [
       "QCoreApplication",
       "QGuiApplication",
-      "QApplication"
+      "QApplication",
+      "QSettings"
     ]
 
     def self.inflector
