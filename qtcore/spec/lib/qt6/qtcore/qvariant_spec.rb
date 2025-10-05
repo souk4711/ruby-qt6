@@ -18,6 +18,10 @@ RSpec.describe RubyQt6::QtCore::QVariant do
   end
 
   it "QString" do
+    o = described_class.from_qstring("abc")
+    expect(o.type_name).to eq("QString")
+    expect(described_class.to_qstring(o)).to eq("abc")
+
     o = described_class.from_qstring(RubyQt6::QtCore::QString.new("abc"))
     expect(o.type_name).to eq("QString")
     expect(described_class.to_qstring(o)).to eq("abc")
