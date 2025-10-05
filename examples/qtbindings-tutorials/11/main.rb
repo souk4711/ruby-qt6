@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'qt6/all'
 require_relative 'lcdrange'
 require_relative 'cannon'

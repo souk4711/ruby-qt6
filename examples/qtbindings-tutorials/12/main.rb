@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'qt6/all'
 require_relative 'lcdrange'
 require_relative 'cannon'
@@ -10,8 +12,8 @@ class MyWidget < RubyQt6::Bando::QWidget
     quit.set_font(QFont.new('Times', 18, QFont::Bold))
     quit.clicked.connect($qApp, :quit)
 
-    angle = LCDRange.new("ANGLE")
-    force = LCDRange.new("FORCE")
+    angle = LCDRange.new('ANGLE')
+    force = LCDRange.new('FORCE')
     cannon_field = CannonField.new(self)
     angle.set_range(5, 70)
     force.set_range(10, 50)

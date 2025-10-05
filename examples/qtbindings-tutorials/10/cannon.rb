@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'qt6/all'
 
 class CannonField < RubyQt6::Bando::QWidget
@@ -22,6 +24,7 @@ class CannonField < RubyQt6::Bando::QWidget
     degrees = 70 if degrees > 70
 
     return if @ang == degrees
+
     @ang = degrees
 
     repaint

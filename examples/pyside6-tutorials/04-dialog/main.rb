@@ -1,15 +1,17 @@
-require "qt6/all"
+# frozen_string_literal: true
+
+require 'qt6/all'
 
 class Form < RubyQt6::Bando::QDialog
   q_object do
-    slot "greetings()"
+    slot 'greetings()'
   end
 
   def initialize
     super
 
-    @edit = QLineEdit.new("Write my name here")
-    @button = QPushButton.new("Show Greetings")
+    @edit = QLineEdit.new('Write my name here')
+    @button = QPushButton.new('Show Greetings')
     @button.clicked.connect(self, :greetings)
 
     layout = QVBoxLayout.new
@@ -19,7 +21,7 @@ class Form < RubyQt6::Bando::QDialog
   end
 
   def greetings
-    puts "#{@edit.text}"
+    puts @edit.text
   end
 end
 

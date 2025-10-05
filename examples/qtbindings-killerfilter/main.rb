@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'qt6/all'
 
 class KillerFilter < RubyQt6::Bando::QWidget
@@ -26,6 +28,7 @@ class KillerFilter < RubyQt6::Bando::QWidget
   def event_filter(watched, event)
     return false unless event.type == QEvent::MouseButtonPress
     return false unless event.button == Qt::RightButton
+
     watched.close
     true
   end

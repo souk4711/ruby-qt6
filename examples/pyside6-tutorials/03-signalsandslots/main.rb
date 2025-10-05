@@ -1,11 +1,13 @@
-require "qt6/all"
+# frozen_string_literal: true
+
+require 'qt6/all'
 
 class Communicate < RubyQt6::Bando::QObject
   q_object do
     signal 'speak_int(int)'
     signal 'speak_str(QString)'
-    slot "say_hello_int(int)"
-    slot "say_hello_str(QString)"
+    slot 'say_hello_int(int)'
+    slot 'say_hello_str(QString)'
   end
 
   def initialize
@@ -24,7 +26,7 @@ class Communicate < RubyQt6::Bando::QObject
   end
 end
 
-app = QApplication.new(ARGV)
+QApplication.new(ARGV)
 someone = Communicate.new
 someone.speak_int.emit(10)
-someone.speak_str.emit("Hello everybody!")
+someone.speak_str.emit('Hello everybody!')

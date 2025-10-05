@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'qt6/all'
 
 class CannonField < RubyQt6::Bando::QWidget
@@ -52,7 +54,7 @@ class CannonField < RubyQt6::Bando::QWidget
   end
 
   def set_force(newton)
-    newton = 0 if newton < 0
+    newton = 0 if newton.negative?
     return if @currentForce == newton
 
     @current_force = newton
@@ -77,12 +79,13 @@ class CannonField < RubyQt6::Bando::QWidget
       srand(midnight.secs_to(QTime.current_time))
     end
 
-    @target = QPoint.new(200 + rand(190), 10 + rand(255))
+    @target = QPoint.new(rand(200..389), rand(10..264))
     update
   end
 
   def set_game_over
     return if @game_ended
+
     @auto_shoot_timer.stop if shooting?
     @game_ended = true
     update
@@ -117,15 +120,17 @@ class CannonField < RubyQt6::Bando::QWidget
 
   def mouse_press_event(e)
     return if e.button != Qt::LeftButton
+
     @barrel_pressed = true if barrel_hit(e.position)
   end
 
   def mouse_move_event(e)
     return unless @barrel_pressed
+
     pnt = e.position
     pnt.set_x(1) if pnt.x <= 0
     pnt.set_y(height - 1) if pnt.y >= height
-    rad = Math.atan2((rect.bottom - pnt.y), pnt.x)
+    rad = Math.atan2(rect.bottom - pnt.y, pnt.x)
     set_angle((rad * 180 / 3.14159265).round)
   end
 
@@ -133,12 +138,12 @@ class CannonField < RubyQt6::Bando::QWidget
     @barrel_pressed = false if e.button == Qt::LeftButton
   end
 
-  def paint_event(e)
+  def paint_event(_e)
     p = QPainter.new(self)
     if @game_ended
       p.set_pen(QColor.new(Qt::Black))
-      p.set_font(QFont.new("Courier", 48, QFont::Bold))
-      p.draw_text(rect, Qt::AlignCenter, "Game Over")
+      p.set_font(QFont.new('Courier', 48, QFont::Bold))
+      p.draw_text(rect, Qt::AlignCenter, 'Game Over')
     end
     paint_cannon(p)
     paint_barrel(p)
@@ -180,7 +185,7 @@ class CannonField < RubyQt6::Bando::QWidget
   def cannon_rect
     r = QRect.new(0, 0, 50, 50)
     r.move_bottom_left(rect.bottom_left)
-    return r
+    r
   end
 
   def shot_rect
@@ -197,14 +202,14 @@ class CannonField < RubyQt6::Bando::QWidget
     x         = x0 + velx * time
     y         = y0 + vely * time - 0.5 * gravity * time * time
 
-    r = QRect.new(0, 0, 6, 6);
+    r = QRect.new(0, 0, 6, 6)
     r.move_center(QPoint.new(x.round, height - 1 - y.round))
     r
   end
 
   def target_rect
     r = QRect.new(0, 0, 20, 10)
-    r.move_center(QPoint.new(@target.x, height - 1 - @target.y));
+    r.move_center(QPoint.new(@target.x, height - 1 - @target.y))
     r
   end
 

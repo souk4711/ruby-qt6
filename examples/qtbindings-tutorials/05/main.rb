@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'qt6/all'
 
 class MyWidget < RubyQt6::Bando::QWidget

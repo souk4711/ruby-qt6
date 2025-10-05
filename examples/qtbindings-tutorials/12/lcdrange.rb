@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'qt6/all'
 
 class LCDRange < RubyQt6::Bando::QWidget
@@ -22,7 +24,7 @@ class LCDRange < RubyQt6::Bando::QWidget
     @slider.value_changed.connect(lcd, :display)
     @slider.value_changed.connect(self, :value_changed)
 
-    @label = QLabel.new(" ")
+    @label = QLabel.new(' ')
     @label.set_alignment(Qt::AlignHCenter | Qt::AlignTop)
 
     layout = QVBoxLayout.new

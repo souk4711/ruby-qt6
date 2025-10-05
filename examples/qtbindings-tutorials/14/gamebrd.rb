@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'qt6/all'
 require_relative 'lcdrange'
 require_relative 'cannon'
@@ -17,8 +19,8 @@ class GameBoard < RubyQt6::Bando::QWidget
     quit.set_font(QFont.new('Times', 18, QFont::Bold))
     quit.clicked.connect($qApp, :quit)
 
-    angle = LCDRange.new("ANGLE")
-    force = LCDRange.new("FORCE")
+    angle = LCDRange.new('ANGLE')
+    force = LCDRange.new('FORCE')
     cannon_box = QFrame.new
     @cannon_field = CannonField.new(self)
     angle.set_range(5, 70)
@@ -83,13 +85,14 @@ class GameBoard < RubyQt6::Bando::QWidget
 
   def fire
     return if @cannon_field.game_over || @cannon_field.shooting?
+
     @shots_left.display(@shots_left.int_value - 1)
     @cannon_field.shoot
   end
 
   def hit
     @hits.display(@hits.int_value + 1)
-    if @shots_left.int_value == 0
+    if @shots_left.int_value.zero?
       @cannon_field.set_game_over
     else
       @cannon_field.new_target
@@ -97,9 +100,9 @@ class GameBoard < RubyQt6::Bando::QWidget
   end
 
   def missed
-    if @shots_left.int_value == 0
-      @cannon_field.set_game_over
-    end
+    return unless @shots_left.int_value.zero?
+
+    @cannon_field.set_game_over
   end
 
   def new_game

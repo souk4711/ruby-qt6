@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'qt6/all'
 
 class CannonField < RubyQt6::Bando::QWidget
@@ -19,13 +21,14 @@ class CannonField < RubyQt6::Bando::QWidget
     degrees = 70 if degrees > 70
 
     return if @current_angle == degrees
+
     @current_angle = degrees
 
     repaint
     angle_changed.emit(@current_angle)
   end
 
-  def paint_event(event)
+  def paint_event(_event)
     painter = QPainter.new(self)
     painter.set_pen(Qt::NoPen)
     painter.set_brush(QBrush.new(Qt::Blue))

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'qt6/all'
 
 class CannonField < RubyQt6::Bando::QWidget
@@ -10,7 +12,7 @@ class CannonField < RubyQt6::Bando::QWidget
     slot 'moveShot()'
   end
 
- def initialize(parent = nil)
+  def initialize(parent = nil)
     super
 
     @current_angle = 45
@@ -38,7 +40,7 @@ class CannonField < RubyQt6::Bando::QWidget
   end
 
   def set_force(newton)
-    newton = 0 if newton < 0
+    newton = 0 if newton.negative?
     return if @currentForce == newton
 
     @current_force = newton
@@ -67,7 +69,7 @@ class CannonField < RubyQt6::Bando::QWidget
     update(r)
   end
 
-  def paint_event(e)
+  def paint_event(_e)
     p = QPainter.new(self)
     paint_cannon(p)
     paint_shot(p) if @auto_shoot_timer.active?
@@ -95,7 +97,7 @@ class CannonField < RubyQt6::Bando::QWidget
   def cannon_rect
     r = QRect.new(0, 0, 50, 50)
     r.move_bottom_left(rect.bottom_left)
-    return r
+    r
   end
 
   def shot_rect
@@ -112,7 +114,7 @@ class CannonField < RubyQt6::Bando::QWidget
     x         = x0 + velx * time
     y         = y0 + vely * time - 0.5 * gravity * time * time
 
-    r = QRect.new(0, 0, 6, 6);
+    r = QRect.new(0, 0, 6, 6)
     r.move_center(QPoint.new(x.round, height - 1 - y.round))
     r
   end

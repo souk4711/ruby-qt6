@@ -1,4 +1,6 @@
-require "qt6/all"
+# frozen_string_literal: true
+
+require 'qt6/all'
 
 class Widget < RubyQt6::Bando::QWidget
   def initialize
@@ -11,8 +13,8 @@ class Widget < RubyQt6::Bando::QWidget
       menu_widget.add_item(item)
     end
 
-    text_widget = QLabel.new("This is a placeholder text")
-    button = QPushButton.new("Something")
+    text_widget = QLabel.new('This is a placeholder text')
+    button = QPushButton.new('Something')
     content_layout = QVBoxLayout.new
     content_layout.add_widget(text_widget)
     content_layout.add_widget(button)
@@ -27,7 +29,7 @@ class Widget < RubyQt6::Bando::QWidget
 end
 
 app = QApplication.new(ARGV)
-app.set_style_sheet(File.read(File.join(__dir__, "style.qss")))
+app.set_style_sheet(File.read(File.join(__dir__, 'style.qss')))
 widget = Widget.new
 widget.show
 app.exec
