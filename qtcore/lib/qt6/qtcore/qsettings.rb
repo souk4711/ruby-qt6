@@ -28,6 +28,19 @@ module RubyQt6
         _initialize(format, scope, T.to_qstr(organization), T.to_qstr(application), parent)
         _take_ownership_from_ruby(self) if parent
       end
+
+      # @!visibility private
+      def set_value(key, value)
+        qmetatype = QtCore::QMetaType.from_klass(value.class)
+        qvariant = QtCore::QVariant.from_object(value, qmetatype)
+        _set_value(T.to_qanystringview(key), qvariant)
+      end
+
+      # @!visibility private
+      def value(key, default = nil)
+        qvariant = _value(T.to_qanystringview(key))
+        qvariant.valid? ? QtCore::QVariant.to_object(qvariant) : default
+      end
     end
   end
 end

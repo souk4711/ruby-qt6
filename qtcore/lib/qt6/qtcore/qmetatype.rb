@@ -6,6 +6,19 @@ module RubyQt6
     class QMetaType
       # @!parse class Type; end
       rubyqt6_declare_enum_under QMetaType, QMetaType::Type
+
+      # @!visibility private
+      def self.from_klass(k)
+        name =
+          case k
+          when ::TrueClass, ::FalseClass then "bool"
+          when ::Integer then "int"
+          when ::Float then "double"
+          when ::String, QtCore::QString then "QString"
+          else raise "Unsupported klass '#{k}'"
+          end
+        from_name(name)
+      end
     end
   end
 end

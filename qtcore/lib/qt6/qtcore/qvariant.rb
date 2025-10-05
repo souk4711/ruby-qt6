@@ -27,12 +27,12 @@ module RubyQt6
       end
 
       # @!visibility private
-      def self.register(id, from_object_meth, to_object_meth)
+      def self.register(id, from_object_method, to_object_method)
         id = id.to_i
         raise "QVariant with id already registered: #{id}" if from_object_methods.key?(id)
 
-        from_object_methods[id] = from_object_meth
-        to_object_methods[id] = to_object_meth
+        from_object_methods[id] = from_object_method
+        to_object_methods[id] = to_object_method
       end
 
       # @!parse
