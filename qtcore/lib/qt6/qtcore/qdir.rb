@@ -21,8 +21,8 @@ module RubyQt6
       #   @param path [String, QString]
       #   @param name_filter [String, QString]
       def initialize(*args)
-        args[0] = T.to_qstr(args[0]) if args[0].is_a?(::String)
-        args[1] = T.to_qstr(args[1]) if args[1].is_a?(::String)
+        args[0] = T.to_qstr(args[0]) if args[0].is_a?(String)
+        args[1] = T.to_qstr(args[1]) if args[1].is_a?(String)
         _initialize(*args)
       end
     end

@@ -8,16 +8,18 @@ module RubyQt6
       rubyqt6_declare_enum_under QMetaType, QMetaType::Type
 
       # @!visibility private
-      def self.from_klass(k)
-        name =
-          case k
-          when ::TrueClass, ::FalseClass then "bool"
-          when ::Integer then "int"
-          when ::Float then "double"
-          when ::String, QtCore::QString then "QString"
-          else raise "Unsupported klass '#{k}'"
-          end
-        from_name(name)
+      def self.infer(o)
+        k = o.class
+        k.respond_to?(:default_qmetatype) ? k.default_qmetatype : raise("Could not infer qmetatype")
+      end
+
+      # @!visibility private
+      alias_method :_initialize, :initialize
+
+      # @param type_id [Integer]
+      # @return [QMetaType]
+      def initialize(type_id)
+        _initialize(type_id)
       end
     end
   end

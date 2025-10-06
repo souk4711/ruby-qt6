@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
 # @!visibility private
-module ::Kernel
+module Kernel
   def rubyqt6_declare_enum_under(mod, enum)
     enum.constants.each do |const|
       mod.const_set(const, enum.const_get(const))
     end
     enum.define_method(:inspect) do
-      ::RubyQt6::T.q_inspect_enum(self, int: to_i)
+      RubyQt6::T.q_inspect_enum(self, int: to_i)
     end
   end
 
@@ -20,7 +20,7 @@ module ::Kernel
     end
 
     flags.define_method(:inspect) do
-      ::RubyQt6::T.q_inspect_enum(self, int: to_i)
+      RubyQt6::T.q_inspect_enum(self, int: to_i)
     end
   end
 end

@@ -4,7 +4,7 @@ module RubyQt6
   module QtCore
     # @see https://doc.qt.io/qt-6/qdatetime.html
     class QDateTime
-      include ::Comparable
+      include Comparable
 
       # @!parse class TransitionResolution; end
       rubyqt6_declare_enum_under QDateTime, QDateTime::TransitionResolution

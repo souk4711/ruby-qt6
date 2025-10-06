@@ -4,7 +4,7 @@ module RubyQt6
   module QtCore
     # @see https://doc.qt.io/qt-6/quuid.html
     class QUuid
-      include ::Comparable
+      include Comparable
 
       # @!parse class StringFormat; end
       # @!parse class Variant     ; end

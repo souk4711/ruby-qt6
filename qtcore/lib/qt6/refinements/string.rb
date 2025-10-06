@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 # @!visibility private
-class ::String
+class String
   def to_qstr
-    ::RubyQt6::T.to_qstr(self)
+    RubyQt6::T.to_qstr(self)
   end
 end

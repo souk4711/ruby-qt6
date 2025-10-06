@@ -31,7 +31,7 @@ module RubyQt6
 
       # @!visibility private
       def set_value(key, value)
-        qmetatype = QtCore::QMetaType.from_klass(value.class)
+        qmetatype = QtCore::QMetaType.infer(value)
         qvariant = QtCore::QVariant.from_object(value, qmetatype)
         _set_value(T.to_qanystringview(key), qvariant)
       end

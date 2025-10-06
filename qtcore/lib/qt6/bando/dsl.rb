@@ -23,14 +23,14 @@ module RubyQt6
         def _rubyqt6_handle_qobject_event_filter(watched, event)
           event_filter(watched, event)
         rescue
-          ::RubyQt6.logger_log_exception(e)
+          RubyQt6.logger_log_exception(e)
           false
         end
 
         def _rubyqt6_handle_event(event, *args)
           __send__(event, *args)
         rescue => e
-          ::RubyQt6.logger_log_exception(e)
+          RubyQt6.logger_log_exception(e)
           nil
         end
       end

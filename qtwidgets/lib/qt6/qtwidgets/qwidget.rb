@@ -45,7 +45,7 @@ module RubyQt6
 
       # @!visibility private
       def raise(*args)
-        ::Kernel.raise(*args) if args.size.nonzero?
+        Kernel.raise(*args) if args.size.nonzero?
         _raise
       end
 

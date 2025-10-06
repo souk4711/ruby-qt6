@@ -50,7 +50,7 @@ module RubyQt6
       #   @param point_size [Integer]
       #   @param weight [QFont::Weight]
       def initialize(*args)
-        args[0] = T.to_qstr(args[0]) if args[0].is_a?(::String)
+        args[0] = T.to_qstr(args[0]) if args[0].is_a?(String)
         _initialize(*args)
       end
 

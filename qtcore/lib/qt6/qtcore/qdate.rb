@@ -4,7 +4,7 @@ module RubyQt6
   module QtCore
     # @see https://doc.qt.io/qt-6/qdate.html
     class QDate
-      include ::Comparable
+      include Comparable
 
       # @!visibility private
       alias_method :_initialize, :initialize
