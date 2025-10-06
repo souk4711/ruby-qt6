@@ -60,6 +60,7 @@ void Init_qvariant(Rice::Module rb_mQt6QtCore)
             .define_singleton_function("to_qsize", [](const QVariant &qvariant) -> QSize { return qvariant.toSize(); })
             .define_singleton_function("to_qsizef", [](const QVariant &qvariant) -> QSizeF { return qvariant.toSizeF(); })
             // Public Functions
+            .define_method("valid?", &QVariant::isValid)
             .define_method("type_id", &QVariant::typeId)
             .define_method("type_name", &QVariant::typeName);
 }
