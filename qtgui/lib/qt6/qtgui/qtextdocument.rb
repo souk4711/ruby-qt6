@@ -1,0 +1,48 @@
+# frozen_string_literal: true
+
+module RubyQt6
+  module QtGui
+    # @see https://doc.qt.io/qt-6/qtextdocument.html
+    class QTextDocument < RubyQt6::QtCore::QObject
+      # @!parse class FindFlag       ; end
+      # @!parse class MarkdownFeature; end
+      # @!parse class MetaInformation; end
+      # @!parse class ResourceType   ; end
+      # @!parse class Stacks         ; end
+      rubyqt6_declare_enum_under QTextDocument, QTextDocument::FindFlag
+      rubyqt6_declare_enum_under QTextDocument, QTextDocument::MarkdownFeature
+      rubyqt6_declare_enum_under QTextDocument, QTextDocument::MetaInformation
+      rubyqt6_declare_enum_under QTextDocument, QTextDocument::ResourceType
+      rubyqt6_declare_enum_under QTextDocument, QTextDocument::Stacks
+
+      # @!parse
+      q_object do
+        signal "baseUrlChanged(QUrl)"
+        signal "blockCountChanged(int)"
+        signal "contentsChange(int,int,int)"
+        signal "contentsChanged()"
+        signal "cursorPositionChanged(QTextCursor)"
+        signal "documentLayoutChanged()"
+        signal "modificationChanged(bool)"
+        signal "redoAvailable(bool)"
+        signal "undoAvailable(bool)"
+        signal "undoCommandAdded()"
+        slot "redo()"
+        slot "setModified(bool)"
+        slot "setModified()"
+        slot "undo()"
+      end
+
+      # @!visibility private
+      alias_method :_initialize, :initialize
+
+      # @param text [String, QString]
+      # @param parent [QObject]
+      # @return [QTextDocument]
+      def initialize(text, parent = nil)
+        _initialize(T.to_qstr(text), parent)
+        _take_ownership_from_ruby(self) if parent
+      end
+    end
+  end
+end

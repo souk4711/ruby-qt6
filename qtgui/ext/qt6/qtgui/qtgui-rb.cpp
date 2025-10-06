@@ -16,6 +16,7 @@
 #include "qpalette-rb.hpp"
 #include "qpen-rb.hpp"
 #include "qregion-rb.hpp"
+#include "qtextcursor-rb.hpp"
 #include "qtextoption-rb.hpp"
 #include "qtransform-rb.hpp"
 
@@ -23,6 +24,7 @@
 #include "qactiongroup-rb.hpp"
 #include "qguiapplication-rb.hpp"
 #include "qshortcut-rb.hpp"
+#include "qtextdocument-rb.hpp"
 #include "qwindow-rb.hpp"
 
 #include "t-qtgui-rb.hpp"
@@ -53,6 +55,7 @@ extern "C" void Init_qtgui()
         Init_qpalette(rb_mQt6QtGui);
         Init_qpen(rb_mQt6QtGui);
         Init_qregion(rb_mQt6QtGui);
+        Init_qtextcursor(rb_mQt6QtGui);
         Init_qtextoption(rb_mQt6QtGui);
         Init_qtransform(rb_mQt6QtGui);
 
@@ -60,6 +63,7 @@ extern "C" void Init_qtgui()
         Init_qactiongroup(rb_mQt6QtGui);
         Init_qguiapplication(rb_mQt6QtGui);
         Init_qshortcut(rb_mQt6QtGui);
+        Init_qtextdocument(rb_mQt6QtGui);
         Init_qwindow(rb_mQt6QtGui);
 
         Rice::Module rb_mQt6T = define_module_under(rb_mQt6, "T");

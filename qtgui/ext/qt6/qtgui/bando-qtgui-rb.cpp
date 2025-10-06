@@ -6,6 +6,7 @@
 #include <QActionGroup>
 #include <QGuiApplication>
 #include <QShortcut>
+#include <QTextDocument>
 #include <QWindow>
 
 using namespace Rice;
@@ -14,12 +15,14 @@ using Bando_QAction = BandoQObject<QAction, const QIcon &, const QString &, QObj
 using Bando_QActionGroup = BandoQObject<QActionGroup, QObject *>;
 using Bando_QGuiApplication = BandoQObject<QGuiApplication, int &, char **>;
 using Bando_QShortcut = BandoQObject<QShortcut, const QKeySequence &, QObject *>;
+using Bando_QTextDocument = BandoQObject<QTextDocument, const QString &, QObject *>;
 using Bando_QWindow = BandoQWindow<QWindow, QWindow *>;
 
 Rice::Class rb_mBando_cQAction;
 Rice::Class rb_mBando_cQActionGroup;
 Rice::Class rb_mBando_cQGuiApplication;
 Rice::Class rb_mBando_cQShortcut;
+Rice::Class rb_mBando_cQTextDocument;
 Rice::Class rb_mBando_cQWindow;
 
 void Init_bando_qtgui(Rice::Module rb_mQt6Bando)
@@ -43,6 +46,11 @@ void Init_bando_qtgui(Rice::Module rb_mQt6Bando)
         define_class_under<Bando_QShortcut, QShortcut>(rb_mQt6Bando, "QShortcut")
             .define_constructor(Constructor<Bando_QShortcut, const QKeySequence &, QObject *>(), Arg("key"), Arg("parent"))
             .define_method("_initialize_value", &Bando_QShortcut::initializeValue, Arg("mo"), Arg("value"));
+
+    rb_mBando_cQTextDocument =
+        define_class_under<Bando_QTextDocument, QTextDocument>(rb_mQt6Bando, "QTextDocument")
+            .define_constructor(Constructor<Bando_QTextDocument, const QString &, QObject *>(), Arg("text"), Arg("parent"))
+            .define_method("_initialize_value", &Bando_QTextDocument::initializeValue, Arg("mo"), Arg("value"));
 
     rb_mBando_cQWindow =
         define_class_under<Bando_QWindow, QWindow>(rb_mQt6Bando, "QWindow")
