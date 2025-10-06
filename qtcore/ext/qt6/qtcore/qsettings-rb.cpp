@@ -11,6 +11,11 @@ void Init_qsettings(Rice::Module rb_mQt6QtCore)
         // RubyQt6::QtCore::QSettings
         define_class_under<QSettings, QObject>(rb_mQt6QtCore, "QSettings")
             // RubyQt6-Defined Functions
+            .define_method("begin_group", [](QSettings *self, const char *prefix) -> void { return self->beginGroup(prefix); }, Arg("prefix"))
+            .define_method("begin_read_array", [](QSettings *self, const char *prefix) -> int { return self->beginReadArray(prefix); }, Arg("prefix"))
+            .define_method("begin_write_array", [](QSettings *self, const char *prefix) -> void { return self->beginWriteArray(prefix); }, Arg("prefix"))
+            .define_method("contains", [](QSettings *self, const char *key) -> bool { return self->contains(key); }, Arg("key"))
+            .define_method("remove", [](QSettings *self, const char *key) -> void { return self->remove(key); }, Arg("key"))
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QSettings::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QSettings, QSettings::Format, QSettings::Scope, const QString &, const QString &, QObject *>(), Arg("format"), Arg("scope"), Arg("organization"), Arg("application"), Arg("parent"))
