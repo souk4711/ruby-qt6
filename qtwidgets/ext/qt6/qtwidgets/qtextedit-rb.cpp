@@ -16,6 +16,7 @@ void Init_qtextedit(Rice::Module rb_mQt6QtWidgets)
         // RubyQt6::QtWidgets::QTextEdit
         define_class_under<QTextEdit, QAbstractScrollArea>(rb_mQt6QtWidgets, "QTextEdit")
             // RubyQt6-Defined Functions
+            .define_method("set_text", [](QTextEdit *self, const char *text) -> void { return self->setText(text); }, Arg("text"))
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QTextEdit::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QTextEdit, const QString &, QWidget *>(), Arg("text"), Arg("parent"))
