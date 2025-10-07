@@ -8,6 +8,7 @@ require_relative "qtgui/qtguiversion"
 
 require_relative "qtgui/qbrush"
 require_relative "qtgui/qcolor"
+require_relative "qtgui/qcursor"
 require_relative "qtgui/qfont"
 require_relative "qtgui/qfontinfo"
 require_relative "qtgui/qicon"
