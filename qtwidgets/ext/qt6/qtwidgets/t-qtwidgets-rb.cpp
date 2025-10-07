@@ -33,4 +33,7 @@ void Init_t_qtwidgets(Rice::Module rb_mQt6T)
 
     // QList<QTreeWidgetItem *>
     define_qlist_under<QTreeWidgetItem *>(rb_mQt6T);
+
+    // QList<QWidget *> -> QWidgetList
+    define_qlist_under<QWidget *>(rb_mQt6T);
 }
