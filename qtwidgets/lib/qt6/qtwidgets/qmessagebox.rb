@@ -4,14 +4,16 @@ module RubyQt6
   module QtWidgets
     # @see https://doc.qt.io/qt-6/qmessagebox.html
     class QMessageBox < RubyQt6::QtWidgets::QDialog
-      # @!parse class ButtonRole    ; end
-      # @!parse class Icon          ; end
-      # @!parse class Option        ; end
-      # @!parse class StandardButton; end
+      # @!parse class ButtonRole     ; end
+      # @!parse class Icon           ; end
+      # @!parse class Option         ; end
+      # @!parse class StandardButton ; end
+      # @!parse class StandardButtons; end
       rubyqt6_declare_enum_under QMessageBox, QMessageBox::ButtonRole
       rubyqt6_declare_enum_under QMessageBox, QMessageBox::Icon
       rubyqt6_declare_enum_under QMessageBox, QMessageBox::Option
       rubyqt6_declare_enum_under QMessageBox, QMessageBox::StandardButton
+      rubyqt6_declare_qflags QMessageBox::StandardButtons, QMessageBox::StandardButton
 
       # @!parse
       q_object do

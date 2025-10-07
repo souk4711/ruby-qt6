@@ -1,5 +1,6 @@
 #include "qmessagebox-rb.hpp"
 #include <qmessagebox.h>
+#include <rice/qflags.hpp>
 
 #include <QAbstractButton>
 #include <QCheckBox>
@@ -133,4 +134,8 @@ void Init_qmessagebox(Rice::Module rb_mQt6QtWidgets)
             .define_value("Escape", QMessageBox::StandardButton::Escape)
             .define_value("FlagMask", QMessageBox::StandardButton::FlagMask)
             .define_value("ButtonMask", QMessageBox::StandardButton::ButtonMask);
+
+    Data_Type<QFlags<QMessageBox::StandardButton>> rb_cQMessageBoxStandardButtons =
+        // RubyQt6::QtWidgets::QMessageBox::StandardButtons
+        define_qflags_under<QMessageBox::StandardButton>(rb_cQMessageBox, "StandardButtons");
 }
