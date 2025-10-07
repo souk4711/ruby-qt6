@@ -16,13 +16,11 @@ void Init_qdialog(Rice::Module rb_mQt6QtWidgets)
             .define_constructor(Constructor<QDialog, QWidget *>(), Arg("parent"))
             // Public Functions
             .define_method("size_grip_enabled?", &QDialog::isSizeGripEnabled)
-            .define_method("minimum_size_hint", &QDialog::minimumSizeHint)
             .define_method("result", &QDialog::result)
             .define_method("set_modal", &QDialog::setModal, Arg("modal"))
             .define_method("set_result", &QDialog::setResult, Arg("r"))
             .define_method("set_size_grip_enabled", &QDialog::setSizeGripEnabled, Arg("enabled"))
             .define_method("set_visible", &QDialog::setVisible, Arg("visible"))
-            .define_method("size_hint", &QDialog::sizeHint)
             // Public Slots
             .define_method("accept", &QDialog::accept)
             .define_method("done", &QDialog::done, Arg("r"))

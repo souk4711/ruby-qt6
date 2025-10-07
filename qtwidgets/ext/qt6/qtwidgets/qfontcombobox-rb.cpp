@@ -25,7 +25,6 @@ void Init_qfontcombobox(Rice::Module rb_mQt6QtWidgets)
             .define_method("set_sample_text_for_font", &QFontComboBox::setSampleTextForFont, Arg("font_family"), Arg("sample_text"))
             .define_method("set_sample_text_for_system", &QFontComboBox::setSampleTextForSystem, Arg("writing_system"), Arg("sample_text"))
             .define_method("set_writing_system", &QFontComboBox::setWritingSystem, Arg("system"))
-            .define_method("size_hint", &QFontComboBox::sizeHint)
             .define_method("writing_system", &QFontComboBox::writingSystem)
             // Public Slots
             .define_method("set_current_font", &QFontComboBox::setCurrentFont, Arg("f"))

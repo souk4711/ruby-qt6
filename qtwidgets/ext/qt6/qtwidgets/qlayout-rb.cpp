@@ -16,10 +16,7 @@ void Init_qlayout(Rice::Module rb_mQt6QtWidgets)
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QLayout::staticMetaObject; })
             // Inherits QLayoutItem
             .define_method("alignment", &QLayout::alignment)
-            .define_method("has_height_for_width", &QLayout::hasHeightForWidth)
-            .define_method("height_for_width", &QLayout::heightForWidth, Arg("w"))
             .define_method("minimum_height_for_width", &QLayout::minimumHeightForWidth, Arg("w"))
-            .define_method("size_hint", &QLayout::sizeHint)
             .define_method("spacer_item", &QLayout::spacerItem)
             .define_method("widget", &QLayout::widget)
             // Public Functions

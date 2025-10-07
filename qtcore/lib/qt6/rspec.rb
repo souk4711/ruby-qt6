@@ -7,6 +7,18 @@ require_relative "rspec/qlass_file_parser"
 module RubyQt6
   # @!visibility private
   module RSpec
+    VERIFY_QLASS_VIRTUAL_METHODS = [
+      "event", "event_filter",                      # QObject
+      "meta_object",                                # QObject
+      "connect_notify", "disconnect_notify",        # QObject
+      "paint_engine",                               # QPaintDevice
+      "metric",                                     # QPaintDevice
+      "has_height_for_width", "height_for_width",   # QWidget
+      "minimum_size_hint", "size_hint",             # QWidget
+      "init_painter",                               # QWidget
+      "input_method_query"                          # QWidget
+    ]
+
     NO_VERIFY_QLASS_DOCS = [
       "QMetaObjectBuilder"
     ]
@@ -144,8 +156,8 @@ module RubyQt6
         # No virtual method
         lambda do
           return if NO_VERIFY_QLASS_VIRTUAL_METHODS[qlass.name]&.include?(method.rbname)
-          raise method.inspect if ["event"].include?(method.rbname)
           raise method.inspect if method.rbname.end_with?("_event")
+          raise method.inspect if VERIFY_QLASS_VIRTUAL_METHODS.include?(method.rbname)
         end.call
 
         # No unknonwn leading underscore method

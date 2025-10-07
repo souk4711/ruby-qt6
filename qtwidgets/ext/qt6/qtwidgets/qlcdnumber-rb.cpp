@@ -24,7 +24,6 @@ void Init_qlcdnumber(Rice::Module rb_mQt6QtWidgets)
             .define_method("set_digit_count", &QLCDNumber::setDigitCount, Arg("n_digits"))
             .define_method("set_mode", &QLCDNumber::setMode, Arg("mode"))
             .define_method("set_segment_style", &QLCDNumber::setSegmentStyle, Arg("style"))
-            .define_method("size_hint", &QLCDNumber::sizeHint)
             .define_method("small_decimal_point", &QLCDNumber::smallDecimalPoint)
             .define_method("value", &QLCDNumber::value)
             // Public Slots

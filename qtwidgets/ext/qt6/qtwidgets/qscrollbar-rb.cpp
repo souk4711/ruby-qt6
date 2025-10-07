@@ -13,7 +13,5 @@ void Init_qscrollbar(Rice::Module rb_mQt6QtWidgets)
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QScrollBar::staticMetaObject; })
             // Constructor
-            .define_constructor(Constructor<QScrollBar, Qt::Orientation, QWidget *>(), Arg("orientation"), Arg("parent"))
-            // Public Functions
-            .define_method("size_hint", &QScrollBar::sizeHint);
+            .define_constructor(Constructor<QScrollBar, Qt::Orientation, QWidget *>(), Arg("orientation"), Arg("parent"));
 }

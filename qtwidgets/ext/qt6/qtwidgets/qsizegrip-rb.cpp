@@ -15,6 +15,5 @@ void Init_qsizegrip(Rice::Module rb_mQt6QtWidgets)
             // Constructor
             .define_constructor(Constructor<QSizeGrip, QWidget *>(), Arg("parent"))
             // Public Functions
-            .define_method("set_visible", &QSizeGrip::setVisible, Arg("visible"))
-            .define_method("size_hint", &QSizeGrip::sizeHint);
+            .define_method("set_visible", &QSizeGrip::setVisible, Arg("visible"));
 }

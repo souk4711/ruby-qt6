@@ -31,7 +31,6 @@ void Init_qprogressdialog(Rice::Module rb_mQt6QtWidgets)
             .define_method("set_bar", &QProgressDialog::setBar, Arg("bar"))
             .define_method("set_cancel_button", &QProgressDialog::setCancelButton, Arg("button"))
             .define_method("set_label", &QProgressDialog::setLabel, Arg("label"))
-            .define_method("size_hint", &QProgressDialog::sizeHint)
             .define_method("value", &QProgressDialog::value)
             .define_method("was_canceled", &QProgressDialog::wasCanceled)
             // Public Slots

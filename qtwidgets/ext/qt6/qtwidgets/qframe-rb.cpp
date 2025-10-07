@@ -27,8 +27,7 @@ void Init_qframe(Rice::Module rb_mQt6QtWidgets)
             .define_method("set_frame_shape", &QFrame::setFrameShape, Arg("shape"))
             .define_method("set_frame_style", &QFrame::setFrameStyle, Arg("style"))
             .define_method("set_line_width", &QFrame::setLineWidth, Arg("w"))
-            .define_method("set_mid_line_width", &QFrame::setMidLineWidth, Arg("w"))
-            .define_method("size_hint", &QFrame::sizeHint);
+            .define_method("set_mid_line_width", &QFrame::setMidLineWidth, Arg("w"));
 
     Enum<QFrame::Shape> rb_cQFrameShape =
         // RubyQt6::QtWidgets::QFrame::Shape

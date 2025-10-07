@@ -16,7 +16,6 @@ void Init_qsizepolicy(Rice::Module rb_mQt6QtWidgets)
             // Public Functions
             .define_method("control_type", &QSizePolicy::controlType)
             .define_method("expanding_directions", &QSizePolicy::expandingDirections)
-            .define_method("has_height_for_width", &QSizePolicy::hasHeightForWidth)
             .define_method("has_width_for_height", &QSizePolicy::hasWidthForHeight)
             .define_method("horizontal_policy", &QSizePolicy::horizontalPolicy)
             .define_method("horizontal_stretch", &QSizePolicy::horizontalStretch)

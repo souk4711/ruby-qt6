@@ -34,7 +34,7 @@ module RubyQt6
         end
 
         while (matched = line.match(/^Rice::Class rb_c(\w+)/))
-          @qlasses << OpenStruct.new(name: matched[1], methods: [], enums: [])
+          @qlasses << OpenStruct.new(name: matched[1], methods: [], enums: [], flags: [])
           take_next_line
         end
 
@@ -118,6 +118,17 @@ module RubyQt6
           qlass.enums << enum
           parse_qlass_definition_enum(qlass, enum)
         end
+
+        while line == "" || line == "}"
+          return if line == "}"
+          take_next_line
+        end
+
+        while (matched = line.match(/^Data_Type<QFlags.*rb_c#{name}(.*) =/))
+          flag = OpenStruct.new(name: matched[1])
+          qlass.flags << flag
+          parse_qlass_definition_flag(qlass, flag)
+        end
       end
 
       def parse_qlass_definition_methods(qlass, type)
@@ -185,6 +196,37 @@ module RubyQt6
         end
 
         while line == "" || line.start_with?(".define_value")
+          take_next_line
+        end
+      end
+
+      def parse_qlass_definition_flag(qlass, flag)
+        qmod_name = @qmod.name
+        name = qlass.name
+        flag_name = flag.name
+
+        expected = /Data_Type<QFlags<#{name}::.*>> rb_c#{name}#{flag_name} =/
+        if line.match?(expected)
+          take_next_line
+        else
+          raise MissingLine.new(expected, line)
+        end
+
+        expected = "// RubyQt6::#{qmod_name}::#{name}::#{flag_name}"
+        if line == expected
+          take_next_line
+        else
+          raise MissingLine.new(expected, line)
+        end
+
+        expected = /define_qflags_under<#{name}::.*>\(rb_c#{name}, "#{flag_name}"\);/
+        if line.match?(expected)
+          take_next_line
+        else
+          raise MissingLine.new(expected, line)
+        end
+
+        while line == ""
           take_next_line
         end
       end

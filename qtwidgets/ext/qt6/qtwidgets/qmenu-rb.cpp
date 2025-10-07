@@ -50,7 +50,6 @@ void Init_qmenu(Rice::Module rb_mQt6QtWidgets)
             .define_method("set_tool_tips_visible", &QMenu::setToolTipsVisible, Arg("visible"))
             .define_method<void (QMenu::*)()>("show_tear_off_menu", &QMenu::showTearOffMenu)
             .define_method<void (QMenu::*)(const QPoint &)>("show_tear_off_menu", &QMenu::showTearOffMenu, Arg("pos"))
-            .define_method("size_hint", &QMenu::sizeHint)
             .define_method("title", &QMenu::title)
             .define_method("tool_tips_visible", &QMenu::toolTipsVisible)
             // Signals

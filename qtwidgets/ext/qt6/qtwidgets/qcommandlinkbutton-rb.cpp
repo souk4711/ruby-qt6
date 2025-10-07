@@ -18,9 +18,6 @@ void Init_qcommandlinkbutton(Rice::Module rb_mQt6QtWidgets)
             .define_constructor(Constructor<QCommandLinkButton, const QString &, const QString &, QWidget *>(), Arg("text"), Arg("description"), Arg("parent"))
             // Public Functions
             .define_method("description", &QCommandLinkButton::description)
-            .define_method("height_for_width", &QCommandLinkButton::heightForWidth, Arg("w"))
             .define_method("init_style_option", &QCommandLinkButton::initStyleOption, Arg("option"))
-            .define_method("minimum_size_hint", &QCommandLinkButton::minimumSizeHint)
-            .define_method("set_description", &QCommandLinkButton::setDescription, Arg("description"))
-            .define_method("size_hint", &QCommandLinkButton::sizeHint);
+            .define_method("set_description", &QCommandLinkButton::setDescription, Arg("description"));
 }

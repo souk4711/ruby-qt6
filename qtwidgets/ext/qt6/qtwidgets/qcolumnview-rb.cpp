@@ -27,7 +27,6 @@ void Init_qcolumnview(Rice::Module rb_mQt6QtWidgets)
             .define_method("set_resize_grips_visible", &QColumnView::setResizeGripsVisible, Arg("visible"))
             .define_method("set_root_index", &QColumnView::setRootIndex, Arg("index"))
             .define_method("set_selection_model", &QColumnView::setSelectionModel, Arg("selection_model"))
-            .define_method("size_hint", &QColumnView::sizeHint)
             .define_method("visual_rect", &QColumnView::visualRect, Arg("index"))
             // Signals
             .define_method("update_preview_widget", &QColumnView::updatePreviewWidget, Arg("index"));

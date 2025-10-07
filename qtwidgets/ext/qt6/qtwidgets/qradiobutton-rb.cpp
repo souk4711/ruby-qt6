@@ -13,8 +13,5 @@ void Init_qradiobutton(Rice::Module rb_mQt6QtWidgets)
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QRadioButton::staticMetaObject; })
             // Constructor
-            .define_constructor(Constructor<QRadioButton, const QString &, QWidget *>(), Arg("text"), Arg("parent"))
-            // Public Functions
-            .define_method("minimum_size_hint", &QRadioButton::minimumSizeHint)
-            .define_method("size_hint", &QRadioButton::sizeHint);
+            .define_constructor(Constructor<QRadioButton, const QString &, QWidget *>(), Arg("text"), Arg("parent"));
 }

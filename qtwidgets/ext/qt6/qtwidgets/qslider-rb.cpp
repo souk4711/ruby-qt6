@@ -15,10 +15,8 @@ void Init_qslider(Rice::Module rb_mQt6QtWidgets)
             // Constructor
             .define_constructor(Constructor<QSlider, Qt::Orientation, QWidget *>(), Arg("orientation"), Arg("parent"))
             // Public Functions
-            .define_method("minimum_size_hint", &QSlider::minimumSizeHint)
             .define_method("set_tick_interval", &QSlider::setTickInterval, Arg("ti"))
             .define_method("set_tick_position", &QSlider::setTickPosition, Arg("position"))
-            .define_method("size_hint", &QSlider::sizeHint)
             .define_method("tick_interval", &QSlider::tickInterval)
             .define_method("tick_position", &QSlider::tickPosition);
 

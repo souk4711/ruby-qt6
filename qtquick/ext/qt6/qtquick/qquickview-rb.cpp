@@ -27,7 +27,6 @@ void Init_qquickview(Rice::Module rb_mQt6QtQuick)
             .define_method("root_object", &QQuickView::rootObject)
             .define_method("set_content", &QQuickView::setContent, Arg("url"), Arg("component"), Arg("item"))
             .define_method("set_resize_mode", &QQuickView::setResizeMode, Arg("mode"))
-            .define_method("size_hint", &QQuickView::sizeHint)
             .define_method("source", &QQuickView::source)
             .define_method("status", &QQuickView::status)
             // Public Slots

@@ -22,7 +22,6 @@ void Init_qscrollarea(Rice::Module rb_mQt6QtWidgets)
             .define_method("set_alignment", &QScrollArea::setAlignment, Arg("alignment"))
             .define_method("set_widget", &QScrollArea::setWidget, Arg("widget").takeOwnership())
             .define_method("set_widget_resizable", &QScrollArea::setWidgetResizable, Arg("resizable"))
-            .define_method("size_hint", &QScrollArea::sizeHint)
             .define_method("take_widget", &QScrollArea::takeWidget, Return().takeOwnership())
             .define_method("widget", &QScrollArea::widget)
             .define_method("widget_resizable", &QScrollArea::widgetResizable);
