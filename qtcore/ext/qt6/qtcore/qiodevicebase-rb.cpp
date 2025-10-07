@@ -1,5 +1,6 @@
 #include "qiodevicebase-rb.hpp"
 #include <qiodevicebase.h>
+#include <rice/qflags.hpp>
 
 using namespace Rice;
 
@@ -24,4 +25,8 @@ void Init_qiodevicebase(Rice::Module rb_mQt6QtCore)
             .define_value("Unbuffered", QIODeviceBase::OpenModeFlag::Unbuffered)
             .define_value("NewOnly", QIODeviceBase::OpenModeFlag::NewOnly)
             .define_value("ExistingOnly", QIODeviceBase::OpenModeFlag::ExistingOnly);
+
+    Data_Type<QFlags<QIODeviceBase::OpenModeFlag>> rb_cQIODeviceBaseOpenMode =
+        // RubyQt6::QtCore::QIODeviceBase::OpenMode
+        define_qflags_under<QIODeviceBase::OpenModeFlag>(rb_cQIODeviceBase, "OpenMode");
 }
