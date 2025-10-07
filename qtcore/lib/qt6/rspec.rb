@@ -31,6 +31,9 @@ module RubyQt6
     NO_VERIFY_QLASS_LEADING_UNDERSCORE_METHODS = {
       "QObject" => ["_connect", "_disconnect"]
     }
+    NO_VERIFY_QLASS_OPERATOR_METHODS = {
+      "QTextStream" => ["<<"]
+    }
     NO_VERIFY_QLASS_QOBJECT_INITIALIZE = [
       "QCoreApplication",
       "QGuiApplication",
@@ -166,6 +169,14 @@ module RubyQt6
             return if method.type == :rubyqt6_defined_functions
             return if rbfile_contents.include?("def #{method.rbname.sub(/^_/, "")}")
             return if NO_VERIFY_QLASS_LEADING_UNDERSCORE_METHODS[qlass.name]&.include?(method.rbname)
+            raise method.inspect
+          end.call
+        end
+
+        # No unknonwn operator method
+        unless method.rbname.start_with?(/_?[a-z]/)
+          lambda do
+            return if NO_VERIFY_QLASS_OPERATOR_METHODS[qlass.name]&.include?(method.rbname)
             raise method.inspect
           end.call
         end
