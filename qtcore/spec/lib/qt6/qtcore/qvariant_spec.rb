@@ -108,4 +108,10 @@ RSpec.describe RubyQt6::QtCore::QVariant do
     expect(o.type_name).to eq("QSizeF")
     expect(described_class.to_object(o)).to be_a(RubyQt6::QtCore::QSizeF)
   end
+
+  it "QStringList" do
+    o = described_class.from_qstringlist(RubyQt6::QtCore::QStringList.new)
+    expect(o.type_name).to eq("QStringList")
+    expect(described_class.to_object(o)).to be_a(RubyQt6::QtCore::QStringList)
+  end
 end

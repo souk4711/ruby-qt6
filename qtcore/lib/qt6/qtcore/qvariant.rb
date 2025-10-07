@@ -58,6 +58,7 @@ module RubyQt6
       register(QtCore::QMetaType::Type::QRectF, method(:from_qrectf), method(:to_qrectf), from: QtCore::QRectF)
       register(QtCore::QMetaType::Type::QSize, method(:from_qsize), method(:to_qsize), from: QtCore::QSize)
       register(QtCore::QMetaType::Type::QSizeF, method(:from_qsizef), method(:to_qsizef), from: QtCore::QSizeF)
+      register(QtCore::QMetaType::Type::QStringList, method(:from_qstringlist), method(:to_qstringlist), from: QtCore::QStringList)
     end
   end
 end
