@@ -18,6 +18,7 @@
 #include "qcoreevent-rb.hpp"
 #include "qdatetime-rb.hpp"
 #include "qdir-rb.hpp"
+#include "qfileinfo-rb.hpp"
 #include "qlibraryinfo-rb.hpp"
 #include "qline-rb.hpp"
 #include "qlocale-rb.hpp"
@@ -27,6 +28,7 @@
 #include "qrect-rb.hpp"
 #include "qresource-rb.hpp"
 #include "qsize-rb.hpp"
+#include "qtextstream-rb.hpp"
 #include "qurl-rb.hpp"
 #include "quuid-rb.hpp"
 #include "qvariant-rb.hpp"
@@ -74,6 +76,7 @@ extern "C" void Init_qtcore()
         Init_qcoreevent(rb_mQt6QtCore);
         Init_qdatetime(rb_mQt6QtCore);
         Init_qdir(rb_mQt6QtCore);
+        Init_qfileinfo(rb_mQt6QtCore);
         Init_qlibraryinfo(rb_mQt6QtCore);
         Init_qline(rb_mQt6QtCore);
         Init_qlocale(rb_mQt6QtCore);
@@ -83,6 +86,7 @@ extern "C" void Init_qtcore()
         Init_qrect(rb_mQt6QtCore);
         Init_qresource(rb_mQt6QtCore);
         Init_qsize(rb_mQt6QtCore);
+        Init_qtextstream(rb_mQt6QtCore);
         Init_qurl(rb_mQt6QtCore);
         Init_quuid(rb_mQt6QtCore);
         Init_qvariant(rb_mQt6QtCore);
