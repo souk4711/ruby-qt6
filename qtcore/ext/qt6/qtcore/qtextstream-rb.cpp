@@ -55,7 +55,9 @@ void Init_qtextstream(Rice::Module rb_mQt6QtCore)
             .define_method("set_string", &QTextStream::setString, Arg("string"), Arg("open_mode") = static_cast<QIODeviceBase::OpenMode>(QIODeviceBase::OpenModeFlag::ReadWrite))
             .define_method("skip_white_space", &QTextStream::skipWhiteSpace)
             .define_method("status", &QTextStream::status)
-            .define_method("string", &QTextStream::string);
+            .define_method("string", &QTextStream::string)
+            .define_method<QTextStream &(QTextStream::*)(const char *)>("<<", &QTextStream::operator<<, Arg("s"))
+            .define_method<QTextStream &(QTextStream::*)(const QString &)>("<<", &QTextStream::operator<<, Arg("s"));
 
     Enum<QTextStream::FieldAlignment> rb_cQTextStreamFieldAlignment =
         // RubyQt6::QtCore::QTextStream::FieldAlignment
