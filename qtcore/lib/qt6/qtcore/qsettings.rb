@@ -39,7 +39,12 @@ module RubyQt6
       # @!visibility private
       def value(key, default = nil)
         qvariant = _value(T.to_qanystringview(key))
-        qvariant.valid? ? QtCore::QVariant.to_object(qvariant) : default
+        return default unless qvariant.valid?
+
+        case default
+        when QtCore::QStringList then QtCore::QVariant.to_qstringlist(qvariant)
+        else QtCore::QVariant.to_object(qvariant)
+        end
       end
     end
   end

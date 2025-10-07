@@ -10,7 +10,7 @@ module RubyQt6
 
       # @!parse
       [
-        OpenModeFlag
+        QIODevice::OpenModeFlag
       ].each do |enum|
         enum.constants.each do |const|
           QIODevice.const_set(const, enum.const_get(const))
