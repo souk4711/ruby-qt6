@@ -12,26 +12,12 @@ module RubyQt6
           _initialize_value(self, self.class._qmetaobject)
         end
 
-        def self._rubyqt6_metaobject
-          superclass._rubyqt6_metaobject
-        end
-
         def self._qmetaobject
           superclass._qmetaobject
         end
 
-        def _rubyqt6_handle_qobject_event_filter(watched, event)
-          event_filter(watched, event)
-        rescue
-          RubyQt6.logger_log_exception(e)
-          false
-        end
-
-        def _rubyqt6_handle_event(event, *args)
-          __send__(event, *args)
-        rescue => e
-          RubyQt6.logger_log_exception(e)
-          nil
+        def self._rubyqt6_metaobject
+          superclass._rubyqt6_metaobject
         end
       end
     end

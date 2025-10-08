@@ -67,6 +67,24 @@ template <typename Class_T, typename... Arg_Ts> class BandoQWidget : public Clas
 
     bool eventFilter(QObject *watched, QEvent *event) override { return bando_handleQObjectEventFilter<BandoQWidget>(this, watched, event); };
 
+    QSize minimumSizeHint() const override {
+        auto rb_name = Rice::Identifier("minimum_size_hint");
+        if (!this->value_.respond_to(rb_name))
+            return this->Class_T::minimumSizeHint();
+
+        Q_ASSERT(this->value_.rb_type() != RUBY_T_NONE);
+        return Rice::detail::From_Ruby<QSize>().convert(this->value_.call(rb_name));
+    };
+
+    QSize sizeHint() const override {
+        auto rb_name = Rice::Identifier("size_hint");
+        if (!this->value_.respond_to(rb_name))
+            return this->Class_T::sizeHint();
+
+        Q_ASSERT(this->value_.rb_type() != RUBY_T_NONE);
+        return Rice::detail::From_Ruby<QSize>().convert(this->value_.call(rb_name));
+    };
+
     void actionEvent(QActionEvent *event) override { bando_handleEvent<BandoQWidget, QActionEvent>(this, event, bando_FunctionName::actionEvent); };
     void changeEvent(QEvent *event) override { bando_handleEvent<BandoQWidget, QEvent>(this, event, bando_FunctionName::changeEvent); };
     void closeEvent(QCloseEvent *event) override { bando_handleEvent<BandoQWidget, QCloseEvent>(this, event, bando_FunctionName::closeEvent); };
@@ -141,7 +159,9 @@ Rice::Data_Type<BC_T> define_bando_qwidget_under(Rice::Module module, char const
 {
     Rice::Data_Type<BC_T> bando_qlass =
         Rice::define_class_under<BC_T, C_T>(module, name)
-            .define_method("_initialize_value", &BC_T::initializeValue, Rice::Arg("mo"), Rice::Arg("value"));
+            .define_method("_initialize_value", &BC_T::initializeValue, Rice::Arg("mo"), Rice::Arg("value"))
+            .define_method("_minimum_size_hint", [](BC_T *self) -> QSize { return self->C_T::minimumSizeHint(); })
+            .define_method("_size_hint", [](BC_T *self) -> QSize { return self->C_T::sizeHint(); });
     return bando_qlass;
 }
 

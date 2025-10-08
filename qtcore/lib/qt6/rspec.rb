@@ -14,9 +14,9 @@ module RubyQt6
       "paint_engine",                               # QPaintDevice
       "metric",                                     # QPaintDevice
       "has_height_for_width", "height_for_width",   # QWidget
+      "input_method_query",                         # QWidget
       "minimum_size_hint", "size_hint",             # QWidget
-      "init_painter",                               # QWidget
-      "input_method_query"                          # QWidget
+      "init_painter"                                # QWidget
     ]
 
     NO_VERIFY_QLASS_DOCS = [
