@@ -24,16 +24,33 @@ module RubyQt6
 
       def parse_bando_variants_declaration
         while line == "" || line.start_with?("#include") || line.start_with?("using ")
-          take_next_line
+          matched = line.match(/^using Bando_(\w+) = Bando(\w+)<(\w+), (.*)>/)
+          if matched.nil?
+            take_next_line
+            next
+          end
+
+          if matched[1] != matched[3]
+            expected = "using Bando_#{matched[1]} = Bando#{matched[2]}<#{matched[1]}, ..."
+            raise MissingLine.new(expected, line)
+          else
+            take_next_line
+          end
+
+          @bandoes << OpenStruct.new(
+            name: matched[1],
+            template: matched[2],
+            constructor_args: matched[4]
+          )
         end
 
-        while (matched = line.match(/^Rice::Class rb_mBando_c(\w+)/))
-          @bandoes << OpenStruct.new(name: matched[1])
-          take_next_line
-        end
-
-        if @bandoes.length.zero?
-          raise MissingLine.new("Rice::Class rb_mBando_c...", line)
+        @bandoes.each do |bando|
+          expected = "Rice::Class rb_mBando_c#{bando.name};"
+          if line == expected
+            take_next_line
+          else
+            raise MissingLine.new(expected, line)
+          end
         end
 
         while line == "" || line.start_with?("void Init_bando_#{@qmod.name.downcase}") || line == "{"
@@ -57,23 +74,18 @@ module RubyQt6
           raise MissingLine.new(expected, line)
         end
 
-        expected = "define_class_under<Bando_#{name}, #{name}>(rb_mQt6Bando, \"#{name}\")"
+        expected = "define_bando_#{bando.template.downcase}_under<Bando_#{name}, #{name}>(rb_mQt6Bando, \"#{name}\")"
         if line == expected
           take_next_line
         else
           raise MissingLine.new(expected, line)
         end
 
-        if line.start_with?(/\.define_constructor\(Constructor<Bando_#{name}, /)
+        expected = ".define_constructor(Constructor<Bando_#{name}, #{bando.constructor_args}>()"
+        if line.start_with?(expected)
           take_next_line
         else
-          raise MissingLine.new(".define_constructor<Constructor<Bando_#{name}, ...", line)
-        end
-
-        if line.start_with?(/\.define_method\("_initialize_value", &Bando_#{name}::initializeValue, /)
-          take_next_line
-        else
-          raise MissingLine.new("define_method(\"_initialize_value\", &Bando_#{name}::initializeValue, ...", line)
+          raise MissingLine.new(expected, line)
         end
 
         while line == "" || line == "}"

@@ -136,4 +136,13 @@ template <typename Class_T, typename... Arg_Ts> class BandoQWidget : public Clas
     QMetaObject *mo_;
 };
 
+template <typename BC_T, typename C_T>
+Rice::Data_Type<BC_T> define_bando_qwidget_under(Rice::Module module, char const *name)
+{
+    Rice::Data_Type<BC_T> bando_qlass =
+        Rice::define_class_under<BC_T, C_T>(module, name)
+            .define_method("_initialize_value", &BC_T::initializeValue, Rice::Arg("mo"), Rice::Arg("value"));
+    return bando_qlass;
+}
+
 #endif
