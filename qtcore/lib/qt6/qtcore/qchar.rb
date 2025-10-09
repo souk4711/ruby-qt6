@@ -31,6 +31,16 @@ module RubyQt6
       def initialize(*args)
         _initialize(*args)
       end
+
+      # @!visibility private
+      def to_s
+        to_std_string
+      end
+
+      # @!visibility private
+      def inspect
+        T.q_inspect(self, str: to_s)
+      end
     end
   end
 end

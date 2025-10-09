@@ -12,6 +12,8 @@ void Init_qchar(Rice::Module rb_mQt6QtCore)
     rb_cQChar =
         // RubyQt6::QtCore::QChar
         define_class_under<QChar>(rb_mQt6QtCore, "QChar")
+            // RubyQt6-Defined Functions
+            .define_method("to_std_string", [](QChar *self) -> std::string { return QString(*self).toStdString(); })
             // Constructor
             .define_constructor(Constructor<QChar, int>(), Arg("code"))
             // Public Functions
