@@ -26,6 +26,8 @@ module RubyQt6
 
       # @return [QFont]
       #
+      # @overload initialize
+      #
       # @overload initialize(family)
       #   @param family [String, QString]
       #

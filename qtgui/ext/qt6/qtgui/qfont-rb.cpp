@@ -13,6 +13,7 @@ void Init_qfont(Rice::Module rb_mQt6QtGui)
         // RubyQt6::QtGui::QFont
         define_class_under<QFont>(rb_mQt6QtGui, "QFont")
             // Constructor
+            .define_constructor(Constructor<QFont>())
             .define_constructor(Constructor<QFont, const QString &>(), Arg("family"))
             .define_constructor(Constructor<QFont, const QString &, int>(), Arg("family"), Arg("point_size"))
             .define_constructor(Constructor<QFont, const QString &, int, int>(), Arg("family"), Arg("point_size"), Arg("weight"))
