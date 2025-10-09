@@ -6,7 +6,9 @@
 #include "qcursor-rb.hpp"
 #include "qevent-rb.hpp"
 #include "qfont-rb.hpp"
+#include "qfontdatabase-rb.hpp"
 #include "qfontinfo-rb.hpp"
+#include "qfontmetrics-rb.hpp"
 #include "qicon-rb.hpp"
 #include "qkeysequence-rb.hpp"
 #include "qpaintdevice-rb.hpp"
@@ -23,6 +25,7 @@
 
 #include "qaction-rb.hpp"
 #include "qactiongroup-rb.hpp"
+#include "qclipboard-rb.hpp"
 #include "qguiapplication-rb.hpp"
 #include "qshortcut-rb.hpp"
 #include "qtextdocument-rb.hpp"
@@ -46,7 +49,9 @@ extern "C" void Init_qtgui()
         Init_qcursor(rb_mQt6QtGui);
         Init_qevent(rb_mQt6QtGui);
         Init_qfont(rb_mQt6QtGui);
+        Init_qfontdatabase(rb_mQt6QtGui);
         Init_qfontinfo(rb_mQt6QtGui);
+        Init_qfontmetrics(rb_mQt6QtGui);
         Init_qicon(rb_mQt6QtGui);
         Init_qkeysequence(rb_mQt6QtGui);
         Init_qpaintdevice(rb_mQt6QtGui);
@@ -63,6 +68,7 @@ extern "C" void Init_qtgui()
 
         Init_qaction(rb_mQt6QtGui);
         Init_qactiongroup(rb_mQt6QtGui);
+        Init_qclipboard(rb_mQt6QtGui);
         Init_qguiapplication(rb_mQt6QtGui);
         Init_qshortcut(rb_mQt6QtGui);
         Init_qtextdocument(rb_mQt6QtGui);
