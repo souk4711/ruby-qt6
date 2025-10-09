@@ -1,0 +1,22 @@
+#include "qtooltip-rb.hpp"
+#include <qtooltip.h>
+
+using namespace Rice;
+
+Rice::Class rb_cQToolTip;
+
+void Init_qtooltip(Rice::Module rb_mQt6QtWidgets)
+{
+    rb_cQToolTip =
+        // RubyQt6::QtWidgets::QToolTip
+        define_class_under<QToolTip>(rb_mQt6QtWidgets, "QToolTip")
+            // Static Public Members
+            .define_singleton_function("font", &QToolTip::font)
+            .define_singleton_function("hide_text", &QToolTip::hideText)
+            .define_singleton_function("visible?", &QToolTip::isVisible)
+            .define_singleton_function("palette", &QToolTip::palette)
+            .define_singleton_function("set_font", &QToolTip::setFont, Arg("font"))
+            .define_singleton_function("set_palette", &QToolTip::setPalette, Arg("palette"))
+            .define_singleton_function("show_text", &QToolTip::showText, Arg("pos"), Arg("text"), Arg("w") = static_cast<QWidget *>(nullptr), Arg("rect") = static_cast<const QRect &>(QRect {}), Arg("msec_show_time") = static_cast<int>(-1))
+            .define_singleton_function("text", &QToolTip::text);
+}

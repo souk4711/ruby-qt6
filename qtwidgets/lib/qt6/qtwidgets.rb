@@ -9,6 +9,7 @@ require_relative "qtwidgets/qtwidgetsversion"
 
 require_relative "qtwidgets/qlayoutitem"
 require_relative "qtwidgets/qsizepolicy"
+require_relative "qtwidgets/qtooltip"
 
 require_relative "qtwidgets/qapplication"
 require_relative "qtwidgets/qlayout"

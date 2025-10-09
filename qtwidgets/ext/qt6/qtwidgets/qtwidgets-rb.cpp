@@ -3,6 +3,7 @@
 
 #include "qlayoutitem-rb.hpp"
 #include "qsizepolicy-rb.hpp"
+#include "qtooltip-rb.hpp"
 
 #include "qapplication-rb.hpp"
 #include "qlayout-rb.hpp"
@@ -164,6 +165,7 @@ extern "C" void Init_qtwidgets()
         Init_qprogressbar(rb_mQt6QtWidgets);
         Init_qrubberband(rb_mQt6QtWidgets);
         Init_qsizegrip(rb_mQt6QtWidgets);
+        Init_qtooltip(rb_mQt6QtWidgets);
         Init_qsplashscreen(rb_mQt6QtWidgets);
         Init_qstatusbar(rb_mQt6QtWidgets);
         Init_qtabbar(rb_mQt6QtWidgets);
