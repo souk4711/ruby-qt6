@@ -23,6 +23,14 @@ module RubyQt6
         _initialize(argv.size, argv)
         _initialize_qApp
       end
+
+      # @!visibility private
+      def exec
+        self.class.exec
+      rescue
+        self.class.close_all_windows
+        raise
+      end
     end
   end
 end
