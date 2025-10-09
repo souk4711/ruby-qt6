@@ -6,6 +6,14 @@ module RubyQt6
     class QClipboard < RubyQt6::QtCore::QObject
       # @!parse class Mode; end
       rubyqt6_declare_enum_under QClipboard, QClipboard::Mode
+
+      # @!parse
+      q_object do
+        signal "changed(QClipboard::Mode)"
+        signal "dataChanged()"
+        signal "findBufferChanged()"
+        signal "selectionChanged()"
+      end
     end
   end
 end
