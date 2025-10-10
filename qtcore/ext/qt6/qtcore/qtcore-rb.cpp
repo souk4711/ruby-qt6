@@ -1,8 +1,11 @@
 #include "qtcore-rb.hpp"
 #include "qtcoreversion-rb.hpp"
-#include "qt-enum-al-rb.hpp"
-#include "qt-enum-mz-rb.hpp"
-#include "qt-flags-rb.hpp"
+#include "qt-enum-af-rb.hpp"
+#include "qt-enum-gl-rb.hpp"
+#include "qt-enum-mr-rb.hpp"
+#include "qt-enum-sz-rb.hpp"
+#include "qt-flags-al-rb.hpp"
+#include "qt-flags-mz-rb.hpp"
 
 #include "qmetamethod-rb.hpp"
 #include "qmetaobject-rb.hpp"
@@ -48,7 +51,13 @@
 #include "qitemselection-rb.hpp"
 #include "qstringlist-rb.hpp"
 
-#include "bando-qtcore-rb.hpp"
+#include "bando-qobject-rb.hpp"
+#include "bando-qcoreapplication-rb.hpp"
+#include "bando-qitemselectionmodel-rb.hpp"
+#include "bando-qsettings-rb.hpp"
+#include "bando-qsignalmapper-rb.hpp"
+#include "bando-qtimer-rb.hpp"
+#include "bando-qtranslator-rb.hpp"
 
 extern "C" void Init_qtcore()
 {
@@ -59,9 +68,12 @@ extern "C" void Init_qtcore()
         Rice::Module rb_mQt6QtCore = define_module_under(rb_mQt6, "QtCore");
 
         Init_qtcoreversion(rb_mQt6QtCore);
-        Init_qt_enum_al(rb_mQt6QtCore);
-        Init_qt_enum_mz(rb_mQt6QtCore);
-        Init_qt_flags(rb_mQt6QtCore);
+        Init_qt_enum_af(rb_mQt6QtCore);
+        Init_qt_enum_gl(rb_mQt6QtCore);
+        Init_qt_enum_mr(rb_mQt6QtCore);
+        Init_qt_enum_sz(rb_mQt6QtCore);
+        Init_qt_flags_al(rb_mQt6QtCore);
+        Init_qt_flags_mz(rb_mQt6QtCore);
 
         Init_qmetaobjectbuilder(rb_mQt6QtCore);
         Init_qmetaobject(rb_mQt6QtCore);
@@ -109,6 +121,12 @@ extern "C" void Init_qtcore()
         Init_qstringlist(rb_mQt6QtCore);
 
         Rice::Module rb_mQt6Bando = define_module_under(rb_mQt6, "Bando");
-        Init_bando_qtcore(rb_mQt6Bando);
+        Init_bando_qobject(rb_mQt6Bando);
+        Init_bando_qcoreapplication(rb_mQt6Bando);
+        Init_bando_qitemselectionmodel(rb_mQt6Bando);
+        Init_bando_qsettings(rb_mQt6Bando);
+        Init_bando_qsignalmapper(rb_mQt6Bando);
+        Init_bando_qtimer(rb_mQt6Bando);
+        Init_bando_qtranslator(rb_mQt6Bando);
     });
 }

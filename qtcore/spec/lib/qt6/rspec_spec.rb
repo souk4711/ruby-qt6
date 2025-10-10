@@ -1,7 +1,7 @@
 RSpec.describe RubyQt6::RSpec do
   describe ".verify_bando_cppfile" do
-    it "ext/qt6/qtcore/bando-qtcore-rb.cpp" do
-      cppfile = "ext/qt6/qtcore/bando-qtcore-rb.cpp"
+    it "ext/qt6/qtcore/bando-qobject-rb.cpp" do
+      cppfile = "ext/qt6/qtcore/bando-qobject-rb.cpp"
       qmod = OpenStruct.new(name: "QtCore")
       rs = RubyQt6::RSpec.verify_bando_cppfile cppfile, qmod
 
