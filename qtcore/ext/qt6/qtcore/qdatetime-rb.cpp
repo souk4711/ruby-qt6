@@ -36,6 +36,8 @@ void Init_qdatetime(Rice::Module rb_mQt6QtCore)
         // RubyQt6::QtCore::QDateTime
         define_class_under<QDateTime>(rb_mQt6QtCore, "QDateTime")
             // RubyQt6-Defined Functions
+            .define_method("to_string", [](QDateTime *self, const char *format) -> QString { return self->toString(format); })
+            .define_method("to_string", [](QDateTime *self, const char *format, QCalendar cal) -> QString { return self->toString(format, cal); })
             .define_singleton_function("_operator_compare", QDateTime_operator_compare, Arg("lhs"), Arg("rhs"))
             // Constructor
             .define_constructor(Constructor<QDateTime, QDate, QTime>(), Arg("date"), Arg("time"))
@@ -107,6 +109,8 @@ void Init_qdatetime(Rice::Module rb_mQt6QtCore)
         // RubyQt6::QtCore::QDate
         define_class_under<QDate>(rb_mQt6QtCore, "QDate")
             // RubyQt6-Defined Functions
+            .define_method("to_string", [](QDate *self, const char *format) -> QString { return self->toString(format); })
+            .define_method("to_string", [](QDate *self, const char *format, QCalendar cal) -> QString { return self->toString(format, cal); })
             .define_singleton_function("_operator_compare", QDate_operator_compare, Arg("lhs"), Arg("rhs"))
             // Constructor
             .define_constructor(Constructor<QDate, int, int, int>(), Arg("y"), Arg("m"), Arg("d"))
@@ -159,6 +163,7 @@ void Init_qdatetime(Rice::Module rb_mQt6QtCore)
         // RubyQt6::QtCore::QTime
         define_class_under<QTime>(rb_mQt6QtCore, "QTime")
             // RubyQt6-Defined Functions
+            .define_method("to_string", [](QTime *self, const char *format) -> QString { return self->toString(format); })
             .define_singleton_function("_operator_compare", QTime_operator_compare, Arg("lhs"), Arg("rhs"))
             // Constructor
             .define_constructor(Constructor<QTime, int, int>(), Arg("h"), Arg("m"))
