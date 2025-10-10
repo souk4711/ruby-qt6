@@ -5,7 +5,9 @@
 #include "qquickwindow-rb.hpp"
 #include "qquickview-rb.hpp"
 
-#include "bando-qtquick-rb.hpp"
+#include "bando-qquickitem-rb.hpp"
+#include "bando-qquickwindow-rb.hpp"
+#include "bando-qquickview-rb.hpp"
 
 extern "C" void Init_qtquick()
 {
@@ -20,6 +22,8 @@ extern "C" void Init_qtquick()
         Init_qquickview(rb_mQt6QtQuick);
 
         Rice::Module rb_mQt6Bando = define_module_under(rb_mQt6, "Bando");
-        Init_bando_qtquick(rb_mQt6Bando);
+        Init_bando_qquickitem(rb_mQt6Bando);
+        Init_bando_qquickwindow(rb_mQt6Bando);
+        Init_bando_qquickview(rb_mQt6Bando);
     });
 }
