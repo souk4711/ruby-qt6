@@ -18,6 +18,7 @@
 #include "qstring-rb.hpp"
 #include "qiodevicebase-rb.hpp"
 
+#include "qbasictimer-rb.hpp"
 #include "qcoreevent-rb.hpp"
 #include "qdatetime-rb.hpp"
 #include "qdir-rb.hpp"
@@ -86,6 +87,7 @@ extern "C" void Init_qtcore()
         Init_qstring(rb_mQt6QtCore);
         Init_qiodevicebase(rb_mQt6QtCore);
 
+        Init_qbasictimer(rb_mQt6QtCore);
         Init_qcoreevent(rb_mQt6QtCore);
         Init_qdatetime(rb_mQt6QtCore);
         Init_qdir(rb_mQt6QtCore);
