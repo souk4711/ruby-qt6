@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'qt6/all'
-require_relative './window'
+require_relative 'window'
 
 app = QApplication.new(ARGV)
 window = Window.new

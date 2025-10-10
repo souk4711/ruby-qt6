@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'qt6/all'
-require_relative './analogclock'
+require_relative 'analogclock'
 
 app = QApplication.new(ARGV)
 clock = AnalogClock.new
