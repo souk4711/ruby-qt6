@@ -11,6 +11,7 @@ void Init_qlcdnumber(Rice::Module rb_mQt6QtWidgets)
         // RubyQt6::QtWidgets::QLCDNumber
         define_class_under<QLCDNumber, QFrame>(rb_mQt6QtWidgets, "QLCDNumber")
             // RubyQt6-Defined Functions
+            .define_method("display", [](QLCDNumber *self, const char *str) -> void { return self->display(str); }, Arg("str"))
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QLCDNumber::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QLCDNumber, uint, QWidget *>(), Arg("num"), Arg("parent"))
