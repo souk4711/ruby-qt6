@@ -27,4 +27,13 @@ RSpec.describe RubyQt6::QtCore::QString do
     expect(described_class.new("foo") <=> 1).to eq(nil)
     expect(described_class.new("foo") <=> nil).to eq(nil)
   end
+
+  it "[]=" do
+    o = described_class.new("abc")
+    expect(o[1] = "BD").to eq("BD")
+    expect(o).to eq("aBDc")
+
+    o = described_class.new("abc")
+    expect { o[o.size + 1] = "BD" }.to raise_error("index 4 out of string")
+  end
 end

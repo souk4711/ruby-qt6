@@ -32,7 +32,8 @@ module RubyQt6
       "QObject" => ["_connect", "_disconnect"]
     }
     NO_VERIFY_QLASS_OPERATOR_METHODS = {
-      "QTextStream" => ["<<"]
+      "QTextStream" => ["<<"],
+      "QString" => ["[]="]
     }
     NO_VERIFY_QLASS_QOBJECT_INITIALIZE = [
       "QCoreApplication",

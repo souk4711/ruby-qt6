@@ -160,10 +160,12 @@ module RubyQt6
           rbname = $2
         when /(<.*>)?\("([a-zA-Z0-9_\?]+)", [A-Z]/
           rbname = $2
-        when /(<.*>)?\("([a-zA-Z0-9_\?]+)", &#{qlass.name}::([a-zA-Z0-9]+)/
+        when /(<.*>)?\("([a-zA-Z0-9_\?]+)", &#{qlass.name}::([a-zA-Z0-9_]+)/
           rbname = $2
           cppname = $3
         when /(<.*>)?\("([<\?]+)", &#{qlass.name}::operator/
+          rbname = $2
+        when /(<.*>)?\("([\[\]\=\?]+)", \[\]/
           rbname = $2
         else
           raise "Invalid method line: #{line}"
