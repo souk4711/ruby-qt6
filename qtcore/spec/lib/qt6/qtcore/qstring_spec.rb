@@ -28,12 +28,46 @@ RSpec.describe RubyQt6::QtCore::QString do
     expect(described_class.new("foo") <=> nil).to eq(nil)
   end
 
-  it "[]=" do
-    o = described_class.new("abc")
-    expect(o[1] = "BD").to eq("BD")
-    expect(o).to eq("aBDc")
+  it "[]" do
+    [String, described_class].each do |klass|
+      o = klass.new("abc")
+      expect(o[-4]).to eq(nil)
+      expect(o[-3]).to eq("a")
+      expect(o[-2]).to eq("b")
+      expect(o[-1]).to eq("c")
+      expect(o[0]).to eq("a")
+      expect(o[1]).to eq("b")
+      expect(o[2]).to eq("c")
+      expect(o[3]).to eq(nil)
+      expect(o[1, -1]).to eq(nil)
+      expect(o[1, 0]).to eq("")
+      expect(o[1, 1]).to eq("b")
+      expect(o[1, 2]).to eq("bc")
+      expect(o[1, 3]).to eq("bc")
+    end
+  end
 
-    o = described_class.new("abc")
-    expect { o[o.size + 1] = "BD" }.to raise_error("index 4 out of string")
+  it "[]=" do
+    [String, described_class].each do |klass|
+      o = klass.new("abc")
+      expect(o[1] = "xyz").to eq("xyz")
+      expect(o).to eq("axyzc")
+
+      o = klass.new("abc")
+      expect(o[-1] = "xyz").to eq("xyz")
+      expect(o).to eq("abxyz")
+
+      o = klass.new("abc")
+      expect { o[4] = "xyz" }.to raise_error("index 4 out of string")
+      expect { o[-4] = "xyz" }.to raise_error("index -4 out of string")
+
+      o = klass.new("")
+      expect(o[0] = "xyz").to eq("xyz")
+      expect(o).to eq("xyz")
+
+      o = klass.new("")
+      expect { o[1] = "xyz" }.to raise_error("index 1 out of string")
+      expect { o[-1] = "xyz" }.to raise_error("index -1 out of string")
+    end
   end
 end

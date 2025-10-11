@@ -5,10 +5,34 @@ using namespace Rice;
 
 Rice::Class rb_cQString;
 
-QString QString_replace(QString *self, qsizetype index, const QString &after)
+std::optional<QString> QString_slice(QString *self, qsizetype start, qsizetype length)
 {
-    if (index < 0 || index > self->size()) throw std::out_of_range("index " + std::to_string(index) + " out of string");
-    return self->replace(index, 1, after);
+    if (start < 0) {
+        start = start + self->size();
+        if (start < 0) return std::nullopt;
+    } else if (start >= self->size()) {
+        return std::nullopt;
+    }
+
+    if (length < 0) {
+        return std::nullopt;
+    } else if (start + length > self->size()) {
+        return self->sliced(start);
+    } else {
+        return self->sliced(start, length);
+    }
+}
+
+QString QString_replace(QString *self, qsizetype start, const QString &after)
+{
+    if (start < 0) {
+        start = start + self->size();
+        if (start < 0) throw std::out_of_range("index " + std::to_string(start - self->size()) + " out of string");
+    } else if (start > self->size()) {
+        throw std::out_of_range("index " + std::to_string(start) + " out of string");
+    }
+
+    return self->replace(start, 1, after);
 }
 
 void Init_qstring(Rice::Module rb_mQt6QtCore)
@@ -17,6 +41,8 @@ void Init_qstring(Rice::Module rb_mQt6QtCore)
         // RubyQt6::QtCore::QString
         define_class_under<QString>(rb_mQt6QtCore, "QString")
             // RubyQt6-Defined Functions
+            .define_method("[]", QString_slice, Arg("start"), Arg("length") = static_cast<qsizetype>(1))
+            .define_method("[]=", QString_replace, Arg("index"), Arg("after"))
             .define_method("[]=", [](QString *self, qsizetype index, const char *after) -> QString { return QString_replace(self, index, after); }, Arg("index"), Arg("after"))
             // Constructor
             .define_constructor(Constructor<QString, const char *>(), Arg("str"))
