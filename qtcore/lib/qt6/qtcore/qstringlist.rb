@@ -5,13 +5,8 @@ module RubyQt6
     # @see https://doc.qt.io/qt-6/qstringlist.html
     class QStringList
       # @!visibility private
-      def to_a
-        (0...size).map { |i| at(i) }
-      end
-
-      # @!visibility private
       def to_ary
-        (0...size).map { |i| at(i) }
+        to_a
       end
 
       # @!visibility private
