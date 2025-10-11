@@ -5,6 +5,7 @@ module RubyQt6
     class QlassFileParser
       NESTED_QLASSES = [
         "QMetaObjectConnection",
+        "QPainterPathElement",
         "QFormLayoutTakeRowResult",
         "QTextEditExtraSelection"
       ]

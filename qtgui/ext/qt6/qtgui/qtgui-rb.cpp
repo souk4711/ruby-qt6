@@ -16,6 +16,8 @@
 #include "qpicture-rb.hpp"
 #include "qpixmap-rb.hpp"
 #include "qpainter-rb.hpp"
+#include "qpainterpath-rb.hpp"
+#include "qpainterpathstroker-rb.hpp"
 #include "qpalette-rb.hpp"
 #include "qpen-rb.hpp"
 #include "qregion-rb.hpp"
@@ -64,6 +66,8 @@ extern "C" void Init_qtgui()
         Init_qpicture(rb_mQt6QtGui);
         Init_qpixmap(rb_mQt6QtGui);
         Init_qpainter(rb_mQt6QtGui);
+        Init_qpainterpath(rb_mQt6QtGui);
+        Init_qpainterpathstroker(rb_mQt6QtGui);
         Init_qpalette(rb_mQt6QtGui);
         Init_qpen(rb_mQt6QtGui);
         Init_qregion(rb_mQt6QtGui);
