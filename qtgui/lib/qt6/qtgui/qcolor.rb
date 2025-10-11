@@ -14,6 +14,8 @@ module RubyQt6
 
       # @return [QColor]
       #
+      # @overload initialize
+      #
       # @overload initialize(r, g, b)
       #   @param r [Integer]
       #   @param g [Integer]

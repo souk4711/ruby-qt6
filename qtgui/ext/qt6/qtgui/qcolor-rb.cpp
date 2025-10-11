@@ -11,6 +11,7 @@ void Init_qcolor(Rice::Module rb_mQt6QtGui)
         // RubyQt6::QtGui::QColor
         define_class_under<QColor>(rb_mQt6QtGui, "QColor")
             // Constructor
+            .define_constructor(Constructor<QColor>())
             .define_constructor(Constructor<QColor, int, int, int>(), Arg("r"), Arg("g"), Arg("b"))
             .define_constructor(Constructor<QColor, int, int, int, int>(), Arg("r"), Arg("g"), Arg("b"), Arg("a"))
             .define_constructor(Constructor<QColor, Qt::GlobalColor>(), Arg("color"))
