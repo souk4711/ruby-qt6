@@ -61,7 +61,7 @@ class MainWindow < RubyQt6::Bando::QMainWindow
 
   def find_fonts
     @font_combo.clear
-    QFontDatabase.families.to_a.each do |family|
+    QFontDatabase.families.each do |family|
       @font_combo.add_item(family)
     end
   end
@@ -70,7 +70,7 @@ class MainWindow < RubyQt6::Bando::QMainWindow
     current_item = @style_combo.current_text
     @style_combo.clear
 
-    QFontDatabase.styles(@font_combo.current_text).to_a.each { |style| @style_combo.add_item(style) }
+    QFontDatabase.styles(@font_combo.current_text).each { |style| @style_combo.add_item(style) }
     return unless @style_combo.find_text(current_item) == -1
 
     @style_combo.set_current_index(0)
