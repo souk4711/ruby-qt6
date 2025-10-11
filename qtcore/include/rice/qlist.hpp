@@ -79,7 +79,7 @@ private:
 
     void define_access_methods()
     {
-        klass_.define_method("at", [this](QList_T *self, qsizetype index) -> std::optional<Value_T> {
+        klass_.define_method("at", [](QList_T *self, qsizetype index) -> std::optional<Value_T> {
             if (index < 0) {
                 index = index + self->size();
                 if (index < 0) return std::nullopt;
@@ -127,7 +127,7 @@ private:
 
     void define_insert_methods()
     {
-        klass_.define_method("insert", [this](QList_T *self, qsizetype index, Parameter_T element) -> QList_T* {
+        klass_.define_method("insert", [](QList_T *self, qsizetype index, Parameter_T element) -> QList_T* {
             if (index < 0) {
                 index = index + self->size() + 1;
                 if (index < 0) throw std::out_of_range("index " + std::to_string(index - 1 - self->size()) + " too small for array; minimum: -" + std::to_string(self->size() + 1));
@@ -169,7 +169,7 @@ private:
             return std::nullopt;
         });
 
-        klass_.define_method("delete_at", [this](QList_T *self, qsizetype index) -> std::optional<Value_T> {
+        klass_.define_method("delete_at", [](QList_T *self, qsizetype index) -> std::optional<Value_T> {
             if (index < 0) {
                 index = index + self->size();
                 if (index < 0) return std::nullopt;
@@ -182,7 +182,7 @@ private:
 
     void define_replace_methods()
     {
-        klass_.define_method("[]=", [this](QList_T*self, qsizetype index, Parameter_T element) -> Parameter_T {
+        klass_.define_method("[]=", [](QList_T*self, qsizetype index, Parameter_T element) -> Parameter_T {
             if (index < 0) {
                 index = index + self->size();
                 if (index < 0) throw std::out_of_range("index " + std::to_string(index - self->size()) + " too small for array; minimum: -" + std::to_string(self->size()));
@@ -200,6 +200,14 @@ private:
 
     void define_enumerable()
     {
+        klass_.define_method("each", [](QList_T *self) -> QList_T* {
+            for (qsizetype i = 0; i < self->size(); i++) {
+                Rice::detail::protect(rb_yield, Rice::detail::to_ruby(self->at(i)));
+            }
+            return self;
+        });
+
+        klass_.include_module(rb_mEnumerable);
     }
 
     void define_to_array()
