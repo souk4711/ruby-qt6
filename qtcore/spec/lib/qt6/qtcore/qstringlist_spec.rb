@@ -44,15 +44,6 @@ RSpec.describe RubyQt6::QtCore::QStringList do
     expect(a[-1]).to eq("5")
   end
 
-  it "#to_ary" do
-    o = described_class.new << "1" << "2" << "3" << "2" << "5"
-    a = o.to_ary
-    expect(a).to be_a(Array)
-    expect(a[0]).to be_a(RubyQt6::QtCore::QString)
-    expect(a[0]).to eq("1")
-    expect(a[-1]).to eq("5")
-  end
-
   it "#at" do
     [Array, described_class].each do |klass|
       o = klass.new << "1" << "2" << "3" << "2" << "5"

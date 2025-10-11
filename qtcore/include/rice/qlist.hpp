@@ -212,6 +212,7 @@ private:
 
     void define_to_array()
     {
+        rb_define_alias(klass_, "to_ary", "to_a");
     }
 
     void define_to_s()
