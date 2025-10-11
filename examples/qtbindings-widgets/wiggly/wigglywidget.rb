@@ -32,7 +32,7 @@ class WigglyWidget < RubyQt6::Bando::QWidget
     metrics = QFontMetrics.new(font)
     x = (width - metrics.horizontal_advance(@text)) / 2
     y = (height + metrics.ascent - metrics.descent) / 2
-    color = QColor.new(Qt::White)
+    color = QColor.new
 
     painter = QPainter.new(self)
     (0...@text.size).each do |i|
