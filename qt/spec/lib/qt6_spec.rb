@@ -29,6 +29,7 @@ RSpec.describe RubyQt6 do
       RubyQt6::QtCore::QFileDevice,
       RubyQt6::QtCore::QFile,
       RubyQt6::QtGui::QClipboard,
+      RubyQt6::QtWidgets::QStyle,
       RubyQt6::QtWidgets::QLayout,
       RubyQt6::QtWidgets::QBoxLayout,
       RubyQt6::QtWidgets::QHBoxLayout,

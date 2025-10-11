@@ -12,6 +12,7 @@ require_relative "qtwidgets/qsizepolicy"
 require_relative "qtwidgets/qtooltip"
 
 require_relative "qtwidgets/qapplication"
+require_relative "qtwidgets/qstyle"
 require_relative "qtwidgets/qlayout"
 require_relative "qtwidgets/qboxlayout"
 require_relative "qtwidgets/qhboxlayout"

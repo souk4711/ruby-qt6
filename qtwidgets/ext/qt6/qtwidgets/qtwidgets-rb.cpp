@@ -6,6 +6,7 @@
 #include "qtooltip-rb.hpp"
 
 #include "qapplication-rb.hpp"
+#include "qstyle-rb.hpp"
 #include "qlayout-rb.hpp"
 #include "qboxlayout-rb.hpp"
 #include "qformlayout-rb.hpp"
@@ -158,6 +159,7 @@ extern "C" void Init_qtwidgets()
         Init_qlayoutitem(rb_mQt6QtWidgets);
 
         Init_qapplication(rb_mQt6QtWidgets);
+        Init_qstyle(rb_mQt6QtWidgets);
         Init_qlayout(rb_mQt6QtWidgets);
         Init_qboxlayout(rb_mQt6QtWidgets);
         Init_qformlayout(rb_mQt6QtWidgets);
