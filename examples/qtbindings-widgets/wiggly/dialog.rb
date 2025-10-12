@@ -7,7 +7,7 @@ class Dialog < RubyQt6::Bando::QDialog
     super(parent)
 
     wiggly_widget = WigglyWidget.new
-    line_edit = QLineEdit.new ''
+    line_edit = QLineEdit.new
 
     layout = QVBoxLayout.new
     layout.add_widget(wiggly_widget)

@@ -18,7 +18,7 @@ class MainWindow < RubyQt6::Bando::QMainWindow
 
     @@main_windows[self] = self
 
-    @text_edit = QTextEdit.new('')
+    @text_edit = QTextEdit.new
     @recent_file_actions = []
 
     set_central_widget(@text_edit)

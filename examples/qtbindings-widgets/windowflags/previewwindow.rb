@@ -4,7 +4,7 @@ class PreviewWindow < RubyQt6::Bando::QWidget
   def initialize(parent = nil)
     super(parent)
 
-    @text_edit = QTextEdit.new ''
+    @text_edit = QTextEdit.new
     @text_edit.set_read_only true
     @text_edit.set_line_wrap_mode QTextEdit::NoWrap
 

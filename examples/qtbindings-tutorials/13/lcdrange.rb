@@ -24,7 +24,7 @@ class LCDRange < RubyQt6::Bando::QWidget
     @slider.value_changed.connect(lcd, :display)
     @slider.value_changed.connect(self, :value_changed)
 
-    @label = QLabel.new(' ')
+    @label = QLabel.new
     @label.set_alignment(Qt::AlignHCenter | Qt::AlignTop)
     @label.set_size_policy(QSizePolicy::Preferred, QSizePolicy::Fixed)
 

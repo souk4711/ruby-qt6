@@ -15,7 +15,7 @@ class Dialog < RubyQt6::Bando::QDialog
     create_horizontal_group_box
     create_grid_group_box
 
-    @big_editor = QTextEdit.new('')
+    @big_editor = QTextEdit.new
     @big_editor.set_plain_text(tr('This widget takes up all the remaining space in the top-level layout.'))
 
     @ok_button = QPushButton.new(tr('OK'))
@@ -68,12 +68,12 @@ class Dialog < RubyQt6::Bando::QDialog
 
     (0...NUM_GRID_ROWS).each do |i|
       @labels[i] = QLabel.new(tr(format('Line %d:', i + 1)))
-      @line_edits[i] = QLineEdit.new('')
+      @line_edits[i] = QLineEdit.new
       layout.add_widget(@labels[i], i, 0)
       layout.add_widget(@line_edits[i], i, 1)
     end
 
-    @small_editor = QTextEdit.new('')
+    @small_editor = QTextEdit.new
     @small_editor.set_plain_text(tr('This widget takes up about two thirds of the grid layout.'))
     layout.add_widget(@small_editor, 0, 2, 3, 1)
 

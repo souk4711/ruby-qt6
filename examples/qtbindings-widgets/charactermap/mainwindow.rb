@@ -26,7 +26,7 @@ class MainWindow < RubyQt6::Bando::QMainWindow
     find_fonts
     find_styles
 
-    @line_edit = QLineEdit.new("")
+    @line_edit = QLineEdit.new
     @clipboard_button = QPushButton.new(tr('&To clipboard'))
     @clipboard = QApplication.clipboard
 

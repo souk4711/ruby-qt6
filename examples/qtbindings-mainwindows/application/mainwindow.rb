@@ -13,7 +13,7 @@ class MainWindow < RubyQt6::Bando::QMainWindow
   def initialize(parent = nil)
     super
 
-    @text_edit = QTextEdit.new('')
+    @text_edit = QTextEdit.new
     set_central_widget(@text_edit)
 
     create_actions
