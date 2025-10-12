@@ -9,6 +9,9 @@ module RubyQt6
       rubyqt6_declare_enum_under QTextEdit, QTextEdit::AutoFormattingFlag
       rubyqt6_declare_enum_under QTextEdit, QTextEdit::LineWrapMode
 
+      # @!parse class AutoFormatting; end
+      rubyqt6_declare_qflags QTextEdit::AutoFormatting, QTextEdit::AutoFormattingFlag
+
       # @!parse
       q_object do
         signal "copyAvailable(bool)"

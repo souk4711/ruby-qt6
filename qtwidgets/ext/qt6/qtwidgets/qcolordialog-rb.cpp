@@ -1,5 +1,6 @@
 #include "qcolordialog-rb.hpp"
 #include <qcolordialog.h>
+#include <rice/qflags.hpp>
 
 using namespace Rice;
 
@@ -42,4 +43,8 @@ void Init_qcolordialog(Rice::Module rb_mQt6QtWidgets)
             .define_value("NoButtons", QColorDialog::ColorDialogOption::NoButtons)
             .define_value("DontUseNativeDialog", QColorDialog::ColorDialogOption::DontUseNativeDialog)
             .define_value("NoEyeDropperButton", QColorDialog::ColorDialogOption::NoEyeDropperButton);
+
+    Data_Type<QFlags<QColorDialog::ColorDialogOption>> rb_cQColorDialogColorDialogOptions =
+        // RubyQt6::QtWidgets::QColorDialog::ColorDialogOptions
+        define_qflags_under<QColorDialog::ColorDialogOption>(rb_cQColorDialog, "ColorDialogOptions");
 }

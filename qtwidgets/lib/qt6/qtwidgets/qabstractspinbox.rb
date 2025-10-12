@@ -13,6 +13,9 @@ module RubyQt6
       rubyqt6_declare_enum_under QAbstractSpinBox, QAbstractSpinBox::StepEnabledFlag
       rubyqt6_declare_enum_under QAbstractSpinBox, QAbstractSpinBox::StepType
 
+      # @!parse class StepEnabled; end
+      rubyqt6_declare_qflags QAbstractSpinBox::StepEnabled, QAbstractSpinBox::StepEnabledFlag
+
       # @!parse
       q_object do
         signal "editingFinished()"

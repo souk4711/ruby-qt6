@@ -17,6 +17,9 @@ module RubyQt6
       rubyqt6_declare_enum_under QAbstractItemView, QAbstractItemView::SelectionBehavior
       rubyqt6_declare_enum_under QAbstractItemView, QAbstractItemView::SelectionMode
 
+      # @!parse class EditTriggers; end
+      rubyqt6_declare_qflags QAbstractItemView::EditTriggers, QAbstractItemView::EditTrigger
+
       # @!parse
       q_object do
         signal "activated(QModelIndex)"

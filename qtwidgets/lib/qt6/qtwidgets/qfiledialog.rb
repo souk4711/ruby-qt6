@@ -15,6 +15,9 @@ module RubyQt6
       rubyqt6_declare_enum_under QFileDialog, QFileDialog::Option
       rubyqt6_declare_enum_under QFileDialog, QFileDialog::ViewMode
 
+      # @!parse class Options; end
+      rubyqt6_declare_qflags QFileDialog::Options, QFileDialog::Option
+
       # @!parse
       q_object do
         signal "currentChanged(QString)"

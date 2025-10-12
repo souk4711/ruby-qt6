@@ -1,5 +1,6 @@
 #include "qdockwidget-rb.hpp"
 #include <qdockwidget.h>
+#include <rice/qflags.hpp>
 
 using namespace Rice;
 
@@ -46,4 +47,8 @@ void Init_qdockwidget(Rice::Module rb_mQt6QtWidgets)
             .define_value("DockWidgetFeatureMask", QDockWidget::DockWidgetFeature::DockWidgetFeatureMask)
             .define_value("NoDockWidgetFeatures", QDockWidget::DockWidgetFeature::NoDockWidgetFeatures)
             .define_value("Reserved", QDockWidget::DockWidgetFeature::Reserved);
+
+    Data_Type<QFlags<QDockWidget::DockWidgetFeature>> rb_cQDockWidgetDockWidgetFeatures =
+        // RubyQt6::QtWidgets::QDockWidget::DockWidgetFeatures
+        define_qflags_under<QDockWidget::DockWidgetFeature>(rb_cQDockWidget, "DockWidgetFeatures");
 }

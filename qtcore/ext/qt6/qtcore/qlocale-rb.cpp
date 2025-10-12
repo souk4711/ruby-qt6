@@ -1029,5 +1029,4 @@ void Init_qlocale(Rice::Module rb_mQt6QtCore)
     Data_Type<QFlags<QLocale::LanguageCodeType>> rb_cQLocaleLanguageCodeTypes =
         // RubyQt6::QtCore::QLocale::LanguageCodeTypes
         define_qflags_under<QLocale::LanguageCodeType>(rb_cQLocale, "LanguageCodeTypes");
-
 }

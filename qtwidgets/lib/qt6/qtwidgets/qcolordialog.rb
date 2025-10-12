@@ -7,6 +7,9 @@ module RubyQt6
       # @!parse class ColorDialogOption; end
       rubyqt6_declare_enum_under QColorDialog, QColorDialog::ColorDialogOption
 
+      # @!parse class ColorDialogOptions; end
+      rubyqt6_declare_qflags QColorDialog::ColorDialogOptions, QColorDialog::ColorDialogOption
+
       # @!parse
       q_object do
         signal "colorSelected(QColor)"

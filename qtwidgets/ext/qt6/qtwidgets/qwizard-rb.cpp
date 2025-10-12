@@ -1,5 +1,6 @@
 #include "qwizard-rb.hpp"
 #include <qwizard.h>
+#include <rice/qflags.hpp>
 
 #include <QAbstractButton>
 
@@ -121,6 +122,10 @@ void Init_qwizard(Rice::Module rb_mQt6QtWidgets)
             .define_value("MacStyle", QWizard::WizardStyle::MacStyle)
             .define_value("AeroStyle", QWizard::WizardStyle::AeroStyle)
             .define_value("NStyles", QWizard::WizardStyle::NStyles);
+
+    Data_Type<QFlags<QWizard::WizardOption>> rb_cQWizardWizardOptions =
+        // RubyQt6::QtWidgets::QWizard::WizardOptions
+        define_qflags_under<QWizard::WizardOption>(rb_cQWizard, "WizardOptions");
 
     rb_cQWizardPage =
         // RubyQt6::QtWidgets::QWizardPage

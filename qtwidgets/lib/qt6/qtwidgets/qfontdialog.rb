@@ -7,6 +7,9 @@ module RubyQt6
       # @!parse class FontDialogOption; end
       rubyqt6_declare_enum_under QFontDialog, QFontDialog::FontDialogOption
 
+      # @!parse class FontDialogOptions; end
+      rubyqt6_declare_qflags QFontDialog::FontDialogOptions, QFontDialog::FontDialogOption
+
       # @!parse
       q_object do
         signal "currentFontChanged(QFont)"

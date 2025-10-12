@@ -1,5 +1,6 @@
 #include "qsizepolicy-rb.hpp"
 #include <qsizepolicy.h>
+#include <rice/qflags.hpp>
 
 using namespace Rice;
 
@@ -70,4 +71,8 @@ void Init_qsizepolicy(Rice::Module rb_mQt6QtWidgets)
             .define_value("ExpandFlag", QSizePolicy::PolicyFlag::ExpandFlag)
             .define_value("ShrinkFlag", QSizePolicy::PolicyFlag::ShrinkFlag)
             .define_value("IgnoreFlag", QSizePolicy::PolicyFlag::IgnoreFlag);
+
+    Data_Type<QFlags<QSizePolicy::ControlType>> rb_cQSizePolicyControlTypes =
+        // RubyQt6::QtWidgets::QSizePolicy::ControlTypes
+        define_qflags_under<QSizePolicy::ControlType>(rb_cQSizePolicy, "ControlTypes");
 }

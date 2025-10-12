@@ -1,5 +1,6 @@
 #include "qfontcombobox-rb.hpp"
 #include <qfontcombobox.h>
+#include <rice/qflags.hpp>
 
 using namespace Rice;
 
@@ -39,4 +40,8 @@ void Init_qfontcombobox(Rice::Module rb_mQt6QtWidgets)
             .define_value("NonScalableFonts", QFontComboBox::FontFilter::NonScalableFonts)
             .define_value("MonospacedFonts", QFontComboBox::FontFilter::MonospacedFonts)
             .define_value("ProportionalFonts", QFontComboBox::FontFilter::ProportionalFonts);
+
+    Data_Type<QFlags<QFontComboBox::FontFilter>> rb_cQFontComboBoxFontFilters =
+        // RubyQt6::QtWidgets::QFontComboBox::FontFilters
+        define_qflags_under<QFontComboBox::FontFilter>(rb_cQFontComboBox, "FontFilters");
 }

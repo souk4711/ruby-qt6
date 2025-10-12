@@ -1,5 +1,6 @@
 #include "qdatetimeedit-rb.hpp"
 #include <qdatetimeedit.h>
+#include <rice/qflags.hpp>
 
 #include <QCalendarWidget>
 
@@ -87,6 +88,10 @@ void Init_qdatetimeedit(Rice::Module rb_mQt6QtWidgets)
             .define_value("YearSection", QDateTimeEdit::Section::YearSection)
             .define_value("TimeSections_Mask", QDateTimeEdit::Section::TimeSections_Mask)
             .define_value("DateSections_Mask", QDateTimeEdit::Section::DateSections_Mask);
+
+    Data_Type<QFlags<QDateTimeEdit::Section>> rb_cQDateTimeEditSections =
+        // RubyQt6::QtWidgets::QDateTimeEdit::Sections
+        define_qflags_under<QDateTimeEdit::Section>(rb_cQDateTimeEdit, "Sections");
 
     rb_cQDateEdit =
         // RubyQt6::QtWidgets::QDateEdit

@@ -1,5 +1,6 @@
 #include "qfiledialog-rb.hpp"
 #include <qfiledialog.h>
+#include <rice/qflags.hpp>
 
 #include <QAbstractItemDelegate>
 #include <QAbstractFileIconProvider>
@@ -130,4 +131,8 @@ void Init_qfiledialog(Rice::Module rb_mQt6QtWidgets)
         define_enum_under<QFileDialog::ViewMode>("ViewMode", rb_cQFileDialog)
             .define_value("Detail", QFileDialog::ViewMode::Detail)
             .define_value("List", QFileDialog::ViewMode::List);
+
+    Data_Type<QFlags<QFileDialog::Option>> rb_cQFileDialogOptions =
+        // RubyQt6::QtWidgets::QFileDialog::Options
+        define_qflags_under<QFileDialog::Option>(rb_cQFileDialog, "Options");
 }

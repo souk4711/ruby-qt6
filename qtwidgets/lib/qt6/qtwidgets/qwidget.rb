@@ -7,6 +7,9 @@ module RubyQt6
       # @!parse class RenderFlag; end
       rubyqt6_declare_enum_under QWidget, QWidget::RenderFlag
 
+      # @!parse class RenderFlags; end
+      rubyqt6_declare_qflags QWidget::RenderFlags, QWidget::RenderFlag
+
       # @!parse
       q_object do
         signal "customContextMenuRequested(QPoint)"

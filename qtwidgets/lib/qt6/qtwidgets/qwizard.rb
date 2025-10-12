@@ -13,6 +13,9 @@ module RubyQt6
       rubyqt6_declare_enum_under QWizard, QWizard::WizardPixmap
       rubyqt6_declare_enum_under QWizard, QWizard::WizardStyle
 
+      # @!parse class WizardOptions; end
+      rubyqt6_declare_qflags QWizard::WizardOptions, QWizard::WizardOption
+
       # @!parse
       q_object do
         signal "currentIdChanged(int)"

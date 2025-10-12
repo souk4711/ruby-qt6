@@ -1,5 +1,6 @@
 #include "qinputdialog-rb.hpp"
 #include <qinputdialog.h>
+#include <rice/qflags.hpp>
 
 using namespace Rice;
 
@@ -85,4 +86,8 @@ void Init_qinputdialog(Rice::Module rb_mQt6QtWidgets)
             .define_value("TextInput", QInputDialog::InputMode::TextInput)
             .define_value("IntInput", QInputDialog::InputMode::IntInput)
             .define_value("DoubleInput", QInputDialog::InputMode::DoubleInput);
+
+    Data_Type<QFlags<QInputDialog::InputDialogOption>> rb_cQInputDialogInputDialogOptions =
+        // RubyQt6::QtWidgets::QInputDialog::InputDialogOptions
+        define_qflags_under<QInputDialog::InputDialogOption>(rb_cQInputDialog, "InputDialogOptions");
 }

@@ -7,6 +7,9 @@ module RubyQt6
       # @!parse class FontFilter; end
       rubyqt6_declare_enum_under QFontComboBox, QFontComboBox::FontFilter
 
+      # @!parse class FontFilters; end
+      rubyqt6_declare_qflags QFontComboBox::FontFilters, QFontComboBox::FontFilter
+
       # @!parse
       # @!parse
       q_object do

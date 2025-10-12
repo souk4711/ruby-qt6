@@ -1,5 +1,6 @@
 #include "qdialogbuttonbox-rb.hpp"
 #include <qdialogbuttonbox.h>
+#include <rice/qflags.hpp>
 
 #include <QAbstractButton>
 #include <QPushButton>
@@ -87,4 +88,8 @@ void Init_qdialogbuttonbox(Rice::Module rb_mQt6QtWidgets)
             .define_value("RestoreDefaults", QDialogButtonBox::StandardButton::RestoreDefaults)
             .define_value("FirstButton", QDialogButtonBox::StandardButton::FirstButton)
             .define_value("LastButton", QDialogButtonBox::StandardButton::LastButton);
+
+    Data_Type<QFlags<QDialogButtonBox::StandardButton>> rb_cQDialogButtonBoxStandardButtons =
+        // RubyQt6::QtWidgets::QDialogButtonBox::StandardButtons
+        define_qflags_under<QDialogButtonBox::StandardButton>(rb_cQDialogButtonBox, "StandardButtons");
 }

@@ -1,5 +1,6 @@
 #include "qmainwindow-rb.hpp"
 #include <qmainwindow.h>
+#include <rice/qflags.hpp>
 
 #include <QDockWidget>
 #include <QMenuBar>
@@ -88,4 +89,8 @@ void Init_qmainwindow(Rice::Module rb_mQt6QtWidgets)
             .define_value("ForceTabbedDocks", QMainWindow::DockOption::ForceTabbedDocks)
             .define_value("VerticalTabs", QMainWindow::DockOption::VerticalTabs)
             .define_value("GroupedDragging", QMainWindow::DockOption::GroupedDragging);
+
+    Data_Type<QFlags<QMainWindow::DockOption>> rb_cQMainWindowDockOptions =
+        // RubyQt6::QtWidgets::QMainWindow::DockOptions
+        define_qflags_under<QMainWindow::DockOption>(rb_cQMainWindow, "DockOptions");
 }

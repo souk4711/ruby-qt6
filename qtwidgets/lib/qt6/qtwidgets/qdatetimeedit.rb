@@ -7,6 +7,9 @@ module RubyQt6
       # @!parse class Section; end
       rubyqt6_declare_enum_under QDateTimeEdit, QDateTimeEdit::Section
 
+      # @!parse class Sections; end
+      rubyqt6_declare_qflags QDateTimeEdit::Sections, QDateTimeEdit::Section
+
       # @!parse
       q_object do
         signal "dateChanged(QDate)"

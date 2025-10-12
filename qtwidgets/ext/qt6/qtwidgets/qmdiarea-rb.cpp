@@ -1,5 +1,6 @@
 #include "qmdiarea-rb.hpp"
 #include <qmdiarea.h>
+#include <rice/qflags.hpp>
 
 #include <QMdiSubWindow>
 
@@ -68,4 +69,8 @@ void Init_qmdiarea(Rice::Module rb_mQt6QtWidgets)
             .define_value("CreationOrder", QMdiArea::WindowOrder::CreationOrder)
             .define_value("StackingOrder", QMdiArea::WindowOrder::StackingOrder)
             .define_value("ActivationHistoryOrder", QMdiArea::WindowOrder::ActivationHistoryOrder);
+
+    Data_Type<QFlags<QMdiArea::AreaOption>> rb_cQMdiAreaAreaOptions =
+        // RubyQt6::QtWidgets::QMdiArea::AreaOptions
+        define_qflags_under<QMdiArea::AreaOption>(rb_cQMdiArea, "AreaOptions");
 }

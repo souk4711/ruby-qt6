@@ -11,6 +11,9 @@ module RubyQt6
       rubyqt6_declare_enum_under QDialogButtonBox, QDialogButtonBox::ButtonRole
       rubyqt6_declare_enum_under QDialogButtonBox, QDialogButtonBox::StandardButton
 
+      # @!parse class StandardButtons; end
+      rubyqt6_declare_qflags QDialogButtonBox::StandardButtons, QDialogButtonBox::StandardButton
+
       # @!parse
       q_object do
         signal "accepted()"

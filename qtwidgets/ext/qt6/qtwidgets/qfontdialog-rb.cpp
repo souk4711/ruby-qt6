@@ -1,5 +1,6 @@
 #include "qfontdialog-rb.hpp"
 #include <qfontdialog.h>
+#include <rice/qflags.hpp>
 
 using namespace Rice;
 
@@ -40,4 +41,8 @@ void Init_qfontdialog(Rice::Module rb_mQt6QtWidgets)
             .define_value("NonScalableFonts", QFontDialog::FontDialogOption::NonScalableFonts)
             .define_value("MonospacedFonts", QFontDialog::FontDialogOption::MonospacedFonts)
             .define_value("ProportionalFonts", QFontDialog::FontDialogOption::ProportionalFonts);
+
+    Data_Type<QFlags<QFontDialog::FontDialogOption>> rb_cQFontDialogFontDialogOptions =
+        // RubyQt6::QtWidgets::QFontDialog::FontDialogOptions
+        define_qflags_under<QFontDialog::FontDialogOption>(rb_cQFontDialog, "FontDialogOptions");
 }

@@ -7,6 +7,9 @@ module RubyQt6
       # @!parse class DockWidgetFeature; end
       rubyqt6_declare_enum_under QDockWidget, QDockWidget::DockWidgetFeature
 
+      # @!parse class DockWidgetFeatures; end
+      rubyqt6_declare_qflags QDockWidget::DockWidgetFeatures, QDockWidget::DockWidgetFeature
+
       # @!parse
       q_object do
         signal "allowedAreasChanged(Qt::DockWidgetAreas)"

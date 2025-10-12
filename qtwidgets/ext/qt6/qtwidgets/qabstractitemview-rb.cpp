@@ -1,5 +1,6 @@
 #include "qabstractitemview-rb.hpp"
 #include <qabstractitemview.h>
+#include <rice/qflags.hpp>
 
 using namespace Rice;
 
@@ -143,4 +144,8 @@ void Init_qabstractitemview(Rice::Module rb_mQt6QtWidgets)
             .define_value("MultiSelection", QAbstractItemView::SelectionMode::MultiSelection)
             .define_value("ExtendedSelection", QAbstractItemView::SelectionMode::ExtendedSelection)
             .define_value("ContiguousSelection", QAbstractItemView::SelectionMode::ContiguousSelection);
+
+    Data_Type<QFlags<QAbstractItemView::EditTrigger>> rb_cQAbstractItemViewEditTriggers =
+        // RubyQt6::QtWidgets::QAbstractItemView::EditTriggers
+        define_qflags_under<QAbstractItemView::EditTrigger>(rb_cQAbstractItemView, "EditTriggers");
 }

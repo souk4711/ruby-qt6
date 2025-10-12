@@ -8,11 +8,12 @@ module RubyQt6
       # @!parse class Icon           ; end
       # @!parse class Option         ; end
       # @!parse class StandardButton ; end
-      # @!parse class StandardButtons; end
       rubyqt6_declare_enum_under QMessageBox, QMessageBox::ButtonRole
       rubyqt6_declare_enum_under QMessageBox, QMessageBox::Icon
       rubyqt6_declare_enum_under QMessageBox, QMessageBox::Option
       rubyqt6_declare_enum_under QMessageBox, QMessageBox::StandardButton
+
+      # @!parse class StandardButtons; end
       rubyqt6_declare_qflags QMessageBox::StandardButtons, QMessageBox::StandardButton
 
       # @!parse

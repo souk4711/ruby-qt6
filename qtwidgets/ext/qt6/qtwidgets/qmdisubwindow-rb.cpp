@@ -1,5 +1,6 @@
 #include "qmdisubwindow-rb.hpp"
 #include <qmdisubwindow.h>
+#include <rice/qflags.hpp>
 
 #include <QMdiArea>
 #include <QMenu>
@@ -46,4 +47,8 @@ void Init_qmdisubwindow(Rice::Module rb_mQt6QtWidgets)
             .define_value("AllowOutsideAreaVertically", QMdiSubWindow::SubWindowOption::AllowOutsideAreaVertically)
             .define_value("RubberBandResize", QMdiSubWindow::SubWindowOption::RubberBandResize)
             .define_value("RubberBandMove", QMdiSubWindow::SubWindowOption::RubberBandMove);
+
+    Data_Type<QFlags<QMdiSubWindow::SubWindowOption>> rb_cQMdiSubWindowSubWindowOptions =
+        // RubyQt6::QtWidgets::QMdiSubWindow::SubWindowOptions
+        define_qflags_under<QMdiSubWindow::SubWindowOption>(rb_cQMdiSubWindow, "SubWindowOptions");
 }

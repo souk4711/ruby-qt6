@@ -9,6 +9,9 @@ module RubyQt6
       rubyqt6_declare_enum_under QInputDialog, QInputDialog::InputDialogOption
       rubyqt6_declare_enum_under QInputDialog, QInputDialog::InputMode
 
+      # @!parse class InputDialogOptions; end
+      rubyqt6_declare_qflags QInputDialog::InputDialogOptions, QInputDialog::InputDialogOption
+
       # @!parse
       q_object do
         signal "doubleValueChanged(double)"

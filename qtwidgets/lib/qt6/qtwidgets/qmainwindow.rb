@@ -7,6 +7,9 @@ module RubyQt6
       # @!parse class DockOption; end
       rubyqt6_declare_enum_under QMainWindow, QMainWindow::DockOption
 
+      # @!parse class DockOptions; end
+      rubyqt6_declare_qflags QMainWindow::DockOptions, QMainWindow::DockOption
+
       # @!parse
       q_object do
         signal "iconSizeChanged(QSize)"

@@ -15,6 +15,11 @@ module RubyQt6
       rubyqt6_declare_enum_under QGraphicsView, QGraphicsView::ViewportAnchor
       rubyqt6_declare_enum_under QGraphicsView, QGraphicsView::ViewportUpdateMode
 
+      # @!parse class CacheMode        ; end
+      # @!parse class OptimizationFlags; end
+      rubyqt6_declare_qflags QGraphicsView::CacheMode, QGraphicsView::CacheModeFlag
+      rubyqt6_declare_qflags QGraphicsView::OptimizationFlags, QGraphicsView::OptimizationFlag
+
       # @!parse
       q_object do
         signal "rubberBandChanged(QRect,QPointF,QPointF)"

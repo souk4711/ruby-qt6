@@ -27,6 +27,11 @@ module RubyQt6
       rubyqt6_declare_enum_under QStyle, QStyle::StyleHint
       rubyqt6_declare_enum_under QStyle, QStyle::StandardPixmap
 
+      # @!parse class State      ; end
+      # @!parse class SubControls; end
+      rubyqt6_declare_qflags QStyle::State, QStyle::StateFlag
+      rubyqt6_declare_qflags QStyle::SubControls, QStyle::SubControl
+
       # @!parse
       q_object do
       end

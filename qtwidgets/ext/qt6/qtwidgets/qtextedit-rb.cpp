@@ -1,5 +1,6 @@
 #include "qtextedit-rb.hpp"
 #include <qtextedit.h>
+#include <rice/qflags.hpp>
 
 #include <QMenu>
 #include <QPagedPaintDevice>
@@ -136,6 +137,10 @@ void Init_qtextedit(Rice::Module rb_mQt6QtWidgets)
             .define_value("WidgetWidth", QTextEdit::LineWrapMode::WidgetWidth)
             .define_value("FixedPixelWidth", QTextEdit::LineWrapMode::FixedPixelWidth)
             .define_value("FixedColumnWidth", QTextEdit::LineWrapMode::FixedColumnWidth);
+
+    Data_Type<QFlags<QTextEdit::AutoFormattingFlag>> rb_cQTextEditAutoFormatting =
+        // RubyQt6::QtWidgets::QTextEdit::AutoFormatting
+        define_qflags_under<QTextEdit::AutoFormattingFlag>(rb_cQTextEdit, "AutoFormatting");
 
     rb_cQTextEditExtraSelection =
         // RubyQt6::QtWidgets::QTextEdit::ExtraSelection

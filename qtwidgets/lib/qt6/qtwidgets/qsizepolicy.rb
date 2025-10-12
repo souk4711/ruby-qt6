@@ -11,6 +11,9 @@ module RubyQt6
       rubyqt6_declare_enum_under QSizePolicy, QSizePolicy::Policy
       rubyqt6_declare_enum_under QSizePolicy, QSizePolicy::PolicyFlag
 
+      # @!parse class ControlTypes; end
+      rubyqt6_declare_qflags QSizePolicy::ControlTypes, QSizePolicy::ControlType
+
       # @!visibility private
       alias_method :_initialize, :initialize
 

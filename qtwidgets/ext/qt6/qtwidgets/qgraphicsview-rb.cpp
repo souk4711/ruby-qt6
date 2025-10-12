@@ -1,5 +1,6 @@
 #include "qgraphicsview-rb.hpp"
 #include <qgraphicsview.h>
+#include <rice/qflags.hpp>
 
 #include <QGraphicsItem>
 
@@ -132,4 +133,12 @@ void Init_qgraphicsview(Rice::Module rb_mQt6QtWidgets)
             .define_value("SmartViewportUpdate", QGraphicsView::ViewportUpdateMode::SmartViewportUpdate)
             .define_value("NoViewportUpdate", QGraphicsView::ViewportUpdateMode::NoViewportUpdate)
             .define_value("BoundingRectViewportUpdate", QGraphicsView::ViewportUpdateMode::BoundingRectViewportUpdate);
+
+    Data_Type<QFlags<QGraphicsView::CacheModeFlag>> rb_cQGraphicsViewCacheMode =
+        // RubyQt6::QtWidgets::QGraphicsView::CacheMode
+        define_qflags_under<QGraphicsView::CacheModeFlag>(rb_cQGraphicsView, "CacheMode");
+
+    Data_Type<QFlags<QGraphicsView::OptimizationFlag>> rb_cQGraphicsViewOptimizationFlags =
+        // RubyQt6::QtWidgets::QGraphicsView::OptimizationFlags
+        define_qflags_under<QGraphicsView::OptimizationFlag>(rb_cQGraphicsView, "OptimizationFlags");
 }

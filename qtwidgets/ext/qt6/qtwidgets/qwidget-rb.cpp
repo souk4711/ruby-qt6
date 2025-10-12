@@ -1,5 +1,6 @@
 #include "qwidget-rb.hpp"
 #include <qwidget.h>
+#include <rice/qflags.hpp>
 
 #include <QBackingStore>
 #include <QGraphicsEffect>
@@ -318,4 +319,8 @@ void Init_qwidget(Rice::Module rb_mQt6QtWidgets)
             .define_value("DrawWindowBackground", QWidget::RenderFlag::DrawWindowBackground)
             .define_value("DrawChildren", QWidget::RenderFlag::DrawChildren)
             .define_value("IgnoreMask", QWidget::RenderFlag::IgnoreMask);
+
+    Data_Type<QFlags<QWidget::RenderFlag>> rb_cQWidgetRenderFlags =
+        // RubyQt6::QtWidgets::QWidget::RenderFlags
+        define_qflags_under<QWidget::RenderFlag>(rb_cQWidget, "RenderFlags");
 }

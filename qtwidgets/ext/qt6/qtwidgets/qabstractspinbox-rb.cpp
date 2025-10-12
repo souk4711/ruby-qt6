@@ -1,5 +1,6 @@
 #include "qabstractspinbox-rb.hpp"
 #include <qabstractspinbox.h>
+#include <rice/qflags.hpp>
 
 using namespace Rice;
 
@@ -72,4 +73,8 @@ void Init_qabstractspinbox(Rice::Module rb_mQt6QtWidgets)
         define_enum_under<QAbstractSpinBox::StepType>("StepType", rb_cQAbstractSpinBox)
             .define_value("DefaultStepType", QAbstractSpinBox::StepType::DefaultStepType)
             .define_value("AdaptiveDecimalStepType", QAbstractSpinBox::StepType::AdaptiveDecimalStepType);
+
+    Data_Type<QFlags<QAbstractSpinBox::StepEnabledFlag>> rb_cQAbstractSpinBoxStepEnabled =
+        // RubyQt6::QtWidgets::QAbstractSpinBox::StepEnabled
+        define_qflags_under<QAbstractSpinBox::StepEnabledFlag>(rb_cQAbstractSpinBox, "StepEnabled");
 }

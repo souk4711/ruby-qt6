@@ -1,5 +1,6 @@
 #include "qstyle-rb.hpp"
 #include <qstyle.h>
+#include <rice/qflags.hpp>
 
 #include <QApplication>
 #include <QFontMetrics>
@@ -656,4 +657,12 @@ void Init_qstyle(Rice::Module rb_mQt6QtWidgets)
             .define_value("SP_TabCloseButton", QStyle::StandardPixmap::SP_TabCloseButton)
             .define_value("NStandardPixmap", QStyle::StandardPixmap::NStandardPixmap)
             .define_value("SP_CustomBase", QStyle::StandardPixmap::SP_CustomBase);
+
+    Data_Type<QFlags<QStyle::StateFlag>> rb_cQStyleState =
+        // RubyQt6::QtWidgets::QStyle::State
+        define_qflags_under<QStyle::StateFlag>(rb_cQStyle, "State");
+
+    Data_Type<QFlags<QStyle::SubControl>> rb_cQStyleSubControls =
+        // RubyQt6::QtWidgets::QStyle::SubControls
+        define_qflags_under<QStyle::SubControl>(rb_cQStyle, "SubControls");
 }

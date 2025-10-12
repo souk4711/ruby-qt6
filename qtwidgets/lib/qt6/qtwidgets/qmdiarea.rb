@@ -11,6 +11,9 @@ module RubyQt6
       rubyqt6_declare_enum_under QMdiArea, QMdiArea::ViewMode
       rubyqt6_declare_enum_under QMdiArea, QMdiArea::WindowOrder
 
+      # @!parse class AreaOptions; end
+      rubyqt6_declare_qflags QMdiArea::AreaOptions, QMdiArea::AreaOption
+
       # @!parse
       q_object do
         signal "subWindowActivated(QMdiSubWindow*)"

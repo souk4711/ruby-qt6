@@ -7,6 +7,9 @@ module RubyQt6
       # @!parse class SubWindowOption; end
       rubyqt6_declare_enum_under QMdiSubWindow, QMdiSubWindow::SubWindowOption
 
+      # @!parse class SubWindowOptions; end
+      rubyqt6_declare_qflags QMdiSubWindow::SubWindowOptions, QMdiSubWindow::SubWindowOption
+
       # @!parse
       q_object do
         signal "aboutToActivate()"
