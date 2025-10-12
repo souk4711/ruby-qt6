@@ -46,6 +46,7 @@ void Init_qstring(Rice::Module rb_mQt6QtCore)
             .define_method("[]=", [](QString *self, qsizetype index, const char *after) -> QString { return QString_replace(self, index, after); }, Arg("index"), Arg("after"))
             // Constructor
             .define_constructor(Constructor<QString, const char *>(), Arg("str"))
+            .define_constructor(Constructor<QString, const QString &>(), Arg("other"))
             // Public Functions
             .define_method("capacity", &QString::capacity)
             .define_method("empty?", &QString::isEmpty)

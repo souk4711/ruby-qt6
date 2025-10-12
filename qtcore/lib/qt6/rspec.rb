@@ -23,7 +23,8 @@ module RubyQt6
       "QMetaObjectBuilder"
     ]
     NO_VERIFY_QLASS_INITIALIZE = QlassFileParser::NESTED_QLASSES + [
-      "QVariant"
+      "QVariant",
+      "QString"
     ]
     NO_VERIFY_QLASS_VIRTUAL_METHODS = {
       "QCoreApplication" => ["post_event", "send_event"],
