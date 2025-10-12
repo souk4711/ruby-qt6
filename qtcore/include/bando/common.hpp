@@ -180,25 +180,30 @@ template <typename BandoClass_T, typename Event_T> void bando_handleEvent(BandoC
     if (!self->value_.respond_to(rb_name))
         return self->Class_T_handleEvent(name, event);
 
-    auto arguments = Rice::Array();
-    arguments.push(Rice::Object(Rice::detail::to_ruby(event)));
+    Q_ASSERT(self->value_.rb_type() != RUBY_T_NONE);
+    self->value_.call(rb_name, Rice::Object(Rice::detail::to_ruby(event)));
+}
+
+template <typename BandoClass_T> bool bando_handleQObjectEvent(BandoClass_T *self, QEvent *event)
+{
+    auto rb_name = Rice::Identifier("event");
+    if (!self->value_.respond_to(rb_name))
+        return self->Class_T_handleQObjectEvent(event);
 
     Q_ASSERT(self->value_.rb_type() != RUBY_T_NONE);
-    self->value_.vcall(rb_name, arguments);
+    auto rb_return = self->value_.call(rb_name, Rice::Object(Rice::detail::to_ruby(event)));
+    return Rice::detail::From_Ruby<bool>().convert(rb_return);
 }
 
 template <typename BandoClass_T> bool bando_handleQObjectEventFilter(BandoClass_T *self, QObject *watched, QEvent *event)
 {
     auto rb_name = Rice::Identifier("event_filter");
     if (!self->value_.respond_to(rb_name))
-        return self->eventFilter(watched, event);
-
-    auto arguments = Rice::Array();
-    arguments.push(Rice::Object(Rice::detail::to_ruby(watched)));
-    arguments.push(Rice::Object(Rice::detail::to_ruby(event)));
+        return self->Class_T_handleQObjectEventFilter(watched, event);
 
     Q_ASSERT(self->value_.rb_type() != RUBY_T_NONE);
-    return Rice::detail::From_Ruby<bool>().convert(self->value_.vcall(rb_name, arguments));
+    auto rb_return = self->value_.call(rb_name, Rice::Object(Rice::detail::to_ruby(watched)), Rice::Object(Rice::detail::to_ruby(event)));
+    return Rice::detail::From_Ruby<bool>().convert(rb_return);
 }
 
 #endif

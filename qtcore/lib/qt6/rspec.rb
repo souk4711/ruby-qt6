@@ -26,7 +26,8 @@ module RubyQt6
       "QVariant"
     ]
     NO_VERIFY_QLASS_VIRTUAL_METHODS = {
-      "QCoreApplication" => ["post_event", "send_event"]
+      "QCoreApplication" => ["post_event", "send_event"],
+      "QWidget" => ["minimum_size_hint", "size_hint"]
     }
     NO_VERIFY_QLASS_LEADING_UNDERSCORE_METHODS = {
       "QObject" => ["_connect", "_disconnect"]

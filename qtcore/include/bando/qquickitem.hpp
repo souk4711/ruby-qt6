@@ -39,7 +39,12 @@ template <typename Class_T, typename... Arg_Ts> class BandoQQuickItem : public C
     const QMetaObject *metaObject() const override { return bando_metaObject<BandoQQuickItem, Class_T>(this); };
     int qt_metacall(QMetaObject::Call call, int id, void **args) override { return bando_qt_metacall<BandoQQuickItem>(this, call, id, args); };
 
+    bool event(QEvent *event) override { return bando_handleQObjectEvent<BandoQQuickItem>(this, event); };
     bool eventFilter(QObject *watched, QEvent *event) override { return bando_handleQObjectEventFilter<BandoQQuickItem>(this, watched, event); };
+
+  public:
+    bool Class_T_handleQObjectEvent(QEvent *event) { return this->Class_T::event(event); };
+    bool Class_T_handleQObjectEventFilter(QObject *watched, QEvent *event) { return this->Class_T::eventFilter(watched, event); };
 
   public:
     template <typename BC_T, typename C_T> friend const QMetaObject *bando_metaObject(const BC_T *self);
@@ -53,7 +58,9 @@ Rice::Data_Type<BC_T> define_bando_qquickitem_under(Rice::Module module, char co
 {
     Rice::Data_Type<BC_T> bando_qlass =
         Rice::define_class_under<BC_T, C_T>(module, name)
-            .define_method("_initialize_value", &BC_T::initializeValue, Rice::Arg("mo"), Rice::Arg("value"));
+            .define_method("_initialize_value", &BC_T::initializeValue, Rice::Arg("mo"), Rice::Arg("value"))
+            .define_method("_event", [](BC_T *self, QEvent *event) -> bool { return self->Class_T_handleQObjectEvent(event); })
+            .define_method("_event_filter", [](BC_T *self, QObject *watched, QEvent *event) -> bool { return self->Class_T_handleQObjectEventFilter(watched, event); });
     return bando_qlass;
 }
 
