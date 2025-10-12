@@ -29,6 +29,13 @@ module RubyQt6
       rubyqt6_declare_enum_under QLocale, QLocale::LanguageCodeType
       rubyqt6_declare_enum_under QLocale, QLocale::QuotationStyle
 
+      # @!parse class NumberOptions    ; end
+      # @!parse class DataSizeFormats  ; end
+      # @!parse class LanguageCodeTypes; end
+      rubyqt6_declare_qflags QLocale::NumberOptions, QLocale::NumberOption
+      rubyqt6_declare_qflags QLocale::DataSizeFormats, QLocale::DataSizeFormat
+      rubyqt6_declare_qflags QLocale::LanguageCodeTypes, QLocale::LanguageCodeType
+
       # @!visibility private
       def inspect
         T.q_inspect(self, name: name.to_s)

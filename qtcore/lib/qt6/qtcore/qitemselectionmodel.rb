@@ -7,6 +7,9 @@ module RubyQt6
       # @!parse class SelectionFlag; end
       rubyqt6_declare_enum_under QItemSelectionModel, QItemSelectionModel::SelectionFlag
 
+      # @!parse class SelectionFlags; end
+      rubyqt6_declare_qflags QItemSelectionModel::SelectionFlags, QItemSelectionModel::SelectionFlag
+
       # @!parse
       q_object do
         signal "currentChanged(QModelIndex,QModelIndex)"

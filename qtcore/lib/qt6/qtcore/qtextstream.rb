@@ -13,6 +13,9 @@ module RubyQt6
       rubyqt6_declare_enum_under QTextStream, QTextStream::RealNumberNotation
       rubyqt6_declare_enum_under QTextStream, QTextStream::Status
 
+      # @!parse class NumberFlags; end
+      rubyqt6_declare_qflags QTextStream::NumberFlags, QTextStream::NumberFlag
+
       # @!visibility private
       alias_method :_initialize, :initialize
 

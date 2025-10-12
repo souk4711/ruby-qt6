@@ -1,5 +1,6 @@
 #include "qitemselectionmodel-rb.hpp"
 #include <qitemselectionmodel.h>
+#include <rice/qflags.hpp>
 
 #include <QBindable>
 
@@ -61,4 +62,8 @@ void Init_qitemselectionmodel(Rice::Module rb_mQt6QtCore)
             .define_value("SelectCurrent", QItemSelectionModel::SelectionFlag::SelectCurrent)
             .define_value("ToggleCurrent", QItemSelectionModel::SelectionFlag::ToggleCurrent)
             .define_value("ClearAndSelect", QItemSelectionModel::SelectionFlag::ClearAndSelect);
+
+    Data_Type<QFlags<QItemSelectionModel::SelectionFlag>> rb_cQItemSelectionModelSelectionFlags =
+        // RubyQt6::QtCore::QItemSelectionModel::SelectionFlags
+        define_qflags_under<QItemSelectionModel::SelectionFlag>(rb_cQItemSelectionModel, "SelectionFlags");
  }

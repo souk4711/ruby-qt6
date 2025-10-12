@@ -94,6 +94,7 @@ module RubyQt6
         verify_qlass_cppfile_qlass_initialize(qlass, cppfile, rbfile, rbfile_contents, r)
         verify_qlass_cppfile_qlass_methods(qlass, cppfile, rbfile, rbfile_contents, r)
         verify_qlass_cppfile_qlass_enums(qlass, cppfile, rbfile, rbfile_contents, r)
+        verify_qlass_cppfile_qlass_flags(qlass, cppfile, rbfile, rbfile_contents, r)
 
         qobject = true if rbfile_contents&.include?("q_object")
         verify_qlass_cppfile_qlass_qobject_initialize(qlass, cppfile, rbfile, rbfile_contents, r) if qobject
@@ -197,6 +198,15 @@ module RubyQt6
         raise "#{rbfile}: #{enum.name}: Missing `rubyqt6_declare_enum_under ...`" unless rbfile_contents.include?("rubyqt6_declare_enum_under #{qlass.name}, #{qlass.name}::#{enum.name}")
         r.verified_enums_count ||= 0
         r.verified_enums_count += 1
+      end
+    end
+
+    def self.verify_qlass_cppfile_qlass_flags(qlass, cppfile, rbfile, rbfile_contents, r)
+      qlass.flags.each do |flag|
+        raise "#{rbfile}: #{flag.name}: Missing `# @!parse class ...`" unless rbfile_contents.include?("# @!parse class #{flag.name}")
+        raise "#{rbfile}: #{flag.name}: Missing `rubyqt6_declare_qflags ...`" unless rbfile_contents.include?("rubyqt6_declare_qflags #{qlass.name}::#{flag.name}, #{qlass.name}::#{flag.enum_name}")
+        r.verified_flags_count ||= 0
+        r.verified_flags_count += 1
       end
     end
 

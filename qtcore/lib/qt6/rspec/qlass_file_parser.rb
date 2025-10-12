@@ -212,8 +212,9 @@ module RubyQt6
         name = qlass.name
         flag_name = flag.name
 
-        expected = /Data_Type<QFlags<#{name}::.*>> rb_c#{name}#{flag_name} =/
-        if line.match?(expected)
+        expected = /Data_Type<QFlags<#{name}::(.*)>> rb_c#{name}#{flag_name} =/
+        if (matched = line.match(expected))
+          flag.enum_name = matched[1]
           take_next_line
         else
           raise MissingLine.new(expected, line)
@@ -226,8 +227,8 @@ module RubyQt6
           raise MissingLine.new(expected, line)
         end
 
-        expected = /define_qflags_under<#{name}::.*>\(rb_c#{name}, "#{flag_name}"\);/
-        if line.match?(expected)
+        expected = "define_qflags_under<#{name}::#{flag.enum_name}>(rb_c#{name}, \"#{flag_name}\");"
+        if line == expected
           take_next_line
         else
           raise MissingLine.new(expected, line)

@@ -1,5 +1,6 @@
 #include "qtextstream-rb.hpp"
 #include <qtextstream.h>
+#include <rice/qflags.hpp>
 
 #include <QIODevice>
 #include <QLocale>
@@ -90,4 +91,8 @@ void Init_qtextstream(Rice::Module rb_mQt6QtCore)
             .define_value("ReadPastEnd", QTextStream::Status::ReadPastEnd)
             .define_value("ReadCorruptData", QTextStream::Status::ReadCorruptData)
             .define_value("WriteFailed", QTextStream::Status::WriteFailed);
+
+    Data_Type<QFlags<QTextStream::NumberFlag>> rb_cQTextStreamNumberFlags =
+        // RubyQt6::QtCore::QTextStream::NumberFlags
+        define_qflags_under<QTextStream::NumberFlag>(rb_cQTextStream, "NumberFlags");
 }

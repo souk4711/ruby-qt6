@@ -15,6 +15,13 @@ module RubyQt6
       rubyqt6_declare_enum_under QFileDevice, QFileDevice::MemoryMapFlag
       rubyqt6_declare_enum_under QFileDevice, QFileDevice::Permission
 
+      # @!parse class FileHandleFlags; end
+      # @!parse class MemoryMapFlags ; end
+      # @!parse class Permissions    ; end
+      rubyqt6_declare_qflags QFileDevice::FileHandleFlags, QFileDevice::FileHandleFlag
+      rubyqt6_declare_qflags QFileDevice::MemoryMapFlags, QFileDevice::MemoryMapFlag
+      rubyqt6_declare_qflags QFileDevice::Permissions, QFileDevice::Permission
+
       # @!parse
       q_object do
       end

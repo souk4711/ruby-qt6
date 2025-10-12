@@ -15,6 +15,15 @@ module RubyQt6
       rubyqt6_declare_enum_under QUrl, QUrl::UrlFormattingOption
       rubyqt6_declare_enum_under QUrl, QUrl::UserInputResolutionOption
 
+      # @!parse class AceProcessingOptions      ; end
+      # @!parse class ComponentFormattingOption ; end
+      # @!parse class FormattingOptions         ; end
+      # @!parse class UserInputResolutionOptions; end
+      rubyqt6_declare_qflags QUrl::AceProcessingOptions, QUrl::AceProcessingOption
+      rubyqt6_declare_qflags QUrl::ComponentFormattingOptions, QUrl::ComponentFormattingOption
+      rubyqt6_declare_qflags QUrl::FormattingOptions, QUrl::UrlFormattingOption
+      rubyqt6_declare_qflags QUrl::UserInputResolutionOptions, QUrl::UserInputResolutionOption
+
       # @!visibility private
       alias_method :_initialize, :initialize
 

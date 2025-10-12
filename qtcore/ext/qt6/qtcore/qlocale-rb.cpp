@@ -1,5 +1,6 @@
 #include "qlocale-rb.hpp"
 #include <qlocale.h>
+#include <rice/qflags.hpp>
 
 #include <QCalendar>
 #include <QDateTime>
@@ -1016,4 +1017,17 @@ void Init_qlocale(Rice::Module rb_mQt6QtCore)
         define_enum_under<QLocale::QuotationStyle>("QuotationStyle", rb_cQLocale)
             .define_value("StandardQuotation", QLocale::QuotationStyle::StandardQuotation)
             .define_value("AlternateQuotation", QLocale::QuotationStyle::AlternateQuotation);
+
+    Data_Type<QFlags<QLocale::NumberOption>> rb_cQLocaleNumberOptions =
+        // RubyQt6::QtCore::QLocale::NumberOptions
+        define_qflags_under<QLocale::NumberOption>(rb_cQLocale, "NumberOptions");
+
+    Data_Type<QFlags<QLocale::DataSizeFormat>> rb_cQLocaleDataSizeFormats =
+        // RubyQt6::QtCore::QLocale::DataSizeFormats
+        define_qflags_under<QLocale::DataSizeFormat>(rb_cQLocale, "DataSizeFormats");
+
+    Data_Type<QFlags<QLocale::LanguageCodeType>> rb_cQLocaleLanguageCodeTypes =
+        // RubyQt6::QtCore::QLocale::LanguageCodeTypes
+        define_qflags_under<QLocale::LanguageCodeType>(rb_cQLocale, "LanguageCodeTypes");
+
 }

@@ -1,5 +1,6 @@
 #include "qfiledevice-rb.hpp"
 #include <qfiledevice.h>
+#include <rice/qflags.hpp>
 
 #include <QDateTime>
 
@@ -88,4 +89,16 @@ void Init_qfiledevice(Rice::Module rb_mQt6QtCore)
             .define_value("ReadOther", QFileDevice::Permission::ReadOther)
             .define_value("WriteOther", QFileDevice::Permission::WriteOther)
             .define_value("ExeOther", QFileDevice::Permission::ExeOther);
+
+    Data_Type<QFlags<QFileDevice::FileHandleFlag>> rb_cQFileDeviceFileHandleFlags =
+        // RubyQt6::QtCore::QFileDevice::FileHandleFlags
+        define_qflags_under<QFileDevice::FileHandleFlag>(rb_cQFileDevice, "FileHandleFlags");
+
+    Data_Type<QFlags<QFileDevice::MemoryMapFlag>> rb_cQFileDeviceMemoryMapFlags =
+        // RubyQt6::QtCore::QFileDevice::MemoryMapFlags
+        define_qflags_under<QFileDevice::MemoryMapFlag>(rb_cQFileDevice, "MemoryMapFlags");
+
+    Data_Type<QFlags<QFileDevice::Permission>> rb_cQFileDevicePermissions =
+        // RubyQt6::QtCore::QFileDevice::Permissions
+        define_qflags_under<QFileDevice::Permission>(rb_cQFileDevice, "Permissions");
 }

@@ -1,5 +1,6 @@
 #include "qurl-rb.hpp"
 #include <qurl.h>
+#include <rice/qflags.hpp>
 
 #include <QUrlQuery>
 
@@ -119,4 +120,20 @@ void Init_qurl(Rice::Module rb_mQt6QtCore)
         define_enum_under<QUrl::UserInputResolutionOption>("UserInputResolutionOption", rb_cQUrl)
             .define_value("DefaultResolution", QUrl::UserInputResolutionOption::DefaultResolution)
             .define_value("AssumeLocalFile", QUrl::UserInputResolutionOption::AssumeLocalFile);
+
+    Data_Type<QFlags<QUrl::AceProcessingOption>> rb_cQUrlAceProcessingOptions =
+        // RubyQt6::QtCore::QUrl::AceProcessingOptions
+        define_qflags_under<QUrl::AceProcessingOption>(rb_cQUrl, "AceProcessingOptions");
+
+    Data_Type<QFlags<QUrl::ComponentFormattingOption>> rb_cQUrlComponentFormattingOptions =
+        // RubyQt6::QtCore::QUrl::ComponentFormattingOptions
+        define_qflags_under<QUrl::ComponentFormattingOption>(rb_cQUrl, "ComponentFormattingOptions");
+
+    Data_Type<QFlags<QUrl::UrlFormattingOption>> rb_cQUrlFormattingOptions =
+        // RubyQt6::QtCore::QUrl::FormattingOptions
+        define_qflags_under<QUrl::UrlFormattingOption>(rb_cQUrl, "FormattingOptions");
+
+    Data_Type<QFlags<QUrl::UserInputResolutionOption>> rb_cQUrlUserInputResolutionOptions =
+        // RubyQt6::QtCore::QUrl::UserInputResolutionOptions
+        define_qflags_under<QUrl::UserInputResolutionOption>(rb_cQUrl, "UserInputResolutionOptions");
 }

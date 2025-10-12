@@ -9,6 +9,11 @@ module RubyQt6
       rubyqt6_declare_enum_under QDir, QDir::Filter
       rubyqt6_declare_enum_under QDir, QDir::SortFlag
 
+      # @!parse class Filters  ; end
+      # @!parse class SortFlags; end
+      rubyqt6_declare_qflags QDir::Filters, QDir::Filter
+      rubyqt6_declare_qflags QDir::SortFlags, QDir::SortFlag
+
       # @!visibility private
       alias_method :_initialize, :initialize
 

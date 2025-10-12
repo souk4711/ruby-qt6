@@ -1,5 +1,6 @@
 #include "qdir-rb.hpp"
 #include <qdir.h>
+#include <rice/qflags.hpp>
 
 using namespace Rice;
 
@@ -120,4 +121,12 @@ void Init_qdir(Rice::Module rb_mQt6QtCore)
             .define_value("LocaleAware", QDir::SortFlag::LocaleAware)
             .define_value("Type", QDir::SortFlag::Type)
             .define_value("NoSort", QDir::SortFlag::NoSort);
+
+    Data_Type<QFlags<QDir::Filter>> rb_cQDirFilters =
+        // RubyQt6::QtCore::QDir::Filters
+        define_qflags_under<QDir::Filter>(rb_cQDir, "Filters");
+
+    Data_Type<QFlags<QDir::SortFlag>> rb_cQDirSortFlags =
+        // RubyQt6::QtCore::QDir::SortFlags
+        define_qflags_under<QDir::SortFlag>(rb_cQDir, "SortFlags");
 }
