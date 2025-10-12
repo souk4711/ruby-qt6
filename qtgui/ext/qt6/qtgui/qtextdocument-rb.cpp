@@ -1,5 +1,6 @@
 #include "qtextdocument-rb.hpp"
 #include <qtextdocument.h>
+#include <rice/qflags.hpp>
 
 #include <QAbstractTextDocumentLayout>
 #include <QPagedPaintDevice>
@@ -165,4 +166,12 @@ void Init_qtextdocument(Rice::Module rb_mQt6QtGui)
             .define_value("UndoStack", QTextDocument::Stacks::UndoStack)
             .define_value("RedoStack", QTextDocument::Stacks::RedoStack)
             .define_value("UndoAndRedoStacks", QTextDocument::Stacks::UndoAndRedoStacks);
+
+    Data_Type<QFlags<QTextDocument::FindFlag>> rb_cQTextDocumentFindFlags =
+        // RubyQt6::QtGui::QTextDocument::FindFlags
+        define_qflags_under<QTextDocument::FindFlag>(rb_cQTextDocument, "FindFlags");
+
+    Data_Type<QFlags<QTextDocument::MarkdownFeature>> rb_cQTextDocumentMarkdownFeatures =
+        // RubyQt6::QtGui::QTextDocument::MarkdownFeatures
+        define_qflags_under<QTextDocument::MarkdownFeature>(rb_cQTextDocument, "MarkdownFeatures");
 }

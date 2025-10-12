@@ -1,5 +1,6 @@
 #include "qtextoption-rb.hpp"
 #include <qtextoption.h>
+#include <rice/qflags.hpp>
 
 #include <QList>
 
@@ -58,4 +59,8 @@ void Init_qtextoption(Rice::Module rb_mQt6QtGui)
             .define_value("ManualWrap", QTextOption::WrapMode::ManualWrap)
             .define_value("WrapAnywhere", QTextOption::WrapMode::WrapAnywhere)
             .define_value("WrapAtWordBoundaryOrAnywhere", QTextOption::WrapMode::WrapAtWordBoundaryOrAnywhere);
+
+    Data_Type<QFlags<QTextOption::Flag>> rb_cQTextOptionFlags =
+        // RubyQt6::QtGui::QTextOption::Flags
+        define_qflags_under<QTextOption::Flag>(rb_cQTextOption, "Flags");
 }

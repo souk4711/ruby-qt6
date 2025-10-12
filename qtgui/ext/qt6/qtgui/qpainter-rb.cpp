@@ -1,5 +1,6 @@
 #include "qpainter-rb.hpp"
 #include <qpainter.h>
+#include <rice/qflags.hpp>
 
 #include <QGlyphRun>
 #include <QPainterPath>
@@ -281,4 +282,12 @@ void Init_qpainter(Rice::Module rb_mQt6QtGui)
             .define_value("VerticalSubpixelPositioning", QPainter::RenderHint::VerticalSubpixelPositioning)
             .define_value("LosslessImageRendering", QPainter::RenderHint::LosslessImageRendering)
             .define_value("NonCosmeticBrushPatterns", QPainter::RenderHint::NonCosmeticBrushPatterns);
+
+    Data_Type<QFlags<QPainter::PixmapFragmentHint>> rb_cQPainterPixmapFragmentHints =
+        // RubyQt6::QtGui::QPainter::PixmapFragmentHints
+        define_qflags_under<QPainter::PixmapFragmentHint>(rb_cQPainter, "PixmapFragmentHints");
+
+    Data_Type<QFlags<QPainter::RenderHint>> rb_cQPainterRenderHints =
+        // RubyQt6::QtGui::QPainter::RenderHints
+        define_qflags_under<QPainter::RenderHint>(rb_cQPainter, "RenderHints");
 }

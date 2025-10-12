@@ -11,6 +11,11 @@ module RubyQt6
       rubyqt6_declare_enum_under QPainter, QPainter::PixmapFragmentHint
       rubyqt6_declare_enum_under QPainter, QPainter::RenderHint
 
+      # @!parse class PixmapFragmentHints; end
+      # @!parse class RenderHints        ; end
+      rubyqt6_declare_qflags QPainter::PixmapFragmentHints, QPainter::PixmapFragmentHint
+      rubyqt6_declare_qflags QPainter::RenderHints, QPainter::RenderHint
+
       # @!visibility private
       def self.new(device)
         return device._ioc_painter_new if device.respond_to?(:_ioc_painter_new)

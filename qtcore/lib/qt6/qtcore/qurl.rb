@@ -16,7 +16,7 @@ module RubyQt6
       rubyqt6_declare_enum_under QUrl, QUrl::UserInputResolutionOption
 
       # @!parse class AceProcessingOptions      ; end
-      # @!parse class ComponentFormattingOption ; end
+      # @!parse class ComponentFormattingOptions; end
       # @!parse class FormattingOptions         ; end
       # @!parse class UserInputResolutionOptions; end
       rubyqt6_declare_qflags QUrl::AceProcessingOptions, QUrl::AceProcessingOption

@@ -15,6 +15,11 @@ module RubyQt6
       rubyqt6_declare_enum_under QTextDocument, QTextDocument::ResourceType
       rubyqt6_declare_enum_under QTextDocument, QTextDocument::Stacks
 
+      # @!parse class FindFlags       ; end
+      # @!parse class MarkdownFeatures; end
+      rubyqt6_declare_qflags QTextDocument::FindFlags, QTextDocument::FindFlag
+      rubyqt6_declare_qflags QTextDocument::MarkdownFeatures, QTextDocument::MarkdownFeature
+
       # @!parse
       q_object do
         signal "baseUrlChanged(QUrl)"
