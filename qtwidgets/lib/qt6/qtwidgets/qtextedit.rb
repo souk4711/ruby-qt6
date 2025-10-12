@@ -54,7 +54,7 @@ module RubyQt6
       # @param text [String, QString]
       # @param parent [QWidget]
       # @return [QTextEdit]
-      def initialize(text, parent = nil)
+      def initialize(text = "", parent = nil)
         _initialize(T.to_qstr(text), parent)
         _take_ownership_from_ruby(self) if parent
       end
