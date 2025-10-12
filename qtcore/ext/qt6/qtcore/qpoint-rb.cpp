@@ -12,6 +12,12 @@ void Init_qpoint(Rice::Module rb_mQt6QtCore)
         // RubyQt6::QtCore::QPoint
         define_class_under<QPoint>(rb_mQt6QtCore, "QPoint")
             // RubyQt6-Defined Functions
+            .define_method("*", [](QPoint *self,  qreal  factor) -> QPoint { return *self *  factor; })
+            .define_method("+", [](QPoint *self, QPoint  *other) -> QPoint { return *self +  *other; })
+            .define_method("-", [](QPoint *self, QPoint  *other) -> QPoint { return *self -  *other; })
+            .define_method("/", [](QPoint *self,  qreal divisor) -> QPoint { return *self / divisor; })
+            .define_method("+@", [](QPoint *self) -> QPoint { return + *self; })
+            .define_method("-@", [](QPoint *self) -> QPoint { return - *self; })
             .define_singleton_function("_operator_equal", [](QPoint *lhs, QPoint  *rhs) -> bool { return *lhs == *rhs; }, Arg("lhs"), Arg("rhs"))
             .define_singleton_function("_operator_equal", [](QPoint *lhs, QPointF *rhs) -> bool { return *lhs == *rhs; }, Arg("lhs"), Arg("rhs"))
             // Constructor
@@ -32,6 +38,12 @@ void Init_qpoint(Rice::Module rb_mQt6QtCore)
         // RubyQt6::QtCore::QPointF
         define_class_under<QPointF>(rb_mQt6QtCore, "QPointF")
             // RubyQt6-Defined Functions
+            .define_method("*", [](QPointF *self,   qreal  factor) -> QPointF { return *self *  factor; })
+            .define_method("+", [](QPointF *self, QPointF  *other) -> QPointF { return *self +  *other; })
+            .define_method("-", [](QPointF *self, QPointF  *other) -> QPointF { return *self -  *other; })
+            .define_method("/", [](QPointF *self,   qreal divisor) -> QPointF { return *self / divisor; })
+            .define_method("+@", [](QPointF *self) -> QPointF { return + *self; })
+            .define_method("-@", [](QPointF *self) -> QPointF { return - *self; })
             .define_singleton_function("_operator_equal", [](QPointF *lhs, QPoint  *rhs) -> bool { return *lhs == *rhs; }, Arg("lhs"), Arg("rhs"))
             .define_singleton_function("_operator_equal", [](QPointF *lhs, QPointF *rhs) -> bool { return *lhs == *rhs; }, Arg("lhs"), Arg("rhs"))
             // Constructor

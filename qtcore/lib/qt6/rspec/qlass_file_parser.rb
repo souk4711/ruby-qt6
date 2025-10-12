@@ -157,18 +157,18 @@ module RubyQt6
         case line
         when /Constructor<#{qlass.name}.*>/
           rbname = "initialize"
-        when /(<.*>)?\("([a-zA-Z0-9_?]+)", \[\]\(/
+        when /(<.*>)?\("([\w?]+)", \[\]\(/
           rbname = $2
-        when /(<.*>)?\("([a-zA-Z0-9_?]+)", [A-Z]/
+        when /(<.*>)?\("([\w?]+)", [A-Z]/
           rbname = $2
-        when /(<.*>)?\("([a-zA-Z0-9_?]+)", &#{qlass.name}::([a-zA-Z0-9_]+)/
+        when /(<.*>)?\("([\w?]+)", &#{qlass.name}::([a-zA-Z0-9_]+)/
           rbname = $2
           cppname = $3
-        when /(<.*>)?\("([\[\]=?]+)", \[\]/
+        when /(<.*>)?\("([\W]+)", \[\]/
           rbname = $2
-        when /(<.*>)?\("([\[\]=?]+)", [A-Z]/
+        when /(<.*>)?\("([\W]+)", [A-Z]/
           rbname = $2
-        when /(<.*>)?\("([<?]+)", &#{qlass.name}::operator/
+        when /(<.*>)?\("([\W]+)", &#{qlass.name}::operator/
           rbname = $2
         else
           raise "Invalid method line: #{line}"

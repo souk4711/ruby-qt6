@@ -34,7 +34,9 @@ module RubyQt6
     }
     NO_VERIFY_QLASS_OPERATOR_METHODS = {
       "QTextStream" => ["<<"],
-      "QString" => ["[]", "[]="]
+      "QString" => ["[]", "[]="],
+      "QPoint" => ["*", "+", "-", "/", "+@", "-@"],
+      "QPointF" => ["*", "+", "-", "/", "+@", "-@"]
     }
     NO_VERIFY_QLASS_QOBJECT_INITIALIZE = [
       "QCoreApplication",
