@@ -12,6 +12,8 @@ void Init_qspinbox(Rice::Module rb_mQt6QtWidgets)
         // RubyQt6::QtWidgets::QDoubleSpinBox
         define_class_under<QDoubleSpinBox, QAbstractSpinBox>(rb_mQt6QtWidgets, "QDoubleSpinBox")
             // RubyQt6-Defined Functions
+            .define_method("set_prefix", [](QDoubleSpinBox *self, const char *prefix) -> void { return self->setPrefix(prefix); }, Arg("prefix"))
+            .define_method("set_suffix", [](QDoubleSpinBox *self, const char *suffix) -> void { return self->setSuffix(suffix); }, Arg("suffix"))
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QDoubleSpinBox::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QDoubleSpinBox, QWidget *>(), Arg("parent"))
@@ -47,6 +49,8 @@ void Init_qspinbox(Rice::Module rb_mQt6QtWidgets)
         // RubyQt6::QtWidgets::QSpinBox
         define_class_under<QSpinBox, QAbstractSpinBox>(rb_mQt6QtWidgets, "QSpinBox")
             // RubyQt6-Defined Functions
+            .define_method("set_prefix", [](QSpinBox *self, const char *prefix) -> void { return self->setPrefix(prefix); }, Arg("prefix"))
+            .define_method("set_suffix", [](QSpinBox *self, const char *suffix) -> void { return self->setSuffix(suffix); }, Arg("suffix"))
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QSpinBox::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QSpinBox, QWidget *>(), Arg("parent"))
