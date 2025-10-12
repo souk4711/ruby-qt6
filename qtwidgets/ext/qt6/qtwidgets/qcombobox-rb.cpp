@@ -15,6 +15,8 @@ void Init_qcombobox(Rice::Module rb_mQt6QtWidgets)
         // RubyQt6::QtWidgets::QComboBox
         define_class_under<QComboBox, QWidget>(rb_mQt6QtWidgets, "QComboBox")
             // RubyQt6-Defined Functions
+            .define_method("add_item", [](QComboBox *self, const QIcon &icon, const char *text, const QVariant &user_data) -> void { return self->addItem(icon, text, user_data); }, Arg("icon"), Arg("text"), Arg("user_data") = static_cast<const QVariant &>(QVariant()))
+            .define_method("add_item", [](QComboBox *self, const char *text, const QVariant &user_data) -> void { return self->addItem(text, user_data); }, Arg("text"), Arg("user_data") = static_cast<const QVariant &>(QVariant()))
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QComboBox::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QComboBox, QWidget *>(), Arg("parent"))
