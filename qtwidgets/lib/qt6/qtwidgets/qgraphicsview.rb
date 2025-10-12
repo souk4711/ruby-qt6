@@ -5,8 +5,10 @@ module RubyQt6
     # @see https://doc.qt.io/qt-6/qgraphicsview.html
     class QGraphicsView < RubyQt6::QtWidgets::QAbstractScrollArea
       # @!parse class CacheModeFlag     ; end
+      # @!parse class CacheMode         ; end
       # @!parse class DragMode          ; end
       # @!parse class OptimizationFlag  ; end
+      # @!parse class OptimizationFlags ; end
       # @!parse class ViewportAnchor    ; end
       # @!parse class ViewportUpdateMode; end
       rubyqt6_declare_enum_under QGraphicsView, QGraphicsView::CacheModeFlag
@@ -14,9 +16,6 @@ module RubyQt6
       rubyqt6_declare_enum_under QGraphicsView, QGraphicsView::OptimizationFlag
       rubyqt6_declare_enum_under QGraphicsView, QGraphicsView::ViewportAnchor
       rubyqt6_declare_enum_under QGraphicsView, QGraphicsView::ViewportUpdateMode
-
-      # @!parse class CacheMode        ; end
-      # @!parse class OptimizationFlags; end
       rubyqt6_declare_qflags QGraphicsView::CacheMode, QGraphicsView::CacheModeFlag
       rubyqt6_declare_qflags QGraphicsView::OptimizationFlags, QGraphicsView::OptimizationFlag
 

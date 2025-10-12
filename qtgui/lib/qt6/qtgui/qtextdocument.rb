@@ -4,19 +4,18 @@ module RubyQt6
   module QtGui
     # @see https://doc.qt.io/qt-6/qtextdocument.html
     class QTextDocument < RubyQt6::QtCore::QObject
-      # @!parse class FindFlag       ; end
-      # @!parse class MarkdownFeature; end
-      # @!parse class MetaInformation; end
-      # @!parse class ResourceType   ; end
-      # @!parse class Stacks         ; end
+      # @!parse class FindFlag        ; end
+      # @!parse class FindFlags       ; end
+      # @!parse class MarkdownFeature ; end
+      # @!parse class MarkdownFeatures; end
+      # @!parse class MetaInformation ; end
+      # @!parse class ResourceType    ; end
+      # @!parse class Stacks          ; end
       rubyqt6_declare_enum_under QTextDocument, QTextDocument::FindFlag
       rubyqt6_declare_enum_under QTextDocument, QTextDocument::MarkdownFeature
       rubyqt6_declare_enum_under QTextDocument, QTextDocument::MetaInformation
       rubyqt6_declare_enum_under QTextDocument, QTextDocument::ResourceType
       rubyqt6_declare_enum_under QTextDocument, QTextDocument::Stacks
-
-      # @!parse class FindFlags       ; end
-      # @!parse class MarkdownFeatures; end
       rubyqt6_declare_qflags QTextDocument::FindFlags, QTextDocument::FindFlag
       rubyqt6_declare_qflags QTextDocument::MarkdownFeatures, QTextDocument::MarkdownFeature
 

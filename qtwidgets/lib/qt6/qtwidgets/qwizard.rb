@@ -4,16 +4,15 @@ module RubyQt6
   module QtWidgets
     # @see https://doc.qt.io/qt-6/qwizard.html
     class QWizard < RubyQt6::QtWidgets::QDialog
-      # @!parse class WizardButton; end
-      # @!parse class WizardOption; end
-      # @!parse class WizardPixmap; end
-      # @!parse class WizardStyle ; end
+      # @!parse class WizardButton ; end
+      # @!parse class WizardOption ; end
+      # @!parse class WizardOptions; end
+      # @!parse class WizardPixmap ; end
+      # @!parse class WizardStyle  ; end
       rubyqt6_declare_enum_under QWizard, QWizard::WizardButton
       rubyqt6_declare_enum_under QWizard, QWizard::WizardOption
       rubyqt6_declare_enum_under QWizard, QWizard::WizardPixmap
       rubyqt6_declare_enum_under QWizard, QWizard::WizardStyle
-
-      # @!parse class WizardOptions; end
       rubyqt6_declare_qflags QWizard::WizardOptions, QWizard::WizardOption
 
       # @!parse

@@ -7,13 +7,12 @@ module RubyQt6
       # @!parse class ButtonSymbols  ; end
       # @!parse class CorrectionMode ; end
       # @!parse class StepEnabledFlag; end
+      # @!parse class StepEnabled    ; end
       # @!parse class StepType       ; end
       rubyqt6_declare_enum_under QAbstractSpinBox, QAbstractSpinBox::ButtonSymbols
       rubyqt6_declare_enum_under QAbstractSpinBox, QAbstractSpinBox::CorrectionMode
       rubyqt6_declare_enum_under QAbstractSpinBox, QAbstractSpinBox::StepEnabledFlag
       rubyqt6_declare_enum_under QAbstractSpinBox, QAbstractSpinBox::StepType
-
-      # @!parse class StepEnabled; end
       rubyqt6_declare_qflags QAbstractSpinBox::StepEnabled, QAbstractSpinBox::StepEnabledFlag
 
       # @!parse

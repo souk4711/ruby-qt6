@@ -4,10 +4,9 @@ module RubyQt6
   module QtWidgets
     # @see https://doc.qt.io/qt-6/qmdisubwindow.html
     class QMdiSubWindow < RubyQt6::QtWidgets::QWidget
-      # @!parse class SubWindowOption; end
-      rubyqt6_declare_enum_under QMdiSubWindow, QMdiSubWindow::SubWindowOption
-
+      # @!parse class SubWindowOption ; end
       # @!parse class SubWindowOptions; end
+      rubyqt6_declare_enum_under QMdiSubWindow, QMdiSubWindow::SubWindowOption
       rubyqt6_declare_qflags QMdiSubWindow::SubWindowOptions, QMdiSubWindow::SubWindowOption
 
       # @!parse

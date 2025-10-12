@@ -4,10 +4,9 @@ module RubyQt6
   module QtCore
     # @see https://doc.qt.io/qt-6/qitemselectionmodel.html
     class QItemSelectionModel < RubyQt6::QtCore::QObject
-      # @!parse class SelectionFlag; end
-      rubyqt6_declare_enum_under QItemSelectionModel, QItemSelectionModel::SelectionFlag
-
+      # @!parse class SelectionFlag ; end
       # @!parse class SelectionFlags; end
+      rubyqt6_declare_enum_under QItemSelectionModel, QItemSelectionModel::SelectionFlag
       rubyqt6_declare_qflags QItemSelectionModel::SelectionFlags, QItemSelectionModel::SelectionFlag
 
       # @!parse

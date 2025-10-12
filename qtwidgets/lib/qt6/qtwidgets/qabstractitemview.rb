@@ -6,6 +6,7 @@ module RubyQt6
     class QAbstractItemView < RubyQt6::QtWidgets::QAbstractScrollArea
       # @!parse class DragDropMode     ; end
       # @!parse class EditTrigger      ; end
+      # @!parse class EditTriggers     ; end
       # @!parse class ScrollHint       ; end
       # @!parse class ScrollMode       ; end
       # @!parse class SelectionBehavior; end
@@ -16,8 +17,6 @@ module RubyQt6
       rubyqt6_declare_enum_under QAbstractItemView, QAbstractItemView::ScrollMode
       rubyqt6_declare_enum_under QAbstractItemView, QAbstractItemView::SelectionBehavior
       rubyqt6_declare_enum_under QAbstractItemView, QAbstractItemView::SelectionMode
-
-      # @!parse class EditTriggers; end
       rubyqt6_declare_qflags QAbstractItemView::EditTriggers, QAbstractItemView::EditTrigger
 
       # @!parse

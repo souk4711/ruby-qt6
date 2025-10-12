@@ -4,13 +4,12 @@ module RubyQt6
   module QtCore
     # @see https://doc.qt.io/qt-6/qdir.html
     class QDir
-      # @!parse class Filter  ; end
-      # @!parse class SortFlag; end
+      # @!parse class Filter   ; end
+      # @!parse class Filters  ; end
+      # @!parse class SortFlag ; end
+      # @!parse class SortFlags; end
       rubyqt6_declare_enum_under QDir, QDir::Filter
       rubyqt6_declare_enum_under QDir, QDir::SortFlag
-
-      # @!parse class Filters  ; end
-      # @!parse class SortFlags; end
       rubyqt6_declare_qflags QDir::Filters, QDir::Filter
       rubyqt6_declare_qflags QDir::SortFlags, QDir::SortFlag
 

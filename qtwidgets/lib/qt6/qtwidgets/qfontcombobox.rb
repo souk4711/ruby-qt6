@@ -4,10 +4,9 @@ module RubyQt6
   module QtWidgets
     # @see https://doc.qt.io/qt-6/qfontcombobox.html
     class QFontComboBox < RubyQt6::QtWidgets::QComboBox
-      # @!parse class FontFilter; end
-      rubyqt6_declare_enum_under QFontComboBox, QFontComboBox::FontFilter
-
+      # @!parse class FontFilter ; end
       # @!parse class FontFilters; end
+      rubyqt6_declare_enum_under QFontComboBox, QFontComboBox::FontFilter
       rubyqt6_declare_qflags QFontComboBox::FontFilters, QFontComboBox::FontFilter
 
       # @!parse

@@ -4,10 +4,9 @@ module RubyQt6
   module QtWidgets
     # @see https://doc.qt.io/qt-6/qmainwindow.html
     class QMainWindow < RubyQt6::QtWidgets::QWidget
-      # @!parse class DockOption; end
-      rubyqt6_declare_enum_under QMainWindow, QMainWindow::DockOption
-
+      # @!parse class DockOption ; end
       # @!parse class DockOptions; end
+      rubyqt6_declare_enum_under QMainWindow, QMainWindow::DockOption
       rubyqt6_declare_qflags QMainWindow::DockOptions, QMainWindow::DockOption
 
       # @!parse

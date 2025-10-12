@@ -4,15 +4,14 @@ module RubyQt6
   module QtGui
     # @see https://doc.qt.io/qt-6/qpainter.html
     class QPainter
-      # @!parse class CompositionMode   ; end
-      # @!parse class PixmapFragmentHint; end
-      # @!parse class RenderHint        ; end
+      # @!parse class CompositionMode    ; end
+      # @!parse class PixmapFragmentHint ; end
+      # @!parse class PixmapFragmentHints; end
+      # @!parse class RenderHint         ; end
+      # @!parse class RenderHints        ; end
       rubyqt6_declare_enum_under QPainter, QPainter::CompositionMode
       rubyqt6_declare_enum_under QPainter, QPainter::PixmapFragmentHint
       rubyqt6_declare_enum_under QPainter, QPainter::RenderHint
-
-      # @!parse class PixmapFragmentHints; end
-      # @!parse class RenderHints        ; end
       rubyqt6_declare_qflags QPainter::PixmapFragmentHints, QPainter::PixmapFragmentHint
       rubyqt6_declare_qflags QPainter::RenderHints, QPainter::RenderHint
 

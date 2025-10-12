@@ -4,12 +4,11 @@ module RubyQt6
   module QtWidgets
     # @see https://doc.qt.io/qt-6/qinputdialog.html
     class QInputDialog < RubyQt6::QtWidgets::QDialog
-      # @!parse class InputDialogOption; end
-      # @!parse class InputMode        ; end
+      # @!parse class InputDialogOption ; end
+      # @!parse class InputDialogOptions; end
+      # @!parse class InputMode         ; end
       rubyqt6_declare_enum_under QInputDialog, QInputDialog::InputDialogOption
       rubyqt6_declare_enum_under QInputDialog, QInputDialog::InputMode
-
-      # @!parse class InputDialogOptions; end
       rubyqt6_declare_qflags QInputDialog::InputDialogOptions, QInputDialog::InputDialogOption
 
       # @!parse

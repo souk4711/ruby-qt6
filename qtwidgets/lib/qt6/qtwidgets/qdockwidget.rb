@@ -4,10 +4,9 @@ module RubyQt6
   module QtWidgets
     # @see https://doc.qt.io/qt-6/qdockwidget.html
     class QDockWidget < RubyQt6::QtWidgets::QWidget
-      # @!parse class DockWidgetFeature; end
-      rubyqt6_declare_enum_under QDockWidget, QDockWidget::DockWidgetFeature
-
+      # @!parse class DockWidgetFeature ; end
       # @!parse class DockWidgetFeatures; end
+      rubyqt6_declare_enum_under QDockWidget, QDockWidget::DockWidgetFeature
       rubyqt6_declare_qflags QDockWidget::DockWidgetFeatures, QDockWidget::DockWidgetFeature
 
       # @!parse

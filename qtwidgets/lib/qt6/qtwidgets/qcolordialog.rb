@@ -4,10 +4,9 @@ module RubyQt6
   module QtWidgets
     # @see https://doc.qt.io/qt-6/qcolordialog.html
     class QColorDialog < RubyQt6::QtWidgets::QDialog
-      # @!parse class ColorDialogOption; end
-      rubyqt6_declare_enum_under QColorDialog, QColorDialog::ColorDialogOption
-
+      # @!parse class ColorDialogOption ; end
       # @!parse class ColorDialogOptions; end
+      rubyqt6_declare_enum_under QColorDialog, QColorDialog::ColorDialogOption
       rubyqt6_declare_qflags QColorDialog::ColorDialogOptions, QColorDialog::ColorDialogOption
 
       # @!parse

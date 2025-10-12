@@ -4,10 +4,9 @@ module RubyQt6
   module QtWidgets
     # @see https://doc.qt.io/qt-6/qwidget.html
     class QWidget < RubyQt6::QtCore::QObject
-      # @!parse class RenderFlag; end
-      rubyqt6_declare_enum_under QWidget, QWidget::RenderFlag
-
+      # @!parse class RenderFlag ; end
       # @!parse class RenderFlags; end
+      rubyqt6_declare_enum_under QWidget, QWidget::RenderFlag
       rubyqt6_declare_qflags QWidget::RenderFlags, QWidget::RenderFlag
 
       # @!parse

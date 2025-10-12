@@ -4,14 +4,13 @@ module RubyQt6
   module QtWidgets
     # @see https://doc.qt.io/qt-6/qdialogbuttonbox.html
     class QDialogButtonBox < RubyQt6::QtWidgets::QWidget
-      # @!parse class ButtonLayout  ; end
-      # @!parse class ButtonRole    ; end
-      # @!parse class StandardButton; end
+      # @!parse class ButtonLayout   ; end
+      # @!parse class ButtonRole     ; end
+      # @!parse class StandardButton ; end
+      # @!parse class StandardButtons; end
       rubyqt6_declare_enum_under QDialogButtonBox, QDialogButtonBox::ButtonLayout
       rubyqt6_declare_enum_under QDialogButtonBox, QDialogButtonBox::ButtonRole
       rubyqt6_declare_enum_under QDialogButtonBox, QDialogButtonBox::StandardButton
-
-      # @!parse class StandardButtons; end
       rubyqt6_declare_qflags QDialogButtonBox::StandardButtons, QDialogButtonBox::StandardButton
 
       # @!parse

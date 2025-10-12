@@ -5,13 +5,12 @@ module RubyQt6
     # @see https://doc.qt.io/qt-6/qmdiarea.html
     class QMdiArea < RubyQt6::QtWidgets::QAbstractScrollArea
       # @!parse class AreaOption ; end
+      # @!parse class AreaOptions; end
       # @!parse class ViewMode   ; end
       # @!parse class WindowOrder; end
       rubyqt6_declare_enum_under QMdiArea, QMdiArea::AreaOption
       rubyqt6_declare_enum_under QMdiArea, QMdiArea::ViewMode
       rubyqt6_declare_enum_under QMdiArea, QMdiArea::WindowOrder
-
-      # @!parse class AreaOptions; end
       rubyqt6_declare_qflags QMdiArea::AreaOptions, QMdiArea::AreaOption
 
       # @!parse

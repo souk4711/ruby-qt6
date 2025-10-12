@@ -6,14 +6,13 @@ module RubyQt6
     class QTextStream < RubyQt6::QtCore::QIODeviceBase
       # @!parse class FieldAlignment    ; end
       # @!parse class NumberFlag        ; end
+      # @!parse class NumberFlags       ; end
       # @!parse class RealNumberNotation; end
       # @!parse class Status            ; end
       rubyqt6_declare_enum_under QTextStream, QTextStream::FieldAlignment
       rubyqt6_declare_enum_under QTextStream, QTextStream::NumberFlag
       rubyqt6_declare_enum_under QTextStream, QTextStream::RealNumberNotation
       rubyqt6_declare_enum_under QTextStream, QTextStream::Status
-
-      # @!parse class NumberFlags; end
       rubyqt6_declare_qflags QTextStream::NumberFlags, QTextStream::NumberFlag
 
       # @!visibility private

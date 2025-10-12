@@ -5,11 +5,13 @@ module RubyQt6
     # @see https://doc.qt.io/qt-6/qstyle.html
     class QStyle < RubyQt6::QtCore::QObject
       # @!parse class StateFlag                ; end
+      # @!parse class State                    ; end
       # @!parse class PrimitiveElement         ; end
       # @!parse class ControlElement           ; end
       # @!parse class SubElement               ; end
       # @!parse class ComplexControl           ; end
       # @!parse class SubControl               ; end
+      # @!parse class SubControls              ; end
       # @!parse class PixelMetric              ; end
       # @!parse class ContentsType             ; end
       # @!parse class RequestSoftwareInputPanel; end
@@ -26,9 +28,6 @@ module RubyQt6
       rubyqt6_declare_enum_under QStyle, QStyle::RequestSoftwareInputPanel
       rubyqt6_declare_enum_under QStyle, QStyle::StyleHint
       rubyqt6_declare_enum_under QStyle, QStyle::StandardPixmap
-
-      # @!parse class State      ; end
-      # @!parse class SubControls; end
       rubyqt6_declare_qflags QStyle::State, QStyle::StateFlag
       rubyqt6_declare_qflags QStyle::SubControls, QStyle::SubControl
 

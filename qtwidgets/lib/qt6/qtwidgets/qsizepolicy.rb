@@ -4,14 +4,13 @@ module RubyQt6
   module QtWidgets
     # @see https://doc.qt.io/qt-6/qsizepolicy.html
     class QSizePolicy
-      # @!parse class ControlType; end
-      # @!parse class Policy     ; end
-      # @!parse class PolicyFlag ; end
+      # @!parse class ControlType ; end
+      # @!parse class ControlTypes; end
+      # @!parse class Policy      ; end
+      # @!parse class PolicyFlag  ; end
       rubyqt6_declare_enum_under QSizePolicy, QSizePolicy::ControlType
       rubyqt6_declare_enum_under QSizePolicy, QSizePolicy::Policy
       rubyqt6_declare_enum_under QSizePolicy, QSizePolicy::PolicyFlag
-
-      # @!parse class ControlTypes; end
       rubyqt6_declare_qflags QSizePolicy::ControlTypes, QSizePolicy::ControlType
 
       # @!visibility private

@@ -5,11 +5,10 @@ module RubyQt6
     # @see https://doc.qt.io/qt-6/qtextedit.html
     class QTextEdit < RubyQt6::QtWidgets::QAbstractScrollArea
       # @!parse class AutoFormattingFlag; end
+      # @!parse class AutoFormatting    ; end
       # @!parse class LineWrapMode      ; end
       rubyqt6_declare_enum_under QTextEdit, QTextEdit::AutoFormattingFlag
       rubyqt6_declare_enum_under QTextEdit, QTextEdit::LineWrapMode
-
-      # @!parse class AutoFormatting; end
       rubyqt6_declare_qflags QTextEdit::AutoFormatting, QTextEdit::AutoFormattingFlag
 
       # @!parse

@@ -8,14 +8,13 @@ module RubyQt6
       # @!parse class DialogLabel; end
       # @!parse class FileMode   ; end
       # @!parse class Option     ; end
+      # @!parse class Options    ; end
       # @!parse class ViewMode   ; end
       rubyqt6_declare_enum_under QFileDialog, QFileDialog::AcceptMode
       rubyqt6_declare_enum_under QFileDialog, QFileDialog::DialogLabel
       rubyqt6_declare_enum_under QFileDialog, QFileDialog::FileMode
       rubyqt6_declare_enum_under QFileDialog, QFileDialog::Option
       rubyqt6_declare_enum_under QFileDialog, QFileDialog::ViewMode
-
-      # @!parse class Options; end
       rubyqt6_declare_qflags QFileDialog::Options, QFileDialog::Option
 
       # @!parse
