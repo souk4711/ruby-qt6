@@ -1,6 +1,9 @@
 #include "qtprintsupport-rb.hpp"
 #include "qtprintsupportversion-rb.hpp"
 
+#include "qprinter-rb.hpp"
+#include "qprinterinfo-rb.hpp"
+
 extern "C" void Init_qtprintsupport()
 {
     return Rice::detail::cpp_protect([] {
@@ -8,5 +11,8 @@ extern "C" void Init_qtprintsupport()
         Rice::Module rb_mQt6QtPrintSupport = define_module_under(rb_mQt6, "QtPrintSupport");
 
         Init_qtprintsupportversion(rb_mQt6QtPrintSupport);
+
+        Init_qprinter(rb_mQt6QtPrintSupport);
+        Init_qprinterinfo(rb_mQt6QtPrintSupport);
     });
 }
