@@ -50,10 +50,22 @@ module RubyQt6
       def initialize(*args)
         parent = args.delete_at(-1) if args[-1].is_a?(QtCore::QObject)
         case args.size
-        when 0 then (icon, text) = QtGui::QIcon.new, ""
-        when 1 then (icon, text) = QtGui::QIcon.new, args[0]
-        when 2 then (icon, text) = args
-        else raise ArgumentError, "Too many arguments"
+        when 0
+          icon = QtGui::QIcon.new
+          text = ""
+        when 1
+          icon = QtGui::QIcon.new
+          text = args[0]
+        when 2
+          icon = args[0]
+          text = args[1]
+        else
+          message = "Could not resolve method call for #{self.class.name}#initialize\n" \
+             "  3 overload(s) were evaluated based on the types of Ruby parameters provided:\n" \
+             "     initialize(parent = nil)\n" \
+             "     initialize(text, parent = nil)\n" \
+             "     initialize(icon, text, parent = nil)\n"
+          raise ArgumentError, message
         end
 
         _initialize(icon, T.to_qstr(text), parent)

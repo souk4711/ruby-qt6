@@ -44,7 +44,10 @@ module RubyQt6
       "QGuiApplication",
       "QApplication",
       "QSettings",
-      "QAction"
+      "QAction",
+      "QDoubleValidator",
+      "QIntValidator",
+      "QRegularExpressionValidator"
     ]
 
     def self.inflector
