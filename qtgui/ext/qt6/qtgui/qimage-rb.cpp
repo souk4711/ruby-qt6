@@ -16,6 +16,7 @@ void Init_qimage(Rice::Module rb_mQt6QtGui)
         // RubyQt6::QtGui::QImage
         define_class_under<QImage, QPaintDevice>(rb_mQt6QtGui, "QImage")
             // Constructor
+            .define_constructor(Constructor<QImage>())
             .define_constructor(Constructor<QImage, const QString &>(), Arg("file_name"))
             // Public Functions
             .define_method("all_gray", &QImage::allGray)

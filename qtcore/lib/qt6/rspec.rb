@@ -43,7 +43,8 @@ module RubyQt6
       "QCoreApplication",
       "QGuiApplication",
       "QApplication",
-      "QSettings"
+      "QSettings",
+      "QAction"
     ]
 
     def self.inflector

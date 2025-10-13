@@ -34,11 +34,28 @@ module RubyQt6
       # @!visibility private
       alias_method :_initialize, :initialize
 
-      # @param icon [QIcon]
-      # @param text [String, QString]
-      # @param parent [QObject]
       # @return [QAction]
-      def initialize(icon, text, parent = nil)
+      #
+      # @overload initialize(parent = nil)
+      #   @param parent [QObject]
+      #
+      # @overload initialize(text, parent = nil)
+      #   @param text [String, QString]
+      #   @param parent [QObject]
+      #
+      # @overload initialize(icon, text, parent = nil)
+      #   @param icon [QIcon]
+      #   @param text [String, QString]
+      #   @param parent [QObject]
+      def initialize(*args)
+        parent = args.delete_at(-1) if args[-1].is_a?(QtCore::QObject)
+        case args.size
+        when 0 then (icon, text) = QtGui::QIcon.new, ""
+        when 1 then (icon, text) = QtGui::QIcon.new, args[0]
+        when 2 then (icon, text) = args
+        else raise ArgumentError, "Too many arguments"
+        end
+
         _initialize(icon, T.to_qstr(text), parent)
         _take_ownership_from_ruby(self) if parent
       end

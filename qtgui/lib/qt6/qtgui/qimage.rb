@@ -14,6 +14,8 @@ module RubyQt6
 
       # @return [QImage]
       #
+      # @overload initialize
+      #
       # @overload initialize(file_name)
       #   @param file_name [String, QString]
       def initialize(*args)
