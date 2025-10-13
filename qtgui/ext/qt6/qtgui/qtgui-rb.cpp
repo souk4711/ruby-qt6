@@ -32,6 +32,7 @@
 #include "qguiapplication-rb.hpp"
 #include "qshortcut-rb.hpp"
 #include "qtextdocument-rb.hpp"
+#include "qvalidator-rb.hpp"
 #include "qwindow-rb.hpp"
 
 #include "t-qtgui-rb.hpp"
@@ -42,6 +43,7 @@
 #include "bando-qguiapplication-rb.hpp"
 #include "bando-qshortcut-rb.hpp"
 #include "bando-qtextdocument-rb.hpp"
+#include "bando-qvalidator-rb.hpp"
 #include "bando-qwindow-rb.hpp"
 
 extern "C" void Init_qtgui()
@@ -83,6 +85,7 @@ extern "C" void Init_qtgui()
         Init_qguiapplication(rb_mQt6QtGui);
         Init_qshortcut(rb_mQt6QtGui);
         Init_qtextdocument(rb_mQt6QtGui);
+        Init_qvalidator(rb_mQt6QtGui);
         Init_qwindow(rb_mQt6QtGui);
 
         Rice::Module rb_mQt6T = define_module_under(rb_mQt6, "T");
@@ -95,6 +98,7 @@ extern "C" void Init_qtgui()
         Init_bando_qguiapplication(rb_mQt6Bando);
         Init_bando_qshortcut(rb_mQt6Bando);
         Init_bando_qtextdocument(rb_mQt6Bando);
+        Init_bando_qvalidator(rb_mQt6Bando);
         Init_bando_qwindow(rb_mQt6Bando);
     });
 }
