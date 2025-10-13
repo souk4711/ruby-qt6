@@ -2,21 +2,18 @@
 
 source "https://rubygems.org"
 
-# Specify your gem's dependencies in qt.gemspec
+# Specify your gem's dependencies in qtprintsupport.gemspec
 gemspec
 
 # ruby-qt6
-%w[
-  qtcore qtgui qtwidgets
-  qtqml qtquick qtquickcontrols2 qtquickwidgets
-  qtprintsupport qtuitools
-].each do |lib|
+%w[qtcore qtgui qtwidgets].each do |lib|
   gem "ruby-qt6-#{lib}", path: "../#{lib}"
 end
 
 # rake
 gem "irb"
 gem "rake", "~> 13.0"
+gem "rake-compiler"
 
 # lint
 gem "rubocop"

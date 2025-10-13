@@ -5,7 +5,7 @@ source "https://rubygems.org"
 %w[
   qtcore qtgui qtwidgets
   qtqml qtquick qtquickcontrols2 qtquickwidgets
-  qtuitools
+  qtprintsupport qtuitools
   qt
 ].each do |lib|
   gem_name = (lib != "qt" ? "ruby-qt6-#{lib}" : "ruby-qt6")

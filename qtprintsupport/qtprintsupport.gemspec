@@ -1,21 +1,21 @@
 # frozen_string_literal: true
 
-require_relative "lib/qt6/version"
+require_relative "lib/qt6/qtprintsupport/version"
 
 Gem::Specification.new do |spec|
-  spec.name = "ruby-qt6"
-  spec.version = RubyQt6::RUBYGEM_VERSION
+  spec.name = "ruby-qt6-qtprintsupport"
+  spec.version = RubyQt6::QtPrintSupport::QTPRINTSUPPORT_RUBYGEM_VERSION
   spec.authors = ["John Doe"]
   spec.email = ["johndoe@example.com"]
 
-  spec.summary = "Ruby Bindings for libQt6"
-  spec.description = "Ruby Bindings for libQt6"
-  spec.homepage = "https://github.com/souk4711/ruby-qt6/qt"
+  spec.summary = "Ruby Bindings for libQt6PrintSupport"
+  spec.description = "Ruby Bindings for libQt6PrintSupport"
+  spec.homepage = "https://github.com/souk4711/ruby-qt6/qtprintsupport"
   spec.required_ruby_version = ">= 3.1.0"
 
   spec.metadata["homepage_uri"] = spec.homepage
-  spec.metadata["source_code_uri"] = "https://github.com/souk4711/ruby-qt6/qt"
-  spec.metadata["changelog_uri"] = "https://github.com/souk4711/ruby-qt6/qt"
+  spec.metadata["source_code_uri"] = "https://github.com/souk4711/ruby-qt6/qtprintsupport"
+  spec.metadata["changelog_uri"] = "https://github.com/souk4711/ruby-qt6/qtprintsupport"
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
@@ -29,16 +29,12 @@ Gem::Specification.new do |spec|
   spec.bindir = "exe"
   spec.executables = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
+  spec.extensions = ["ext/qt6/qtprintsupport/extconf.rb"]
 
+  spec.add_runtime_dependency("rice", "~> 4.6")
   spec.add_runtime_dependency("ruby-qt6-qtcore")
   spec.add_runtime_dependency("ruby-qt6-qtgui")
   spec.add_runtime_dependency("ruby-qt6-qtwidgets")
-  spec.add_runtime_dependency("ruby-qt6-qtqml")
-  spec.add_runtime_dependency("ruby-qt6-qtquick")
-  spec.add_runtime_dependency("ruby-qt6-qtquickcontrols2")
-  spec.add_runtime_dependency("ruby-qt6-qtquickwidgets")
-  spec.add_runtime_dependency("ruby-qt6-qtprintsupport")
-  spec.add_runtime_dependency("ruby-qt6-qtuitools")
 
   # For more information and examples about making a new gem, check out our
   # guide at: https://bundler.io/guides/creating_gem.html
