@@ -28,7 +28,7 @@ module RubyQt6
       #   @param top [Float]
       #   @param decimals [Integer]
       #   @param parent [QObject]
-      def initialize(parent = nil)
+      def initialize(*args)
         parent = args.delete_at(-1) if args[-1].is_a?(QtCore::QObject)
         case args.size
         when 0

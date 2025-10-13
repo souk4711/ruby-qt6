@@ -15,6 +15,7 @@ void Init_qlineedit(Rice::Module rb_mQt6QtWidgets)
         // RubyQt6::QtWidgets::QLineEdit
         define_class_under<QLineEdit, QWidget>(rb_mQt6QtWidgets, "QLineEdit")
             // RubyQt6-Defined Functions
+            .define_method("set_input_mask", [](QLineEdit *self, const char *input_mask) -> void { return self->setInputMask(input_mask); }, Arg("input_mask"))
             .define_method("set_text", [](QLineEdit *self, const char *text) -> void { return self->setText(text); }, Arg("text"))
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QLineEdit::staticMetaObject; })
             // Constructor
