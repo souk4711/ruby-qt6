@@ -18,6 +18,24 @@ module RubyQt6
       # @overload initialize(brush, width)
       #   @param brush [QBrush]
       #   @param width [Float]
+      #
+      # @overload initialize(brush, width, style)
+      #   @param brush [QBrush]
+      #   @param width [Float]
+      #   @param style [Qt::PenStyle]
+      #
+      # @overload initialize(brush, width, style, cap)
+      #   @param brush [QBrush]
+      #   @param width [Float]
+      #   @param style [Qt::PenStyle]
+      #   @param cap [Qt::PenCapStyle]
+      #
+      # @overload initialize(brush, width, style, cap, join)
+      #   @param brush [QBrush]
+      #   @param width [Float]
+      #   @param style [Qt::PenStyle]
+      #   @param cap [Qt::PenCapStyle]
+      #   @param join [Qt::PenJoinStyle]
       def initialize(*args)
         _initialize(*args)
       end
