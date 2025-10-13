@@ -13,6 +13,7 @@
 #include "qkeysequence-rb.hpp"
 #include "qpaintdevice-rb.hpp"
 #include "qimage-rb.hpp"
+#include "qimagewriter-rb.hpp"
 #include "qpicture-rb.hpp"
 #include "qpixmap-rb.hpp"
 #include "qpainter-rb.hpp"
@@ -63,6 +64,7 @@ extern "C" void Init_qtgui()
         Init_qkeysequence(rb_mQt6QtGui);
         Init_qpaintdevice(rb_mQt6QtGui);
         Init_qimage(rb_mQt6QtGui);
+        Init_qimagewriter(rb_mQt6QtGui);
         Init_qpicture(rb_mQt6QtGui);
         Init_qpixmap(rb_mQt6QtGui);
         Init_qpainter(rb_mQt6QtGui);
