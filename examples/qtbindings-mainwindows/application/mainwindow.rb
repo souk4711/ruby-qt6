@@ -118,11 +118,11 @@ class MainWindow < RubyQt6::Bando::QMainWindow
     @paste_action.set_status_tip tr("Paste the clipboard's contents into the current selection")
     @paste_action.triggered.connect(@text_edit, :paste)
 
-    @about_action = QAction.new(QIcon.new, tr('&About'), self)
+    @about_action = QAction.new(tr('&About'), self)
     @about_action.set_status_tip tr("Show the application's About box")
     @about_action.triggered.connect(self, :about)
 
-    @about_qt_action = QAction.new(QIcon.new, tr('About &Qt'), self)
+    @about_qt_action = QAction.new(tr('About &Qt'), self)
     @about_qt_action.set_status_tip tr("Show the Qt library's About box")
     @about_qt_action.triggered.connect($qApp, :about_qt)
 

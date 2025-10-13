@@ -142,57 +142,57 @@ class MainWindow < RubyQt6::Bando::QMainWindow
   end
 
   def create_actions
-    @new_action = QAction.new(QIcon.new, tr('&New'), self)
+    @new_action = QAction.new(tr('&New'), self)
     @new_action.set_shortcut QKeySequence.new(tr('Ctrl+N'))
     @new_action.set_status_tip tr('Create a file.new')
     @new_action.triggered.connect(self, :new_file)
 
-    @open_action = QAction.new(QIcon.new, tr('&Open...'), self)
+    @open_action = QAction.new(tr('&Open...'), self)
     @open_action.set_shortcut QKeySequence.new(tr('Ctrl+O'))
     @open_action.set_status_tip tr('Open an existing file')
     @open_action.triggered.connect(self, :open)
 
-    @save_action = QAction.new(QIcon.new, tr('&Save'), self)
+    @save_action = QAction.new(tr('&Save'), self)
     @save_action.set_shortcut QKeySequence.new(tr('Ctrl+S'))
     @save_action.set_status_tip tr('Save the document to disk')
     @save_action.triggered.connect(self, :save)
 
-    @print_action = QAction.new(QIcon.new, tr('&Print...'), self)
+    @print_action = QAction.new(tr('&Print...'), self)
     @print_action.set_shortcut QKeySequence.new(tr('Ctrl+P'))
     @print_action.set_status_tip tr('Print the document')
     @print_action.triggered.connect(self, :print)
 
-    @exit_action = QAction.new(QIcon.new, tr('E&xit'), self)
+    @exit_action = QAction.new(tr('E&xit'), self)
     @exit_action.set_shortcut QKeySequence.new(tr('Ctrl+Q'))
     @exit_action.set_status_tip tr('Exit the application')
     @exit_action.triggered.connect(self, :close)
 
-    @undo_action = QAction.new(QIcon.new, tr('&Undo'), self)
+    @undo_action = QAction.new(tr('&Undo'), self)
     @undo_action.set_shortcut QKeySequence.new(tr('Ctrl+Z'))
     @undo_action.set_status_tip tr('Undo the last operation')
     @undo_action.triggered.connect(self, :undo)
 
-    @redo_action = QAction.new(QIcon.new, tr('&Redo'), self)
+    @redo_action = QAction.new(tr('&Redo'), self)
     @redo_action.set_shortcut QKeySequence.new(tr('Ctrl+Y'))
     @redo_action.set_status_tip tr('Redo the last operation')
     @redo_action.triggered.connect(self, :redo)
 
-    @cut_action = QAction.new(QIcon.new, tr('Cu&t'), self)
+    @cut_action = QAction.new(tr('Cu&t'), self)
     @cut_action.set_shortcut QKeySequence.new(tr('Ctrl+X'))
     @cut_action.set_status_tip(tr("Cut the current selection's contents to the clipboard"))
     @cut_action.triggered.connect(self, :cut)
 
-    @copy_action = QAction.new(QIcon.new, tr('&Copy'), self)
+    @copy_action = QAction.new(tr('&Copy'), self)
     @copy_action.set_shortcut QKeySequence.new(tr('Ctrl+C'))
     @copy_action.set_status_tip(tr("Copy the current selection's contents to the clipboard"))
     @copy_action.triggered.connect(self, :copy)
 
-    @paste_action = QAction.new(QIcon.new, tr('&Paste'), self)
+    @paste_action = QAction.new(tr('&Paste'), self)
     @paste_action.set_shortcut QKeySequence.new(tr('Ctrl+V'))
     @paste_action.set_status_tip(tr("Paste the clipboard's contents into the current selection"))
     @paste_action.triggered.connect(self, :paste)
 
-    @bold_action = QAction.new(QIcon.new, tr('&Bold'), self)
+    @bold_action = QAction.new(tr('&Bold'), self)
     @bold_action.set_checkable true
     @bold_action.set_shortcut QKeySequence.new(tr('Ctrl+B'))
     @bold_action.set_status_tip tr('Make the text bold')
@@ -202,7 +202,7 @@ class MainWindow < RubyQt6::Bando::QMainWindow
     bold_font.set_bold true
     @bold_action.set_font bold_font
 
-    @italic_action = QAction.new(QIcon.new, tr('&Italic'), self)
+    @italic_action = QAction.new(tr('&Italic'), self)
     @italic_action.set_checkable true
     @italic_action.set_shortcut QKeySequence.new(tr('Ctrl+I'))
     @italic_action.set_status_tip tr('Make the text italic')
@@ -212,25 +212,25 @@ class MainWindow < RubyQt6::Bando::QMainWindow
     italic_font.set_italic true
     @italic_action.set_font italic_font
 
-    @left_align_action = QAction.new(QIcon.new, tr('&Left Align'), self)
+    @left_align_action = QAction.new(tr('&Left Align'), self)
     @left_align_action.set_checkable true
     @left_align_action.set_shortcut QKeySequence.new(tr('Ctrl+L'))
     @left_align_action.set_status_tip tr('Left align the selected text')
     @left_align_action.triggered.connect(self, :left_align)
 
-    @right_align_action = QAction.new(QIcon.new, tr('&Right Align'), self)
+    @right_align_action = QAction.new(tr('&Right Align'), self)
     @right_align_action.set_checkable true
     @right_align_action.set_shortcut QKeySequence.new(tr('Ctrl+R'))
     @right_align_action.set_status_tip tr('Right align the selected text')
     @right_align_action.triggered.connect(self, :right_align)
 
-    @justify_action = QAction.new(QIcon.new, tr('&Justify'), self)
+    @justify_action = QAction.new(tr('&Justify'), self)
     @justify_action.set_checkable true
     @justify_action.set_shortcut QKeySequence.new(tr('Ctrl+J'))
     @justify_action.set_status_tip tr('Justify the selected text')
     @justify_action.triggered.connect(self, :justify)
 
-    @center_action = QAction.new(QIcon.new, tr('&Center'), self)
+    @center_action = QAction.new(tr('&Center'), self)
     @center_action.set_checkable true
     @center_action.set_shortcut QKeySequence.new(tr('Ctrl+E'))
     @center_action.set_status_tip tr('Center the selected text')
@@ -243,19 +243,19 @@ class MainWindow < RubyQt6::Bando::QMainWindow
     @alignmentGroup.add_action(@center_action)
     @left_align_action.set_checked true
 
-    @set_line_spacing_action = QAction.new(QIcon.new, tr('Set &Line Spacing...'), self)
+    @set_line_spacing_action = QAction.new(tr('Set &Line Spacing...'), self)
     @set_line_spacing_action.set_status_tip(tr('Change the gap between the lines of a paragraph'))
     @set_line_spacing_action.triggered.connect(self, :set_line_spacing)
 
-    @set_paragraph_spacing_action = QAction.new(QIcon.new, tr('Set &Paragraph Spacing...'), self)
+    @set_paragraph_spacing_action = QAction.new(tr('Set &Paragraph Spacing...'), self)
     @set_line_spacing_action.set_status_tip tr('Change the gap between paragraphs')
     @set_paragraph_spacing_action.triggered.connect(self, :set_paragraph_spacing)
 
-    @about_action = QAction.new(QIcon.new, tr('&About'), self)
+    @about_action = QAction.new(tr('&About'), self)
     @about_action.set_status_tip tr("Show the application's About box")
     @about_action.triggered.connect(self, :about)
 
-    @about_qt_action = QAction.new(QIcon.new, tr('About &Qt'), self)
+    @about_qt_action = QAction.new(tr('About &Qt'), self)
     @about_qt_action.set_status_tip tr("Show the Qt library's About box")
     @about_qt_action.triggered.connect($qApp, :about_qt)
     @about_qt_action.triggered.connect(self, :about_qt)

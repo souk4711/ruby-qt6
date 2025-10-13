@@ -81,48 +81,48 @@ class MainWindow < RubyQt6::Bando::QMainWindow
   end
 
   def create_actions
-    @new_action = QAction.new(QIcon.new, tr('&New'), self)
+    @new_action = QAction.new(tr('&New'), self)
     @new_action.set_shortcut QKeySequence.new(tr('Ctrl+N'))
     @new_action.set_status_tip tr('Create a file.new')
     @new_action.triggered.connect(self, :new_file)
 
-    @open_action = QAction.new(QIcon.new, tr('&Open...'), self)
+    @open_action = QAction.new(tr('&Open...'), self)
     @open_action.set_shortcut QKeySequence.new(tr('Ctrl+O'))
     @open_action.set_status_tip tr('Open an existing file')
     @open_action.triggered.connect(self, :open)
 
-    @save_action = QAction.new(QIcon.new, tr('&Save'), self)
+    @save_action = QAction.new(tr('&Save'), self)
     @save_action.set_shortcut QKeySequence.new(tr('Ctrl+S'))
     @save_action.set_status_tip tr('Save the document to disk')
     @save_action.triggered.connect(self, :save)
 
-    @save_as_act = QAction.new(QIcon.new, tr('Save &As...'), self)
+    @save_as_act = QAction.new(tr('Save &As...'), self)
     @save_as_act.set_status_tip tr('Save the document under a name.new')
     @save_as_act.triggered.connect(self, :save_as)
 
     @recent_file_actions_mapper = QSignalMapper.new(self)
     (0...MAX_RECENT_FILES).each do |i|
-      @recent_file_actions[i] = QAction.new(QIcon.new, '', self)
+      @recent_file_actions[i] = QAction.new('', self)
       @recent_file_actions[i].set_visible false
       @recent_file_actions[i].triggered.connect(@recent_file_actions_mapper, :map)
     end
     @recent_file_actions_mapper.mapped_string.connect(self, :open_recent_file)
 
-    @exit_action = QAction.new(QIcon.new, tr('&Close'), self)
+    @exit_action = QAction.new(tr('&Close'), self)
     @exit_action.set_shortcut QKeySequence.new(tr('Ctrl+W'))
     @exit_action.set_status_tip tr('Close self window')
     @exit_action.triggered.connect(self, :close)
 
-    @exit_action = QAction.new(QIcon.new, tr('E&xit'), self)
+    @exit_action = QAction.new(tr('E&xit'), self)
     @exit_action.set_shortcut QKeySequence.new(tr('Ctrl+Q'))
     @exit_action.set_status_tip tr('Exit the application')
     @exit_action.triggered.connect($qApp, :close_all_windows)
 
-    @about_action = QAction.new(QIcon.new, tr('&About'), self)
+    @about_action = QAction.new(tr('&About'), self)
     @about_action.set_status_tip tr("Show the application's About box")
     @about_action.triggered.connect(self, :about)
 
-    @about_qt_action = QAction.new(QIcon.new, tr('About &Qt'), self)
+    @about_qt_action = QAction.new(tr('About &Qt'), self)
     @about_qt_action.set_status_tip tr("Show the Qt library's About box")
     @about_qt_action.triggered.connect($qApp, :about_qt)
   end
