@@ -28,7 +28,7 @@ class CharacterWidget < RubyQt6::Bando::QWidget
   end
 
   def size_hint
-    QSize.new(32 * 24, (65536 / 32) * 24)
+    QSize.new(32 * 24, (65_536 / 32) * 24)
   end
 
   def mouse_move_event(event)
@@ -74,7 +74,10 @@ class CharacterWidget < RubyQt6::Bando::QWidget
         char = QChar.new(key)
         painter.set_clip_rect(column * 24, row * 24, 24, 24)
         painter.fill_rect(column * 24, row * 24, 24, 24, QBrush.new(Qt::Red)) if key == @last_key
-        painter.draw_text(column * 24 + 12 - font_metrics.horizontal_advance(char) / 2, row * 24 + 4 + font_metrics.ascent, char.to_s) if key != 0
+        if key != 0
+          painter.draw_text(column * 24 + 12 - font_metrics.horizontal_advance(char) / 2,
+                            row * 24 + 4 + font_metrics.ascent, char.to_s)
+        end
       end
     end
     painter.end

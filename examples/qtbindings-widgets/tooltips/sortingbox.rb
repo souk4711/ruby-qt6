@@ -9,7 +9,7 @@ class SortingBox < RubyQt6::Bando::QWidget
     slot 'create_new_triangle()'
   end
 
-  RAND_MAX = 2147483647
+  RAND_MAX = 2_147_483_647
 
   def initialize(parent = nil)
     super(parent)
@@ -26,7 +26,8 @@ class SortingBox < RubyQt6::Bando::QWidget
 
     @new_circle_button = create_tool_button(tr('New Circle'), QIcon.new('images/circle.png'), :create_new_circle)
     @new_square_button = create_tool_button(tr('New Square'), QIcon.new('images/square.png'), :create_new_square)
-    @new_triangle_button = create_tool_button(tr('New Triangle'), QIcon.new('images/triangle.png'), :create_new_triangle)
+    @new_triangle_button = create_tool_button(tr('New Triangle'), QIcon.new('images/triangle.png'),
+                                              :create_new_triangle)
 
     @circle_path.add_ellipse(QRectF.new(0.0, 0.0, 100.0, 100.0))
     @square_path.add_rect(QRectF.new(0.0, 0.0, 100.0, 100.0))
@@ -92,7 +93,7 @@ class SortingBox < RubyQt6::Bando::QWidget
   end
 
   def mouse_move_event(event)
-    return if event.buttons & Qt::LeftButton == 0
+    return if (event.buttons & Qt::LeftButton).zero?
     return if @item_in_motion.nil?
 
     move_item_to(event.position.to_point)
