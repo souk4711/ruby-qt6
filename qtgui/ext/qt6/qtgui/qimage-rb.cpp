@@ -18,6 +18,7 @@ void Init_qimage(Rice::Module rb_mQt6QtGui)
             // Constructor
             .define_constructor(Constructor<QImage>())
             .define_constructor(Constructor<QImage, const QString &>(), Arg("file_name"))
+            .define_constructor(Constructor<QImage, const QSize &, QImage::Format>(), Arg("size"), Arg("format"))
             // Public Functions
             .define_method("all_gray", &QImage::allGray)
             .define_method<void (QImage::*)(const QColorTransform &)>("apply_color_transform", &QImage::applyColorTransform, Arg("transform"))

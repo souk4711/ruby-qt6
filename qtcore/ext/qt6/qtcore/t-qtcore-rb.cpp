@@ -9,6 +9,9 @@ using namespace Rice;
 
 void Init_t_qtcore(Rice::Module rb_mQt6T)
 {
+    // QList<QByteArray>
+    define_qlist_under<QByteArray>(rb_mQt6T);
+
     // QList<QItemSelectionRange> -> QItemSelection
     define_qlist_under<QItemSelectionRange>(rb_mQt6T);
 

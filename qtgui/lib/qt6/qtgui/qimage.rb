@@ -18,6 +18,10 @@ module RubyQt6
       #
       # @overload initialize(file_name)
       #   @param file_name [String, QString]
+      #
+      # @overload initialize(file_name)
+      #   @param size [QSize]
+      #   @param format [QImage::Format]
       def initialize(*args)
         args[0] = T.to_qstr(args[0]) if args[0].is_a?(String)
         _initialize(*args)
