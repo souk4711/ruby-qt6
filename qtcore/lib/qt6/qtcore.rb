@@ -30,6 +30,7 @@ require_relative "qtcore/qstring"
 require_relative "qtcore/qiodevicebase"
 
 require_relative "qtcore/qbasictimer"
+require_relative "qtcore/qbool"
 require_relative "qtcore/qevent"
 require_relative "qtcore/qchildevent"
 require_relative "qtcore/qdynamicpropertychangeevent"

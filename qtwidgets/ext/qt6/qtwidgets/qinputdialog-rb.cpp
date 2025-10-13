@@ -6,12 +6,57 @@ using namespace Rice;
 
 Rice::Class rb_cQInputDialog;
 
+double QInputDialog_get_double(QWidget *parent, const QString &title, const QString &label, double value, double min, double max, int decimals, Object boolean, Qt::WindowFlags flags, double step)
+{
+    bool ok {};
+    double v = QInputDialog::getDouble(parent, title, label, value, min, max, decimals, &ok, flags, step);
+    if (!boolean.is_nil()) boolean.call("value=", ok);
+    return v;
+}
+
+int QInputDialog_get_int(QWidget *parent, const QString &title, const QString &label, int value, int min, int max, int step, Object boolean, Qt::WindowFlags flags)
+{
+    bool ok {};
+    int v = QInputDialog::getInt(parent, title, label, value, min, max, step, &ok, flags);
+    if (!boolean.is_nil()) boolean.call("value=", ok);
+    return v;
+}
+
+QString QInputDialog_get_item(QWidget *parent, const QString &title, const QString &label, const QStringList &items, int current, bool editable, Object boolean, Qt::WindowFlags flags, Qt::InputMethodHints inputMethodHints)
+{
+    bool ok {};
+    QString v = QInputDialog::getItem(parent, title, label, items, current, editable, &ok, flags, inputMethodHints);
+    if (!boolean.is_nil()) boolean.call("value=", ok);
+    return v;
+}
+
+QString QInputDialog_get_multi_line_text(QWidget *parent, const QString &title, const QString &label, const QString &text, Object boolean, Qt::WindowFlags flags, Qt::InputMethodHints inputMethodHints)
+{
+    bool ok {};
+    QString v = QInputDialog::getMultiLineText(parent, title, label, text, &ok, flags, inputMethodHints);
+    if (!boolean.is_nil()) boolean.call("value=", ok);
+    return v;
+}
+
+QString QInputDialog_get_text(QWidget *parent, const QString &title, const QString &label, QLineEdit::EchoMode mode, const QString &text, Object boolean, Qt::WindowFlags flags, Qt::InputMethodHints inputMethodHints)
+{
+    bool ok {};
+    QString v = QInputDialog::getText(parent, title, label, mode, text, &ok, flags, inputMethodHints);
+    if (!boolean.is_nil()) boolean.call("value=", ok);
+    return v;
+}
+
 void Init_qinputdialog(Rice::Module rb_mQt6QtWidgets)
 {
     rb_cQInputDialog =
         // RubyQt6::QtWidgets::QInputDialog
         define_class_under<QInputDialog, QDialog>(rb_mQt6QtWidgets, "QInputDialog")
             // RubyQt6-Defined Functions
+            .define_singleton_function("get_double", QInputDialog_get_double, Arg("parent"), Arg("title"), Arg("label"), Arg("value") = static_cast<double>(0), Arg("min_value") = static_cast<double>(-2147483647), Arg("max_value") = static_cast<double>(2147483647), Arg("decimals") = static_cast<int>(1), Arg("ok") = static_cast<Object>(Qnil), Arg("flags") = static_cast<Qt::WindowFlags>(Qt::WindowFlags()), Arg("step") = static_cast<double>(1))
+            .define_singleton_function("get_int", QInputDialog_get_int, Arg("parent"), Arg("title"), Arg("label"), Arg("value") = static_cast<int>(0), Arg("min_value") = static_cast<int>(-2147483647), Arg("max_value") = static_cast<int>(2147483647), Arg("step") = static_cast<int>(1), Arg("ok") = static_cast<Object>(Qnil), Arg("flags") = static_cast<Qt::WindowFlags>(Qt::WindowFlags()))
+            .define_singleton_function("get_item", QInputDialog_get_item, Arg("parent"), Arg("title"), Arg("label"), Arg("items"), Arg("current") = static_cast<int>(0), Arg("editable") = static_cast<bool>(true), Arg("ok") = static_cast<Object>(Qnil), Arg("flags") = static_cast<Qt::WindowFlags>(Qt::WindowFlags()), Arg("input_method_hints") = static_cast<Qt::InputMethodHints>(Qt::ImhNone))
+            .define_singleton_function("get_multi_line_text", QInputDialog_get_multi_line_text, Arg("parent"), Arg("title"), Arg("label"), Arg("text") = static_cast<const QString &>(QString()), Arg("ok") = static_cast<Object>(Qnil), Arg("flags") = static_cast<Qt::WindowFlags>(Qt::WindowFlags()), Arg("input_method_hints") = static_cast<Qt::InputMethodHints>(Qt::ImhNone))
+            .define_singleton_function("get_text", QInputDialog_get_text, Arg("parent"), Arg("title"), Arg("label"), Arg("echo") = static_cast<QLineEdit::EchoMode>(QLineEdit::Normal), Arg("text") = static_cast<const QString &>(QString()), Arg("ok") = static_cast<Object>(Qnil), Arg("flags") = static_cast<Qt::WindowFlags>(Qt::WindowFlags()), Arg("input_method_hints") = static_cast<Qt::InputMethodHints>(Qt::ImhNone))
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QInputDialog::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QInputDialog, QWidget *>(), Arg("parent"))
@@ -65,13 +110,7 @@ void Init_qinputdialog(Rice::Module rb_mQt6QtWidgets)
             .define_method("int_value_changed", &QInputDialog::intValueChanged, Arg("value"))
             .define_method("int_value_selected", &QInputDialog::intValueSelected, Arg("value"))
             .define_method("text_value_changed", &QInputDialog::textValueChanged, Arg("text"))
-            .define_method("text_value_selected", &QInputDialog::textValueSelected, Arg("text"))
-            // Static Public Members
-            .define_singleton_function("get_double", &QInputDialog::getDouble, Arg("parent"), Arg("title"), Arg("label"), Arg("value") = static_cast<double>(0), Arg("min_value") = static_cast<double>(-2147483647), Arg("max_value") = static_cast<double>(2147483647), Arg("decimals") = static_cast<int>(1), Arg("ok") = static_cast<bool *>(nullptr), Arg("flags") = static_cast<Qt::WindowFlags>(Qt::WindowFlags()), Arg("step") = static_cast<double>(1))
-            .define_singleton_function("get_int", &QInputDialog::getInt, Arg("parent"), Arg("title"), Arg("label"), Arg("value") = static_cast<int>(0), Arg("min_value") = static_cast<int>(-2147483647), Arg("max_value") = static_cast<int>(2147483647), Arg("step") = static_cast<int>(1), Arg("ok") = static_cast<bool *>(nullptr), Arg("flags") = static_cast<Qt::WindowFlags>(Qt::WindowFlags()))
-            .define_singleton_function("get_item", &QInputDialog::getItem, Arg("parent"), Arg("title"), Arg("label"), Arg("items"), Arg("current") = static_cast<int>(0), Arg("editable") = static_cast<bool>(true), Arg("ok") = static_cast<bool *>(nullptr), Arg("flags") = static_cast<Qt::WindowFlags>(Qt::WindowFlags()), Arg("input_method_hints") = static_cast<Qt::InputMethodHints>(Qt::ImhNone))
-            .define_singleton_function("get_multi_line_text", &QInputDialog::getMultiLineText, Arg("parent"), Arg("title"), Arg("label"), Arg("text") = static_cast<const QString &>(QString()), Arg("ok") = static_cast<bool *>(nullptr), Arg("flags") = static_cast<Qt::WindowFlags>(Qt::WindowFlags()), Arg("input_method_hints") = static_cast<Qt::InputMethodHints>(Qt::ImhNone))
-            .define_singleton_function("get_text", &QInputDialog::getText, Arg("parent"), Arg("title"), Arg("label"), Arg("echo") = static_cast<QLineEdit::EchoMode>(QLineEdit::Normal), Arg("text") = static_cast<const QString &>(QString()), Arg("ok") = static_cast<bool *>(nullptr), Arg("flags") = static_cast<Qt::WindowFlags>(Qt::WindowFlags()), Arg("input_method_hints") = static_cast<Qt::InputMethodHints>(Qt::ImhNone));
+            .define_method("text_value_selected", &QInputDialog::textValueSelected, Arg("text"));
 
     Enum<QInputDialog::InputDialogOption> rb_cQInputDialogInputDialogOption =
         // RubyQt6::QtWidgets::QInputDialog::InputDialogOption
