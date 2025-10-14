@@ -18,6 +18,8 @@ module RubyQt6
 
       # @return [QSizePolicy]
       #
+      # @overload initialize
+      #
       # @overload initialize(horizontal, vertical)
       #   @param horizontal [QSizePolicy::Policy]
       #   @param vertical [QSizePolicy::Policy]
