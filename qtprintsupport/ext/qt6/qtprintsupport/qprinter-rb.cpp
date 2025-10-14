@@ -15,7 +15,9 @@ void Init_qprinter(Rice::Module rb_mQt6QtPrintSupport)
         // RubyQt6::QtPrintSupport::QPrinter
         define_class_under<QPrinter, QPagedPaintDevice>(rb_mQt6QtPrintSupport, "QPrinter")
             // Constructor
+            .define_constructor(Constructor<QPrinter>())
             .define_constructor(Constructor<QPrinter, QPrinter::PrinterMode>(), Arg("mode"))
+            .define_constructor(Constructor<QPrinter, const QPrinterInfo &>(), Arg("printer"))
             .define_constructor(Constructor<QPrinter, const QPrinterInfo &, QPrinter::PrinterMode>(), Arg("printer"), Arg("mode"))
             // Public Functions
             .define_method("abort", &QPrinter::abort)

@@ -28,14 +28,18 @@ module RubyQt6
 
       # @return [QPrinter]
       #
-      # @overload initialize(mode = QPrinter::PrinterMode::ScreenResolution)
+      # @overload initialize
+      #
+      # @overload initialize(mode)
       #   @param mode [QPrinter::PrinterMode]
       #
-      # @overload initialize(printer, mode = QPrinter::PrinterMode::ScreenResolution)
+      # @overload initialize(printer)
+      #   @param printer [QPrinterInfo]
+      #
+      # @overload initialize(printer, mode)
       #   @param printer [QPrinterInfo]
       #   @param mode [QPrinter::PrinterMode]
       def initialize(*args)
-        args << QtPrintSupport::QPrinter::PrinterMode::ScreenResolution unless args[-1].is_a?(QtPrintSupport::QPrinter::PrinterMode)
         _initialize(*args)
       end
     end
