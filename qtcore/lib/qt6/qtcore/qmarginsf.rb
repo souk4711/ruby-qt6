@@ -9,6 +9,8 @@ module RubyQt6
 
       # @return [QMarginsF]
       #
+      # @overload initialize
+      #
       # @overload initialize(left, top, right, bottom)
       #   @param left [Float]
       #   @param top [Float]

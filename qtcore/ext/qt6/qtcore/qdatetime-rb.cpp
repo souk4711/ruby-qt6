@@ -40,6 +40,7 @@ void Init_qdatetime(Rice::Module rb_mQt6QtCore)
             .define_method("to_string", [](QDateTime *self, const char *format, QCalendar cal) -> QString { return self->toString(format, cal); })
             .define_singleton_function("_operator_compare", QDateTime_operator_compare, Arg("lhs"), Arg("rhs"))
             // Constructor
+            .define_constructor(Constructor<QDateTime>())
             .define_constructor(Constructor<QDateTime, QDate, QTime>(), Arg("date"), Arg("time"))
             .define_constructor(Constructor<QDateTime, QDate, QTime, const QTimeZone &>(), Arg("date"), Arg("time"), Arg("time_zone"))
             // Public Functions

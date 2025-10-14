@@ -21,6 +21,7 @@ void Init_qpoint(Rice::Module rb_mQt6QtCore)
             .define_singleton_function("_operator_equal", [](QPoint *lhs, QPoint  *rhs) -> bool { return *lhs == *rhs; }, Arg("lhs"), Arg("rhs"))
             .define_singleton_function("_operator_equal", [](QPoint *lhs, QPointF *rhs) -> bool { return *lhs == *rhs; }, Arg("lhs"), Arg("rhs"))
             // Constructor
+            .define_constructor(Constructor<QPoint>())
             .define_constructor(Constructor<QPoint, int, int>(), Arg("xpos"), Arg("ypos"))
             // Public Functions
             .define_method("null?", &QPoint::isNull)
@@ -47,6 +48,7 @@ void Init_qpoint(Rice::Module rb_mQt6QtCore)
             .define_singleton_function("_operator_equal", [](QPointF *lhs, QPoint  *rhs) -> bool { return *lhs == *rhs; }, Arg("lhs"), Arg("rhs"))
             .define_singleton_function("_operator_equal", [](QPointF *lhs, QPointF *rhs) -> bool { return *lhs == *rhs; }, Arg("lhs"), Arg("rhs"))
             // Constructor
+            .define_constructor(Constructor<QPointF>())
             .define_constructor(Constructor<QPointF, qreal, qreal>(), Arg("xpos"), Arg("ypos"))
             .define_constructor(Constructor<QPointF, const QPoint &>(), Arg("point"))
             // Public Functions

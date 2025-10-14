@@ -15,6 +15,7 @@ void Init_qsize(Rice::Module rb_mQt6QtCore)
             .define_singleton_function("_operator_equal", [](QSize *lhs, QSize  *rhs) -> bool { return *lhs == *rhs; }, Arg("lhs"), Arg("rhs"))
             .define_singleton_function("_operator_equal", [](QSize *lhs, QSizeF *rhs) -> bool { return *lhs == *rhs; }, Arg("lhs"), Arg("rhs"))
             // Constructor
+            .define_constructor(Constructor<QSize>())
             .define_constructor(Constructor<QSize, int, int>(), Arg("width"), Arg("height"))
             // Public Functions
             .define_method("bounded_to", &QSize::boundedTo, Arg("other_size"))
@@ -45,6 +46,7 @@ void Init_qsize(Rice::Module rb_mQt6QtCore)
             .define_singleton_function("_operator_equal", [](QSizeF *lhs, QSize  *rhs) -> bool { return *lhs == *rhs; }, Arg("lhs"), Arg("rhs"))
             .define_singleton_function("_operator_equal", [](QSizeF *lhs, QSizeF *rhs) -> bool { return *lhs == *rhs; }, Arg("lhs"), Arg("rhs"))
             // Constructor
+            .define_constructor(Constructor<QSizeF>())
             .define_constructor(Constructor<QSizeF, qreal, qreal>(), Arg("width"), Arg("height"))
             .define_constructor(Constructor<QSizeF, const QSize &>(), Arg("size"))
             // Public Functions

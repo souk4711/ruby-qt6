@@ -14,6 +14,8 @@ module RubyQt6
 
       # @return [QDateTime]
       #
+      # @overload initialize
+      #
       # @overload initialize(date, time)
       #   @param date [QDate]
       #   @param time [QTime]

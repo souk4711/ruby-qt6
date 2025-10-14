@@ -22,6 +22,7 @@ void Init_quuid(Rice::Module rb_mQt6QtCore)
             .define_method("version", [](QUuid *self) -> QUuid::Version { return self->version(); })
             .define_singleton_function("_operator_compare", QUuid_operator_compare, Arg("lhs"), Arg("rhs"))
             // Constructor
+            .define_constructor(Constructor<QUuid>())
             .define_constructor(Constructor<QUuid, QAnyStringView>(), Arg("string"))
             // Public Functions
             .define_method("null?", &QUuid::isNull)

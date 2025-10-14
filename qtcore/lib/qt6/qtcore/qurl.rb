@@ -28,6 +28,8 @@ module RubyQt6
 
       # @return [QUrl]
       #
+      # @overload initialize
+      #
       # @overload initialize(url)
       #   @param url [String, QString]
       #

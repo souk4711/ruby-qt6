@@ -9,6 +9,8 @@ module RubyQt6
 
       # @return [QSizeF]
       #
+      # @overload initialize
+      #
       # @overload initialize(width, height)
       #   @param width [Float]
       #   @param height [Float]

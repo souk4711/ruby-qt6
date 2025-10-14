@@ -9,6 +9,8 @@ module RubyQt6
 
       # @return [QLineF]
       #
+      # @overload initialize
+      #
       # @overload initialize(x1, y1, x2, y2)
       #   @param x1 [Float]
       #   @param y1 [Float]

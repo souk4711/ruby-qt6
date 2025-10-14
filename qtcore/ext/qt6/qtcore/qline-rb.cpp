@@ -15,6 +15,7 @@ void Init_qline(Rice::Module rb_mQt6QtCore)
             .define_singleton_function("_operator_equal", [](QLine *lhs, QLine  *rhs) -> bool { return *lhs == *rhs; }, Arg("lhs"), Arg("rhs"))
             .define_singleton_function("_operator_equal", [](QLine *lhs, QLineF *rhs) -> bool { return *lhs == *rhs; }, Arg("lhs"), Arg("rhs"))
             // Constructor
+            .define_constructor(Constructor<QLine>())
             .define_constructor(Constructor<QLine, int, int, int, int>(), Arg("x1"), Arg("y1"), Arg("x2"), Arg("y2"))
             .define_constructor(Constructor<QLine, const QPoint &, const QPoint &>(), Arg("p1"), Arg("p2"))
             // Public Functions
@@ -45,6 +46,7 @@ void Init_qline(Rice::Module rb_mQt6QtCore)
             .define_singleton_function("_operator_equal", [](QLineF *lhs, QLine  *rhs) -> bool { return *lhs == *rhs; }, Arg("lhs"), Arg("rhs"))
             .define_singleton_function("_operator_equal", [](QLineF *lhs, QLineF *rhs) -> bool { return *lhs == *rhs; }, Arg("lhs"), Arg("rhs"))
             // Constructor
+            .define_constructor(Constructor<QLineF>())
             .define_constructor(Constructor<QLineF, qreal, qreal, qreal, qreal>(), Arg("x1"), Arg("y1"), Arg("x2"), Arg("y2"))
             .define_constructor(Constructor<QLineF, const QPointF &, const QPointF &>(), Arg("p1"), Arg("p2"))
             .define_constructor(Constructor<QLineF, const QLine &>(), Arg("line"))

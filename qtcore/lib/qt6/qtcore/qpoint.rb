@@ -9,6 +9,8 @@ module RubyQt6
 
       # @return [QPoint]
       #
+      # @overload initialize
+      #
       # @overload initialize(xpos, ypos)
       #   @param xpos [Integer]
       #   @param ypos [Integer]

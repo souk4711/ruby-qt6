@@ -9,6 +9,8 @@ module RubyQt6
 
       # @return [QRect]
       #
+      # @overload initialize
+      #
       # @overload initialize(x, y, width, height)
       #   @param x [Integer]
       #   @param y [Integer]

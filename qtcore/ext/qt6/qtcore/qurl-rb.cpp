@@ -14,6 +14,7 @@ void Init_qurl(Rice::Module rb_mQt6QtCore)
         // RubyQt6::QtCore::QUrl
         define_class_under<QUrl>(rb_mQt6QtCore, "QUrl")
             // Constructor
+            .define_constructor(Constructor<QUrl>())
             .define_constructor(Constructor<QUrl, const QString &>(), Arg("url"))
             .define_constructor(Constructor<QUrl, const QString &, QUrl::ParsingMode>(), Arg("url"), Arg("mode"))
             // Public Functions

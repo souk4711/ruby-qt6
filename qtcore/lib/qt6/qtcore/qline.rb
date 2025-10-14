@@ -9,6 +9,8 @@ module RubyQt6
 
       # @return [QLine]
       #
+      # @overload initialize
+      #
       # @overload initialize(x1, y1, x2, y2)
       #   @param x1 [Integer]
       #   @param y1 [Integer]

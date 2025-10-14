@@ -16,10 +16,15 @@ module RubyQt6
       # @!visibility private
       alias_method :_initialize, :initialize
 
-      # @param string [String, QString]
       # @return [QUuid]
-      def initialize(string)
-        _initialize(T.to_qanystringview(string))
+      #
+      # @overload initialize
+      #
+      # @overload initialize(text)
+      #   @param text [String, QString, QAnyStringView]
+      def initialize(*args)
+        args[0] = T.to_qanystringview(args[0]) if args[0].is_a?(String) || args[0].is_a?(QString)
+        _initialize(*args)
       end
 
       # @!visibility private

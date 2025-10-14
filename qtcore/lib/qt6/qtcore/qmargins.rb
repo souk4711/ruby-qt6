@@ -9,6 +9,8 @@ module RubyQt6
 
       # @return [QMargins]
       #
+      # @overload initialize
+      #
       # @overload initialize(left, top, right, bottom)
       #   @param left [Integer]
       #   @param top [Integer]
