@@ -16,6 +16,7 @@ void Init_qpixmap(Rice::Module rb_mQt6QtGui)
         // RubyQt6::QtGui::QPixmap
         define_class_under<QPixmap, QPaintDevice>(rb_mQt6QtGui, "QPixmap")
             // Constructor
+            .define_constructor(Constructor<QPixmap>())
             .define_constructor(Constructor<QPixmap, int, int>(), Arg("w"), Arg("h"))
             .define_constructor(Constructor<QPixmap, const QSize &>(), Arg("size"))
             .define_constructor(Constructor<QPixmap, const QString &>(), Arg("file_name"))

@@ -11,7 +11,9 @@ void Init_qpalette(Rice::Module rb_mQt6QtGui)
         // RubyQt6::QtGui::QPalette
         define_class_under<QPalette>(rb_mQt6QtGui, "QPalette")
             // Constructor
+            .define_constructor(Constructor<QPalette>())
             .define_constructor(Constructor<QPalette, const QColor &>(), Arg("button"))
+            .define_constructor(Constructor<QPalette, const QColor &, const QColor &>(), Arg("button"), Arg("window"))
             // Public Functions
             .define_method("accent", &QPalette::accent)
             .define_method("alternate_base", &QPalette::alternateBase)

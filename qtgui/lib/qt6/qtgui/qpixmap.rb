@@ -9,6 +9,8 @@ module RubyQt6
 
       # @return [QPixmap]
       #
+      # @overload initialize
+      #
       # @overload initialize(w, h)
       #   @param w [Integer]
       #   @param h [Integer]

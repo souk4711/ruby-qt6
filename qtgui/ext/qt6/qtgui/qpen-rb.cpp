@@ -11,6 +11,7 @@ void Init_qpen(Rice::Module rb_mQt6QtGui)
         // RubyQt6::QtGui::QPen
         define_class_under<QPen>(rb_mQt6QtGui, "QPen")
             // Constructor
+            .define_constructor(Constructor<QPen>())
             .define_constructor(Constructor<QPen, Qt::PenStyle>(), Arg("style"))
             .define_constructor(Constructor<QPen, const QColor &>(), Arg("color"))
             .define_constructor(Constructor<QPen, const QBrush &, qreal>(), Arg("brush"), Arg("width"))

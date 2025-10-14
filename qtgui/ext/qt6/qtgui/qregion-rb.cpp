@@ -14,6 +14,7 @@ void Init_qregion(Rice::Module rb_mQt6QtGui)
         // RubyQt6::QtGui::QRegion
         define_class_under<QRegion>(rb_mQt6QtGui, "QRegion")
             // Constructor
+            .define_constructor(Constructor<QRegion>())
             .define_constructor(Constructor<QRegion, int, int, int, int>(), Arg("x"), Arg("y"), Arg("w"), Arg("h"))
             .define_constructor(Constructor<QRegion, int, int, int, int, QRegion::RegionType>(), Arg("x"), Arg("y"), Arg("w"), Arg("h"), Arg("t"))
             .define_constructor(Constructor<QRegion, const QRect &>(), Arg("r"))

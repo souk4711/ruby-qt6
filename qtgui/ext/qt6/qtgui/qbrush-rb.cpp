@@ -11,6 +11,7 @@ void Init_qbrush(Rice::Module rb_mQt6QtGui)
         // RubyQt6::QtGui::QBrush
         define_class_under<QBrush>(rb_mQt6QtGui, "QBrush")
             // Constructor
+            .define_constructor(Constructor<QBrush>())
             .define_constructor(Constructor<QBrush, Qt::BrushStyle>(), Arg("bs"))
             .define_constructor(Constructor<QBrush, Qt::GlobalColor>(), Arg("color"))
             .define_constructor(Constructor<QBrush, Qt::GlobalColor, Qt::BrushStyle>(), Arg("color"), Arg("bs"))

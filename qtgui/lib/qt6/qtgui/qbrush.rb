@@ -9,6 +9,8 @@ module RubyQt6
 
       # @return [QBrush]
       #
+      # @overload initialize
+      #
       # @overload initialize(bs)
       #   @param bs [Qt::BrushStyle]
       #

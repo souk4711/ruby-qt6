@@ -9,6 +9,8 @@ module RubyQt6
 
       # @return [QPen]
       #
+      # @overload initialize
+      #
       # @overload initialize(style)
       #   @param style [Qt::PenStyle]
       #

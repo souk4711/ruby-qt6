@@ -12,6 +12,8 @@ module RubyQt6
 
       # @return [QRegion]
       #
+      # @overload initialize
+      #
       # @overload initialize(x, y, w, h)
       #   @param x [Integer]
       #   @param y [Integer]

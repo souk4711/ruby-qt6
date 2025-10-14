@@ -12,10 +12,18 @@ module RubyQt6
       # @!visibility private
       alias_method :_initialize, :initialize
 
-      # @param button [QColor]
       # @return [QPalette]
-      def initialize(button)
-        _initialize(button)
+      #
+      # @overload initialize
+      #
+      # @overload initialize(button)
+      #   @param button [QColor]
+      #
+      # @overload initialize(button, window)
+      #   @param button [QColor]
+      #   @param window [QColor]
+      def initialize(*args)
+        _initialize(*args)
       end
     end
   end
