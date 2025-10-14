@@ -6,7 +6,7 @@ module RubyQt6
     class QStringList
       # @!visibility private
       def inspect
-        T.q_inspect(self, ary: to_a.map(&:to_s))
+        T.inspect_struct(self, ary: to_a.map(&:to_s))
       end
     end
   end

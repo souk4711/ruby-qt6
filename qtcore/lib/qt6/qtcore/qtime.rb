@@ -36,7 +36,7 @@ module RubyQt6
 
       # @!visibility private
       def inspect
-        T.q_inspect(self, hour:, minute:, second:, msec:)
+        T.inspect_struct(self, hour:, minute:, second:, msec:)
       end
     end
   end

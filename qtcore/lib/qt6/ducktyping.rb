@@ -23,13 +23,13 @@ module RubyQt6
       QtCore::QString.new(str)
     end
 
-    def self.q_inspect(object, **attributes)
+    def self.inspect_struct(object, **attributes)
       name = object.class.name.split("::").last + " "
       attributes = Array(attributes).map { |(name, value)| "#{name}=#{value.inspect}" }.join(", ")
       ["#<", name, attributes, ">"].join
     end
 
-    def self.q_inspect_enum(object, **attributes)
+    def self.inspect_struct_enum(object, **attributes)
       name = object.class.name.split("::").last(2).join("::") + " "
       attributes = Array(attributes).map { |(name, value)| "#{name}=#{value.inspect}" }.join(", ")
       ["#<", name, attributes, ">"].join

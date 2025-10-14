@@ -30,7 +30,7 @@ module RubyQt6
 
       # @!visibility private
       def inspect
-        T.q_inspect(self, year:, month:, day:)
+        T.inspect_struct(self, year:, month:, day:)
       end
     end
   end
