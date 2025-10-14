@@ -34,7 +34,7 @@ module RubyQt6
       # @param contents [String, QString]
       # @param parent [QWidget]
       # @return [QLineEdit]
-      def initialize(contents = "", parent = nil)
+      def initialize(contents, parent = nil)
         _initialize(T.to_qstr(contents), parent)
         _take_ownership_from_ruby(self) if parent
       end

@@ -43,7 +43,7 @@ module RubyQt6
       def initialize(*args)
         _initialize(*args)
 
-        parent = args.find { |arg| arg.is_a?(QtWidgets::QTreeWidget) || arg.is_a?(QtWidgets::QTreeWidgetItem) }
+        parent = args.find { |arg| [QtWidgets::QTreeWidget, QtWidgets::QTreeWidgetItem].include?(arg.class) }
         _take_ownership_from_ruby(self) if parent
       end
     end

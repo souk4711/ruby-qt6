@@ -3,6 +3,14 @@
 module RubyQt6
   # @!visibility private
   module T
+    def self.args_nth_to_qanystringview(args, index, *klass)
+      args[index] = to_qanystringview(args[index]) if klass.include?(args[index].class)
+    end
+
+    def self.args_nth_to_qstr(args, index, *klass)
+      args[index] = to_qstr(args[index]) if klass.include?(args[index].class)
+    end
+
     def self.to_qanystringview(str)
       QtCore::QAnyStringView.new(str)
     end

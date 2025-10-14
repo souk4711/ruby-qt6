@@ -23,7 +23,7 @@ module RubyQt6
       # @overload initialize(text)
       #   @param text [String, QString, QAnyStringView]
       def initialize(*args)
-        args[0] = T.to_qanystringview(args[0]) if args[0].is_a?(String) || args[0].is_a?(QString)
+        T.args_nth_to_qanystringview(args, 0, String, QtCore::QString)
         _initialize(*args)
       end
 
