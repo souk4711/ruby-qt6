@@ -32,6 +32,7 @@
 #include "qclipboard-rb.hpp"
 #include "qguiapplication-rb.hpp"
 #include "qmovie-rb.hpp"
+#include "qscreen-rb.hpp"
 #include "qshortcut-rb.hpp"
 #include "qtextdocument-rb.hpp"
 #include "qvalidator-rb.hpp"
@@ -88,6 +89,7 @@ extern "C" void Init_qtgui()
         Init_qclipboard(rb_mQt6QtGui);
         Init_qguiapplication(rb_mQt6QtGui);
         Init_qmovie(rb_mQt6QtGui);
+        Init_qscreen(rb_mQt6QtGui);
         Init_qshortcut(rb_mQt6QtGui);
         Init_qtextdocument(rb_mQt6QtGui);
         Init_qvalidator(rb_mQt6QtGui);

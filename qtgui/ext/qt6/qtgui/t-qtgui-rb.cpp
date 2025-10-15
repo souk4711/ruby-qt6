@@ -3,6 +3,7 @@
 
 #include <QPoint>
 #include <QPointF>
+#include <QScreen>
 
 using namespace Rice;
 
@@ -13,4 +14,7 @@ void Init_t_qtgui(Rice::Module rb_mQt6T)
 
     // QList<QPointF> -> QPolygonF
     define_qlist_under<QPointF>(rb_mQt6T);
+
+    // QList<QScreen *>
+    define_qlist_under<QScreen *>(rb_mQt6T);
 }
