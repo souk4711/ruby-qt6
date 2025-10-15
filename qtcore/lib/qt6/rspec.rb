@@ -47,7 +47,10 @@ module RubyQt6
       "QAction",
       "QDoubleValidator",
       "QIntValidator",
-      "QRegularExpressionValidator"
+      "QRegularExpressionValidator",
+      "QLabel",
+      "QLineEdit",
+      "QTextEdit"
     ]
 
     def self.inflector

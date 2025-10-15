@@ -4,17 +4,22 @@ module RubyQt6
   # @!visibility private
   module T
     def self.args_nth_delete_qobject(args, index)
-      return unless [QtCore::QObject].include?(args[index].class)
+      return unless args[index].is_a?(QtCore::QObject)
+      args.delete_at(index)
+    end
+
+    def self.args_nth_delete_qwidget(args, index)
+      return unless args[index].is_a?(QtWidgets::QWidget)
       args.delete_at(index)
     end
 
     def self.args_nth_to_qanystringview_checked(args, index)
-      return unless [String, QtCore::QString].include?(args[index].class)
+      return unless args[index].is_a?(String) || args[index].is_a?(QtCore::QString)
       args[index] = to_qanystringview(args[index])
     end
 
     def self.args_nth_to_qstr_checked(args, index)
-      return unless [String].include?(args[index].class)
+      return unless args[index].is_a?(String)
       args[index] = to_qstr(args[index])
     end
 

@@ -26,7 +26,7 @@ module RubyQt6
 
       # @!visibility private
       def ==(other)
-        return false unless [QtCore::QLine, QtCore::QLineF].include?(other.class)
+        return false unless other.is_a?(QtCore::QLine) || other.is_a?(QtCore::QLineF)
         self.class._operator_equal(self, other)
       end
 

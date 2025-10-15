@@ -34,7 +34,7 @@ module RubyQt6
 
       # @!visibility private
       def <=>(other)
-        return nil unless [QtCore::QUuid].include?(other.class)
+        return nil unless other.is_a?(QtCore::QUuid)
         self.class._operator_compare(self, other)
       end
 
