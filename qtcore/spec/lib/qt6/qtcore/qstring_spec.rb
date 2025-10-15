@@ -18,6 +18,26 @@ RSpec.describe RubyQt6::QtCore::QString do
     expect(s).to eq("ワールド")
   end
 
+  it "#downcase" do
+    [String, described_class].each do |klass|
+      o = klass.new("hEllO")
+      expect(o.downcase).to eq("hello")
+
+      o = klass.new("The Qt PROJECT")
+      expect(o.downcase).to eq("the qt project")
+    end
+  end
+
+  it "#upcase" do
+    [String, described_class].each do |klass|
+      o = klass.new("hEllO")
+      expect(o.upcase).to eq("HELLO")
+
+      o = klass.new("TeXt")
+      expect(o.upcase).to eq("TEXT")
+    end
+  end
+
   it "#<=>" do
     expect(described_class.new("foo") <=> "foo").to eq(0)
     expect(described_class.new("foo") <=> "food").to eq(-1)
@@ -28,7 +48,7 @@ RSpec.describe RubyQt6::QtCore::QString do
     expect(described_class.new("foo") <=> nil).to eq(nil)
   end
 
-  it "[]" do
+  it "#[]" do
     [String, described_class].each do |klass|
       o = klass.new("abc")
       expect(o[-4]).to eq(nil)
@@ -47,7 +67,7 @@ RSpec.describe RubyQt6::QtCore::QString do
     end
   end
 
-  it "[]=" do
+  it "#[]=" do
     [String, described_class].each do |klass|
       o = klass.new("abc")
       expect(o[1] = "xyz").to eq("xyz")

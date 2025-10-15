@@ -41,6 +41,8 @@ void Init_qstring(Rice::Module rb_mQt6QtCore)
         // RubyQt6::QtCore::QString
         define_class_under<QString>(rb_mQt6QtCore, "QString")
             // RubyQt6-Defined Functions
+            .define_method("downcase", [](QString *self) -> QString { return self->toLower(); })
+            .define_method("upcase", [](QString *self) -> QString { return self->toUpper(); })
             .define_method("[]", QString_slice, Arg("start"), Arg("length") = static_cast<qsizetype>(1))
             .define_method("[]=", QString_replace, Arg("index"), Arg("after"))
             .define_method("[]=", [](QString *self, qsizetype index, const char *after) -> QString { return QString_replace(self, index, after); }, Arg("index"), Arg("after"))
