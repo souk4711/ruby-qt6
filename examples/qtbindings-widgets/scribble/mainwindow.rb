@@ -174,7 +174,7 @@ class MainWindow < RubyQt6::Bando::QMainWindow
       self,
       tr('Save As'),
       initial_path,
-      tr(format('%s Files (*.%s);;All Files (*)', file_format.to_s.upcase, file_format))
+      tr(format('%s Files (*.%s);;All Files (*)', file_format.upcase, file_format))
     )
     return false if file_name.nil?
 
