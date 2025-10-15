@@ -23,7 +23,7 @@ module RubyQt6
       # @overload initialize(text)
       #   @param text [String, QString, QAnyStringView]
       def initialize(*args)
-        T.args_nth_to_qanystringview(args, 0, String, QtCore::QString)
+        T.args_nth_to_qanystringview_checked(args, 0)
         _initialize(*args)
       end
 
@@ -34,7 +34,7 @@ module RubyQt6
 
       # @!visibility private
       def <=>(other)
-        return nil unless other.is_a?(QtCore::QUuid)
+        return nil unless [QtCore::QUuid].include?(other.class)
         self.class._operator_compare(self, other)
       end
 

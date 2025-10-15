@@ -3,20 +3,18 @@
 module RubyQt6
   # @!visibility private
   module T
-    def self.args_nth_to_qanystringview(args, index, *klass)
-      args[index] = to_qanystringview(args[index]) if klass.include?(args[index].class)
+    def self.args_nth_to_qanystringview_checked(args, index)
+      return unless [String, QtCore::QString].include?(args[index].class)
+      args[index] = to_qanystringview(args[index])
     end
 
-    def self.args_nth_to_qstr(args, index, *klass)
-      args[index] = to_qstr(args[index]) if klass.include?(args[index].class)
+    def self.args_nth_to_qstr_checked(args, index)
+      return unless [String].include?(args[index].class)
+      args[index] = to_qstr(args[index])
     end
 
     def self.to_qanystringview(str)
       QtCore::QAnyStringView.new(str)
-    end
-
-    def self.to_qbytearray(str)
-      QtCore::QByteArray.new(str)
     end
 
     def self.to_qstr(str)

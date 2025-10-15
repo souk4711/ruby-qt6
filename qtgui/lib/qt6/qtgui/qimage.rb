@@ -23,7 +23,7 @@ module RubyQt6
       #   @param size [QSize]
       #   @param format [QImage::Format]
       def initialize(*args)
-        T.args_nth_to_qstr(args, 0, String)
+        T.args_nth_to_qstr_checked(args, 0)
         _initialize(*args)
       end
     end

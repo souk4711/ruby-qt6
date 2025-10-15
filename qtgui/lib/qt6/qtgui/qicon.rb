@@ -24,7 +24,7 @@ module RubyQt6
       # @overload initialize(pixmap)
       #   @param pixmap [QPixmap]
       def initialize(*args)
-        T.args_nth_to_qstr(args, 0, String)
+        T.args_nth_to_qstr_checked(args, 0)
         _initialize(*args)
       end
     end

@@ -35,7 +35,7 @@ module RubyQt6
 
       # @!visibility private
       def <=>(other)
-        return nil unless other.is_a?(QtCore::QDateTime)
+        return nil unless [QtCore::QDateTime].include?(other.class)
         self.class._operator_compare(self, other)
       end
 
