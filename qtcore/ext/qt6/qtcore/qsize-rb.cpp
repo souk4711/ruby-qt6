@@ -12,6 +12,10 @@ void Init_qsize(Rice::Module rb_mQt6QtCore)
         // RubyQt6::QtCore::QSize
         define_class_under<QSize>(rb_mQt6QtCore, "QSize")
             // RubyQt6-Defined Functions
+            .define_method("*", [](QSize *self, qreal  factor) -> QSize { return *self *  factor; })
+            .define_method("+", [](QSize *self, QSize  *other) -> QSize { return *self +  *other; })
+            .define_method("-", [](QSize *self, QSize  *other) -> QSize { return *self -  *other; })
+            .define_method("/", [](QSize *self, qreal divisor) -> QSize { return *self / divisor; })
             .define_singleton_function("_operator_equal", [](QSize *lhs, QSize  *rhs) -> bool { return *lhs == *rhs; }, Arg("lhs"), Arg("rhs"))
             .define_singleton_function("_operator_equal", [](QSize *lhs, QSizeF *rhs) -> bool { return *lhs == *rhs; }, Arg("lhs"), Arg("rhs"))
             // Constructor
@@ -43,6 +47,10 @@ void Init_qsize(Rice::Module rb_mQt6QtCore)
         // RubyQt6::QtCore::QSizeF
         define_class_under<QSizeF>(rb_mQt6QtCore, "QSizeF")
             // RubyQt6-Defined Functions
+            .define_method("*", [](QSizeF *self,  qreal  factor) -> QSizeF { return *self *  factor; })
+            .define_method("+", [](QSizeF *self, QSizeF  *other) -> QSizeF { return *self +  *other; })
+            .define_method("-", [](QSizeF *self, QSizeF  *other) -> QSizeF { return *self -  *other; })
+            .define_method("/", [](QSizeF *self,  qreal divisor) -> QSizeF { return *self / divisor; })
             .define_singleton_function("_operator_equal", [](QSizeF *lhs, QSize  *rhs) -> bool { return *lhs == *rhs; }, Arg("lhs"), Arg("rhs"))
             .define_singleton_function("_operator_equal", [](QSizeF *lhs, QSizeF *rhs) -> bool { return *lhs == *rhs; }, Arg("lhs"), Arg("rhs"))
             // Constructor
