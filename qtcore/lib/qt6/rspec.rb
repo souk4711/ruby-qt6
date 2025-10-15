@@ -37,7 +37,9 @@ module RubyQt6
       "QTextStream" => ["<<"],
       "QString" => ["[]", "[]="],
       "QPoint" => ["*", "+", "-", "/", "+@", "-@"],
-      "QPointF" => ["*", "+", "-", "/", "+@", "-@"]
+      "QPointF" => ["*", "+", "-", "/", "+@", "-@"],
+      "QSize" => ["*", "+", "-", "/"],
+      "QSizeF" => ["*", "+", "-", "/"]
     }
     NO_VERIFY_QLASS_QOBJECT_INITIALIZE = [
       "QCoreApplication",
