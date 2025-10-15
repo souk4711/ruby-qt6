@@ -3,6 +3,11 @@
 module RubyQt6
   # @!visibility private
   module T
+    def self.args_nth_delete_qobject(args, index)
+      return unless [QtCore::QObject].include?(args[index].class)
+      args.delete_at(index)
+    end
+
     def self.args_nth_to_qanystringview_checked(args, index)
       return unless [String, QtCore::QString].include?(args[index].class)
       args[index] = to_qanystringview(args[index])

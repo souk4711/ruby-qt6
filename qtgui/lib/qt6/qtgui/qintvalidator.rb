@@ -4,6 +4,12 @@ module RubyQt6
   module QtGui
     # @see https://doc.qt.io/qt-6/qintvalidator.html
     class QIntValidator < RubyQt6::QtGui::QValidator
+      INITIALIZE_ARG_ERROR_MESSAGE =
+        "Could not resolve method call for #{name}#initialize\n" \
+        "  2 overload(s) were evaluated based on the types of Ruby parameters provided:\n" \
+        "    initialize(QObject)\n" \
+        "    initialize(Integer, Integer, QObject)\n"
+
       # @!parse
       q_object do
         signal "bottomChanged(int)"
@@ -23,23 +29,21 @@ module RubyQt6
       #   @param maximum [Integer]
       #   @param parent [QObject]
       def initialize(*args)
-        parent = args.delete_at(-1) if args[-1].is_a?(QtCore::QObject)
+        parent = T.args_nth_delete_qobject(args, -1)
         case args.size
-        when 0
-          _initialize(parent)
-        when 2
-          _initialize(parent)
-          set_bottom(args[0])
-          set_top(args[1])
-        else
-          message = "Could not resolve method call for #{self.class.name}#initialize\n" \
-             "  2 overload(s) were evaluated based on the types of Ruby parameters provided:\n" \
-             "     initialize(parent = nil)\n" \
-             "     initialize(minimum, maximum, parent = nil)\n"
-          raise ArgumentError, message
+        when 0 then _initialize(parent)
+        when 2 then _initialize_p(args[-2], args[-1], parent)
+        else raise ArgumentError, INITIALIZE_ARG_ERROR_MESSAGE
         end
-
         _take_ownership_from_ruby(self) if parent
+      end
+
+      private
+
+      def _initialize_p(minimum, maximum, parent)
+        _initialize(parent)
+        set_bottom(minimum)
+        set_top(maximum)
       end
     end
   end

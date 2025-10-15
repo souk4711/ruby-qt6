@@ -14,6 +14,7 @@ module RubyQt6
     end
 
     SemanticLogger.add_appender(io: $stdout, formatter: :color)
+    true
   end
 
   # @!visibility private

@@ -4,6 +4,13 @@ module RubyQt6
   module QtGui
     # @see https://doc.qt.io/qt-6/qaction.html
     class QAction < RubyQt6::QtCore::QObject
+      INITIALIZE_ARG_ERROR_MESSAGE =
+        "Could not resolve method call for #{name}#initialize\n" \
+        "  3 overload(s) were evaluated based on the types of Ruby parameters provided:\n" \
+        "    initialize(QObject)\n" \
+        "    initialize(QString, QObject)\n" \
+        "    initialize(QIcon, QString, QObject)\n"
+
       # @!parse class MenuRole   ; end
       # @!parse class Priority   ; end
       # @!parse class ActionEvent; end
@@ -48,27 +55,13 @@ module RubyQt6
       #   @param text [String, QString]
       #   @param parent [QObject]
       def initialize(*args)
-        parent = args.delete_at(-1) if args[-1].is_a?(QtCore::QObject)
+        parent = T.args_nth_delete_qobject(args, -1)
         case args.size
-        when 0
-          icon = QtGui::QIcon.new
-          text = ""
-        when 1
-          icon = QtGui::QIcon.new
-          text = args[0]
-        when 2
-          icon = args[0]
-          text = args[1]
-        else
-          message = "Could not resolve method call for #{self.class.name}#initialize\n" \
-             "  3 overload(s) were evaluated based on the types of Ruby parameters provided:\n" \
-             "     initialize(parent = nil)\n" \
-             "     initialize(text, parent = nil)\n" \
-             "     initialize(icon, text, parent = nil)\n"
-          raise ArgumentError, message
+        when 0 then _initialize(QtGui::QIcon.new, T.to_qstr(""), parent)
+        when 1 then _initialize(QtGui::QIcon.new, T.to_qstr(args[-1]), parent)
+        when 2 then _initialize(args[-2], T.to_qstr(args[-1]), parent)
+        else raise ArgumentError, INITIALIZE_ARG_ERROR_MESSAGE
         end
-
-        _initialize(icon, T.to_qstr(text), parent)
         _take_ownership_from_ruby(self) if parent
       end
     end
