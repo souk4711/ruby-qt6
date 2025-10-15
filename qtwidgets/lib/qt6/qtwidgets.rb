@@ -98,6 +98,7 @@ require_relative "qtwidgets/qtabwidget"
 require_relative "qtwidgets/qtoolbar"
 
 require_relative "bando/qapplication"
+require_relative "bando/qlayout"
 require_relative "bando/qwidget"
 require_relative "bando/qcheckbox"
 require_relative "bando/qpushbutton"

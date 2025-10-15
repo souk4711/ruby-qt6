@@ -24,7 +24,9 @@
 
 #include <bando/common.hpp>
 #include <QEvent>
+#include <QLayoutItem>
 #include <QTimerEvent>
+#include <QWidget>
 
 template <typename Class_T, typename... Arg_Ts> class BandoQLayout : public Class_T
 {
@@ -45,6 +47,40 @@ template <typename Class_T, typename... Arg_Ts> class BandoQLayout : public Clas
     bool eventFilter(QObject *watched, QEvent *event) override { return bando_handleQObjectEventFilter<BandoQLayout>(this, watched, event); };
 
     void timerEvent(QTimerEvent *event) override { bando_handleEvent<BandoQLayout, QTimerEvent>(this, event, bando_FunctionName::timerEvent); };
+
+    void addItem(QLayoutItem *item) override {
+        Q_ASSERT(this->value_.rb_type() != RUBY_T_NONE);
+        auto rb_name = Rice::Identifier("add_item");
+        this->value_.call(rb_name, Rice::detail::to_ruby(item));
+    }
+
+    int count() const override {
+        Q_ASSERT(this->value_.rb_type() != RUBY_T_NONE);
+        auto rb_name = Rice::Identifier("count");
+        auto rb_return = this->value_.call(rb_name);
+        return Rice::detail::From_Ruby<int>().convert(rb_return);
+    }
+
+    QLayoutItem *itemAt(int index) const override {
+        Q_ASSERT(this->value_.rb_type() != RUBY_T_NONE);
+        auto rb_name = Rice::Identifier("item_at");
+        auto rb_return = this->value_.call(rb_name, Rice::detail::to_ruby(index));
+        return Rice::detail::From_Ruby<QLayoutItem *>().convert(rb_return);
+    }
+
+    QLayoutItem *takeAt(int index) override {
+        Q_ASSERT(this->value_.rb_type() != RUBY_T_NONE);
+        auto rb_name = Rice::Identifier("take_at");
+        auto rb_return = this->value_.call(rb_name, Rice::detail::to_ruby(index));
+        return Rice::detail::From_Ruby<QLayoutItem *>().convert(rb_return);
+    }
+
+    QSize sizeHint() const override {
+        Q_ASSERT(this->value_.rb_type() != RUBY_T_NONE);
+        auto rb_name = Rice::Identifier("size_hint");
+        auto rb_return = this->value_.call(rb_name);
+        return Rice::detail::From_Ruby<QSize>().convert(rb_return);
+    };
 
   public:
     bool Class_T_handleQObjectEvent(QEvent *event) { return this->Class_T::event(event); };

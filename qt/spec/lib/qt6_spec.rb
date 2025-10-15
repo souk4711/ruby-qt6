@@ -32,7 +32,6 @@ RSpec.describe RubyQt6 do
       RubyQt6::QtGui::QScreen,
       RubyQt6::QtGui::QValidator,
       RubyQt6::QtWidgets::QStyle,
-      RubyQt6::QtWidgets::QLayout,
       RubyQt6::QtWidgets::QBoxLayout,
       RubyQt6::QtWidgets::QHBoxLayout,
       RubyQt6::QtWidgets::QVBoxLayout,
