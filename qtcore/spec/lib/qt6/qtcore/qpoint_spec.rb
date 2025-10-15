@@ -3,6 +3,10 @@ RSpec.describe RubyQt6::QtCore::QPoint do
     o = described_class.new(1, 2)
     expect(o.x).to eq(1)
     expect(o.y).to eq(2)
+
+    o = described_class.new(1, 2.0)
+    expect(o.x).to eq(1)
+    expect(o.y).to eq(2)
   end
 
   it "#==" do

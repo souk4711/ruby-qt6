@@ -3,6 +3,10 @@ RSpec.describe RubyQt6::QtCore::QSize do
     o = described_class.new(3, 7)
     expect(o.width).to eq(3)
     expect(o.height).to eq(7)
+
+    o = described_class.new(3, 7.0)
+    expect(o.width).to eq(3)
+    expect(o.height).to eq(7)
   end
 
   it "#==" do

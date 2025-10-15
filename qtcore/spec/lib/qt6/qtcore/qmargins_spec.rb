@@ -5,6 +5,12 @@ RSpec.describe RubyQt6::QtCore::QMargins do
     expect(o.top).to eq(2)
     expect(o.right).to eq(3)
     expect(o.bottom).to eq(4)
+
+    o = described_class.new(1, 2, 3.0, 4.0)
+    expect(o.left).to eq(1)
+    expect(o.top).to eq(2)
+    expect(o.right).to eq(3)
+    expect(o.bottom).to eq(4)
   end
 
   it "#==" do

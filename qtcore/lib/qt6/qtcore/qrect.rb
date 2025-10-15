@@ -25,7 +25,10 @@ module RubyQt6
       #   @param top_left [QPoint]
       #   @param size [QSize]
       def initialize(*args)
-        _initialize(*args)
+        case args.size
+        when 4 then _initialize(*args.map(&:to_i))
+        else _initialize(*args)
+        end
       end
 
       # @!visibility private
