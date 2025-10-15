@@ -6,7 +6,12 @@ module RubyQt6
       class MetaObject
         attr_reader :metamethods
 
-        def self.find_receiver_metamethod!(receiver, method, signal)
+        def self.find_receiver_metamethod!(receiver, method, signal = nil)
+          if signal.nil?
+            signature = "anonymous()"
+            signal = QtCore::Private::MetaMethod.new(signature, :signal, :ruby)
+          end
+
           name = QtCore::Private::MetaMethod.normalized_name(method.to_s)
           compatible_methods = signal.parameters.count.downto(0).map do |n|
             QtCore::Private::MetaMethod.normalized_signature(name, signal.parameters[0...n])

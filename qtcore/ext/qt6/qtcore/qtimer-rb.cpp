@@ -42,8 +42,6 @@ void Init_qtimer(Rice::Module rb_mQt6QtCore)
             // Signals
             .define_method("timeout", &QTimer::timeout)
             // Static Public Members
-            .define_singleton_function<void (*)(int, Qt::TimerType, const QObject *, const char *)>("single_shot", &QTimer::singleShot, Arg("msec"), Arg("timer_type"), Arg("receiver"), Arg("member"))
-            .define_singleton_function<void (*)(int, const QObject *, const char *)>("single_shot", &QTimer::singleShot, Arg("msec"), Arg("receiver"), Arg("member"))
-            .define_singleton_function<void (*)(std::chrono::nanoseconds, Qt::TimerType, const QObject *, const char *)>("single_shot", &QTimer::singleShot, Arg("interval"), Arg("timer_type"), Arg("receiver"), Arg("member"))
-            .define_singleton_function<void (*)(std::chrono::nanoseconds, const QObject *, const char *)>("single_shot", &QTimer::singleShot, Arg("value"), Arg("receiver"), Arg("member"));
+            .define_singleton_function<void (*)(int, Qt::TimerType, const QObject *, const char *)>("_single_shot", &QTimer::singleShot, Arg("msec"), Arg("timer_type"), Arg("receiver"), Arg("member"))
+            .define_singleton_function<void (*)(int, const QObject *, const char *)>("_single_shot", &QTimer::singleShot, Arg("msec"), Arg("receiver"), Arg("member"));
 }

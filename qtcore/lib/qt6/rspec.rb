@@ -182,7 +182,7 @@ module RubyQt6
         if method.rbname.start_with?("_")
           lambda do
             return if method.type == :rubyqt6_defined_functions
-            return if rbfile_contents.include?("def #{method.rbname.sub(/^_/, "")}")
+            return if rbfile_contents.match?(/def (self.)?#{method.rbname.sub(/^_/, "")}/)
             return if NO_VERIFY_QLASS_LEADING_UNDERSCORE_METHODS[qlass.name]&.include?(method.rbname)
             raise method.inspect
           end.call
