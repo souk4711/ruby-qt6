@@ -36,14 +36,14 @@ class MainWindow < RubyQt6::Bando::QMainWindow
     @info_label.set_frame_style QFrame::StyledPanel.to_i | QFrame::Sunken
     @info_label.set_alignment Qt::AlignCenter
 
-    bottomFiller = QWidget.new
-    bottomFiller.set_size_policy(QSizePolicy::Expanding, QSizePolicy::Expanding)
+    bottom_filler = QWidget.new
+    bottom_filler.set_size_policy(QSizePolicy::Expanding, QSizePolicy::Expanding)
 
     vbox = QVBoxLayout.new
     vbox.set_contents_margins(5, 5, 5, 5)
     vbox.add_widget(top_filler)
     vbox.add_widget(@info_label)
-    vbox.add_widget(bottomFiller)
+    vbox.add_widget(bottom_filler)
     w.set_layout vbox
 
     create_actions
@@ -236,11 +236,11 @@ class MainWindow < RubyQt6::Bando::QMainWindow
     @center_action.set_status_tip tr('Center the selected text')
     @center_action.triggered.connect(self, :center)
 
-    @alignmentGroup = QActionGroup.new(self)
-    @alignmentGroup.add_action(@left_align_action)
-    @alignmentGroup.add_action(@right_align_action)
-    @alignmentGroup.add_action(@justify_action)
-    @alignmentGroup.add_action(@center_action)
+    @alignment_group = QActionGroup.new(self)
+    @alignment_group.add_action(@left_align_action)
+    @alignment_group.add_action(@right_align_action)
+    @alignment_group.add_action(@justify_action)
+    @alignment_group.add_action(@center_action)
     @left_align_action.set_checked true
 
     @set_line_spacing_action = QAction.new(tr('Set &Line Spacing...'), self)

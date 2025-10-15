@@ -11,8 +11,8 @@ class TetrixBoard < RubyQt6::Bando::QFrame
     slot 'pause()'
   end
 
-  BoardWidth = 10
-  BoardHeight = 22
+  BOARD_WIDTH = 10
+  BOARD_HEIGHT = 22
 
   def initialize(parent = nil)
     super(parent)
@@ -33,11 +33,11 @@ class TetrixBoard < RubyQt6::Bando::QFrame
   attr_writer :next_piece_label
 
   def shape_at(x, y)
-    @board[(y * BoardWidth) + x]
+    @board[(y * BOARD_WIDTH) + x]
   end
 
   def set_shape_at(x, y, shape)
-    @board[(y * BoardWidth) + x] = shape
+    @board[(y * BOARD_WIDTH) + x] = shape
   end
 
   def timeout_time
@@ -45,19 +45,19 @@ class TetrixBoard < RubyQt6::Bando::QFrame
   end
 
   def square_width
-    contents_rect.width / BoardWidth
+    contents_rect.width / BOARD_WIDTH
   end
 
   def square_height
-    contents_rect.height / BoardHeight
+    contents_rect.height / BOARD_HEIGHT
   end
 
   def size_hint
-    QSize.new(BoardWidth * 15 + frame_width * 2, 15 + frame_width * 2)
+    QSize.new(BOARD_WIDTH * 15 + frame_width * 2, 15 + frame_width * 2)
   end
 
   def minimum_size_hint
-    QSize.new(BoardWidth * 5 + frame_width * 2, 5 + frame_width * 2)
+    QSize.new(BOARD_WIDTH * 5 + frame_width * 2, 5 + frame_width * 2)
   end
 
   def start
@@ -103,22 +103,22 @@ class TetrixBoard < RubyQt6::Bando::QFrame
       return
     end
 
-    board_top = rect.bottom - BoardHeight * square_height
+    board_top = rect.bottom - BOARD_HEIGHT * square_height
 
-    (0...BoardHeight).each do |i|
-      (0...BoardWidth).each do |j|
-        shape = shape_at(j, BoardHeight - i - 1)
-        if shape != TetrixPiece::NoShape
+    (0...BOARD_HEIGHT).each do |i|
+      (0...BOARD_WIDTH).each do |j|
+        shape = shape_at(j, BOARD_HEIGHT - i - 1)
+        if shape != TetrixPiece::NO_SHAPE
           draw_square(painter, rect.left + j * square_width, board_top + i * square_height, shape)
         end
       end
     end
 
-    if @cur_piece.shape != TetrixPiece::NoShape
+    if @cur_piece.shape != TetrixPiece::NO_SHAPE
       (0...4).each do |i|
         x = @cur_x + @cur_piece.x(i)
         y = @cur_y - @cur_piece.y(i)
-        draw_square(painter, rect.left + x * square_width, board_top + (BoardHeight - y - 1) * square_height,
+        draw_square(painter, rect.left + x * square_width, board_top + (BOARD_HEIGHT - y - 1) * square_height,
                     @cur_piece.shape)
       end
     end
@@ -126,7 +126,7 @@ class TetrixBoard < RubyQt6::Bando::QFrame
   end
 
   def key_press_event(event)
-    if !@is_starting || @is_pasued || @cur_piece.shape == TetrixPiece::NoShape
+    if !@is_starting || @is_pasued || @cur_piece.shape == TetrixPiece::NO_SHAPE
       _key_press_event(event)
       return
     end
@@ -164,8 +164,8 @@ class TetrixBoard < RubyQt6::Bando::QFrame
   end
 
   def clear_board
-    (0...BoardWidth * BoardHeight).each do |i|
-      @board[i] = TetrixPiece::NoShape
+    (0...BOARD_WIDTH * BOARD_HEIGHT).each do |i|
+      @board[i] = TetrixPiece::NO_SHAPE
     end
   end
 
@@ -212,11 +212,11 @@ class TetrixBoard < RubyQt6::Bando::QFrame
 
   def remove_full_lines
     num_full_lines = 0
-    (BoardHeight - 1).downto(0) do |i|
+    (BOARD_HEIGHT - 1).downto(0) do |i|
       line_is_full = true
 
-      (0...BoardWidth).each do |j|
-        if shape_at(j, i) == TetrixPiece::NoShape
+      (0...BOARD_WIDTH).each do |j|
+        if shape_at(j, i) == TetrixPiece::NO_SHAPE
           line_is_full = false
           break
         end
@@ -225,13 +225,13 @@ class TetrixBoard < RubyQt6::Bando::QFrame
       next unless line_is_full
 
       num_full_lines += 1
-      (i...BoardHeight).each do |k|
-        (0...BoardWidth).each do |j|
+      (i...BOARD_HEIGHT).each do |k|
+        (0...BOARD_WIDTH).each do |j|
           set_shape_at(j, k, shape_at(j, k + 1))
         end
       end
-      (0...BoardWidth).each do |j|
-        set_shape_at(j, BoardHeight - 1, TetrixPiece::NoShape)
+      (0...BOARD_WIDTH).each do |j|
+        set_shape_at(j, BOARD_HEIGHT - 1, TetrixPiece::NO_SHAPE)
       end
     end
 
@@ -244,7 +244,7 @@ class TetrixBoard < RubyQt6::Bando::QFrame
 
     @timer.start(500, self)
     @is_waiting_after_line = true
-    @cur_piece.shape = TetrixPiece::NoShape
+    @cur_piece.shape = TetrixPiece::NO_SHAPE
     update
   end
 
@@ -252,12 +252,12 @@ class TetrixBoard < RubyQt6::Bando::QFrame
     @cur_piece = @next_piece
     @next_piece.set_random_shape
     show_next_piece
-    @cur_x = BoardWidth / 2 + 1
-    @cur_y = BoardHeight - 1 + @cur_piece.min_y
+    @cur_x = BOARD_WIDTH / 2 + 1
+    @cur_y = BOARD_HEIGHT - 1 + @cur_piece.min_y
 
     return if try_move(@cur_piece, @cur_x, @cur_y)
 
-    @cur_piece.shape = TetrixPiece::NoShape
+    @cur_piece.shape = TetrixPiece::NO_SHAPE
     @timer.stop
     @is_starting = false
   end
@@ -285,8 +285,8 @@ class TetrixBoard < RubyQt6::Bando::QFrame
     (0...4).each do |i|
       x = new_x + new_piece.x(i)
       y = new_y - new_piece.y(i)
-      return false if x.negative? || x >= BoardWidth || y.negative? || y >= BoardHeight
-      return false if shape_at(x, y) != TetrixPiece::NoShape
+      return false if x.negative? || x >= BOARD_WIDTH || y.negative? || y >= BOARD_HEIGHT
+      return false if shape_at(x, y) != TetrixPiece::NO_SHAPE
     end
 
     @cur_piece = new_piece

@@ -1,14 +1,14 @@
 # frozen_string_literal: true
 
 class TetrixPiece
-  NoShape = 0
-  ZShape = 1
-  SShape = 2
-  LineShape = 3
-  TShape = 4
-  SquareShape = 5
-  LShape = 6
-  MirroredLShape = 7
+  NO_SHAPE = 0
+  Z_SHAPE = 1
+  S_SHAPE = 2
+  LINE_SHAPE = 3
+  T_SHAPE = 4
+  SQUARE_SHAPE = 5
+  L_SHAPE = 6
+  MIRRORED_L_SHAPE = 7
 
   def initialize
     @coords_table = [
@@ -25,7 +25,7 @@ class TetrixPiece
       [0, 0], [0, 0], [0, 0], [0, 0]
     ]
 
-    self.shape = NoShape
+    self.shape = NO_SHAPE
   end
 
   def x(index)
@@ -96,7 +96,7 @@ class TetrixPiece
   end
 
   def rotated_left
-    return self if @piece_shape == SquareShape
+    return self if @piece_shape == SQUARE_SHAPE
 
     result = TetrixPiece.new
     result.piece_shape = @piece_shape
@@ -108,7 +108,7 @@ class TetrixPiece
   end
 
   def rotated_right
-    return self if @piece_shape == SquareShape
+    return self if @piece_shape == SQUARE_SHAPE
 
     result = TetrixPiece.new
     result.piece_shape = @piece_shape

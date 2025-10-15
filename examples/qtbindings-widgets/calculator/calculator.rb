@@ -50,8 +50,8 @@ class Calculator < RubyQt6::Bando::QDialog
     @change_sign_button = create_button(tr('+/-'), digit_color, :change_sign_clicked)
 
     @backspace_button = create_button(tr('Backspace'), backspace_color, :backspace_clicked)
-    @clearButton = create_button(tr('Clear'), backspace_color, :clear)
-    @clear_allButton = create_button(tr('Clear All'), backspace_color.lighter(120), :clear_all)
+    @clear_button = create_button(tr('Clear'), backspace_color, :clear)
+    @clear_all_button = create_button(tr('Clear All'), backspace_color.lighter(120), :clear_all)
 
     @clear_memory_button = create_button(tr('MC'), memory_color, :clear_memory)
     @read_memory_button = create_button(tr('MR'), memory_color, :read_memory)
@@ -104,8 +104,8 @@ class Calculator < RubyQt6::Bando::QDialog
 
     main_layout.add_widget(@display, 0, 0, 1, 6)
     main_layout.add_widget(@backspace_button, 1, 0, 1, 2)
-    main_layout.add_widget(@clearButton, 1, 2, 1, 2)
-    main_layout.add_widget(@clear_allButton, 1, 4, 1, 2)
+    main_layout.add_widget(@clear_button, 1, 2, 1, 2)
+    main_layout.add_widget(@clear_all_button, 1, 4, 1, 2)
 
     main_layout.add_widget(@clear_memory_button, 2, 0)
     main_layout.add_widget(@read_memory_button, 3, 0)

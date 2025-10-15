@@ -43,16 +43,16 @@ class MainWindow < RubyQt6::Bando::QMainWindow
     controls_layout.add_widget(@style_combo, 1)
     controls_layout.add_stretch(1)
 
-    lineLayout = QHBoxLayout.new
-    lineLayout.add_widget(@line_edit, 1)
-    lineLayout.add_spacing(12)
-    lineLayout.add_widget(@clipboard_button)
+    line_layout = QHBoxLayout.new
+    line_layout.add_widget(@line_edit, 1)
+    line_layout.add_spacing(12)
+    line_layout.add_widget(@clipboard_button)
 
     central_layout = QVBoxLayout.new
     central_layout.add_layout(controls_layout)
     central_layout.add_widget(@scroll_area, 1)
     central_layout.add_spacing(4)
-    central_layout.add_layout(lineLayout)
+    central_layout.add_layout(line_layout)
     central_widget.set_layout(central_layout)
 
     set_central_widget(central_widget)

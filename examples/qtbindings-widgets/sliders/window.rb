@@ -67,7 +67,7 @@ class Window < RubyQt6::Bando::QWidget
     @inverted_key_bindings.toggled.connect(@horizontal_sliders, :invert_key_bindings)
     @inverted_key_bindings.toggled.connect(@vertical_sliders, :invert_key_bindings)
 
-    controlsLayout = QGridLayout.new.tap do |c|
+    controls_layout = QGridLayout.new.tap do |c|
       c.add_widget(@minimum_label, 0, 0)
       c.add_widget(@maximum_label, 1, 0)
       c.add_widget(@value_label, 2, 0)
@@ -78,6 +78,6 @@ class Window < RubyQt6::Bando::QWidget
       c.add_widget(@inverted_key_bindings, 1, 2)
       c.add_widget(@orientation_combo, 3, 0, 1, 3)
     end
-    @controls_group.set_layout(controlsLayout)
+    @controls_group.set_layout(controls_layout)
   end
 end

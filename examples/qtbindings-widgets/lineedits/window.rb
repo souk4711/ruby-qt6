@@ -41,7 +41,7 @@ class Window < RubyQt6::Bando::QWidget
     alignment_combobox.add_item(tr('Centered'))
     alignment_combobox.add_item(tr('Right'))
 
-    @alignmentLineEdit = QLineEdit.new
+    @alignment_line_edit = QLineEdit.new
 
     input_mask_group = QGroupBox.new(tr('Input mask'))
 
@@ -84,7 +84,7 @@ class Window < RubyQt6::Bando::QWidget
     alignment_layout = QGridLayout.new
     alignment_layout.add_widget(alignment_label, 0, 0)
     alignment_layout.add_widget(alignment_combobox, 0, 1)
-    alignment_layout.add_widget(@alignmentLineEdit, 1, 0, 1, 2)
+    alignment_layout.add_widget(@alignment_line_edit, 1, 0, 1, 2)
     alignment_group.set_layout alignment_layout
 
     input_mask_layout = QGridLayout.new
@@ -129,9 +129,9 @@ class Window < RubyQt6::Bando::QWidget
 
   def slot_alignment_changed(index)
     case index
-    when 0 then @alignmentLineEdit.set_alignment Qt::AlignLeft.to_qflags
-    when 1 then @alignmentLineEdit.set_alignment Qt::AlignCenter.to_qflags
-    when 2 then @alignmentLineEdit.set_alignment Qt::AlignRight.to_qflags
+    when 0 then @alignment_line_edit.set_alignment Qt::AlignLeft.to_qflags
+    when 1 then @alignment_line_edit.set_alignment Qt::AlignCenter.to_qflags
+    when 2 then @alignment_line_edit.set_alignment Qt::AlignRight.to_qflags
     end
   end
 
