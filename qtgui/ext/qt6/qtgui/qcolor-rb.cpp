@@ -99,6 +99,7 @@ void Init_qcolor(Rice::Module rb_mQt6QtGui)
             .define_singleton_function("from_hsl_f", &QColor::fromHslF, Arg("h"), Arg("s"), Arg("l"), Arg("a") = static_cast<float>(1.0))
             .define_singleton_function("from_hsv", &QColor::fromHsv, Arg("h"), Arg("s"), Arg("v"), Arg("a") = static_cast<int>(255))
             .define_singleton_function("from_hsv_f", &QColor::fromHsvF, Arg("h"), Arg("s"), Arg("v"), Arg("a") = static_cast<float>(1.0))
+            .define_singleton_function<QColor (*)(QRgb)>("from_rgb", &QColor::fromRgb, Arg("rgb"))
             .define_singleton_function<QColor (*)(int, int, int, int)>("from_rgb", &QColor::fromRgb, Arg("r"), Arg("g"), Arg("b"), Arg("a") = static_cast<int>(255))
             .define_singleton_function("from_rgb_f", &QColor::fromRgbF, Arg("r"), Arg("g"), Arg("b"), Arg("a") = static_cast<float>(1.0));
 
