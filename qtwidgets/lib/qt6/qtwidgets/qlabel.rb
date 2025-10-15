@@ -26,7 +26,7 @@ module RubyQt6
       # @!visibility private
       alias_method :_initialize, :initialize
 
-      # @return [QLineEdit]
+      # @return [QLabel]
       #
       # @overload initialize(parent = nil)
       #   @param parent [QWidget]

@@ -31,6 +31,7 @@
 #include "qactiongroup-rb.hpp"
 #include "qclipboard-rb.hpp"
 #include "qguiapplication-rb.hpp"
+#include "qmovie-rb.hpp"
 #include "qshortcut-rb.hpp"
 #include "qtextdocument-rb.hpp"
 #include "qvalidator-rb.hpp"
@@ -42,6 +43,7 @@
 #include "bando-qaction-rb.hpp"
 #include "bando-qactiongroup-rb.hpp"
 #include "bando-qguiapplication-rb.hpp"
+#include "bando-qmovie-rb.hpp"
 #include "bando-qshortcut-rb.hpp"
 #include "bando-qtextdocument-rb.hpp"
 #include "bando-qvalidator-rb.hpp"
@@ -85,6 +87,7 @@ extern "C" void Init_qtgui()
         Init_qactiongroup(rb_mQt6QtGui);
         Init_qclipboard(rb_mQt6QtGui);
         Init_qguiapplication(rb_mQt6QtGui);
+        Init_qmovie(rb_mQt6QtGui);
         Init_qshortcut(rb_mQt6QtGui);
         Init_qtextdocument(rb_mQt6QtGui);
         Init_qvalidator(rb_mQt6QtGui);
@@ -98,6 +101,7 @@ extern "C" void Init_qtgui()
         Init_bando_qaction(rb_mQt6Bando);
         Init_bando_qactiongroup(rb_mQt6Bando);
         Init_bando_qguiapplication(rb_mQt6Bando);
+        Init_bando_qmovie(rb_mQt6Bando);
         Init_bando_qshortcut(rb_mQt6Bando);
         Init_bando_qtextdocument(rb_mQt6Bando);
         Init_bando_qvalidator(rb_mQt6Bando);
