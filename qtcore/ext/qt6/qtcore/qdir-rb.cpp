@@ -11,6 +11,9 @@ void Init_qdir(Rice::Module rb_mQt6QtCore)
     rb_cQDir =
         // RubyQt6::QtCore::QDir
         define_class_under<QDir>(rb_mQt6QtCore, "QDir")
+            // RubyQt6-Defined Functions
+            .define_method("mkdir", [](QDir *self, const QString &dir_name) -> bool { return self->mkdir(dir_name); }, Arg("dir_name"))
+            .define_method("mkdir", [](QDir *self, const QString &dir_name, QFileDevice::Permissions permissions) -> bool { return self->mkdir(dir_name, permissions); }, Arg("dir_name"), Arg("permissions"))
             // Constructor
             .define_constructor(Constructor<QDir, const QString &>(), Arg("path"))
             .define_constructor(Constructor<QDir, const QString &, const QString &>(), Arg("path"), Arg("name_filter"))
@@ -39,8 +42,6 @@ void Init_qdir(Rice::Module rb_mQt6QtCore)
             .define_method("relative?", &QDir::isRelative)
             .define_method("root?", &QDir::isRoot)
             .define_method("make_absolute", &QDir::makeAbsolute)
-            .define_method<bool (QDir::*)(const QString &) const>("mkdir", &QDir::mkdir, Arg("dir_name"))
-            .define_method<bool (QDir::*)(const QString &, QFileDevice::Permissions) const>("mkdir", &QDir::mkdir, Arg("dir_name"), Arg("permissions"))
             .define_method("mkpath", &QDir::mkpath, Arg("dir_path"))
             .define_method("name_filters", &QDir::nameFilters)
             .define_method("path", &QDir::path)
