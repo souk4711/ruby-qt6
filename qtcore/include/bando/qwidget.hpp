@@ -48,6 +48,7 @@
 #include <QResizeEvent>
 #include <QShowEvent>
 #include <QTabletEvent>
+#include <QTimerEvent>
 #include <QWheelEvent>
 
 template <typename Class_T, typename... Arg_Ts> class BandoQWidget : public Class_T
@@ -93,6 +94,7 @@ template <typename Class_T, typename... Arg_Ts> class BandoQWidget : public Clas
     void resizeEvent(QResizeEvent *event) override { bando_handleEvent<BandoQWidget, QResizeEvent>(this, event, bando_FunctionName::resizeEvent); };
     void showEvent(QShowEvent *event) override { bando_handleEvent<BandoQWidget, QShowEvent>(this, event, bando_FunctionName::showEvent); };
     void tabletEvent(QTabletEvent *event) override { bando_handleEvent<BandoQWidget, QTabletEvent>(this, event, bando_FunctionName::tabletEvent); };
+    void timerEvent(QTimerEvent *event) override { bando_handleEvent<BandoQWidget, QTimerEvent>(this, event, bando_FunctionName::timerEvent); };
     void wheelEvent(QWheelEvent *event) override { bando_handleEvent<BandoQWidget, QWheelEvent>(this, event, bando_FunctionName::wheelEvent); };
 
     QSize minimumSizeHint() const override {
@@ -141,6 +143,7 @@ template <typename Class_T, typename... Arg_Ts> class BandoQWidget : public Clas
         case bando_FunctionName::resizeEvent: return this->Class_T::resizeEvent(static_cast<QResizeEvent *>(event));
         case bando_FunctionName::showEvent: return this->Class_T::showEvent(static_cast<QShowEvent *>(event));
         case bando_FunctionName::tabletEvent: return this->Class_T::tabletEvent(static_cast<QTabletEvent *>(event));
+        case bando_FunctionName::timerEvent: return this->Class_T::timerEvent(static_cast<QTimerEvent *>(event));
         case bando_FunctionName::wheelEvent: return this->Class_T::wheelEvent(static_cast<QWheelEvent *>(event));
         default: Q_UNREACHABLE(); break;
         }
@@ -186,6 +189,7 @@ Rice::Data_Type<BC_T> define_bando_qwidget_under(Rice::Module module, char const
             .define_method("_resize_event", [](BC_T *self, QResizeEvent *event) -> void { return self->Class_T_handleEvent(bando_FunctionName::resizeEvent, event); })
             .define_method("_show_event", [](BC_T *self, QShowEvent *event) -> void { return self->Class_T_handleEvent(bando_FunctionName::showEvent, event); })
             .define_method("_tablet_event", [](BC_T *self, QTabletEvent *event) -> void { return self->Class_T_handleEvent(bando_FunctionName::tabletEvent, event); })
+            .define_method("_timer_event", [](BC_T *self, QTimerEvent *event) -> void { return self->Class_T_handleEvent(bando_FunctionName::timerEvent, event); })
             .define_method("_wheel_event", [](BC_T *self, QWheelEvent *event) -> void { return self->Class_T_handleEvent(bando_FunctionName::wheelEvent, event); });
 
     bando_qlass

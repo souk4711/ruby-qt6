@@ -57,6 +57,7 @@ enum bando_FunctionName
     resizeEvent,
     showEvent,
     tabletEvent,
+    timerEvent,
     wheelEvent,
 };
 
@@ -114,6 +115,8 @@ constexpr std::string_view bando_FunctionName_underscore(bando_FunctionName name
         return "show_event";
     case bando_FunctionName::tabletEvent:
         return "tablet_event";
+    case bando_FunctionName::timerEvent:
+        return "timer_event";
     case bando_FunctionName::wheelEvent:
         return "wheel_event";
     default:
