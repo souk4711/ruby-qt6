@@ -34,6 +34,7 @@ enum bando_FunctionName
 {
     actionEvent,
     changeEvent,
+    childEvent,
     closeEvent,
     contextMenuEvent,
     dragEnterEvent,
@@ -69,6 +70,8 @@ constexpr std::string_view bando_FunctionName_underscore(bando_FunctionName name
         return "action_event";
     case bando_FunctionName::changeEvent:
         return "change_event";
+    case bando_FunctionName::childEvent:
+        return "child_event";
     case bando_FunctionName::closeEvent:
         return "close_event";
     case bando_FunctionName::contextMenuEvent:

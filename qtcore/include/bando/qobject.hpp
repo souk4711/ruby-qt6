@@ -23,6 +23,7 @@
 #define BANDO_QOBJECT_HPP
 
 #include <bando/common.hpp>
+#include <QChildEvent>
 #include <QEvent>
 #include <QTimerEvent>
 
@@ -44,6 +45,7 @@ template <typename Class_T, typename... Arg_Ts> class BandoQObject : public Clas
     bool event(QEvent *event) override { return bando_handleQObjectEvent<BandoQObject>(this, event); };
     bool eventFilter(QObject *watched, QEvent *event) override { return bando_handleQObjectEventFilter<BandoQObject>(this, watched, event); };
 
+    void childEvent(QChildEvent *event) override { bando_handleEvent<BandoQObject, QChildEvent>(this, event, bando_FunctionName::childEvent); };
     void timerEvent(QTimerEvent *event) override { bando_handleEvent<BandoQObject, QTimerEvent>(this, event, bando_FunctionName::timerEvent); };
 
   public:
@@ -53,6 +55,7 @@ template <typename Class_T, typename... Arg_Ts> class BandoQObject : public Clas
     void Class_T_handleEvent(bando_FunctionName name, QEvent *event) {
         switch (name)
         {
+        case bando_FunctionName::childEvent: return this->Class_T::childEvent(static_cast<QChildEvent *>(event));
         case bando_FunctionName::timerEvent: return this->Class_T::timerEvent(static_cast<QTimerEvent *>(event));
         default: Q_UNREACHABLE(); break;
         }
@@ -73,6 +76,7 @@ Rice::Data_Type<BC_T> define_bando_qobject_under(Rice::Module module, char const
             .define_method("_initialize_value", &BC_T::initializeValue, Rice::Arg("mo"), Rice::Arg("value"))
             .define_method("_event", [](BC_T *self, QEvent *event) -> bool { return self->Class_T_handleQObjectEvent(event); })
             .define_method("_event_filter", [](BC_T *self, QObject *watched, QEvent *event) -> bool { return self->Class_T_handleQObjectEventFilter(watched, event); })
+            .define_method("_child_event", [](BC_T *self, QChildEvent *event) -> void { return self->Class_T_handleEvent(bando_FunctionName::childEvent, event); })
             .define_method("_timer_event", [](BC_T *self, QTimerEvent *event) -> void { return self->Class_T_handleEvent(bando_FunctionName::timerEvent, event); });
     return bando_qlass;
 }

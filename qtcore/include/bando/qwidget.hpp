@@ -25,6 +25,7 @@
 #include <bando/common.hpp>
 #include <QActionEvent>
 #include <QEvent>
+#include <QChildEvent>
 #include <QCloseEvent>
 #include <QContextMenuEvent>
 #include <QDragEnterEvent>
@@ -71,6 +72,7 @@ template <typename Class_T, typename... Arg_Ts> class BandoQWidget : public Clas
 
     void actionEvent(QActionEvent *event) override { bando_handleEvent<BandoQWidget, QActionEvent>(this, event, bando_FunctionName::actionEvent); };
     void changeEvent(QEvent *event) override { bando_handleEvent<BandoQWidget, QEvent>(this, event, bando_FunctionName::changeEvent); };
+    void childEvent(QChildEvent *event) override { bando_handleEvent<BandoQWidget, QChildEvent>(this, event, bando_FunctionName::childEvent); };
     void closeEvent(QCloseEvent *event) override { bando_handleEvent<BandoQWidget, QCloseEvent>(this, event, bando_FunctionName::closeEvent); };
     void contextMenuEvent(QContextMenuEvent *event) override { bando_handleEvent<BandoQWidget, QContextMenuEvent>(this, event, bando_FunctionName::contextMenuEvent); };
     void dragEnterEvent(QDragEnterEvent *event) override { bando_handleEvent<BandoQWidget, QDragEnterEvent>(this, event, bando_FunctionName::dragEnterEvent); };
@@ -120,6 +122,7 @@ template <typename Class_T, typename... Arg_Ts> class BandoQWidget : public Clas
         {
         case bando_FunctionName::actionEvent: return this->Class_T::actionEvent(static_cast<QActionEvent *>(event));
         case bando_FunctionName::changeEvent: return this->Class_T::changeEvent(event);
+        case bando_FunctionName::childEvent: return this->Class_T::childEvent(static_cast<QChildEvent *>(event));
         case bando_FunctionName::closeEvent: return this->Class_T::closeEvent(static_cast<QCloseEvent *>(event));
         case bando_FunctionName::contextMenuEvent: return this->Class_T::contextMenuEvent(static_cast<QContextMenuEvent *>(event));
         case bando_FunctionName::dragEnterEvent: return this->Class_T::dragEnterEvent(static_cast<QDragEnterEvent *>(event));
@@ -166,6 +169,7 @@ Rice::Data_Type<BC_T> define_bando_qwidget_under(Rice::Module module, char const
             .define_method("_event_filter", [](BC_T *self, QObject *watched, QEvent *event) -> bool { return self->Class_T_handleQObjectEventFilter(watched, event); })
             .define_method("_action_event", [](BC_T *self, QActionEvent *event) -> void { return self->Class_T_handleEvent(bando_FunctionName::actionEvent, event); })
             .define_method("_change_event", [](BC_T *self, QEvent *event) -> void { return self->Class_T_handleEvent(bando_FunctionName::changeEvent, event); })
+            .define_method("_child_event", [](BC_T *self, QChildEvent *event) -> void { return self->Class_T_handleEvent(bando_FunctionName::childEvent, event); })
             .define_method("_close_event", [](BC_T *self, QCloseEvent *event) -> void { return self->Class_T_handleEvent(bando_FunctionName::closeEvent, event); })
             .define_method("_context_menu_event", [](BC_T *self, QContextMenuEvent *event) -> void { return self->Class_T_handleEvent(bando_FunctionName::contextMenuEvent, event); })
             .define_method("_drag_enter_event", [](BC_T *self, QDragEnterEvent *event) -> void { return self->Class_T_handleEvent(bando_FunctionName::dragEnterEvent, event); })
