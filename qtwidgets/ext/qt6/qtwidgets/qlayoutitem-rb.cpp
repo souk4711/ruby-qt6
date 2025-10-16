@@ -27,6 +27,7 @@ void Init_qlayoutitem(Rice::Module rb_mQt6QtWidgets)
             .define_method("minimum_size", &QLayoutItem::minimumSize)
             .define_method("set_alignment", &QLayoutItem::setAlignment, Arg("a"))
             .define_method("set_geometry", &QLayoutItem::setGeometry, Arg("rect"))
+            .define_method("size_hint", &QLayoutItem::sizeHint)
             .define_method("spacer_item", &QLayoutItem::spacerItem)
             .define_method("widget", &QLayoutItem::widget);
 
