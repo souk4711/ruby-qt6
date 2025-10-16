@@ -54,28 +54,28 @@ template <typename Class_T, typename... Arg_Ts> class BandoQLayout : public Clas
         Q_ASSERT(this->value_.rb_type() != RUBY_T_NONE);
         auto rb_name = Rice::Identifier("add_item");
         this->value_.call(rb_name, Rice::detail::to_ruby(item));
-    }
+    };
 
     int count() const override {
         Q_ASSERT(this->value_.rb_type() != RUBY_T_NONE);
         auto rb_name = Rice::Identifier("count");
         auto rb_return = this->value_.call(rb_name);
         return Rice::detail::From_Ruby<int>().convert(rb_return);
-    }
+    };
 
     QLayoutItem *itemAt(int index) const override {
         Q_ASSERT(this->value_.rb_type() != RUBY_T_NONE);
         auto rb_name = Rice::Identifier("item_at");
         auto rb_return = this->value_.call(rb_name, Rice::detail::to_ruby(index));
         return Rice::detail::From_Ruby<QLayoutItem *>().convert(rb_return);
-    }
+    };
 
     QLayoutItem *takeAt(int index) override {
         Q_ASSERT(this->value_.rb_type() != RUBY_T_NONE);
         auto rb_name = Rice::Identifier("take_at");
         auto rb_return = this->value_.call(rb_name, Rice::detail::to_ruby(index));
         return Rice::detail::From_Ruby<QLayoutItem *>().convert(rb_return);
-    }
+    };
 
     QSize sizeHint() const override {
         Q_ASSERT(this->value_.rb_type() != RUBY_T_NONE);
@@ -83,6 +83,47 @@ template <typename Class_T, typename... Arg_Ts> class BandoQLayout : public Clas
         auto rb_return = this->value_.call(rb_name);
         return Rice::detail::From_Ruby<QSize>().convert(rb_return);
     };
+
+    Qt::Orientations expandingDirections() const override {
+        Q_ASSERT(this->value_.rb_type() != RUBY_T_NONE);
+        auto rb_name = Rice::Identifier("expanding_directions");
+        auto rb_return = this->value_.call(rb_name);
+        return Rice::detail::From_Ruby<Qt::Orientations>().convert(rb_return);
+    };
+
+    bool hasHeightForWidth() const override {
+        Q_ASSERT(this->value_.rb_type() != RUBY_T_NONE);
+        auto rb_name = Rice::Identifier("has_height_for_width");
+        auto rb_return = this->value_.call(rb_name);
+        return Rice::detail::From_Ruby<bool>().convert(rb_return);
+    };
+
+    int heightForWidth(int width) const override {
+        Q_ASSERT(this->value_.rb_type() != RUBY_T_NONE);
+        auto rb_name = Rice::Identifier("height_for_width");
+        auto rb_return = this->value_.call(rb_name, Rice::detail::to_ruby(width));
+        return Rice::detail::From_Ruby<int>().convert(rb_return);
+    };
+
+    QSize maximumSize() const override {
+        Q_ASSERT(this->value_.rb_type() != RUBY_T_NONE);
+        auto rb_name = Rice::Identifier("maximum_size");
+        auto rb_return = this->value_.call(rb_name);
+        return Rice::detail::From_Ruby<QSize>().convert(rb_return);
+    };
+
+    QSize minimumSize() const override {
+        Q_ASSERT(this->value_.rb_type() != RUBY_T_NONE);
+        auto rb_name = Rice::Identifier("minimum_size");
+        auto rb_return = this->value_.call(rb_name);
+        return Rice::detail::From_Ruby<QSize>().convert(rb_return);
+    };
+
+    void setGeometry(const QRect &r) override {
+        Q_ASSERT(this->value_.rb_type() != RUBY_T_NONE);
+        auto rb_name = Rice::Identifier("set_geometry");
+        this->value_.call(rb_name, Rice::detail::to_ruby(r));
+    }
 
   public:
     bool Class_T_handleQObjectEvent(QEvent *event) { return this->Class_T::event(event); };
@@ -114,6 +155,21 @@ Rice::Data_Type<BC_T> define_bando_qlayout_under(Rice::Module module, char const
             .define_method("_event_filter", [](BC_T *self, QObject *watched, QEvent *event) -> bool { return self->Class_T_handleQObjectEventFilter(watched, event); })
             .define_method("_child_event", [](BC_T *self, QChildEvent *event) -> void { return self->Class_T_handleEvent(bando_FunctionName::childEvent, event); })
             .define_method("_timer_event", [](BC_T *self, QTimerEvent *event) -> void { return self->Class_T_handleEvent(bando_FunctionName::timerEvent, event); });
+
+    bando_qlass
+        .define_method("_expanding_directions", [](BC_T *self) -> Qt::Orientations { return self->C_T::expandingDirections(); })
+        .define_method("_has_height_for_width", [](BC_T *self) -> bool { return self->C_T::hasHeightForWidth(); })
+        .define_method("_height_for_width", [](BC_T *self, int width) -> int { return self->C_T::heightForWidth(width); })
+        .define_method("_maximum_size", [](BC_T *self) -> QSize { return self->C_T::maximumSize(); })
+        .define_method("_minimum_size", [](BC_T *self) -> QSize { return self->C_T::minimumSize(); })
+        .define_method("_set_geometry", [](BC_T *self, const QRect &r) -> void { return self->C_T::setGeometry(r); })
+        .define_method("expanding_directions", [](BC_T *self) -> Qt::Orientations { return self->C_T::expandingDirections(); })
+        .define_method("has_height_for_width", [](BC_T *self) -> bool { return self->C_T::hasHeightForWidth(); })
+        .define_method("height_for_width", [](BC_T *self, int width) -> int { return self->C_T::heightForWidth(width); })
+        .define_method("maximum_size", [](BC_T *self) -> QSize { return self->C_T::maximumSize(); })
+        .define_method("minimum_size", [](BC_T *self) -> QSize { return self->C_T::minimumSize(); })
+        .define_method("set_geometry", [](BC_T *self, const QRect &r) -> void { return self->C_T::setGeometry(r); });
+
     return bando_qlass;
 }
 
