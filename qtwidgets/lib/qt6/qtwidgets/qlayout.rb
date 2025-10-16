@@ -11,6 +11,13 @@ module RubyQt6
       q_object do
       end
 
+      # @param parent [QWidget]
+      # @return [QLayout]
+      def initialize(parent = nil)
+        _initialize(parent)
+        _take_ownership_from_ruby(self) if parent
+      end
+
       # @!visibility private
       def remove_item(item)
         _remove_item(item)
