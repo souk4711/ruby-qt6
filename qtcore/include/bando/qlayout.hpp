@@ -53,7 +53,7 @@ template <typename Class_T, typename... Arg_Ts> class BandoQLayout : public Clas
     void addItem(QLayoutItem *item) override {
         Q_ASSERT(this->value_.rb_type() != RUBY_T_NONE);
         auto rb_name = Rice::Identifier("add_item");
-        this->value_.call(rb_name, Rice::detail::to_ruby(item));
+        this->value_.call(rb_name, Rice::Object(Rice::detail::to_ruby(item)));
     };
 
     int count() const override {
@@ -66,14 +66,14 @@ template <typename Class_T, typename... Arg_Ts> class BandoQLayout : public Clas
     QLayoutItem *itemAt(int index) const override {
         Q_ASSERT(this->value_.rb_type() != RUBY_T_NONE);
         auto rb_name = Rice::Identifier("item_at");
-        auto rb_return = this->value_.call(rb_name, Rice::detail::to_ruby(index));
+        auto rb_return = this->value_.call(rb_name, Rice::Object(Rice::detail::to_ruby(index)));
         return Rice::detail::From_Ruby<QLayoutItem *>().convert(rb_return);
     };
 
     QLayoutItem *takeAt(int index) override {
         Q_ASSERT(this->value_.rb_type() != RUBY_T_NONE);
         auto rb_name = Rice::Identifier("take_at");
-        auto rb_return = this->value_.call(rb_name, Rice::detail::to_ruby(index));
+        auto rb_return = this->value_.call(rb_name, Rice::Object(Rice::detail::to_ruby(index)));
         return Rice::detail::From_Ruby<QLayoutItem *>().convert(rb_return);
     };
 
@@ -101,7 +101,7 @@ template <typename Class_T, typename... Arg_Ts> class BandoQLayout : public Clas
     int heightForWidth(int width) const override {
         Q_ASSERT(this->value_.rb_type() != RUBY_T_NONE);
         auto rb_name = Rice::Identifier("height_for_width");
-        auto rb_return = this->value_.call(rb_name, Rice::detail::to_ruby(width));
+        auto rb_return = this->value_.call(rb_name, Rice::Object(Rice::detail::to_ruby(width)));
         return Rice::detail::From_Ruby<int>().convert(rb_return);
     };
 
@@ -122,7 +122,7 @@ template <typename Class_T, typename... Arg_Ts> class BandoQLayout : public Clas
     void setGeometry(const QRect &r) override {
         Q_ASSERT(this->value_.rb_type() != RUBY_T_NONE);
         auto rb_name = Rice::Identifier("set_geometry");
-        this->value_.call(rb_name, Rice::detail::to_ruby(r));
+        this->value_.call(rb_name, Rice::Object(Rice::detail::to_ruby(r)));
     }
 
   public:
