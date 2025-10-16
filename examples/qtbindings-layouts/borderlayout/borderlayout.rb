@@ -26,6 +26,7 @@ class BorderLayout < RubyQt6::Bando::QLayout
 
   def add_widget(widget, position)
     add(QWidgetItem.new(widget), position)
+    _take_ownership_from_ruby(widget)
   end
 
   def expanding_directions
