@@ -5,10 +5,6 @@
 #include "qqmlengine-rb.hpp"
 #include "qqmlapplicationengine-rb.hpp"
 
-#include "bando-qjsengine-rb.hpp"
-#include "bando-qqmlengine-rb.hpp"
-#include "bando-qqmlapplicationengine-rb.hpp"
-
 extern "C" void Init_qtqml()
 {
     return Rice::detail::cpp_protect([] {
@@ -20,10 +16,5 @@ extern "C" void Init_qtqml()
         Init_qjsengine(rb_mQt6QtQml);
         Init_qqmlengine(rb_mQt6QtQml);
         Init_qqmlapplicationengine(rb_mQt6QtQml);
-
-        Rice::Module rb_mQt6Bando = define_module_under(rb_mQt6, "Bando");
-        Init_bando_qjsengine(rb_mQt6Bando);
-        Init_bando_qqmlengine(rb_mQt6Bando);
-        Init_bando_qqmlapplicationengine(rb_mQt6Bando);
     });
 }
