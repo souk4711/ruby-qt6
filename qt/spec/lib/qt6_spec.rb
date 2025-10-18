@@ -24,37 +24,35 @@ RSpec.describe RubyQt6 do
   end
 
   describe "Bando::<...>" do
-    todo_qlasses = [
-      RubyQt6::QtCore::QIODevice,
-      RubyQt6::QtCore::QFileDevice,
-      RubyQt6::QtCore::QFile,
-      RubyQt6::QtGui::QClipboard,
-      RubyQt6::QtGui::QScreen,
-      RubyQt6::QtGui::QValidator,
-      RubyQt6::QtWidgets::QStyle,
-      RubyQt6::QtWidgets::QBoxLayout,
-      RubyQt6::QtWidgets::QHBoxLayout,
-      RubyQt6::QtWidgets::QVBoxLayout,
-      RubyQt6::QtWidgets::QFormLayout,
-      RubyQt6::QtWidgets::QGridLayout,
-      RubyQt6::QtWidgets::QStackedLayout,
-      RubyQt6::QtWidgets::QAbstractButton,
-      RubyQt6::QtWidgets::QAbstractItemView,
-      RubyQt6::QtWidgets::QAbstractSlider,
-      RubyQt6::QtWidgets::QAbstractSpinBox,
-      RubyQt6::QtQuickWidgets::QQuickWidget,
-      RubyQt6::QtUiTools::QUiLoader
+    bando_klasses = RubyQt6::Bando.constants
+
+    todo = [
+      :QAbstractButton,
+      :QAbstractItemView,
+      :QAbstractSlider,
+      :QAbstractSpinBox,
+      :QQuickWidget
     ]
 
     ::Object.constants.grep(/^Q/).each do |klass|
-      cls = ::Object.const_get(klass)
-      next unless cls.is_a?(Class)
-      next unless cls.ancestors.include?(RubyQt6::QtCore::QObject)
+      required = (::Object.const_get(klass).ancestors & [
+        RubyQt6::QtGui::QWindow,
+        RubyQt6::QtWidgets::QWidget,
+        RubyQt6::QtQuick::QQuickItem
+      ]).count.nonzero?
 
-      it "define Bando::#{klass}" do
-        skip if todo_qlasses.include?(cls)
-        expect(RubyQt6::Bando.constants).to include(klass)
+      if required
+        it "define Bando::#{klass}" do
+          skip if todo.include?(klass)
+          expect(bando_klasses.delete(klass)).to eq(klass)
+        end
       end
+    end
+
+    it "define Bando::..." do
+      expect(bando_klasses.delete(:QObject)).to eq(:QObject)
+      expect(bando_klasses.delete(:QLayout)).to eq(:QLayout)
+      expect(bando_klasses).to eq([])
     end
   end
 end
