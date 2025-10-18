@@ -35,6 +35,9 @@
 #include "qscreen-rb.hpp"
 #include "qshortcut-rb.hpp"
 #include "qtextdocument-rb.hpp"
+#include "qtextobject-rb.hpp"
+#include "qtextlist-rb.hpp"
+#include "qtexttable-rb.hpp"
 #include "qvalidator-rb.hpp"
 #include "qwindow-rb.hpp"
 
@@ -92,6 +95,9 @@ extern "C" void Init_qtgui()
         Init_qscreen(rb_mQt6QtGui);
         Init_qshortcut(rb_mQt6QtGui);
         Init_qtextdocument(rb_mQt6QtGui);
+        Init_qtextobject(rb_mQt6QtGui);
+        Init_qtextlist(rb_mQt6QtGui);
+        Init_qtexttable(rb_mQt6QtGui);
         Init_qvalidator(rb_mQt6QtGui);
         Init_qwindow(rb_mQt6QtGui);
 
