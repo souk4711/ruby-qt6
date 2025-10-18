@@ -30,12 +30,12 @@
 template <typename Class_T, typename... Arg_Ts> class BandoQQuickItem : public Class_T
 {
   public:
-    BandoQQuickItem(Arg_Ts... args) : Class_T(args...), value_(Qnil), mo_(nullptr) {};
+    BandoQQuickItem(Arg_Ts... args) : Class_T(args...), value_(Qnil), value_address_(nullptr), mo_(nullptr) {};
     BandoQQuickItem(const BandoQQuickItem &) = delete;
     BandoQQuickItem &operator=(const BandoQQuickItem &) = delete;
     BandoQQuickItem(BandoQQuickItem &&) = delete;
     BandoQQuickItem &operator=(BandoQQuickItem &&) = delete;
-    ~BandoQQuickItem() override {};
+    ~BandoQQuickItem() override { bando_finalizer<BandoQQuickItem>(this); };
 
     void initializeValue(Rice::Object value, QMetaObject *mo) { bando_initializeValue<BandoQQuickItem>(this, value, mo); };
 
@@ -65,6 +65,8 @@ template <typename Class_T, typename... Arg_Ts> class BandoQQuickItem : public C
     template <typename BC_T, typename C_T> friend const QMetaObject *bando_metaObject(const BC_T *self);
 
     Rice::Object value_;
+    VALUE *value_address_;
+
     QMetaObject *mo_;
 };
 

@@ -132,6 +132,15 @@ template <typename BandoClass_T> void bando_initializeValue(BandoClass_T *self, 
 {
     self->value_ = value;
     self->mo_ = mo;
+
+    self->value_address_ = const_cast<VALUE*>(&self->value_.value());
+    Rice::detail::protect(rb_gc_register_address, self->value_address_);
+}
+
+template <typename BandoClass_T> void bando_finalizer(BandoClass_T *self)
+{
+    if (self->value_address_ != nullptr)
+        Rice::detail::protect(rb_gc_unregister_address, self->value_address_);
 }
 
 template <typename BandoClass_T, typename Class_T> const QMetaObject *bando_metaObject(const BandoClass_T *self)
