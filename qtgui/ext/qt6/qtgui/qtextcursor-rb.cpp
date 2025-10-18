@@ -17,6 +17,12 @@ void Init_qtextcursor(Rice::Module rb_mQt6QtGui)
     rb_cQTextCursor =
         // RubyQt6::QtGui::QTextCursor
         define_class_under<QTextCursor>(rb_mQt6QtGui, "QTextCursor")
+            // RubyQt6-Defined Functions
+            .define_method("insert_html", [](QTextCursor *self, const char *html) -> void { return self->insertHtml(html); }, Arg("html"))
+            .define_method("insert_image", [](QTextCursor *self, const char *name) -> void { return self->insertImage(name); }, Arg("name"))
+            .define_method("insert_markdown", [](QTextCursor *self, const char *markdown, QTextDocument::MarkdownFeatures features) -> void { return self->insertMarkdown(markdown, features); }, Arg("markdown"), Arg("features") = static_cast<QTextDocument::MarkdownFeatures>(QTextDocument::MarkdownDialectGitHub))
+            .define_method("insert_text", [](QTextCursor *self, const char *text) -> void { return self->insertText(text); }, Arg("text"))
+            .define_method("insert_text", [](QTextCursor *self, const char *text, const QTextCharFormat &format) -> void { return self->insertText(text, format); }, Arg("text"), Arg("format"))
             // Constructor
             .define_constructor(Constructor<QTextCursor>())
             .define_constructor(Constructor<QTextCursor, QTextDocument *>(), Arg("document"))
