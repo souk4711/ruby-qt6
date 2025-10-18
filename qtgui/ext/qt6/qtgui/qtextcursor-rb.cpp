@@ -22,6 +22,7 @@ void Init_qtextcursor(Rice::Module rb_mQt6QtGui)
             .define_constructor(Constructor<QTextCursor, QTextDocument *>(), Arg("document"))
             .define_constructor(Constructor<QTextCursor, QTextFrame *>(), Arg("frame"))
             .define_constructor(Constructor<QTextCursor, const QTextBlock &>(), Arg("block"))
+            .define_constructor(Constructor<QTextCursor, const QTextCursor &>(), Arg("other"))
             // Public Functions
             .define_method("anchor", &QTextCursor::anchor)
             .define_method("at_block_end", &QTextCursor::atBlockEnd)

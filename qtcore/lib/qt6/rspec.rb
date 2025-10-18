@@ -23,8 +23,7 @@ module RubyQt6
       "QMetaObjectBuilder"
     ]
     NO_VERIFY_QLASS_INITIALIZE = QlassFileParser::NESTED_QLASSES + [
-      "QVariant",
-      "QString"
+      "QVariant"
     ]
     NO_VERIFY_QLASS_VIRTUAL_METHODS = {
       "QCoreApplication" => ["post_event", "send_event"],
@@ -126,6 +125,7 @@ module RubyQt6
       return if NO_VERIFY_QLASS_INITIALIZE.include?(qlass.name)
 
       constructor_methods = qlass.methods.select { |method| method.type == :constructor }
+      copy_constructor_method = constructor_methods.find { |method| method.rawline.include?('Arg("other")') }
 
       constructor_methods.each do |method|
         rawline = method.rawline
@@ -133,9 +133,11 @@ module RubyQt6
         raise "#{cppfile}: Found default value in constructor method" if rawline.include?("static_cast")
       end
 
-      case constructor_methods.size
+      constructor_methods_count = constructor_methods.count
+      constructor_methods_count -= 1 if copy_constructor_method
+      case constructor_methods_count
       when 2..99
-        raise "#{rbfile}: initialize: Missing `# @overload initialize...`" unless rbfile_contents.scan("# @overload initialize").count == constructor_methods.size
+        raise "#{rbfile}: initialize: Missing `# @overload initialize...`" unless rbfile_contents.scan("# @overload initialize").count == constructor_methods_count
         raise "#{rbfile}: initialize: Missing `alias_method :_initialize, :initialize`" unless rbfile_contents.include?("alias_method :_initialize, :initialize")
         raise "#{rbfile}: initialize: Missing `def initialize(*args)`" unless rbfile_contents.include?("def initialize(*args)")
         raise "#{rbfile}: initialize: Missing `_initialize(*args)`" unless rbfile_contents.include?("_initialize(*args)")
