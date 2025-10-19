@@ -87,7 +87,7 @@ class MainWindow < RubyQt6::Bando::QMainWindow
   end
 
   def save
-    filename = QFileDialog.get_save_file_name(self, tr('Choose a file name'), '.'.to_qstr, tr('HTML (*.html *.htm)'))
+    filename = QFileDialog.get_save_file_name(self, tr('Choose a file name'), '.', tr('HTML (*.html *.htm)'))
     return if (!filename) || filename.empty?
 
     file = QFile.new(filename)

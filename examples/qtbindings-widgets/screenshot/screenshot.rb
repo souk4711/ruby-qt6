@@ -48,8 +48,8 @@ class Screenshot < RubyQt6::Bando::QWidget
   end
 
   def save_screenshot
-    format = 'png'.to_qstr
-    initial_path = "#{QDir.current_path}/untitled.#{format}".to_qstr
+    format = 'png'
+    initial_path = "#{QDir.current_path}/untitled.#{format}"
 
     file_name = QFileDialog.get_save_file_name(
       self,

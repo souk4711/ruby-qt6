@@ -22,7 +22,7 @@ class MoviePlayer < RubyQt6::Bando::QWidget
       m.set_auto_fill_background true
     end
 
-    @current_movie_directory = '@movies'.to_qstr
+    @current_movie_directory = '@movies'
     create_controls
     create_buttons
 

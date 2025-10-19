@@ -169,7 +169,7 @@ class MainWindow < RubyQt6::Bando::QMainWindow
   end
 
   def save_file(file_format)
-    initial_path = "#{QDir.current_path}/untitled.#{file_format}".to_qstr
+    initial_path = "#{QDir.current_path}/untitled.#{file_format}"
     file_name = QFileDialog.get_save_file_name(
       self,
       tr('Save As'),
