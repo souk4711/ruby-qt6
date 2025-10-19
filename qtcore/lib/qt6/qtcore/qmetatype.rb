@@ -8,13 +8,13 @@ module RubyQt6
       rubyqt6_declare_enum_under QMetaType, QMetaType::Type
 
       # @!visibility private
+      alias_method :_initialize, :initialize
+
+      # @!visibility private
       def self.infer(o)
         k = o.class
         k.respond_to?(:default_qmetatype) ? k.default_qmetatype : raise("Could not infer qmetatype")
       end
-
-      # @!visibility private
-      alias_method :_initialize, :initialize
 
       # @param type_id [Integer]
       # @return [QMetaType]

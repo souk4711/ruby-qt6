@@ -4,12 +4,6 @@ module RubyQt6
   module QtCore
     # @see https://doc.qt.io/qt-6/qtimer.html
     class QTimer < RubyQt6::QtCore::QObject
-      # @!visibility private
-      def self.single_shot(nsec, receiver, member)
-        metamethod = QtCore::Private::MetaObject.find_receiver_metamethod!(receiver, member)
-        _single_shot(nsec, receiver, metamethod.qsignature)
-      end
-
       # @!parse
       q_object do
         signal "timeout()"
@@ -20,6 +14,12 @@ module RubyQt6
 
       # @!visibility private
       alias_method :_initialize, :initialize
+
+      # @!visibility private
+      def self.single_shot(nsec, receiver, member)
+        metamethod = QtCore::Private::MetaObject.find_receiver_metamethod!(receiver, member)
+        _single_shot(nsec, receiver, metamethod.qsignature)
+      end
 
       # @param parent [QObject]
       # @return [QTimer]
