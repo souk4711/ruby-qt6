@@ -4,6 +4,7 @@
 #include <QAbstractButton>
 #include <QAction>
 #include <QKeyCombination>
+#include <QMdiSubWindow>
 #include <QListWidgetItem>
 #include <QTableWidgetItem>
 #include <QTableWidgetSelectionRange>
@@ -21,6 +22,9 @@ void Init_t_qtwidgets(Rice::Module rb_mQt6T)
 
     // QList<QKeyCombination>
     define_qlist_under<QKeyCombination>(rb_mQt6T);
+
+    // QList<QMdiSubWindow *>
+    define_qlist_under<QMdiSubWindow *>(rb_mQt6T);
 
     // QList<QListWidgetItem *>
     define_qlist_under<QListWidgetItem *>(rb_mQt6T);
