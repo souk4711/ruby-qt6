@@ -1,6 +1,8 @@
 #include "qstring-rb.hpp"
 #include <qstring.h>
 
+#include <QRegularExpression>
+
 using namespace Rice;
 
 Rice::Class rb_cQString;
@@ -43,6 +45,7 @@ void Init_qstring(Rice::Module rb_mQt6QtCore)
             // RubyQt6-Defined Functions
             .define_method("downcase", [](QString *self) -> QString { return self->toLower(); })
             .define_method("upcase", [](QString *self) -> QString { return self->toUpper(); })
+            .define_method("split", [](QString *self, const char *sep, Qt::SplitBehavior behavior, Qt::CaseSensitivity cs) -> QStringList { return self->split(sep, behavior, cs); }, Arg("sep"), Arg("behavior") = static_cast<Qt::SplitBehavior>(Qt::KeepEmptyParts), Arg("cs") = static_cast<Qt::CaseSensitivity>(Qt::CaseSensitive))
             .define_method("[]", QString_slice, Arg("start"), Arg("length") = static_cast<qsizetype>(1))
             .define_method("[]=", QString_replace, Arg("index"), Arg("after"))
             .define_method("[]=", [](QString *self, qsizetype index, const char *after) -> QString { return QString_replace(self, index, after); }, Arg("index"), Arg("after"))
@@ -57,5 +60,7 @@ void Init_qstring(Rice::Module rb_mQt6QtCore)
             .define_method("reserve", &QString::reserve, Arg("size"))
             .define_method("shrink_to_fit", &QString::shrink_to_fit)
             .define_method("size", &QString::size)
-            .define_method("to_std_string", &QString::toStdString);
+            .define_method("to_std_string", &QString::toStdString)
+            .define_method<QStringList (QString::*)(const QString &, Qt::SplitBehavior, Qt::CaseSensitivity) const>("split", &QString::split, Arg("sep"), Arg("behavior") = static_cast<Qt::SplitBehavior>(Qt::KeepEmptyParts), Arg("cs") = static_cast<Qt::CaseSensitivity>(Qt::CaseSensitive))
+            .define_method<QStringList (QString::*)(const QRegularExpression &, Qt::SplitBehavior) const>("split", &QString::split, Arg("sep"), Arg("behavior") = static_cast<Qt::SplitBehavior>(Qt::KeepEmptyParts));
 }

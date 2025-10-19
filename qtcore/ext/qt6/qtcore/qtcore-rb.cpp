@@ -30,6 +30,7 @@
 #include "qmodelindex-rb.hpp"
 #include "qpoint-rb.hpp"
 #include "qrect-rb.hpp"
+#include "qregularexpression-rb.hpp"
 #include "qresource-rb.hpp"
 #include "qsize-rb.hpp"
 #include "qtextstream-rb.hpp"
@@ -93,6 +94,7 @@ extern "C" void Init_qtcore()
         Init_qmodelindex(rb_mQt6QtCore);
         Init_qpoint(rb_mQt6QtCore);
         Init_qrect(rb_mQt6QtCore);
+        Init_qregularexpression(rb_mQt6QtCore);
         Init_qresource(rb_mQt6QtCore);
         Init_qsize(rb_mQt6QtCore);
         Init_qtextstream(rb_mQt6QtCore);

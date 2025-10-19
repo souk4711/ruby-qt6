@@ -31,6 +31,11 @@ module RubyQt6
       QtCore::QString.new(str)
     end
 
+    def self.to_qflags(enum_or_flags)
+      return enum_or_flags unless enum_or_flags.respond_to?(:to_qflags)
+      enum_or_flags.to_qflags
+    end
+
     def self.inspect_struct(object, **attributes)
       name = object.class.name.split("::").last + " "
       attributes = Array(attributes).map { |(name, value)| "#{name}=#{value.inspect}" }.join(", ")

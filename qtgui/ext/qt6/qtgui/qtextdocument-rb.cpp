@@ -20,6 +20,8 @@ void Init_qtextdocument(Rice::Module rb_mQt6QtGui)
         // RubyQt6::QtGui::QTextDocument
         define_class_under<QTextDocument, QObject>(rb_mQt6QtGui, "QTextDocument")
             // RubyQt6-Defined Functions
+            .define_method("find", [](QTextDocument *self, const char *sub_string, const QTextCursor &cursor, QTextDocument::FindFlags options) -> QTextCursor { return self->find(sub_string, cursor, options); }, Arg("sub_string"), Arg("cursor"), Arg("options") = static_cast<QTextDocument::FindFlags>(QTextDocument::FindFlags()))
+            .define_method("find", [](QTextDocument *self, const char *sub_string, int from, QTextDocument::FindFlags options) -> QTextCursor { return self->find(sub_string, from, options); }, Arg("sub_string"), Arg("from") = static_cast<int>(0), Arg("options") = static_cast<QTextDocument::FindFlags>(QTextDocument::FindFlags()))
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QTextDocument::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QTextDocument, const QString &, QObject *>(), Arg("text"), Arg("parent"))
