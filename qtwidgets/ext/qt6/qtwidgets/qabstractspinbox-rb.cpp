@@ -12,6 +12,7 @@ void Init_qabstractspinbox(Rice::Module rb_mQt6QtWidgets)
         // RubyQt6::QtWidgets::QAbstractSpinBox
         define_class_under<QAbstractSpinBox, QWidget>(rb_mQt6QtWidgets, "QAbstractSpinBox")
             // RubyQt6-Defined Functions
+            .define_method("set_alignment", [](QAbstractSpinBox *self, Qt::AlignmentFlag alignment) -> void { return self->setAlignment(alignment); }, Arg("alignment"))
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QAbstractSpinBox::staticMetaObject; })
             // Public Functions
             .define_method("alignment", &QAbstractSpinBox::alignment)
@@ -26,7 +27,7 @@ void Init_qabstractspinbox(Rice::Module rb_mQt6QtWidgets)
             .define_method("read_only?", &QAbstractSpinBox::isReadOnly)
             .define_method("keyboard_tracking", &QAbstractSpinBox::keyboardTracking)
             .define_method("set_accelerated", &QAbstractSpinBox::setAccelerated, Arg("on"))
-            .define_method("set_alignment", &QAbstractSpinBox::setAlignment, Arg("flag"))
+            .define_method("set_alignment", &QAbstractSpinBox::setAlignment, Arg("alignment"))
             .define_method("set_button_symbols", &QAbstractSpinBox::setButtonSymbols, Arg("bs"))
             .define_method("set_correction_mode", &QAbstractSpinBox::setCorrectionMode, Arg("cm"))
             .define_method("set_frame", &QAbstractSpinBox::setFrame, Arg("enable"))

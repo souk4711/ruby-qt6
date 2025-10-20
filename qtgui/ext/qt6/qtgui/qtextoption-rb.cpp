@@ -13,6 +13,8 @@ void Init_qtextoption(Rice::Module rb_mQt6QtGui)
     rb_cQTextOption =
         // RubyQt6::QtGui::QTextOption
         define_class_under<QTextOption>(rb_mQt6QtGui, "QTextOption")
+            // RubyQt6-Defined Functions
+            .define_method("set_alignment", [](QTextOption *self, Qt::AlignmentFlag alignment) -> void { return self->setAlignment(alignment); }, Arg("alignment"))
             // Public Functions
             .define_method("alignment", &QTextOption::alignment)
             .define_method("flags", &QTextOption::flags)

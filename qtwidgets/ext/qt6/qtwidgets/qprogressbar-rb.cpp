@@ -11,6 +11,7 @@ void Init_qprogressbar(Rice::Module rb_mQt6QtWidgets)
         // RubyQt6::QtWidgets::QProgressBar
         define_class_under<QProgressBar, QWidget>(rb_mQt6QtWidgets, "QProgressBar")
             // RubyQt6-Defined Functions
+            .define_method("set_alignment", [](QProgressBar *self, Qt::AlignmentFlag alignment) -> void { return self->setAlignment(alignment); }, Arg("alignment"))
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QProgressBar::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QProgressBar, QWidget *>(), Arg("parent"))

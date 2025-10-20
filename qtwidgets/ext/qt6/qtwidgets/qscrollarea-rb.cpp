@@ -11,6 +11,7 @@ void Init_qscrollarea(Rice::Module rb_mQt6QtWidgets)
         // RubyQt6::QtWidgets::QScrollArea
         define_class_under<QScrollArea, QAbstractScrollArea>(rb_mQt6QtWidgets, "QScrollArea")
             // RubyQt6-Defined Functions
+            .define_method("set_alignment", [](QScrollArea *self, Qt::AlignmentFlag alignment) -> void { return self->setAlignment(alignment); }, Arg("alignment"))
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QScrollArea::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QScrollArea, QWidget *>(), Arg("parent"))

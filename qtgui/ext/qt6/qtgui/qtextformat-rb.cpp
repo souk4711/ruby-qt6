@@ -221,6 +221,8 @@ void Init_qtextformat(Rice::Module rb_mQt6QtGui)
     rb_cQTextBlockFormat =
         // RubyQt6::QtGui::QTextBlockFormat
         define_class_under<QTextBlockFormat, QTextFormat>(rb_mQt6QtGui, "QTextBlockFormat")
+            // RubyQt6-Defined Functions
+            .define_method("set_alignment", [](QTextBlockFormat *self, Qt::AlignmentFlag alignment) -> void { return self->setAlignment(alignment); }, Arg("alignment"))
             // Constructor
             .define_constructor(Constructor<QTextBlockFormat>())
             // Public Functions
@@ -494,6 +496,8 @@ void Init_qtextformat(Rice::Module rb_mQt6QtGui)
     rb_cQTextTableFormat =
         // RubyQt6::QtGui::QTextTableFormat
         define_class_under<QTextTableFormat, QTextFrameFormat>(rb_mQt6QtGui, "QTextTableFormat")
+            // RubyQt6-Defined Functions
+            .define_method("set_alignment", [](QTextTableFormat *self, Qt::AlignmentFlag alignment) -> void { return self->setAlignment(alignment); }, Arg("alignment"))
             // Constructor
             .define_constructor(Constructor<QTextTableFormat>())
             // Public Functions

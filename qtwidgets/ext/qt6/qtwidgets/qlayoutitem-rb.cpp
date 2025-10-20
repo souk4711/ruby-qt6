@@ -14,6 +14,8 @@ void Init_qlayoutitem(Rice::Module rb_mQt6QtWidgets)
     rb_cQLayoutItem =
         // RubyQt6::QtWidgets::QLayoutItem
         define_class_under<QLayoutItem>(rb_mQt6QtWidgets, "QLayoutItem")
+            // RubyQt6-Defined Functions
+            .define_method("set_alignment", [](QLayoutItem *self, Qt::AlignmentFlag alignment) -> void { return self->setAlignment(alignment); }, Arg("alignment"))
             // Public Functions
             .define_method("alignment", &QLayoutItem::alignment)
             .define_method("control_types", &QLayoutItem::controlTypes)
@@ -25,7 +27,7 @@ void Init_qlayoutitem(Rice::Module rb_mQt6QtWidgets)
             .define_method("maximum_size", &QLayoutItem::maximumSize)
             .define_method("minimum_height_for_width", &QLayoutItem::minimumHeightForWidth, Arg("w"))
             .define_method("minimum_size", &QLayoutItem::minimumSize)
-            .define_method("set_alignment", &QLayoutItem::setAlignment, Arg("a"))
+            .define_method("set_alignment", &QLayoutItem::setAlignment, Arg("alignment"))
             .define_method("set_geometry", &QLayoutItem::setGeometry, Arg("rect"))
             .define_method("size_hint", &QLayoutItem::sizeHint)
             .define_method("spacer_item", &QLayoutItem::spacerItem)

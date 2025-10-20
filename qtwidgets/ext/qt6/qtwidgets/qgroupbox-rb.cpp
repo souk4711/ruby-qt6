@@ -11,6 +11,7 @@ void Init_qgroupbox(Rice::Module rb_mQt6QtWidgets)
         // RubyQt6::QtWidgets::QGroupBox
         define_class_under<QGroupBox, QWidget>(rb_mQt6QtWidgets, "QGroupBox")
             // RubyQt6-Defined Functions
+            .define_method("set_alignment", [](QGroupBox *self, Qt::AlignmentFlag alignment) -> void { return self->setAlignment(alignment); }, Arg("alignment"))
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QGroupBox::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QGroupBox, const QString &, QWidget *>(), Arg("title"), Arg("parent"))
