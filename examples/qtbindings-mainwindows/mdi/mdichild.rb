@@ -58,7 +58,7 @@ class MdiChild < RubyQt6::Bando::QTextEdit
     end
 
     outf = QTextStream.new(file)
-    QApplication.set_override_cursor(QWaitCursor)
+    QApplication.set_override_cursor QCursor.new(Qt::WaitCursor)
     outf << to_plain_text
     QApplication.restore_override_cursor
 

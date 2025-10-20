@@ -76,31 +76,37 @@ class MainWindow < RubyQt6::Bando::QMainWindow
 
   def save
     return unless active_mdi_child&.save
+
     status_bar.show_message(tr('File saved'), 2000)
   end
 
   def save_as
     return unless active_mdi_child&.save_as
+
     status_bar.show_message(tr('File saved'), 2000)
   end
 
   def cut
     return unless active_mdi_child
+
     active_mdi_child.cut
   end
 
   def copy
     return unless active_mdi_child
+
     active_mdi_child.copy
   end
 
   def paste
     return unless active_mdi_child
+
     active_mdi_child.paste
   end
 
   def about
-    QMessageBox.about(self, tr('About MDI'), tr('The <b>MDI</b> example demonstrates how to write multiple document interface applications using Qt.'))
+    QMessageBox.about(self, tr('About MDI'),
+                      tr('The <b>MDI</b> example demonstrates how to write multiple document interface applications using Qt.'))
   end
 
   def update_menus
@@ -296,6 +302,7 @@ class MainWindow < RubyQt6::Bando::QMainWindow
 
   def active_mdi_child
     return @mdi_area.active_sub_window.widget if @mdi_area.active_sub_window
+
     nil
   end
 
@@ -307,5 +314,14 @@ class MainWindow < RubyQt6::Bando::QMainWindow
       return window if mdi_child.current_file == canonical_file_path
     end
     nil
+  end
+
+  def set_active_sub_window(mdi_child)
+    @mdi_area.sub_window_list.each do |window|
+      if mdi_child == window.widget
+        @mdi_area.set_active_sub_window(window)
+        break
+      end
+    end
   end
 end
