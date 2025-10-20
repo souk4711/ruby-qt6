@@ -21,8 +21,8 @@ module RubyQt6
       #   @param dir [QDir]
       #   @param file [String, QString]
       def initialize(*args)
-        T.args_nth_to_qstr_checked(args, 0)
-        T.args_nth_to_qstr_checked(args, 1)
+        T.args_nth_to_qstr(args, 0)
+        T.args_nth_to_qstr(args, 1)
         _initialize(*args)
       end
     end

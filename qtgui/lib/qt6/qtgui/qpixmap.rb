@@ -21,7 +21,7 @@ module RubyQt6
       # @overload initialize(file_name)
       #   @param file_name [String, QString]
       def initialize(*args)
-        T.args_nth_to_qstr_checked(args, 0)
+        T.args_nth_to_qstr(args, 0)
         _initialize(*args)
       end
     end

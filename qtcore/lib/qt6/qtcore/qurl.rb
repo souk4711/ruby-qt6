@@ -37,7 +37,7 @@ module RubyQt6
       #   @param url [String, QString]
       #   @param mode [QUrl::ParsingMode]
       def initialize(*args)
-        T.args_nth_to_qstr_checked(args, 0)
+        T.args_nth_to_qstr(args, 0)
         _initialize(*args)
       end
 
