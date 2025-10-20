@@ -42,6 +42,11 @@ module RubyQt6
         end
       end
 
+      # @!visibility private
+      def self.to_qobject(qvariant)
+        T.bando_qobject_cast(_to_qobject(qvariant))
+      end
+
       # @!parse
       register(QtCore::QMetaType::Type::Bool, method(:from_bool), method(:to_bool), from: [TrueClass, FalseClass])
       register(QtCore::QMetaType::Type::Int, method(:from_int), method(:to_int), from: Integer)
@@ -59,6 +64,7 @@ module RubyQt6
       register(QtCore::QMetaType::Type::QSize, method(:from_qsize), method(:to_qsize), from: QtCore::QSize)
       register(QtCore::QMetaType::Type::QSizeF, method(:from_qsizef), method(:to_qsizef), from: QtCore::QSizeF)
       register(QtCore::QMetaType::Type::QStringList, method(:from_qstringlist), method(:to_qstringlist), from: QtCore::QStringList)
+      register(QtCore::QMetaType::Type::QObjectStar, method(:from_qobject), method(:to_qobject), from: QtCore::QObject)
     end
   end
 end
