@@ -9,7 +9,7 @@ module RubyQt6
 
         def initialize(*args)
           super
-          _initialize_value(self, self.class._qmetaobject)
+          _initialize_ruby_value(self, self.class._qmetaobject)
         end
 
         def self._qmetaobject

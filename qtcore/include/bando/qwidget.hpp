@@ -167,8 +167,8 @@ Rice::Data_Type<BC_T> define_bando_qwidget_under(Rice::Module module, char const
 {
     Rice::Data_Type<BC_T> bando_qlass =
         Rice::define_class_under<BC_T, C_T>(module, name)
-            .define_method("_initialize_value", &BC_T::initializeValue, Rice::Arg("value"), Rice::Arg("mo"))
-            .define_method("_value", &BC_T::value)
+            .define_method("_initialize_ruby_value", &BC_T::initializeValue, Rice::Arg("value"), Rice::Arg("mo"))
+            .define_method("_ruby_value", &BC_T::value)
             .define_method("_event", [](BC_T *self, QEvent *event) -> bool { return self->Class_T_handleQObjectEvent(event); })
             .define_method("_event_filter", [](BC_T *self, QObject *watched, QEvent *event) -> bool { return self->Class_T_handleQObjectEventFilter(watched, event); })
             .define_method("_action_event", [](BC_T *self, QActionEvent *event) -> void { return self->Class_T_handleEvent(bando_FunctionName::actionEvent, event); })

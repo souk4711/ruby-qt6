@@ -15,12 +15,12 @@ module RubyQt6
 
     def self.args_nth_to_qanystringview(args, index)
       return unless args[index].is_a?(String) || args[index].is_a?(QtCore::QString)
-      args[index] = to_qanystringview(args[index])
+      args[index] = QtCore::QAnyStringView.new(args[index])
     end
 
     def self.args_nth_to_qstr(args, index)
       return unless args[index].is_a?(String)
-      args[index] = to_qstr(args[index])
+      args[index] = QtCore::QString.new(args[index])
     end
 
     def self.to_qanystringview(str)
@@ -36,6 +36,11 @@ module RubyQt6
     def self.to_qflags(enum_or_flags)
       return enum_or_flags unless enum_or_flags.respond_to?(:to_qflags)
       enum_or_flags.to_qflags
+    end
+
+    def self.bando_qobject_cast(o)
+      return o unless o.class.name.start_with?("RubyQt6::Bando::")
+      o._ruby_value
     end
 
     def self.inspect_struct(object, **attributes)
