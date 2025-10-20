@@ -46,7 +46,7 @@ class MainWindow < RubyQt6::Bando::QMainWindow
     table_format = QTextTableFormat.new
     table_format.set_border 1
     table_format.set_cell_padding 16
-    table_format.set_alignment Qt::AlignRight.to_qflags
+    table_format.set_alignment Qt::AlignRight
     cursor.insert_table(1, 1, table_format)
     cursor.insert_text('The Firm', bold_format)
     cursor.insert_block

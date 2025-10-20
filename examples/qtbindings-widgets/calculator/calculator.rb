@@ -32,7 +32,7 @@ class Calculator < RubyQt6::Bando::QDialog
 
     @display = QLineEdit.new('0')
     @display.set_read_only true
-    @display.set_alignment Qt::AlignRight.to_qflags
+    @display.set_alignment Qt::AlignRight
     @display.set_max_length 15
 
     font = @display.font

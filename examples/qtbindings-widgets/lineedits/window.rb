@@ -129,9 +129,9 @@ class Window < RubyQt6::Bando::QWidget
 
   def slot_alignment_changed(index)
     case index
-    when 0 then @alignment_line_edit.set_alignment Qt::AlignLeft.to_qflags
-    when 1 then @alignment_line_edit.set_alignment Qt::AlignCenter.to_qflags
-    when 2 then @alignment_line_edit.set_alignment Qt::AlignRight.to_qflags
+    when 0 then @alignment_line_edit.set_alignment Qt::AlignLeft
+    when 1 then @alignment_line_edit.set_alignment Qt::AlignCenter
+    when 2 then @alignment_line_edit.set_alignment Qt::AlignRight
     end
   end
 
