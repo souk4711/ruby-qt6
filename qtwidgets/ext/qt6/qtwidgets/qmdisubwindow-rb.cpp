@@ -32,7 +32,7 @@ void Init_qmdisubwindow(Rice::Module rb_mQt6QtWidgets)
             .define_method("set_widget", &QMdiSubWindow::setWidget, Arg("widget").takeOwnership())
             .define_method("system_menu", &QMdiSubWindow::systemMenu)
             .define_method("test_option", &QMdiSubWindow::testOption, Arg("option"))
-            .define_method("widget", &QMdiSubWindow::widget)
+            .define_method("_widget", &QMdiSubWindow::widget)
             // Public Slots
             .define_method("show_shaded", &QMdiSubWindow::showShaded)
             .define_method("show_system_menu", &QMdiSubWindow::showSystemMenu)

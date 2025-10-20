@@ -26,6 +26,11 @@ module RubyQt6
         _initialize(parent)
         _take_ownership_from_ruby(self) if parent
       end
+
+      # @!visibility private
+      def widget
+        T.bando_qobject_cast(_widget)
+      end
     end
   end
 end
