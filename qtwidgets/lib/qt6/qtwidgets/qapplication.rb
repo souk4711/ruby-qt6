@@ -16,6 +16,14 @@ module RubyQt6
       # @!visibility private
       alias_method :_initialize, :initialize
 
+      # @!visibility private
+      %w[all_widgets top_level_widgets].each do |meth|
+        define_singleton_method(meth) do |*args|
+          widgets = __send__("_" + meth, *args)
+          widgets.map { |w| T.bando_qobject_cast(w) }
+        end
+      end
+
       # @param argv [Array<String>]
       # @return [QApplication]
       def initialize(argv)

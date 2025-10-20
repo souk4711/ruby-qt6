@@ -32,7 +32,8 @@ module RubyQt6
       "QWidget" => ["minimum_size_hint", "size_hint"]
     }
     NO_VERIFY_QLASS_LEADING_UNDERSCORE_METHODS = {
-      "QObject" => ["_connect", "_disconnect"]
+      "QObject" => ["_connect", "_disconnect"],
+      "QApplication" => ["_all_widgets", "_top_level_widgets"]
     }
     NO_VERIFY_QLASS_OPERATOR_METHODS = {
       "QTextStream" => ["<<"],
