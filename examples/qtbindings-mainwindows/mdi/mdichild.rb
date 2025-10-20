@@ -9,8 +9,6 @@ class MdiChild < RubyQt6::Bando::QTextEdit
 
   def initialize
     super
-
-    set_attribute(Qt::WA_DeleteOnClose)
     @is_untitled = true
   end
 

@@ -25,7 +25,6 @@ class MainWindow < RubyQt6::Bando::QMainWindow
     create_actions
     create_menu
 
-    # set_attribute(Qt::WA_DeleteOnClose)
     set_window_title(tr('Recent Files'))
     resize(400, 300)
   end
