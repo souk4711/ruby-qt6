@@ -44,7 +44,7 @@ class Screenshot < RubyQt6::Bando::QWidget
     hide if @hide_this_window_checkbox.checked?
     @new_screenshot_button.set_disabled true
 
-    QTimer::single_shot(@delay_spinbox.value * 1000, self, :shoot_screen)
+    QTimer.single_shot(@delay_spinbox.value * 1000, self, :shoot_screen)
   end
 
   def save_screenshot
@@ -63,8 +63,8 @@ class Screenshot < RubyQt6::Bando::QWidget
   end
 
   def shoot_screen
-    $qApp.beep if @delay_spinbox.value != 0
-    @original_pixmap = QApplication::primary_screen.grab_window
+    QApplication.beep if @delay_spinbox.value != 0
+    @original_pixmap = QApplication.primary_screen.grab_window
     updatescreenshot_label
 
     @new_screenshot_button.set_disabled false
@@ -74,7 +74,7 @@ class Screenshot < RubyQt6::Bando::QWidget
   end
 
   def update_checkbox
-    @hide_this_window_checkbox.set_disabled (@delay_spinbox.value.zero? || false)
+    @hide_this_window_checkbox.set_disabled(@delay_spinbox.value.zero? || false)
   end
 
   def create_options_groupbox

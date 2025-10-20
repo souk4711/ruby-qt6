@@ -44,8 +44,8 @@ translator_qt.load(QLocale.system, 'qtbase', '_', QLibraryInfo.path(QLibraryInfo
 puts 'Launch with `LANG=de bundle exec ruby main.rb` to load example_de.qm' unless translator_custom.load(
   QLocale.system, 'example', '_', ':/translations'
 )
-app.install_translator(translator_qt)
-app.install_translator(translator_custom)
+QApplication.install_translator(translator_qt)
+QApplication.install_translator(translator_custom)
 
 window = Window.new
 window.show
