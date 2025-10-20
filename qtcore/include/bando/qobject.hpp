@@ -38,6 +38,7 @@ template <typename Class_T, typename... Arg_Ts> class BandoQObject : public Clas
     ~BandoQObject() override { bando_finalizer<BandoQObject>(this); };
 
     void initializeValue(Rice::Object value, QMetaObject *mo) { bando_initializeValue<BandoQObject>(this, value, mo); };
+    Rice::Object value() { return this->value_; };
 
     const QMetaObject *metaObject() const override { return bando_metaObject<BandoQObject, Class_T>(this); };
     int qt_metacall(QMetaObject::Call call, int id, void **args) override { return bando_qt_metacall<BandoQObject>(this, call, id, args); };
@@ -76,6 +77,7 @@ Rice::Data_Type<BC_T> define_bando_qobject_under(Rice::Module module, char const
     Rice::Data_Type<BC_T> bando_qlass =
         Rice::define_class_under<BC_T, C_T>(module, name)
             .define_method("_initialize_value", &BC_T::initializeValue, Rice::Arg("value"), Rice::Arg("mo"))
+            .define_method("_value", &BC_T::value)
             .define_method("_event", [](BC_T *self, QEvent *event) -> bool { return self->Class_T_handleQObjectEvent(event); })
             .define_method("_event_filter", [](BC_T *self, QObject *watched, QEvent *event) -> bool { return self->Class_T_handleQObjectEventFilter(watched, event); })
             .define_method("_child_event", [](BC_T *self, QChildEvent *event) -> void { return self->Class_T_handleEvent(bando_FunctionName::childEvent, event); })
