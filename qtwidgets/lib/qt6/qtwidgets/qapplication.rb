@@ -31,13 +31,6 @@ module RubyQt6
         self.class.close_all_windows
         raise
       end
-
-      # @!visibility private
-      %w[beep].each do |meth|
-        define_method(meth) do |*args|
-          self.class.__send__(meth, *args)
-        end
-      end
     end
   end
 end
