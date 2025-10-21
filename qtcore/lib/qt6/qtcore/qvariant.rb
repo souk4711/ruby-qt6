@@ -5,19 +5,15 @@ module RubyQt6
     # @see https://doc.qt.io/qt-6/qvariant.html
     class QVariant
       # @!visibility private
-      def self.from_object_methods
-        @from_object_methods ||= {}
+      def self.new(o)
+        qmetatype = QtCore::QMetaType.infer(o)
+        from_object(o, qmetatype)
       end
 
       # @!visibility private
       def self.from_object(o, qmetatype)
         meth = from_object_methods[qmetatype.id]
         meth ? meth.call(o) : raise("Unsupported qmetatype '#{qmetatype.name}'")
-      end
-
-      # @!visibility private
-      def self.to_object_methods
-        @to_object_methods ||= {}
       end
 
       # @!visibility private
@@ -43,9 +39,22 @@ module RubyQt6
       end
 
       # @!visibility private
+      def self.from_object_methods
+        @from_object_methods ||= {}
+      end
+      private_class_method :from_object_methods
+
+      # @!visibility private
+      def self.to_object_methods
+        @to_object_methods ||= {}
+      end
+      private_class_method :to_object_methods
+
+      # @!visibility private
       def self.to_qobject(qvariant)
         T.bando_qobject_cast(_to_qobject(qvariant))
       end
+      private_class_method :to_qobject
 
       # @!parse
       register(QtCore::QMetaType::Type::Bool, method(:from_bool), method(:to_bool), from: [TrueClass, FalseClass])
