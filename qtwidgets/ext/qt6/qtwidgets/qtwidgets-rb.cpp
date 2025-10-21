@@ -77,6 +77,7 @@
 #include "qsizegrip-rb.hpp"
 #include "qsplashscreen-rb.hpp"
 #include "qstatusbar-rb.hpp"
+#include "qsystemtrayicon-rb.hpp"
 #include "qtabbar-rb.hpp"
 #include "qtabwidget-rb.hpp"
 #include "qtoolbar-rb.hpp"
@@ -144,6 +145,7 @@
 #include "bando-qsizegrip-rb.hpp"
 #include "bando-qsplashscreen-rb.hpp"
 #include "bando-qstatusbar-rb.hpp"
+#include "bando-qsystemtrayicon-rb.hpp"
 #include "bando-qtabbar-rb.hpp"
 #include "bando-qtabwidget-rb.hpp"
 #include "bando-qtoolbar-rb.hpp"
@@ -232,6 +234,7 @@ extern "C" void Init_qtwidgets()
         Init_qtooltip(rb_mQt6QtWidgets);
         Init_qsplashscreen(rb_mQt6QtWidgets);
         Init_qstatusbar(rb_mQt6QtWidgets);
+        Init_qsystemtrayicon(rb_mQt6QtWidgets);
         Init_qtabbar(rb_mQt6QtWidgets);
         Init_qtabwidget(rb_mQt6QtWidgets);
         Init_qtoolbar(rb_mQt6QtWidgets);
@@ -301,6 +304,7 @@ extern "C" void Init_qtwidgets()
         Init_bando_qsizegrip(rb_mQt6Bando);
         Init_bando_qsplashscreen(rb_mQt6Bando);
         Init_bando_qstatusbar(rb_mQt6Bando);
+        Init_bando_qsystemtrayicon(rb_mQt6Bando);
         Init_bando_qtabbar(rb_mQt6Bando);
         Init_bando_qtabwidget(rb_mQt6Bando);
         Init_bando_qtoolbar(rb_mQt6Bando);

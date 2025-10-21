@@ -54,7 +54,8 @@ module RubyQt6
       "QRegularExpressionValidator",
       "QLabel",
       "QLineEdit",
-      "QTextEdit"
+      "QTextEdit",
+      "QSystemTrayIcon"
     ]
 
     def self.inflector
