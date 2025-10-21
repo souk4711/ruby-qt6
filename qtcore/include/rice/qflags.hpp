@@ -33,6 +33,7 @@ template<typename Enum_T>
 Data_Type<QFlags<Enum_T>> define_qflags_under(Module module, char const* name)
 {
     using QFlags_T = QFlags<Enum_T>;
+    using QFlags_Underlying_T = std::underlying_type_t<Enum_T>;
 
     Data_Type<QFlags_T> flags = define_class_under<QFlags_T>(module, name)
         .define_constructor(Constructor<QFlags_T>())
@@ -45,10 +46,8 @@ Data_Type<QFlags<Enum_T>> define_qflags_under(Module module, char const* name)
         .template define_method("to_int", &QFlags_T::toInt)
         .template define_method("to_i", &QFlags_T::toInt)
         .template define_method("!", &QFlags_T::operator!)
-        .template define_method<QFlags_T (QFlags_T::*)(int) const noexcept>("&", &QFlags_T::operator&, Arg("mask"))
         .template define_method<QFlags_T (QFlags_T::*)(Enum_T) const noexcept>("&", &QFlags_T::operator&, Arg("mask"))
         .template define_method<QFlags_T (QFlags_T::*)(QFlags_T) const noexcept>("&", &QFlags_T::operator&, Arg("mask"))
-        .template define_method<QFlags_T &(QFlags_T::*)(int) noexcept>("&=", &QFlags_T::operator&=, Arg("mask"))
         .template define_method<QFlags_T &(QFlags_T::*)(Enum_T) noexcept>("&=", &QFlags_T::operator&=, Arg("mask"))
         .template define_method<QFlags_T &(QFlags_T::*)(QFlags_T) noexcept>("&=", &QFlags_T::operator&=, Arg("mask"))
         .template define_method<QFlags_T (QFlags_T::*)(Enum_T) const noexcept>("^", &QFlags_T::operator^, Arg("other"))
@@ -60,12 +59,12 @@ Data_Type<QFlags<Enum_T>> define_qflags_under(Module module, char const* name)
         .template define_method<QFlags_T &(QFlags_T::*)(Enum_T) noexcept>("|=", &QFlags_T::operator|=, Arg("other"))
         .template define_method<QFlags_T &(QFlags_T::*)(QFlags_T) noexcept>("|=", &QFlags_T::operator|=, Arg("other"))
         .template define_method("~", &QFlags_T::operator~)
-        .template define_singleton_function("from_int", [](int i) -> QFlags_T { return QFlags_T::fromInt(i); }, Arg("i"));
+        .template define_singleton_function("from_int", [](QFlags_Underlying_T i) -> QFlags_T { return QFlags_T::fromInt(i); }, Arg("i"));
 
     flags
-        .template define_method("==", [](QFlags_T *self, int other) -> bool { return self->toInt() == other; })
-        .template define_method("==", [](QFlags_T *self, Enum_T other) -> bool { return self->toInt() == other; })
-        .template define_method("==", [](QFlags_T *self, QFlags_T other) -> bool { return self->toInt() == other.toInt(); });
+        .template define_method("==", [](QFlags_T *self, Enum_T other) -> bool { return *self == other; })
+        .template define_method("==", [](QFlags_T *self, QFlags_T other) -> bool { return *self == other; })
+        .template define_method("==", [](QFlags_T *self, QFlags_Underlying_T other) -> bool { return *self == QFlags_T::fromInt(other); });
 
     return flags;
 }

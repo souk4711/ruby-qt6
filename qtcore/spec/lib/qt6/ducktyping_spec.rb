@@ -10,16 +10,30 @@ RSpec.describe RubyQt6::T do
   end
 
   it ".args_nth_to_qanystringview" do
-    args = ["abc", "def".to_qstr]
+    args = ["abc", "def".to_qstr, RubyQt6::QtCore::QAnyStringView.new("xyz"), 12]
     expect(RubyQt6::T.args_nth_to_qanystringview(args, 0)).to be_a(RubyQt6::QtCore::QAnyStringView)
     expect(RubyQt6::T.args_nth_to_qanystringview(args, 1)).to be_a(RubyQt6::QtCore::QAnyStringView)
     expect(RubyQt6::T.args_nth_to_qanystringview(args, 2)).to be_nil
+    expect(RubyQt6::T.args_nth_to_qanystringview(args, 3)).to be_nil
+    expect(args[0]).to be_a(RubyQt6::QtCore::QAnyStringView)
+    expect(args[1]).to be_a(RubyQt6::QtCore::QAnyStringView)
+    expect(args[2]).to be_a(RubyQt6::QtCore::QAnyStringView)
+    expect(args[0].to_s).to eq("abc")
+    expect(args[1].to_s).to eq("def")
+    expect(args[2].to_s).to eq("xyz")
+    expect(args[3]).to eq(12)
   end
 
   it ".args_nth_to_qstr" do
-    args = ["abc"]
+    args = ["abc", "def".to_qstr, 12]
     expect(RubyQt6::T.args_nth_to_qstr(args, 0)).to be_a(RubyQt6::QtCore::QString)
     expect(RubyQt6::T.args_nth_to_qstr(args, 1)).to be_nil
+    expect(RubyQt6::T.args_nth_to_qstr(args, 2)).to be_nil
+    expect(args[0]).to be_a(RubyQt6::QtCore::QString)
+    expect(args[1]).to be_a(RubyQt6::QtCore::QString)
+    expect(args[0].to_s).to eq("abc")
+    expect(args[1].to_s).to eq("def")
+    expect(args[2]).to eq(12)
   end
 
   it ".to_qanystringview" do

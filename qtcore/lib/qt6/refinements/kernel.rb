@@ -9,7 +9,10 @@ module Kernel
 
   def rubyqt6_declare_qflags(flags, enum)
     enum.define_method(:to_qflags) { flags.new(self) }
-    enum.define_method(:|) { |other| flags.new(self).set_flag(other) }
+    enum.define_method(:&) { |other| flags.new(self) & other }
+    enum.define_method(:^) { |other| flags.new(self) ^ other }
+    enum.define_method(:|) { |other| flags.new(self) | other }
+    enum.define_method(:~) { ~flags.new(self) }
 
     flags.define_method(:to_qflags) { self }
     flags.define_method(:zero?) { to_i.zero? }
