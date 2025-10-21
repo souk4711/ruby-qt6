@@ -26,7 +26,7 @@ module RubyQt6
 
           raise "Too many arguments" if qmetamethod.parameter_count < args.count
           raise "Not enough arguments" if qmetamethod.parameter_count > args.count
-          args = args.map.with_index { |arg, i| QtCore::QVariant.from_object(arg, qmetamethod.parameter_meta_type(i)) }
+          args = args.map.with_index { |arg, i| QtCore::QVariant.new(arg, qmetamethod.parameter_meta_type(i)) }
 
           QtCore::QObject._emit(sender, qmetamethod, args)
         end

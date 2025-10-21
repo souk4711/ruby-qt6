@@ -4,6 +4,9 @@
 module Kernel
   def rubyqt6_declare_enum_under(mod, enum)
     enum.constants.each { |const| mod.const_set(const, enum.const_get(const)) }
+
+    qmetatype = RubyQt6::QtCore::QMetaType.new(RubyQt6::QtCore::QMetaType::Type::Int)
+    enum.define_singleton_method(:default_qmetatype) { qmetatype }
     enum.define_method(:inspect) { RubyQt6::T.inspect_struct_enum(self, int: to_i) }
   end
 

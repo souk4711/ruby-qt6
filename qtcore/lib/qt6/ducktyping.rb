@@ -38,9 +38,9 @@ module RubyQt6
       enum_or_flags.to_qflags
     end
 
-    def self.bando_qobject_cast(o)
-      return o unless o.class.name.start_with?("RubyQt6::Bando::")
-      o._ruby_value
+    def self.bando_qobject_cast(object)
+      return object unless object.class.name.start_with?("RubyQt6::Bando::")
+      object._ruby_value
     end
 
     def self.inspect_struct(object, **attributes)

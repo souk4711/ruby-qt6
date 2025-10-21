@@ -5,24 +5,6 @@ module RubyQt6
     # @see https://doc.qt.io/qt-6/qvariant.html
     class QVariant
       # @!visibility private
-      def self.new(o)
-        qmetatype = QtCore::QMetaType.infer(o)
-        from_object(o, qmetatype)
-      end
-
-      # @!visibility private
-      def self.from_object(o, qmetatype)
-        meth = from_object_methods[qmetatype.id]
-        meth ? meth.call(o) : raise("Unsupported qmetatype '#{qmetatype.name}'")
-      end
-
-      # @!visibility private
-      def self.to_object(v)
-        meth = to_object_methods[v.type_id]
-        meth ? meth.call(v) : raise("Unsupported qmetatype '#{v.type_name}'")
-      end
-
-      # @!visibility private
       def self.register(id, from_object_method, to_object_method, from: [])
         id = id.to_i
         raise "QVariant with id already registered: #{id}" if from_object_methods.key?(id)
@@ -39,16 +21,43 @@ module RubyQt6
       end
 
       # @!visibility private
+      def self.new(object, qmetatype = nil)
+        from_object(object, qmetatype)
+      end
+
+      # @!visibility private
+      def value
+        self.class.__send__(:to_object, self)
+      end
+
+      private
+
+      # @!visibility private
       def self.from_object_methods
         @from_object_methods ||= {}
       end
       private_class_method :from_object_methods
 
       # @!visibility private
+      def self.from_object(object, qmetatype)
+        qmetatype = QtCore::QMetaType.infer(object) if qmetatype.nil?
+        meth = from_object_methods[qmetatype.id]
+        meth ? meth.call(object) : raise("Unsupported qmetatype '#{qmetatype.name}'")
+      end
+      private_class_method :from_object
+
+      # @!visibility private
       def self.to_object_methods
         @to_object_methods ||= {}
       end
       private_class_method :to_object_methods
+
+      # @!visibility private
+      def self.to_object(qvariant)
+        meth = to_object_methods[qvariant.type_id]
+        meth ? meth.call(qvariant) : raise("Unsupported qmetatype '#{qvariant.type_name}'")
+      end
+      private_class_method :to_object
 
       # @!visibility private
       def self.to_qobject(qvariant)
