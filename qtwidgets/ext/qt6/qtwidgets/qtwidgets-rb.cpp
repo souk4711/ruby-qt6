@@ -87,6 +87,8 @@
 
 #include "t-qtwidgets-rb.hpp"
 
+#include "bando-qitemdelegate-rb.hpp"
+#include "bando-qstyleditemdelegate-rb.hpp"
 #include "bando-qlayout-rb.hpp"
 #include "bando-qwidget-rb.hpp"
 #include "bando-qcheckbox-rb.hpp"
@@ -248,6 +250,8 @@ extern "C" void Init_qtwidgets()
         Init_t_qtwidgets(rb_mQt6T);
 
         Rice::Module rb_mQt6Bando = define_module_under(rb_mQt6, "Bando");
+        Init_bando_qitemdelegate(rb_mQt6Bando);
+        Init_bando_qstyleditemdelegate(rb_mQt6Bando);
         Init_bando_qlayout(rb_mQt6Bando);
         Init_bando_qwidget(rb_mQt6Bando);
         Init_bando_qcheckbox(rb_mQt6Bando);

@@ -51,6 +51,8 @@ RSpec.describe RubyQt6 do
 
     it "define Bando::..." do
       expect(bando_klasses.delete(:QObject)).to eq(:QObject)
+      expect(bando_klasses.delete(:QItemDelegate)).to eq(:QItemDelegate)
+      expect(bando_klasses.delete(:QStyledItemDelegate)).to eq(:QStyledItemDelegate)
       expect(bando_klasses.delete(:QLayout)).to eq(:QLayout)
       expect(bando_klasses).to eq([])
     end
