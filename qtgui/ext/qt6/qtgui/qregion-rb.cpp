@@ -1,5 +1,6 @@
 #include "qregion-rb.hpp"
 #include <qregion.h>
+#include <rice/qenum.hpp>
 
 #include <QBitmap>
 #include <QPolygon>
@@ -48,7 +49,7 @@ void Init_qregion(Rice::Module rb_mQt6QtGui)
 
     Enum<QRegion::RegionType> rb_cQRegionRegionType =
         // RubyQt6::QtGui::QRegion::RegionType
-        define_enum_under<QRegion::RegionType>("RegionType", rb_cQRegion)
+        define_qenum_under<QRegion::RegionType>("RegionType", rb_cQRegion)
             .define_value("Rectangle", QRegion::RegionType::Rectangle)
             .define_value("Ellipse", QRegion::RegionType::Ellipse);
 }

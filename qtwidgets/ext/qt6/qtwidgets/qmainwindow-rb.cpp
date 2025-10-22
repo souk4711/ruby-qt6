@@ -1,5 +1,6 @@
 #include "qmainwindow-rb.hpp"
 #include <qmainwindow.h>
+#include <rice/qenum.hpp>
 #include <rice/qflags.hpp>
 
 #include <QDockWidget>
@@ -82,7 +83,7 @@ void Init_qmainwindow(Rice::Module rb_mQt6QtWidgets)
 
     Enum<QMainWindow::DockOption> rb_cQMainWindowDockOption =
         // RubyQt6::QtWidgets::QMainWindow::DockOption
-        define_enum_under<QMainWindow::DockOption>("DockOption", rb_cQMainWindow)
+        define_qenum_under<QMainWindow::DockOption>("DockOption", rb_cQMainWindow)
             .define_value("AnimatedDocks", QMainWindow::DockOption::AnimatedDocks)
             .define_value("AllowNestedDocks", QMainWindow::DockOption::AllowNestedDocks)
             .define_value("AllowTabbedDocks", QMainWindow::DockOption::AllowTabbedDocks)

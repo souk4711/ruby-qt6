@@ -1,5 +1,6 @@
 #include "qfontdatabase-rb.hpp"
 #include <qfontdatabase.h>
+#include <rice/qenum.hpp>
 
 #include <QFontInfo>
 #include <QList>
@@ -52,7 +53,7 @@ void Init_qfontdatabase(Rice::Module rb_mQt6QtGui)
 
     Enum<QFontDatabase::WritingSystem> rb_cQFontDatabaseWritingSystem =
         // RubyQt6::QtGui::QFontDatabase::WritingSystem
-        define_enum_under<QFontDatabase::WritingSystem>("WritingSystem", rb_cQFontDatabase)
+        define_qenum_under<QFontDatabase::WritingSystem>("WritingSystem", rb_cQFontDatabase)
             .define_value("Any", QFontDatabase::WritingSystem::Any)
             .define_value("Latin", QFontDatabase::WritingSystem::Latin)
             .define_value("Greek", QFontDatabase::WritingSystem::Greek)
@@ -92,7 +93,7 @@ void Init_qfontdatabase(Rice::Module rb_mQt6QtGui)
 
     Enum<QFontDatabase::SystemFont> rb_cQFontDatabaseSystemFont =
         // RubyQt6::QtGui::QFontDatabase::SystemFont
-        define_enum_under<QFontDatabase::SystemFont>("SystemFont", rb_cQFontDatabase)
+        define_qenum_under<QFontDatabase::SystemFont>("SystemFont", rb_cQFontDatabase)
             .define_value("GeneralFont", QFontDatabase::SystemFont::GeneralFont)
             .define_value("FixedFont", QFontDatabase::SystemFont::FixedFont)
             .define_value("TitleFont", QFontDatabase::SystemFont::TitleFont)

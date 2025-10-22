@@ -1,5 +1,6 @@
 #include "qt-enum-sz-rb.hpp"
 #include <qnamespace.h>
+#include <rice/qenum.hpp>
 
 using namespace Rice;
 
@@ -11,7 +12,7 @@ void Init_qt_enum_sz(Rice::Module rb_mQt6QtCore)
 
     Enum<Qt::ScreenOrientation> rb_cQtScreenOrientation =
         // RubyQt6::QtCore::Qt::ScreenOrientation
-        define_enum_under<Qt::ScreenOrientation>("ScreenOrientation", rb_mQt)
+        define_qenum_under<Qt::ScreenOrientation>("ScreenOrientation", rb_mQt)
             .define_value("PrimaryOrientation", Qt::ScreenOrientation::PrimaryOrientation)
             .define_value("PortraitOrientation", Qt::ScreenOrientation::PortraitOrientation)
             .define_value("LandscapeOrientation", Qt::ScreenOrientation::LandscapeOrientation)
@@ -20,14 +21,14 @@ void Init_qt_enum_sz(Rice::Module rb_mQt6QtCore)
 
     Enum<Qt::ScrollBarPolicy> rb_cQtScrollBarPolicy =
         // RubyQt6::QtCore::Qt::ScrollBarPolicy
-        define_enum_under<Qt::ScrollBarPolicy>("ScrollBarPolicy", rb_mQt)
+        define_qenum_under<Qt::ScrollBarPolicy>("ScrollBarPolicy", rb_mQt)
             .define_value("ScrollBarAsNeeded", Qt::ScrollBarPolicy::ScrollBarAsNeeded)
             .define_value("ScrollBarAlwaysOff", Qt::ScrollBarPolicy::ScrollBarAlwaysOff)
             .define_value("ScrollBarAlwaysOn", Qt::ScrollBarPolicy::ScrollBarAlwaysOn);
 
     Enum<Qt::ScrollPhase> rb_cQtScrollPhase =
         // RubyQt6::QtCore::Qt::ScrollPhase
-        define_enum_under<Qt::ScrollPhase>("ScrollPhase", rb_mQt)
+        define_qenum_under<Qt::ScrollPhase>("ScrollPhase", rb_mQt)
             .define_value("NoScrollPhase", Qt::ScrollPhase::NoScrollPhase)
             .define_value("ScrollBegin", Qt::ScrollPhase::ScrollBegin)
             .define_value("ScrollUpdate", Qt::ScrollPhase::ScrollUpdate)
@@ -36,7 +37,7 @@ void Init_qt_enum_sz(Rice::Module rb_mQt6QtCore)
 
     Enum<Qt::ShortcutContext> rb_cQtShortcutContext =
         // RubyQt6::QtCore::Qt::ShortcutContext
-        define_enum_under<Qt::ShortcutContext>("ShortcutContext", rb_mQt)
+        define_qenum_under<Qt::ShortcutContext>("ShortcutContext", rb_mQt)
             .define_value("WidgetShortcut", Qt::ShortcutContext::WidgetShortcut)
             .define_value("WindowShortcut", Qt::ShortcutContext::WindowShortcut)
             .define_value("ApplicationShortcut", Qt::ShortcutContext::ApplicationShortcut)
@@ -44,7 +45,7 @@ void Init_qt_enum_sz(Rice::Module rb_mQt6QtCore)
 
     Enum<Qt::SizeHint> rb_cQtSizeHint =
         // RubyQt6::QtCore::Qt::SizeHint
-        define_enum_under<Qt::SizeHint>("SizeHint", rb_mQt)
+        define_qenum_under<Qt::SizeHint>("SizeHint", rb_mQt)
             .define_value("MinimumSize", Qt::SizeHint::MinimumSize)
             .define_value("PreferredSize", Qt::SizeHint::PreferredSize)
             .define_value("MaximumSize", Qt::SizeHint::MaximumSize)
@@ -53,25 +54,25 @@ void Init_qt_enum_sz(Rice::Module rb_mQt6QtCore)
 
     Enum<Qt::SizeMode> rb_cQtSizeMode =
         // RubyQt6::QtCore::Qt::SizeMode
-        define_enum_under<Qt::SizeMode>("SizeMode", rb_mQt)
+        define_qenum_under<Qt::SizeMode>("SizeMode", rb_mQt)
             .define_value("AbsoluteSize", Qt::SizeMode::AbsoluteSize)
             .define_value("RelativeSize", Qt::SizeMode::RelativeSize);
 
     Enum<Qt::SortOrder> rb_cQtSortOrder =
         // RubyQt6::QtCore::Qt::SortOrder
-        define_enum_under<Qt::SortOrder>("SortOrder", rb_mQt)
+        define_qenum_under<Qt::SortOrder>("SortOrder", rb_mQt)
             .define_value("AscendingOrder", Qt::SortOrder::AscendingOrder)
             .define_value("DescendingOrder", Qt::SortOrder::DescendingOrder);
 
     Enum<Qt::SplitBehaviorFlags> rb_cQtSplitBehaviorFlags =
         // RubyQt6::QtCore::Qt::SplitBehaviorFlags
-        define_enum_under<Qt::SplitBehaviorFlags>("SplitBehaviorFlags", rb_mQt)
+        define_qenum_under<Qt::SplitBehaviorFlags>("SplitBehaviorFlags", rb_mQt)
             .define_value("KeepEmptyParts", Qt::SplitBehaviorFlags::KeepEmptyParts)
             .define_value("SkipEmptyParts", Qt::SplitBehaviorFlags::SkipEmptyParts);
 
     Enum<Qt::TabFocusBehavior> rb_cQtTabFocusBehavior =
         // RubyQt6::QtCore::Qt::TabFocusBehavior
-        define_enum_under<Qt::TabFocusBehavior>("TabFocusBehavior", rb_mQt)
+        define_qenum_under<Qt::TabFocusBehavior>("TabFocusBehavior", rb_mQt)
             .define_value("NoTabFocus", Qt::TabFocusBehavior::NoTabFocus)
             .define_value("TabFocusTextControls", Qt::TabFocusBehavior::TabFocusTextControls)
             .define_value("TabFocusListControls", Qt::TabFocusBehavior::TabFocusListControls)
@@ -79,7 +80,7 @@ void Init_qt_enum_sz(Rice::Module rb_mQt6QtCore)
 
     Enum<Qt::TextElideMode> rb_cQtTextElideMode =
         // RubyQt6::QtCore::Qt::TextElideMode
-        define_enum_under<Qt::TextElideMode>("TextElideMode", rb_mQt)
+        define_qenum_under<Qt::TextElideMode>("TextElideMode", rb_mQt)
             .define_value("ElideLeft", Qt::TextElideMode::ElideLeft)
             .define_value("ElideRight", Qt::TextElideMode::ElideRight)
             .define_value("ElideMiddle", Qt::TextElideMode::ElideMiddle)
@@ -87,7 +88,7 @@ void Init_qt_enum_sz(Rice::Module rb_mQt6QtCore)
 
     Enum<Qt::TextFlag> rb_cQtTextFlag =
         // RubyQt6::QtCore::Qt::TextFlag
-        define_enum_under<Qt::TextFlag>("TextFlag", rb_mQt)
+        define_qenum_under<Qt::TextFlag>("TextFlag", rb_mQt)
             .define_value("TextSingleLine", Qt::TextFlag::TextSingleLine)
             .define_value("TextDontClip", Qt::TextFlag::TextDontClip)
             .define_value("TextExpandTabs", Qt::TextFlag::TextExpandTabs)
@@ -104,7 +105,7 @@ void Init_qt_enum_sz(Rice::Module rb_mQt6QtCore)
 
     Enum<Qt::TextFormat> rb_cQtTextFormat =
         // RubyQt6::QtCore::Qt::TextFormat
-        define_enum_under<Qt::TextFormat>("TextFormat", rb_mQt)
+        define_qenum_under<Qt::TextFormat>("TextFormat", rb_mQt)
             .define_value("PlainText", Qt::TextFormat::PlainText)
             .define_value("RichText", Qt::TextFormat::RichText)
             .define_value("AutoText", Qt::TextFormat::AutoText)
@@ -112,7 +113,7 @@ void Init_qt_enum_sz(Rice::Module rb_mQt6QtCore)
 
     Enum<Qt::TextInteractionFlag> rb_cQtTextInteractionFlag =
         // RubyQt6::QtCore::Qt::TextInteractionFlag
-        define_enum_under<Qt::TextInteractionFlag>("TextInteractionFlag", rb_mQt)
+        define_qenum_under<Qt::TextInteractionFlag>("TextInteractionFlag", rb_mQt)
             .define_value("NoTextInteraction", Qt::TextInteractionFlag::NoTextInteraction)
             .define_value("TextSelectableByMouse", Qt::TextInteractionFlag::TextSelectableByMouse)
             .define_value("TextSelectableByKeyboard", Qt::TextInteractionFlag::TextSelectableByKeyboard)
@@ -124,14 +125,14 @@ void Init_qt_enum_sz(Rice::Module rb_mQt6QtCore)
 
     Enum<Qt::TileRule> rb_cQtTileRule =
         // RubyQt6::QtCore::Qt::TileRule
-        define_enum_under<Qt::TileRule>("TileRule", rb_mQt)
+        define_qenum_under<Qt::TileRule>("TileRule", rb_mQt)
             .define_value("StretchTile", Qt::TileRule::StretchTile)
             .define_value("RepeatTile", Qt::TileRule::RepeatTile)
             .define_value("RoundTile", Qt::TileRule::RoundTile);
 
     Enum<Qt::TimeSpec> rb_cQtTimeSpec =
         // RubyQt6::QtCore::Qt::TimeSpec
-        define_enum_under<Qt::TimeSpec>("TimeSpec", rb_mQt)
+        define_qenum_under<Qt::TimeSpec>("TimeSpec", rb_mQt)
             .define_value("LocalTime", Qt::TimeSpec::LocalTime)
             .define_value("UTC", Qt::TimeSpec::UTC)
             .define_value("OffsetFromUTC", Qt::TimeSpec::OffsetFromUTC)
@@ -139,19 +140,19 @@ void Init_qt_enum_sz(Rice::Module rb_mQt6QtCore)
 
     Enum<Qt::TimerId> rb_cQtTimerId =
         // RubyQt6::QtCore::Qt::TimerId
-        define_enum_under<Qt::TimerId>("TimerId", rb_mQt)
+        define_qenum_under<Qt::TimerId>("TimerId", rb_mQt)
             .define_value("Invalid", Qt::TimerId::Invalid);
 
     Enum<Qt::TimerType> rb_cQtTimerType =
         // RubyQt6::QtCore::Qt::TimerType
-        define_enum_under<Qt::TimerType>("TimerType", rb_mQt)
+        define_qenum_under<Qt::TimerType>("TimerType", rb_mQt)
             .define_value("PreciseTimer", Qt::TimerType::PreciseTimer)
             .define_value("CoarseTimer", Qt::TimerType::CoarseTimer)
             .define_value("VeryCoarseTimer", Qt::TimerType::VeryCoarseTimer);
 
     Enum<Qt::ToolBarArea> rb_cQtToolBarArea =
         // RubyQt6::QtCore::Qt::ToolBarArea
-        define_enum_under<Qt::ToolBarArea>("ToolBarArea", rb_mQt)
+        define_qenum_under<Qt::ToolBarArea>("ToolBarArea", rb_mQt)
             .define_value("LeftToolBarArea", Qt::ToolBarArea::LeftToolBarArea)
             .define_value("RightToolBarArea", Qt::ToolBarArea::RightToolBarArea)
             .define_value("TopToolBarArea", Qt::ToolBarArea::TopToolBarArea)
@@ -162,12 +163,12 @@ void Init_qt_enum_sz(Rice::Module rb_mQt6QtCore)
 
     Enum<Qt::ToolBarAreaSizes> rb_cQtToolBarAreaSizes =
         // RubyQt6::QtCore::Qt::ToolBarAreaSizes
-        define_enum_under<Qt::ToolBarAreaSizes>("ToolBarAreaSizes", rb_mQt)
+        define_qenum_under<Qt::ToolBarAreaSizes>("ToolBarAreaSizes", rb_mQt)
             .define_value("NToolBarAreas", Qt::ToolBarAreaSizes::NToolBarAreas);
 
     Enum<Qt::ToolButtonStyle> rb_cQtToolButtonStyle =
         // RubyQt6::QtCore::Qt::ToolButtonStyle
-        define_enum_under<Qt::ToolButtonStyle>("ToolButtonStyle", rb_mQt)
+        define_qenum_under<Qt::ToolButtonStyle>("ToolButtonStyle", rb_mQt)
             .define_value("ToolButtonIconOnly", Qt::ToolButtonStyle::ToolButtonIconOnly)
             .define_value("ToolButtonTextOnly", Qt::ToolButtonStyle::ToolButtonTextOnly)
             .define_value("ToolButtonTextBesideIcon", Qt::ToolButtonStyle::ToolButtonTextBesideIcon)
@@ -176,7 +177,7 @@ void Init_qt_enum_sz(Rice::Module rb_mQt6QtCore)
 
     Enum<Qt::TouchPointState> rb_cQtTouchPointState =
         // RubyQt6::QtCore::Qt::TouchPointState
-        define_enum_under<Qt::TouchPointState>("TouchPointState", rb_mQt)
+        define_qenum_under<Qt::TouchPointState>("TouchPointState", rb_mQt)
             .define_value("TouchPointUnknownState", Qt::TouchPointState::TouchPointUnknownState)
             .define_value("TouchPointPressed", Qt::TouchPointState::TouchPointPressed)
             .define_value("TouchPointMoved", Qt::TouchPointState::TouchPointMoved)
@@ -185,13 +186,13 @@ void Init_qt_enum_sz(Rice::Module rb_mQt6QtCore)
 
     Enum<Qt::TransformationMode> rb_cQtTransformationMode =
         // RubyQt6::QtCore::Qt::TransformationMode
-        define_enum_under<Qt::TransformationMode>("TransformationMode", rb_mQt)
+        define_qenum_under<Qt::TransformationMode>("TransformationMode", rb_mQt)
             .define_value("FastTransformation", Qt::TransformationMode::FastTransformation)
             .define_value("SmoothTransformation", Qt::TransformationMode::SmoothTransformation);
 
     Enum<Qt::UIEffect> rb_cQtUIEffect =
         // RubyQt6::QtCore::Qt::UIEffect
-        define_enum_under<Qt::UIEffect>("UIEffect", rb_mQt)
+        define_qenum_under<Qt::UIEffect>("UIEffect", rb_mQt)
             .define_value("UI_General", Qt::UIEffect::UI_General)
             .define_value("UI_AnimateMenu", Qt::UIEffect::UI_AnimateMenu)
             .define_value("UI_FadeMenu", Qt::UIEffect::UI_FadeMenu)
@@ -202,7 +203,7 @@ void Init_qt_enum_sz(Rice::Module rb_mQt6QtCore)
 
     Enum<Qt::WhiteSpaceMode> rb_cQtWhiteSpaceMode =
         // RubyQt6::QtCore::Qt::WhiteSpaceMode
-        define_enum_under<Qt::WhiteSpaceMode>("WhiteSpaceMode", rb_mQt)
+        define_qenum_under<Qt::WhiteSpaceMode>("WhiteSpaceMode", rb_mQt)
             .define_value("WhiteSpaceNormal", Qt::WhiteSpaceMode::WhiteSpaceNormal)
             .define_value("WhiteSpacePre", Qt::WhiteSpaceMode::WhiteSpacePre)
             .define_value("WhiteSpaceNoWrap", Qt::WhiteSpaceMode::WhiteSpaceNoWrap)
@@ -210,7 +211,7 @@ void Init_qt_enum_sz(Rice::Module rb_mQt6QtCore)
 
     Enum<Qt::WidgetAttribute> rb_cQtWidgetAttribute =
         // RubyQt6::QtCore::Qt::WidgetAttribute
-        define_enum_under<Qt::WidgetAttribute>("WidgetAttribute", rb_mQt)
+        define_qenum_under<Qt::WidgetAttribute>("WidgetAttribute", rb_mQt)
             .define_value("WA_Disabled", Qt::WidgetAttribute::WA_Disabled)
             .define_value("WA_UnderMouse", Qt::WidgetAttribute::WA_UnderMouse)
             .define_value("WA_MouseTracking", Qt::WidgetAttribute::WA_MouseTracking)
@@ -317,7 +318,7 @@ void Init_qt_enum_sz(Rice::Module rb_mQt6QtCore)
 
     Enum<Qt::WindowFrameSection> rb_cQtWindowFrameSection =
         // RubyQt6::QtCore::Qt::WindowFrameSection
-        define_enum_under<Qt::WindowFrameSection>("WindowFrameSection", rb_mQt)
+        define_qenum_under<Qt::WindowFrameSection>("WindowFrameSection", rb_mQt)
             .define_value("NoSection", Qt::WindowFrameSection::NoSection)
             .define_value("LeftSection", Qt::WindowFrameSection::LeftSection)
             .define_value("TopLeftSection", Qt::WindowFrameSection::TopLeftSection)
@@ -331,14 +332,14 @@ void Init_qt_enum_sz(Rice::Module rb_mQt6QtCore)
 
     Enum<Qt::WindowModality> rb_cQtWindowModality =
         // RubyQt6::QtCore::Qt::WindowModality
-        define_enum_under<Qt::WindowModality>("WindowModality", rb_mQt)
+        define_qenum_under<Qt::WindowModality>("WindowModality", rb_mQt)
             .define_value("NonModal", Qt::WindowModality::NonModal)
             .define_value("WindowModal", Qt::WindowModality::WindowModal)
             .define_value("ApplicationModal", Qt::WindowModality::ApplicationModal);
 
     Enum<Qt::WindowState> rb_cQtWindowState =
         // RubyQt6::QtCore::Qt::WindowState
-        define_enum_under<Qt::WindowState>("WindowState", rb_mQt)
+        define_qenum_under<Qt::WindowState>("WindowState", rb_mQt)
             .define_value("WindowNoState", Qt::WindowState::WindowNoState)
             .define_value("WindowMinimized", Qt::WindowState::WindowMinimized)
             .define_value("WindowMaximized", Qt::WindowState::WindowMaximized)
@@ -347,7 +348,7 @@ void Init_qt_enum_sz(Rice::Module rb_mQt6QtCore)
 
     Enum<Qt::WindowType> rb_cQtWindowType =
         // RubyQt6::QtCore::Qt::WindowType
-        define_enum_under<Qt::WindowType>("WindowType", rb_mQt)
+        define_qenum_under<Qt::WindowType>("WindowType", rb_mQt)
             .define_value("Widget", Qt::WindowType::Widget)
             .define_value("Window", Qt::WindowType::Window)
             .define_value("Dialog", Qt::WindowType::Dialog)

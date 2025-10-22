@@ -1,5 +1,6 @@
 #include "qtreewidget-rb.hpp"
 #include <qtreewidget.h>
+#include <rice/qenum.hpp>
 
 using namespace Rice;
 
@@ -144,14 +145,14 @@ void Init_qtreewidget(Rice::Module rb_mQt6QtWidgets)
 
     Enum<QTreeWidgetItem::ChildIndicatorPolicy> rb_cQTreeWidgetItemChildIndicatorPolicy =
         // RubyQt6::QtWidgets::QTreeWidgetItem::ChildIndicatorPolicy
-        define_enum_under<QTreeWidgetItem::ChildIndicatorPolicy>("ChildIndicatorPolicy", rb_cQTreeWidgetItem)
+        define_qenum_under<QTreeWidgetItem::ChildIndicatorPolicy>("ChildIndicatorPolicy", rb_cQTreeWidgetItem)
             .define_value("ShowIndicator", QTreeWidgetItem::ChildIndicatorPolicy::ShowIndicator)
             .define_value("DontShowIndicator", QTreeWidgetItem::ChildIndicatorPolicy::DontShowIndicator)
             .define_value("DontShowIndicatorWhenChildless", QTreeWidgetItem::ChildIndicatorPolicy::DontShowIndicatorWhenChildless);
 
     Enum<QTreeWidgetItem::ItemType> rb_cQTreeWidgetItemItemType =
         // RubyQt6::QtWidgets::QTreeWidgetItem::ItemType
-        define_enum_under<QTreeWidgetItem::ItemType>("ItemType", rb_cQTreeWidgetItem)
+        define_qenum_under<QTreeWidgetItem::ItemType>("ItemType", rb_cQTreeWidgetItem)
             .define_value("Type", QTreeWidgetItem::ItemType::Type)
             .define_value("UserType", QTreeWidgetItem::ItemType::UserType);
 }

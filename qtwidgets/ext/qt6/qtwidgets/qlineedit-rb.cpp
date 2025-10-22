@@ -1,5 +1,6 @@
 #include "qlineedit-rb.hpp"
 #include <qlineedit.h>
+#include <rice/qenum.hpp>
 
 #include <QCompleter>
 #include <QMenu>
@@ -97,13 +98,13 @@ void Init_qlineedit(Rice::Module rb_mQt6QtWidgets)
 
     Enum<QLineEdit::ActionPosition> rb_cQLineEditActionPosition =
         // RubyQt6::QtWidgets::QLineEdit::ActionPosition
-        define_enum_under<QLineEdit::ActionPosition>("ActionPosition", rb_cQLineEdit)
+        define_qenum_under<QLineEdit::ActionPosition>("ActionPosition", rb_cQLineEdit)
             .define_value("LeadingPosition", QLineEdit::ActionPosition::LeadingPosition)
             .define_value("TrailingPosition", QLineEdit::ActionPosition::TrailingPosition);
 
     Enum<QLineEdit::EchoMode> rb_cQLineEditEchoMode =
         // RubyQt6::QtWidgets::QLineEdit::EchoMode
-        define_enum_under<QLineEdit::EchoMode>("EchoMode", rb_cQLineEdit)
+        define_qenum_under<QLineEdit::EchoMode>("EchoMode", rb_cQLineEdit)
             .define_value("Normal", QLineEdit::EchoMode::Normal)
             .define_value("NoEcho", QLineEdit::EchoMode::NoEcho)
             .define_value("Password", QLineEdit::EchoMode::Password)

@@ -1,5 +1,6 @@
 #include "qtextedit-rb.hpp"
 #include <qtextedit.h>
+#include <rice/qenum.hpp>
 #include <rice/qflags.hpp>
 
 #include <QMenu>
@@ -126,14 +127,14 @@ void Init_qtextedit(Rice::Module rb_mQt6QtWidgets)
 
     Enum<QTextEdit::AutoFormattingFlag> rb_cQTextEditAutoFormattingFlag =
         // RubyQt6::QtWidgets::QTextEdit::AutoFormattingFlag
-        define_enum_under<QTextEdit::AutoFormattingFlag>("AutoFormattingFlag", rb_cQTextEdit)
+        define_qenum_under<QTextEdit::AutoFormattingFlag>("AutoFormattingFlag", rb_cQTextEdit)
             .define_value("AutoNone", QTextEdit::AutoFormattingFlag::AutoNone)
             .define_value("AutoBulletList", QTextEdit::AutoFormattingFlag::AutoBulletList)
             .define_value("AutoAll", QTextEdit::AutoFormattingFlag::AutoAll);
 
     Enum<QTextEdit::LineWrapMode> rb_cQTextEditLineWrapMode =
         // RubyQt6::QtWidgets::QTextEdit::LineWrapMode
-        define_enum_under<QTextEdit::LineWrapMode>("LineWrapMode", rb_cQTextEdit)
+        define_qenum_under<QTextEdit::LineWrapMode>("LineWrapMode", rb_cQTextEdit)
             .define_value("NoWrap", QTextEdit::LineWrapMode::NoWrap)
             .define_value("WidgetWidth", QTextEdit::LineWrapMode::WidgetWidth)
             .define_value("FixedPixelWidth", QTextEdit::LineWrapMode::FixedPixelWidth)

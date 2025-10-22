@@ -1,5 +1,6 @@
 #include "qdockwidget-rb.hpp"
 #include <qdockwidget.h>
+#include <rice/qenum.hpp>
 #include <rice/qflags.hpp>
 
 using namespace Rice;
@@ -39,7 +40,7 @@ void Init_qdockwidget(Rice::Module rb_mQt6QtWidgets)
 
     Enum<QDockWidget::DockWidgetFeature> rb_cQDockWidgetDockWidgetFeature =
         // RubyQt6::QtWidgets::QDockWidget::DockWidgetFeature
-        define_enum_under<QDockWidget::DockWidgetFeature>("DockWidgetFeature", rb_cQDockWidget)
+        define_qenum_under<QDockWidget::DockWidgetFeature>("DockWidgetFeature", rb_cQDockWidget)
             .define_value("DockWidgetClosable", QDockWidget::DockWidgetFeature::DockWidgetClosable)
             .define_value("DockWidgetMovable", QDockWidget::DockWidgetFeature::DockWidgetMovable)
             .define_value("DockWidgetFloatable", QDockWidget::DockWidgetFeature::DockWidgetFloatable)

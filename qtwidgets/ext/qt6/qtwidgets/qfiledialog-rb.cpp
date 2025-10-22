@@ -1,5 +1,6 @@
 #include "qfiledialog-rb.hpp"
 #include <qfiledialog.h>
+#include <rice/qenum.hpp>
 #include <rice/qflags.hpp>
 
 #include <QAbstractItemDelegate>
@@ -94,13 +95,13 @@ void Init_qfiledialog(Rice::Module rb_mQt6QtWidgets)
 
     Enum<QFileDialog::AcceptMode> rb_cQFileDialogAcceptMode =
         // RubyQt6::QtWidgets::QFileDialog::AcceptMode
-        define_enum_under<QFileDialog::AcceptMode>("AcceptMode", rb_cQFileDialog)
+        define_qenum_under<QFileDialog::AcceptMode>("AcceptMode", rb_cQFileDialog)
             .define_value("AcceptOpen", QFileDialog::AcceptMode::AcceptOpen)
             .define_value("AcceptSave", QFileDialog::AcceptMode::AcceptSave);
 
     Enum<QFileDialog::DialogLabel> rb_cQFileDialogDialogLabel =
         // RubyQt6::QtWidgets::QFileDialog::DialogLabel
-        define_enum_under<QFileDialog::DialogLabel>("DialogLabel", rb_cQFileDialog)
+        define_qenum_under<QFileDialog::DialogLabel>("DialogLabel", rb_cQFileDialog)
             .define_value("LookIn", QFileDialog::DialogLabel::LookIn)
             .define_value("FileName", QFileDialog::DialogLabel::FileName)
             .define_value("FileType", QFileDialog::DialogLabel::FileType)
@@ -109,7 +110,7 @@ void Init_qfiledialog(Rice::Module rb_mQt6QtWidgets)
 
     Enum<QFileDialog::FileMode> rb_cQFileDialogFileMode =
         // RubyQt6::QtWidgets::QFileDialog::FileMode
-        define_enum_under<QFileDialog::FileMode>("FileMode", rb_cQFileDialog)
+        define_qenum_under<QFileDialog::FileMode>("FileMode", rb_cQFileDialog)
             .define_value("AnyFile", QFileDialog::FileMode::AnyFile)
             .define_value("ExistingFile", QFileDialog::FileMode::ExistingFile)
             .define_value("Directory", QFileDialog::FileMode::Directory)
@@ -117,7 +118,7 @@ void Init_qfiledialog(Rice::Module rb_mQt6QtWidgets)
 
    Enum<QFileDialog::Option> rb_cQFileDialogOption =
         // RubyQt6::QtWidgets::QFileDialog::Option
-        define_enum_under<QFileDialog::Option>("Option", rb_cQFileDialog)
+        define_qenum_under<QFileDialog::Option>("Option", rb_cQFileDialog)
             .define_value("ShowDirsOnly", QFileDialog::Option::ShowDirsOnly)
             .define_value("DontResolveSymlinks", QFileDialog::Option::DontResolveSymlinks)
             .define_value("DontConfirmOverwrite", QFileDialog::Option::DontConfirmOverwrite)
@@ -128,7 +129,7 @@ void Init_qfiledialog(Rice::Module rb_mQt6QtWidgets)
 
     Enum<QFileDialog::ViewMode> rb_cQFileDialogViewMode =
         // RubyQt6::QtWidgets::QFileDialog::ViewMode
-        define_enum_under<QFileDialog::ViewMode>("ViewMode", rb_cQFileDialog)
+        define_qenum_under<QFileDialog::ViewMode>("ViewMode", rb_cQFileDialog)
             .define_value("Detail", QFileDialog::ViewMode::Detail)
             .define_value("List", QFileDialog::ViewMode::List);
 

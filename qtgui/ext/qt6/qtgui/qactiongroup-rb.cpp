@@ -1,5 +1,6 @@
 #include "qactiongroup-rb.hpp"
 #include <qactiongroup.h>
+#include <rice/qenum.hpp>
 
 using namespace Rice;
 
@@ -37,7 +38,7 @@ void Init_qactiongroup(Rice::Module rb_mQt6QtGui)
 
     Enum<QActionGroup::ExclusionPolicy> rb_cQActionGroupExclusionPolicy =
         // RubyQt6::QtGui::QActionGroup::ExclusionPolicy
-        define_enum_under<QActionGroup::ExclusionPolicy>("ExclusionPolicy", rb_cQActionGroup)
+        define_qenum_under<QActionGroup::ExclusionPolicy>("ExclusionPolicy", rb_cQActionGroup)
             .define_value("None", QActionGroup::ExclusionPolicy::None)
             .define_value("Exclusive", QActionGroup::ExclusionPolicy::Exclusive)
             .define_value("ExclusiveOptional", QActionGroup::ExclusionPolicy::ExclusiveOptional);

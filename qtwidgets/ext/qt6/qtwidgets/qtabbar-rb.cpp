@@ -1,5 +1,6 @@
 #include "qtabbar-rb.hpp"
 #include <qtabbar.h>
+#include <rice/qenum.hpp>
 
 using namespace Rice;
 
@@ -80,20 +81,20 @@ void Init_qtabbar(Rice::Module rb_mQt6QtWidgets)
 
     Enum<QTabBar::ButtonPosition> rb_cQTabBarButtonPosition =
         // RubyQt6::QtWidgets::QTabBar::ButtonPosition
-        define_enum_under<QTabBar::ButtonPosition>("ButtonPosition", rb_cQTabBar)
+        define_qenum_under<QTabBar::ButtonPosition>("ButtonPosition", rb_cQTabBar)
             .define_value("LeftSide", QTabBar::ButtonPosition::LeftSide)
             .define_value("RightSide", QTabBar::ButtonPosition::RightSide);
 
     Enum<QTabBar::SelectionBehavior> rb_cQTabBarSelectionBehavior =
         // RubyQt6::QtWidgets::QTabBar::SelectionBehavior
-        define_enum_under<QTabBar::SelectionBehavior>("SelectionBehavior", rb_cQTabBar)
+        define_qenum_under<QTabBar::SelectionBehavior>("SelectionBehavior", rb_cQTabBar)
             .define_value("SelectLeftTab", QTabBar::SelectionBehavior::SelectLeftTab)
             .define_value("SelectRightTab", QTabBar::SelectionBehavior::SelectRightTab)
             .define_value("SelectPreviousTab", QTabBar::SelectionBehavior::SelectPreviousTab);
 
     Enum<QTabBar::Shape> rb_cQTabBarShape =
         // RubyQt6::QtWidgets::QTabBar::Shape
-        define_enum_under<QTabBar::Shape>("Shape", rb_cQTabBar)
+        define_qenum_under<QTabBar::Shape>("Shape", rb_cQTabBar)
             .define_value("RoundedNorth", QTabBar::Shape::RoundedNorth)
             .define_value("RoundedSouth", QTabBar::Shape::RoundedSouth)
             .define_value("RoundedWest", QTabBar::Shape::RoundedWest)

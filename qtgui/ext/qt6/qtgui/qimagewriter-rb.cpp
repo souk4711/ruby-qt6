@@ -1,5 +1,6 @@
 #include "qimagewriter-rb.hpp"
 #include <qimagewriter.h>
+#include <rice/qenum.hpp>
 
 using namespace Rice;
 
@@ -47,7 +48,7 @@ void Init_qimagewriter(Rice::Module rb_mQt6QtGui)
 
     Enum<QImageWriter::ImageWriterError> rb_cQImageWriterImageWriterError =
         // RubyQt6::QtGui::QImageWriter::ImageWriterError
-        define_enum_under<QImageWriter::ImageWriterError>("ImageWriterError", rb_cQImageWriter)
+        define_qenum_under<QImageWriter::ImageWriterError>("ImageWriterError", rb_cQImageWriter)
             .define_value("UnknownError", QImageWriter::ImageWriterError::UnknownError)
             .define_value("DeviceError", QImageWriter::ImageWriterError::DeviceError)
             .define_value("UnsupportedFormatError", QImageWriter::ImageWriterError::UnsupportedFormatError)

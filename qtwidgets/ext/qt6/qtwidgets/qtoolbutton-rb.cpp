@@ -1,5 +1,6 @@
 #include "qtoolbutton-rb.hpp"
 #include <qtoolbutton.h>
+#include <rice/qenum.hpp>
 
 #include <QMenu>
 
@@ -36,7 +37,7 @@ void Init_qtoolbutton(Rice::Module rb_mQt6QtWidgets)
 
     Enum<QToolButton::ToolButtonPopupMode> rb_cQToolButtonToolButtonPopupMode =
         // RubyQt6::QtWidgets::QToolButton::ToolButtonPopupMode
-        define_enum_under<QToolButton::ToolButtonPopupMode>("ToolButtonPopupMode", rb_cQToolButton)
+        define_qenum_under<QToolButton::ToolButtonPopupMode>("ToolButtonPopupMode", rb_cQToolButton)
             .define_value("DelayedPopup", QToolButton::ToolButtonPopupMode::DelayedPopup)
             .define_value("MenuButtonPopup", QToolButton::ToolButtonPopupMode::MenuButtonPopup)
             .define_value("InstantPopup", QToolButton::ToolButtonPopupMode::InstantPopup);

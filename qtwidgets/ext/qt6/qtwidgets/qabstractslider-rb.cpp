@@ -1,5 +1,6 @@
 #include "qabstractslider-rb.hpp"
 #include <qabstractslider.h>
+#include <rice/qenum.hpp>
 
 using namespace Rice;
 
@@ -48,7 +49,7 @@ void Init_qabstractslider(Rice::Module rb_mQt6QtWidgets)
 
     Enum<QAbstractSlider::SliderAction> rb_cQAbstractSliderSliderAction =
         // RubyQt6::QtWidgets::QAbstractSlider::SliderAction
-        define_enum_under<QAbstractSlider::SliderAction>("SliderAction", rb_cQAbstractSlider)
+        define_qenum_under<QAbstractSlider::SliderAction>("SliderAction", rb_cQAbstractSlider)
             .define_value("SliderNoAction", QAbstractSlider::SliderAction::SliderNoAction)
             .define_value("SliderSingleStepAdd", QAbstractSlider::SliderAction::SliderSingleStepAdd)
             .define_value("SliderSingleStepSub", QAbstractSlider::SliderAction::SliderSingleStepSub)

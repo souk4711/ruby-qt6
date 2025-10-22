@@ -1,5 +1,6 @@
 #include "qdialog-rb.hpp"
 #include <qdialog.h>
+#include <rice/qenum.hpp>
 
 using namespace Rice;
 
@@ -34,7 +35,7 @@ void Init_qdialog(Rice::Module rb_mQt6QtWidgets)
 
     Enum<QDialog::DialogCode> rb_cQDialogDialogCode =
         // RubyQt6::QtWidgets::QDialog::DialogCode
-        define_enum_under<QDialog::DialogCode>("DialogCode", rb_cQDialog)
+        define_qenum_under<QDialog::DialogCode>("DialogCode", rb_cQDialog)
             .define_value("Rejected", QDialog::DialogCode::Rejected)
             .define_value("Accepted", QDialog::DialogCode::Accepted);
 }

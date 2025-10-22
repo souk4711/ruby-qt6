@@ -1,5 +1,6 @@
 #include "qfont-rb.hpp"
 #include <qfont.h>
+#include <rice/qenum.hpp>
 
 #include <QStringList>
 
@@ -100,7 +101,7 @@ void Init_qfont(Rice::Module rb_mQt6QtGui)
 
     Enum<QFont::Capitalization> rb_cQFontCapitalization =
         // RubyQt6::QtGui::QFont::Capitalization
-        define_enum_under<QFont::Capitalization>("Capitalization", rb_cQFont)
+        define_qenum_under<QFont::Capitalization>("Capitalization", rb_cQFont)
             .define_value("MixedCase", QFont::Capitalization::MixedCase)
             .define_value("AllUppercase", QFont::Capitalization::AllUppercase)
             .define_value("AllLowercase", QFont::Capitalization::AllLowercase)
@@ -109,7 +110,7 @@ void Init_qfont(Rice::Module rb_mQt6QtGui)
 
     Enum<QFont::HintingPreference> rb_cQFontHintingPreference =
         // RubyQt6::QtGui::QFont::HintingPreference
-        define_enum_under<QFont::HintingPreference>("HintingPreference", rb_cQFont)
+        define_qenum_under<QFont::HintingPreference>("HintingPreference", rb_cQFont)
             .define_value("PreferDefaultHinting", QFont::HintingPreference::PreferDefaultHinting)
             .define_value("PreferNoHinting", QFont::HintingPreference::PreferNoHinting)
             .define_value("PreferVerticalHinting", QFont::HintingPreference::PreferVerticalHinting)
@@ -117,13 +118,13 @@ void Init_qfont(Rice::Module rb_mQt6QtGui)
 
     Enum<QFont::SpacingType> rb_cQFontSpacingType =
         // RubyQt6::QtGui::QFont::SpacingType
-        define_enum_under<QFont::SpacingType>("SpacingType", rb_cQFont)
+        define_qenum_under<QFont::SpacingType>("SpacingType", rb_cQFont)
             .define_value("PercentageSpacing", QFont::SpacingType::PercentageSpacing)
             .define_value("AbsoluteSpacing", QFont::SpacingType::AbsoluteSpacing);
 
     Enum<QFont::Stretch> rb_cQFontStretch =
         // RubyQt6::QtGui::QFont::Stretch
-        define_enum_under<QFont::Stretch>("Stretch", rb_cQFont)
+        define_qenum_under<QFont::Stretch>("Stretch", rb_cQFont)
             .define_value("AnyStretch", QFont::Stretch::AnyStretch)
             .define_value("UltraCondensed", QFont::Stretch::UltraCondensed)
             .define_value("ExtraCondensed", QFont::Stretch::ExtraCondensed)
@@ -137,14 +138,14 @@ void Init_qfont(Rice::Module rb_mQt6QtGui)
 
     Enum<QFont::Style> rb_cQFontStyle =
         // RubyQt6::QtGui::QFont::Style
-        define_enum_under<QFont::Style>("Style", rb_cQFont)
+        define_qenum_under<QFont::Style>("Style", rb_cQFont)
             .define_value("StyleNormal", QFont::Style::StyleNormal)
             .define_value("StyleItalic", QFont::Style::StyleItalic)
             .define_value("StyleOblique", QFont::Style::StyleOblique);
 
     Enum<QFont::StyleHint> rb_cQFontStyleHint =
         // RubyQt6::QtGui::QFont::StyleHint
-        define_enum_under<QFont::StyleHint>("StyleHint", rb_cQFont)
+        define_qenum_under<QFont::StyleHint>("StyleHint", rb_cQFont)
             .define_value("Helvetica", QFont::StyleHint::Helvetica)
             .define_value("SansSerif", QFont::StyleHint::SansSerif)
             .define_value("Times", QFont::StyleHint::Times)
@@ -161,7 +162,7 @@ void Init_qfont(Rice::Module rb_mQt6QtGui)
 
     Enum<QFont::StyleStrategy> rb_cQFontStyleStrategy =
         // RubyQt6::QtGui::QFont::StyleStrategy
-        define_enum_under<QFont::StyleStrategy>("StyleStrategy", rb_cQFont)
+        define_qenum_under<QFont::StyleStrategy>("StyleStrategy", rb_cQFont)
             .define_value("PreferDefault", QFont::StyleStrategy::PreferDefault)
             .define_value("PreferBitmap", QFont::StyleStrategy::PreferBitmap)
             .define_value("PreferDevice", QFont::StyleStrategy::PreferDevice)
@@ -179,7 +180,7 @@ void Init_qfont(Rice::Module rb_mQt6QtGui)
 
     Enum<QFont::Weight> rb_cQFontWeight =
         // RubyQt6::QtGui::QFont::Weight
-        define_enum_under<QFont::Weight>("Weight", rb_cQFont)
+        define_qenum_under<QFont::Weight>("Weight", rb_cQFont)
             .define_value("Thin", QFont::Weight::Thin)
             .define_value("ExtraLight", QFont::Weight::ExtraLight)
             .define_value("Light", QFont::Weight::Light)

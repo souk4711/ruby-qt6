@@ -1,5 +1,6 @@
 #include "qvalidator-rb.hpp"
 #include <qvalidator.h>
+#include <rice/qenum.hpp>
 
 using namespace Rice;
 
@@ -25,7 +26,7 @@ void Init_qvalidator(Rice::Module rb_mQt6QtGui)
 
     Enum<QValidator::State> rb_cQValidatorState =
         // RubyQt6::QtGui::QValidator::State
-        define_enum_under<QValidator::State>("State", rb_cQValidator)
+        define_qenum_under<QValidator::State>("State", rb_cQValidator)
             .define_value("Invalid", QValidator::State::Invalid)
             .define_value("Intermediate", QValidator::State::Intermediate)
             .define_value("Acceptable", QValidator::State::Acceptable);
@@ -58,7 +59,7 @@ void Init_qvalidator(Rice::Module rb_mQt6QtGui)
 
     Enum<QDoubleValidator::Notation> rb_cQDoubleValidatorNotation =
         // RubyQt6::QtGui::QDoubleValidator::Notation
-        define_enum_under<QDoubleValidator::Notation>("Notation", rb_cQDoubleValidator)
+        define_qenum_under<QDoubleValidator::Notation>("Notation", rb_cQDoubleValidator)
             .define_value("StandardNotation", QDoubleValidator::Notation::StandardNotation)
             .define_value("ScientificNotation", QDoubleValidator::Notation::ScientificNotation);
 

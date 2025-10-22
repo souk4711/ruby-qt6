@@ -1,5 +1,6 @@
 #include "qresource-rb.hpp"
 #include <qresource.h>
+#include <rice/qenum.hpp>
 
 #include <QDateTime>
 
@@ -40,7 +41,7 @@ void Init_qresource(Rice::Module rb_mQt6QtCore)
 
     Enum<QResource::Compression> rb_cQResourceCompression =
         // RubyQt6::QtCore::QResource::Compression
-        define_enum_under<QResource::Compression>("Compression", rb_cQResource)
+        define_qenum_under<QResource::Compression>("Compression", rb_cQResource)
             .define_value("NoCompression", QResource::Compression::NoCompression)
             .define_value("ZlibCompression", QResource::Compression::ZlibCompression)
             .define_value("ZstdCompression", QResource::Compression::ZstdCompression);

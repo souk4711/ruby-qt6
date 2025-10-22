@@ -1,5 +1,6 @@
 #include "qcolordialog-rb.hpp"
 #include <qcolordialog.h>
+#include <rice/qenum.hpp>
 #include <rice/qflags.hpp>
 
 using namespace Rice;
@@ -38,7 +39,7 @@ void Init_qcolordialog(Rice::Module rb_mQt6QtWidgets)
 
     Enum<QColorDialog::ColorDialogOption> rb_cQColorDialogColorDialogOption =
         // RubyQt6::QtWidgets::QColorDialog::ColorDialogOption
-        define_enum_under<QColorDialog::ColorDialogOption>("ColorDialogOption", rb_cQColorDialog)
+        define_qenum_under<QColorDialog::ColorDialogOption>("ColorDialogOption", rb_cQColorDialog)
             .define_value("ShowAlphaChannel", QColorDialog::ColorDialogOption::ShowAlphaChannel)
             .define_value("NoButtons", QColorDialog::ColorDialogOption::NoButtons)
             .define_value("DontUseNativeDialog", QColorDialog::ColorDialogOption::DontUseNativeDialog)

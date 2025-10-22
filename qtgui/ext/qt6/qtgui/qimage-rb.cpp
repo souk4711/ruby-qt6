@@ -1,5 +1,6 @@
 #include "qimage-rb.hpp"
 #include <qimage.h>
+#include <rice/qenum.hpp>
 
 #include <QColorTransform>
 #include <QColorSpace>
@@ -136,7 +137,7 @@ void Init_qimage(Rice::Module rb_mQt6QtGui)
 
     Enum<QImage::Format> rb_cQImageFormat =
         // RubyQt6::QtGui::QImage::Format
-        define_enum_under<QImage::Format>("Format", rb_cQImage)
+        define_qenum_under<QImage::Format>("Format", rb_cQImage)
             .define_value("Format_Invalid", QImage::Format::Format_Invalid)
             .define_value("Format_Mono", QImage::Format::Format_Mono)
             .define_value("Format_MonoLSB", QImage::Format::Format_MonoLSB)
@@ -178,7 +179,7 @@ void Init_qimage(Rice::Module rb_mQt6QtGui)
 
     Enum<QImage::InvertMode> rb_cQImageInvertMode =
         // RubyQt6::QtGui::QImage::InvertMode
-        define_enum_under<QImage::InvertMode>("InvertMode", rb_cQImage)
+        define_qenum_under<QImage::InvertMode>("InvertMode", rb_cQImage)
             .define_value("InvertRgb", QImage::InvertMode::InvertRgb)
             .define_value("InvertRgba", QImage::InvertMode::InvertRgba);
 }

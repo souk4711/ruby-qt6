@@ -1,5 +1,6 @@
 #include "qpalette-rb.hpp"
 #include <qpalette.h>
+#include <rice/qenum.hpp>
 
 using namespace Rice;
 
@@ -58,7 +59,7 @@ void Init_qpalette(Rice::Module rb_mQt6QtGui)
 
     Enum<QPalette::ColorGroup> rb_cQPaletteColorGroup =
         // RubyQt6::QtGui::QPalette::ColorGroup
-        define_enum_under<QPalette::ColorGroup>("ColorGroup", rb_cQPalette)
+        define_qenum_under<QPalette::ColorGroup>("ColorGroup", rb_cQPalette)
             .define_value("Active", QPalette::ColorGroup::Active)
             .define_value("Disabled", QPalette::ColorGroup::Disabled)
             .define_value("Inactive", QPalette::ColorGroup::Inactive)
@@ -69,7 +70,7 @@ void Init_qpalette(Rice::Module rb_mQt6QtGui)
 
     Enum<QPalette::ColorRole> rb_cQPaletteColorRole =
         // RubyQt6::QtGui::QPalette::ColorRole
-        define_enum_under<QPalette::ColorRole>("ColorRole", rb_cQPalette)
+        define_qenum_under<QPalette::ColorRole>("ColorRole", rb_cQPalette)
             .define_value("WindowText", QPalette::ColorRole::WindowText)
             .define_value("Button", QPalette::ColorRole::Button)
             .define_value("Light", QPalette::ColorRole::Light)

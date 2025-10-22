@@ -1,5 +1,6 @@
 #include "qheaderview-rb.hpp"
 #include <qheaderview.h>
+#include <rice/qenum.hpp>
 
 using namespace Rice;
 
@@ -100,7 +101,7 @@ void Init_qheaderview(Rice::Module rb_mQt6QtWidgets)
 
     Enum<QHeaderView::ResizeMode> rb_cQHeaderViewResizeMode =
         // RubyQt6::QtWidgets::QHeaderView::ResizeMode
-        define_enum_under<QHeaderView::ResizeMode>("ResizeMode", rb_cQHeaderView)
+        define_qenum_under<QHeaderView::ResizeMode>("ResizeMode", rb_cQHeaderView)
             .define_value("Interactive", QHeaderView::ResizeMode::Interactive)
             .define_value("Stretch", QHeaderView::ResizeMode::Stretch)
             .define_value("Fixed", QHeaderView::ResizeMode::Fixed)

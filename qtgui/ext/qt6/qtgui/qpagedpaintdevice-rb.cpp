@@ -1,5 +1,6 @@
 #include "qpagedpaintdevice-rb.hpp"
 #include <qpagedpaintdevice.h>
+#include <rice/qenum.hpp>
 
 using namespace Rice;
 
@@ -22,7 +23,7 @@ void Init_qpagedpaintdevice(Rice::Module rb_mQt6QtGui)
 
     Enum<QPagedPaintDevice::PdfVersion> rb_cQPagedPaintDevicePdfVersion =
         // RubyQt6::QtGui::QPagedPaintDevice::PdfVersion
-        define_enum_under<QPagedPaintDevice::PdfVersion>("PdfVersion", rb_cQPagedPaintDevice)
+        define_qenum_under<QPagedPaintDevice::PdfVersion>("PdfVersion", rb_cQPagedPaintDevice)
             .define_value("PdfVersion_1_4", QPagedPaintDevice::PdfVersion::PdfVersion_1_4)
             .define_value("PdfVersion_A1b", QPagedPaintDevice::PdfVersion::PdfVersion_A1b)
             .define_value("PdfVersion_1_6", QPagedPaintDevice::PdfVersion::PdfVersion_1_6)

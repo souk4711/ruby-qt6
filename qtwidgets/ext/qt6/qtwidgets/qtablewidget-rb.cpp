@@ -1,5 +1,6 @@
 #include "qtablewidget-rb.hpp"
 #include <qtablewidget.h>
+#include <rice/qenum.hpp>
 
 #include <QMimeData>
 
@@ -138,7 +139,7 @@ void Init_qtablewidget(Rice::Module rb_mQt6QtWidgets)
 
     Enum<QTableWidgetItem::ItemType> rb_cQTableWidgetItemItemType =
         // RubyQt6::QtWidgets::QTableWidgetItem::ItemType
-        define_enum_under<QTableWidgetItem::ItemType>("ItemType", rb_cQTableWidgetItem)
+        define_qenum_under<QTableWidgetItem::ItemType>("ItemType", rb_cQTableWidgetItem)
             .define_value("Type", QTableWidgetItem::ItemType::Type)
             .define_value("UserType", QTableWidgetItem::ItemType::UserType);
 

@@ -1,5 +1,6 @@
 #include "qabstractscrollarea-rb.hpp"
 #include <qabstractscrollarea.h>
+#include <rice/qenum.hpp>
 
 #include <QScrollBar>
 
@@ -38,7 +39,7 @@ void Init_qabstractscrollarea(Rice::Module rb_mQt6QtWidgets)
 
     Enum<QAbstractScrollArea::SizeAdjustPolicy> rb_cQAbstractScrollAreaSizeAdjustPolicy =
         // RubyQt6::QtWidgets::QAbstractScrollArea::SizeAdjustPolicy
-        define_enum_under<QAbstractScrollArea::SizeAdjustPolicy>("SizeAdjustPolicy", rb_cQAbstractScrollArea)
+        define_qenum_under<QAbstractScrollArea::SizeAdjustPolicy>("SizeAdjustPolicy", rb_cQAbstractScrollArea)
             .define_value("AdjustIgnored", QAbstractScrollArea::SizeAdjustPolicy::AdjustIgnored)
             .define_value("AdjustToContentsOnFirstShow", QAbstractScrollArea::SizeAdjustPolicy::AdjustToContentsOnFirstShow)
             .define_value("AdjustToContents", QAbstractScrollArea::SizeAdjustPolicy::AdjustToContents);

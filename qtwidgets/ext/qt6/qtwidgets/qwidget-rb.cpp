@@ -1,5 +1,6 @@
 #include "qwidget-rb.hpp"
 #include <qwidget.h>
+#include <rice/qenum.hpp>
 #include <rice/qflags.hpp>
 
 #include <QBackingStore>
@@ -316,7 +317,7 @@ void Init_qwidget(Rice::Module rb_mQt6QtWidgets)
 
     Enum<QWidget::RenderFlag> rb_cQWidgetRenderFlag =
         // RubyQt6::QtWidgets::QWidget::RenderFlag
-        define_enum_under<QWidget::RenderFlag>("RenderFlag", rb_cQWidget)
+        define_qenum_under<QWidget::RenderFlag>("RenderFlag", rb_cQWidget)
             .define_value("DrawWindowBackground", QWidget::RenderFlag::DrawWindowBackground)
             .define_value("DrawChildren", QWidget::RenderFlag::DrawChildren)
             .define_value("IgnoreMask", QWidget::RenderFlag::IgnoreMask);

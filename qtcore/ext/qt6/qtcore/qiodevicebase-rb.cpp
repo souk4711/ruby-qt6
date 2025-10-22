@@ -1,5 +1,6 @@
 #include "qiodevicebase-rb.hpp"
 #include <qiodevicebase.h>
+#include <rice/qenum.hpp>
 #include <rice/qflags.hpp>
 
 using namespace Rice;
@@ -14,7 +15,7 @@ void Init_qiodevicebase(Rice::Module rb_mQt6QtCore)
 
     Enum<QIODeviceBase::OpenModeFlag> rb_cQIODeviceBaseOpenModeFlag =
         // RubyQt6::QtCore::QIODeviceBase::OpenModeFlag
-        define_enum_under<QIODeviceBase::OpenModeFlag>("OpenModeFlag", rb_cQIODeviceBase)
+        define_qenum_under<QIODeviceBase::OpenModeFlag>("OpenModeFlag", rb_cQIODeviceBase)
             .define_value("NotOpen", QIODeviceBase::OpenModeFlag::NotOpen)
             .define_value("ReadOnly", QIODeviceBase::OpenModeFlag::ReadOnly)
             .define_value("WriteOnly", QIODeviceBase::OpenModeFlag::WriteOnly)

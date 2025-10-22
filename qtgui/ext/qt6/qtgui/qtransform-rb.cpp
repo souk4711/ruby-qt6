@@ -1,5 +1,6 @@
 #include "qtransform-rb.hpp"
 #include <qtransform.h>
+#include <rice/qenum.hpp>
 
 using namespace Rice;
 
@@ -68,7 +69,7 @@ void Init_qtransform(Rice::Module rb_mQt6QtGui)
 
     Enum<QTransform::TransformationType> rb_cQTransformTransformationType =
         // RubyQt6::QtGui::QTransform::TransformationType
-        define_enum_under<QTransform::TransformationType>("TransformationType", rb_cQTransform)
+        define_qenum_under<QTransform::TransformationType>("TransformationType", rb_cQTransform)
             .define_value("TxNone", QTransform::TransformationType::TxNone)
             .define_value("TxTranslate", QTransform::TransformationType::TxTranslate)
             .define_value("TxScale", QTransform::TransformationType::TxScale)

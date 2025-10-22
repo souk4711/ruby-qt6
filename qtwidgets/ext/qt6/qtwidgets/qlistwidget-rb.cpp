@@ -1,5 +1,6 @@
 #include "qlistwidget-rb.hpp"
 #include <qlistwidget.h>
+#include <rice/qenum.hpp>
 
 #include <QMimeData>
 
@@ -115,7 +116,7 @@ void Init_qlistwidget(Rice::Module rb_mQt6QtWidgets)
 
     Enum<QListWidgetItem::ItemType> rb_cQListWidgetItemItemType =
         // RubyQt6::QtWidgets::QListWidgetItem::ItemType
-        define_enum_under<QListWidgetItem::ItemType>("ItemType", rb_cQListWidgetItem)
+        define_qenum_under<QListWidgetItem::ItemType>("ItemType", rb_cQListWidgetItem)
             .define_value("Type", QListWidgetItem::ItemType::Type)
             .define_value("UserType", QListWidgetItem::ItemType::UserType);
 }

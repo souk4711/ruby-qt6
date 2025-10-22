@@ -1,5 +1,6 @@
 #include "qurl-rb.hpp"
 #include <qurl.h>
+#include <rice/qenum.hpp>
 #include <rice/qflags.hpp>
 
 #include <QUrlQuery>
@@ -76,13 +77,13 @@ void Init_qurl(Rice::Module rb_mQt6QtCore)
 
     Enum<QUrl::AceProcessingOption> rb_cQUrlAceProcessingOption =
         // RubyQt6::QtCore::QUrl::AceProcessingOption
-        define_enum_under<QUrl::AceProcessingOption>("AceProcessingOption", rb_cQUrl)
+        define_qenum_under<QUrl::AceProcessingOption>("AceProcessingOption", rb_cQUrl)
             .define_value("IgnoreIDNWhitelist", QUrl::AceProcessingOption::IgnoreIDNWhitelist)
             .define_value("AceTransitionalProcessing", QUrl::AceProcessingOption::AceTransitionalProcessing);
 
     Enum<QUrl::ComponentFormattingOption> rb_cQUrlComponentFormattingOption =
         // RubyQt6::QtCore::QUrl::ComponentFormattingOption
-        define_enum_under<QUrl::ComponentFormattingOption>("ComponentFormattingOption", rb_cQUrl)
+        define_qenum_under<QUrl::ComponentFormattingOption>("ComponentFormattingOption", rb_cQUrl)
             .define_value("PrettyDecoded", QUrl::ComponentFormattingOption::PrettyDecoded)
             .define_value("EncodeSpaces", QUrl::ComponentFormattingOption::EncodeSpaces)
             .define_value("EncodeUnicode", QUrl::ComponentFormattingOption::EncodeUnicode)
@@ -94,14 +95,14 @@ void Init_qurl(Rice::Module rb_mQt6QtCore)
 
     Enum<QUrl::ParsingMode> rb_cQUrlParsingMode =
         // RubyQt6::QtCore::QUrl::ParsingMode
-        define_enum_under<QUrl::ParsingMode>("ParsingMode", rb_cQUrl)
+        define_qenum_under<QUrl::ParsingMode>("ParsingMode", rb_cQUrl)
             .define_value("TolerantMode", QUrl::ParsingMode::TolerantMode)
             .define_value("StrictMode", QUrl::ParsingMode::StrictMode)
             .define_value("DecodedMode", QUrl::ParsingMode::DecodedMode);
 
     Enum<QUrl::UrlFormattingOption> rb_cQUrlUrlFormattingOption =
         // RubyQt6::QtCore::QUrl::UrlFormattingOption
-        define_enum_under<QUrl::UrlFormattingOption>("UrlFormattingOption", rb_cQUrl)
+        define_qenum_under<QUrl::UrlFormattingOption>("UrlFormattingOption", rb_cQUrl)
             .define_value("None", QUrl::UrlFormattingOption::None)
             .define_value("RemoveScheme", QUrl::UrlFormattingOption::RemoveScheme)
             .define_value("RemovePassword", QUrl::UrlFormattingOption::RemovePassword)
@@ -118,7 +119,7 @@ void Init_qurl(Rice::Module rb_mQt6QtCore)
 
     Enum<QUrl::UserInputResolutionOption> rb_cQUrlUserInputResolutionOption =
         // RubyQt6::QtCore::QUrl::UserInputResolutionOption
-        define_enum_under<QUrl::UserInputResolutionOption>("UserInputResolutionOption", rb_cQUrl)
+        define_qenum_under<QUrl::UserInputResolutionOption>("UserInputResolutionOption", rb_cQUrl)
             .define_value("DefaultResolution", QUrl::UserInputResolutionOption::DefaultResolution)
             .define_value("AssumeLocalFile", QUrl::UserInputResolutionOption::AssumeLocalFile);
 

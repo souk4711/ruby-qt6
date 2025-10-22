@@ -1,5 +1,6 @@
 #include "qfontcombobox-rb.hpp"
 #include <qfontcombobox.h>
+#include <rice/qenum.hpp>
 #include <rice/qflags.hpp>
 
 using namespace Rice;
@@ -34,7 +35,7 @@ void Init_qfontcombobox(Rice::Module rb_mQt6QtWidgets)
 
     Enum<QFontComboBox::FontFilter> rb_cQFontComboBoxFontFilter =
         // RubyQt6::QtWidgets::QFontComboBox::FontFilter
-        define_enum_under<QFontComboBox::FontFilter>("FontFilter", rb_cQFontComboBox)
+        define_qenum_under<QFontComboBox::FontFilter>("FontFilter", rb_cQFontComboBox)
             .define_value("AllFonts", QFontComboBox::FontFilter::AllFonts)
             .define_value("ScalableFonts", QFontComboBox::FontFilter::ScalableFonts)
             .define_value("NonScalableFonts", QFontComboBox::FontFilter::NonScalableFonts)

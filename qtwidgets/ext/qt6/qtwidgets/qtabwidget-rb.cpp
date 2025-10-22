@@ -1,5 +1,6 @@
 #include "qtabwidget-rb.hpp"
 #include <qtabwidget.h>
+#include <rice/qenum.hpp>
 
 #include <QTabBar>
 
@@ -72,7 +73,7 @@ void Init_qtabwidget(Rice::Module rb_mQt6QtWidgets)
 
     Enum<QTabWidget::TabPosition> rb_cQTabWidgetTabPosition =
         // RubyQt6::QtWidgets::QTabWidget::TabPosition
-        define_enum_under<QTabWidget::TabPosition>("TabPosition", rb_cQTabWidget)
+        define_qenum_under<QTabWidget::TabPosition>("TabPosition", rb_cQTabWidget)
             .define_value("North", QTabWidget::TabPosition::North)
             .define_value("South", QTabWidget::TabPosition::South)
             .define_value("West", QTabWidget::TabPosition::West)
@@ -80,7 +81,7 @@ void Init_qtabwidget(Rice::Module rb_mQt6QtWidgets)
 
     Enum<QTabWidget::TabShape> rb_cQTabWidgetTabShape =
         // RubyQt6::QtWidgets::QTabWidget::TabShape
-        define_enum_under<QTabWidget::TabShape>("TabShape", rb_cQTabWidget)
+        define_qenum_under<QTabWidget::TabShape>("TabShape", rb_cQTabWidget)
             .define_value("Rounded", QTabWidget::TabShape::Rounded)
             .define_value("Triangular", QTabWidget::TabShape::Triangular);
 }

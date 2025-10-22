@@ -1,5 +1,6 @@
 #include "qmdisubwindow-rb.hpp"
 #include <qmdisubwindow.h>
+#include <rice/qenum.hpp>
 #include <rice/qflags.hpp>
 
 #include <QMdiArea>
@@ -42,7 +43,7 @@ void Init_qmdisubwindow(Rice::Module rb_mQt6QtWidgets)
 
     Enum<QMdiSubWindow::SubWindowOption> rb_cQMdiSubWindowSubWindowOption =
         // RubyQt6::QtWidgets::QMdiSubWindow::SubWindowOption
-        define_enum_under<QMdiSubWindow::SubWindowOption>("SubWindowOption", rb_cQMdiSubWindow)
+        define_qenum_under<QMdiSubWindow::SubWindowOption>("SubWindowOption", rb_cQMdiSubWindow)
             .define_value("AllowOutsideAreaHorizontally", QMdiSubWindow::SubWindowOption::AllowOutsideAreaHorizontally)
             .define_value("AllowOutsideAreaVertically", QMdiSubWindow::SubWindowOption::AllowOutsideAreaVertically)
             .define_value("RubberBandResize", QMdiSubWindow::SubWindowOption::RubberBandResize)

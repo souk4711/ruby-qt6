@@ -1,5 +1,6 @@
 #include "qslider-rb.hpp"
 #include <qslider.h>
+#include <rice/qenum.hpp>
 
 using namespace Rice;
 
@@ -22,7 +23,7 @@ void Init_qslider(Rice::Module rb_mQt6QtWidgets)
 
     Enum<QSlider::TickPosition> rb_cQSliderTickPosition =
         // RubyQt6::QtWidgets::QSlider::TickPosition
-        define_enum_under<QSlider::TickPosition>("TickPosition", rb_cQSlider)
+        define_qenum_under<QSlider::TickPosition>("TickPosition", rb_cQSlider)
             .define_value("NoTicks", QSlider::TickPosition::NoTicks)
             .define_value("TicksAbove", QSlider::TickPosition::TicksAbove)
             .define_value("TicksLeft", QSlider::TickPosition::TicksLeft)

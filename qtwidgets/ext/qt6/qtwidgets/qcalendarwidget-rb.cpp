@@ -1,5 +1,6 @@
 #include "qcalendarwidget-rb.hpp"
 #include <qcalendarwidget.h>
+#include <rice/qenum.hpp>
 
 #include <QTextCharFormat>
 
@@ -69,7 +70,7 @@ void Init_qcalendarwidget(Rice::Module rb_mQt6QtWidgets)
 
     Enum<QCalendarWidget::HorizontalHeaderFormat> rb_cQCalendarWidgetHorizontalHeaderFormat =
         // RubyQt6::QtWidgets::QCalendarWidget::HorizontalHeaderFormat
-        define_enum_under<QCalendarWidget::HorizontalHeaderFormat>("HorizontalHeaderFormat", rb_cQCalendarWidget)
+        define_qenum_under<QCalendarWidget::HorizontalHeaderFormat>("HorizontalHeaderFormat", rb_cQCalendarWidget)
             .define_value("NoHorizontalHeader", QCalendarWidget::HorizontalHeaderFormat::NoHorizontalHeader)
             .define_value("SingleLetterDayNames", QCalendarWidget::HorizontalHeaderFormat::SingleLetterDayNames)
             .define_value("ShortDayNames", QCalendarWidget::HorizontalHeaderFormat::ShortDayNames)
@@ -77,13 +78,13 @@ void Init_qcalendarwidget(Rice::Module rb_mQt6QtWidgets)
 
     Enum<QCalendarWidget::VerticalHeaderFormat> rb_cQCalendarWidgetVerticalHeaderFormat =
         // RubyQt6::QtWidgets::QCalendarWidget::VerticalHeaderFormat
-        define_enum_under<QCalendarWidget::VerticalHeaderFormat>("VerticalHeaderFormat", rb_cQCalendarWidget)
+        define_qenum_under<QCalendarWidget::VerticalHeaderFormat>("VerticalHeaderFormat", rb_cQCalendarWidget)
             .define_value("NoVerticalHeader", QCalendarWidget::VerticalHeaderFormat::NoVerticalHeader)
             .define_value("ISOWeekNumbers", QCalendarWidget::VerticalHeaderFormat::ISOWeekNumbers);
 
     Enum<QCalendarWidget::SelectionMode> rb_cQCalendarWidgetSelectionMode =
         // RubyQt6::QtWidgets::QCalendarWidget::SelectionMode
-        define_enum_under<QCalendarWidget::SelectionMode>("SelectionMode", rb_cQCalendarWidget)
+        define_qenum_under<QCalendarWidget::SelectionMode>("SelectionMode", rb_cQCalendarWidget)
             .define_value("NoSelection", QCalendarWidget::SelectionMode::NoSelection)
             .define_value("SingleSelection", QCalendarWidget::SelectionMode::SingleSelection);
 }

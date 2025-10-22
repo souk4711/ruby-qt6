@@ -1,5 +1,6 @@
 #include "qlistview-rb.hpp"
 #include <qlistview.h>
+#include <rice/qenum.hpp>
 
 using namespace Rice;
 
@@ -57,32 +58,32 @@ void Init_qlistview(Rice::Module rb_mQt6QtWidgets)
 
     Enum<QListView::Flow> rb_cQListViewFlow =
         // RubyQt6::QtWidgets::QListView::Flow
-        define_enum_under<QListView::Flow>("Flow", rb_cQListView)
+        define_qenum_under<QListView::Flow>("Flow", rb_cQListView)
             .define_value("LeftToRight", QListView::Flow::LeftToRight)
             .define_value("TopToBottom", QListView::Flow::TopToBottom);
 
     Enum<QListView::LayoutMode> rb_cQListViewLayoutMode =
         // RubyQt6::QtWidgets::QListView::LayoutMode
-        define_enum_under<QListView::LayoutMode>("LayoutMode", rb_cQListView)
+        define_qenum_under<QListView::LayoutMode>("LayoutMode", rb_cQListView)
             .define_value("SinglePass", QListView::LayoutMode::SinglePass)
             .define_value("Batched", QListView::LayoutMode::Batched);
 
     Enum<QListView::Movement> rb_cQListViewMovement =
         // RubyQt6::QtWidgets::QListView::Movement
-        define_enum_under<QListView::Movement>("Movement", rb_cQListView)
+        define_qenum_under<QListView::Movement>("Movement", rb_cQListView)
             .define_value("Static", QListView::Movement::Static)
             .define_value("Free", QListView::Movement::Free)
             .define_value("Snap", QListView::Movement::Snap);
 
     Enum<QListView::ResizeMode> rb_cQListViewResizeMode =
         // RubyQt6::QtWidgets::QListView::ResizeMode
-        define_enum_under<QListView::ResizeMode>("ResizeMode", rb_cQListView)
+        define_qenum_under<QListView::ResizeMode>("ResizeMode", rb_cQListView)
             .define_value("Fixed", QListView::ResizeMode::Fixed)
             .define_value("Adjust", QListView::ResizeMode::Adjust);
 
     Enum<QListView::ViewMode> rb_cQListViewViewMode =
         // RubyQt6::QtWidgets::QListView::ViewMode
-        define_enum_under<QListView::ViewMode>("ViewMode", rb_cQListView)
+        define_qenum_under<QListView::ViewMode>("ViewMode", rb_cQListView)
             .define_value("ListMode", QListView::ViewMode::ListMode)
             .define_value("IconMode", QListView::ViewMode::IconMode);
 }

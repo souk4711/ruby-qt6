@@ -1,5 +1,6 @@
 #include "qsystemtrayicon-rb.hpp"
 #include <qsystemtrayicon.h>
+#include <rice/qenum.hpp>
 
 #include <QMenu>
 
@@ -40,7 +41,7 @@ void Init_qsystemtrayicon(Rice::Module rb_mQt6QtWidgets)
 
     Enum<QSystemTrayIcon::ActivationReason> rb_cQSystemTrayIconActivationReason =
         // RubyQt6::QtWidgets::QSystemTrayIcon::ActivationReason
-        define_enum_under<QSystemTrayIcon::ActivationReason>("ActivationReason", rb_cQSystemTrayIcon)
+        define_qenum_under<QSystemTrayIcon::ActivationReason>("ActivationReason", rb_cQSystemTrayIcon)
             .define_value("Unknown", QSystemTrayIcon::ActivationReason::Unknown)
             .define_value("Context", QSystemTrayIcon::ActivationReason::Context)
             .define_value("DoubleClick", QSystemTrayIcon::ActivationReason::DoubleClick)
@@ -49,7 +50,7 @@ void Init_qsystemtrayicon(Rice::Module rb_mQt6QtWidgets)
 
     Enum<QSystemTrayIcon::MessageIcon> rb_cQSystemTrayIconMessageIcon =
         // RubyQt6::QtWidgets::QSystemTrayIcon::MessageIcon
-        define_enum_under<QSystemTrayIcon::MessageIcon>("MessageIcon", rb_cQSystemTrayIcon)
+        define_qenum_under<QSystemTrayIcon::MessageIcon>("MessageIcon", rb_cQSystemTrayIcon)
             .define_value("NoIcon", QSystemTrayIcon::MessageIcon::NoIcon)
             .define_value("Information", QSystemTrayIcon::MessageIcon::Information)
             .define_value("Warning", QSystemTrayIcon::MessageIcon::Warning)

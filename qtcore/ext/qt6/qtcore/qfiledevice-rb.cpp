@@ -1,5 +1,6 @@
 #include "qfiledevice-rb.hpp"
 #include <qfiledevice.h>
+#include <rice/qenum.hpp>
 #include <rice/qflags.hpp>
 
 #include <QDateTime>
@@ -37,7 +38,7 @@ void Init_qfiledevice(Rice::Module rb_mQt6QtCore)
 
     Enum<QFileDevice::FileError> rb_cQFileDeviceFileError =
         // RubyQt6::QtCore::QFileDevice::FileError
-        define_enum_under<QFileDevice::FileError>("FileError", rb_cQFileDevice)
+        define_qenum_under<QFileDevice::FileError>("FileError", rb_cQFileDevice)
             .define_value("NoError", QFileDevice::FileError::NoError)
             .define_value("ReadError", QFileDevice::FileError::ReadError)
             .define_value("WriteError", QFileDevice::FileError::WriteError)
@@ -56,13 +57,13 @@ void Init_qfiledevice(Rice::Module rb_mQt6QtCore)
 
     Enum<QFileDevice::FileHandleFlag> rb_cQFileDeviceFileHandleFlag =
         // RubyQt6::QtCore::QFileDevice::FileHandleFlag
-        define_enum_under<QFileDevice::FileHandleFlag>("FileHandleFlag", rb_cQFileDevice)
+        define_qenum_under<QFileDevice::FileHandleFlag>("FileHandleFlag", rb_cQFileDevice)
             .define_value("AutoCloseHandle", QFileDevice::FileHandleFlag::AutoCloseHandle)
             .define_value("DontCloseHandle", QFileDevice::FileHandleFlag::DontCloseHandle);
 
     Enum<QFileDevice::FileTime> rb_cQFileDeviceFileTime =
         // RubyQt6::QtCore::QFileDevice::FileTime
-        define_enum_under<QFileDevice::FileTime>("FileTime", rb_cQFileDevice)
+        define_qenum_under<QFileDevice::FileTime>("FileTime", rb_cQFileDevice)
             .define_value("FileAccessTime", QFileDevice::FileTime::FileAccessTime)
             .define_value("FileBirthTime", QFileDevice::FileTime::FileBirthTime)
             .define_value("FileMetadataChangeTime", QFileDevice::FileTime::FileMetadataChangeTime)
@@ -70,13 +71,13 @@ void Init_qfiledevice(Rice::Module rb_mQt6QtCore)
 
     Enum<QFileDevice::MemoryMapFlag> rb_cQFileDeviceMemoryMapFlag =
         // RubyQt6::QtCore::QFileDevice::MemoryMapFlag
-        define_enum_under<QFileDevice::MemoryMapFlag>("MemoryMapFlag", rb_cQFileDevice)
+        define_qenum_under<QFileDevice::MemoryMapFlag>("MemoryMapFlag", rb_cQFileDevice)
             .define_value("NoOptions", QFileDevice::MemoryMapFlag::NoOptions)
             .define_value("MapPrivateOption", QFileDevice::MemoryMapFlag::MapPrivateOption);
 
     Enum<QFileDevice::Permission> rb_cQFileDevicePermission =
         // RubyQt6::QtCore::QFileDevice::Permission
-        define_enum_under<QFileDevice::Permission>("Permission", rb_cQFileDevice)
+        define_qenum_under<QFileDevice::Permission>("Permission", rb_cQFileDevice)
             .define_value("ReadOwner", QFileDevice::Permission::ReadOwner)
             .define_value("WriteOwner", QFileDevice::Permission::WriteOwner)
             .define_value("ExeOwner", QFileDevice::Permission::ExeOwner)

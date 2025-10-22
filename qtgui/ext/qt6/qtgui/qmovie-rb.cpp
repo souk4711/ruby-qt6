@@ -1,5 +1,6 @@
 #include "qmovie-rb.hpp"
 #include <qmovie.h>
+#include <rice/qenum.hpp>
 
 #include <QBindable>
 #include <QPixmap>
@@ -64,13 +65,13 @@ void Init_qmovie(Rice::Module rb_mQt6QtGui)
 
     Enum<QMovie::CacheMode> rb_cQMovieCacheMode =
         // RubyQt6::QtGui::QMovie::CacheMode
-        define_enum_under<QMovie::CacheMode>("CacheMode", rb_cQMovie)
+        define_qenum_under<QMovie::CacheMode>("CacheMode", rb_cQMovie)
             .define_value("CacheNone", QMovie::CacheMode::CacheNone)
             .define_value("CacheAll", QMovie::CacheMode::CacheAll);
 
     Enum<QMovie::MovieState> rb_cQMovieMovieState =
         // RubyQt6::QtGui::QMovie::MovieState
-        define_enum_under<QMovie::MovieState>("MovieState", rb_cQMovie)
+        define_qenum_under<QMovie::MovieState>("MovieState", rb_cQMovie)
             .define_value("NotRunning", QMovie::MovieState::NotRunning)
             .define_value("Paused", QMovie::MovieState::Paused)
             .define_value("Running", QMovie::MovieState::Running);

@@ -1,5 +1,6 @@
 #include "qdialogbuttonbox-rb.hpp"
 #include <qdialogbuttonbox.h>
+#include <rice/qenum.hpp>
 #include <rice/qflags.hpp>
 
 #include <QAbstractButton>
@@ -42,7 +43,7 @@ void Init_qdialogbuttonbox(Rice::Module rb_mQt6QtWidgets)
 
     Enum<QDialogButtonBox::ButtonLayout> rb_cQDialogButtonBoxButtonLayout =
         // RubyQt6::QtWidgets::QDialogButtonBox::ButtonLayout
-        define_enum_under<QDialogButtonBox::ButtonLayout>("ButtonLayout", rb_cQDialogButtonBox)
+        define_qenum_under<QDialogButtonBox::ButtonLayout>("ButtonLayout", rb_cQDialogButtonBox)
             .define_value("WinLayout", QDialogButtonBox::ButtonLayout::WinLayout)
             .define_value("MacLayout", QDialogButtonBox::ButtonLayout::MacLayout)
             .define_value("KdeLayout", QDialogButtonBox::ButtonLayout::KdeLayout)
@@ -51,7 +52,7 @@ void Init_qdialogbuttonbox(Rice::Module rb_mQt6QtWidgets)
 
     Enum<QDialogButtonBox::ButtonRole> rb_cQDialogButtonBoxButtonRole =
         // RubyQt6::QtWidgets::QDialogButtonBox::ButtonRole
-        define_enum_under<QDialogButtonBox::ButtonRole>("ButtonRole", rb_cQDialogButtonBox)
+        define_qenum_under<QDialogButtonBox::ButtonRole>("ButtonRole", rb_cQDialogButtonBox)
             .define_value("InvalidRole", QDialogButtonBox::ButtonRole::InvalidRole)
             .define_value("AcceptRole", QDialogButtonBox::ButtonRole::AcceptRole)
             .define_value("RejectRole", QDialogButtonBox::ButtonRole::RejectRole)
@@ -66,7 +67,7 @@ void Init_qdialogbuttonbox(Rice::Module rb_mQt6QtWidgets)
 
     Enum<QDialogButtonBox::StandardButton> rb_cQDialogButtonBoxStandardButton =
         // RubyQt6::QtWidgets::QDialogButtonBox::StandardButton
-        define_enum_under<QDialogButtonBox::StandardButton>("StandardButton", rb_cQDialogButtonBox)
+        define_qenum_under<QDialogButtonBox::StandardButton>("StandardButton", rb_cQDialogButtonBox)
             .define_value("NoButton", QDialogButtonBox::StandardButton::NoButton)
             .define_value("Ok", QDialogButtonBox::StandardButton::Ok)
             .define_value("Save", QDialogButtonBox::StandardButton::Save)

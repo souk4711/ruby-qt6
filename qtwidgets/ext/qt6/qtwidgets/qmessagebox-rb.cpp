@@ -1,5 +1,6 @@
 #include "qmessagebox-rb.hpp"
 #include <qmessagebox.h>
+#include <rice/qenum.hpp>
 #include <rice/qflags.hpp>
 
 #include <QAbstractButton>
@@ -77,7 +78,7 @@ void Init_qmessagebox(Rice::Module rb_mQt6QtWidgets)
 
     Enum<QMessageBox::ButtonRole> rb_cQMessageBoxButtonRole =
         // RubyQt6::QtWidgets::QMessageBox::ButtonRole
-        define_enum_under<QMessageBox::ButtonRole>("ButtonRole", rb_cQMessageBox)
+        define_qenum_under<QMessageBox::ButtonRole>("ButtonRole", rb_cQMessageBox)
             .define_value("InvalidRole", QMessageBox::ButtonRole::InvalidRole)
             .define_value("AcceptRole", QMessageBox::ButtonRole::AcceptRole)
             .define_value("RejectRole", QMessageBox::ButtonRole::RejectRole)
@@ -92,7 +93,7 @@ void Init_qmessagebox(Rice::Module rb_mQt6QtWidgets)
 
     Enum<QMessageBox::Icon> rb_cQMessageBoxIcon =
         // RubyQt6::QtWidgets::QMessageBox::Icon
-        define_enum_under<QMessageBox::Icon>("Icon", rb_cQMessageBox)
+        define_qenum_under<QMessageBox::Icon>("Icon", rb_cQMessageBox)
             .define_value("NoIcon", QMessageBox::Icon::NoIcon)
             .define_value("Information", QMessageBox::Icon::Information)
             .define_value("Warning", QMessageBox::Icon::Warning)
@@ -101,12 +102,12 @@ void Init_qmessagebox(Rice::Module rb_mQt6QtWidgets)
 
     Enum<QMessageBox::Option> rb_cQMessageBoxOption =
         // RubyQt6::QtWidgets::QMessageBox::Option
-        define_enum_under<QMessageBox::Option>("Option", rb_cQMessageBox)
+        define_qenum_under<QMessageBox::Option>("Option", rb_cQMessageBox)
             .define_value("DontUseNativeDialog", QMessageBox::Option::DontUseNativeDialog);
 
     Enum<QMessageBox::StandardButton> rb_cQMessageBoxStandardButton =
         // RubyQt6::QtWidgets::QMessageBox::StandardButton
-        define_enum_under<QMessageBox::StandardButton>("StandardButton", rb_cQMessageBox)
+        define_qenum_under<QMessageBox::StandardButton>("StandardButton", rb_cQMessageBox)
             .define_value("NoButton", QMessageBox::StandardButton::NoButton)
             .define_value("Ok", QMessageBox::StandardButton::Ok)
             .define_value("Save", QMessageBox::StandardButton::Save)

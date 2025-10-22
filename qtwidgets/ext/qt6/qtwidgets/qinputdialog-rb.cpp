@@ -1,5 +1,6 @@
 #include "qinputdialog-rb.hpp"
 #include <qinputdialog.h>
+#include <rice/qenum.hpp>
 #include <rice/qflags.hpp>
 
 using namespace Rice;
@@ -114,14 +115,14 @@ void Init_qinputdialog(Rice::Module rb_mQt6QtWidgets)
 
     Enum<QInputDialog::InputDialogOption> rb_cQInputDialogInputDialogOption =
         // RubyQt6::QtWidgets::QInputDialog::InputDialogOption
-        define_enum_under<QInputDialog::InputDialogOption>("InputDialogOption", rb_cQInputDialog)
+        define_qenum_under<QInputDialog::InputDialogOption>("InputDialogOption", rb_cQInputDialog)
             .define_value("NoButtons", QInputDialog::InputDialogOption::NoButtons)
             .define_value("UseListViewForComboBoxItems", QInputDialog::InputDialogOption::UseListViewForComboBoxItems)
             .define_value("UsePlainTextEditForTextInput", QInputDialog::InputDialogOption::UsePlainTextEditForTextInput);
 
     Enum<QInputDialog::InputMode> rb_cQInputDialogInputMode =
         // RubyQt6::QtWidgets::QInputDialog::InputMode
-        define_enum_under<QInputDialog::InputMode>("InputMode", rb_cQInputDialog)
+        define_qenum_under<QInputDialog::InputMode>("InputMode", rb_cQInputDialog)
             .define_value("TextInput", QInputDialog::InputMode::TextInput)
             .define_value("IntInput", QInputDialog::InputMode::IntInput)
             .define_value("DoubleInput", QInputDialog::InputMode::DoubleInput);

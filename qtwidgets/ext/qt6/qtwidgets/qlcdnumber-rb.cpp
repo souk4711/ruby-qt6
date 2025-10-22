@@ -1,5 +1,6 @@
 #include "qlcdnumber-rb.hpp"
 #include <qlcdnumber.h>
+#include <rice/qenum.hpp>
 
 using namespace Rice;
 
@@ -41,7 +42,7 @@ void Init_qlcdnumber(Rice::Module rb_mQt6QtWidgets)
 
     Enum<QLCDNumber::Mode> rb_cQLCDNumberMode =
         // RubyQt6::QtWidgets::QLCDNumber::Mode
-        define_enum_under<QLCDNumber::Mode>("Mode", rb_cQLCDNumber)
+        define_qenum_under<QLCDNumber::Mode>("Mode", rb_cQLCDNumber)
             .define_value("Hex", QLCDNumber::Mode::Hex)
             .define_value("Dec", QLCDNumber::Mode::Dec)
             .define_value("Oct", QLCDNumber::Mode::Oct)
@@ -49,7 +50,7 @@ void Init_qlcdnumber(Rice::Module rb_mQt6QtWidgets)
 
     Enum<QLCDNumber::SegmentStyle> rb_cQLCDNumberSegmentStyle =
         // RubyQt6::QtWidgets::QLCDNumber::SegmentStyle
-        define_enum_under<QLCDNumber::SegmentStyle>("SegmentStyle", rb_cQLCDNumber)
+        define_qenum_under<QLCDNumber::SegmentStyle>("SegmentStyle", rb_cQLCDNumber)
             .define_value("Outline", QLCDNumber::SegmentStyle::Outline)
             .define_value("Filled", QLCDNumber::SegmentStyle::Filled)
             .define_value("Flat", QLCDNumber::SegmentStyle::Flat);

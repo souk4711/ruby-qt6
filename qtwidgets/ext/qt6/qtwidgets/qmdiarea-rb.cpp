@@ -1,5 +1,6 @@
 #include "qmdiarea-rb.hpp"
 #include <qmdiarea.h>
+#include <rice/qenum.hpp>
 #include <rice/qflags.hpp>
 
 #include <QMdiSubWindow>
@@ -54,18 +55,18 @@ void Init_qmdiarea(Rice::Module rb_mQt6QtWidgets)
 
     Enum<QMdiArea::AreaOption> rb_cQMdiAreaAreaOption =
         // RubyQt6::QtWidgets::QMdiArea::AreaOption
-        define_enum_under<QMdiArea::AreaOption>("AreaOption", rb_cQMdiArea)
+        define_qenum_under<QMdiArea::AreaOption>("AreaOption", rb_cQMdiArea)
             .define_value("DontMaximizeSubWindowOnActivation", QMdiArea::AreaOption::DontMaximizeSubWindowOnActivation);
 
     Enum<QMdiArea::ViewMode> rb_cQMdiAreaViewMode =
         // RubyQt6::QtWidgets::QMdiArea::ViewMode
-        define_enum_under<QMdiArea::ViewMode>("ViewMode", rb_cQMdiArea)
+        define_qenum_under<QMdiArea::ViewMode>("ViewMode", rb_cQMdiArea)
             .define_value("SubWindowView", QMdiArea::ViewMode::SubWindowView)
             .define_value("TabbedView", QMdiArea::ViewMode::TabbedView);
 
     Enum<QMdiArea::WindowOrder> rb_cQMdiAreaWindowOrder =
         // RubyQt6::QtWidgets::QMdiArea::WindowOrder
-        define_enum_under<QMdiArea::WindowOrder>("WindowOrder", rb_cQMdiArea)
+        define_qenum_under<QMdiArea::WindowOrder>("WindowOrder", rb_cQMdiArea)
             .define_value("CreationOrder", QMdiArea::WindowOrder::CreationOrder)
             .define_value("StackingOrder", QMdiArea::WindowOrder::StackingOrder)
             .define_value("ActivationHistoryOrder", QMdiArea::WindowOrder::ActivationHistoryOrder);

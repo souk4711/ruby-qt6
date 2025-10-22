@@ -1,5 +1,6 @@
 #include "qfontdialog-rb.hpp"
 #include <qfontdialog.h>
+#include <rice/qenum.hpp>
 #include <rice/qflags.hpp>
 
 using namespace Rice;
@@ -34,7 +35,7 @@ void Init_qfontdialog(Rice::Module rb_mQt6QtWidgets)
 
     Enum<QFontDialog::FontDialogOption> rb_cQFontDialogFontDialogOption =
         // RubyQt6::QtWidgets::QFontDialog::FontDialogOption
-        define_enum_under<QFontDialog::FontDialogOption>("FontDialogOption", rb_cQFontDialog)
+        define_qenum_under<QFontDialog::FontDialogOption>("FontDialogOption", rb_cQFontDialog)
             .define_value("NoButtons", QFontDialog::FontDialogOption::NoButtons)
             .define_value("DontUseNativeDialog", QFontDialog::FontDialogOption::DontUseNativeDialog)
             .define_value("ScalableFonts", QFontDialog::FontDialogOption::ScalableFonts)

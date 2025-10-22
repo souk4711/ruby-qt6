@@ -1,5 +1,6 @@
 #include "qmetatype-rb.hpp"
 #include <qmetatype.h>
+#include <rice/qenum.hpp>
 
 using namespace Rice;
 
@@ -18,7 +19,7 @@ void Init_qmetatype(Rice::Module rb_mQt6QtCore)
 
     Enum<QMetaType::Type> rb_cQMetaTypeType =
         // RubyQt6::QtCore::QMetaType::Type
-        define_enum_under<QMetaType::Type>("Type", rb_cQMetaType)
+        define_qenum_under<QMetaType::Type>("Type", rb_cQMetaType)
             .define_value("Bool", QMetaType::Type::Bool)
             .define_value("Char", QMetaType::Type::Char)
             .define_value("Char16", QMetaType::Type::Char16)

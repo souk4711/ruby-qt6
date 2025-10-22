@@ -1,5 +1,6 @@
 #include "qkeysequence-rb.hpp"
 #include <qkeysequence.h>
+#include <rice/qenum.hpp>
 
 #include <QList>
 
@@ -33,20 +34,20 @@ void Init_qkeysequence(Rice::Module rb_mQt6QtGui)
 
     Enum<QKeySequence::SequenceFormat> rb_cQKeySequenceSequenceFormat =
         // RubyQt6::QtGui::QKeySequence::SequenceFormat
-        define_enum_under<QKeySequence::SequenceFormat>("SequenceFormat", rb_cQKeySequence)
+        define_qenum_under<QKeySequence::SequenceFormat>("SequenceFormat", rb_cQKeySequence)
             .define_value("NativeText", QKeySequence::SequenceFormat::NativeText)
             .define_value("PortableText", QKeySequence::SequenceFormat::PortableText);
 
     Enum<QKeySequence::SequenceMatch> rb_cQKeySequenceSequenceMatch =
         // RubyQt6::QtGui::QKeySequence::SequenceMatch
-        define_enum_under<QKeySequence::SequenceMatch>("SequenceMatch", rb_cQKeySequence)
+        define_qenum_under<QKeySequence::SequenceMatch>("SequenceMatch", rb_cQKeySequence)
             .define_value("NoMatch", QKeySequence::SequenceMatch::NoMatch)
             .define_value("PartialMatch", QKeySequence::SequenceMatch::PartialMatch)
             .define_value("ExactMatch", QKeySequence::SequenceMatch::ExactMatch);
 
     Enum<QKeySequence::StandardKey> rb_cQKeySequenceStandardKey =
         // RubyQt6::QtGui::QKeySequence::StandardKey
-        define_enum_under<QKeySequence::StandardKey>("StandardKey", rb_cQKeySequence)
+        define_qenum_under<QKeySequence::StandardKey>("StandardKey", rb_cQKeySequence)
             .define_value("UnknownKey", QKeySequence::StandardKey::UnknownKey)
             .define_value("HelpContents", QKeySequence::StandardKey::HelpContents)
             .define_value("WhatsThis", QKeySequence::StandardKey::WhatsThis)

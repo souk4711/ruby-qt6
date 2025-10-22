@@ -1,5 +1,6 @@
 #include "qtextdocument-rb.hpp"
 #include <qtextdocument.h>
+#include <rice/qenum.hpp>
 #include <rice/qflags.hpp>
 
 #include <QAbstractTextDocumentLayout>
@@ -132,21 +133,21 @@ void Init_qtextdocument(Rice::Module rb_mQt6QtGui)
 
     Enum<QTextDocument::FindFlag> rb_cQTextDocumentFindFlag =
         // RubyQt6::QtGui::QTextDocument::FindFlag
-        define_enum_under<QTextDocument::FindFlag>("FindFlag", rb_cQTextDocument)
+        define_qenum_under<QTextDocument::FindFlag>("FindFlag", rb_cQTextDocument)
             .define_value("FindBackward", QTextDocument::FindFlag::FindBackward)
             .define_value("FindCaseSensitively", QTextDocument::FindFlag::FindCaseSensitively)
             .define_value("FindWholeWords", QTextDocument::FindFlag::FindWholeWords);
 
     Enum<QTextDocument::MarkdownFeature> rb_cQTextDocumentMarkdownFeature =
         // RubyQt6::QtGui::QTextDocument::MarkdownFeature
-        define_enum_under<QTextDocument::MarkdownFeature>("MarkdownFeature", rb_cQTextDocument)
+        define_qenum_under<QTextDocument::MarkdownFeature>("MarkdownFeature", rb_cQTextDocument)
             .define_value("MarkdownNoHTML", QTextDocument::MarkdownFeature::MarkdownNoHTML)
             .define_value("MarkdownDialectCommonMark", QTextDocument::MarkdownFeature::MarkdownDialectCommonMark)
             .define_value("MarkdownDialectGitHub", QTextDocument::MarkdownFeature::MarkdownDialectGitHub);
 
     Enum<QTextDocument::MetaInformation> rb_cQTextDocumentMetaInformation =
         // RubyQt6::QtGui::QTextDocument::MetaInformation
-        define_enum_under<QTextDocument::MetaInformation>("MetaInformation", rb_cQTextDocument)
+        define_qenum_under<QTextDocument::MetaInformation>("MetaInformation", rb_cQTextDocument)
             .define_value("DocumentTitle", QTextDocument::MetaInformation::DocumentTitle)
             .define_value("DocumentUrl", QTextDocument::MetaInformation::DocumentUrl)
             .define_value("CssMedia", QTextDocument::MetaInformation::CssMedia)
@@ -154,7 +155,7 @@ void Init_qtextdocument(Rice::Module rb_mQt6QtGui)
 
     Enum<QTextDocument::ResourceType> rb_cQTextDocumentResourceType =
         // RubyQt6::QtGui::QTextDocument::ResourceType
-        define_enum_under<QTextDocument::ResourceType>("ResourceType", rb_cQTextDocument)
+        define_qenum_under<QTextDocument::ResourceType>("ResourceType", rb_cQTextDocument)
             .define_value("UnknownResource", QTextDocument::ResourceType::UnknownResource)
             .define_value("HtmlResource", QTextDocument::ResourceType::HtmlResource)
             .define_value("ImageResource", QTextDocument::ResourceType::ImageResource)
@@ -164,7 +165,7 @@ void Init_qtextdocument(Rice::Module rb_mQt6QtGui)
 
     Enum<QTextDocument::Stacks> rb_cQTextDocumentStacks =
         // RubyQt6::QtGui::QTextDocument::Stacks
-        define_enum_under<QTextDocument::Stacks>("Stacks", rb_cQTextDocument)
+        define_qenum_under<QTextDocument::Stacks>("Stacks", rb_cQTextDocument)
             .define_value("UndoStack", QTextDocument::Stacks::UndoStack)
             .define_value("RedoStack", QTextDocument::Stacks::RedoStack)
             .define_value("UndoAndRedoStacks", QTextDocument::Stacks::UndoAndRedoStacks);

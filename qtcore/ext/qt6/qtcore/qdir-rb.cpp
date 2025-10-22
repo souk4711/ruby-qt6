@@ -1,5 +1,6 @@
 #include "qdir-rb.hpp"
 #include <qdir.h>
+#include <rice/qenum.hpp>
 #include <rice/qflags.hpp>
 
 using namespace Rice;
@@ -85,7 +86,7 @@ void Init_qdir(Rice::Module rb_mQt6QtCore)
 
     Enum<QDir::Filter> rb_cQDirFilter =
         // RubyQt6::QtCore::QDir::Filter
-        define_enum_under<QDir::Filter>("Filter", rb_cQDir)
+        define_qenum_under<QDir::Filter>("Filter", rb_cQDir)
             .define_value("Dirs", QDir::Filter::Dirs)
             .define_value("Files", QDir::Filter::Files)
             .define_value("Drives", QDir::Filter::Drives)
@@ -109,7 +110,7 @@ void Init_qdir(Rice::Module rb_mQt6QtCore)
 
     Enum<QDir::SortFlag> rb_cQDirSortFlag =
         // RubyQt6::QtCore::QDir::SortFlag
-        define_enum_under<QDir::SortFlag>("SortFlag", rb_cQDir)
+        define_qenum_under<QDir::SortFlag>("SortFlag", rb_cQDir)
             .define_value("Name", QDir::SortFlag::Name)
             .define_value("Time", QDir::SortFlag::Time)
             .define_value("Size", QDir::SortFlag::Size)

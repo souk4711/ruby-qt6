@@ -1,5 +1,6 @@
 #include "qframe-rb.hpp"
 #include <qframe.h>
+#include <rice/qenum.hpp>
 
 using namespace Rice;
 
@@ -31,7 +32,7 @@ void Init_qframe(Rice::Module rb_mQt6QtWidgets)
 
     Enum<QFrame::Shape> rb_cQFrameShape =
         // RubyQt6::QtWidgets::QFrame::Shape
-        define_enum_under<QFrame::Shape>("Shape", rb_cQFrame)
+        define_qenum_under<QFrame::Shape>("Shape", rb_cQFrame)
             .define_value("NoFrame", QFrame::Shape::NoFrame)
             .define_value("Box", QFrame::Shape::Box)
             .define_value("Panel", QFrame::Shape::Panel)
@@ -42,7 +43,7 @@ void Init_qframe(Rice::Module rb_mQt6QtWidgets)
 
     Enum<QFrame::Shadow> rb_cQFrameShadow =
         // RubyQt6::QtWidgets::QFrame::Shadow
-        define_enum_under<QFrame::Shadow>("Shadow", rb_cQFrame)
+        define_qenum_under<QFrame::Shadow>("Shadow", rb_cQFrame)
             .define_value("Plain", QFrame::Shadow::Plain)
             .define_value("Raised", QFrame::Shadow::Raised)
             .define_value("Sunken", QFrame::Shadow::Sunken);

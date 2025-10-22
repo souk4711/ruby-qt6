@@ -1,5 +1,6 @@
 #include "qwindow-rb.hpp"
 #include <qwindow.h>
+#include <rice/qenum.hpp>
 
 #include <QAccessible>
 #include <QScreen>
@@ -162,13 +163,13 @@ void Init_qwindow(Rice::Module rb_mQt6QtGui)
 
     Enum<QWindow::AncestorMode> rb_cQWindowAncestorMode =
         // RubyQt6::QtGui::QWindow::AncestorMode
-        define_enum_under<QWindow::AncestorMode>("AncestorMode", rb_cQWindow)
+        define_qenum_under<QWindow::AncestorMode>("AncestorMode", rb_cQWindow)
             .define_value("ExcludeTransients", QWindow::AncestorMode::ExcludeTransients)
             .define_value("IncludeTransients", QWindow::AncestorMode::IncludeTransients);
 
     Enum<QWindow::Visibility> rb_cQWindowVisibility =
         // RubyQt6::QtGui::QWindow::Visibility
-        define_enum_under<QWindow::Visibility>("Visibility", rb_cQWindow)
+        define_qenum_under<QWindow::Visibility>("Visibility", rb_cQWindow)
             .define_value("Hidden", QWindow::Visibility::Hidden)
             .define_value("AutomaticVisibility", QWindow::Visibility::AutomaticVisibility)
             .define_value("Windowed", QWindow::Visibility::Windowed)

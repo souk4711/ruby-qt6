@@ -1,5 +1,6 @@
 #include "qabstractspinbox-rb.hpp"
 #include <qabstractspinbox.h>
+#include <rice/qenum.hpp>
 #include <rice/qflags.hpp>
 
 using namespace Rice;
@@ -51,27 +52,27 @@ void Init_qabstractspinbox(Rice::Module rb_mQt6QtWidgets)
 
     Enum<QAbstractSpinBox::ButtonSymbols> rb_cQAbstractSpinBoxButtonSymbols =
         // RubyQt6::QtWidgets::QAbstractSpinBox::ButtonSymbols
-        define_enum_under<QAbstractSpinBox::ButtonSymbols>("ButtonSymbols", rb_cQAbstractSpinBox)
+        define_qenum_under<QAbstractSpinBox::ButtonSymbols>("ButtonSymbols", rb_cQAbstractSpinBox)
             .define_value("UpDownArrows", QAbstractSpinBox::ButtonSymbols::UpDownArrows)
             .define_value("PlusMinus", QAbstractSpinBox::ButtonSymbols::PlusMinus)
             .define_value("NoButtons", QAbstractSpinBox::ButtonSymbols::NoButtons);
 
     Enum<QAbstractSpinBox::CorrectionMode> rb_cQAbstractSpinBoxCorrectionMode =
         // RubyQt6::QtWidgets::QAbstractSpinBox::CorrectionMode
-        define_enum_under<QAbstractSpinBox::CorrectionMode>("CorrectionMode", rb_cQAbstractSpinBox)
+        define_qenum_under<QAbstractSpinBox::CorrectionMode>("CorrectionMode", rb_cQAbstractSpinBox)
             .define_value("CorrectToPreviousValue", QAbstractSpinBox::CorrectionMode::CorrectToPreviousValue)
             .define_value("CorrectToNearestValue", QAbstractSpinBox::CorrectionMode::CorrectToNearestValue);
 
     Enum<QAbstractSpinBox::StepEnabledFlag> rb_cQAbstractSpinBoxStepEnabledFlag =
         // RubyQt6::QtWidgets::QAbstractSpinBox::StepEnabledFlag
-        define_enum_under<QAbstractSpinBox::StepEnabledFlag>("StepEnabledFlag", rb_cQAbstractSpinBox)
+        define_qenum_under<QAbstractSpinBox::StepEnabledFlag>("StepEnabledFlag", rb_cQAbstractSpinBox)
             .define_value("StepNone", QAbstractSpinBox::StepEnabledFlag::StepNone)
             .define_value("StepUpEnabled", QAbstractSpinBox::StepEnabledFlag::StepUpEnabled)
             .define_value("StepDownEnabled", QAbstractSpinBox::StepEnabledFlag::StepDownEnabled);
 
     Enum<QAbstractSpinBox::StepType> rb_cQAbstractSpinBoxStepType =
         // RubyQt6::QtWidgets::QAbstractSpinBox::StepType
-        define_enum_under<QAbstractSpinBox::StepType>("StepType", rb_cQAbstractSpinBox)
+        define_qenum_under<QAbstractSpinBox::StepType>("StepType", rb_cQAbstractSpinBox)
             .define_value("DefaultStepType", QAbstractSpinBox::StepType::DefaultStepType)
             .define_value("AdaptiveDecimalStepType", QAbstractSpinBox::StepType::AdaptiveDecimalStepType);
 

@@ -1,5 +1,6 @@
 #include "qaction-rb.hpp"
 #include <qaction.h>
+#include <rice/qenum.hpp>
 
 #include <QActionGroup>
 #include <QFont>
@@ -83,7 +84,7 @@ void Init_qaction(Rice::Module rb_mQt6QtGui)
 
     Enum<QAction::MenuRole> rb_cQActionMenuRole =
         // RubyQt6::QtGui::QAction::MenuRole
-        define_enum_under<QAction::MenuRole>("MenuRole", rb_cQAction)
+        define_qenum_under<QAction::MenuRole>("MenuRole", rb_cQAction)
             .define_value("NoRole", QAction::MenuRole::NoRole)
             .define_value("TextHeuristicRole", QAction::MenuRole::TextHeuristicRole)
             .define_value("ApplicationSpecificRole", QAction::MenuRole::ApplicationSpecificRole)
@@ -94,14 +95,14 @@ void Init_qaction(Rice::Module rb_mQt6QtGui)
 
     Enum<QAction::Priority> rb_cQActionPriority =
         // RubyQt6::QtGui::QAction::Priority
-        define_enum_under<QAction::Priority>("Priority", rb_cQAction)
+        define_qenum_under<QAction::Priority>("Priority", rb_cQAction)
             .define_value("LowPriority", QAction::Priority::LowPriority)
             .define_value("NormalPriority", QAction::Priority::NormalPriority)
             .define_value("HighPriority", QAction::Priority::HighPriority);
 
     Enum<QAction::ActionEvent> rb_cQActionActionEvent =
         // RubyQt6::QtGui::QAction::ActionEvent
-        define_enum_under<QAction::ActionEvent>("ActionEvent", rb_cQAction)
+        define_qenum_under<QAction::ActionEvent>("ActionEvent", rb_cQAction)
             .define_value("Trigger", QAction::ActionEvent::Trigger)
             .define_value("Hover", QAction::ActionEvent::Hover);
 }

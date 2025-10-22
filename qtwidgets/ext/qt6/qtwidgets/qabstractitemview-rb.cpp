@@ -1,5 +1,6 @@
 #include "qabstractitemview-rb.hpp"
 #include <qabstractitemview.h>
+#include <rice/qenum.hpp>
 #include <rice/qflags.hpp>
 
 using namespace Rice;
@@ -97,7 +98,7 @@ void Init_qabstractitemview(Rice::Module rb_mQt6QtWidgets)
 
     Enum<QAbstractItemView::DragDropMode> rb_cQAbstractItemViewDragDropMode =
         // RubyQt6::QtWidgets::QAbstractItemView::DragDropMode
-        define_enum_under<QAbstractItemView::DragDropMode>("DragDropMode", rb_cQAbstractItemView)
+        define_qenum_under<QAbstractItemView::DragDropMode>("DragDropMode", rb_cQAbstractItemView)
             .define_value("NoDragDrop", QAbstractItemView::DragDropMode::NoDragDrop)
             .define_value("DragOnly", QAbstractItemView::DragDropMode::DragOnly)
             .define_value("DropOnly", QAbstractItemView::DragDropMode::DropOnly)
@@ -106,7 +107,7 @@ void Init_qabstractitemview(Rice::Module rb_mQt6QtWidgets)
 
     Enum<QAbstractItemView::EditTrigger> rb_cQAbstractItemViewEditTrigger =
         // RubyQt6::QtWidgets::QAbstractItemView::EditTrigger
-        define_enum_under<QAbstractItemView::EditTrigger>("EditTrigger", rb_cQAbstractItemView)
+        define_qenum_under<QAbstractItemView::EditTrigger>("EditTrigger", rb_cQAbstractItemView)
             .define_value("NoEditTriggers", QAbstractItemView::EditTrigger::NoEditTriggers)
             .define_value("CurrentChanged", QAbstractItemView::EditTrigger::CurrentChanged)
             .define_value("DoubleClicked", QAbstractItemView::EditTrigger::DoubleClicked)
@@ -117,7 +118,7 @@ void Init_qabstractitemview(Rice::Module rb_mQt6QtWidgets)
 
     Enum<QAbstractItemView::ScrollHint> rb_cQAbstractItemViewScrollHint =
         // RubyQt6::QtWidgets::QAbstractItemView::ScrollHint
-        define_enum_under<QAbstractItemView::ScrollHint>("ScrollHint", rb_cQAbstractItemView)
+        define_qenum_under<QAbstractItemView::ScrollHint>("ScrollHint", rb_cQAbstractItemView)
             .define_value("EnsureVisible", QAbstractItemView::ScrollHint::EnsureVisible)
             .define_value("PositionAtTop", QAbstractItemView::ScrollHint::PositionAtTop)
             .define_value("PositionAtBottom", QAbstractItemView::ScrollHint::PositionAtBottom)
@@ -125,20 +126,20 @@ void Init_qabstractitemview(Rice::Module rb_mQt6QtWidgets)
 
     Enum<QAbstractItemView::ScrollMode> rb_cQAbstractItemViewScrollMode =
         // RubyQt6::QtWidgets::QAbstractItemView::ScrollMode
-        define_enum_under<QAbstractItemView::ScrollMode>("ScrollMode", rb_cQAbstractItemView)
+        define_qenum_under<QAbstractItemView::ScrollMode>("ScrollMode", rb_cQAbstractItemView)
             .define_value("ScrollPerItem", QAbstractItemView::ScrollMode::ScrollPerItem)
             .define_value("ScrollPerPixel", QAbstractItemView::ScrollMode::ScrollPerPixel);
 
     Enum<QAbstractItemView::SelectionBehavior> rb_cQAbstractItemViewSelectionBehavior =
         // RubyQt6::QtWidgets::QAbstractItemView::SelectionBehavior
-        define_enum_under<QAbstractItemView::SelectionBehavior>("SelectionBehavior", rb_cQAbstractItemView)
+        define_qenum_under<QAbstractItemView::SelectionBehavior>("SelectionBehavior", rb_cQAbstractItemView)
             .define_value("SelectItems", QAbstractItemView::SelectionBehavior::SelectItems)
             .define_value("SelectRows", QAbstractItemView::SelectionBehavior::SelectRows)
             .define_value("SelectColumns", QAbstractItemView::SelectionBehavior::SelectColumns);
 
     Enum<QAbstractItemView::SelectionMode> rb_cQAbstractItemViewSelectionMode =
         // RubyQt6::QtWidgets::QAbstractItemView::SelectionMode
-        define_enum_under<QAbstractItemView::SelectionMode>("SelectionMode", rb_cQAbstractItemView)
+        define_qenum_under<QAbstractItemView::SelectionMode>("SelectionMode", rb_cQAbstractItemView)
             .define_value("NoSelection", QAbstractItemView::SelectionMode::NoSelection)
             .define_value("SingleSelection", QAbstractItemView::SelectionMode::SingleSelection)
             .define_value("MultiSelection", QAbstractItemView::SelectionMode::MultiSelection)

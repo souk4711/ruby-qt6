@@ -1,5 +1,6 @@
 #include "qwizard-rb.hpp"
 #include <qwizard.h>
+#include <rice/qenum.hpp>
 #include <rice/qflags.hpp>
 
 #include <QAbstractButton>
@@ -69,7 +70,7 @@ void Init_qwizard(Rice::Module rb_mQt6QtWidgets)
 
     Enum<QWizard::WizardButton> rb_cQWizardWizardButton =
         // RubyQt6::QtWidgets::QWizard::WizardButton
-        define_enum_under<QWizard::WizardButton>("WizardButton", rb_cQWizard)
+        define_qenum_under<QWizard::WizardButton>("WizardButton", rb_cQWizard)
             .define_value("BackButton", QWizard::WizardButton::BackButton)
             .define_value("NextButton", QWizard::WizardButton::NextButton)
             .define_value("CommitButton", QWizard::WizardButton::CommitButton)
@@ -86,7 +87,7 @@ void Init_qwizard(Rice::Module rb_mQt6QtWidgets)
 
     Enum<QWizard::WizardOption> rb_cQWizardWizardOption =
         // RubyQt6::QtWidgets::QWizard::WizardOption
-        define_enum_under<QWizard::WizardOption>("WizardOption", rb_cQWizard)
+        define_qenum_under<QWizard::WizardOption>("WizardOption", rb_cQWizard)
             .define_value("IndependentPages", QWizard::WizardOption::IndependentPages)
             .define_value("IgnoreSubTitles", QWizard::WizardOption::IgnoreSubTitles)
             .define_value("ExtendedWatermarkPixmap", QWizard::WizardOption::ExtendedWatermarkPixmap)
@@ -107,7 +108,7 @@ void Init_qwizard(Rice::Module rb_mQt6QtWidgets)
 
     Enum<QWizard::WizardPixmap> rb_cQWizardWizardPixmap =
         // RubyQt6::QtWidgets::QWizard::WizardPixmap
-        define_enum_under<QWizard::WizardPixmap>("WizardPixmap", rb_cQWizard)
+        define_qenum_under<QWizard::WizardPixmap>("WizardPixmap", rb_cQWizard)
             .define_value("WatermarkPixmap", QWizard::WizardPixmap::WatermarkPixmap)
             .define_value("LogoPixmap", QWizard::WizardPixmap::LogoPixmap)
             .define_value("BannerPixmap", QWizard::WizardPixmap::BannerPixmap)
@@ -116,7 +117,7 @@ void Init_qwizard(Rice::Module rb_mQt6QtWidgets)
 
     Enum<QWizard::WizardStyle> rb_cQWizardWizardStyle =
         // RubyQt6::QtWidgets::QWizard::WizardStyle
-        define_enum_under<QWizard::WizardStyle>("WizardStyle", rb_cQWizard)
+        define_qenum_under<QWizard::WizardStyle>("WizardStyle", rb_cQWizard)
             .define_value("ClassicStyle", QWizard::WizardStyle::ClassicStyle)
             .define_value("ModernStyle", QWizard::WizardStyle::ModernStyle)
             .define_value("MacStyle", QWizard::WizardStyle::MacStyle)

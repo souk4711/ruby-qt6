@@ -1,5 +1,6 @@
 #include "quuid-rb.hpp"
 #include <quuid.h>
+#include <rice/qenum.hpp>
 
 using namespace Rice;
 
@@ -31,14 +32,14 @@ void Init_quuid(Rice::Module rb_mQt6QtCore)
 
     Enum<QUuid::StringFormat> rb_cQUuidStringFormat =
         // RubyQt6::QtCore::QUuid::StringFormat
-        define_enum_under<QUuid::StringFormat>("StringFormat", rb_cQUuid)
+        define_qenum_under<QUuid::StringFormat>("StringFormat", rb_cQUuid)
             .define_value("WithBraces", QUuid::StringFormat::WithBraces)
             .define_value("WithoutBraces", QUuid::StringFormat::WithoutBraces)
             .define_value("Id128", QUuid::StringFormat::Id128);
 
     Enum<QUuid::Variant> rb_cQUuidVariant =
         // RubyQt6::QtCore::QUuid::Variant
-        define_enum_under<QUuid::Variant>("Variant", rb_cQUuid)
+        define_qenum_under<QUuid::Variant>("Variant", rb_cQUuid)
             .define_value("VarUnknown", QUuid::Variant::VarUnknown)
             .define_value("NCS", QUuid::Variant::NCS)
             .define_value("DCE", QUuid::Variant::DCE)
@@ -47,7 +48,7 @@ void Init_quuid(Rice::Module rb_mQt6QtCore)
 
     Enum<QUuid::Version> rb_cQUuidVersion =
         // RubyQt6::QtCore::QUuid::Version
-        define_enum_under<QUuid::Version>("Version", rb_cQUuid)
+        define_qenum_under<QUuid::Version>("Version", rb_cQUuid)
             .define_value("VerUnknown", QUuid::Version::VerUnknown)
             .define_value("Time", QUuid::Version::Time)
             .define_value("EmbeddedPOSIX", QUuid::Version::EmbeddedPOSIX)

@@ -195,7 +195,7 @@ module RubyQt6
           raise MissingLine.new(expected, line)
         end
 
-        expected = "define_enum_under<#{name}::#{enum_name}>(\"#{enum_name}\", rb_c#{name})"
+        expected = "define_qenum_under<#{name}::#{enum_name}>(\"#{enum_name}\", rb_c#{name})"
         if line == expected
           take_next_line
         else

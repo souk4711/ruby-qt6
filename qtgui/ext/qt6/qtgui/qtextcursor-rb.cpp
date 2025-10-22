@@ -1,5 +1,6 @@
 #include "qtextcursor-rb.hpp"
 #include <qtextcursor.h>
+#include <rice/qenum.hpp>
 
 #include <QTextBlock>
 #include <QTextDocument>
@@ -101,13 +102,13 @@ void Init_qtextcursor(Rice::Module rb_mQt6QtGui)
 
     Enum<QTextCursor::MoveMode> rb_cQTextCursorMoveMode =
         // RubyQt6::QtGui::QTextCursor::MoveMode
-        define_enum_under<QTextCursor::MoveMode>("MoveMode", rb_cQTextCursor)
+        define_qenum_under<QTextCursor::MoveMode>("MoveMode", rb_cQTextCursor)
             .define_value("MoveAnchor", QTextCursor::MoveMode::MoveAnchor)
             .define_value("KeepAnchor", QTextCursor::MoveMode::KeepAnchor);
 
     Enum<QTextCursor::MoveOperation> rb_cQTextCursorMoveOperation =
         // RubyQt6::QtGui::QTextCursor::MoveOperation
-        define_enum_under<QTextCursor::MoveOperation>("MoveOperation", rb_cQTextCursor)
+        define_qenum_under<QTextCursor::MoveOperation>("MoveOperation", rb_cQTextCursor)
             .define_value("NoMove", QTextCursor::MoveOperation::NoMove)
             .define_value("Start", QTextCursor::MoveOperation::Start)
             .define_value("Up", QTextCursor::MoveOperation::Up)
@@ -136,7 +137,7 @@ void Init_qtextcursor(Rice::Module rb_mQt6QtGui)
 
     Enum<QTextCursor::SelectionType> rb_cQTextCursorSelectionType =
         // RubyQt6::QtGui::QTextCursor::SelectionType
-        define_enum_under<QTextCursor::SelectionType>("SelectionType", rb_cQTextCursor)
+        define_qenum_under<QTextCursor::SelectionType>("SelectionType", rb_cQTextCursor)
             .define_value("WordUnderCursor", QTextCursor::SelectionType::WordUnderCursor)
             .define_value("LineUnderCursor", QTextCursor::SelectionType::LineUnderCursor)
             .define_value("BlockUnderCursor", QTextCursor::SelectionType::BlockUnderCursor)

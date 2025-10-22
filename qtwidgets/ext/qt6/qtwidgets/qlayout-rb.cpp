@@ -1,5 +1,6 @@
 #include "qlayout-rb.hpp"
 #include <qlayout.h>
+#include <rice/qenum.hpp>
 
 #include <QWidget>
 
@@ -70,7 +71,7 @@ void Init_qlayout(Rice::Module rb_mQt6QtWidgets)
 
     Enum<QLayout::SizeConstraint> rb_cQLayoutSizeConstraint =
         // RubyQt6::QtWidgets::QLayout::SizeConstraint
-        define_enum_under<QLayout::SizeConstraint>("SizeConstraint", rb_cQLayout)
+        define_qenum_under<QLayout::SizeConstraint>("SizeConstraint", rb_cQLayout)
             .define_value("SetDefaultConstraint", QLayout::SizeConstraint::SetDefaultConstraint)
             .define_value("SetNoConstraint", QLayout::SizeConstraint::SetNoConstraint)
             .define_value("SetMinimumSize", QLayout::SizeConstraint::SetMinimumSize)

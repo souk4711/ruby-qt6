@@ -1,5 +1,6 @@
 #include "qdatetime-rb.hpp"
 #include <qdatetime.h>
+#include <rice/qenum.hpp>
 
 #include <QTimeZone>
 
@@ -96,7 +97,7 @@ void Init_qdatetime(Rice::Module rb_mQt6QtCore)
 
     Enum<QDateTime::TransitionResolution> rb_cQDateTimeTransitionResolution =
         // RubyQt6::QtCore::QDateTime::TransitionResolution
-        define_enum_under<QDateTime::TransitionResolution>("TransitionResolution", rb_cQDateTime)
+        define_qenum_under<QDateTime::TransitionResolution>("TransitionResolution", rb_cQDateTime)
             .define_value("Reject", QDateTime::TransitionResolution::Reject)
             .define_value("RelativeToBefore", QDateTime::TransitionResolution::RelativeToBefore)
             .define_value("RelativeToAfter", QDateTime::TransitionResolution::RelativeToAfter)

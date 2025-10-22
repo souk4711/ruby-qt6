@@ -1,5 +1,6 @@
 #include "qtextoption-rb.hpp"
 #include <qtextoption.h>
+#include <rice/qenum.hpp>
 #include <rice/qflags.hpp>
 
 #include <QList>
@@ -35,7 +36,7 @@ void Init_qtextoption(Rice::Module rb_mQt6QtGui)
 
     Enum<QTextOption::Flag> rb_cQTextOptionFlag =
         // RubyQt6::QtGui::QTextOption::Flag
-        define_enum_under<QTextOption::Flag>("Flag", rb_cQTextOption)
+        define_qenum_under<QTextOption::Flag>("Flag", rb_cQTextOption)
             .define_value("ShowTabsAndSpaces", QTextOption::Flag::ShowTabsAndSpaces)
             .define_value("ShowLineAndParagraphSeparators", QTextOption::Flag::ShowLineAndParagraphSeparators)
             .define_value("AddSpaceForLineAndParagraphSeparators", QTextOption::Flag::AddSpaceForLineAndParagraphSeparators)
@@ -47,7 +48,7 @@ void Init_qtextoption(Rice::Module rb_mQt6QtGui)
 
     Enum<QTextOption::TabType> rb_cQTextOptionTabType =
         // RubyQt6::QtGui::QTextOption::TabType
-        define_enum_under<QTextOption::TabType>("TabType", rb_cQTextOption)
+        define_qenum_under<QTextOption::TabType>("TabType", rb_cQTextOption)
             .define_value("LeftTab", QTextOption::TabType::LeftTab)
             .define_value("RightTab", QTextOption::TabType::RightTab)
             .define_value("CenterTab", QTextOption::TabType::CenterTab)
@@ -55,7 +56,7 @@ void Init_qtextoption(Rice::Module rb_mQt6QtGui)
 
     Enum<QTextOption::WrapMode> rb_cQTextOptionWrapMode =
         // RubyQt6::QtGui::QTextOption::WrapMode
-        define_enum_under<QTextOption::WrapMode>("WrapMode", rb_cQTextOption)
+        define_qenum_under<QTextOption::WrapMode>("WrapMode", rb_cQTextOption)
             .define_value("NoWrap", QTextOption::WrapMode::NoWrap)
             .define_value("WordWrap", QTextOption::WrapMode::WordWrap)
             .define_value("ManualWrap", QTextOption::WrapMode::ManualWrap)

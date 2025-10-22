@@ -1,5 +1,6 @@
 #include "qstyle-rb.hpp"
 #include <qstyle.h>
+#include <rice/qenum.hpp>
 #include <rice/qflags.hpp>
 
 #include <QApplication>
@@ -55,7 +56,7 @@ void Init_qstyle(Rice::Module rb_mQt6QtWidgets)
 
     Enum<QStyle::StateFlag> rb_cQStyleStateFlag =
         // RubyQt6::QtWidgets::QStyle::StateFlag
-        define_enum_under<QStyle::StateFlag>("StateFlag", rb_cQStyle)
+        define_qenum_under<QStyle::StateFlag>("StateFlag", rb_cQStyle)
             .define_value("State_None", QStyle::StateFlag::State_None)
             .define_value("State_Enabled", QStyle::StateFlag::State_Enabled)
             .define_value("State_Raised", QStyle::StateFlag::State_Raised)
@@ -87,7 +88,7 @@ void Init_qstyle(Rice::Module rb_mQt6QtWidgets)
 
     Enum<QStyle::PrimitiveElement> rb_cQStylePrimitiveElement =
         // RubyQt6::QtWidgets::QStyle::PrimitiveElement
-        define_enum_under<QStyle::PrimitiveElement>("PrimitiveElement", rb_cQStyle)
+        define_qenum_under<QStyle::PrimitiveElement>("PrimitiveElement", rb_cQStyle)
             .define_value("PE_Frame", QStyle::PrimitiveElement::PE_Frame)
             .define_value("PE_FrameDefaultButton", QStyle::PrimitiveElement::PE_FrameDefaultButton)
             .define_value("PE_FrameDockWidget", QStyle::PrimitiveElement::PE_FrameDockWidget)
@@ -143,7 +144,7 @@ void Init_qstyle(Rice::Module rb_mQt6QtWidgets)
 
     Enum<QStyle::ControlElement> rb_cQStyleControlElement =
         // RubyQt6::QtWidgets::QStyle::ControlElement
-        define_enum_under<QStyle::ControlElement>("ControlElement", rb_cQStyle)
+        define_qenum_under<QStyle::ControlElement>("ControlElement", rb_cQStyle)
             .define_value("CE_PushButton", QStyle::ControlElement::CE_PushButton)
             .define_value("CE_PushButtonBevel", QStyle::ControlElement::CE_PushButtonBevel)
             .define_value("CE_PushButtonLabel", QStyle::ControlElement::CE_PushButtonLabel)
@@ -195,7 +196,7 @@ void Init_qstyle(Rice::Module rb_mQt6QtWidgets)
 
     Enum<QStyle::SubElement> rb_cQStyleSubElement =
         // RubyQt6::QtWidgets::QStyle::SubElement
-        define_enum_under<QStyle::SubElement>("SubElement", rb_cQStyle)
+        define_qenum_under<QStyle::SubElement>("SubElement", rb_cQStyle)
             .define_value("SE_PushButtonContents", QStyle::SubElement::SE_PushButtonContents)
             .define_value("SE_PushButtonFocusRect", QStyle::SubElement::SE_PushButtonFocusRect)
             .define_value("SE_CheckBoxIndicator", QStyle::SubElement::SE_CheckBoxIndicator)
@@ -258,7 +259,7 @@ void Init_qstyle(Rice::Module rb_mQt6QtWidgets)
 
     Enum<QStyle::ComplexControl> rb_cQStyleComplexControl =
         // RubyQt6::QtWidgets::QStyle::ComplexControl
-        define_enum_under<QStyle::ComplexControl>("ComplexControl", rb_cQStyle)
+        define_qenum_under<QStyle::ComplexControl>("ComplexControl", rb_cQStyle)
             .define_value("CC_SpinBox", QStyle::ComplexControl::CC_SpinBox)
             .define_value("CC_ComboBox", QStyle::ComplexControl::CC_ComboBox)
             .define_value("CC_ScrollBar", QStyle::ComplexControl::CC_ScrollBar)
@@ -272,7 +273,7 @@ void Init_qstyle(Rice::Module rb_mQt6QtWidgets)
 
     Enum<QStyle::SubControl> rb_cQStyleSubControl =
         // RubyQt6::QtWidgets::QStyle::SubControl
-        define_enum_under<QStyle::SubControl>("SubControl", rb_cQStyle)
+        define_qenum_under<QStyle::SubControl>("SubControl", rb_cQStyle)
             .define_value("SC_None", QStyle::SubControl::SC_None)
             .define_value("SC_ScrollBarAddLine", QStyle::SubControl::SC_ScrollBarAddLine)
             .define_value("SC_ScrollBarSubLine", QStyle::SubControl::SC_ScrollBarSubLine)
@@ -319,7 +320,7 @@ void Init_qstyle(Rice::Module rb_mQt6QtWidgets)
 
     Enum<QStyle::PixelMetric> rb_cQStylePixelMetric =
         // RubyQt6::QtWidgets::QStyle::PixelMetric
-        define_enum_under<QStyle::PixelMetric>("PixelMetric", rb_cQStyle)
+        define_qenum_under<QStyle::PixelMetric>("PixelMetric", rb_cQStyle)
             .define_value("PM_ButtonMargin", QStyle::PixelMetric::PM_ButtonMargin)
             .define_value("PM_ButtonDefaultIndicator", QStyle::PixelMetric::PM_ButtonDefaultIndicator)
             .define_value("PM_MenuButtonIndicator", QStyle::PixelMetric::PM_MenuButtonIndicator)
@@ -416,7 +417,7 @@ void Init_qstyle(Rice::Module rb_mQt6QtWidgets)
 
     Enum<QStyle::ContentsType> rb_cQStyleContentsType =
         // RubyQt6::QtWidgets::QStyle::ContentsType
-        define_enum_under<QStyle::ContentsType>("ContentsType", rb_cQStyle)
+        define_qenum_under<QStyle::ContentsType>("ContentsType", rb_cQStyle)
             .define_value("CT_PushButton", QStyle::ContentsType::CT_PushButton)
             .define_value("CT_CheckBox", QStyle::ContentsType::CT_CheckBox)
             .define_value("CT_RadioButton", QStyle::ContentsType::CT_RadioButton)
@@ -444,13 +445,13 @@ void Init_qstyle(Rice::Module rb_mQt6QtWidgets)
 
     Enum<QStyle::RequestSoftwareInputPanel> rb_cQStyleRequestSoftwareInputPanel =
         // RubyQt6::QtWidgets::QStyle::RequestSoftwareInputPanel
-        define_enum_under<QStyle::RequestSoftwareInputPanel>("RequestSoftwareInputPanel", rb_cQStyle)
+        define_qenum_under<QStyle::RequestSoftwareInputPanel>("RequestSoftwareInputPanel", rb_cQStyle)
             .define_value("RSIP_OnMouseClickAndAlreadyFocused", QStyle::RequestSoftwareInputPanel::RSIP_OnMouseClickAndAlreadyFocused)
             .define_value("RSIP_OnMouseClick", QStyle::RequestSoftwareInputPanel::RSIP_OnMouseClick);
 
     Enum<QStyle::StyleHint> rb_cQStyleStyleHint =
         // RubyQt6::QtWidgets::QStyle::StyleHint
-        define_enum_under<QStyle::StyleHint>("StyleHint", rb_cQStyle)
+        define_qenum_under<QStyle::StyleHint>("StyleHint", rb_cQStyle)
             .define_value("SH_EtchDisabledText", QStyle::StyleHint::SH_EtchDisabledText)
             .define_value("SH_DitherDisabledText", QStyle::StyleHint::SH_DitherDisabledText)
             .define_value("SH_ScrollBar_MiddleClickAbsolutePosition", QStyle::StyleHint::SH_ScrollBar_MiddleClickAbsolutePosition)
@@ -575,7 +576,7 @@ void Init_qstyle(Rice::Module rb_mQt6QtWidgets)
 
     Enum<QStyle::StandardPixmap> rb_cQStyleStandardPixmap =
         // RubyQt6::QtWidgets::QStyle::StandardPixmap
-        define_enum_under<QStyle::StandardPixmap>("StandardPixmap", rb_cQStyle)
+        define_qenum_under<QStyle::StandardPixmap>("StandardPixmap", rb_cQStyle)
             .define_value("SP_TitleBarMenuButton", QStyle::StandardPixmap::SP_TitleBarMenuButton)
             .define_value("SP_TitleBarMinButton", QStyle::StandardPixmap::SP_TitleBarMinButton)
             .define_value("SP_TitleBarMaxButton", QStyle::StandardPixmap::SP_TitleBarMaxButton)

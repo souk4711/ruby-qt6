@@ -1,5 +1,6 @@
 #include "qrubberband-rb.hpp"
 #include <qrubberband.h>
+#include <rice/qenum.hpp>
 
 using namespace Rice;
 
@@ -25,7 +26,7 @@ void Init_qrubberband(Rice::Module rb_mQt6QtWidgets)
 
     Enum<QRubberBand::Shape> rb_cQRubberBandShape =
         // RubyQt6::QtWidgets::QRubberBand::Shape
-        define_enum_under<QRubberBand::Shape>("Shape", rb_cQRubberBand)
+        define_qenum_under<QRubberBand::Shape>("Shape", rb_cQRubberBand)
             .define_value("Line", QRubberBand::Shape::Line)
             .define_value("Rectangle", QRubberBand::Shape::Rectangle);
 }

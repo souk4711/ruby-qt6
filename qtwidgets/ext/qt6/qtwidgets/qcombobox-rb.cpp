@@ -1,5 +1,6 @@
 #include "qcombobox-rb.hpp"
 #include <qcombobox.h>
+#include <rice/qenum.hpp>
 
 #include <QAbstractItemView>
 #include <QCompleter>
@@ -98,7 +99,7 @@ void Init_qcombobox(Rice::Module rb_mQt6QtWidgets)
 
     Enum<QComboBox::InsertPolicy> rb_cQComboBoxInsertPolicy =
         // RubyQt6::QtWidgets::QComboBox::InsertPolicy
-        define_enum_under<QComboBox::InsertPolicy>("InsertPolicy", rb_cQComboBox)
+        define_qenum_under<QComboBox::InsertPolicy>("InsertPolicy", rb_cQComboBox)
             .define_value("NoInsert", QComboBox::InsertPolicy::NoInsert)
             .define_value("InsertAtTop", QComboBox::InsertPolicy::InsertAtTop)
             .define_value("InsertAtCurrent", QComboBox::InsertPolicy::InsertAtCurrent)
@@ -109,13 +110,13 @@ void Init_qcombobox(Rice::Module rb_mQt6QtWidgets)
 
     Enum<QComboBox::LabelDrawingMode> rb_cQComboBoxLabelDrawingMode =
         // RubyQt6::QtWidgets::QComboBox::LabelDrawingMode
-        define_enum_under<QComboBox::LabelDrawingMode>("LabelDrawingMode", rb_cQComboBox)
+        define_qenum_under<QComboBox::LabelDrawingMode>("LabelDrawingMode", rb_cQComboBox)
             .define_value("UseStyle", QComboBox::LabelDrawingMode::UseStyle)
             .define_value("UseDelegate", QComboBox::LabelDrawingMode::UseDelegate);
 
     Enum<QComboBox::SizeAdjustPolicy> rb_cQComboBoxSizeAdjustPolicy =
         // RubyQt6::QtWidgets::QComboBox::SizeAdjustPolicy
-        define_enum_under<QComboBox::SizeAdjustPolicy>("SizeAdjustPolicy", rb_cQComboBox)
+        define_qenum_under<QComboBox::SizeAdjustPolicy>("SizeAdjustPolicy", rb_cQComboBox)
             .define_value("AdjustToContents", QComboBox::SizeAdjustPolicy::AdjustToContents)
             .define_value("AdjustToContentsOnFirstShow", QComboBox::SizeAdjustPolicy::AdjustToContentsOnFirstShow)
             .define_value("AdjustToMinimumContentsLengthWithIcon", QComboBox::SizeAdjustPolicy::AdjustToMinimumContentsLengthWithIcon);

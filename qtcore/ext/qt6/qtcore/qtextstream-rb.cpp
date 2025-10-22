@@ -1,5 +1,6 @@
 #include "qtextstream-rb.hpp"
 #include <qtextstream.h>
+#include <rice/qenum.hpp>
 #include <rice/qflags.hpp>
 
 #include <QIODevice>
@@ -62,7 +63,7 @@ void Init_qtextstream(Rice::Module rb_mQt6QtCore)
 
     Enum<QTextStream::FieldAlignment> rb_cQTextStreamFieldAlignment =
         // RubyQt6::QtCore::QTextStream::FieldAlignment
-        define_enum_under<QTextStream::FieldAlignment>("FieldAlignment", rb_cQTextStream)
+        define_qenum_under<QTextStream::FieldAlignment>("FieldAlignment", rb_cQTextStream)
             .define_value("AlignLeft", QTextStream::FieldAlignment::AlignLeft)
             .define_value("AlignRight", QTextStream::FieldAlignment::AlignRight)
             .define_value("AlignCenter", QTextStream::FieldAlignment::AlignCenter)
@@ -70,7 +71,7 @@ void Init_qtextstream(Rice::Module rb_mQt6QtCore)
 
     Enum<QTextStream::NumberFlag> rb_cQTextStreamNumberFlag =
         // RubyQt6::QtCore::QTextStream::NumberFlag
-        define_enum_under<QTextStream::NumberFlag>("NumberFlag", rb_cQTextStream)
+        define_qenum_under<QTextStream::NumberFlag>("NumberFlag", rb_cQTextStream)
             .define_value("ShowBase", QTextStream::NumberFlag::ShowBase)
             .define_value("ForcePoint", QTextStream::NumberFlag::ForcePoint)
             .define_value("ForceSign", QTextStream::NumberFlag::ForceSign)
@@ -79,14 +80,14 @@ void Init_qtextstream(Rice::Module rb_mQt6QtCore)
 
     Enum<QTextStream::RealNumberNotation> rb_cQTextStreamRealNumberNotation =
         // RubyQt6::QtCore::QTextStream::RealNumberNotation
-        define_enum_under<QTextStream::RealNumberNotation>("RealNumberNotation", rb_cQTextStream)
+        define_qenum_under<QTextStream::RealNumberNotation>("RealNumberNotation", rb_cQTextStream)
             .define_value("SmartNotation", QTextStream::RealNumberNotation::SmartNotation)
             .define_value("FixedNotation", QTextStream::RealNumberNotation::FixedNotation)
             .define_value("ScientificNotation", QTextStream::RealNumberNotation::ScientificNotation);
 
     Enum<QTextStream::Status> rb_cQTextStreamStatus =
         // RubyQt6::QtCore::QTextStream::Status
-        define_enum_under<QTextStream::Status>("Status", rb_cQTextStream)
+        define_qenum_under<QTextStream::Status>("Status", rb_cQTextStream)
             .define_value("Ok", QTextStream::Status::Ok)
             .define_value("ReadPastEnd", QTextStream::Status::ReadPastEnd)
             .define_value("ReadCorruptData", QTextStream::Status::ReadCorruptData)

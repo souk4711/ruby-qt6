@@ -1,5 +1,6 @@
 #include "qsizepolicy-rb.hpp"
 #include <qsizepolicy.h>
+#include <rice/qenum.hpp>
 #include <rice/qflags.hpp>
 
 using namespace Rice;
@@ -37,7 +38,7 @@ void Init_qsizepolicy(Rice::Module rb_mQt6QtWidgets)
 
     Enum<QSizePolicy::ControlType> rb_cQSizePolicyControlType =
         // RubyQt6::QtWidgets::QSizePolicy::ControlType
-        define_enum_under<QSizePolicy::ControlType>("ControlType", rb_cQSizePolicy)
+        define_qenum_under<QSizePolicy::ControlType>("ControlType", rb_cQSizePolicy)
             .define_value("DefaultType", QSizePolicy::ControlType::DefaultType)
             .define_value("ButtonBox", QSizePolicy::ControlType::ButtonBox)
             .define_value("CheckBox", QSizePolicy::ControlType::CheckBox)
@@ -56,7 +57,7 @@ void Init_qsizepolicy(Rice::Module rb_mQt6QtWidgets)
 
     Enum<QSizePolicy::Policy> rb_cQSizePolicyPolicy =
         // RubyQt6::QtWidgets::QSizePolicy::Policy
-        define_enum_under<QSizePolicy::Policy>("Policy", rb_cQSizePolicy)
+        define_qenum_under<QSizePolicy::Policy>("Policy", rb_cQSizePolicy)
             .define_value("Fixed", QSizePolicy::Policy::Fixed)
             .define_value("Minimum", QSizePolicy::Policy::Minimum)
             .define_value("Maximum", QSizePolicy::Policy::Maximum)
@@ -67,7 +68,7 @@ void Init_qsizepolicy(Rice::Module rb_mQt6QtWidgets)
 
     Enum<QSizePolicy::PolicyFlag> rb_cQSizePolicyPolicyFlag =
         // RubyQt6::QtWidgets::QSizePolicy::PolicyFlag
-        define_enum_under<QSizePolicy::PolicyFlag>("PolicyFlag", rb_cQSizePolicy)
+        define_qenum_under<QSizePolicy::PolicyFlag>("PolicyFlag", rb_cQSizePolicy)
             .define_value("GrowFlag", QSizePolicy::PolicyFlag::GrowFlag)
             .define_value("ExpandFlag", QSizePolicy::PolicyFlag::ExpandFlag)
             .define_value("ShrinkFlag", QSizePolicy::PolicyFlag::ShrinkFlag)

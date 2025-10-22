@@ -1,5 +1,6 @@
 #include "qitemselectionmodel-rb.hpp"
 #include <qitemselectionmodel.h>
+#include <rice/qenum.hpp>
 #include <rice/qflags.hpp>
 
 #include <QBindable>
@@ -50,7 +51,7 @@ void Init_qitemselectionmodel(Rice::Module rb_mQt6QtCore)
 
     Enum<QItemSelectionModel::SelectionFlag> rb_cQItemSelectionModelSelectionFlag =
         // RubyQt6::QtCore::QItemSelectionModel::SelectionFlag
-        define_enum_under<QItemSelectionModel::SelectionFlag>("SelectionFlag", rb_cQItemSelectionModel)
+        define_qenum_under<QItemSelectionModel::SelectionFlag>("SelectionFlag", rb_cQItemSelectionModel)
             .define_value("NoUpdate", QItemSelectionModel::SelectionFlag::NoUpdate)
             .define_value("Clear", QItemSelectionModel::SelectionFlag::Clear)
             .define_value("Select", QItemSelectionModel::SelectionFlag::Select)

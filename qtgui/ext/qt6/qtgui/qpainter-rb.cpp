@@ -1,6 +1,7 @@
 #include "qpainter-rb.hpp"
 #include <qpainter.h>
 #include <rice/qflags.hpp>
+#include <rice/qenum.hpp>
 
 #include <QGlyphRun>
 #include <QPainterPath>
@@ -227,7 +228,7 @@ void Init_qpainter(Rice::Module rb_mQt6QtGui)
 
     Enum<QPainter::CompositionMode> rb_cQPainterCompositionMode =
         // RubyQt6::QtGui::QPainter::CompositionMode
-        define_enum_under<QPainter::CompositionMode>("CompositionMode", rb_cQPainter)
+        define_qenum_under<QPainter::CompositionMode>("CompositionMode", rb_cQPainter)
             .define_value("CompositionMode_SourceOver", QPainter::CompositionMode::CompositionMode_SourceOver)
             .define_value("CompositionMode_DestinationOver", QPainter::CompositionMode::CompositionMode_DestinationOver)
             .define_value("CompositionMode_Clear", QPainter::CompositionMode::CompositionMode_Clear)
@@ -270,12 +271,12 @@ void Init_qpainter(Rice::Module rb_mQt6QtGui)
 
     Enum<QPainter::PixmapFragmentHint> rb_cQPainterPixmapFragmentHint =
         // RubyQt6::QtGui::QPainter::PixmapFragmentHint
-        define_enum_under<QPainter::PixmapFragmentHint>("PixmapFragmentHint", rb_cQPainter)
+        define_qenum_under<QPainter::PixmapFragmentHint>("PixmapFragmentHint", rb_cQPainter)
             .define_value("OpaqueHint", QPainter::PixmapFragmentHint::OpaqueHint);
 
     Enum<QPainter::RenderHint> rb_cQPainterRenderHint =
         // RubyQt6::QtGui::QPainter::RenderHint
-        define_enum_under<QPainter::RenderHint>("RenderHint", rb_cQPainter)
+        define_qenum_under<QPainter::RenderHint>("RenderHint", rb_cQPainter)
             .define_value("Antialiasing", QPainter::RenderHint::Antialiasing)
             .define_value("TextAntialiasing", QPainter::RenderHint::TextAntialiasing)
             .define_value("SmoothPixmapTransform", QPainter::RenderHint::SmoothPixmapTransform)

@@ -1,5 +1,6 @@
 #include "qt-enum-gl-rb.hpp"
 #include <qnamespace.h>
+#include <rice/qenum.hpp>
 
 using namespace Rice;
 
@@ -11,14 +12,14 @@ void Init_qt_enum_gl(Rice::Module rb_mQt6QtCore)
 
     Enum<Qt::GestureFlag> rb_cQtGestureFlag =
         // RubyQt6::QtCore::Qt::GestureFlag
-        define_enum_under<Qt::GestureFlag>("GestureFlag", rb_mQt)
+        define_qenum_under<Qt::GestureFlag>("GestureFlag", rb_mQt)
             .define_value("DontStartGestureOnChildren", Qt::GestureFlag::DontStartGestureOnChildren)
             .define_value("ReceivePartialGestures", Qt::GestureFlag::ReceivePartialGestures)
             .define_value("IgnoredGesturesPropagateToParent", Qt::GestureFlag::IgnoredGesturesPropagateToParent);
 
     Enum<Qt::GestureState> rb_cQtGestureState =
         // RubyQt6::QtCore::Qt::GestureState
-        define_enum_under<Qt::GestureState>("GestureState", rb_mQt)
+        define_qenum_under<Qt::GestureState>("GestureState", rb_mQt)
             .define_value("NoGesture", Qt::GestureState::NoGesture)
             .define_value("GestureStarted", Qt::GestureState::GestureStarted)
             .define_value("GestureUpdated", Qt::GestureState::GestureUpdated)
@@ -27,7 +28,7 @@ void Init_qt_enum_gl(Rice::Module rb_mQt6QtCore)
 
     Enum<Qt::GestureType> rb_cQtGestureType =
         // RubyQt6::QtCore::Qt::GestureType
-        define_enum_under<Qt::GestureType>("GestureType", rb_mQt)
+        define_qenum_under<Qt::GestureType>("GestureType", rb_mQt)
             .define_value("TapGesture", Qt::GestureType::TapGesture)
             .define_value("TapAndHoldGesture", Qt::GestureType::TapAndHoldGesture)
             .define_value("PanGesture", Qt::GestureType::PanGesture)
@@ -38,7 +39,7 @@ void Init_qt_enum_gl(Rice::Module rb_mQt6QtCore)
 
     Enum<Qt::GlobalColor> rb_cQtGlobalColor =
         // RubyQt6::QtCore::Qt::GlobalColor
-        define_enum_under<Qt::GlobalColor>("GlobalColor", rb_mQt)
+        define_qenum_under<Qt::GlobalColor>("GlobalColor", rb_mQt)
             .define_value("Color0", Qt::GlobalColor::color0)
             .define_value("Color1", Qt::GlobalColor::color1)
             .define_value("Black", Qt::GlobalColor::black)
@@ -62,7 +63,7 @@ void Init_qt_enum_gl(Rice::Module rb_mQt6QtCore)
 
     Enum<Qt::HighDpiScaleFactorRoundingPolicy> rb_cQtHighDpiScaleFactorRoundingPolicy =
         // RubyQt6::QtCore::Qt::HighDpiScaleFactorRoundingPolicy
-        define_enum_under<Qt::HighDpiScaleFactorRoundingPolicy>("HighDpiScaleFactorRoundingPolicy", rb_mQt)
+        define_qenum_under<Qt::HighDpiScaleFactorRoundingPolicy>("HighDpiScaleFactorRoundingPolicy", rb_mQt)
             .define_value("Unset", Qt::HighDpiScaleFactorRoundingPolicy::Unset)
             .define_value("Round", Qt::HighDpiScaleFactorRoundingPolicy::Round)
             .define_value("Ceil", Qt::HighDpiScaleFactorRoundingPolicy::Ceil)
@@ -72,13 +73,13 @@ void Init_qt_enum_gl(Rice::Module rb_mQt6QtCore)
 
     Enum<Qt::HitTestAccuracy> rb_cQtHitTestAccuracy =
         // RubyQt6::QtCore::Qt::HitTestAccuracy
-        define_enum_under<Qt::HitTestAccuracy>("HitTestAccuracy", rb_mQt)
+        define_qenum_under<Qt::HitTestAccuracy>("HitTestAccuracy", rb_mQt)
             .define_value("ExactHit", Qt::HitTestAccuracy::ExactHit)
             .define_value("FuzzyHit", Qt::HitTestAccuracy::FuzzyHit);
 
     Enum<Qt::ImageConversionFlag> rb_cQtImageConversionFlag =
         // RubyQt6::QtCore::Qt::ImageConversionFlag
-        define_enum_under<Qt::ImageConversionFlag>("ImageConversionFlag", rb_mQt)
+        define_qenum_under<Qt::ImageConversionFlag>("ImageConversionFlag", rb_mQt)
             .define_value("ColorMode_Mask", Qt::ImageConversionFlag::ColorMode_Mask)
             .define_value("AutoColor", Qt::ImageConversionFlag::AutoColor)
             .define_value("ColorOnly", Qt::ImageConversionFlag::ColorOnly)
@@ -101,12 +102,12 @@ void Init_qt_enum_gl(Rice::Module rb_mQt6QtCore)
 
     Enum<Qt::Initialization> rb_cQtInitialization =
         // RubyQt6::QtCore::Qt::Initialization
-        define_enum_under<Qt::Initialization>("Initialization", rb_mQt)
+        define_qenum_under<Qt::Initialization>("Initialization", rb_mQt)
             .define_value("Uninitialized", Qt::Initialization::Uninitialized);
 
     Enum<Qt::InputMethodHint> rb_cQtInputMethodHint =
         // RubyQt6::QtCore::Qt::InputMethodHint
-        define_enum_under<Qt::InputMethodHint>("InputMethodHint", rb_mQt)
+        define_qenum_under<Qt::InputMethodHint>("InputMethodHint", rb_mQt)
             .define_value("ImhNone", Qt::InputMethodHint::ImhNone)
             .define_value("ImhHiddenText", Qt::InputMethodHint::ImhHiddenText)
             .define_value("ImhSensitiveData", Qt::InputMethodHint::ImhSensitiveData)
@@ -133,7 +134,7 @@ void Init_qt_enum_gl(Rice::Module rb_mQt6QtCore)
 
     Enum<Qt::InputMethodQuery> rb_cQtInputMethodQuery =
         // RubyQt6::QtCore::Qt::InputMethodQuery
-        define_enum_under<Qt::InputMethodQuery>("InputMethodQuery", rb_mQt)
+        define_qenum_under<Qt::InputMethodQuery>("InputMethodQuery", rb_mQt)
             .define_value("ImEnabled", Qt::InputMethodQuery::ImEnabled)
             .define_value("ImCursorRectangle", Qt::InputMethodQuery::ImCursorRectangle)
             .define_value("ImFont", Qt::InputMethodQuery::ImFont)
@@ -157,7 +158,7 @@ void Init_qt_enum_gl(Rice::Module rb_mQt6QtCore)
 
     Enum<Qt::ItemDataRole> rb_cQtItemDataRole =
         // RubyQt6::QtCore::Qt::ItemDataRole
-        define_enum_under<Qt::ItemDataRole>("ItemDataRole", rb_mQt)
+        define_qenum_under<Qt::ItemDataRole>("ItemDataRole", rb_mQt)
             .define_value("DisplayRole", Qt::ItemDataRole::DisplayRole)
             .define_value("DecorationRole", Qt::ItemDataRole::DecorationRole)
             .define_value("EditRole", Qt::ItemDataRole::EditRole)
@@ -182,7 +183,7 @@ void Init_qt_enum_gl(Rice::Module rb_mQt6QtCore)
 
     Enum<Qt::ItemFlag> rb_cQtItemFlag =
         // RubyQt6::QtCore::Qt::ItemFlag
-        define_enum_under<Qt::ItemFlag>("ItemFlag", rb_mQt)
+        define_qenum_under<Qt::ItemFlag>("ItemFlag", rb_mQt)
             .define_value("NoItemFlags", Qt::ItemFlag::NoItemFlags)
             .define_value("ItemIsSelectable", Qt::ItemFlag::ItemIsSelectable)
             .define_value("ItemIsEditable", Qt::ItemFlag::ItemIsEditable)
@@ -196,7 +197,7 @@ void Init_qt_enum_gl(Rice::Module rb_mQt6QtCore)
 
     Enum<Qt::ItemSelectionMode> rb_cQtItemSelectionMode =
         // RubyQt6::QtCore::Qt::ItemSelectionMode
-        define_enum_under<Qt::ItemSelectionMode>("ItemSelectionMode", rb_mQt)
+        define_qenum_under<Qt::ItemSelectionMode>("ItemSelectionMode", rb_mQt)
             .define_value("ContainsItemShape", Qt::ItemSelectionMode::ContainsItemShape)
             .define_value("IntersectsItemShape", Qt::ItemSelectionMode::IntersectsItemShape)
             .define_value("ContainsItemBoundingRect", Qt::ItemSelectionMode::ContainsItemBoundingRect)
@@ -204,13 +205,13 @@ void Init_qt_enum_gl(Rice::Module rb_mQt6QtCore)
 
     Enum<Qt::ItemSelectionOperation> rb_cQtItemSelectionOperation =
         // RubyQt6::QtCore::Qt::ItemSelectionOperation
-        define_enum_under<Qt::ItemSelectionOperation>("ItemSelectionOperation", rb_mQt)
+        define_qenum_under<Qt::ItemSelectionOperation>("ItemSelectionOperation", rb_mQt)
             .define_value("ReplaceSelection", Qt::ItemSelectionOperation::ReplaceSelection)
             .define_value("AddToSelection", Qt::ItemSelectionOperation::AddToSelection);
 
     Enum<Qt::Key> rb_cQtKey =
         // RubyQt6::QtCore::Qt::Key
-        define_enum_under<Qt::Key>("Key", rb_mQt)
+        define_qenum_under<Qt::Key>("Key", rb_mQt)
             .define_value("Key_Space", Qt::Key::Key_Space)
             .define_value("Key_Any", Qt::Key::Key_Any)
             .define_value("Key_Exclam", Qt::Key::Key_Exclam)
@@ -683,7 +684,7 @@ void Init_qt_enum_gl(Rice::Module rb_mQt6QtCore)
 
     Enum<Qt::KeyboardModifier> rb_cQtKeyboardModifier =
         // RubyQt6::QtCore::Qt::KeyboardModifier
-        define_enum_under<Qt::KeyboardModifier>("KeyboardModifier", rb_mQt)
+        define_qenum_under<Qt::KeyboardModifier>("KeyboardModifier", rb_mQt)
             .define_value("NoModifier", Qt::KeyboardModifier::NoModifier)
             .define_value("ShiftModifier", Qt::KeyboardModifier::ShiftModifier)
             .define_value("ControlModifier", Qt::KeyboardModifier::ControlModifier)
@@ -695,7 +696,7 @@ void Init_qt_enum_gl(Rice::Module rb_mQt6QtCore)
 
     Enum<Qt::LayoutDirection> rb_cQtLayoutDirection =
         // RubyQt6::QtCore::Qt::LayoutDirection
-        define_enum_under<Qt::LayoutDirection>("LayoutDirection", rb_mQt)
+        define_qenum_under<Qt::LayoutDirection>("LayoutDirection", rb_mQt)
             .define_value("LeftToRight", Qt::LayoutDirection::LeftToRight)
             .define_value("RightToLeft", Qt::LayoutDirection::RightToLeft)
             .define_value("LayoutDirectionAuto", Qt::LayoutDirection::LayoutDirectionAuto);

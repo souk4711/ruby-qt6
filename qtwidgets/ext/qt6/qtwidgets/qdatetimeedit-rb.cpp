@@ -1,5 +1,6 @@
 #include "qdatetimeedit-rb.hpp"
 #include <qdatetimeedit.h>
+#include <rice/qenum.hpp>
 #include <rice/qflags.hpp>
 
 #include <QCalendarWidget>
@@ -76,7 +77,7 @@ void Init_qdatetimeedit(Rice::Module rb_mQt6QtWidgets)
 
     Enum<QDateTimeEdit::Section> rb_cQDateTimeEditSection =
         // RubyQt6::QtWidgets::QDateTimeEdit::Section
-        define_enum_under<QDateTimeEdit::Section>("Section", rb_cQDateTimeEdit)
+        define_qenum_under<QDateTimeEdit::Section>("Section", rb_cQDateTimeEdit)
             .define_value("NoSection", QDateTimeEdit::Section::NoSection)
             .define_value("AmPmSection", QDateTimeEdit::Section::AmPmSection)
             .define_value("MSecSection", QDateTimeEdit::Section::MSecSection)

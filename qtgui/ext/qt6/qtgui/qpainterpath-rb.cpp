@@ -1,5 +1,6 @@
 #include "qpainterpath-rb.hpp"
 #include <qpainterpath.h>
+#include <rice/qenum.hpp>
 
 #include <QFont>
 
@@ -81,7 +82,7 @@ void Init_qpainterpath(Rice::Module rb_mQt6QtGui)
 
     Enum<QPainterPath::ElementType> rb_cQPainterPathElementType =
         // RubyQt6::QtGui::QPainterPath::ElementType
-        define_enum_under<QPainterPath::ElementType>("ElementType", rb_cQPainterPath)
+        define_qenum_under<QPainterPath::ElementType>("ElementType", rb_cQPainterPath)
             .define_value("MoveToElement", QPainterPath::ElementType::MoveToElement)
             .define_value("LineToElement", QPainterPath::ElementType::LineToElement)
             .define_value("CurveToElement", QPainterPath::ElementType::CurveToElement)

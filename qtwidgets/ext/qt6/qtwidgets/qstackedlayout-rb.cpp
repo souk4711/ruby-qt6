@@ -1,5 +1,6 @@
 #include "qstackedlayout-rb.hpp"
 #include <qstackedlayout.h>
+#include <rice/qenum.hpp>
 
 #include <QWidget>
 
@@ -40,7 +41,7 @@ void Init_qstackedlayout(Rice::Module rb_mQt6QtWidgets)
 
     Enum<QStackedLayout::StackingMode> rb_cQStackedLayoutStackingMode =
         // RubyQt6::QtWidgets::QStackedLayout::StackingMode
-        define_enum_under<QStackedLayout::StackingMode>("StackingMode", rb_cQStackedLayout)
+        define_qenum_under<QStackedLayout::StackingMode>("StackingMode", rb_cQStackedLayout)
             .define_value("StackOne", QStackedLayout::StackingMode::StackOne)
             .define_value("StackAll", QStackedLayout::StackingMode::StackAll);
 }

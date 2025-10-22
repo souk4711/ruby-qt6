@@ -1,5 +1,6 @@
 #include "qplaintextedit-rb.hpp"
 #include <qplaintextedit.h>
+#include <rice/qenum.hpp>
 
 #include <QMenu>
 #include <QPagedPaintDevice>
@@ -102,7 +103,7 @@ void Init_qplaintextedit(Rice::Module rb_mQt6QtWidgets)
 
     Enum<QPlainTextEdit::LineWrapMode> rb_cQPlainTextEditLineWrapMode =
         // RubyQt6::QtWidgets::QPlainTextEdit::LineWrapMode
-        define_enum_under<QPlainTextEdit::LineWrapMode>("LineWrapMode", rb_cQPlainTextEdit)
+        define_qenum_under<QPlainTextEdit::LineWrapMode>("LineWrapMode", rb_cQPlainTextEdit)
             .define_value("NoWrap", QPlainTextEdit::LineWrapMode::NoWrap)
             .define_value("WidgetWidth", QPlainTextEdit::LineWrapMode::WidgetWidth);
 }

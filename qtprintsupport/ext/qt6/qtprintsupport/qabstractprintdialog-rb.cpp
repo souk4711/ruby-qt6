@@ -1,5 +1,6 @@
 #include "qabstractprintdialog-rb.hpp"
 #include <qabstractprintdialog.h>
+#include <rice/qenum.hpp>
 #include <rice/qflags.hpp>
 
 #include <QPrinter>
@@ -31,7 +32,7 @@ void Init_qabstractprintdialog(Rice::Module rb_mQt6QtPrintSupport)
 
    Enum<QAbstractPrintDialog::PrintDialogOption> rb_cQAbstractPrintDialogPrintDialogOption =
         // RubyQt6::QtPrintSupport::QAbstractPrintDialog::PrintDialogOption
-        define_enum_under<QAbstractPrintDialog::PrintDialogOption>("PrintDialogOption", rb_cQAbstractPrintDialog)
+        define_qenum_under<QAbstractPrintDialog::PrintDialogOption>("PrintDialogOption", rb_cQAbstractPrintDialog)
             .define_value("PrintToFile", QAbstractPrintDialog::PrintDialogOption::PrintToFile)
             .define_value("PrintSelection", QAbstractPrintDialog::PrintDialogOption::PrintSelection)
             .define_value("PrintPageRange", QAbstractPrintDialog::PrintDialogOption::PrintPageRange)
@@ -41,7 +42,7 @@ void Init_qabstractprintdialog(Rice::Module rb_mQt6QtPrintSupport)
 
     Enum<QAbstractPrintDialog::PrintRange> rb_cQAbstractPrintDialogPrintRange =
         // RubyQt6::QtPrintSupport::QAbstractPrintDialog::PrintRange
-        define_enum_under<QAbstractPrintDialog::PrintRange>("PrintRange", rb_cQAbstractPrintDialog)
+        define_qenum_under<QAbstractPrintDialog::PrintRange>("PrintRange", rb_cQAbstractPrintDialog)
             .define_value("AllPages", QAbstractPrintDialog::PrintRange::AllPages)
             .define_value("Selection", QAbstractPrintDialog::PrintRange::Selection)
             .define_value("PageRange", QAbstractPrintDialog::PrintRange::PageRange)

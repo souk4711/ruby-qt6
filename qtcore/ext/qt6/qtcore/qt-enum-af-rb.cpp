@@ -1,5 +1,6 @@
 #include "qt-enum-af-rb.hpp"
 #include <qnamespace.h>
+#include <rice/qenum.hpp>
 
 using namespace Rice;
 
@@ -11,7 +12,7 @@ void Init_qt_enum_af(Rice::Module rb_mQt6QtCore)
 
     Enum<Qt::AlignmentFlag> rb_cQtAlignmentFlag =
         // RubyQt6::QtCore::Qt::AlignmentFlag
-        define_enum_under<Qt::AlignmentFlag>("AlignmentFlag", rb_mQt)
+        define_qenum_under<Qt::AlignmentFlag>("AlignmentFlag", rb_mQt)
             .define_value("AlignLeft", Qt::AlignmentFlag::AlignLeft)
             .define_value("AlignLeading", Qt::AlignmentFlag::AlignLeading)
             .define_value("AlignRight", Qt::AlignmentFlag::AlignRight)
@@ -29,7 +30,7 @@ void Init_qt_enum_af(Rice::Module rb_mQt6QtCore)
 
     Enum<Qt::AnchorPoint> rb_cQtAnchorPoint =
         // RubyQt6::QtCore::Qt::AnchorPoint
-        define_enum_under<Qt::AnchorPoint>("AnchorPoint", rb_mQt)
+        define_qenum_under<Qt::AnchorPoint>("AnchorPoint", rb_mQt)
             .define_value("AnchorLeft", Qt::AnchorPoint::AnchorLeft)
             .define_value("AnchorHorizontalCenter", Qt::AnchorPoint::AnchorHorizontalCenter)
             .define_value("AnchorRight", Qt::AnchorPoint::AnchorRight)
@@ -39,7 +40,7 @@ void Init_qt_enum_af(Rice::Module rb_mQt6QtCore)
 
     Enum<Qt::ApplicationAttribute> rb_cQtApplicationAttribute =
         // RubyQt6::QtCore::Qt::ApplicationAttribute
-        define_enum_under<Qt::ApplicationAttribute>("ApplicationAttribute", rb_mQt)
+        define_qenum_under<Qt::ApplicationAttribute>("ApplicationAttribute", rb_mQt)
             .define_value("AA_QtQuickUseDefaultSizePolicy", Qt::ApplicationAttribute::AA_QtQuickUseDefaultSizePolicy)
             .define_value("AA_DontShowIconsInMenus", Qt::ApplicationAttribute::AA_DontShowIconsInMenus)
             .define_value("AA_NativeWindows", Qt::ApplicationAttribute::AA_NativeWindows)
@@ -71,7 +72,7 @@ void Init_qt_enum_af(Rice::Module rb_mQt6QtCore)
 
     Enum<Qt::ApplicationState> rb_cQtApplicationState =
         // RubyQt6::QtCore::Qt::ApplicationState
-        define_enum_under<Qt::ApplicationState>("ApplicationState", rb_mQt)
+        define_qenum_under<Qt::ApplicationState>("ApplicationState", rb_mQt)
             .define_value("ApplicationSuspended", Qt::ApplicationState::ApplicationSuspended)
             .define_value("ApplicationHidden", Qt::ApplicationState::ApplicationHidden)
             .define_value("ApplicationInactive", Qt::ApplicationState::ApplicationInactive)
@@ -79,7 +80,7 @@ void Init_qt_enum_af(Rice::Module rb_mQt6QtCore)
 
     Enum<Qt::ArrowType> rb_cQtArrowType =
         // RubyQt6::QtCore::Qt::ArrowType
-        define_enum_under<Qt::ArrowType>("ArrowType", rb_mQt)
+        define_qenum_under<Qt::ArrowType>("ArrowType", rb_mQt)
             .define_value("NoArrow", Qt::ArrowType::NoArrow)
             .define_value("UpArrow", Qt::ArrowType::UpArrow)
             .define_value("DownArrow", Qt::ArrowType::DownArrow)
@@ -88,27 +89,27 @@ void Init_qt_enum_af(Rice::Module rb_mQt6QtCore)
 
     Enum<Qt::AspectRatioMode> rb_cQtAspectRatioMode =
         // RubyQt6::QtCore::Qt::AspectRatioMode
-        define_enum_under<Qt::AspectRatioMode>("AspectRatioMode", rb_mQt)
+        define_qenum_under<Qt::AspectRatioMode>("AspectRatioMode", rb_mQt)
             .define_value("IgnoreAspectRatio", Qt::AspectRatioMode::IgnoreAspectRatio)
             .define_value("KeepAspectRatio", Qt::AspectRatioMode::KeepAspectRatio)
             .define_value("KeepAspectRatioByExpanding", Qt::AspectRatioMode::KeepAspectRatioByExpanding);
 
     Enum<Qt::Axis> rb_cQtAxis =
         // RubyQt6::QtCore::Qt::Axis
-        define_enum_under<Qt::Axis>("Axis", rb_mQt)
+        define_qenum_under<Qt::Axis>("Axis", rb_mQt)
             .define_value("XAxis", Qt::Axis::XAxis)
             .define_value("YAxis", Qt::Axis::YAxis)
             .define_value("ZAxis", Qt::Axis::ZAxis);
 
     Enum<Qt::BGMode> rb_cQtBGMode =
         // RubyQt6::QtCore::Qt::BGMode
-        define_enum_under<Qt::BGMode>("BGMode", rb_mQt)
+        define_qenum_under<Qt::BGMode>("BGMode", rb_mQt)
             .define_value("TransparentMode", Qt::BGMode::TransparentMode)
             .define_value("OpaqueMode", Qt::BGMode::OpaqueMode);
 
     Enum<Qt::BrushStyle> rb_cQtBrushStyle =
         // RubyQt6::QtCore::Qt::BrushStyle
-        define_enum_under<Qt::BrushStyle>("BrushStyle", rb_mQt)
+        define_qenum_under<Qt::BrushStyle>("BrushStyle", rb_mQt)
             .define_value("NoBrush", Qt::BrushStyle::NoBrush)
             .define_value("SolidPattern", Qt::BrushStyle::SolidPattern)
             .define_value("Dense1Pattern", Qt::BrushStyle::Dense1Pattern)
@@ -131,40 +132,40 @@ void Init_qt_enum_af(Rice::Module rb_mQt6QtCore)
 
     Enum<Qt::CaseSensitivity> rb_cQtCaseSensitivity =
         // RubyQt6::QtCore::Qt::CaseSensitivity
-        define_enum_under<Qt::CaseSensitivity>("CaseSensitivity", rb_mQt)
+        define_qenum_under<Qt::CaseSensitivity>("CaseSensitivity", rb_mQt)
             .define_value("CaseInsensitive", Qt::CaseSensitivity::CaseInsensitive)
             .define_value("CaseSensitive", Qt::CaseSensitivity::CaseSensitive);
 
     Enum<Qt::CheckState> rb_cQtCheckState =
         // RubyQt6::QtCore::Qt::CheckState
-        define_enum_under<Qt::CheckState>("CheckState", rb_mQt)
+        define_qenum_under<Qt::CheckState>("CheckState", rb_mQt)
             .define_value("Unchecked", Qt::CheckState::Unchecked)
             .define_value("PartiallyChecked", Qt::CheckState::PartiallyChecked)
             .define_value("Checked", Qt::CheckState::Checked);
 
     Enum<Qt::ChecksumType> rb_cQtChecksumType =
         // RubyQt6::QtCore::Qt::ChecksumType
-        define_enum_under<Qt::ChecksumType>("ChecksumType", rb_mQt)
+        define_qenum_under<Qt::ChecksumType>("ChecksumType", rb_mQt)
             .define_value("ChecksumIso3309", Qt::ChecksumType::ChecksumIso3309)
             .define_value("ChecksumItuV41", Qt::ChecksumType::ChecksumItuV41);
 
     Enum<Qt::ClipOperation> rb_cQtClipOperation =
         // RubyQt6::QtCore::Qt::ClipOperation
-        define_enum_under<Qt::ClipOperation>("ClipOperation", rb_mQt)
+        define_qenum_under<Qt::ClipOperation>("ClipOperation", rb_mQt)
             .define_value("NoClip", Qt::ClipOperation::NoClip)
             .define_value("ReplaceClip", Qt::ClipOperation::ReplaceClip)
             .define_value("IntersectClip", Qt::ClipOperation::IntersectClip);
 
     Enum<Qt::ColorScheme> rb_cQtColorScheme =
         // RubyQt6::QtCore::Qt::ColorScheme
-        define_enum_under<Qt::ColorScheme>("ColorScheme", rb_mQt)
+        define_qenum_under<Qt::ColorScheme>("ColorScheme", rb_mQt)
             .define_value("Unknown", Qt::ColorScheme::Unknown)
             .define_value("Light", Qt::ColorScheme::Light)
             .define_value("Dark", Qt::ColorScheme::Dark);
 
     Enum<Qt::ConnectionType> rb_cQtConnectionType =
         // RubyQt6::QtCore::Qt::ConnectionType
-        define_enum_under<Qt::ConnectionType>("ConnectionType", rb_mQt)
+        define_qenum_under<Qt::ConnectionType>("ConnectionType", rb_mQt)
             .define_value("AutoConnection", Qt::ConnectionType::AutoConnection)
             .define_value("DirectConnection", Qt::ConnectionType::DirectConnection)
             .define_value("QueuedConnection", Qt::ConnectionType::QueuedConnection)
@@ -174,7 +175,7 @@ void Init_qt_enum_af(Rice::Module rb_mQt6QtCore)
 
     Enum<Qt::ContextMenuPolicy> rb_cQtContextMenuPolicy =
         // RubyQt6::QtCore::Qt::ContextMenuPolicy
-        define_enum_under<Qt::ContextMenuPolicy>("ContextMenuPolicy", rb_mQt)
+        define_qenum_under<Qt::ContextMenuPolicy>("ContextMenuPolicy", rb_mQt)
             .define_value("NoContextMenu", Qt::ContextMenuPolicy::NoContextMenu)
             .define_value("DefaultContextMenu", Qt::ContextMenuPolicy::DefaultContextMenu)
             .define_value("ActionsContextMenu", Qt::ContextMenuPolicy::ActionsContextMenu)
@@ -183,19 +184,19 @@ void Init_qt_enum_af(Rice::Module rb_mQt6QtCore)
 
     Enum<Qt::ContextMenuTrigger> rb_cQtContextMenuTrigger =
         // RubyQt6::QtCore::Qt::ContextMenuTrigger
-        define_enum_under<Qt::ContextMenuTrigger>("ContextMenuTrigger", rb_mQt)
+        define_qenum_under<Qt::ContextMenuTrigger>("ContextMenuTrigger", rb_mQt)
             .define_value("Press", Qt::ContextMenuTrigger::Press)
             .define_value("Release", Qt::ContextMenuTrigger::Release);
 
     Enum<Qt::CoordinateSystem> rb_cQtCoordinateSystem =
         // RubyQt6::QtCore::Qt::CoordinateSystem
-        define_enum_under<Qt::CoordinateSystem>("CoordinateSystem", rb_mQt)
+        define_qenum_under<Qt::CoordinateSystem>("CoordinateSystem", rb_mQt)
             .define_value("DeviceCoordinates", Qt::CoordinateSystem::DeviceCoordinates)
             .define_value("LogicalCoordinates", Qt::CoordinateSystem::LogicalCoordinates);
 
     Enum<Qt::Corner> rb_cQtCorner =
         // RubyQt6::QtCore::Qt::Corner
-        define_enum_under<Qt::Corner>("Corner", rb_mQt)
+        define_qenum_under<Qt::Corner>("Corner", rb_mQt)
             .define_value("TopLeftCorner", Qt::Corner::TopLeftCorner)
             .define_value("TopRightCorner", Qt::Corner::TopRightCorner)
             .define_value("BottomLeftCorner", Qt::Corner::BottomLeftCorner)
@@ -203,13 +204,13 @@ void Init_qt_enum_af(Rice::Module rb_mQt6QtCore)
 
     Enum<Qt::CursorMoveStyle> rb_cQtCursorMoveStyle =
         // RubyQt6::QtCore::Qt::CursorMoveStyle
-        define_enum_under<Qt::CursorMoveStyle>("CursorMoveStyle", rb_mQt)
+        define_qenum_under<Qt::CursorMoveStyle>("CursorMoveStyle", rb_mQt)
             .define_value("LogicalMoveStyle", Qt::CursorMoveStyle::LogicalMoveStyle)
             .define_value("VisualMoveStyle", Qt::CursorMoveStyle::VisualMoveStyle);
 
     Enum<Qt::CursorShape> rb_cQtCursorShape =
         // RubyQt6::QtCore::Qt::CursorShape
-        define_enum_under<Qt::CursorShape>("CursorShape", rb_mQt)
+        define_qenum_under<Qt::CursorShape>("CursorShape", rb_mQt)
             .define_value("ArrowCursor", Qt::CursorShape::ArrowCursor)
             .define_value("UpArrowCursor", Qt::CursorShape::UpArrowCursor)
             .define_value("CrossCursor", Qt::CursorShape::CrossCursor)
@@ -238,7 +239,7 @@ void Init_qt_enum_af(Rice::Module rb_mQt6QtCore)
 
     Enum<Qt::DateFormat> rb_cQtDateFormat =
         // RubyQt6::QtCore::Qt::DateFormat
-        define_enum_under<Qt::DateFormat>("DateFormat", rb_mQt)
+        define_qenum_under<Qt::DateFormat>("DateFormat", rb_mQt)
             .define_value("TextDate", Qt::DateFormat::TextDate)
             .define_value("ISODate", Qt::DateFormat::ISODate)
             .define_value("RFC2822Date", Qt::DateFormat::RFC2822Date)
@@ -246,7 +247,7 @@ void Init_qt_enum_af(Rice::Module rb_mQt6QtCore)
 
     Enum<Qt::DayOfWeek> rb_cQtDayOfWeek =
         // RubyQt6::QtCore::Qt::DayOfWeek
-        define_enum_under<Qt::DayOfWeek>("DayOfWeek", rb_mQt)
+        define_qenum_under<Qt::DayOfWeek>("DayOfWeek", rb_mQt)
             .define_value("Monday", Qt::DayOfWeek::Monday)
             .define_value("Tuesday", Qt::DayOfWeek::Tuesday)
             .define_value("Wednesday", Qt::DayOfWeek::Wednesday)
@@ -257,7 +258,7 @@ void Init_qt_enum_af(Rice::Module rb_mQt6QtCore)
 
     Enum<Qt::DockWidgetArea> rb_cQtDockWidgetArea =
         // RubyQt6::QtCore::Qt::DockWidgetArea
-        define_enum_under<Qt::DockWidgetArea>("DockWidgetArea", rb_mQt)
+        define_qenum_under<Qt::DockWidgetArea>("DockWidgetArea", rb_mQt)
             .define_value("LeftDockWidgetArea", Qt::DockWidgetArea::LeftDockWidgetArea)
             .define_value("RightDockWidgetArea", Qt::DockWidgetArea::RightDockWidgetArea)
             .define_value("TopDockWidgetArea", Qt::DockWidgetArea::TopDockWidgetArea)
@@ -268,12 +269,12 @@ void Init_qt_enum_af(Rice::Module rb_mQt6QtCore)
 
     Enum<Qt::DockWidgetAreaSizes> rb_cQtDockWidgetAreaSizes =
         // RubyQt6::QtCore::Qt::DockWidgetAreaSizes
-        define_enum_under<Qt::DockWidgetAreaSizes>("DockWidgetAreaSizes", rb_mQt)
+        define_qenum_under<Qt::DockWidgetAreaSizes>("DockWidgetAreaSizes", rb_mQt)
             .define_value("NDockWidgetAreas", Qt::DockWidgetAreaSizes::NDockWidgetAreas);
 
     Enum<Qt::DropAction> rb_cQtDropAction =
         // RubyQt6::QtCore::Qt::DropAction
-        define_enum_under<Qt::DropAction>("DropAction", rb_mQt)
+        define_qenum_under<Qt::DropAction>("DropAction", rb_mQt)
             .define_value("CopyAction", Qt::DropAction::CopyAction)
             .define_value("MoveAction", Qt::DropAction::MoveAction)
             .define_value("LinkAction", Qt::DropAction::LinkAction)
@@ -283,7 +284,7 @@ void Init_qt_enum_af(Rice::Module rb_mQt6QtCore)
 
     Enum<Qt::Edge> rb_cQtEdge =
         // RubyQt6::QtCore::Qt::Edge
-        define_enum_under<Qt::Edge>("Edge", rb_mQt)
+        define_qenum_under<Qt::Edge>("Edge", rb_mQt)
             .define_value("TopEdge", Qt::Edge::TopEdge)
             .define_value("LeftEdge", Qt::Edge::LeftEdge)
             .define_value("RightEdge", Qt::Edge::RightEdge)
@@ -291,7 +292,7 @@ void Init_qt_enum_af(Rice::Module rb_mQt6QtCore)
 
     Enum<Qt::EnterKeyType> rb_cQtEnterKeyType =
         // RubyQt6::QtCore::Qt::EnterKeyType
-        define_enum_under<Qt::EnterKeyType>("EnterKeyType", rb_mQt)
+        define_qenum_under<Qt::EnterKeyType>("EnterKeyType", rb_mQt)
             .define_value("EnterKeyDefault", Qt::EnterKeyType::EnterKeyDefault)
             .define_value("EnterKeyReturn", Qt::EnterKeyType::EnterKeyReturn)
             .define_value("EnterKeyDone", Qt::EnterKeyType::EnterKeyDone)
@@ -303,26 +304,26 @@ void Init_qt_enum_af(Rice::Module rb_mQt6QtCore)
 
     Enum<Qt::EventPriority> rb_cQtEventPriority =
         // RubyQt6::QtCore::Qt::EventPriority
-        define_enum_under<Qt::EventPriority>("EventPriority", rb_mQt)
+        define_qenum_under<Qt::EventPriority>("EventPriority", rb_mQt)
             .define_value("HighEventPriority", Qt::EventPriority::HighEventPriority)
             .define_value("NormalEventPriority", Qt::EventPriority::NormalEventPriority)
             .define_value("LowEventPriority", Qt::EventPriority::LowEventPriority);
 
     Enum<Qt::FillRule> rb_cQtFillRule =
         // RubyQt6::QtCore::Qt::FillRule
-        define_enum_under<Qt::FillRule>("FillRule", rb_mQt)
+        define_qenum_under<Qt::FillRule>("FillRule", rb_mQt)
             .define_value("OddEvenFill", Qt::FillRule::OddEvenFill)
             .define_value("WindingFill", Qt::FillRule::WindingFill);
 
     Enum<Qt::FindChildOption> rb_cQtFindChildOption =
         // RubyQt6::QtCore::Qt::FindChildOption
-        define_enum_under<Qt::FindChildOption>("FindChildOption", rb_mQt)
+        define_qenum_under<Qt::FindChildOption>("FindChildOption", rb_mQt)
             .define_value("FindDirectChildrenOnly", Qt::FindChildOption::FindDirectChildrenOnly)
             .define_value("FindChildrenRecursively", Qt::FindChildOption::FindChildrenRecursively);
 
     Enum<Qt::FocusPolicy> rb_cQtFocusPolicy =
         // RubyQt6::QtCore::Qt::FocusPolicy
-        define_enum_under<Qt::FocusPolicy>("FocusPolicy", rb_mQt)
+        define_qenum_under<Qt::FocusPolicy>("FocusPolicy", rb_mQt)
             .define_value("NoFocus", Qt::FocusPolicy::NoFocus)
             .define_value("TabFocus", Qt::FocusPolicy::TabFocus)
             .define_value("ClickFocus", Qt::FocusPolicy::ClickFocus)
@@ -331,7 +332,7 @@ void Init_qt_enum_af(Rice::Module rb_mQt6QtCore)
 
     Enum<Qt::FocusReason> rb_cQtFocusReason =
         // RubyQt6::QtCore::Qt::FocusReason
-        define_enum_under<Qt::FocusReason>("FocusReason", rb_mQt)
+        define_qenum_under<Qt::FocusReason>("FocusReason", rb_mQt)
             .define_value("MouseFocusReason", Qt::FocusReason::MouseFocusReason)
             .define_value("TabFocusReason", Qt::FocusReason::TabFocusReason)
             .define_value("BacktabFocusReason", Qt::FocusReason::BacktabFocusReason)

@@ -1,5 +1,6 @@
 #include "qlibraryinfo-rb.hpp"
 #include <qlibraryinfo.h>
+#include <rice/qenum.hpp>
 
 using namespace Rice;
 
@@ -16,7 +17,7 @@ void Init_qlibraryinfo(Rice::Module rb_mQt6QtCore)
 
     Enum<QLibraryInfo::LibraryPath> rb_cQLibraryInfoLibraryPath =
         // RubyQt6::QtCore::QLibraryInfo::LibraryPath
-        define_enum_under<QLibraryInfo::LibraryPath>("LibraryPath", rb_cQLibraryInfo)
+        define_qenum_under<QLibraryInfo::LibraryPath>("LibraryPath", rb_cQLibraryInfo)
             .define_value("PrefixPath", QLibraryInfo::LibraryPath::PrefixPath)
             .define_value("DocumentationPath", QLibraryInfo::LibraryPath::DocumentationPath)
             .define_value("HeadersPath", QLibraryInfo::LibraryPath::HeadersPath)

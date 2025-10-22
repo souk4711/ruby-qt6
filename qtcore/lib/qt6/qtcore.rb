@@ -16,6 +16,7 @@ require_relative "qtcore/private/signalmanager"
 require_relative "qtcore/version"
 require_relative "qtcore/qtcore"
 require_relative "qtcore/qtcoreversion"
+require_relative "qtcore/qt/qvariant"
 require_relative "qtcore/qt"
 
 require_relative "qtcore/qmetamethod"

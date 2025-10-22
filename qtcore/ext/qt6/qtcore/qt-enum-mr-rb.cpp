@@ -1,5 +1,6 @@
 #include "qt-enum-mr-rb.hpp"
 #include <qnamespace.h>
+#include <rice/qenum.hpp>
 
 using namespace Rice;
 
@@ -11,13 +12,13 @@ void Init_qt_enum_mr(Rice::Module rb_mQt6QtCore)
 
     Enum<Qt::MaskMode> rb_cQtMaskMode =
         // RubyQt6::QtCore::Qt::MaskMode
-        define_enum_under<Qt::MaskMode>("MaskMode", rb_mQt)
+        define_qenum_under<Qt::MaskMode>("MaskMode", rb_mQt)
             .define_value("MaskInColor", Qt::MaskMode::MaskInColor)
             .define_value("MaskOutColor", Qt::MaskMode::MaskOutColor);
 
     Enum<Qt::MatchFlag> rb_cQtMatchFlag =
         // RubyQt6::QtCore::Qt::MatchFlag
-        define_enum_under<Qt::MatchFlag>("MatchFlag", rb_mQt)
+        define_qenum_under<Qt::MatchFlag>("MatchFlag", rb_mQt)
             .define_value("MatchExactly", Qt::MatchFlag::MatchExactly)
             .define_value("MatchContains", Qt::MatchFlag::MatchContains)
             .define_value("MatchStartsWith", Qt::MatchFlag::MatchStartsWith)
@@ -32,7 +33,7 @@ void Init_qt_enum_mr(Rice::Module rb_mQt6QtCore)
 
     Enum<Qt::Modifier> rb_cQtModifier =
         // RubyQt6::QtCore::Qt::Modifier
-        define_enum_under<Qt::Modifier>("Modifier", rb_mQt)
+        define_qenum_under<Qt::Modifier>("Modifier", rb_mQt)
             .define_value("META", Qt::Modifier::META)
             .define_value("SHIFT", Qt::Modifier::SHIFT)
             .define_value("CTRL", Qt::Modifier::CTRL)
@@ -41,7 +42,7 @@ void Init_qt_enum_mr(Rice::Module rb_mQt6QtCore)
 
     Enum<Qt::MouseButton> rb_cQtMouseButton =
         // RubyQt6::QtCore::Qt::MouseButton
-        define_enum_under<Qt::MouseButton>("MouseButton", rb_mQt)
+        define_qenum_under<Qt::MouseButton>("MouseButton", rb_mQt)
             .define_value("NoButton", Qt::MouseButton::NoButton)
             .define_value("LeftButton", Qt::MouseButton::LeftButton)
             .define_value("RightButton", Qt::MouseButton::RightButton)
@@ -81,14 +82,14 @@ void Init_qt_enum_mr(Rice::Module rb_mQt6QtCore)
 
     Enum<Qt::MouseEventFlag> rb_cQtMouseEventFlag =
         // RubyQt6::QtCore::Qt::MouseEventFlag
-        define_enum_under<Qt::MouseEventFlag>("MouseEventFlag", rb_mQt)
+        define_qenum_under<Qt::MouseEventFlag>("MouseEventFlag", rb_mQt)
             .define_value("NoMouseEventFlag", Qt::MouseEventFlag::NoMouseEventFlag)
             .define_value("MouseEventCreatedDoubleClick", Qt::MouseEventFlag::MouseEventCreatedDoubleClick)
             .define_value("MouseEventFlagMask", Qt::MouseEventFlag::MouseEventFlagMask);
 
     Enum<Qt::MouseEventSource> rb_cQtMouseEventSource =
         // RubyQt6::QtCore::Qt::MouseEventSource
-        define_enum_under<Qt::MouseEventSource>("MouseEventSource", rb_mQt)
+        define_qenum_under<Qt::MouseEventSource>("MouseEventSource", rb_mQt)
             .define_value("MouseEventNotSynthesized", Qt::MouseEventSource::MouseEventNotSynthesized)
             .define_value("MouseEventSynthesizedBySystem", Qt::MouseEventSource::MouseEventSynthesizedBySystem)
             .define_value("MouseEventSynthesizedByQt", Qt::MouseEventSource::MouseEventSynthesizedByQt)
@@ -96,7 +97,7 @@ void Init_qt_enum_mr(Rice::Module rb_mQt6QtCore)
 
     Enum<Qt::NativeGestureType> rb_cQtNativeGestureType =
         // RubyQt6::QtCore::Qt::NativeGestureType
-        define_enum_under<Qt::NativeGestureType>("NativeGestureType", rb_mQt)
+        define_qenum_under<Qt::NativeGestureType>("NativeGestureType", rb_mQt)
             .define_value("BeginNativeGesture", Qt::NativeGestureType::BeginNativeGesture)
             .define_value("EndNativeGesture", Qt::NativeGestureType::EndNativeGesture)
             .define_value("PanNativeGesture", Qt::NativeGestureType::PanNativeGesture)
@@ -107,7 +108,7 @@ void Init_qt_enum_mr(Rice::Module rb_mQt6QtCore)
 
     Enum<Qt::NavigationMode> rb_cQtNavigationMode =
         // RubyQt6::QtCore::Qt::NavigationMode
-        define_enum_under<Qt::NavigationMode>("NavigationMode", rb_mQt)
+        define_qenum_under<Qt::NavigationMode>("NavigationMode", rb_mQt)
             .define_value("NavigationModeNone", Qt::NavigationMode::NavigationModeNone)
             .define_value("NavigationModeKeypadTabOrder", Qt::NavigationMode::NavigationModeKeypadTabOrder)
             .define_value("NavigationModeKeypadDirectional", Qt::NavigationMode::NavigationModeKeypadDirectional)
@@ -116,13 +117,13 @@ void Init_qt_enum_mr(Rice::Module rb_mQt6QtCore)
 
     Enum<Qt::Orientation> rb_cQtOrientation =
         // RubyQt6::QtCore::Qt::Orientation
-        define_enum_under<Qt::Orientation>("Orientation", rb_mQt)
+        define_qenum_under<Qt::Orientation>("Orientation", rb_mQt)
             .define_value("Horizontal", Qt::Orientation::Horizontal)
             .define_value("Vertical", Qt::Orientation::Vertical);
 
     Enum<Qt::PenCapStyle> rb_cQtPenCapStyle =
         // RubyQt6::QtCore::Qt::PenCapStyle
-        define_enum_under<Qt::PenCapStyle>("PenCapStyle", rb_mQt)
+        define_qenum_under<Qt::PenCapStyle>("PenCapStyle", rb_mQt)
             .define_value("FlatCap", Qt::PenCapStyle::FlatCap)
             .define_value("SquareCap", Qt::PenCapStyle::SquareCap)
             .define_value("RoundCap", Qt::PenCapStyle::RoundCap)
@@ -130,7 +131,7 @@ void Init_qt_enum_mr(Rice::Module rb_mQt6QtCore)
 
     Enum<Qt::PenJoinStyle> rb_cQtPenJoinStyle =
         // RubyQt6::QtCore::Qt::PenJoinStyle
-        define_enum_under<Qt::PenJoinStyle>("PenJoinStyle", rb_mQt)
+        define_qenum_under<Qt::PenJoinStyle>("PenJoinStyle", rb_mQt)
             .define_value("MiterJoin", Qt::PenJoinStyle::MiterJoin)
             .define_value("BevelJoin", Qt::PenJoinStyle::BevelJoin)
             .define_value("RoundJoin", Qt::PenJoinStyle::RoundJoin)
@@ -139,7 +140,7 @@ void Init_qt_enum_mr(Rice::Module rb_mQt6QtCore)
 
     Enum<Qt::PenStyle> rb_cQtPenStyle =
         // RubyQt6::QtCore::Qt::PenStyle
-        define_enum_under<Qt::PenStyle>("PenStyle", rb_mQt)
+        define_qenum_under<Qt::PenStyle>("PenStyle", rb_mQt)
             .define_value("NoPen", Qt::PenStyle::NoPen)
             .define_value("SolidLine", Qt::PenStyle::SolidLine)
             .define_value("DashLine", Qt::PenStyle::DashLine)
@@ -151,7 +152,7 @@ void Init_qt_enum_mr(Rice::Module rb_mQt6QtCore)
 
     Enum<Qt::PermissionStatus> rb_cQtPermissionStatus =
         // RubyQt6::QtCore::Qt::PermissionStatus
-        define_enum_under<Qt::PermissionStatus>("PermissionStatus", rb_mQt)
+        define_qenum_under<Qt::PermissionStatus>("PermissionStatus", rb_mQt)
             .define_value("Undetermined", Qt::PermissionStatus::Undetermined)
             .define_value("Granted", Qt::PermissionStatus::Granted)
             .define_value("Denied", Qt::PermissionStatus::Denied);

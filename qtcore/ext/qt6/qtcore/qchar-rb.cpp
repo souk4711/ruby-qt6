@@ -1,5 +1,6 @@
 #include "qchar-rb.hpp"
 #include <qchar.h>
+#include <rice/qenum.hpp>
 
 #include <QString>
 
@@ -58,7 +59,7 @@ void Init_qchar(Rice::Module rb_mQt6QtCore)
 
     Enum<QChar::Category> rb_cQCharCategory =
         // RubyQt6::QtCore::QChar::Category
-        define_enum_under<QChar::Category>("Category", rb_cQChar)
+        define_qenum_under<QChar::Category>("Category", rb_cQChar)
             .define_value("Mark_NonSpacing", QChar::Category::Mark_NonSpacing)
             .define_value("Mark_SpacingCombining", QChar::Category::Mark_SpacingCombining)
             .define_value("Mark_Enclosing", QChar::Category::Mark_Enclosing)
@@ -92,7 +93,7 @@ void Init_qchar(Rice::Module rb_mQt6QtCore)
 
     Enum<QChar::CombiningClass> rb_cQCharCombiningClass =
         // RubyQt6::QtCore::QChar::CombiningClass
-        define_enum_under<QChar::CombiningClass>("CombiningClass", rb_cQChar)
+        define_qenum_under<QChar::CombiningClass>("CombiningClass", rb_cQChar)
             .define_value("Combining_BelowLeftAttached", QChar::CombiningClass::Combining_BelowLeftAttached)
             .define_value("Combining_BelowAttached", QChar::CombiningClass::Combining_BelowAttached)
             .define_value("Combining_BelowRightAttached", QChar::CombiningClass::Combining_BelowRightAttached)
@@ -115,7 +116,7 @@ void Init_qchar(Rice::Module rb_mQt6QtCore)
 
     Enum<QChar::Decomposition> rb_cQCharDecomposition =
         // RubyQt6::QtCore::QChar::Decomposition
-        define_enum_under<QChar::Decomposition>("Decomposition", rb_cQChar)
+        define_qenum_under<QChar::Decomposition>("Decomposition", rb_cQChar)
             .define_value("NoDecomposition", QChar::Decomposition::NoDecomposition)
             .define_value("Canonical", QChar::Decomposition::Canonical)
             .define_value("Font", QChar::Decomposition::Font)
@@ -137,7 +138,7 @@ void Init_qchar(Rice::Module rb_mQt6QtCore)
 
     Enum<QChar::Direction> rb_cQCharDirection =
         // RubyQt6::QtCore::QChar::Direction
-        define_enum_under<QChar::Direction>("Direction", rb_cQChar)
+        define_qenum_under<QChar::Direction>("Direction", rb_cQChar)
             .define_value("DirL", QChar::Direction::DirL)
             .define_value("DirR", QChar::Direction::DirR)
             .define_value("DirEN", QChar::Direction::DirEN)
@@ -165,7 +166,7 @@ void Init_qchar(Rice::Module rb_mQt6QtCore)
 
     Enum<QChar::JoiningType> rb_cQCharJoiningType =
         // RubyQt6::QtCore::QChar::JoiningType
-        define_enum_under<QChar::JoiningType>("JoiningType", rb_cQChar)
+        define_qenum_under<QChar::JoiningType>("JoiningType", rb_cQChar)
             .define_value("Joining_None", QChar::JoiningType::Joining_None)
             .define_value("Joining_Causing", QChar::JoiningType::Joining_Causing)
             .define_value("Joining_Dual", QChar::JoiningType::Joining_Dual)
@@ -175,7 +176,7 @@ void Init_qchar(Rice::Module rb_mQt6QtCore)
 
     Enum<QChar::Script> rb_cQCharScript =
         // RubyQt6::QtCore::QChar::Script
-        define_enum_under<QChar::Script>("Script", rb_cQChar)
+        define_qenum_under<QChar::Script>("Script", rb_cQChar)
             .define_value("Script_Unknown", QChar::Script::Script_Unknown)
             .define_value("Script_Inherited", QChar::Script::Script_Inherited)
             .define_value("Script_Common", QChar::Script::Script_Common)
@@ -351,7 +352,7 @@ void Init_qchar(Rice::Module rb_mQt6QtCore)
 
     Enum<QChar::SpecialCharacter> rb_cQCharSpecialCharacter =
         // RubyQt6::QtCore::QChar::SpecialCharacter
-        define_enum_under<QChar::SpecialCharacter>("SpecialCharacter", rb_cQChar)
+        define_qenum_under<QChar::SpecialCharacter>("SpecialCharacter", rb_cQChar)
             .define_value("Null", QChar::SpecialCharacter::Null)
             .define_value("Tabulation", QChar::SpecialCharacter::Tabulation)
             .define_value("LineFeed", QChar::SpecialCharacter::LineFeed)
@@ -371,7 +372,7 @@ void Init_qchar(Rice::Module rb_mQt6QtCore)
 
     Enum<QChar::UnicodeVersion> rb_cQCharUnicodeVersion =
         // RubyQt6::QtCore::QChar::UnicodeVersion
-        define_enum_under<QChar::UnicodeVersion>("UnicodeVersion", rb_cQChar)
+        define_qenum_under<QChar::UnicodeVersion>("UnicodeVersion", rb_cQChar)
             .define_value("Unicode_Unassigned", QChar::UnicodeVersion::Unicode_Unassigned)
             .define_value("Unicode_1_1", QChar::UnicodeVersion::Unicode_1_1)
             .define_value("Unicode_2_0", QChar::UnicodeVersion::Unicode_2_0)

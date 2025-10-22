@@ -1,5 +1,6 @@
 #include "qclipboard-rb.hpp"
 #include <qclipboard.h>
+#include <rice/qenum.hpp>
 
 #include <QImage>
 #include <QPixmap>
@@ -40,7 +41,7 @@ void Init_qclipboard(Rice::Module rb_mQt6QtGui)
 
     Enum<QClipboard::Mode> rb_cQClipboardMode =
         // RubyQt6::QtGui::QClipboard::Mode
-        define_enum_under<QClipboard::Mode>("Mode", rb_cQClipboard)
+        define_qenum_under<QClipboard::Mode>("Mode", rb_cQClipboard)
             .define_value("Clipboard", QClipboard::Mode::Clipboard)
             .define_value("Selection", QClipboard::Mode::Selection)
             .define_value("FindBuffer", QClipboard::Mode::FindBuffer)

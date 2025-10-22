@@ -1,5 +1,6 @@
 #include "qcoreevent-rb.hpp"
 #include <qcoreevent.h>
+#include <rice/qenum.hpp>
 
 using namespace Rice;
 
@@ -27,7 +28,7 @@ void Init_qcoreevent(Rice::Module rb_mQt6QtCore)
 
     Enum<QEvent::Type> rb_cQEventType =
         // RubyQt6::QtCore::QEvent::Type
-        define_enum_under<QEvent::Type>("Type", rb_cQEvent)
+        define_qenum_under<QEvent::Type>("Type", rb_cQEvent)
             .define_value("None", QEvent::Type::None)
             .define_value("Timer", QEvent::Type::Timer)
             .define_value("MouseButtonPress", QEvent::Type::MouseButtonPress)

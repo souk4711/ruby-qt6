@@ -1,5 +1,6 @@
 #include "qicon-rb.hpp"
 #include <qicon.h>
+#include <rice/qenum.hpp>
 
 #include <QPainter>
 #include <QWindow>
@@ -53,7 +54,7 @@ void Init_qicon(Rice::Module rb_mQt6QtGui)
 
     Enum<QIcon::Mode> rb_cQIconMode =
         // RubyQt6::QtGui::QIcon::Mode
-        define_enum_under<QIcon::Mode>("Mode", rb_cQIcon)
+        define_qenum_under<QIcon::Mode>("Mode", rb_cQIcon)
             .define_value("Normal", QIcon::Mode::Normal)
             .define_value("Disabled", QIcon::Mode::Disabled)
             .define_value("Active", QIcon::Mode::Active)
@@ -61,13 +62,13 @@ void Init_qicon(Rice::Module rb_mQt6QtGui)
 
     Enum<QIcon::State> rb_cQIconState =
         // RubyQt6::QtGui::QIcon::State
-        define_enum_under<QIcon::State>("State", rb_cQIcon)
+        define_qenum_under<QIcon::State>("State", rb_cQIcon)
             .define_value("On", QIcon::State::On)
             .define_value("Off", QIcon::State::Off);
 
     Enum<QIcon::ThemeIcon> rb_cQIconThemeIcon =
         // RubyQt6::QtGui::QIcon::ThemeIcon
-        define_enum_under<QIcon::ThemeIcon>("ThemeIcon", rb_cQIcon)
+        define_qenum_under<QIcon::ThemeIcon>("ThemeIcon", rb_cQIcon)
             .define_value("AddressBookNew", QIcon::ThemeIcon::AddressBookNew)
             .define_value("ApplicationExit", QIcon::ThemeIcon::ApplicationExit)
             .define_value("AppointmentNew", QIcon::ThemeIcon::AppointmentNew)

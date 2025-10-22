@@ -1,5 +1,6 @@
 #include "qsettings-rb.hpp"
 #include <qsettings.h>
+#include <rice/qenum.hpp>
 
 using namespace Rice;
 
@@ -56,7 +57,7 @@ void Init_qsettings(Rice::Module rb_mQt6QtCore)
 
     Enum<QSettings::Format> rb_cQSettingsFormat =
         // RubyQt6::QtCore::QSettings::Format
-        define_enum_under<QSettings::Format>("Format", rb_cQSettings)
+        define_qenum_under<QSettings::Format>("Format", rb_cQSettings)
             .define_value("NativeFormat", QSettings::Format::NativeFormat)
             .define_value("IniFormat", QSettings::Format::IniFormat)
             .define_value("InvalidFormat", QSettings::Format::InvalidFormat)
@@ -79,13 +80,13 @@ void Init_qsettings(Rice::Module rb_mQt6QtCore)
 
     Enum<QSettings::Scope> rb_cQSettingsScope =
         // RubyQt6::QtCore::QSettings::Scope
-        define_enum_under<QSettings::Scope>("Scope", rb_cQSettings)
+        define_qenum_under<QSettings::Scope>("Scope", rb_cQSettings)
             .define_value("UserScope", QSettings::Scope::UserScope)
             .define_value("SystemScope", QSettings::Scope::SystemScope);
 
     Enum<QSettings::Status> rb_cQSettingsStatus =
         // RubyQt6::QtCore::QSettings::Status
-        define_enum_under<QSettings::Status>("Status", rb_cQSettings)
+        define_qenum_under<QSettings::Status>("Status", rb_cQSettings)
             .define_value("NoError", QSettings::Status::NoError)
             .define_value("AccessError", QSettings::Status::AccessError)
             .define_value("FormatError", QSettings::Status::FormatError);

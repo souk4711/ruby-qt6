@@ -1,5 +1,6 @@
 #include "qprogressbar-rb.hpp"
 #include <qprogressbar.h>
+#include <rice/qenum.hpp>
 
 using namespace Rice;
 
@@ -44,7 +45,7 @@ void Init_qprogressbar(Rice::Module rb_mQt6QtWidgets)
 
     Enum<QProgressBar::Direction> rb_cQProgressBarDirection =
         // RubyQt6::QtWidgets::QProgressBar::Direction
-        define_enum_under<QProgressBar::Direction>("Direction", rb_cQProgressBar)
+        define_qenum_under<QProgressBar::Direction>("Direction", rb_cQProgressBar)
             .define_value("TopToBottom", QProgressBar::Direction::TopToBottom)
             .define_value("BottomToTop", QProgressBar::Direction::BottomToTop);
 }

@@ -1,5 +1,6 @@
 #include "qprinter-rb.hpp"
 #include <qprinter.h>
+#include <rice/qenum.hpp>
 
 #include <QPaintEngine>
 #include <QPrintEngine>
@@ -72,13 +73,13 @@ void Init_qprinter(Rice::Module rb_mQt6QtPrintSupport)
 
     Enum<QPrinter::ColorMode> rb_cQPrinterColorMode =
         // RubyQt6::QtPrintSupport::QPrinter::ColorMode
-        define_enum_under<QPrinter::ColorMode>("ColorMode", rb_cQPrinter)
+        define_qenum_under<QPrinter::ColorMode>("ColorMode", rb_cQPrinter)
             .define_value("GrayScale", QPrinter::ColorMode::GrayScale)
             .define_value("Color", QPrinter::ColorMode::Color);
 
     Enum<QPrinter::DuplexMode> rb_cQPrinterDuplexMode =
         // RubyQt6::QtPrintSupport::QPrinter::DuplexMode
-        define_enum_under<QPrinter::DuplexMode>("DuplexMode", rb_cQPrinter)
+        define_qenum_under<QPrinter::DuplexMode>("DuplexMode", rb_cQPrinter)
             .define_value("DuplexNone", QPrinter::DuplexMode::DuplexNone)
             .define_value("DuplexAuto", QPrinter::DuplexMode::DuplexAuto)
             .define_value("DuplexLongSide", QPrinter::DuplexMode::DuplexLongSide)
@@ -86,19 +87,19 @@ void Init_qprinter(Rice::Module rb_mQt6QtPrintSupport)
 
     Enum<QPrinter::OutputFormat> rb_cQPrinterOutputFormat =
         // RubyQt6::QtPrintSupport::QPrinter::OutputFormat
-        define_enum_under<QPrinter::OutputFormat>("OutputFormat", rb_cQPrinter)
+        define_qenum_under<QPrinter::OutputFormat>("OutputFormat", rb_cQPrinter)
             .define_value("NativeFormat", QPrinter::OutputFormat::NativeFormat)
             .define_value("PdfFormat", QPrinter::OutputFormat::PdfFormat);
 
     Enum<QPrinter::PageOrder> rb_cQPrinterPageOrder =
         // RubyQt6::QtPrintSupport::QPrinter::PageOrder
-        define_enum_under<QPrinter::PageOrder>("PageOrder", rb_cQPrinter)
+        define_qenum_under<QPrinter::PageOrder>("PageOrder", rb_cQPrinter)
             .define_value("FirstPageFirst", QPrinter::PageOrder::FirstPageFirst)
             .define_value("LastPageFirst", QPrinter::PageOrder::LastPageFirst);
 
     Enum<QPrinter::PaperSource> rb_cQPrinterPaperSource =
         // RubyQt6::QtPrintSupport::QPrinter::PaperSource
-        define_enum_under<QPrinter::PaperSource>("PaperSource", rb_cQPrinter)
+        define_qenum_under<QPrinter::PaperSource>("PaperSource", rb_cQPrinter)
             .define_value("OnlyOne", QPrinter::PaperSource::OnlyOne)
             .define_value("Lower", QPrinter::PaperSource::Lower)
             .define_value("Middle", QPrinter::PaperSource::Middle)
@@ -119,7 +120,7 @@ void Init_qprinter(Rice::Module rb_mQt6QtPrintSupport)
 
     Enum<QPrinter::PrintRange> rb_cQPrinterPrintRange =
         // RubyQt6::QtPrintSupport::QPrinter::PrintRange
-        define_enum_under<QPrinter::PrintRange>("PrintRange", rb_cQPrinter)
+        define_qenum_under<QPrinter::PrintRange>("PrintRange", rb_cQPrinter)
             .define_value("AllPages", QPrinter::PrintRange::AllPages)
             .define_value("Selection", QPrinter::PrintRange::Selection)
             .define_value("PageRange", QPrinter::PrintRange::PageRange)
@@ -127,14 +128,14 @@ void Init_qprinter(Rice::Module rb_mQt6QtPrintSupport)
 
     Enum<QPrinter::PrinterMode> rb_cQPrinterPrinterMode =
         // RubyQt6::QtPrintSupport::QPrinter::PrinterMode
-        define_enum_under<QPrinter::PrinterMode>("PrinterMode", rb_cQPrinter)
+        define_qenum_under<QPrinter::PrinterMode>("PrinterMode", rb_cQPrinter)
             .define_value("ScreenResolution", QPrinter::PrinterMode::ScreenResolution)
             .define_value("PrinterResolution", QPrinter::PrinterMode::PrinterResolution)
             .define_value("HighResolution", QPrinter::PrinterMode::HighResolution);
 
     Enum<QPrinter::PrinterState> rb_cQPrinterPrinterState =
         // RubyQt6::QtPrintSupport::QPrinter::PrinterState
-        define_enum_under<QPrinter::PrinterState>("PrinterState", rb_cQPrinter)
+        define_qenum_under<QPrinter::PrinterState>("PrinterState", rb_cQPrinter)
             .define_value("Idle", QPrinter::PrinterState::Idle)
             .define_value("Active", QPrinter::PrinterState::Active)
             .define_value("Aborted", QPrinter::PrinterState::Aborted)
@@ -142,7 +143,7 @@ void Init_qprinter(Rice::Module rb_mQt6QtPrintSupport)
 
     Enum<QPrinter::Unit> rb_cQPrinterUnit =
         // RubyQt6::QtPrintSupport::QPrinter::Unit
-        define_enum_under<QPrinter::Unit>("Unit", rb_cQPrinter)
+        define_qenum_under<QPrinter::Unit>("Unit", rb_cQPrinter)
             .define_value("Millimeter", QPrinter::Unit::Millimeter)
             .define_value("Point", QPrinter::Unit::Point)
             .define_value("Inch", QPrinter::Unit::Inch)

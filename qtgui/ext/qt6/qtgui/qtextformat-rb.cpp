@@ -1,5 +1,6 @@
 #include "qtextformat-rb.hpp"
 #include <qtextformat.h>
+#include <rice/qenum.hpp>
 #include <rice/qflags.hpp>
 
 using namespace Rice;
@@ -72,7 +73,7 @@ void Init_qtextformat(Rice::Module rb_mQt6QtGui)
 
     Enum<QTextFormat::FormatType> rb_cQTextFormatFormatType =
         // RubyQt6::QtGui::QTextFormat::FormatType
-        define_enum_under<QTextFormat::FormatType>("FormatType", rb_cQTextFormat)
+        define_qenum_under<QTextFormat::FormatType>("FormatType", rb_cQTextFormat)
             .define_value("InvalidFormat", QTextFormat::FormatType::InvalidFormat)
             .define_value("BlockFormat", QTextFormat::FormatType::BlockFormat)
             .define_value("CharFormat", QTextFormat::FormatType::CharFormat)
@@ -82,7 +83,7 @@ void Init_qtextformat(Rice::Module rb_mQt6QtGui)
 
     Enum<QTextFormat::Property> rb_cQTextFormatProperty =
         // RubyQt6::QtGui::QTextFormat::Property
-        define_enum_under<QTextFormat::Property>("Property", rb_cQTextFormat)
+        define_qenum_under<QTextFormat::Property>("Property", rb_cQTextFormat)
             .define_value("ObjectIndex", QTextFormat::Property::ObjectIndex)
             .define_value("CssFloat", QTextFormat::Property::CssFloat)
             .define_value("LayoutDirection", QTextFormat::Property::LayoutDirection)
@@ -200,7 +201,7 @@ void Init_qtextformat(Rice::Module rb_mQt6QtGui)
 
     Enum<QTextFormat::ObjectTypes> rb_cQTextFormatObjectTypes =
         // RubyQt6::QtGui::QTextFormat::ObjectTypes
-        define_enum_under<QTextFormat::ObjectTypes>("ObjectTypes", rb_cQTextFormat)
+        define_qenum_under<QTextFormat::ObjectTypes>("ObjectTypes", rb_cQTextFormat)
             .define_value("NoObject", QTextFormat::ObjectTypes::NoObject)
             .define_value("ImageObject", QTextFormat::ObjectTypes::ImageObject)
             .define_value("TableObject", QTextFormat::ObjectTypes::TableObject)
@@ -209,7 +210,7 @@ void Init_qtextformat(Rice::Module rb_mQt6QtGui)
 
     Enum<QTextFormat::PageBreakFlag> rb_cQTextFormatPageBreakFlag =
         // RubyQt6::QtGui::QTextFormat::PageBreakFlag
-        define_enum_under<QTextFormat::PageBreakFlag>("PageBreakFlag", rb_cQTextFormat)
+        define_qenum_under<QTextFormat::PageBreakFlag>("PageBreakFlag", rb_cQTextFormat)
             .define_value("PageBreak_Auto", QTextFormat::PageBreakFlag::PageBreak_Auto)
             .define_value("PageBreak_AlwaysBefore", QTextFormat::PageBreakFlag::PageBreak_AlwaysBefore)
             .define_value("PageBreak_AlwaysAfter", QTextFormat::PageBreakFlag::PageBreak_AlwaysAfter);
@@ -258,7 +259,7 @@ void Init_qtextformat(Rice::Module rb_mQt6QtGui)
 
     Enum<QTextBlockFormat::LineHeightTypes> rb_cQTextBlockFormatLineHeightTypes =
         // RubyQt6::QtGui::QTextBlockFormat::LineHeightTypes
-        define_enum_under<QTextBlockFormat::LineHeightTypes>("LineHeightTypes", rb_cQTextBlockFormat)
+        define_qenum_under<QTextBlockFormat::LineHeightTypes>("LineHeightTypes", rb_cQTextBlockFormat)
             .define_value("SingleHeight", QTextBlockFormat::LineHeightTypes::SingleHeight)
             .define_value("ProportionalHeight", QTextBlockFormat::LineHeightTypes::ProportionalHeight)
             .define_value("FixedHeight", QTextBlockFormat::LineHeightTypes::FixedHeight)
@@ -267,7 +268,7 @@ void Init_qtextformat(Rice::Module rb_mQt6QtGui)
 
     Enum<QTextBlockFormat::MarkerType> rb_cQTextBlockFormatMarkerType =
         // RubyQt6::QtGui::QTextBlockFormat::MarkerType
-        define_enum_under<QTextBlockFormat::MarkerType>("MarkerType", rb_cQTextBlockFormat)
+        define_qenum_under<QTextBlockFormat::MarkerType>("MarkerType", rb_cQTextBlockFormat)
             .define_value("NoMarker", QTextBlockFormat::MarkerType::NoMarker)
             .define_value("Unchecked", QTextBlockFormat::MarkerType::Unchecked)
             .define_value("Checked", QTextBlockFormat::MarkerType::Checked);
@@ -346,7 +347,7 @@ void Init_qtextformat(Rice::Module rb_mQt6QtGui)
 
    Enum<QTextCharFormat::VerticalAlignment> rb_cQTextCharFormatVerticalAlignment =
         // RubyQt6::QtGui::QTextCharFormat::VerticalAlignment
-        define_enum_under<QTextCharFormat::VerticalAlignment>("VerticalAlignment", rb_cQTextCharFormat)
+        define_qenum_under<QTextCharFormat::VerticalAlignment>("VerticalAlignment", rb_cQTextCharFormat)
             .define_value("AlignNormal", QTextCharFormat::VerticalAlignment::AlignNormal)
             .define_value("AlignSuperScript", QTextCharFormat::VerticalAlignment::AlignSuperScript)
             .define_value("AlignSubScript", QTextCharFormat::VerticalAlignment::AlignSubScript)
@@ -357,7 +358,7 @@ void Init_qtextformat(Rice::Module rb_mQt6QtGui)
 
     Enum<QTextCharFormat::UnderlineStyle> rb_cQTextCharFormatUnderlineStyle =
         // RubyQt6::QtGui::QTextCharFormat::UnderlineStyle
-        define_enum_under<QTextCharFormat::UnderlineStyle>("UnderlineStyle", rb_cQTextCharFormat)
+        define_qenum_under<QTextCharFormat::UnderlineStyle>("UnderlineStyle", rb_cQTextCharFormat)
             .define_value("NoUnderline", QTextCharFormat::UnderlineStyle::NoUnderline)
             .define_value("SingleUnderline", QTextCharFormat::UnderlineStyle::SingleUnderline)
             .define_value("DashUnderline", QTextCharFormat::UnderlineStyle::DashUnderline)
@@ -369,7 +370,7 @@ void Init_qtextformat(Rice::Module rb_mQt6QtGui)
 
     Enum<QTextCharFormat::FontPropertiesInheritanceBehavior> rb_cQTextCharFormatFontPropertiesInheritanceBehavior =
         // RubyQt6::QtGui::QTextCharFormat::FontPropertiesInheritanceBehavior
-        define_enum_under<QTextCharFormat::FontPropertiesInheritanceBehavior>("FontPropertiesInheritanceBehavior", rb_cQTextCharFormat)
+        define_qenum_under<QTextCharFormat::FontPropertiesInheritanceBehavior>("FontPropertiesInheritanceBehavior", rb_cQTextCharFormat)
             .define_value("FontPropertiesSpecifiedOnly", QTextCharFormat::FontPropertiesInheritanceBehavior::FontPropertiesSpecifiedOnly)
             .define_value("FontPropertiesAll", QTextCharFormat::FontPropertiesInheritanceBehavior::FontPropertiesAll);
 
@@ -473,14 +474,14 @@ void Init_qtextformat(Rice::Module rb_mQt6QtGui)
 
     Enum<QTextFrameFormat::Position> rb_cQTextFrameFormatPosition =
         // RubyQt6::QtGui::QTextFrameFormat::Position
-        define_enum_under<QTextFrameFormat::Position>("Position", rb_cQTextFrameFormat)
+        define_qenum_under<QTextFrameFormat::Position>("Position", rb_cQTextFrameFormat)
             .define_value("InFlow", QTextFrameFormat::Position::InFlow)
             .define_value("FloatLeft", QTextFrameFormat::Position::FloatLeft)
             .define_value("FloatRight", QTextFrameFormat::Position::FloatRight);
 
     Enum<QTextFrameFormat::BorderStyle> rb_cQTextFrameFormatBorderStyle =
         // RubyQt6::QtGui::QTextFrameFormat::BorderStyle
-        define_enum_under<QTextFrameFormat::BorderStyle>("BorderStyle", rb_cQTextFrameFormat)
+        define_qenum_under<QTextFrameFormat::BorderStyle>("BorderStyle", rb_cQTextFrameFormat)
             .define_value("BorderStyle_None", QTextFrameFormat::BorderStyle::BorderStyle_None)
             .define_value("BorderStyle_Dotted", QTextFrameFormat::BorderStyle::BorderStyle_Dotted)
             .define_value("BorderStyle_Dashed", QTextFrameFormat::BorderStyle::BorderStyle_Dashed)
@@ -538,7 +539,7 @@ void Init_qtextformat(Rice::Module rb_mQt6QtGui)
 
     Enum<QTextListFormat::Style> rb_cQTextListFormatStyle =
         // RubyQt6::QtGui::QTextListFormat::Style
-        define_enum_under<QTextListFormat::Style>("Style", rb_cQTextListFormat)
+        define_qenum_under<QTextListFormat::Style>("Style", rb_cQTextListFormat)
             .define_value("ListDisc", QTextListFormat::Style::ListDisc)
             .define_value("ListCircle", QTextListFormat::Style::ListCircle)
             .define_value("ListSquare", QTextListFormat::Style::ListSquare)

@@ -1,5 +1,6 @@
 #include "qcolor-rb.hpp"
 #include <qcolor.h>
+#include <rice/qenum.hpp>
 
 using namespace Rice;
 
@@ -105,13 +106,13 @@ void Init_qcolor(Rice::Module rb_mQt6QtGui)
 
     Enum<QColor::NameFormat> rb_cQColorNameFormat =
         // RubyQt6::QtGui::QColor::NameFormat
-        define_enum_under<QColor::NameFormat>("NameFormat", rb_cQColor)
+        define_qenum_under<QColor::NameFormat>("NameFormat", rb_cQColor)
             .define_value("HexRgb", QColor::NameFormat::HexRgb)
             .define_value("HexArgb", QColor::NameFormat::HexArgb);
 
     Enum<QColor::Spec> rb_cQColorSpec =
         // RubyQt6::QtGui::QColor::Spec
-        define_enum_under<QColor::Spec>("Spec", rb_cQColor)
+        define_qenum_under<QColor::Spec>("Spec", rb_cQColor)
             .define_value("Invalid", QColor::Spec::Invalid)
             .define_value("Rgb", QColor::Spec::Rgb)
             .define_value("Hsv", QColor::Spec::Hsv)

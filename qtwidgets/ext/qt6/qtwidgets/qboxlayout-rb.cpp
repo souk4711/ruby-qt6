@@ -1,5 +1,6 @@
 #include "qboxlayout-rb.hpp"
 #include <qboxlayout.h>
+#include <rice/qenum.hpp>
 
 #include <QWidget>
 
@@ -52,7 +53,7 @@ void Init_qboxlayout(Rice::Module rb_mQt6QtWidgets)
 
     Enum<QBoxLayout::Direction> rb_cQBoxLayoutDirection =
         // RubyQt6::QtWidgets::QBoxLayout::Direction
-        define_enum_under<QBoxLayout::Direction>("Direction", rb_cQBoxLayout)
+        define_qenum_under<QBoxLayout::Direction>("Direction", rb_cQBoxLayout)
             .define_value("LeftToRight", QBoxLayout::Direction::LeftToRight)
             .define_value("RightToLeft", QBoxLayout::Direction::RightToLeft)
             .define_value("TopToBottom", QBoxLayout::Direction::TopToBottom)

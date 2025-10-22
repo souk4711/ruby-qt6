@@ -1,5 +1,6 @@
 #include "qlocale-rb.hpp"
 #include <qlocale.h>
+#include <rice/qenum.hpp>
 #include <rice/qflags.hpp>
 
 #include <QCalendar>
@@ -131,7 +132,7 @@ void Init_qlocale(Rice::Module rb_mQt6QtCore)
 
     Enum<QLocale::Language> rb_cQLocaleLanguage =
         // RubyQt6::QtCore::QLocale::Language
-        define_enum_under<QLocale::Language>("Language", rb_cQLocale)
+        define_qenum_under<QLocale::Language>("Language", rb_cQLocale)
             .define_value("AnyLanguage", QLocale::Language::AnyLanguage)
             .define_value("C", QLocale::Language::C)
             .define_value("Abkhazian", QLocale::Language::Abkhazian)
@@ -502,7 +503,7 @@ void Init_qlocale(Rice::Module rb_mQt6QtCore)
 
     Enum<QLocale::Script> rb_cQLocaleScript =
         // RubyQt6::QtCore::QLocale::Script
-        define_enum_under<QLocale::Script>("Script", rb_cQLocale)
+        define_qenum_under<QLocale::Script>("Script", rb_cQLocale)
             .define_value("AnyScript", QLocale::Script::AnyScript)
             .define_value("AdlamScript", QLocale::Script::AdlamScript)
             .define_value("AhomScript", QLocale::Script::AhomScript)
@@ -655,7 +656,7 @@ void Init_qlocale(Rice::Module rb_mQt6QtCore)
 
     Enum<QLocale::Country> rb_cQLocaleCountry =
         // RubyQt6::QtCore::QLocale::Country
-        define_enum_under<QLocale::Country>("Country", rb_cQLocale)
+        define_qenum_under<QLocale::Country>("Country", rb_cQLocale)
             .define_value("AnyTerritory", QLocale::Country::AnyTerritory)
             .define_value("Afghanistan", QLocale::Country::Afghanistan)
             .define_value("AlandIslands", QLocale::Country::AlandIslands)
@@ -947,7 +948,7 @@ void Init_qlocale(Rice::Module rb_mQt6QtCore)
 
     Enum<QLocale::MeasurementSystem> rb_cQLocaleMeasurementSystem =
         // RubyQt6::QtCore::QLocale::MeasurementSystem
-        define_enum_under<QLocale::MeasurementSystem>("MeasurementSystem", rb_cQLocale)
+        define_qenum_under<QLocale::MeasurementSystem>("MeasurementSystem", rb_cQLocale)
             .define_value("MetricSystem", QLocale::MeasurementSystem::MetricSystem)
             .define_value("ImperialUSSystem", QLocale::MeasurementSystem::ImperialUSSystem)
             .define_value("ImperialUKSystem", QLocale::MeasurementSystem::ImperialUKSystem)
@@ -955,14 +956,14 @@ void Init_qlocale(Rice::Module rb_mQt6QtCore)
 
     Enum<QLocale::FormatType> rb_cQLocaleFormatType =
         // RubyQt6::QtCore::QLocale::FormatType
-        define_enum_under<QLocale::FormatType>("FormatType", rb_cQLocale)
+        define_qenum_under<QLocale::FormatType>("FormatType", rb_cQLocale)
             .define_value("LongFormat", QLocale::FormatType::LongFormat)
             .define_value("ShortFormat", QLocale::FormatType::ShortFormat)
             .define_value("NarrowFormat", QLocale::FormatType::NarrowFormat);
 
     Enum<QLocale::NumberOption> rb_cQLocaleNumberOption =
         // RubyQt6::QtCore::QLocale::NumberOption
-        define_enum_under<QLocale::NumberOption>("NumberOption", rb_cQLocale)
+        define_qenum_under<QLocale::NumberOption>("NumberOption", rb_cQLocale)
             .define_value("DefaultNumberOptions", QLocale::NumberOption::DefaultNumberOptions)
             .define_value("OmitGroupSeparator", QLocale::NumberOption::OmitGroupSeparator)
             .define_value("RejectGroupSeparator", QLocale::NumberOption::RejectGroupSeparator)
@@ -973,25 +974,25 @@ void Init_qlocale(Rice::Module rb_mQt6QtCore)
 
     Enum<QLocale::FloatingPointPrecisionOption> rb_cQLocaleFloatingPointPrecisionOption =
         // RubyQt6::QtCore::QLocale::FloatingPointPrecisionOption
-        define_enum_under<QLocale::FloatingPointPrecisionOption>("FloatingPointPrecisionOption", rb_cQLocale)
+        define_qenum_under<QLocale::FloatingPointPrecisionOption>("FloatingPointPrecisionOption", rb_cQLocale)
             .define_value("FloatingPointShortest", QLocale::FloatingPointPrecisionOption::FloatingPointShortest);
 
     Enum<QLocale::TagSeparator> rb_cQLocaleTagSeparator =
         // RubyQt6::QtCore::QLocale::TagSeparator
-        define_enum_under<QLocale::TagSeparator>("TagSeparator", rb_cQLocale)
+        define_qenum_under<QLocale::TagSeparator>("TagSeparator", rb_cQLocale)
             .define_value("Dash", QLocale::TagSeparator::Dash)
             .define_value("Underscore", QLocale::TagSeparator::Underscore);
 
     Enum<QLocale::CurrencySymbolFormat> rb_cQLocaleCurrencySymbolFormat =
         // RubyQt6::QtCore::QLocale::CurrencySymbolFormat
-        define_enum_under<QLocale::CurrencySymbolFormat>("CurrencySymbolFormat", rb_cQLocale)
+        define_qenum_under<QLocale::CurrencySymbolFormat>("CurrencySymbolFormat", rb_cQLocale)
             .define_value("CurrencyIsoCode", QLocale::CurrencySymbolFormat::CurrencyIsoCode)
             .define_value("CurrencySymbol", QLocale::CurrencySymbolFormat::CurrencySymbol)
             .define_value("CurrencyDisplayName", QLocale::CurrencySymbolFormat::CurrencyDisplayName);
 
     Enum<QLocale::DataSizeFormat> rb_cQLocaleDataSizeFormat =
         // RubyQt6::QtCore::QLocale::DataSizeFormat
-        define_enum_under<QLocale::DataSizeFormat>("DataSizeFormat", rb_cQLocale)
+        define_qenum_under<QLocale::DataSizeFormat>("DataSizeFormat", rb_cQLocale)
             .define_value("DataSizeBase1000", QLocale::DataSizeFormat::DataSizeBase1000)
             .define_value("DataSizeSIQuantifiers", QLocale::DataSizeFormat::DataSizeSIQuantifiers)
             .define_value("DataSizeIecFormat", QLocale::DataSizeFormat::DataSizeIecFormat)
@@ -1000,7 +1001,7 @@ void Init_qlocale(Rice::Module rb_mQt6QtCore)
 
     Enum<QLocale::LanguageCodeType> rb_cQLocaleLanguageCodeType =
         // RubyQt6::QtCore::QLocale::LanguageCodeType
-        define_enum_under<QLocale::LanguageCodeType>("LanguageCodeType", rb_cQLocale)
+        define_qenum_under<QLocale::LanguageCodeType>("LanguageCodeType", rb_cQLocale)
             .define_value("ISO639Part1", QLocale::LanguageCodeType::ISO639Part1)
             .define_value("ISO639Part2B", QLocale::LanguageCodeType::ISO639Part2B)
             .define_value("ISO639Part2T", QLocale::LanguageCodeType::ISO639Part2T)
@@ -1014,7 +1015,7 @@ void Init_qlocale(Rice::Module rb_mQt6QtCore)
 
     Enum<QLocale::QuotationStyle> rb_cQLocaleQuotationStyle =
         // RubyQt6::QtCore::QLocale::QuotationStyle
-        define_enum_under<QLocale::QuotationStyle>("QuotationStyle", rb_cQLocale)
+        define_qenum_under<QLocale::QuotationStyle>("QuotationStyle", rb_cQLocale)
             .define_value("StandardQuotation", QLocale::QuotationStyle::StandardQuotation)
             .define_value("AlternateQuotation", QLocale::QuotationStyle::AlternateQuotation);
 
