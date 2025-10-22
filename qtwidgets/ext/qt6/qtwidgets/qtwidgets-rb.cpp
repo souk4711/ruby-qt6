@@ -5,6 +5,9 @@
 #include "qsizepolicy-rb.hpp"
 #include "qtooltip-rb.hpp"
 
+#include "qabstractitemdelegate-rb.hpp"
+#include "qitemdelegate-rb.hpp"
+#include "qstyleditemdelegate-rb.hpp"
 #include "qapplication-rb.hpp"
 #include "qstyle-rb.hpp"
 #include "qlayout-rb.hpp"
@@ -160,6 +163,9 @@ extern "C" void Init_qtwidgets()
         Init_qsizepolicy(rb_mQt6QtWidgets);
         Init_qlayoutitem(rb_mQt6QtWidgets);
 
+        Init_qabstractitemdelegate(rb_mQt6QtWidgets);
+        Init_qitemdelegate(rb_mQt6QtWidgets);
+        Init_qstyleditemdelegate(rb_mQt6QtWidgets);
         Init_qapplication(rb_mQt6QtWidgets);
         Init_qstyle(rb_mQt6QtWidgets);
         Init_qlayout(rb_mQt6QtWidgets);
