@@ -21,6 +21,11 @@ module RubyQt6
       def initialize(type_id)
         _initialize(type_id)
       end
+
+      # @!visibility private
+      def inspect
+        T.inspect_struct(self, id:, name:)
+      end
     end
   end
 end

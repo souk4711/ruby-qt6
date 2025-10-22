@@ -4,7 +4,7 @@ module RubyQt6
   module QtCore
     class QVariant
       # @!visibility private
-      def self.register(id, from_object_method, to_object_method, from: [])
+      def self.register(id, from_object_method, to_object_method, from:)
         id = id.to_i
         raise "QVariant with id already registered: #{id}" if from_object_methods.key?(id)
 

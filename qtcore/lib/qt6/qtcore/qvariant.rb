@@ -15,6 +15,11 @@ module RubyQt6
       end
 
       # @!visibility private
+      def inspect
+        T.inspect_struct(self, type_name:)
+      end
+
+      # @!visibility private
       def self.to_qobject(qvariant)
         T.bando_qobject_cast(_to_qobject(qvariant))
       end
@@ -37,7 +42,7 @@ module RubyQt6
       register(QtCore::QMetaType::Type::QSize, method(:from_qsize), method(:to_qsize), from: QtCore::QSize)
       register(QtCore::QMetaType::Type::QSizeF, method(:from_qsizef), method(:to_qsizef), from: QtCore::QSizeF)
       register(QtCore::QMetaType::Type::QStringList, method(:from_qstringlist), method(:to_qstringlist), from: QtCore::QStringList)
-      register(QtCore::QMetaType::Type::QObjectStar, method(:from_qobject), method(:to_qobject))
+      register(QtCore::QMetaType::Type::QObjectStar, method(:from_qobject), method(:to_qobject), from: QtCore::QObject)
     end
   end
 end

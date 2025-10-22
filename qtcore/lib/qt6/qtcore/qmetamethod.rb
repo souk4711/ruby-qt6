@@ -10,6 +10,11 @@ module RubyQt6
       rubyqt6_declare_enum_under QMetaMethod, QMetaMethod::Access
       rubyqt6_declare_enum_under QMetaMethod, QMetaMethod::Attributes
       rubyqt6_declare_enum_under QMetaMethod, QMetaMethod::MethodType
+
+      # @!visibility private
+      def inspect
+        T.inspect_struct(self, signature: method_signature.to_s)
+      end
     end
   end
 end
