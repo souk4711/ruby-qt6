@@ -26,6 +26,8 @@
 #include <QChildEvent>
 #include <QEvent>
 #include <QTimerEvent>
+#include <QPainter>
+#include <QStyleOptionViewItem>
 
 template <typename Class_T, typename... Arg_Ts> class BandoQItemDelegate : public Class_T
 {
@@ -48,6 +50,45 @@ template <typename Class_T, typename... Arg_Ts> class BandoQItemDelegate : publi
 
     void childEvent(QChildEvent *event) override { bando_handleEvent<BandoQItemDelegate, QChildEvent>(this, event, bando_FunctionName::childEvent); };
     void timerEvent(QTimerEvent *event) override { bando_handleEvent<BandoQItemDelegate, QTimerEvent>(this, event, bando_FunctionName::timerEvent); };
+
+    QWidget *createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const override {
+        Q_ASSERT(this->value_.rb_type() != RUBY_T_NONE);
+        auto rb_name = Rice::Identifier("create_editor");
+        auto rb_return = this->value_.call(rb_name, Rice::Object(Rice::detail::to_ruby(parent)), Rice::Object(Rice::detail::to_ruby(option)), Rice::Object(Rice::detail::to_ruby(index)));
+        return Rice::detail::From_Ruby<QWidget *>().convert(rb_return);
+    };
+
+    void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const override {
+        Q_ASSERT(this->value_.rb_type() != RUBY_T_NONE);
+        auto rb_name = Rice::Identifier("paint");
+        this->value_.call(rb_name, Rice::Object(Rice::detail::to_ruby(painter)), Rice::Object(Rice::detail::to_ruby(option)), Rice::Object(Rice::detail::to_ruby(index)));
+    }
+
+    void setEditorData(QWidget *editor, const QModelIndex &index) const override {
+        Q_ASSERT(this->value_.rb_type() != RUBY_T_NONE);
+        auto rb_name = Rice::Identifier("set_editor_data");
+        this->value_.call(rb_name, Rice::Object(Rice::detail::to_ruby(editor)), Rice::Object(Rice::detail::to_ruby(index)));
+    }
+
+    void setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const override {
+        Q_ASSERT(this->value_.rb_type() != RUBY_T_NONE);
+        auto rb_name = Rice::Identifier("set_model_data");
+        this->value_.call(rb_name, Rice::Object(Rice::detail::to_ruby(editor)), Rice::Object(Rice::detail::to_ruby(model)), Rice::Object(Rice::detail::to_ruby(index)));
+    }
+
+    QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const override {
+        Q_ASSERT(this->value_.rb_type() != RUBY_T_NONE);
+        auto rb_name = Rice::Identifier("size_hint");
+        auto rb_return = this->value_.call(rb_name, Rice::Object(Rice::detail::to_ruby(option)), Rice::Object(Rice::detail::to_ruby(index)));
+        return Rice::detail::From_Ruby<QSize>().convert(rb_return);
+    }
+
+    void updateEditorGeometry(QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &index) const override {
+        Q_ASSERT(this->value_.rb_type() != RUBY_T_NONE);
+        auto rb_name = Rice::Identifier("update_editor_geometry");
+        this->value_.call(rb_name, Rice::Object(Rice::detail::to_ruby(editor)), Rice::Object(Rice::detail::to_ruby(option)), Rice::Object(Rice::detail::to_ruby(index)));
+    }
+
 
   public:
     bool Class_T_handleQObjectEvent(QEvent *event) { return this->Class_T::event(event); };
@@ -82,6 +123,21 @@ Rice::Data_Type<BC_T> define_bando_qitemdelegate_under(Rice::Module module, char
             .define_method("_event_filter", [](BC_T *self, QObject *watched, QEvent *event) -> bool { return self->Class_T_handleQObjectEventFilter(watched, event); })
             .define_method("_child_event", [](BC_T *self, QChildEvent *event) -> void { return self->Class_T_handleEvent(bando_FunctionName::childEvent, event); })
             .define_method("_timer_event", [](BC_T *self, QTimerEvent *event) -> void { return self->Class_T_handleEvent(bando_FunctionName::timerEvent, event); });
+
+    bando_qlass
+        .define_method("_create_editor", [](BC_T *self, QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) -> QWidget * { return self->C_T::createEditor(parent, option, index); })
+        .define_method("_paint", [](BC_T *self, QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) -> void { return self->C_T::paint(painter, option, index); })
+        .define_method("_set_editor_data", [](BC_T *self, QWidget *editor, const QModelIndex &index) -> void { return self->C_T::setEditorData(editor, index); })
+        .define_method("_set_model_data", [](BC_T *self, QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) -> void { return self->C_T::setModelData(editor, model, index); })
+        .define_method("_size_hint", [](BC_T *self, const QStyleOptionViewItem &option, const QModelIndex &index) -> QSize { return self->C_T::sizeHint(option, index); })
+        .define_method("_update_editor_geometry", [](BC_T *self, QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &index) -> void { return self->C_T::updateEditorGeometry(editor, option, index); })
+        .define_method("create_editor", [](BC_T *self, QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) -> QWidget * { return self->C_T::createEditor(parent, option, index); })
+        .define_method("paint", [](BC_T *self, QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) -> void { return self->C_T::paint(painter, option, index); })
+        .define_method("set_editor_data", [](BC_T *self, QWidget *editor, const QModelIndex &index) -> void { return self->C_T::setEditorData(editor, index); })
+        .define_method("set_model_data", [](BC_T *self, QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) -> void { return self->C_T::setModelData(editor, model, index); })
+        .define_method("size_hint", [](BC_T *self, const QStyleOptionViewItem &option, const QModelIndex &index) -> QSize { return self->C_T::sizeHint(option, index); })
+        .define_method("update_editor_geometry", [](BC_T *self, QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &index) -> void { return self->C_T::updateEditorGeometry(editor, option, index); });
+
     return bando_qlass;
 }
 
