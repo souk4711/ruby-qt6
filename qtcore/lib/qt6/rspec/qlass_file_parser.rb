@@ -102,6 +102,9 @@ module RubyQt6
             qlass.methods.concat parse_qlass_definition_methods(qlass, :signals)
           when /\/\/ Static Public Members/
             qlass.methods.concat parse_qlass_definition_methods(qlass, :static_public_members)
+          when /.define_attr/
+            take_next_line
+            next
           when "", "}"
             break
           else

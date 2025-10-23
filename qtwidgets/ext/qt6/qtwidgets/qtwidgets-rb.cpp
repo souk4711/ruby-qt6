@@ -3,6 +3,7 @@
 
 #include "qlayoutitem-rb.hpp"
 #include "qsizepolicy-rb.hpp"
+#include "qstyleoption-rb.hpp"
 #include "qtooltip-rb.hpp"
 
 #include "qabstractitemdelegate-rb.hpp"
@@ -162,8 +163,10 @@ extern "C" void Init_qtwidgets()
 
         Init_qtwidgetsversion(rb_mQt6QtWidgets);
 
-        Init_qsizepolicy(rb_mQt6QtWidgets);
         Init_qlayoutitem(rb_mQt6QtWidgets);
+        Init_qsizepolicy(rb_mQt6QtWidgets);
+        Init_qstyleoption(rb_mQt6QtWidgets);
+        Init_qtooltip(rb_mQt6QtWidgets);
 
         Init_qabstractitemdelegate(rb_mQt6QtWidgets);
         Init_qitemdelegate(rb_mQt6QtWidgets);
@@ -238,7 +241,6 @@ extern "C" void Init_qtwidgets()
         Init_qprogressbar(rb_mQt6QtWidgets);
         Init_qrubberband(rb_mQt6QtWidgets);
         Init_qsizegrip(rb_mQt6QtWidgets);
-        Init_qtooltip(rb_mQt6QtWidgets);
         Init_qsplashscreen(rb_mQt6QtWidgets);
         Init_qstatusbar(rb_mQt6QtWidgets);
         Init_qsystemtrayicon(rb_mQt6QtWidgets);
