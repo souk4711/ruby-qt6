@@ -53,6 +53,7 @@ module RubyQt6
       "QIntValidator",
       "QRegularExpressionValidator",
       "QLabel",
+      "QRadioButton",
       "QLineEdit",
       "QTextEdit",
       "QSystemTrayIcon"
