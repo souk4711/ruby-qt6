@@ -73,6 +73,7 @@ template <typename Class_T, typename... Arg_Ts> class BandoQSpinBox : public Cla
 
     void childEvent(QChildEvent *event) override { bando_handleEvent<BandoQSpinBox, QChildEvent>(this, event, bando_FunctionName::childEvent); };
     void timerEvent(QTimerEvent *event) override { bando_handleEvent<BandoQSpinBox, QTimerEvent>(this, event, bando_FunctionName::timerEvent); };
+    QObject *sender() const { return this->Class_T::sender(); }
 
     void actionEvent(QActionEvent *event) override { bando_handleEvent<BandoQSpinBox, QActionEvent>(this, event, bando_FunctionName::actionEvent); };
     void changeEvent(QEvent *event) override { bando_handleEvent<BandoQSpinBox, QEvent>(this, event, bando_FunctionName::changeEvent); };
@@ -192,7 +193,8 @@ Rice::Data_Type<BC_T> define_bando_qspinbox_under(Rice::Module module, char cons
             .define_method("_event", [](BC_T *self, QEvent *event) -> bool { return self->Class_T_handleQObjectEvent(event); })
             .define_method("_event_filter", [](BC_T *self, QObject *watched, QEvent *event) -> bool { return self->Class_T_handleQObjectEventFilter(watched, event); })
             .define_method("_child_event", [](BC_T *self, QChildEvent *event) -> void { return self->Class_T_handleEvent(bando_FunctionName::childEvent, event); })
-            .define_method("_timer_event", [](BC_T *self, QTimerEvent *event) -> void { return self->Class_T_handleEvent(bando_FunctionName::timerEvent, event); });
+            .define_method("_timer_event", [](BC_T *self, QTimerEvent *event) -> void { return self->Class_T_handleEvent(bando_FunctionName::timerEvent, event); })
+            .define_method("sender", &BC_T::sender);
 
     bando_qlass
         .define_method("_action_event", [](BC_T *self, QActionEvent *event) -> void { return self->Class_T_handleEvent(bando_FunctionName::actionEvent, event); })

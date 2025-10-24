@@ -50,6 +50,7 @@ template <typename Class_T, typename... Arg_Ts> class BandoQItemDelegate : publi
 
     void childEvent(QChildEvent *event) override { bando_handleEvent<BandoQItemDelegate, QChildEvent>(this, event, bando_FunctionName::childEvent); };
     void timerEvent(QTimerEvent *event) override { bando_handleEvent<BandoQItemDelegate, QTimerEvent>(this, event, bando_FunctionName::timerEvent); };
+    QObject *sender() const { return this->Class_T::sender(); }
 
     QWidget *createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const override {
         Q_ASSERT(this->value_.rb_type() != RUBY_T_NONE);
@@ -121,7 +122,8 @@ Rice::Data_Type<BC_T> define_bando_qitemdelegate_under(Rice::Module module, char
             .define_method("_event", [](BC_T *self, QEvent *event) -> bool { return self->Class_T_handleQObjectEvent(event); })
             .define_method("_event_filter", [](BC_T *self, QObject *watched, QEvent *event) -> bool { return self->Class_T_handleQObjectEventFilter(watched, event); })
             .define_method("_child_event", [](BC_T *self, QChildEvent *event) -> void { return self->Class_T_handleEvent(bando_FunctionName::childEvent, event); })
-            .define_method("_timer_event", [](BC_T *self, QTimerEvent *event) -> void { return self->Class_T_handleEvent(bando_FunctionName::timerEvent, event); });
+            .define_method("_timer_event", [](BC_T *self, QTimerEvent *event) -> void { return self->Class_T_handleEvent(bando_FunctionName::timerEvent, event); })
+            .define_method("sender", &BC_T::sender);
 
     bando_qlass
         .define_method("_create_editor", [](BC_T *self, QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) -> QWidget * { return self->C_T::createEditor(parent, option, index); })
