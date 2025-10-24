@@ -25,9 +25,9 @@
 #include <bando/common.hpp>
 #include <QChildEvent>
 #include <QEvent>
-#include <QTimerEvent>
 #include <QPainter>
 #include <QStyleOptionViewItem>
+#include <QTimerEvent>
 
 template <typename Class_T, typename... Arg_Ts> class BandoQItemDelegate : public Class_T
 {
@@ -88,7 +88,6 @@ template <typename Class_T, typename... Arg_Ts> class BandoQItemDelegate : publi
         auto rb_name = Rice::Identifier("update_editor_geometry");
         this->value_.call(rb_name, Rice::Object(Rice::detail::to_ruby(editor)), Rice::Object(Rice::detail::to_ruby(option)), Rice::Object(Rice::detail::to_ruby(index)));
     }
-
 
   public:
     bool Class_T_handleQObjectEvent(QEvent *event) { return this->Class_T::event(event); };
