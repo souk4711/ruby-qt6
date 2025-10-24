@@ -119,7 +119,8 @@ template <typename Class_T, typename... Arg_Ts> class BandoQSpinBox : public Cla
     QString textFromValue(int value) const override {
         auto rb_name = Rice::Identifier("text_from_value");
         if (!this->value_.respond_to(rb_name))
-            return this->textFromValue(value);
+            return this->Class_T::textFromValue(value);
+
         Q_ASSERT(this->value_.rb_type() != RUBY_T_NONE);
         auto rb_return = this->value_.call(rb_name, Rice::Object(Rice::detail::to_ruby(value)));
         return Rice::detail::From_Ruby<QString>().convert(rb_return);
@@ -128,7 +129,8 @@ template <typename Class_T, typename... Arg_Ts> class BandoQSpinBox : public Cla
     int valueFromText(const QString &text) const override {
         auto rb_name = Rice::Identifier("value_from_text");
         if (!this->value_.respond_to(rb_name))
-            return this->valueFromText(text);
+            return this->Class_T::valueFromText(text);
+
         Q_ASSERT(this->value_.rb_type() != RUBY_T_NONE);
         auto rb_return = this->value_.call(rb_name, Rice::Object(Rice::detail::to_ruby(text)));
         return Rice::detail::From_Ruby<int>().convert(rb_return);
