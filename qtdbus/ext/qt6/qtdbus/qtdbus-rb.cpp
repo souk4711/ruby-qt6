@@ -6,6 +6,7 @@
 #include "qdbusmessage-rb.hpp"
 
 #include "qdbusabstractinterface-rb.hpp"
+#include "qdbusconnectioninterface-rb.hpp"
 #include "qdbusinterface-rb.hpp"
 
 extern "C" void Init_qtdbus()
@@ -21,6 +22,7 @@ extern "C" void Init_qtdbus()
         Init_qdbusmessage(rb_mQt6QtDBus);
 
         Init_qdbusabstractinterface(rb_mQt6QtDBus);
+        Init_qdbusconnectioninterface(rb_mQt6QtDBus);
         Init_qdbusinterface(rb_mQt6QtDBus);
     });
 }
