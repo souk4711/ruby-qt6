@@ -59,7 +59,7 @@
 extern "C" void Init_qtcore()
 {
     return Rice::detail::cpp_protect([] {
-        Rice::init();
+        Rice::define_buffer<char *>();
 
         Rice::Module rb_mQt6 = Rice::define_module("RubyQt6");
         Rice::Module rb_mQt6QtCore = define_module_under(rb_mQt6, "QtCore");

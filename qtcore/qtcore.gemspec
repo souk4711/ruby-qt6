@@ -32,7 +32,7 @@ Gem::Specification.new do |spec|
   spec.extensions = ["ext/qt6/qtcore/extconf.rb"]
 
   spec.add_runtime_dependency("dry-inflector", "~> 1.2")
-  spec.add_runtime_dependency("rice", "~> 4.6")
+  spec.add_runtime_dependency("rice", "~> 4.7")
   spec.add_runtime_dependency("semantic_logger", "~> 4.17")
   spec.add_runtime_dependency("logger")
 

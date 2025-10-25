@@ -25,7 +25,7 @@ module RubyQt6
             define_method(meth.qsignature_name) do |*args|
               __send__(meth.name, *args.map(&:value))
             rescue => e
-              RubyQt6.logger_log_exception(e)
+              RubyQt6.logger.error(e)
               nil
             end
           end

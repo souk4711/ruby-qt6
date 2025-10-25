@@ -177,7 +177,7 @@ template <typename BandoClass_T> int bando_qt_metacall(BandoClass_T *self, QMeta
             for (int i = 0; i < method.parameterCount(); ++i)
             {
                 QVariant argument(method.parameterMetaType(i), args[i + 1]);
-                arguments.push(std::move(argument));
+                arguments.push(std::move(argument), false);
             }
 
             Q_ASSERT(self->value_.rb_type() != RUBY_T_NONE);

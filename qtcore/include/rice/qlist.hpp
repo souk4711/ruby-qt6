@@ -228,8 +228,8 @@ void define_qlist_under(Module module)
 {
     using QList_T = QList<Value_T>;
 
-    std::string name = detail::typeName(typeid(QList_T));
-    std::string klassName = detail::rubyClassName(name);
+    detail::TypeMapper<QList_T> typeMapper;
+    std::string klassName = typeMapper.rubyName();
     Identifier id(klassName);
 
     Data_Type<QList_T> qlist = define_class_under<QList_T>(module, id);

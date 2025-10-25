@@ -4,28 +4,28 @@ PATH
     ruby-qt6-qtcore (0.1.0)
       dry-inflector (~> 1.2)
       logger
-      rice (~> 4.6)
+      rice (~> 4.7)
       semantic_logger (~> 4.17)
 
 PATH
   remote: ../qtgui
   specs:
     ruby-qt6-qtgui (0.1.0)
-      rice (~> 4.6)
+      rice (~> 4.7)
       ruby-qt6-qtcore
 
 PATH
   remote: ../qtqml
   specs:
     ruby-qt6-qtqml (0.1.0)
-      rice (~> 4.6)
+      rice (~> 4.7)
       ruby-qt6-qtcore
 
 PATH
   remote: .
   specs:
     ruby-qt6-qtquick (0.1.0)
-      rice (~> 4.6)
+      rice (~> 4.7)
       ruby-qt6-qtcore
       ruby-qt6-qtgui
       ruby-qt6-qtqml
@@ -87,7 +87,8 @@ GEM
     reverse_markdown (3.0.0)
       nokogiri
     rexml (3.4.1)
-    rice (4.6.1)
+    rice (4.7.0)
+      ostruct
     rspec (3.13.1)
       rspec-core (~> 3.13.0)
       rspec-expectations (~> 3.13.0)

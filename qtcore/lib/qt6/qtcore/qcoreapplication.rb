@@ -23,7 +23,7 @@ module RubyQt6
       # @return [QCoreApplication]
       def initialize(argv)
         argv = Rice::Buffer≺char∗≻.new(argv.map(&:bytes))
-        _initialize(argv.size, argv)
+        _initialize(argv.size, argv.data)
         _initialize_qApp
       end
 
