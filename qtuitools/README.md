@@ -1,1 +1,1 @@
-# Ruby-Qt6-QtUiTools
+# RubyQt6-QtUiTools

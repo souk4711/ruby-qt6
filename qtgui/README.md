@@ -1,1 +1,1 @@
-# Ruby-Qt6-QtGui
+# RubyQt6-QtGui

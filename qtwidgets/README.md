@@ -1,1 +1,1 @@
-# Ruby-Qt6-QtWidgets
+# RubyQt6-QtWidgets

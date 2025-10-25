@@ -1,4 +1,4 @@
-// This file is part of [Ruby-Qt6](https://github.com/souk4711/ruby-qt6).
+// This file is part of [RubyQt6](https://github.com/souk4711/ruby-qt6).
 //
 // It is licensed under the LGPLv3, included below.
 //

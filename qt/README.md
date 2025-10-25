@@ -1,1 +1,1 @@
-# Ruby-Qt6
+# RubyQt6

@@ -1,1 +1,1 @@
-# Ruby-Qt6-QtQml
+# RubyQt6-QtQml

@@ -1,1 +1,1 @@
-# Ruby-Qt6-QtPrintSupport
+# RubyQt6-QtPrintSupport

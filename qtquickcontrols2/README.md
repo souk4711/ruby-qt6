@@ -1,1 +1,1 @@
-# Ruby-Qt6-QtQuickControls2
+# RubyQt6-QtQuickControls2

@@ -1,1 +1,1 @@
-# Ruby-Qt6-QtCore
+# RubyQt6-QtCore
