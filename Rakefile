@@ -4,6 +4,7 @@ QT6_LIBS = %w[
   QtCore QtGui QtWidgets
   QtQml QtQuick QtQuickControls2 QtQuickWidgets
   QtPrintSupport QtUiTools
+  QtDBus
 ].freeze
 
 QT6_LIBS_Z =

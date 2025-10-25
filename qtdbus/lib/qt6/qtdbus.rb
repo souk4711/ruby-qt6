@@ -5,3 +5,10 @@ require "qt6/qtcore"
 require_relative "qtdbus/version"
 require_relative "qtdbus/qtdbus"
 require_relative "qtdbus/qtdbusversion"
+
+require_relative "qtdbus/qdbusconnection"
+require_relative "qtdbus/qdbuserror"
+require_relative "qtdbus/qdbusmessage"
+
+require_relative "qtdbus/qdbusabstractinterface"
+require_relative "qtdbus/qdbusinterface"
