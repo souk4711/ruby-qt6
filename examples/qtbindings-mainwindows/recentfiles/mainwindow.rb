@@ -12,11 +12,9 @@ class MainWindow < RubyQt6::Bando::QMainWindow
     slot 'about()'
   end
 
-  @@main_windows = {}
   def initialize(parent = nil)
     super
-
-    @@main_windows[self] = self
+    set_attribute(Qt::WA_DeleteOnClose)
 
     @text_edit = QTextEdit.new
     @recent_file_actions = []
@@ -197,7 +195,9 @@ class MainWindow < RubyQt6::Bando::QMainWindow
     files.pop while files.length > MAX_RECENT_FILES
     settings.set_value('recentFileList', files)
 
-    @@main_windows.each_value(&:update_recent_file_actions)
+    QApplication.top_level_widgets.each do |widget|
+      widget.update_recent_file_actions if widget.is_a?(MainWindow)
+    end
   end
 
   def update_recent_file_actions
@@ -223,7 +223,6 @@ class MainWindow < RubyQt6::Bando::QMainWindow
   end
 
   def close_event(event)
-    @@main_windows.delete(self)
     event.accept
   end
 end

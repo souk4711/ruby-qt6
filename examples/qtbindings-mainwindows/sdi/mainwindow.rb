@@ -13,11 +13,10 @@ class MainWindow < RubyQt6::Bando::QMainWindow
   attr_reader :current_file, :is_untitled
 
   @@sequence_number = 0
-  @@windows = {}
 
   def initialize(file_name = '')
     super()
-    @@windows[self] = self
+    set_attribute(Qt::WA_DeleteOnClose)
 
     init
 
@@ -32,7 +31,6 @@ class MainWindow < RubyQt6::Bando::QMainWindow
     if maybe_save
       write_settings
       event.accept
-      @@windows.delete(self)
     else
       event.ignore
     end
@@ -283,8 +281,8 @@ class MainWindow < RubyQt6::Bando::QMainWindow
 
   def find_main_window(file_name)
     canonical_file_path = QFileInfo.new(file_name).canonical_file_path
-    @@windows.each_value do |window|
-      return window if window.current_file == canonical_file_path
+    QApplication.top_level_widgets do |widget|
+      return widget if widget.is_a?(MainWindow) && widget.current_file == canonical_file_path
     end
     nil
   end
