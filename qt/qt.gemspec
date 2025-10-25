@@ -39,6 +39,7 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency("ruby-qt6-qtquickwidgets")
   spec.add_runtime_dependency("ruby-qt6-qtprintsupport")
   spec.add_runtime_dependency("ruby-qt6-qtuitools")
+  spec.add_runtime_dependency("ruby-qt6-qtdbus") if RUBY_PLATFORM.downcase.include?("linux")
 
   # For more information and examples about making a new gem, check out our
   # guide at: https://bundler.io/guides/creating_gem.html

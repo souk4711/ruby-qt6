@@ -8,6 +8,13 @@ PATH
       semantic_logger (~> 4.17)
 
 PATH
+  remote: ../qtdbus
+  specs:
+    ruby-qt6-qtdbus (0.1.0)
+      rice (~> 4.7)
+      ruby-qt6-qtcore
+
+PATH
   remote: ../qtgui
   specs:
     ruby-qt6-qtgui (0.1.0)
@@ -82,6 +89,7 @@ PATH
   specs:
     ruby-qt6 (0.1.0)
       ruby-qt6-qtcore
+      ruby-qt6-qtdbus
       ruby-qt6-qtgui
       ruby-qt6-qtprintsupport
       ruby-qt6-qtqml
@@ -235,6 +243,7 @@ DEPENDENCIES
   rubocop
   ruby-qt6!
   ruby-qt6-qtcore!
+  ruby-qt6-qtdbus!
   ruby-qt6-qtgui!
   ruby-qt6-qtprintsupport!
   ruby-qt6-qtqml!

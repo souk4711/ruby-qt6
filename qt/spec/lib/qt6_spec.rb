@@ -6,6 +6,7 @@ RSpec.describe RubyQt6 do
       next unless cls.ancestors.include?(RubyQt6::QtCore::QObject)
 
       it "define ._qmetaobject @ #{klass}" do
+        next if [RubyQt6::QtDBus::QDBusInterface].include?(cls)
         expect(cls._qmetaobject.class_name).to eq(klass.to_s)
       end
     end

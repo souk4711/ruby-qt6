@@ -11,3 +11,10 @@ source "https://rubygems.org"
   gem_name = (lib != "qt" ? "ruby-qt6-#{lib}" : "ruby-qt6")
   gem gem_name, path: "../#{lib}"
 end
+
+%w[
+  qtdbus
+].each do |lib|
+  next unless RUBY_PLATFORM.downcase.include?("linux")
+  gem "ruby-qt6-#{lib}", path: "../#{lib}"
+end

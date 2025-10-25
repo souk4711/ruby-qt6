@@ -14,6 +14,14 @@ gemspec
   gem "ruby-qt6-#{lib}", path: "../#{lib}"
 end
 
+# ruby-qt6 - linux
+%w[
+  qtdbus
+].each do |lib|
+  next unless RUBY_PLATFORM.downcase.include?("linux")
+  gem "ruby-qt6-#{lib}", path: "../#{lib}"
+end
+
 # rake
 gem "irb"
 gem "rake", "~> 13.0"
