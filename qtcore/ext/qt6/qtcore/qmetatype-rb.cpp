@@ -11,6 +11,8 @@ void Init_qmetatype(Rice::Module rb_mQt6QtCore)
     rb_cQMetaType =
         // RubyQt6::QtCore::QMetaType
         define_class_under<QMetaType>(rb_mQt6QtCore, "QMetaType")
+            // RubyQt6-Defined Functions
+            .define_singleton_function("from_name", [](const char *name) -> QMetaType { return QMetaType::fromName(name); })
             // Constructor
             .define_constructor(Constructor<QMetaType, int>(), Arg("type_id"))
             // Public Functions

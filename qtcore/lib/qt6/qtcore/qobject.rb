@@ -23,7 +23,11 @@ module RubyQt6
             end
           elsif meth.slot? && mo.ruby?
             define_method(meth.qsignature_name) do |*args|
-              __send__(meth.name, *args.map(&:value))
+              r = __send__(meth.name, *args.map(&:value))
+              next if meth.return_type.nil?
+
+              qmetatype = QtCore::QMetaType.from_name(meth.return_type)
+              QtCore::QVariant.new(r, qmetatype)
             rescue => e
               RubyQt6.logger.error(e)
               nil

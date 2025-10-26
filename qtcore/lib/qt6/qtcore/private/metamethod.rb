@@ -4,11 +4,12 @@ module RubyQt6
   module QtCore
     module Private
       class MetaMethod
-        RE = /(\w+)\((.*)\)/
+        RE = /(\w+ )?(\w+)\((.*)\)/
 
         attr_reader :name
         attr_reader :parameters
         attr_reader :signature
+        attr_reader :return_type
         attr_reader :type
 
         def self.normalized_name(name)
@@ -23,13 +24,19 @@ module RubyQt6
           normalized_name + "(" + normalized_parameters.join(",") + ")"
         end
 
+        def self.normalized_return_type(return_type)
+          return nil if return_type.nil?
+          return_type.delete(" ")
+        end
+
         def initialize(signature, type, underlying)
           matched = signature.match(RE)
           raise "Invalid metamethod signature: #{signature}" if matched.nil?
 
-          @name = self.class.normalized_name(matched[1])
-          @parameters = self.class.normalized_parameters(matched[2].split(","))
+          @name = self.class.normalized_name(matched[2])
+          @parameters = self.class.normalized_parameters(matched[3].split(","))
           @signature = self.class.normalized_signature(@name, @parameters)
+          @return_type = self.class.normalized_return_type(matched[1])
           @type = type.to_sym
           @underlying = underlying.to_sym
         end

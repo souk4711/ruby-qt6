@@ -181,7 +181,15 @@ template <typename BandoClass_T> int bando_qt_metacall(BandoClass_T *self, QMeta
             }
 
             Q_ASSERT(self->value_.rb_type() != RUBY_T_NONE);
-            self->value_.vcall(name, arguments);
+            auto rb_return = self->value_.vcall(name, arguments);
+
+            if (method.returnType() != QMetaType::Void) {
+                if (!rb_return.is_nil()) {
+                    const QVariant result = Rice::detail::From_Ruby<QVariant>().convert(rb_return);
+                    method.returnMetaType().construct(args[0], result.constData());
+                }
+            }
+
             return -1;
         }
     }

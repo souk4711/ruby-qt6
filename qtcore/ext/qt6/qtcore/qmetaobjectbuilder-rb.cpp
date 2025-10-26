@@ -74,6 +74,8 @@ void Init_qmetaobjectbuilder(Rice::Module rb_mQt6QtCore)
     rb_cQMetaMethodBuilder =
         // RubyQt6::QtCore::QMetaMethodBuilder
         define_class_under<QMetaMethodBuilder>(rb_mQt6QtCore, "QMetaMethodBuilder")
+            // RubyQt6-Defined Functions
+            .define_method("set_return_type", [](QMetaMethodBuilder *self, const char *value) -> void { return self->setReturnType(value); })
             // Public Functions
             .define_method("access", &QMetaMethodBuilder::access)
             .define_method("attributes", &QMetaMethodBuilder::attributes)
