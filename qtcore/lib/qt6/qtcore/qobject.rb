@@ -67,6 +67,13 @@ module RubyQt6
       end
 
       # @!visibility private
+      def find_child(name, options = nil)
+        options ||= QtCore::Qt::FindChildrenRecursively
+        child = _find_child(T.to_qanystringview(name), T.to_qflags(options))
+        T.bando_qobject_cast(child)
+      end
+
+      # @!visibility private
       def set_parent(parent)
         _set_parent(parent)
         _take_ownership_from_ruby(self) if parent
