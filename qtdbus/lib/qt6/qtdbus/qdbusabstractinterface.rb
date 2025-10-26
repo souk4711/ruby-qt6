@@ -7,6 +7,26 @@ module RubyQt6
       # @!parse
       q_object do
       end
+
+      # @!visibility private
+      def async_call(method, *args)
+        async_call_with_argument_list(T.to_qstr(method), to_qvariantlist(args))
+      end
+
+      # @!visibility private
+      def call(*args)
+        mode = args[0].is_a?(QtDBus::QDBus::CallMode) ? args.delete_at(0) : QtDBus::QDBus::CallMode::AutoDetect
+        method = args.delete_at(0)
+        call_with_argument_list(mode, T.to_qstr(method), to_qvariantlist(args))
+      end
+
+      private
+
+      def to_qvariantlist(args)
+        args.each_with_object(T::QList≺QVariant≻.new) do |arg, args|
+          args << (arg.is_a?(QtCore::QVariant) ? arg : QtCore::QVariant.new(arg))
+        end
+      end
     end
   end
 end
