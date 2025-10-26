@@ -83,7 +83,7 @@ module RubyQt6
 
         def _to_qmetaobject_method_slot(builder, meth)
           methbuilder = builder.add_slot(meth.qsignature[1..])
-          methbuilder.set_return_type(meth.return) unless meth.return_type.nil?
+          methbuilder.set_return_type(meth.return_type) unless meth.return_type.nil?
         end
       end
     end
