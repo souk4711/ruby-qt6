@@ -2,6 +2,8 @@
 #include <qdbuserror.h>
 #include <rice/qenum.hpp>
 
+#include <QDBusMessage>
+
 using namespace Rice;
 
 Rice::Class rb_cQDBusError;
@@ -11,6 +13,9 @@ void Init_qdbuserror(Rice::Module rb_mQt6QtDBus)
     rb_cQDBusError =
         // RubyQt6::QtDBus::QDBusError
         define_class_under<QDBusError>(rb_mQt6QtDBus, "QDBusError")
+            // Constructor
+            .define_constructor(Constructor<QDBusError, const QDBusMessage&>(), Arg("message"))
+            .define_constructor(Constructor<QDBusError, QDBusError::ErrorType, const QString &>(), Arg("type"), Arg("message"))
             // Public Functions
             .define_method("valid?", &QDBusError::isValid)
             .define_method("message", &QDBusError::message)

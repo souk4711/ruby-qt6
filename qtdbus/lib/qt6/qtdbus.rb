@@ -10,6 +10,7 @@ require_relative "qtdbus/qdbus"
 require_relative "qtdbus/qdbusconnection"
 require_relative "qtdbus/qdbuserror"
 require_relative "qtdbus/qdbusmessage"
+require_relative "qtdbus/qdbusreply"
 
 require_relative "qtdbus/qdbusabstractinterface"
 require_relative "qtdbus/qdbusconnectioninterface"
