@@ -11,6 +11,7 @@ RSpec.describe RubyQt6::QtDBus do
     Dir.glob("ext/**/q*.cpp").each do |cppfile|
       next if cppfile == "ext/qt6/qtdbus/qtdbus-rb.cpp"
       next if cppfile == "ext/qt6/qtdbus/qtdbusversion-rb.cpp"
+      next if cppfile.start_with?("ext/qt6/qtdbus/qdbus-enum-")
 
       it cppfile do
         RubyQt6::RSpec.verify_qlass_cppfile cppfile, qmod

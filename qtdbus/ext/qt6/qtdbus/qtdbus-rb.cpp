@@ -1,5 +1,6 @@
 #include "qtdbus-rb.hpp"
 #include "qtdbusversion-rb.hpp"
+#include "qdbus-enum-rb.hpp"
 
 #include "qdbusconnection-rb.hpp"
 #include "qdbuserror-rb.hpp"
@@ -18,6 +19,7 @@ extern "C" void Init_qtdbus()
         Rice::Module rb_mQt6QtDBus = define_module_under(rb_mQt6, "QtDBus");
 
         Init_qtdbusversion(rb_mQt6QtDBus);
+        Init_qdbus_enum(rb_mQt6QtDBus);
 
         Init_qdbusconnection(rb_mQt6QtDBus);
         Init_qdbuserror(rb_mQt6QtDBus);
