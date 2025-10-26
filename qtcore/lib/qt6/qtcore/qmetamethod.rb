@@ -13,7 +13,7 @@ module RubyQt6
 
       # @!visibility private
       def inspect
-        T.inspect_struct(self, signature: method_signature.to_s)
+        T.inspect_struct(self, type: method_type.to_s, signature: method_signature.to_s)
       end
     end
   end
