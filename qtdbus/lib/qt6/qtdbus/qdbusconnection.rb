@@ -4,6 +4,12 @@ module RubyQt6
   module QtDBus
     # @see https://doc.qt.io/qt-6/qdbusconnection.html
     class QDBusConnection
+      REGISTER_OBJECT_ARG_ERROR_MESSAGE =
+        "Could not resolve method call for #{name}#register_object\n" \
+        "  2 overload(s) were evaluated based on the types of Ruby parameters provided:\n" \
+        "    bool register_object(QString, QObject*, QFlags<QDBusConnection::RegisterOption>)\n" \
+        "    bool register_object(QString, QString, QObject*, QFlags<QDBusConnection::RegisterOption>)\n"
+
       # @!parse class BusType               ; end
       # @!parse class RegisterOption        ; end
       # @!parse class RegisterOptions       ; end
@@ -24,6 +30,23 @@ module RubyQt6
       # @return [QDBusMessage]
       def initialize(name)
         _initialize(T.to_qstr(name))
+      end
+
+      # @!visibility private
+      def register_object(*args)
+        options = args_nth_delete_registeroptions(args, -1) || QtDBus::QDBusConnection::RegisterOption::ExportAdaptors
+        case args.size
+        when 2 then _register_object(T.to_qstr(args[-2]), args[-1], T.to_qflags(options))
+        when 3 then _register_object(T.to_qstr(args[-3]), T.to_qstr(args[-2]), args[-1], T.to_qflags(options))
+        else raise ArgumentError, REGISTER_OBJECT_ARG_ERROR_MESSAGE
+        end
+      end
+
+      private
+
+      def args_nth_delete_registeroptions(args, index)
+        return unless args[index].is_a?(QtDBus::QDBusConnection::RegisterOption) || args[index].is_a?(QtDBus::QDBusConnection::RegisterOptions)
+        args.delete_at(index)
       end
     end
   end
