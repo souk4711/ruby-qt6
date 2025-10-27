@@ -31,8 +31,14 @@ module RubyQt6
         def initialize(qlass)
           @qlass = qlass
           @qlass_underlying = @qlass.name.start_with?("RubyQt6::") ? :libQt6 : :ruby
+          @classinfo = {}
           @metamethods = []
         end
+
+        def add_classinfo(name, value)
+          @classinfo[name] = value
+        end
+        alias_method :classinfo, :add_classinfo
 
         def add_signal(signature)
           @metamethods << QtCore::Private::MetaMethod.new(signature, :signal, @qlass_underlying)
@@ -63,6 +69,7 @@ module RubyQt6
           builder = QtCore::QMetaObjectBuilder.new
           builder.set_class_name(@qlass.name)
           builder.set_super_class(@qlass.superclass._qmetaobject)
+          @classinfo.each { |name, value| builder.add_class_info(name, value) }
           @metamethods.each { |meth| _to_qmetaobject_method(builder, meth) }
           builder.to_meta_object
         end

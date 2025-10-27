@@ -7,6 +7,7 @@
 #include "qt-flags-al-rb.hpp"
 #include "qt-flags-mz-rb.hpp"
 
+#include "qmetaclassinfo-rb.hpp"
 #include "qmetamethod-rb.hpp"
 #include "qmetaobject-rb.hpp"
 #include "qmetaobjectbuilder-rb.hpp"
@@ -72,9 +73,10 @@ extern "C" void Init_qtcore()
         Init_qt_flags_al(rb_mQt6QtCore);
         Init_qt_flags_mz(rb_mQt6QtCore);
 
-        Init_qmetaobjectbuilder(rb_mQt6QtCore);
-        Init_qmetaobject(rb_mQt6QtCore);
+        Init_qmetaclassinfo(rb_mQt6QtCore);
         Init_qmetamethod(rb_mQt6QtCore);
+        Init_qmetaobject(rb_mQt6QtCore);
+        Init_qmetaobjectbuilder(rb_mQt6QtCore);
         Init_qmetatype(rb_mQt6QtCore);
 
         Init_qanystringview(rb_mQt6QtCore);

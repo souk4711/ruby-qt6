@@ -14,6 +14,7 @@ void Init_qmetaobjectbuilder(Rice::Module rb_mQt6QtCore)
         // RubyQt6::QtCore::QMetaObjectBuilder
         define_class_under<QMetaObjectBuilder>(rb_mQt6QtCore, "QMetaObjectBuilder")
             // RubyQt6-Defined Functions
+            .define_method("add_class_info", [](QMetaObjectBuilder *self, const char *name, const char *value) -> int { return self->addClassInfo(name, value); })
             .define_method("add_signal", [](QMetaObjectBuilder *self, const char *signature) -> QMetaMethodBuilder { return self->addSignal(signature); })
             .define_method("add_slot", [](QMetaObjectBuilder *self, const char *signature) -> QMetaMethodBuilder { return self->addSlot(signature); })
             .define_method("set_class_name", [](QMetaObjectBuilder *self, const char *name) -> void { return self->setClassName(name); })
