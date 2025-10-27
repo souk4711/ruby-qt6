@@ -10,7 +10,7 @@ RSpec.describe RubyQt6::QtDBus::QDBusReply do
 
     it "ok" do
       message = RubyQt6::QtDBus::QDBusMessage.new
-      message.set_arguments(RubyQt6::T::QList≺QVariant≻.new << RubyQt6::QtCore::QVariant.new("pong!"))
+      message.set_arguments("pong!")
       o = described_class.new(message)
       expect(o.valid?).to eq(true)
       expect(o.error.type).to eq(RubyQt6::QtDBus::QDBusError::NoError)

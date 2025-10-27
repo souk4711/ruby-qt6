@@ -30,7 +30,7 @@ void Init_qdbusmessage(Rice::Module rb_mQt6QtDBus)
             .define_method("member", &QDBusMessage::member)
             .define_method("path", &QDBusMessage::path)
             .define_method("service", &QDBusMessage::service)
-            .define_method("set_arguments", &QDBusMessage::setArguments, Arg("arguments"))
+            .define_method("_set_arguments", &QDBusMessage::setArguments, Arg("arguments"))
             .define_method("set_auto_start_service", &QDBusMessage::setAutoStartService, Arg("enable"))
             .define_method("set_delayed_reply", &QDBusMessage::setDelayedReply, Arg("enable"))
             .define_method("set_interactive_authorization_allowed", &QDBusMessage::setInteractiveAuthorizationAllowed, Arg("enable"))
@@ -41,9 +41,9 @@ void Init_qdbusmessage(Rice::Module rb_mQt6QtDBus)
             .define_singleton_function<QDBusMessage (*)(QDBusError::ErrorType, const QString &)>("create_error", &QDBusMessage::createError, Arg("type"), Arg("msg"))
             .define_singleton_function<QDBusMessage (*)(const QDBusError &)>("create_error", &QDBusMessage::createError, Arg("err"))
             .define_singleton_function<QDBusMessage (*)(const QString &, const QString &)>("create_error", &QDBusMessage::createError, Arg("name"), Arg("msg"))
-            .define_singleton_function("create_method_call", &QDBusMessage::createMethodCall, Arg("destination"), Arg("path"), Arg("interface"), Arg("method"))
-            .define_singleton_function("create_signal", &QDBusMessage::createSignal, Arg("path"), Arg("interface"), Arg("name"))
-            .define_singleton_function("create_targeted_signal", &QDBusMessage::createTargetedSignal, Arg("service"), Arg("path"), Arg("interface"), Arg("name"));
+            .define_singleton_function("_create_method_call", &QDBusMessage::createMethodCall, Arg("destination"), Arg("path"), Arg("interface"), Arg("method"))
+            .define_singleton_function("_create_signal", &QDBusMessage::createSignal, Arg("path"), Arg("interface"), Arg("name"))
+            .define_singleton_function("_create_targeted_signal", &QDBusMessage::createTargetedSignal, Arg("service"), Arg("path"), Arg("interface"), Arg("name"));
 
     Enum<QDBusMessage::MessageType> rb_cQDBusMessageMessageType =
         // RubyQt6::QtDBus::QDBusMessage::MessageType
