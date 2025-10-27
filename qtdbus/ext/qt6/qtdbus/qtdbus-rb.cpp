@@ -13,6 +13,7 @@
 
 #include "t-qtdbus-rb.hpp"
 
+#include "bando-qdbusabstractadaptor-rb.hpp"
 #include "bando-qdbusinterface-rb.hpp"
 
 extern "C" void Init_qtdbus()
@@ -37,6 +38,7 @@ extern "C" void Init_qtdbus()
         Init_t_qtdbus(rb_mQt6T);
 
         Rice::Module rb_mQt6Bando = define_module_under(rb_mQt6, "Bando");
+        Init_bando_qdbusabstractadaptor(rb_mQt6Bando);
         Init_bando_qdbusinterface(rb_mQt6Bando);
     });
 }
