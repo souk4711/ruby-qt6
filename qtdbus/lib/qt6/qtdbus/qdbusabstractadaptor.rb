@@ -7,6 +7,13 @@ module RubyQt6
       # @!parse
       q_object do
       end
+
+      # @param parent [QObject]
+      # @return [QDBusAbstractAdaptor]
+      def initialize(parent = nil)
+        _initialize(parent)
+        _take_ownership_from_ruby(self) if parent
+      end
     end
   end
 end
