@@ -4,20 +4,15 @@
 set -euo pipefail
 
 
-echo "cd $PWD"
-echo "bundle install"
-bundle install
-
-
-for lib in ./qt*/; do
+bundle_install() {
+  echo "cd $1 && bundle install"
+  (cd "$1" && bundle install)
   echo ""
-  lib=${lib%*/}
+}
 
-  echo "cd ${lib##*/}"
-  cd "$lib"
 
-  echo "bundle install"
-  bundle install
-
-  cd ..
+for lib in qt[a-z]*; do
+  bundle_install "$lib"
 done
+bundle_install "qt"
+bundle_install "."
