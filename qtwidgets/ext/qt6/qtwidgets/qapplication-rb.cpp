@@ -19,7 +19,7 @@ void Init_qapplication(Rice::Module rb_mQt6QtWidgets)
             .define_method("set_style_sheet", [](QApplication *self, const char *sheet) -> void { return self->setStyleSheet(QString(sheet)); }, Arg("sheet"))
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QApplication::staticMetaObject; })
             // Constructor
-            .define_constructor(Constructor<QApplication, int &, char **>(), Arg("argc"), Arg("argv"))
+            .define_constructor(Constructor<QApplication, int &, char **>(), Arg("argc"), Arg("argv").setBuffer())
             // Public Functions
             .define_method("auto_sip_enabled", &QApplication::autoSipEnabled)
             .define_method("notify", &QApplication::notify, Arg("receiver"), Arg("event"))

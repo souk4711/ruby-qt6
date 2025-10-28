@@ -23,7 +23,7 @@ void Init_qguiapplication(Rice::Module rb_mQt6QtGui)
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QGuiApplication::staticMetaObject; })
             // Constructor
-            .define_constructor(Constructor<QGuiApplication, int &, char **>(), Arg("argc"), Arg("argv"))
+            .define_constructor(Constructor<QGuiApplication, int &, char **>(), Arg("argc"), Arg("argv").setBuffer())
             // Public Functions
             .define_method("device_pixel_ratio", &QGuiApplication::devicePixelRatio)
             .define_method("notify", &QGuiApplication::notify, Arg("receiver"), Arg("event"))

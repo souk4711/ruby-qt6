@@ -17,7 +17,7 @@ void Init_qcoreapplication(Rice::Module rb_mQt6QtCore)
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QCoreApplication::staticMetaObject; })
             // Constructor
-            .define_constructor(Constructor<QCoreApplication, int &, char **>(), Arg("argc"), Arg("argv"))
+            .define_constructor(Constructor<QCoreApplication, int &, char **>(), Arg("argc"), Arg("argv").setBuffer())
             // Public Functions
             .define_method("check_permission", &QCoreApplication::checkPermission, Arg("permission"))
             .define_method("install_native_event_filter", &QCoreApplication::installNativeEventFilter, Arg("filter_obj"))
