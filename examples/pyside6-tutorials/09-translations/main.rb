@@ -40,7 +40,7 @@ app = QApplication.new(ARGV)
 
 translator_qt = QTranslator.new(app)
 translator_custom = QTranslator.new(app)
-translator_qt.load(QLocale.system, 'qtbase', '_', QLibraryInfo.path(QLibraryInfo::LibraryPath::TranslationsPath).to_s)
+translator_qt.load(QLocale.system, 'qtbase', '_', QLibraryInfo.path(QLibraryInfo::LibraryPath::TranslationsPath))
 puts 'Launch with `LANG=de bundle exec ruby main.rb` to load example_de.qm' unless translator_custom.load(
   QLocale.system, 'example', '_', ':/translations'
 )

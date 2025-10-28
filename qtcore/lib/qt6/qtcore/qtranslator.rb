@@ -17,6 +17,11 @@ module RubyQt6
         _initialize(parent)
         _take_ownership_from_ruby(self) if parent
       end
+
+      # @!visibility private
+      def load(*args)
+        _load(*args.map { |arg| T.to_qstr(arg) })
+      end
     end
   end
 end

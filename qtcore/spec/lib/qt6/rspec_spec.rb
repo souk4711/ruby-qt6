@@ -23,10 +23,10 @@ RSpec.describe RubyQt6::RSpec do
 
       qlass = r.qlass
       qlass_methods = qlass.methods.group_by(&:type)
-      expect(qlass_methods[:rubyqt6_defined_functions].count).to eq(4)
+      expect(qlass_methods[:rubyqt6_defined_functions].count).to eq(3)
       expect(qlass_methods[:constructor].count).to eq(1)
       expect(qlass_methods[:inherits]).to eq(nil)
-      expect(qlass_methods[:public_functions].count).to eq(31)
+      expect(qlass_methods[:public_functions].count).to eq(32)
       expect(qlass_methods[:public_slots].count).to eq(1)
       expect(qlass_methods[:signals].count).to eq(2)
       expect(qlass_methods[:static_public_members].count).to eq(6)

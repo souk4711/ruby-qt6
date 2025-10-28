@@ -11,7 +11,7 @@ void Init_qsignalmapper(Rice::Module rb_mQt6QtCore)
         // RubyQt6::QtCore::QSignalMapper
         define_class_under<QSignalMapper, QObject>(rb_mQt6QtCore, "QSignalMapper")
             // RubyQt6-Defined Functions
-            .define_method("set_mapping", [](QSignalMapper *self, QObject *sender, const char *id) -> void { return self->setMapping(sender, id); }, Arg("sender"), Arg("text"))
+            .define_method("set_mapping", [](QSignalMapper *self, QObject *sender, const char *text) -> void { return self->setMapping(sender, text); }, Arg("sender"), Arg("text"))
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QSignalMapper::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QSignalMapper, QObject *>(), Arg("parent"))
