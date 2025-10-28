@@ -8,6 +8,17 @@ module RubyQt6
       q_object do
       end
 
+      # @param service [String, QString]
+      # @param path [String, QString]
+      # @param interface [String]
+      # @param connection [QDBusConnection]
+      # @param parent [QObject]
+      # @return [QDBusAbstractInterface]
+      def initialize(service, path, interface, connection, parent = nil)
+        _initialize(T.to_qstr(service), T.to_qstr(path), interface, connection, parent)
+        _take_ownership_from_ruby(self) if parent
+      end
+
       # @!visibility private
       def async_call(method, *args)
         async_call_with_argument_list(T.to_qstr(method), T.to_qvariantlist(args))
