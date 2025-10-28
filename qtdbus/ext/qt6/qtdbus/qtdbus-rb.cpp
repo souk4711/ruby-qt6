@@ -11,6 +11,7 @@
 #include "qdbusabstractinterface-rb.hpp"
 #include "qdbusconnectioninterface-rb.hpp"
 #include "qdbusinterface-rb.hpp"
+#include "qdbusservicewatcher-rb.hpp"
 
 #include "t-qtdbus-rb.hpp"
 
@@ -35,6 +36,7 @@ extern "C" void Init_qtdbus()
         Init_qdbusabstractinterface(rb_mQt6QtDBus);
         Init_qdbusconnectioninterface(rb_mQt6QtDBus);
         Init_qdbusinterface(rb_mQt6QtDBus);
+        Init_qdbusservicewatcher(rb_mQt6QtDBus);
 
         Rice::Module rb_mQt6T = define_module_under(rb_mQt6, "T");
         Init_t_qtdbus(rb_mQt6T);

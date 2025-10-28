@@ -17,6 +17,7 @@ require_relative "qtdbus/qdbusabstractadaptor"
 require_relative "qtdbus/qdbusabstractinterface"
 require_relative "qtdbus/qdbusconnectioninterface"
 require_relative "qtdbus/qdbusinterface"
+require_relative "qtdbus/qdbusservicewatcher"
 
 require_relative "bando/qdbusabstractadaptor"
 require_relative "bando/qdbusinterface"
