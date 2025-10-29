@@ -50,6 +50,8 @@ require_relative "qtwidgets/qvboxlayout"
 require_relative "qtwidgets/qformlayout"
 require_relative "qtwidgets/qgridlayout"
 require_relative "qtwidgets/qstackedlayout"
+require_relative "qtwidgets/qgraphicsscene"
+
 require_relative "qtwidgets/qwidget"
 require_relative "qtwidgets/qabstractbutton"
 require_relative "qtwidgets/qcheckbox"

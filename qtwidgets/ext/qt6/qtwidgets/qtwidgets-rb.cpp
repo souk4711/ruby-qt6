@@ -17,6 +17,7 @@
 #include "qformlayout-rb.hpp"
 #include "qgridlayout-rb.hpp"
 #include "qstackedlayout-rb.hpp"
+#include "qgraphicsscene-rb.hpp"
 
 #include "qwidget-rb.hpp"
 #include "qabstractbutton-rb.hpp"
@@ -180,6 +181,7 @@ extern "C" void Init_qtwidgets()
         Init_qformlayout(rb_mQt6QtWidgets);
         Init_qgridlayout(rb_mQt6QtWidgets);
         Init_qstackedlayout(rb_mQt6QtWidgets);
+        Init_qgraphicsscene(rb_mQt6QtWidgets);
 
         Init_qwidget(rb_mQt6QtWidgets);
         Init_qabstractbutton(rb_mQt6QtWidgets);
