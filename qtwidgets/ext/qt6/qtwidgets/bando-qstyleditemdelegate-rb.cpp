@@ -1,5 +1,5 @@
 #include "bando-qstyleditemdelegate-rb.hpp"
-#include <bando/qitemdelegate.hpp>
+#include <bando/qobject/qitemdelegate.hpp>
 
 #include <QStyledItemDelegate>
 

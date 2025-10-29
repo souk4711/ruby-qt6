@@ -1,5 +1,5 @@
 #include "bando-qlayout-rb.hpp"
-#include <bando/qlayout.hpp>
+#include <bando/qobject/qlayout.hpp>
 
 #include <QLayout>
 

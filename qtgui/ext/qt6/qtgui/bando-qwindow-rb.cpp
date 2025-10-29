@@ -1,5 +1,5 @@
 #include "bando-qwindow-rb.hpp"
-#include <bando/qwindow.hpp>
+#include <bando/qobject/qwindow.hpp>
 
 #include <QWindow>
 

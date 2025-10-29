@@ -1,5 +1,5 @@
 #include "bando-qquickitem-rb.hpp"
-#include <bando/qquickitem.hpp>
+#include <bando/qobject/qquickitem.hpp>
 
 #include <QQuickItem>
 
