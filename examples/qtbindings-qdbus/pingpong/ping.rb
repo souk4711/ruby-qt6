@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'qt6/all'
-require_relative 'common'
 
 QCoreApplication.new(ARGV)
 
@@ -10,9 +9,9 @@ unless QDBusConnection.session_bus.connected?
   exit(1)
 end
 
-iface = QDBusInterface.new(SERVICE_NAME, '/', '', QDBusConnection.session_bus)
+iface = QDBusInterface.new('com.trolltech.QtDBus.PingExample', '/', '', QDBusConnection.session_bus)
 if iface.valid?
-  message = iface.call(RUBYQT6_SLOT_NAME(:ping), ARGV.length.positive? ? ARGV[0] : '')
+  message = iface.call('_rubyqt6_ping', ARGV.length.positive? ? ARGV[0] : '')
   reply = QDBusReply.new(message)
   if reply.value
     puts("#{__FILE__}: Reply was: %s\n" % reply.value)

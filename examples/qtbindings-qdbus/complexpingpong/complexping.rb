@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'qt6/all'
-require_relative 'common'
 
 class Ping < RubyQt6::Bando::QObject
   q_object do
@@ -9,10 +8,10 @@ class Ping < RubyQt6::Bando::QObject
   end
 
   def start(name, _old_value, new_value)
-    return if name != SERVICE_NAME || new_value.empty?
+    return if name != 'com.trolltech.QtDBus.PingExample' || new_value.empty?
 
-    iface = QDBusInterface.new(name, '/', 'com.trolltech.QtDBus.ComplexPong.Pong', QDBusConnection.session_bus, self)
-    unless iface.valid?
+    @iface = QDBusInterface.new(name, '/', 'com.trolltech.QtDBus.ComplexPong.Pong', QDBusConnection.session_bus, self)
+    unless @iface.valid?
       warn("#{__FILE__}: Invalid interface: %s" % QDBusConnection.session_bus.last_error.message)
       QCoreApplication.quit
       return
@@ -23,21 +22,28 @@ class Ping < RubyQt6::Bando::QObject
 
       line = gets.strip
       if line.empty? || line == 'quit'
-        iface.call(RUBYQT6_SLOT_NAME(:quit))
+        iface_call(:quit)
         QCoreApplication.quit
         return
       elsif line == 'value'
-        reply = QDBusReply.new(iface.call(RUBYQT6_SLOT_NAME(:value)))
-        puts("#{__FILE__}: value = %s" % reply.value) if reply.valid?
+        reply = iface_call(:value)
+        puts("#{__FILE__}: Value was: %s" % reply.value) if reply.valid?
       elsif line =~ /^value=/
-        iface.call(RUBYQT6_SLOT_NAME(:set_value), QVariant.new(line[6, line.length]))
+        reply = iface_call(:set_value, line[6, line.length])
+        puts("#{__FILE__}: Value updated") if reply.valid?
       else
-        reply = QDBusReply.new(iface.call(RUBYQT6_SLOT_NAME(:query), QVariant.new(line)))
+        reply = iface_call(:query, line)
         puts("#{__FILE__}: Reply was: %s" % reply.value.variant.value) if reply.valid?
       end
 
-      warn("#{__FILE__}: Call failed: %s" % iface.last_error.message) if iface.last_error.valid?
+      warn("#{__FILE__}: Call failed: %s" % @iface.last_error.message) if @iface.last_error.valid?
     end
+  end
+
+  private
+
+  def iface_call(method, *args)
+    QDBusReply.new(@iface.call("_rubyqt6_#{method}", *args))
   end
 end
 
@@ -51,7 +57,7 @@ end
 ping = Ping.new
 watcher = QDBusServiceWatcher.new
 watcher.set_connection(QDBusConnection.session_bus)
-watcher.add_watched_service(SERVICE_NAME)
+watcher.add_watched_service('com.trolltech.QtDBus.PingExample')
 watcher.service_owner_changed.connect(ping, :start)
 
 app.exec

@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'qt6/all'
-require_relative 'common'
 
 class Pong < RubyQt6::Bando::QObject
   q_object do
@@ -22,7 +21,7 @@ unless QDBusConnection.session_bus.connected?
   exit(1)
 end
 
-unless QDBusConnection.session_bus.register_service(SERVICE_NAME)
+unless QDBusConnection.session_bus.register_service('com.trolltech.QtDBus.PingExample')
   warn("#{__FILE__}: Cannot register service: %s\n" % QDBusConnection.session_bus.last_error.message)
   exit(1)
 end
