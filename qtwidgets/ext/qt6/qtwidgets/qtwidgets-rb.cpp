@@ -1,6 +1,7 @@
 #include "qtwidgets-rb.hpp"
 #include "qtwidgetsversion-rb.hpp"
 
+#include "qgraphicsitem-rb.hpp"
 #include "qlayoutitem-rb.hpp"
 #include "qsizepolicy-rb.hpp"
 #include "qstylefactory-rb.hpp"
@@ -11,13 +12,16 @@
 #include "qitemdelegate-rb.hpp"
 #include "qstyleditemdelegate-rb.hpp"
 #include "qapplication-rb.hpp"
-#include "qstyle-rb.hpp"
+#include "qgraphicsobject-rb.hpp"
+#include "qgraphicstextitem-rb.hpp"
+#include "qgraphicswidget-rb.hpp"
+#include "qgraphicsscene-rb.hpp"
 #include "qlayout-rb.hpp"
 #include "qboxlayout-rb.hpp"
 #include "qformlayout-rb.hpp"
 #include "qgridlayout-rb.hpp"
 #include "qstackedlayout-rb.hpp"
-#include "qgraphicsscene-rb.hpp"
+#include "qstyle-rb.hpp"
 
 #include "qwidget-rb.hpp"
 #include "qabstractbutton-rb.hpp"
@@ -165,6 +169,7 @@ extern "C" void Init_qtwidgets()
 
         Init_qtwidgetsversion(rb_mQt6QtWidgets);
 
+        Init_qgraphicsitem(rb_mQt6QtWidgets);
         Init_qlayoutitem(rb_mQt6QtWidgets);
         Init_qsizepolicy(rb_mQt6QtWidgets);
         Init_qstylefactory(rb_mQt6QtWidgets);
@@ -175,13 +180,16 @@ extern "C" void Init_qtwidgets()
         Init_qitemdelegate(rb_mQt6QtWidgets);
         Init_qstyleditemdelegate(rb_mQt6QtWidgets);
         Init_qapplication(rb_mQt6QtWidgets);
-        Init_qstyle(rb_mQt6QtWidgets);
+        Init_qgraphicsobject(rb_mQt6QtWidgets);
+        Init_qgraphicstextitem(rb_mQt6QtWidgets);
+        Init_qgraphicswidget(rb_mQt6QtWidgets);
+        Init_qgraphicsscene(rb_mQt6QtWidgets);
         Init_qlayout(rb_mQt6QtWidgets);
         Init_qboxlayout(rb_mQt6QtWidgets);
         Init_qformlayout(rb_mQt6QtWidgets);
         Init_qgridlayout(rb_mQt6QtWidgets);
         Init_qstackedlayout(rb_mQt6QtWidgets);
-        Init_qgraphicsscene(rb_mQt6QtWidgets);
+        Init_qstyle(rb_mQt6QtWidgets);
 
         Init_qwidget(rb_mQt6QtWidgets);
         Init_qabstractbutton(rb_mQt6QtWidgets);

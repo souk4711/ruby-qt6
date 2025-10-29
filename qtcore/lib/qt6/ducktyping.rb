@@ -13,6 +13,11 @@ module RubyQt6
       args.delete_at(index)
     end
 
+    def self.args_nth_delete_qgraphicsitem(args, index)
+      return unless args[index].is_a?(QtWidgets::QGraphicsItem)
+      args.delete_at(index)
+    end
+
     def self.args_nth_to_qanystringview(args, index)
       return unless args[index].is_a?(String) || args[index].is_a?(QtCore::QString)
       args[index] = QtCore::QAnyStringView.new(args[index])

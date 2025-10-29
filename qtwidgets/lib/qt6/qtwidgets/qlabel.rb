@@ -8,7 +8,7 @@ module RubyQt6
         "Could not resolve method call for #{name}#initialize\n" \
         "  2 overload(s) were evaluated based on the types of Ruby parameters provided:\n" \
         "    initialize(QWidget)\n" \
-        "    initialize(QString, QWidget)\n" \
+        "    initialize(QString, QWidget)\n"
 
       # @!parse
       q_object do
