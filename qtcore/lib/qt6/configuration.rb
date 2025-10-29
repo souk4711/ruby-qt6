@@ -5,7 +5,7 @@ require "semantic_logger/sync"
 module RubyQt6
   # @!visibility private
   def self.load_defaults
-    mods = [RubyQt6::T] + RubyQt6.constants.grep(/^Qt/).map { |const| RubyQt6.const_get(const) }
+    mods = RubyQt6.constants.grep(/^Qt/).map { |const| RubyQt6.const_get(const) }
     mods.each do |mod|
       mod.constants.each do |const|
         next if const.match?("VERSION")
