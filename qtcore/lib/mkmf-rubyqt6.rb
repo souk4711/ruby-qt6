@@ -24,3 +24,6 @@ end
 
 BANDO_INCLUDEDIR = File.expand_path(File.join(__dir__, "../include"))
 raise "Could not find bando/_.hpp header" unless find_header("bando/_.hpp", BANDO_INCLUDEDIR)
+
+RUBYQT6_CXX_FLAGS = ENV["RUBYQT6_CXX_FLAGS"] || "-Os -fno-fast-math"
+append_cppflags(RUBYQT6_CXX_FLAGS) unless RUBYQT6_CXX_FLAGS.strip == ""
