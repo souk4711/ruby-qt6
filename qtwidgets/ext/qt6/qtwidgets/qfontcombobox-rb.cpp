@@ -33,14 +33,14 @@ void Init_qfontcombobox(Rice::Module rb_mQt6QtWidgets)
             // Signals
             .define_method("current_font_changed", &QFontComboBox::currentFontChanged, Arg("f"));
 
-    Enum<QFontComboBox::FontFilter> rb_cQFontComboBoxFontFilter =
+    Data_Type<QFontComboBox::FontFilter> rb_cQFontComboBoxFontFilter =
         // RubyQt6::QtWidgets::QFontComboBox::FontFilter
-        define_qenum_under<QFontComboBox::FontFilter>("FontFilter", rb_cQFontComboBox)
-            .define_value("AllFonts", QFontComboBox::FontFilter::AllFonts)
-            .define_value("ScalableFonts", QFontComboBox::FontFilter::ScalableFonts)
-            .define_value("NonScalableFonts", QFontComboBox::FontFilter::NonScalableFonts)
-            .define_value("MonospacedFonts", QFontComboBox::FontFilter::MonospacedFonts)
-            .define_value("ProportionalFonts", QFontComboBox::FontFilter::ProportionalFonts);
+        define_qenum_under<QFontComboBox::FontFilter>(rb_cQFontComboBox, "FontFilter");
+        define_qenum_value_under(rb_cQFontComboBoxFontFilter, "AllFonts", QFontComboBox::FontFilter::AllFonts);
+        define_qenum_value_under(rb_cQFontComboBoxFontFilter, "ScalableFonts", QFontComboBox::FontFilter::ScalableFonts);
+        define_qenum_value_under(rb_cQFontComboBoxFontFilter, "NonScalableFonts", QFontComboBox::FontFilter::NonScalableFonts);
+        define_qenum_value_under(rb_cQFontComboBoxFontFilter, "MonospacedFonts", QFontComboBox::FontFilter::MonospacedFonts);
+        define_qenum_value_under(rb_cQFontComboBoxFontFilter, "ProportionalFonts", QFontComboBox::FontFilter::ProportionalFonts);
 
     Data_Type<QFlags<QFontComboBox::FontFilter>> rb_cQFontComboBoxFontFilters =
         // RubyQt6::QtWidgets::QFontComboBox::FontFilters

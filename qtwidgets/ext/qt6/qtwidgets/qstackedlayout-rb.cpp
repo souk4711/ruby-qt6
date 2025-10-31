@@ -39,9 +39,9 @@ void Init_qstackedlayout(Rice::Module rb_mQt6QtWidgets)
             .define_method("widget_added", &QStackedLayout::widgetAdded, Arg("index"))
             .define_method("widget_removed", &QStackedLayout::widgetRemoved, Arg("index"));
 
-    Enum<QStackedLayout::StackingMode> rb_cQStackedLayoutStackingMode =
+    Data_Type<QStackedLayout::StackingMode> rb_cQStackedLayoutStackingMode =
         // RubyQt6::QtWidgets::QStackedLayout::StackingMode
-        define_qenum_under<QStackedLayout::StackingMode>("StackingMode", rb_cQStackedLayout)
-            .define_value("StackOne", QStackedLayout::StackingMode::StackOne)
-            .define_value("StackAll", QStackedLayout::StackingMode::StackAll);
+        define_qenum_under<QStackedLayout::StackingMode>(rb_cQStackedLayout, "StackingMode");
+        define_qenum_value_under(rb_cQStackedLayoutStackingMode, "StackOne", QStackedLayout::StackingMode::StackOne);
+        define_qenum_value_under(rb_cQStackedLayoutStackingMode, "StackAll", QStackedLayout::StackingMode::StackAll);
 }

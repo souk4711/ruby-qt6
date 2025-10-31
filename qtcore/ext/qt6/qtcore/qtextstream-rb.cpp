@@ -61,37 +61,37 @@ void Init_qtextstream(Rice::Module rb_mQt6QtCore)
             .define_method<QTextStream &(QTextStream::*)(const char *)>("<<", &QTextStream::operator<<, Arg("s"))
             .define_method<QTextStream &(QTextStream::*)(const QString &)>("<<", &QTextStream::operator<<, Arg("s"));
 
-    Enum<QTextStream::FieldAlignment> rb_cQTextStreamFieldAlignment =
+    Data_Type<QTextStream::FieldAlignment> rb_cQTextStreamFieldAlignment =
         // RubyQt6::QtCore::QTextStream::FieldAlignment
-        define_qenum_under<QTextStream::FieldAlignment>("FieldAlignment", rb_cQTextStream)
-            .define_value("AlignLeft", QTextStream::FieldAlignment::AlignLeft)
-            .define_value("AlignRight", QTextStream::FieldAlignment::AlignRight)
-            .define_value("AlignCenter", QTextStream::FieldAlignment::AlignCenter)
-            .define_value("AlignAccountingStyle", QTextStream::FieldAlignment::AlignAccountingStyle);
+        define_qenum_under<QTextStream::FieldAlignment>(rb_cQTextStream, "FieldAlignment");
+        define_qenum_value_under(rb_cQTextStreamFieldAlignment, "AlignLeft", QTextStream::FieldAlignment::AlignLeft);
+        define_qenum_value_under(rb_cQTextStreamFieldAlignment, "AlignRight", QTextStream::FieldAlignment::AlignRight);
+        define_qenum_value_under(rb_cQTextStreamFieldAlignment, "AlignCenter", QTextStream::FieldAlignment::AlignCenter);
+        define_qenum_value_under(rb_cQTextStreamFieldAlignment, "AlignAccountingStyle", QTextStream::FieldAlignment::AlignAccountingStyle);
 
-    Enum<QTextStream::NumberFlag> rb_cQTextStreamNumberFlag =
+    Data_Type<QTextStream::NumberFlag> rb_cQTextStreamNumberFlag =
         // RubyQt6::QtCore::QTextStream::NumberFlag
-        define_qenum_under<QTextStream::NumberFlag>("NumberFlag", rb_cQTextStream)
-            .define_value("ShowBase", QTextStream::NumberFlag::ShowBase)
-            .define_value("ForcePoint", QTextStream::NumberFlag::ForcePoint)
-            .define_value("ForceSign", QTextStream::NumberFlag::ForceSign)
-            .define_value("UppercaseBase", QTextStream::NumberFlag::UppercaseBase)
-            .define_value("UppercaseDigits", QTextStream::NumberFlag::UppercaseDigits);
+        define_qenum_under<QTextStream::NumberFlag>(rb_cQTextStream, "NumberFlag");
+        define_qenum_value_under(rb_cQTextStreamNumberFlag, "ShowBase", QTextStream::NumberFlag::ShowBase);
+        define_qenum_value_under(rb_cQTextStreamNumberFlag, "ForcePoint", QTextStream::NumberFlag::ForcePoint);
+        define_qenum_value_under(rb_cQTextStreamNumberFlag, "ForceSign", QTextStream::NumberFlag::ForceSign);
+        define_qenum_value_under(rb_cQTextStreamNumberFlag, "UppercaseBase", QTextStream::NumberFlag::UppercaseBase);
+        define_qenum_value_under(rb_cQTextStreamNumberFlag, "UppercaseDigits", QTextStream::NumberFlag::UppercaseDigits);
 
-    Enum<QTextStream::RealNumberNotation> rb_cQTextStreamRealNumberNotation =
+    Data_Type<QTextStream::RealNumberNotation> rb_cQTextStreamRealNumberNotation =
         // RubyQt6::QtCore::QTextStream::RealNumberNotation
-        define_qenum_under<QTextStream::RealNumberNotation>("RealNumberNotation", rb_cQTextStream)
-            .define_value("SmartNotation", QTextStream::RealNumberNotation::SmartNotation)
-            .define_value("FixedNotation", QTextStream::RealNumberNotation::FixedNotation)
-            .define_value("ScientificNotation", QTextStream::RealNumberNotation::ScientificNotation);
+        define_qenum_under<QTextStream::RealNumberNotation>(rb_cQTextStream, "RealNumberNotation");
+        define_qenum_value_under(rb_cQTextStreamRealNumberNotation, "SmartNotation", QTextStream::RealNumberNotation::SmartNotation);
+        define_qenum_value_under(rb_cQTextStreamRealNumberNotation, "FixedNotation", QTextStream::RealNumberNotation::FixedNotation);
+        define_qenum_value_under(rb_cQTextStreamRealNumberNotation, "ScientificNotation", QTextStream::RealNumberNotation::ScientificNotation);
 
-    Enum<QTextStream::Status> rb_cQTextStreamStatus =
+    Data_Type<QTextStream::Status> rb_cQTextStreamStatus =
         // RubyQt6::QtCore::QTextStream::Status
-        define_qenum_under<QTextStream::Status>("Status", rb_cQTextStream)
-            .define_value("Ok", QTextStream::Status::Ok)
-            .define_value("ReadPastEnd", QTextStream::Status::ReadPastEnd)
-            .define_value("ReadCorruptData", QTextStream::Status::ReadCorruptData)
-            .define_value("WriteFailed", QTextStream::Status::WriteFailed);
+        define_qenum_under<QTextStream::Status>(rb_cQTextStream, "Status");
+        define_qenum_value_under(rb_cQTextStreamStatus, "Ok", QTextStream::Status::Ok);
+        define_qenum_value_under(rb_cQTextStreamStatus, "ReadPastEnd", QTextStream::Status::ReadPastEnd);
+        define_qenum_value_under(rb_cQTextStreamStatus, "ReadCorruptData", QTextStream::Status::ReadCorruptData);
+        define_qenum_value_under(rb_cQTextStreamStatus, "WriteFailed", QTextStream::Status::WriteFailed);
 
     Data_Type<QFlags<QTextStream::NumberFlag>> rb_cQTextStreamNumberFlags =
         // RubyQt6::QtCore::QTextStream::NumberFlags

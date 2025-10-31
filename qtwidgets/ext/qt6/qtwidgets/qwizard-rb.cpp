@@ -68,61 +68,61 @@ void Init_qwizard(Rice::Module rb_mQt6QtWidgets)
             .define_method("page_added", &QWizard::pageAdded, Arg("id"))
             .define_method("page_removed", &QWizard::pageRemoved, Arg("id"));
 
-    Enum<QWizard::WizardButton> rb_cQWizardWizardButton =
+    Data_Type<QWizard::WizardButton> rb_cQWizardWizardButton =
         // RubyQt6::QtWidgets::QWizard::WizardButton
-        define_qenum_under<QWizard::WizardButton>("WizardButton", rb_cQWizard)
-            .define_value("BackButton", QWizard::WizardButton::BackButton)
-            .define_value("NextButton", QWizard::WizardButton::NextButton)
-            .define_value("CommitButton", QWizard::WizardButton::CommitButton)
-            .define_value("FinishButton", QWizard::WizardButton::FinishButton)
-            .define_value("CancelButton", QWizard::WizardButton::CancelButton)
-            .define_value("HelpButton", QWizard::WizardButton::HelpButton)
-            .define_value("CustomButton1", QWizard::WizardButton::CustomButton1)
-            .define_value("CustomButton2", QWizard::WizardButton::CustomButton2)
-            .define_value("CustomButton3", QWizard::WizardButton::CustomButton3)
-            .define_value("Stretch", QWizard::WizardButton::Stretch)
-            .define_value("NoButton", QWizard::WizardButton::NoButton)
-            .define_value("NStandardButtons", QWizard::WizardButton::NStandardButtons)
-            .define_value("NButtons", QWizard::WizardButton::NButtons);
+        define_qenum_under<QWizard::WizardButton>(rb_cQWizard, "WizardButton");
+        define_qenum_value_under(rb_cQWizardWizardButton, "BackButton", QWizard::WizardButton::BackButton);
+        define_qenum_value_under(rb_cQWizardWizardButton, "NextButton", QWizard::WizardButton::NextButton);
+        define_qenum_value_under(rb_cQWizardWizardButton, "CommitButton", QWizard::WizardButton::CommitButton);
+        define_qenum_value_under(rb_cQWizardWizardButton, "FinishButton", QWizard::WizardButton::FinishButton);
+        define_qenum_value_under(rb_cQWizardWizardButton, "CancelButton", QWizard::WizardButton::CancelButton);
+        define_qenum_value_under(rb_cQWizardWizardButton, "HelpButton", QWizard::WizardButton::HelpButton);
+        define_qenum_value_under(rb_cQWizardWizardButton, "CustomButton1", QWizard::WizardButton::CustomButton1);
+        define_qenum_value_under(rb_cQWizardWizardButton, "CustomButton2", QWizard::WizardButton::CustomButton2);
+        define_qenum_value_under(rb_cQWizardWizardButton, "CustomButton3", QWizard::WizardButton::CustomButton3);
+        define_qenum_value_under(rb_cQWizardWizardButton, "Stretch", QWizard::WizardButton::Stretch);
+        define_qenum_value_under(rb_cQWizardWizardButton, "NoButton", QWizard::WizardButton::NoButton);
+        define_qenum_value_under(rb_cQWizardWizardButton, "NStandardButtons", QWizard::WizardButton::NStandardButtons);
+        define_qenum_value_under(rb_cQWizardWizardButton, "NButtons", QWizard::WizardButton::NButtons);
 
-    Enum<QWizard::WizardOption> rb_cQWizardWizardOption =
+    Data_Type<QWizard::WizardOption> rb_cQWizardWizardOption =
         // RubyQt6::QtWidgets::QWizard::WizardOption
-        define_qenum_under<QWizard::WizardOption>("WizardOption", rb_cQWizard)
-            .define_value("IndependentPages", QWizard::WizardOption::IndependentPages)
-            .define_value("IgnoreSubTitles", QWizard::WizardOption::IgnoreSubTitles)
-            .define_value("ExtendedWatermarkPixmap", QWizard::WizardOption::ExtendedWatermarkPixmap)
-            .define_value("NoDefaultButton", QWizard::WizardOption::NoDefaultButton)
-            .define_value("NoBackButtonOnStartPage", QWizard::WizardOption::NoBackButtonOnStartPage)
-            .define_value("NoBackButtonOnLastPage", QWizard::WizardOption::NoBackButtonOnLastPage)
-            .define_value("DisabledBackButtonOnLastPage", QWizard::WizardOption::DisabledBackButtonOnLastPage)
-            .define_value("HaveNextButtonOnLastPage", QWizard::WizardOption::HaveNextButtonOnLastPage)
-            .define_value("HaveFinishButtonOnEarlyPages", QWizard::WizardOption::HaveFinishButtonOnEarlyPages)
-            .define_value("NoCancelButton", QWizard::WizardOption::NoCancelButton)
-            .define_value("CancelButtonOnLeft", QWizard::WizardOption::CancelButtonOnLeft)
-            .define_value("HaveHelpButton", QWizard::WizardOption::HaveHelpButton)
-            .define_value("HelpButtonOnRight", QWizard::WizardOption::HelpButtonOnRight)
-            .define_value("HaveCustomButton1", QWizard::WizardOption::HaveCustomButton1)
-            .define_value("HaveCustomButton2", QWizard::WizardOption::HaveCustomButton2)
-            .define_value("HaveCustomButton3", QWizard::WizardOption::HaveCustomButton3)
-            .define_value("NoCancelButtonOnLastPage", QWizard::WizardOption::NoCancelButtonOnLastPage);
+        define_qenum_under<QWizard::WizardOption>(rb_cQWizard, "WizardOption");
+        define_qenum_value_under(rb_cQWizardWizardOption, "IndependentPages", QWizard::WizardOption::IndependentPages);
+        define_qenum_value_under(rb_cQWizardWizardOption, "IgnoreSubTitles", QWizard::WizardOption::IgnoreSubTitles);
+        define_qenum_value_under(rb_cQWizardWizardOption, "ExtendedWatermarkPixmap", QWizard::WizardOption::ExtendedWatermarkPixmap);
+        define_qenum_value_under(rb_cQWizardWizardOption, "NoDefaultButton", QWizard::WizardOption::NoDefaultButton);
+        define_qenum_value_under(rb_cQWizardWizardOption, "NoBackButtonOnStartPage", QWizard::WizardOption::NoBackButtonOnStartPage);
+        define_qenum_value_under(rb_cQWizardWizardOption, "NoBackButtonOnLastPage", QWizard::WizardOption::NoBackButtonOnLastPage);
+        define_qenum_value_under(rb_cQWizardWizardOption, "DisabledBackButtonOnLastPage", QWizard::WizardOption::DisabledBackButtonOnLastPage);
+        define_qenum_value_under(rb_cQWizardWizardOption, "HaveNextButtonOnLastPage", QWizard::WizardOption::HaveNextButtonOnLastPage);
+        define_qenum_value_under(rb_cQWizardWizardOption, "HaveFinishButtonOnEarlyPages", QWizard::WizardOption::HaveFinishButtonOnEarlyPages);
+        define_qenum_value_under(rb_cQWizardWizardOption, "NoCancelButton", QWizard::WizardOption::NoCancelButton);
+        define_qenum_value_under(rb_cQWizardWizardOption, "CancelButtonOnLeft", QWizard::WizardOption::CancelButtonOnLeft);
+        define_qenum_value_under(rb_cQWizardWizardOption, "HaveHelpButton", QWizard::WizardOption::HaveHelpButton);
+        define_qenum_value_under(rb_cQWizardWizardOption, "HelpButtonOnRight", QWizard::WizardOption::HelpButtonOnRight);
+        define_qenum_value_under(rb_cQWizardWizardOption, "HaveCustomButton1", QWizard::WizardOption::HaveCustomButton1);
+        define_qenum_value_under(rb_cQWizardWizardOption, "HaveCustomButton2", QWizard::WizardOption::HaveCustomButton2);
+        define_qenum_value_under(rb_cQWizardWizardOption, "HaveCustomButton3", QWizard::WizardOption::HaveCustomButton3);
+        define_qenum_value_under(rb_cQWizardWizardOption, "NoCancelButtonOnLastPage", QWizard::WizardOption::NoCancelButtonOnLastPage);
 
-    Enum<QWizard::WizardPixmap> rb_cQWizardWizardPixmap =
+    Data_Type<QWizard::WizardPixmap> rb_cQWizardWizardPixmap =
         // RubyQt6::QtWidgets::QWizard::WizardPixmap
-        define_qenum_under<QWizard::WizardPixmap>("WizardPixmap", rb_cQWizard)
-            .define_value("WatermarkPixmap", QWizard::WizardPixmap::WatermarkPixmap)
-            .define_value("LogoPixmap", QWizard::WizardPixmap::LogoPixmap)
-            .define_value("BannerPixmap", QWizard::WizardPixmap::BannerPixmap)
-            .define_value("BackgroundPixmap", QWizard::WizardPixmap::BackgroundPixmap)
-            .define_value("NPixmaps", QWizard::WizardPixmap::NPixmaps);
+        define_qenum_under<QWizard::WizardPixmap>(rb_cQWizard, "WizardPixmap");
+        define_qenum_value_under(rb_cQWizardWizardPixmap, "WatermarkPixmap", QWizard::WizardPixmap::WatermarkPixmap);
+        define_qenum_value_under(rb_cQWizardWizardPixmap, "LogoPixmap", QWizard::WizardPixmap::LogoPixmap);
+        define_qenum_value_under(rb_cQWizardWizardPixmap, "BannerPixmap", QWizard::WizardPixmap::BannerPixmap);
+        define_qenum_value_under(rb_cQWizardWizardPixmap, "BackgroundPixmap", QWizard::WizardPixmap::BackgroundPixmap);
+        define_qenum_value_under(rb_cQWizardWizardPixmap, "NPixmaps", QWizard::WizardPixmap::NPixmaps);
 
-    Enum<QWizard::WizardStyle> rb_cQWizardWizardStyle =
+    Data_Type<QWizard::WizardStyle> rb_cQWizardWizardStyle =
         // RubyQt6::QtWidgets::QWizard::WizardStyle
-        define_qenum_under<QWizard::WizardStyle>("WizardStyle", rb_cQWizard)
-            .define_value("ClassicStyle", QWizard::WizardStyle::ClassicStyle)
-            .define_value("ModernStyle", QWizard::WizardStyle::ModernStyle)
-            .define_value("MacStyle", QWizard::WizardStyle::MacStyle)
-            .define_value("AeroStyle", QWizard::WizardStyle::AeroStyle)
-            .define_value("NStyles", QWizard::WizardStyle::NStyles);
+        define_qenum_under<QWizard::WizardStyle>(rb_cQWizard, "WizardStyle");
+        define_qenum_value_under(rb_cQWizardWizardStyle, "ClassicStyle", QWizard::WizardStyle::ClassicStyle);
+        define_qenum_value_under(rb_cQWizardWizardStyle, "ModernStyle", QWizard::WizardStyle::ModernStyle);
+        define_qenum_value_under(rb_cQWizardWizardStyle, "MacStyle", QWizard::WizardStyle::MacStyle);
+        define_qenum_value_under(rb_cQWizardWizardStyle, "AeroStyle", QWizard::WizardStyle::AeroStyle);
+        define_qenum_value_under(rb_cQWizardWizardStyle, "NStyles", QWizard::WizardStyle::NStyles);
 
     Data_Type<QFlags<QWizard::WizardOption>> rb_cQWizardWizardOptions =
         // RubyQt6::QtWidgets::QWizard::WizardOptions

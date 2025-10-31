@@ -84,45 +84,45 @@ void Init_qdir(Rice::Module rb_mQt6QtCore)
             .define_singleton_function("temp_path", &QDir::tempPath)
             .define_singleton_function("to_native_separators", &QDir::toNativeSeparators, Arg("path_name"));
 
-    Enum<QDir::Filter> rb_cQDirFilter =
+    Data_Type<QDir::Filter> rb_cQDirFilter =
         // RubyQt6::QtCore::QDir::Filter
-        define_qenum_under<QDir::Filter>("Filter", rb_cQDir)
-            .define_value("Dirs", QDir::Filter::Dirs)
-            .define_value("Files", QDir::Filter::Files)
-            .define_value("Drives", QDir::Filter::Drives)
-            .define_value("NoSymLinks", QDir::Filter::NoSymLinks)
-            .define_value("AllEntries", QDir::Filter::AllEntries)
-            .define_value("TypeMask", QDir::Filter::TypeMask)
-            .define_value("Readable", QDir::Filter::Readable)
-            .define_value("Writable", QDir::Filter::Writable)
-            .define_value("Executable", QDir::Filter::Executable)
-            .define_value("PermissionMask", QDir::Filter::PermissionMask)
-            .define_value("Modified", QDir::Filter::Modified)
-            .define_value("Hidden", QDir::Filter::Hidden)
-            .define_value("System", QDir::Filter::System)
-            .define_value("AccessMask", QDir::Filter::AccessMask)
-            .define_value("AllDirs", QDir::Filter::AllDirs)
-            .define_value("CaseSensitive", QDir::Filter::CaseSensitive)
-            .define_value("NoDot", QDir::Filter::NoDot)
-            .define_value("NoDotDot", QDir::Filter::NoDotDot)
-            .define_value("NoDotAndDotDot", QDir::Filter::NoDotAndDotDot)
-            .define_value("NoFilter", QDir::Filter::NoFilter);
+        define_qenum_under<QDir::Filter>(rb_cQDir, "Filter");
+        define_qenum_value_under(rb_cQDirFilter, "Dirs", QDir::Filter::Dirs);
+        define_qenum_value_under(rb_cQDirFilter, "Files", QDir::Filter::Files);
+        define_qenum_value_under(rb_cQDirFilter, "Drives", QDir::Filter::Drives);
+        define_qenum_value_under(rb_cQDirFilter, "NoSymLinks", QDir::Filter::NoSymLinks);
+        define_qenum_value_under(rb_cQDirFilter, "AllEntries", QDir::Filter::AllEntries);
+        define_qenum_value_under(rb_cQDirFilter, "TypeMask", QDir::Filter::TypeMask);
+        define_qenum_value_under(rb_cQDirFilter, "Readable", QDir::Filter::Readable);
+        define_qenum_value_under(rb_cQDirFilter, "Writable", QDir::Filter::Writable);
+        define_qenum_value_under(rb_cQDirFilter, "Executable", QDir::Filter::Executable);
+        define_qenum_value_under(rb_cQDirFilter, "PermissionMask", QDir::Filter::PermissionMask);
+        define_qenum_value_under(rb_cQDirFilter, "Modified", QDir::Filter::Modified);
+        define_qenum_value_under(rb_cQDirFilter, "Hidden", QDir::Filter::Hidden);
+        define_qenum_value_under(rb_cQDirFilter, "System", QDir::Filter::System);
+        define_qenum_value_under(rb_cQDirFilter, "AccessMask", QDir::Filter::AccessMask);
+        define_qenum_value_under(rb_cQDirFilter, "AllDirs", QDir::Filter::AllDirs);
+        define_qenum_value_under(rb_cQDirFilter, "CaseSensitive", QDir::Filter::CaseSensitive);
+        define_qenum_value_under(rb_cQDirFilter, "NoDot", QDir::Filter::NoDot);
+        define_qenum_value_under(rb_cQDirFilter, "NoDotDot", QDir::Filter::NoDotDot);
+        define_qenum_value_under(rb_cQDirFilter, "NoDotAndDotDot", QDir::Filter::NoDotAndDotDot);
+        define_qenum_value_under(rb_cQDirFilter, "NoFilter", QDir::Filter::NoFilter);
 
-    Enum<QDir::SortFlag> rb_cQDirSortFlag =
+    Data_Type<QDir::SortFlag> rb_cQDirSortFlag =
         // RubyQt6::QtCore::QDir::SortFlag
-        define_qenum_under<QDir::SortFlag>("SortFlag", rb_cQDir)
-            .define_value("Name", QDir::SortFlag::Name)
-            .define_value("Time", QDir::SortFlag::Time)
-            .define_value("Size", QDir::SortFlag::Size)
-            .define_value("Unsorted", QDir::SortFlag::Unsorted)
-            .define_value("SortByMask", QDir::SortFlag::SortByMask)
-            .define_value("DirsFirst", QDir::SortFlag::DirsFirst)
-            .define_value("Reversed", QDir::SortFlag::Reversed)
-            .define_value("IgnoreCase", QDir::SortFlag::IgnoreCase)
-            .define_value("DirsLast", QDir::SortFlag::DirsLast)
-            .define_value("LocaleAware", QDir::SortFlag::LocaleAware)
-            .define_value("Type", QDir::SortFlag::Type)
-            .define_value("NoSort", QDir::SortFlag::NoSort);
+        define_qenum_under<QDir::SortFlag>(rb_cQDir, "SortFlag");
+        define_qenum_value_under(rb_cQDirSortFlag, "Name", QDir::SortFlag::Name);
+        define_qenum_value_under(rb_cQDirSortFlag, "Time", QDir::SortFlag::Time);
+        define_qenum_value_under(rb_cQDirSortFlag, "Size", QDir::SortFlag::Size);
+        define_qenum_value_under(rb_cQDirSortFlag, "Unsorted", QDir::SortFlag::Unsorted);
+        define_qenum_value_under(rb_cQDirSortFlag, "SortByMask", QDir::SortFlag::SortByMask);
+        define_qenum_value_under(rb_cQDirSortFlag, "DirsFirst", QDir::SortFlag::DirsFirst);
+        define_qenum_value_under(rb_cQDirSortFlag, "Reversed", QDir::SortFlag::Reversed);
+        define_qenum_value_under(rb_cQDirSortFlag, "IgnoreCase", QDir::SortFlag::IgnoreCase);
+        define_qenum_value_under(rb_cQDirSortFlag, "DirsLast", QDir::SortFlag::DirsLast);
+        define_qenum_value_under(rb_cQDirSortFlag, "LocaleAware", QDir::SortFlag::LocaleAware);
+        define_qenum_value_under(rb_cQDirSortFlag, "Type", QDir::SortFlag::Type);
+        define_qenum_value_under(rb_cQDirSortFlag, "NoSort", QDir::SortFlag::NoSort);
 
     Data_Type<QFlags<QDir::Filter>> rb_cQDirFilters =
         // RubyQt6::QtCore::QDir::Filters

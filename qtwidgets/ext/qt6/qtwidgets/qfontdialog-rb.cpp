@@ -33,15 +33,15 @@ void Init_qfontdialog(Rice::Module rb_mQt6QtWidgets)
             .define_singleton_function<QFont (*)(bool *, QWidget *)>("get_font", &QFontDialog::getFont, Arg("ok"), Arg("parent") = static_cast<QWidget *>(nullptr))
             .define_singleton_function<QFont (*)(bool *, const QFont &, QWidget *, const QString &, QFontDialog::FontDialogOptions)>("get_font", &QFontDialog::getFont, Arg("ok"), Arg("initial"), Arg("parent") = static_cast<QWidget *>(nullptr), Arg("title") = static_cast<const QString &>(QString()), Arg("options") = static_cast<QFontDialog::FontDialogOptions>(QFontDialog::FontDialogOptions()));
 
-    Enum<QFontDialog::FontDialogOption> rb_cQFontDialogFontDialogOption =
+    Data_Type<QFontDialog::FontDialogOption> rb_cQFontDialogFontDialogOption =
         // RubyQt6::QtWidgets::QFontDialog::FontDialogOption
-        define_qenum_under<QFontDialog::FontDialogOption>("FontDialogOption", rb_cQFontDialog)
-            .define_value("NoButtons", QFontDialog::FontDialogOption::NoButtons)
-            .define_value("DontUseNativeDialog", QFontDialog::FontDialogOption::DontUseNativeDialog)
-            .define_value("ScalableFonts", QFontDialog::FontDialogOption::ScalableFonts)
-            .define_value("NonScalableFonts", QFontDialog::FontDialogOption::NonScalableFonts)
-            .define_value("MonospacedFonts", QFontDialog::FontDialogOption::MonospacedFonts)
-            .define_value("ProportionalFonts", QFontDialog::FontDialogOption::ProportionalFonts);
+        define_qenum_under<QFontDialog::FontDialogOption>(rb_cQFontDialog, "FontDialogOption");
+        define_qenum_value_under(rb_cQFontDialogFontDialogOption, "NoButtons", QFontDialog::FontDialogOption::NoButtons);
+        define_qenum_value_under(rb_cQFontDialogFontDialogOption, "DontUseNativeDialog", QFontDialog::FontDialogOption::DontUseNativeDialog);
+        define_qenum_value_under(rb_cQFontDialogFontDialogOption, "ScalableFonts", QFontDialog::FontDialogOption::ScalableFonts);
+        define_qenum_value_under(rb_cQFontDialogFontDialogOption, "NonScalableFonts", QFontDialog::FontDialogOption::NonScalableFonts);
+        define_qenum_value_under(rb_cQFontDialogFontDialogOption, "MonospacedFonts", QFontDialog::FontDialogOption::MonospacedFonts);
+        define_qenum_value_under(rb_cQFontDialogFontDialogOption, "ProportionalFonts", QFontDialog::FontDialogOption::ProportionalFonts);
 
     Data_Type<QFlags<QFontDialog::FontDialogOption>> rb_cQFontDialogFontDialogOptions =
         // RubyQt6::QtWidgets::QFontDialog::FontDialogOptions

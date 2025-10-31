@@ -28,23 +28,23 @@ void Init_qdbusconnectioninterface(Rice::Module rb_mQt6QtDBus)
             .define_method("service_registered", &QDBusConnectionInterface::serviceRegistered, Arg("service"))
             .define_method("service_unregistered", &QDBusConnectionInterface::serviceUnregistered, Arg("service"));
 
-    Enum<QDBusConnectionInterface::ServiceQueueOptions> rb_cQDBusConnectionInterfaceServiceQueueOptions =
+    Data_Type<QDBusConnectionInterface::ServiceQueueOptions> rb_cQDBusConnectionInterfaceServiceQueueOptions =
         // RubyQt6::QtDBus::QDBusConnectionInterface::ServiceQueueOptions
-        define_qenum_under<QDBusConnectionInterface::ServiceQueueOptions>("ServiceQueueOptions", rb_cQDBusConnectionInterface)
-            .define_value("DontQueueService", QDBusConnectionInterface::ServiceQueueOptions::DontQueueService)
-            .define_value("QueueService", QDBusConnectionInterface::ServiceQueueOptions::QueueService)
-            .define_value("ReplaceExistingService", QDBusConnectionInterface::ServiceQueueOptions::ReplaceExistingService);
+        define_qenum_under<QDBusConnectionInterface::ServiceQueueOptions>(rb_cQDBusConnectionInterface, "ServiceQueueOptions");
+        define_qenum_value_under(rb_cQDBusConnectionInterfaceServiceQueueOptions, "DontQueueService", QDBusConnectionInterface::ServiceQueueOptions::DontQueueService);
+        define_qenum_value_under(rb_cQDBusConnectionInterfaceServiceQueueOptions, "QueueService", QDBusConnectionInterface::ServiceQueueOptions::QueueService);
+        define_qenum_value_under(rb_cQDBusConnectionInterfaceServiceQueueOptions, "ReplaceExistingService", QDBusConnectionInterface::ServiceQueueOptions::ReplaceExistingService);
 
-    Enum<QDBusConnectionInterface::ServiceReplacementOptions> rb_cQDBusConnectionInterfaceServiceReplacementOptions =
+    Data_Type<QDBusConnectionInterface::ServiceReplacementOptions> rb_cQDBusConnectionInterfaceServiceReplacementOptions =
         // RubyQt6::QtDBus::QDBusConnectionInterface::ServiceReplacementOptions
-        define_qenum_under<QDBusConnectionInterface::ServiceReplacementOptions>("ServiceReplacementOptions", rb_cQDBusConnectionInterface)
-            .define_value("DontAllowReplacement", QDBusConnectionInterface::ServiceReplacementOptions::DontAllowReplacement)
-            .define_value("AllowReplacement", QDBusConnectionInterface::ServiceReplacementOptions::AllowReplacement);
+        define_qenum_under<QDBusConnectionInterface::ServiceReplacementOptions>(rb_cQDBusConnectionInterface, "ServiceReplacementOptions");
+        define_qenum_value_under(rb_cQDBusConnectionInterfaceServiceReplacementOptions, "DontAllowReplacement", QDBusConnectionInterface::ServiceReplacementOptions::DontAllowReplacement);
+        define_qenum_value_under(rb_cQDBusConnectionInterfaceServiceReplacementOptions, "AllowReplacement", QDBusConnectionInterface::ServiceReplacementOptions::AllowReplacement);
 
-    Enum<QDBusConnectionInterface::RegisterServiceReply> rb_cQDBusConnectionInterfaceRegisterServiceReply =
+    Data_Type<QDBusConnectionInterface::RegisterServiceReply> rb_cQDBusConnectionInterfaceRegisterServiceReply =
         // RubyQt6::QtDBus::QDBusConnectionInterface::RegisterServiceReply
-        define_qenum_under<QDBusConnectionInterface::RegisterServiceReply>("RegisterServiceReply", rb_cQDBusConnectionInterface)
-            .define_value("ServiceNotRegistered", QDBusConnectionInterface::RegisterServiceReply::ServiceNotRegistered)
-            .define_value("ServiceRegistered", QDBusConnectionInterface::RegisterServiceReply::ServiceRegistered)
-            .define_value("ServiceQueued", QDBusConnectionInterface::RegisterServiceReply::ServiceQueued);
+        define_qenum_under<QDBusConnectionInterface::RegisterServiceReply>(rb_cQDBusConnectionInterface, "RegisterServiceReply");
+        define_qenum_value_under(rb_cQDBusConnectionInterfaceRegisterServiceReply, "ServiceNotRegistered", QDBusConnectionInterface::RegisterServiceReply::ServiceNotRegistered);
+        define_qenum_value_under(rb_cQDBusConnectionInterfaceRegisterServiceReply, "ServiceRegistered", QDBusConnectionInterface::RegisterServiceReply::ServiceRegistered);
+        define_qenum_value_under(rb_cQDBusConnectionInterfaceRegisterServiceReply, "ServiceQueued", QDBusConnectionInterface::RegisterServiceReply::ServiceQueued);
 }

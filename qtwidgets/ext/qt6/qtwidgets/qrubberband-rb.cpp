@@ -24,9 +24,9 @@ void Init_qrubberband(Rice::Module rb_mQt6QtWidgets)
             .define_method<void (QRubberBand::*)(int, int, int, int)>("set_geometry", &QRubberBand::setGeometry, Arg("x"), Arg("y"), Arg("w"), Arg("h"))
             .define_method("shape", &QRubberBand::shape);
 
-    Enum<QRubberBand::Shape> rb_cQRubberBandShape =
+    Data_Type<QRubberBand::Shape> rb_cQRubberBandShape =
         // RubyQt6::QtWidgets::QRubberBand::Shape
-        define_qenum_under<QRubberBand::Shape>("Shape", rb_cQRubberBand)
-            .define_value("Line", QRubberBand::Shape::Line)
-            .define_value("Rectangle", QRubberBand::Shape::Rectangle);
+        define_qenum_under<QRubberBand::Shape>(rb_cQRubberBand, "Shape");
+        define_qenum_value_under(rb_cQRubberBandShape, "Line", QRubberBand::Shape::Line);
+        define_qenum_value_under(rb_cQRubberBandShape, "Rectangle", QRubberBand::Shape::Rectangle);
 }

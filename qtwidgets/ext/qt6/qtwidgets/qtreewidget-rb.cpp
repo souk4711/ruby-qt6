@@ -143,16 +143,16 @@ void Init_qtreewidget(Rice::Module rb_mQt6QtWidgets)
             .define_method("whats_this", &QTreeWidgetItem::whatsThis, Arg("column"))
             .define_method("write", &QTreeWidgetItem::write, Arg("out"));
 
-    Enum<QTreeWidgetItem::ChildIndicatorPolicy> rb_cQTreeWidgetItemChildIndicatorPolicy =
+    Data_Type<QTreeWidgetItem::ChildIndicatorPolicy> rb_cQTreeWidgetItemChildIndicatorPolicy =
         // RubyQt6::QtWidgets::QTreeWidgetItem::ChildIndicatorPolicy
-        define_qenum_under<QTreeWidgetItem::ChildIndicatorPolicy>("ChildIndicatorPolicy", rb_cQTreeWidgetItem)
-            .define_value("ShowIndicator", QTreeWidgetItem::ChildIndicatorPolicy::ShowIndicator)
-            .define_value("DontShowIndicator", QTreeWidgetItem::ChildIndicatorPolicy::DontShowIndicator)
-            .define_value("DontShowIndicatorWhenChildless", QTreeWidgetItem::ChildIndicatorPolicy::DontShowIndicatorWhenChildless);
+        define_qenum_under<QTreeWidgetItem::ChildIndicatorPolicy>(rb_cQTreeWidgetItem, "ChildIndicatorPolicy");
+        define_qenum_value_under(rb_cQTreeWidgetItemChildIndicatorPolicy, "ShowIndicator", QTreeWidgetItem::ChildIndicatorPolicy::ShowIndicator);
+        define_qenum_value_under(rb_cQTreeWidgetItemChildIndicatorPolicy, "DontShowIndicator", QTreeWidgetItem::ChildIndicatorPolicy::DontShowIndicator);
+        define_qenum_value_under(rb_cQTreeWidgetItemChildIndicatorPolicy, "DontShowIndicatorWhenChildless", QTreeWidgetItem::ChildIndicatorPolicy::DontShowIndicatorWhenChildless);
 
-    Enum<QTreeWidgetItem::ItemType> rb_cQTreeWidgetItemItemType =
+    Data_Type<QTreeWidgetItem::ItemType> rb_cQTreeWidgetItemItemType =
         // RubyQt6::QtWidgets::QTreeWidgetItem::ItemType
-        define_qenum_under<QTreeWidgetItem::ItemType>("ItemType", rb_cQTreeWidgetItem)
-            .define_value("Type", QTreeWidgetItem::ItemType::Type)
-            .define_value("UserType", QTreeWidgetItem::ItemType::UserType);
+        define_qenum_under<QTreeWidgetItem::ItemType>(rb_cQTreeWidgetItem, "ItemType");
+        define_qenum_value_under(rb_cQTreeWidgetItemItemType, "Type", QTreeWidgetItem::ItemType::Type);
+        define_qenum_value_under(rb_cQTreeWidgetItemItemType, "UserType", QTreeWidgetItem::ItemType::UserType);
 }

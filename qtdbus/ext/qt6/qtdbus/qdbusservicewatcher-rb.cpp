@@ -36,12 +36,12 @@ void Init_qdbusservicewatcher(Rice::Module rb_mQt6QtDBus)
             .define_method("service_registered", &QDBusServiceWatcher::serviceRegistered, Arg("service"))
             .define_method("service_unregistered", &QDBusServiceWatcher::serviceUnregistered, Arg("service"));
 
-    Enum<QDBusServiceWatcher::WatchModeFlag> rb_cQDBusServiceWatcherWatchModeFlag =
+    Data_Type<QDBusServiceWatcher::WatchModeFlag> rb_cQDBusServiceWatcherWatchModeFlag =
         // RubyQt6::QtDBus::QDBusServiceWatcher::WatchModeFlag
-        define_qenum_under<QDBusServiceWatcher::WatchModeFlag>("WatchModeFlag", rb_cQDBusServiceWatcher)
-            .define_value("WatchForRegistration", QDBusServiceWatcher::WatchModeFlag::WatchForRegistration)
-            .define_value("WatchForUnregistration", QDBusServiceWatcher::WatchModeFlag::WatchForUnregistration)
-            .define_value("WatchForOwnerChange", QDBusServiceWatcher::WatchModeFlag::WatchForOwnerChange);
+        define_qenum_under<QDBusServiceWatcher::WatchModeFlag>(rb_cQDBusServiceWatcher, "WatchModeFlag");
+        define_qenum_value_under(rb_cQDBusServiceWatcherWatchModeFlag, "WatchForRegistration", QDBusServiceWatcher::WatchModeFlag::WatchForRegistration);
+        define_qenum_value_under(rb_cQDBusServiceWatcherWatchModeFlag, "WatchForUnregistration", QDBusServiceWatcher::WatchModeFlag::WatchForUnregistration);
+        define_qenum_value_under(rb_cQDBusServiceWatcherWatchModeFlag, "WatchForOwnerChange", QDBusServiceWatcher::WatchModeFlag::WatchForOwnerChange);
 
     Data_Type<QFlags<QDBusServiceWatcher::WatchModeFlag>> rb_cQDBusServiceWatcherWatchMode =
         // RubyQt6::QtDBus::QDBusServiceWatcher::WatchMode

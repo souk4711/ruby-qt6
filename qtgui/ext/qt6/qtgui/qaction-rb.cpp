@@ -82,27 +82,27 @@ void Init_qaction(Rice::Module rb_mQt6QtGui)
             .define_method("triggered", &QAction::triggered, Arg("checked") = static_cast<bool>(false))
             .define_method("visible_changed", &QAction::visibleChanged);
 
-    Enum<QAction::MenuRole> rb_cQActionMenuRole =
+    Data_Type<QAction::MenuRole> rb_cQActionMenuRole =
         // RubyQt6::QtGui::QAction::MenuRole
-        define_qenum_under<QAction::MenuRole>("MenuRole", rb_cQAction)
-            .define_value("NoRole", QAction::MenuRole::NoRole)
-            .define_value("TextHeuristicRole", QAction::MenuRole::TextHeuristicRole)
-            .define_value("ApplicationSpecificRole", QAction::MenuRole::ApplicationSpecificRole)
-            .define_value("AboutQtRole", QAction::MenuRole::AboutQtRole)
-            .define_value("AboutRole", QAction::MenuRole::AboutRole)
-            .define_value("PreferencesRole", QAction::MenuRole::PreferencesRole)
-            .define_value("QuitRole", QAction::MenuRole::QuitRole);
+        define_qenum_under<QAction::MenuRole>(rb_cQAction, "MenuRole");
+        define_qenum_value_under(rb_cQActionMenuRole, "NoRole", QAction::MenuRole::NoRole);
+        define_qenum_value_under(rb_cQActionMenuRole, "TextHeuristicRole", QAction::MenuRole::TextHeuristicRole);
+        define_qenum_value_under(rb_cQActionMenuRole, "ApplicationSpecificRole", QAction::MenuRole::ApplicationSpecificRole);
+        define_qenum_value_under(rb_cQActionMenuRole, "AboutQtRole", QAction::MenuRole::AboutQtRole);
+        define_qenum_value_under(rb_cQActionMenuRole, "AboutRole", QAction::MenuRole::AboutRole);
+        define_qenum_value_under(rb_cQActionMenuRole, "PreferencesRole", QAction::MenuRole::PreferencesRole);
+        define_qenum_value_under(rb_cQActionMenuRole, "QuitRole", QAction::MenuRole::QuitRole);
 
-    Enum<QAction::Priority> rb_cQActionPriority =
+    Data_Type<QAction::Priority> rb_cQActionPriority =
         // RubyQt6::QtGui::QAction::Priority
-        define_qenum_under<QAction::Priority>("Priority", rb_cQAction)
-            .define_value("LowPriority", QAction::Priority::LowPriority)
-            .define_value("NormalPriority", QAction::Priority::NormalPriority)
-            .define_value("HighPriority", QAction::Priority::HighPriority);
+        define_qenum_under<QAction::Priority>(rb_cQAction, "Priority");
+        define_qenum_value_under(rb_cQActionPriority, "LowPriority", QAction::Priority::LowPriority);
+        define_qenum_value_under(rb_cQActionPriority, "NormalPriority", QAction::Priority::NormalPriority);
+        define_qenum_value_under(rb_cQActionPriority, "HighPriority", QAction::Priority::HighPriority);
 
-    Enum<QAction::ActionEvent> rb_cQActionActionEvent =
+    Data_Type<QAction::ActionEvent> rb_cQActionActionEvent =
         // RubyQt6::QtGui::QAction::ActionEvent
-        define_qenum_under<QAction::ActionEvent>("ActionEvent", rb_cQAction)
-            .define_value("Trigger", QAction::ActionEvent::Trigger)
-            .define_value("Hover", QAction::ActionEvent::Hover);
+        define_qenum_under<QAction::ActionEvent>(rb_cQAction, "ActionEvent");
+        define_qenum_value_under(rb_cQActionActionEvent, "Trigger", QAction::ActionEvent::Trigger);
+        define_qenum_value_under(rb_cQActionActionEvent, "Hover", QAction::ActionEvent::Hover);
 }

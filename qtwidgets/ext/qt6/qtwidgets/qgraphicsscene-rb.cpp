@@ -107,19 +107,19 @@ void Init_qgraphicsscene(Rice::Module rb_mQt6QtWidgets)
             .define_method("scene_rect_changed", &QGraphicsScene::sceneRectChanged, Arg("rect"))
             .define_method("selection_changed", &QGraphicsScene::selectionChanged);
 
-    Enum<QGraphicsScene::ItemIndexMethod> rb_cQGraphicsSceneItemIndexMethod =
+    Data_Type<QGraphicsScene::ItemIndexMethod> rb_cQGraphicsSceneItemIndexMethod =
         // RubyQt6::QtWidgets::QGraphicsScene::ItemIndexMethod
-        define_qenum_under<QGraphicsScene::ItemIndexMethod>("ItemIndexMethod", rb_cQGraphicsScene)
-            .define_value("BspTreeIndex", QGraphicsScene::ItemIndexMethod::BspTreeIndex)
-            .define_value("NoIndex", QGraphicsScene::ItemIndexMethod::NoIndex);
+        define_qenum_under<QGraphicsScene::ItemIndexMethod>(rb_cQGraphicsScene, "ItemIndexMethod");
+        define_qenum_value_under(rb_cQGraphicsSceneItemIndexMethod, "BspTreeIndex", QGraphicsScene::ItemIndexMethod::BspTreeIndex);
+        define_qenum_value_under(rb_cQGraphicsSceneItemIndexMethod, "NoIndex", QGraphicsScene::ItemIndexMethod::NoIndex);
 
-    Enum<QGraphicsScene::SceneLayer> rb_cQGraphicsSceneSceneLayer =
+    Data_Type<QGraphicsScene::SceneLayer> rb_cQGraphicsSceneSceneLayer =
         // RubyQt6::QtWidgets::QGraphicsScene::SceneLayer
-        define_qenum_under<QGraphicsScene::SceneLayer>("SceneLayer", rb_cQGraphicsScene)
-            .define_value("ItemLayer", QGraphicsScene::SceneLayer::ItemLayer)
-            .define_value("BackgroundLayer", QGraphicsScene::SceneLayer::BackgroundLayer)
-            .define_value("ForegroundLayer", QGraphicsScene::SceneLayer::ForegroundLayer)
-            .define_value("AllLayers", QGraphicsScene::SceneLayer::AllLayers);
+        define_qenum_under<QGraphicsScene::SceneLayer>(rb_cQGraphicsScene, "SceneLayer");
+        define_qenum_value_under(rb_cQGraphicsSceneSceneLayer, "ItemLayer", QGraphicsScene::SceneLayer::ItemLayer);
+        define_qenum_value_under(rb_cQGraphicsSceneSceneLayer, "BackgroundLayer", QGraphicsScene::SceneLayer::BackgroundLayer);
+        define_qenum_value_under(rb_cQGraphicsSceneSceneLayer, "ForegroundLayer", QGraphicsScene::SceneLayer::ForegroundLayer);
+        define_qenum_value_under(rb_cQGraphicsSceneSceneLayer, "AllLayers", QGraphicsScene::SceneLayer::AllLayers);
 
     Data_Type<QFlags<QGraphicsScene::SceneLayer>> rb_cQGraphicsSceneSceneLayers =
         // RubyQt6::QtWidgets::QGraphicsScene::SceneLayers

@@ -67,13 +67,13 @@ void Init_qtransform(Rice::Module rb_mQt6QtGui)
             .define_singleton_function("quad_to_square", &QTransform::quadToSquare, Arg("quad"), Arg("result"))
             .define_singleton_function("square_to_quad", &QTransform::squareToQuad, Arg("square"), Arg("result"));
 
-    Enum<QTransform::TransformationType> rb_cQTransformTransformationType =
+    Data_Type<QTransform::TransformationType> rb_cQTransformTransformationType =
         // RubyQt6::QtGui::QTransform::TransformationType
-        define_qenum_under<QTransform::TransformationType>("TransformationType", rb_cQTransform)
-            .define_value("TxNone", QTransform::TransformationType::TxNone)
-            .define_value("TxTranslate", QTransform::TransformationType::TxTranslate)
-            .define_value("TxScale", QTransform::TransformationType::TxScale)
-            .define_value("TxRotate", QTransform::TransformationType::TxRotate)
-            .define_value("TxShear", QTransform::TransformationType::TxShear)
-            .define_value("TxProject", QTransform::TransformationType::TxProject);
+        define_qenum_under<QTransform::TransformationType>(rb_cQTransform, "TransformationType");
+        define_qenum_value_under(rb_cQTransformTransformationType, "TxNone", QTransform::TransformationType::TxNone);
+        define_qenum_value_under(rb_cQTransformTransformationType, "TxTranslate", QTransform::TransformationType::TxTranslate);
+        define_qenum_value_under(rb_cQTransformTransformationType, "TxScale", QTransform::TransformationType::TxScale);
+        define_qenum_value_under(rb_cQTransformTransformationType, "TxRotate", QTransform::TransformationType::TxRotate);
+        define_qenum_value_under(rb_cQTransformTransformationType, "TxShear", QTransform::TransformationType::TxShear);
+        define_qenum_value_under(rb_cQTransformTransformationType, "TxProject", QTransform::TransformationType::TxProject);
 }

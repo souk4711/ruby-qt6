@@ -71,84 +71,84 @@ void Init_qprinter(Rice::Module rb_mQt6QtPrintSupport)
             .define_method("supports_multiple_copies", &QPrinter::supportsMultipleCopies)
             .define_method("to_page", &QPrinter::toPage);
 
-    Enum<QPrinter::ColorMode> rb_cQPrinterColorMode =
+    Data_Type<QPrinter::ColorMode> rb_cQPrinterColorMode =
         // RubyQt6::QtPrintSupport::QPrinter::ColorMode
-        define_qenum_under<QPrinter::ColorMode>("ColorMode", rb_cQPrinter)
-            .define_value("GrayScale", QPrinter::ColorMode::GrayScale)
-            .define_value("Color", QPrinter::ColorMode::Color);
+        define_qenum_under<QPrinter::ColorMode>(rb_cQPrinter, "ColorMode");
+        define_qenum_value_under(rb_cQPrinterColorMode, "GrayScale", QPrinter::ColorMode::GrayScale);
+        define_qenum_value_under(rb_cQPrinterColorMode, "Color", QPrinter::ColorMode::Color);
 
-    Enum<QPrinter::DuplexMode> rb_cQPrinterDuplexMode =
+    Data_Type<QPrinter::DuplexMode> rb_cQPrinterDuplexMode =
         // RubyQt6::QtPrintSupport::QPrinter::DuplexMode
-        define_qenum_under<QPrinter::DuplexMode>("DuplexMode", rb_cQPrinter)
-            .define_value("DuplexNone", QPrinter::DuplexMode::DuplexNone)
-            .define_value("DuplexAuto", QPrinter::DuplexMode::DuplexAuto)
-            .define_value("DuplexLongSide", QPrinter::DuplexMode::DuplexLongSide)
-            .define_value("DuplexShortSide", QPrinter::DuplexMode::DuplexShortSide);
+        define_qenum_under<QPrinter::DuplexMode>(rb_cQPrinter, "DuplexMode");
+        define_qenum_value_under(rb_cQPrinterDuplexMode, "DuplexNone", QPrinter::DuplexMode::DuplexNone);
+        define_qenum_value_under(rb_cQPrinterDuplexMode, "DuplexAuto", QPrinter::DuplexMode::DuplexAuto);
+        define_qenum_value_under(rb_cQPrinterDuplexMode, "DuplexLongSide", QPrinter::DuplexMode::DuplexLongSide);
+        define_qenum_value_under(rb_cQPrinterDuplexMode, "DuplexShortSide", QPrinter::DuplexMode::DuplexShortSide);
 
-    Enum<QPrinter::OutputFormat> rb_cQPrinterOutputFormat =
+    Data_Type<QPrinter::OutputFormat> rb_cQPrinterOutputFormat =
         // RubyQt6::QtPrintSupport::QPrinter::OutputFormat
-        define_qenum_under<QPrinter::OutputFormat>("OutputFormat", rb_cQPrinter)
-            .define_value("NativeFormat", QPrinter::OutputFormat::NativeFormat)
-            .define_value("PdfFormat", QPrinter::OutputFormat::PdfFormat);
+        define_qenum_under<QPrinter::OutputFormat>(rb_cQPrinter, "OutputFormat");
+        define_qenum_value_under(rb_cQPrinterOutputFormat, "NativeFormat", QPrinter::OutputFormat::NativeFormat);
+        define_qenum_value_under(rb_cQPrinterOutputFormat, "PdfFormat", QPrinter::OutputFormat::PdfFormat);
 
-    Enum<QPrinter::PageOrder> rb_cQPrinterPageOrder =
+    Data_Type<QPrinter::PageOrder> rb_cQPrinterPageOrder =
         // RubyQt6::QtPrintSupport::QPrinter::PageOrder
-        define_qenum_under<QPrinter::PageOrder>("PageOrder", rb_cQPrinter)
-            .define_value("FirstPageFirst", QPrinter::PageOrder::FirstPageFirst)
-            .define_value("LastPageFirst", QPrinter::PageOrder::LastPageFirst);
+        define_qenum_under<QPrinter::PageOrder>(rb_cQPrinter, "PageOrder");
+        define_qenum_value_under(rb_cQPrinterPageOrder, "FirstPageFirst", QPrinter::PageOrder::FirstPageFirst);
+        define_qenum_value_under(rb_cQPrinterPageOrder, "LastPageFirst", QPrinter::PageOrder::LastPageFirst);
 
-    Enum<QPrinter::PaperSource> rb_cQPrinterPaperSource =
+    Data_Type<QPrinter::PaperSource> rb_cQPrinterPaperSource =
         // RubyQt6::QtPrintSupport::QPrinter::PaperSource
-        define_qenum_under<QPrinter::PaperSource>("PaperSource", rb_cQPrinter)
-            .define_value("OnlyOne", QPrinter::PaperSource::OnlyOne)
-            .define_value("Lower", QPrinter::PaperSource::Lower)
-            .define_value("Middle", QPrinter::PaperSource::Middle)
-            .define_value("Manual", QPrinter::PaperSource::Manual)
-            .define_value("Envelope", QPrinter::PaperSource::Envelope)
-            .define_value("EnvelopeManual", QPrinter::PaperSource::EnvelopeManual)
-            .define_value("Auto", QPrinter::PaperSource::Auto)
-            .define_value("Tractor", QPrinter::PaperSource::Tractor)
-            .define_value("SmallFormat", QPrinter::PaperSource::SmallFormat)
-            .define_value("LargeFormat", QPrinter::PaperSource::LargeFormat)
-            .define_value("LargeCapacity", QPrinter::PaperSource::LargeCapacity)
-            .define_value("Cassette", QPrinter::PaperSource::Cassette)
-            .define_value("FormSource", QPrinter::PaperSource::FormSource)
-            .define_value("MaxPageSource", QPrinter::PaperSource::MaxPageSource)
-            .define_value("CustomSource", QPrinter::PaperSource::CustomSource)
-            .define_value("LastPaperSource", QPrinter::PaperSource::LastPaperSource)
-            .define_value("Upper", QPrinter::PaperSource::Upper);
+        define_qenum_under<QPrinter::PaperSource>(rb_cQPrinter, "PaperSource");
+        define_qenum_value_under(rb_cQPrinterPaperSource, "OnlyOne", QPrinter::PaperSource::OnlyOne);
+        define_qenum_value_under(rb_cQPrinterPaperSource, "Lower", QPrinter::PaperSource::Lower);
+        define_qenum_value_under(rb_cQPrinterPaperSource, "Middle", QPrinter::PaperSource::Middle);
+        define_qenum_value_under(rb_cQPrinterPaperSource, "Manual", QPrinter::PaperSource::Manual);
+        define_qenum_value_under(rb_cQPrinterPaperSource, "Envelope", QPrinter::PaperSource::Envelope);
+        define_qenum_value_under(rb_cQPrinterPaperSource, "EnvelopeManual", QPrinter::PaperSource::EnvelopeManual);
+        define_qenum_value_under(rb_cQPrinterPaperSource, "Auto", QPrinter::PaperSource::Auto);
+        define_qenum_value_under(rb_cQPrinterPaperSource, "Tractor", QPrinter::PaperSource::Tractor);
+        define_qenum_value_under(rb_cQPrinterPaperSource, "SmallFormat", QPrinter::PaperSource::SmallFormat);
+        define_qenum_value_under(rb_cQPrinterPaperSource, "LargeFormat", QPrinter::PaperSource::LargeFormat);
+        define_qenum_value_under(rb_cQPrinterPaperSource, "LargeCapacity", QPrinter::PaperSource::LargeCapacity);
+        define_qenum_value_under(rb_cQPrinterPaperSource, "Cassette", QPrinter::PaperSource::Cassette);
+        define_qenum_value_under(rb_cQPrinterPaperSource, "FormSource", QPrinter::PaperSource::FormSource);
+        define_qenum_value_under(rb_cQPrinterPaperSource, "MaxPageSource", QPrinter::PaperSource::MaxPageSource);
+        define_qenum_value_under(rb_cQPrinterPaperSource, "CustomSource", QPrinter::PaperSource::CustomSource);
+        define_qenum_value_under(rb_cQPrinterPaperSource, "LastPaperSource", QPrinter::PaperSource::LastPaperSource);
+        define_qenum_value_under(rb_cQPrinterPaperSource, "Upper", QPrinter::PaperSource::Upper);
 
-    Enum<QPrinter::PrintRange> rb_cQPrinterPrintRange =
+    Data_Type<QPrinter::PrintRange> rb_cQPrinterPrintRange =
         // RubyQt6::QtPrintSupport::QPrinter::PrintRange
-        define_qenum_under<QPrinter::PrintRange>("PrintRange", rb_cQPrinter)
-            .define_value("AllPages", QPrinter::PrintRange::AllPages)
-            .define_value("Selection", QPrinter::PrintRange::Selection)
-            .define_value("PageRange", QPrinter::PrintRange::PageRange)
-            .define_value("CurrentPage", QPrinter::PrintRange::CurrentPage);
+        define_qenum_under<QPrinter::PrintRange>(rb_cQPrinter, "PrintRange");
+        define_qenum_value_under(rb_cQPrinterPrintRange, "AllPages", QPrinter::PrintRange::AllPages);
+        define_qenum_value_under(rb_cQPrinterPrintRange, "Selection", QPrinter::PrintRange::Selection);
+        define_qenum_value_under(rb_cQPrinterPrintRange, "PageRange", QPrinter::PrintRange::PageRange);
+        define_qenum_value_under(rb_cQPrinterPrintRange, "CurrentPage", QPrinter::PrintRange::CurrentPage);
 
-    Enum<QPrinter::PrinterMode> rb_cQPrinterPrinterMode =
+    Data_Type<QPrinter::PrinterMode> rb_cQPrinterPrinterMode =
         // RubyQt6::QtPrintSupport::QPrinter::PrinterMode
-        define_qenum_under<QPrinter::PrinterMode>("PrinterMode", rb_cQPrinter)
-            .define_value("ScreenResolution", QPrinter::PrinterMode::ScreenResolution)
-            .define_value("PrinterResolution", QPrinter::PrinterMode::PrinterResolution)
-            .define_value("HighResolution", QPrinter::PrinterMode::HighResolution);
+        define_qenum_under<QPrinter::PrinterMode>(rb_cQPrinter, "PrinterMode");
+        define_qenum_value_under(rb_cQPrinterPrinterMode, "ScreenResolution", QPrinter::PrinterMode::ScreenResolution);
+        define_qenum_value_under(rb_cQPrinterPrinterMode, "PrinterResolution", QPrinter::PrinterMode::PrinterResolution);
+        define_qenum_value_under(rb_cQPrinterPrinterMode, "HighResolution", QPrinter::PrinterMode::HighResolution);
 
-    Enum<QPrinter::PrinterState> rb_cQPrinterPrinterState =
+    Data_Type<QPrinter::PrinterState> rb_cQPrinterPrinterState =
         // RubyQt6::QtPrintSupport::QPrinter::PrinterState
-        define_qenum_under<QPrinter::PrinterState>("PrinterState", rb_cQPrinter)
-            .define_value("Idle", QPrinter::PrinterState::Idle)
-            .define_value("Active", QPrinter::PrinterState::Active)
-            .define_value("Aborted", QPrinter::PrinterState::Aborted)
-            .define_value("Error", QPrinter::PrinterState::Error);
+        define_qenum_under<QPrinter::PrinterState>(rb_cQPrinter, "PrinterState");
+        define_qenum_value_under(rb_cQPrinterPrinterState, "Idle", QPrinter::PrinterState::Idle);
+        define_qenum_value_under(rb_cQPrinterPrinterState, "Active", QPrinter::PrinterState::Active);
+        define_qenum_value_under(rb_cQPrinterPrinterState, "Aborted", QPrinter::PrinterState::Aborted);
+        define_qenum_value_under(rb_cQPrinterPrinterState, "Error", QPrinter::PrinterState::Error);
 
-    Enum<QPrinter::Unit> rb_cQPrinterUnit =
+    Data_Type<QPrinter::Unit> rb_cQPrinterUnit =
         // RubyQt6::QtPrintSupport::QPrinter::Unit
-        define_qenum_under<QPrinter::Unit>("Unit", rb_cQPrinter)
-            .define_value("Millimeter", QPrinter::Unit::Millimeter)
-            .define_value("Point", QPrinter::Unit::Point)
-            .define_value("Inch", QPrinter::Unit::Inch)
-            .define_value("Pica", QPrinter::Unit::Pica)
-            .define_value("Didot", QPrinter::Unit::Didot)
-            .define_value("Cicero", QPrinter::Unit::Cicero)
-            .define_value("DevicePixel", QPrinter::Unit::DevicePixel);
+        define_qenum_under<QPrinter::Unit>(rb_cQPrinter, "Unit");
+        define_qenum_value_under(rb_cQPrinterUnit, "Millimeter", QPrinter::Unit::Millimeter);
+        define_qenum_value_under(rb_cQPrinterUnit, "Point", QPrinter::Unit::Point);
+        define_qenum_value_under(rb_cQPrinterUnit, "Inch", QPrinter::Unit::Inch);
+        define_qenum_value_under(rb_cQPrinterUnit, "Pica", QPrinter::Unit::Pica);
+        define_qenum_value_under(rb_cQPrinterUnit, "Didot", QPrinter::Unit::Didot);
+        define_qenum_value_under(rb_cQPrinterUnit, "Cicero", QPrinter::Unit::Cicero);
+        define_qenum_value_under(rb_cQPrinterUnit, "DevicePixel", QPrinter::Unit::DevicePixel);
 }

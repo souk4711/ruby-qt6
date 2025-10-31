@@ -41,54 +41,54 @@ void Init_qdialogbuttonbox(Rice::Module rb_mQt6QtWidgets)
             .define_method("help_requested", &QDialogButtonBox::helpRequested)
             .define_method("rejected", &QDialogButtonBox::rejected);
 
-    Enum<QDialogButtonBox::ButtonLayout> rb_cQDialogButtonBoxButtonLayout =
+    Data_Type<QDialogButtonBox::ButtonLayout> rb_cQDialogButtonBoxButtonLayout =
         // RubyQt6::QtWidgets::QDialogButtonBox::ButtonLayout
-        define_qenum_under<QDialogButtonBox::ButtonLayout>("ButtonLayout", rb_cQDialogButtonBox)
-            .define_value("WinLayout", QDialogButtonBox::ButtonLayout::WinLayout)
-            .define_value("MacLayout", QDialogButtonBox::ButtonLayout::MacLayout)
-            .define_value("KdeLayout", QDialogButtonBox::ButtonLayout::KdeLayout)
-            .define_value("GnomeLayout", QDialogButtonBox::ButtonLayout::GnomeLayout)
-            .define_value("AndroidLayout", QDialogButtonBox::ButtonLayout::AndroidLayout);
+        define_qenum_under<QDialogButtonBox::ButtonLayout>(rb_cQDialogButtonBox, "ButtonLayout");
+        define_qenum_value_under(rb_cQDialogButtonBoxButtonLayout, "WinLayout", QDialogButtonBox::ButtonLayout::WinLayout);
+        define_qenum_value_under(rb_cQDialogButtonBoxButtonLayout, "MacLayout", QDialogButtonBox::ButtonLayout::MacLayout);
+        define_qenum_value_under(rb_cQDialogButtonBoxButtonLayout, "KdeLayout", QDialogButtonBox::ButtonLayout::KdeLayout);
+        define_qenum_value_under(rb_cQDialogButtonBoxButtonLayout, "GnomeLayout", QDialogButtonBox::ButtonLayout::GnomeLayout);
+        define_qenum_value_under(rb_cQDialogButtonBoxButtonLayout, "AndroidLayout", QDialogButtonBox::ButtonLayout::AndroidLayout);
 
-    Enum<QDialogButtonBox::ButtonRole> rb_cQDialogButtonBoxButtonRole =
+    Data_Type<QDialogButtonBox::ButtonRole> rb_cQDialogButtonBoxButtonRole =
         // RubyQt6::QtWidgets::QDialogButtonBox::ButtonRole
-        define_qenum_under<QDialogButtonBox::ButtonRole>("ButtonRole", rb_cQDialogButtonBox)
-            .define_value("InvalidRole", QDialogButtonBox::ButtonRole::InvalidRole)
-            .define_value("AcceptRole", QDialogButtonBox::ButtonRole::AcceptRole)
-            .define_value("RejectRole", QDialogButtonBox::ButtonRole::RejectRole)
-            .define_value("DestructiveRole", QDialogButtonBox::ButtonRole::DestructiveRole)
-            .define_value("ActionRole", QDialogButtonBox::ButtonRole::ActionRole)
-            .define_value("HelpRole", QDialogButtonBox::ButtonRole::HelpRole)
-            .define_value("YesRole", QDialogButtonBox::ButtonRole::YesRole)
-            .define_value("NoRole", QDialogButtonBox::ButtonRole::NoRole)
-            .define_value("ResetRole", QDialogButtonBox::ButtonRole::ResetRole)
-            .define_value("ApplyRole", QDialogButtonBox::ButtonRole::ApplyRole)
-            .define_value("NRoles", QDialogButtonBox::ButtonRole::NRoles);
+        define_qenum_under<QDialogButtonBox::ButtonRole>(rb_cQDialogButtonBox, "ButtonRole");
+        define_qenum_value_under(rb_cQDialogButtonBoxButtonRole, "InvalidRole", QDialogButtonBox::ButtonRole::InvalidRole);
+        define_qenum_value_under(rb_cQDialogButtonBoxButtonRole, "AcceptRole", QDialogButtonBox::ButtonRole::AcceptRole);
+        define_qenum_value_under(rb_cQDialogButtonBoxButtonRole, "RejectRole", QDialogButtonBox::ButtonRole::RejectRole);
+        define_qenum_value_under(rb_cQDialogButtonBoxButtonRole, "DestructiveRole", QDialogButtonBox::ButtonRole::DestructiveRole);
+        define_qenum_value_under(rb_cQDialogButtonBoxButtonRole, "ActionRole", QDialogButtonBox::ButtonRole::ActionRole);
+        define_qenum_value_under(rb_cQDialogButtonBoxButtonRole, "HelpRole", QDialogButtonBox::ButtonRole::HelpRole);
+        define_qenum_value_under(rb_cQDialogButtonBoxButtonRole, "YesRole", QDialogButtonBox::ButtonRole::YesRole);
+        define_qenum_value_under(rb_cQDialogButtonBoxButtonRole, "NoRole", QDialogButtonBox::ButtonRole::NoRole);
+        define_qenum_value_under(rb_cQDialogButtonBoxButtonRole, "ResetRole", QDialogButtonBox::ButtonRole::ResetRole);
+        define_qenum_value_under(rb_cQDialogButtonBoxButtonRole, "ApplyRole", QDialogButtonBox::ButtonRole::ApplyRole);
+        define_qenum_value_under(rb_cQDialogButtonBoxButtonRole, "NRoles", QDialogButtonBox::ButtonRole::NRoles);
 
-    Enum<QDialogButtonBox::StandardButton> rb_cQDialogButtonBoxStandardButton =
+    Data_Type<QDialogButtonBox::StandardButton> rb_cQDialogButtonBoxStandardButton =
         // RubyQt6::QtWidgets::QDialogButtonBox::StandardButton
-        define_qenum_under<QDialogButtonBox::StandardButton>("StandardButton", rb_cQDialogButtonBox)
-            .define_value("NoButton", QDialogButtonBox::StandardButton::NoButton)
-            .define_value("Ok", QDialogButtonBox::StandardButton::Ok)
-            .define_value("Save", QDialogButtonBox::StandardButton::Save)
-            .define_value("SaveAll", QDialogButtonBox::StandardButton::SaveAll)
-            .define_value("Open", QDialogButtonBox::StandardButton::Open)
-            .define_value("Yes", QDialogButtonBox::StandardButton::Yes)
-            .define_value("YesToAll", QDialogButtonBox::StandardButton::YesToAll)
-            .define_value("No", QDialogButtonBox::StandardButton::No)
-            .define_value("NoToAll", QDialogButtonBox::StandardButton::NoToAll)
-            .define_value("Abort", QDialogButtonBox::StandardButton::Abort)
-            .define_value("Retry", QDialogButtonBox::StandardButton::Retry)
-            .define_value("Ignore", QDialogButtonBox::StandardButton::Ignore)
-            .define_value("Close", QDialogButtonBox::StandardButton::Close)
-            .define_value("Cancel", QDialogButtonBox::StandardButton::Cancel)
-            .define_value("Discard", QDialogButtonBox::StandardButton::Discard)
-            .define_value("Help", QDialogButtonBox::StandardButton::Help)
-            .define_value("Apply", QDialogButtonBox::StandardButton::Apply)
-            .define_value("Reset", QDialogButtonBox::StandardButton::Reset)
-            .define_value("RestoreDefaults", QDialogButtonBox::StandardButton::RestoreDefaults)
-            .define_value("FirstButton", QDialogButtonBox::StandardButton::FirstButton)
-            .define_value("LastButton", QDialogButtonBox::StandardButton::LastButton);
+        define_qenum_under<QDialogButtonBox::StandardButton>(rb_cQDialogButtonBox, "StandardButton");
+        define_qenum_value_under(rb_cQDialogButtonBoxStandardButton, "NoButton", QDialogButtonBox::StandardButton::NoButton);
+        define_qenum_value_under(rb_cQDialogButtonBoxStandardButton, "Ok", QDialogButtonBox::StandardButton::Ok);
+        define_qenum_value_under(rb_cQDialogButtonBoxStandardButton, "Save", QDialogButtonBox::StandardButton::Save);
+        define_qenum_value_under(rb_cQDialogButtonBoxStandardButton, "SaveAll", QDialogButtonBox::StandardButton::SaveAll);
+        define_qenum_value_under(rb_cQDialogButtonBoxStandardButton, "Open", QDialogButtonBox::StandardButton::Open);
+        define_qenum_value_under(rb_cQDialogButtonBoxStandardButton, "Yes", QDialogButtonBox::StandardButton::Yes);
+        define_qenum_value_under(rb_cQDialogButtonBoxStandardButton, "YesToAll", QDialogButtonBox::StandardButton::YesToAll);
+        define_qenum_value_under(rb_cQDialogButtonBoxStandardButton, "No", QDialogButtonBox::StandardButton::No);
+        define_qenum_value_under(rb_cQDialogButtonBoxStandardButton, "NoToAll", QDialogButtonBox::StandardButton::NoToAll);
+        define_qenum_value_under(rb_cQDialogButtonBoxStandardButton, "Abort", QDialogButtonBox::StandardButton::Abort);
+        define_qenum_value_under(rb_cQDialogButtonBoxStandardButton, "Retry", QDialogButtonBox::StandardButton::Retry);
+        define_qenum_value_under(rb_cQDialogButtonBoxStandardButton, "Ignore", QDialogButtonBox::StandardButton::Ignore);
+        define_qenum_value_under(rb_cQDialogButtonBoxStandardButton, "Close", QDialogButtonBox::StandardButton::Close);
+        define_qenum_value_under(rb_cQDialogButtonBoxStandardButton, "Cancel", QDialogButtonBox::StandardButton::Cancel);
+        define_qenum_value_under(rb_cQDialogButtonBoxStandardButton, "Discard", QDialogButtonBox::StandardButton::Discard);
+        define_qenum_value_under(rb_cQDialogButtonBoxStandardButton, "Help", QDialogButtonBox::StandardButton::Help);
+        define_qenum_value_under(rb_cQDialogButtonBoxStandardButton, "Apply", QDialogButtonBox::StandardButton::Apply);
+        define_qenum_value_under(rb_cQDialogButtonBoxStandardButton, "Reset", QDialogButtonBox::StandardButton::Reset);
+        define_qenum_value_under(rb_cQDialogButtonBoxStandardButton, "RestoreDefaults", QDialogButtonBox::StandardButton::RestoreDefaults);
+        define_qenum_value_under(rb_cQDialogButtonBoxStandardButton, "FirstButton", QDialogButtonBox::StandardButton::FirstButton);
+        define_qenum_value_under(rb_cQDialogButtonBoxStandardButton, "LastButton", QDialogButtonBox::StandardButton::LastButton);
 
     Data_Type<QFlags<QDialogButtonBox::StandardButton>> rb_cQDialogButtonBoxStandardButtons =
         // RubyQt6::QtWidgets::QDialogButtonBox::StandardButtons

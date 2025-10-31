@@ -49,20 +49,20 @@ void Init_qitemselectionmodel(Rice::Module rb_mQt6QtCore)
             .define_method("model_changed", &QItemSelectionModel::modelChanged, Arg("model"))
             .define_method("selection_changed", &QItemSelectionModel::selectionChanged, Arg("selected"), Arg("deselected"));
 
-    Enum<QItemSelectionModel::SelectionFlag> rb_cQItemSelectionModelSelectionFlag =
+    Data_Type<QItemSelectionModel::SelectionFlag> rb_cQItemSelectionModelSelectionFlag =
         // RubyQt6::QtCore::QItemSelectionModel::SelectionFlag
-        define_qenum_under<QItemSelectionModel::SelectionFlag>("SelectionFlag", rb_cQItemSelectionModel)
-            .define_value("NoUpdate", QItemSelectionModel::SelectionFlag::NoUpdate)
-            .define_value("Clear", QItemSelectionModel::SelectionFlag::Clear)
-            .define_value("Select", QItemSelectionModel::SelectionFlag::Select)
-            .define_value("Deselect", QItemSelectionModel::SelectionFlag::Deselect)
-            .define_value("Toggle", QItemSelectionModel::SelectionFlag::Toggle)
-            .define_value("Current", QItemSelectionModel::SelectionFlag::Current)
-            .define_value("Rows", QItemSelectionModel::SelectionFlag::Rows)
-            .define_value("Columns", QItemSelectionModel::SelectionFlag::Columns)
-            .define_value("SelectCurrent", QItemSelectionModel::SelectionFlag::SelectCurrent)
-            .define_value("ToggleCurrent", QItemSelectionModel::SelectionFlag::ToggleCurrent)
-            .define_value("ClearAndSelect", QItemSelectionModel::SelectionFlag::ClearAndSelect);
+        define_qenum_under<QItemSelectionModel::SelectionFlag>(rb_cQItemSelectionModel, "SelectionFlag");
+        define_qenum_value_under(rb_cQItemSelectionModelSelectionFlag, "NoUpdate", QItemSelectionModel::SelectionFlag::NoUpdate);
+        define_qenum_value_under(rb_cQItemSelectionModelSelectionFlag, "Clear", QItemSelectionModel::SelectionFlag::Clear);
+        define_qenum_value_under(rb_cQItemSelectionModelSelectionFlag, "Select", QItemSelectionModel::SelectionFlag::Select);
+        define_qenum_value_under(rb_cQItemSelectionModelSelectionFlag, "Deselect", QItemSelectionModel::SelectionFlag::Deselect);
+        define_qenum_value_under(rb_cQItemSelectionModelSelectionFlag, "Toggle", QItemSelectionModel::SelectionFlag::Toggle);
+        define_qenum_value_under(rb_cQItemSelectionModelSelectionFlag, "Current", QItemSelectionModel::SelectionFlag::Current);
+        define_qenum_value_under(rb_cQItemSelectionModelSelectionFlag, "Rows", QItemSelectionModel::SelectionFlag::Rows);
+        define_qenum_value_under(rb_cQItemSelectionModelSelectionFlag, "Columns", QItemSelectionModel::SelectionFlag::Columns);
+        define_qenum_value_under(rb_cQItemSelectionModelSelectionFlag, "SelectCurrent", QItemSelectionModel::SelectionFlag::SelectCurrent);
+        define_qenum_value_under(rb_cQItemSelectionModelSelectionFlag, "ToggleCurrent", QItemSelectionModel::SelectionFlag::ToggleCurrent);
+        define_qenum_value_under(rb_cQItemSelectionModelSelectionFlag, "ClearAndSelect", QItemSelectionModel::SelectionFlag::ClearAndSelect);
 
     Data_Type<QFlags<QItemSelectionModel::SelectionFlag>> rb_cQItemSelectionModelSelectionFlags =
         // RubyQt6::QtCore::QItemSelectionModel::SelectionFlags

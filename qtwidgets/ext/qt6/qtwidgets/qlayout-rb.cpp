@@ -69,13 +69,13 @@ void Init_qlayout(Rice::Module rb_mQt6QtWidgets)
             // Static Public Members
             .define_singleton_function("closest_acceptable_size", &QLayout::closestAcceptableSize, Arg("w"), Arg("s"));
 
-    Enum<QLayout::SizeConstraint> rb_cQLayoutSizeConstraint =
+    Data_Type<QLayout::SizeConstraint> rb_cQLayoutSizeConstraint =
         // RubyQt6::QtWidgets::QLayout::SizeConstraint
-        define_qenum_under<QLayout::SizeConstraint>("SizeConstraint", rb_cQLayout)
-            .define_value("SetDefaultConstraint", QLayout::SizeConstraint::SetDefaultConstraint)
-            .define_value("SetNoConstraint", QLayout::SizeConstraint::SetNoConstraint)
-            .define_value("SetMinimumSize", QLayout::SizeConstraint::SetMinimumSize)
-            .define_value("SetFixedSize", QLayout::SizeConstraint::SetFixedSize)
-            .define_value("SetMaximumSize", QLayout::SizeConstraint::SetMaximumSize)
-            .define_value("SetMinAndMaxSize", QLayout::SizeConstraint::SetMinAndMaxSize);
+        define_qenum_under<QLayout::SizeConstraint>(rb_cQLayout, "SizeConstraint");
+        define_qenum_value_under(rb_cQLayoutSizeConstraint, "SetDefaultConstraint", QLayout::SizeConstraint::SetDefaultConstraint);
+        define_qenum_value_under(rb_cQLayoutSizeConstraint, "SetNoConstraint", QLayout::SizeConstraint::SetNoConstraint);
+        define_qenum_value_under(rb_cQLayoutSizeConstraint, "SetMinimumSize", QLayout::SizeConstraint::SetMinimumSize);
+        define_qenum_value_under(rb_cQLayoutSizeConstraint, "SetFixedSize", QLayout::SizeConstraint::SetFixedSize);
+        define_qenum_value_under(rb_cQLayoutSizeConstraint, "SetMaximumSize", QLayout::SizeConstraint::SetMaximumSize);
+        define_qenum_value_under(rb_cQLayoutSizeConstraint, "SetMinAndMaxSize", QLayout::SizeConstraint::SetMinAndMaxSize);
 }

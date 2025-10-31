@@ -100,41 +100,41 @@ void Init_qgraphicsview(Rice::Module rb_mQt6QtWidgets)
             // Signals
             .define_method("rubber_band_changed", &QGraphicsView::rubberBandChanged, Arg("viewport_rect"), Arg("from_scene_point"), Arg("to_scene_point"));
 
-    Enum<QGraphicsView::CacheModeFlag> rb_cQGraphicsViewCacheModeFlag =
+    Data_Type<QGraphicsView::CacheModeFlag> rb_cQGraphicsViewCacheModeFlag =
         // RubyQt6::QtWidgets::QGraphicsView::CacheModeFlag
-        define_qenum_under<QGraphicsView::CacheModeFlag>("CacheModeFlag", rb_cQGraphicsView)
-            .define_value("CacheNone", QGraphicsView::CacheModeFlag::CacheNone)
-            .define_value("CacheBackground", QGraphicsView::CacheModeFlag::CacheBackground);
+        define_qenum_under<QGraphicsView::CacheModeFlag>(rb_cQGraphicsView, "CacheModeFlag");
+        define_qenum_value_under(rb_cQGraphicsViewCacheModeFlag, "CacheNone", QGraphicsView::CacheModeFlag::CacheNone);
+        define_qenum_value_under(rb_cQGraphicsViewCacheModeFlag, "CacheBackground", QGraphicsView::CacheModeFlag::CacheBackground);
 
-    Enum<QGraphicsView::DragMode> rb_cQGraphicsViewDragMode =
+    Data_Type<QGraphicsView::DragMode> rb_cQGraphicsViewDragMode =
         // RubyQt6::QtWidgets::QGraphicsView::DragMode
-        define_qenum_under<QGraphicsView::DragMode>("DragMode", rb_cQGraphicsView)
-            .define_value("NoDrag", QGraphicsView::DragMode::NoDrag)
-            .define_value("ScrollHandDrag", QGraphicsView::DragMode::ScrollHandDrag)
-            .define_value("RubberBandDrag", QGraphicsView::DragMode::RubberBandDrag);
+        define_qenum_under<QGraphicsView::DragMode>(rb_cQGraphicsView, "DragMode");
+        define_qenum_value_under(rb_cQGraphicsViewDragMode, "NoDrag", QGraphicsView::DragMode::NoDrag);
+        define_qenum_value_under(rb_cQGraphicsViewDragMode, "ScrollHandDrag", QGraphicsView::DragMode::ScrollHandDrag);
+        define_qenum_value_under(rb_cQGraphicsViewDragMode, "RubberBandDrag", QGraphicsView::DragMode::RubberBandDrag);
 
-    Enum<QGraphicsView::OptimizationFlag> rb_cQGraphicsViewOptimizationFlag =
+    Data_Type<QGraphicsView::OptimizationFlag> rb_cQGraphicsViewOptimizationFlag =
         // RubyQt6::QtWidgets::QGraphicsView::OptimizationFlag
-        define_qenum_under<QGraphicsView::OptimizationFlag>("OptimizationFlag", rb_cQGraphicsView)
-            .define_value("DontSavePainterState", QGraphicsView::OptimizationFlag::DontSavePainterState)
-            .define_value("DontAdjustForAntialiasing", QGraphicsView::OptimizationFlag::DontAdjustForAntialiasing)
-            .define_value("IndirectPainting", QGraphicsView::OptimizationFlag::IndirectPainting);
+        define_qenum_under<QGraphicsView::OptimizationFlag>(rb_cQGraphicsView, "OptimizationFlag");
+        define_qenum_value_under(rb_cQGraphicsViewOptimizationFlag, "DontSavePainterState", QGraphicsView::OptimizationFlag::DontSavePainterState);
+        define_qenum_value_under(rb_cQGraphicsViewOptimizationFlag, "DontAdjustForAntialiasing", QGraphicsView::OptimizationFlag::DontAdjustForAntialiasing);
+        define_qenum_value_under(rb_cQGraphicsViewOptimizationFlag, "IndirectPainting", QGraphicsView::OptimizationFlag::IndirectPainting);
 
-    Enum<QGraphicsView::ViewportAnchor> rb_cQGraphicsViewViewportAnchor =
+    Data_Type<QGraphicsView::ViewportAnchor> rb_cQGraphicsViewViewportAnchor =
         // RubyQt6::QtWidgets::QGraphicsView::ViewportAnchor
-        define_qenum_under<QGraphicsView::ViewportAnchor>("ViewportAnchor", rb_cQGraphicsView)
-            .define_value("NoAnchor", QGraphicsView::ViewportAnchor::NoAnchor)
-            .define_value("AnchorViewCenter", QGraphicsView::ViewportAnchor::AnchorViewCenter)
-            .define_value("AnchorUnderMouse", QGraphicsView::ViewportAnchor::AnchorUnderMouse);
+        define_qenum_under<QGraphicsView::ViewportAnchor>(rb_cQGraphicsView, "ViewportAnchor");
+        define_qenum_value_under(rb_cQGraphicsViewViewportAnchor, "NoAnchor", QGraphicsView::ViewportAnchor::NoAnchor);
+        define_qenum_value_under(rb_cQGraphicsViewViewportAnchor, "AnchorViewCenter", QGraphicsView::ViewportAnchor::AnchorViewCenter);
+        define_qenum_value_under(rb_cQGraphicsViewViewportAnchor, "AnchorUnderMouse", QGraphicsView::ViewportAnchor::AnchorUnderMouse);
 
-    Enum<QGraphicsView::ViewportUpdateMode> rb_cQGraphicsViewViewportUpdateMode =
+    Data_Type<QGraphicsView::ViewportUpdateMode> rb_cQGraphicsViewViewportUpdateMode =
         // RubyQt6::QtWidgets::QGraphicsView::ViewportUpdateMode
-        define_qenum_under<QGraphicsView::ViewportUpdateMode>("ViewportUpdateMode", rb_cQGraphicsView)
-            .define_value("FullViewportUpdate", QGraphicsView::ViewportUpdateMode::FullViewportUpdate)
-            .define_value("MinimalViewportUpdate", QGraphicsView::ViewportUpdateMode::MinimalViewportUpdate)
-            .define_value("SmartViewportUpdate", QGraphicsView::ViewportUpdateMode::SmartViewportUpdate)
-            .define_value("NoViewportUpdate", QGraphicsView::ViewportUpdateMode::NoViewportUpdate)
-            .define_value("BoundingRectViewportUpdate", QGraphicsView::ViewportUpdateMode::BoundingRectViewportUpdate);
+        define_qenum_under<QGraphicsView::ViewportUpdateMode>(rb_cQGraphicsView, "ViewportUpdateMode");
+        define_qenum_value_under(rb_cQGraphicsViewViewportUpdateMode, "FullViewportUpdate", QGraphicsView::ViewportUpdateMode::FullViewportUpdate);
+        define_qenum_value_under(rb_cQGraphicsViewViewportUpdateMode, "MinimalViewportUpdate", QGraphicsView::ViewportUpdateMode::MinimalViewportUpdate);
+        define_qenum_value_under(rb_cQGraphicsViewViewportUpdateMode, "SmartViewportUpdate", QGraphicsView::ViewportUpdateMode::SmartViewportUpdate);
+        define_qenum_value_under(rb_cQGraphicsViewViewportUpdateMode, "NoViewportUpdate", QGraphicsView::ViewportUpdateMode::NoViewportUpdate);
+        define_qenum_value_under(rb_cQGraphicsViewViewportUpdateMode, "BoundingRectViewportUpdate", QGraphicsView::ViewportUpdateMode::BoundingRectViewportUpdate);
 
     Data_Type<QFlags<QGraphicsView::CacheModeFlag>> rb_cQGraphicsViewCacheMode =
         // RubyQt6::QtWidgets::QGraphicsView::CacheMode

@@ -37,13 +37,13 @@ void Init_qcolordialog(Rice::Module rb_mQt6QtWidgets)
             .define_singleton_function("set_standard_color", &QColorDialog::setStandardColor, Arg("index"), Arg("color"))
             .define_singleton_function("standard_color", &QColorDialog::standardColor, Arg("index"));
 
-    Enum<QColorDialog::ColorDialogOption> rb_cQColorDialogColorDialogOption =
+    Data_Type<QColorDialog::ColorDialogOption> rb_cQColorDialogColorDialogOption =
         // RubyQt6::QtWidgets::QColorDialog::ColorDialogOption
-        define_qenum_under<QColorDialog::ColorDialogOption>("ColorDialogOption", rb_cQColorDialog)
-            .define_value("ShowAlphaChannel", QColorDialog::ColorDialogOption::ShowAlphaChannel)
-            .define_value("NoButtons", QColorDialog::ColorDialogOption::NoButtons)
-            .define_value("DontUseNativeDialog", QColorDialog::ColorDialogOption::DontUseNativeDialog)
-            .define_value("NoEyeDropperButton", QColorDialog::ColorDialogOption::NoEyeDropperButton);
+        define_qenum_under<QColorDialog::ColorDialogOption>(rb_cQColorDialog, "ColorDialogOption");
+        define_qenum_value_under(rb_cQColorDialogColorDialogOption, "ShowAlphaChannel", QColorDialog::ColorDialogOption::ShowAlphaChannel);
+        define_qenum_value_under(rb_cQColorDialogColorDialogOption, "NoButtons", QColorDialog::ColorDialogOption::NoButtons);
+        define_qenum_value_under(rb_cQColorDialogColorDialogOption, "DontUseNativeDialog", QColorDialog::ColorDialogOption::DontUseNativeDialog);
+        define_qenum_value_under(rb_cQColorDialogColorDialogOption, "NoEyeDropperButton", QColorDialog::ColorDialogOption::NoEyeDropperButton);
 
     Data_Type<QFlags<QColorDialog::ColorDialogOption>> rb_cQColorDialogColorDialogOptions =
         // RubyQt6::QtWidgets::QColorDialog::ColorDialogOptions

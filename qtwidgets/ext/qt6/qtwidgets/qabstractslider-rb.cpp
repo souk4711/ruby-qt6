@@ -47,15 +47,15 @@ void Init_qabstractslider(Rice::Module rb_mQt6QtWidgets)
             .define_method("slider_released", &QAbstractSlider::sliderReleased)
             .define_method("value_changed", &QAbstractSlider::valueChanged, Arg("value"));
 
-    Enum<QAbstractSlider::SliderAction> rb_cQAbstractSliderSliderAction =
+    Data_Type<QAbstractSlider::SliderAction> rb_cQAbstractSliderSliderAction =
         // RubyQt6::QtWidgets::QAbstractSlider::SliderAction
-        define_qenum_under<QAbstractSlider::SliderAction>("SliderAction", rb_cQAbstractSlider)
-            .define_value("SliderNoAction", QAbstractSlider::SliderAction::SliderNoAction)
-            .define_value("SliderSingleStepAdd", QAbstractSlider::SliderAction::SliderSingleStepAdd)
-            .define_value("SliderSingleStepSub", QAbstractSlider::SliderAction::SliderSingleStepSub)
-            .define_value("SliderPageStepAdd", QAbstractSlider::SliderAction::SliderPageStepAdd)
-            .define_value("SliderPageStepSub", QAbstractSlider::SliderAction::SliderPageStepSub)
-            .define_value("SliderToMinimum", QAbstractSlider::SliderAction::SliderToMinimum)
-            .define_value("SliderToMaximum", QAbstractSlider::SliderAction::SliderToMaximum)
-            .define_value("SliderMove", QAbstractSlider::SliderAction::SliderMove);
+        define_qenum_under<QAbstractSlider::SliderAction>(rb_cQAbstractSlider, "SliderAction");
+        define_qenum_value_under(rb_cQAbstractSliderSliderAction, "SliderNoAction", QAbstractSlider::SliderAction::SliderNoAction);
+        define_qenum_value_under(rb_cQAbstractSliderSliderAction, "SliderSingleStepAdd", QAbstractSlider::SliderAction::SliderSingleStepAdd);
+        define_qenum_value_under(rb_cQAbstractSliderSliderAction, "SliderSingleStepSub", QAbstractSlider::SliderAction::SliderSingleStepSub);
+        define_qenum_value_under(rb_cQAbstractSliderSliderAction, "SliderPageStepAdd", QAbstractSlider::SliderAction::SliderPageStepAdd);
+        define_qenum_value_under(rb_cQAbstractSliderSliderAction, "SliderPageStepSub", QAbstractSlider::SliderAction::SliderPageStepSub);
+        define_qenum_value_under(rb_cQAbstractSliderSliderAction, "SliderToMinimum", QAbstractSlider::SliderAction::SliderToMinimum);
+        define_qenum_value_under(rb_cQAbstractSliderSliderAction, "SliderToMaximum", QAbstractSlider::SliderAction::SliderToMaximum);
+        define_qenum_value_under(rb_cQAbstractSliderSliderAction, "SliderMove", QAbstractSlider::SliderAction::SliderMove);
 }

@@ -34,34 +34,34 @@ void Init_qtextoption(Rice::Module rb_mQt6QtGui)
             .define_method("use_design_metrics", &QTextOption::useDesignMetrics)
             .define_method("wrap_mode", &QTextOption::wrapMode);
 
-    Enum<QTextOption::Flag> rb_cQTextOptionFlag =
+    Data_Type<QTextOption::Flag> rb_cQTextOptionFlag =
         // RubyQt6::QtGui::QTextOption::Flag
-        define_qenum_under<QTextOption::Flag>("Flag", rb_cQTextOption)
-            .define_value("ShowTabsAndSpaces", QTextOption::Flag::ShowTabsAndSpaces)
-            .define_value("ShowLineAndParagraphSeparators", QTextOption::Flag::ShowLineAndParagraphSeparators)
-            .define_value("AddSpaceForLineAndParagraphSeparators", QTextOption::Flag::AddSpaceForLineAndParagraphSeparators)
-            .define_value("SuppressColors", QTextOption::Flag::SuppressColors)
-            .define_value("ShowDocumentTerminator", QTextOption::Flag::ShowDocumentTerminator)
-            .define_value("ShowDefaultIgnorables", QTextOption::Flag::ShowDefaultIgnorables)
-            .define_value("DisableEmojiParsing", QTextOption::Flag::DisableEmojiParsing)
-            .define_value("IncludeTrailingSpaces", QTextOption::Flag::IncludeTrailingSpaces);
+        define_qenum_under<QTextOption::Flag>(rb_cQTextOption, "Flag");
+        define_qenum_value_under(rb_cQTextOptionFlag, "ShowTabsAndSpaces", QTextOption::Flag::ShowTabsAndSpaces);
+        define_qenum_value_under(rb_cQTextOptionFlag, "ShowLineAndParagraphSeparators", QTextOption::Flag::ShowLineAndParagraphSeparators);
+        define_qenum_value_under(rb_cQTextOptionFlag, "AddSpaceForLineAndParagraphSeparators", QTextOption::Flag::AddSpaceForLineAndParagraphSeparators);
+        define_qenum_value_under(rb_cQTextOptionFlag, "SuppressColors", QTextOption::Flag::SuppressColors);
+        define_qenum_value_under(rb_cQTextOptionFlag, "ShowDocumentTerminator", QTextOption::Flag::ShowDocumentTerminator);
+        define_qenum_value_under(rb_cQTextOptionFlag, "ShowDefaultIgnorables", QTextOption::Flag::ShowDefaultIgnorables);
+        define_qenum_value_under(rb_cQTextOptionFlag, "DisableEmojiParsing", QTextOption::Flag::DisableEmojiParsing);
+        define_qenum_value_under(rb_cQTextOptionFlag, "IncludeTrailingSpaces", QTextOption::Flag::IncludeTrailingSpaces);
 
-    Enum<QTextOption::TabType> rb_cQTextOptionTabType =
+    Data_Type<QTextOption::TabType> rb_cQTextOptionTabType =
         // RubyQt6::QtGui::QTextOption::TabType
-        define_qenum_under<QTextOption::TabType>("TabType", rb_cQTextOption)
-            .define_value("LeftTab", QTextOption::TabType::LeftTab)
-            .define_value("RightTab", QTextOption::TabType::RightTab)
-            .define_value("CenterTab", QTextOption::TabType::CenterTab)
-            .define_value("DelimiterTab", QTextOption::TabType::DelimiterTab);
+        define_qenum_under<QTextOption::TabType>(rb_cQTextOption, "TabType");
+        define_qenum_value_under(rb_cQTextOptionTabType, "LeftTab", QTextOption::TabType::LeftTab);
+        define_qenum_value_under(rb_cQTextOptionTabType, "RightTab", QTextOption::TabType::RightTab);
+        define_qenum_value_under(rb_cQTextOptionTabType, "CenterTab", QTextOption::TabType::CenterTab);
+        define_qenum_value_under(rb_cQTextOptionTabType, "DelimiterTab", QTextOption::TabType::DelimiterTab);
 
-    Enum<QTextOption::WrapMode> rb_cQTextOptionWrapMode =
+    Data_Type<QTextOption::WrapMode> rb_cQTextOptionWrapMode =
         // RubyQt6::QtGui::QTextOption::WrapMode
-        define_qenum_under<QTextOption::WrapMode>("WrapMode", rb_cQTextOption)
-            .define_value("NoWrap", QTextOption::WrapMode::NoWrap)
-            .define_value("WordWrap", QTextOption::WrapMode::WordWrap)
-            .define_value("ManualWrap", QTextOption::WrapMode::ManualWrap)
-            .define_value("WrapAnywhere", QTextOption::WrapMode::WrapAnywhere)
-            .define_value("WrapAtWordBoundaryOrAnywhere", QTextOption::WrapMode::WrapAtWordBoundaryOrAnywhere);
+        define_qenum_under<QTextOption::WrapMode>(rb_cQTextOption, "WrapMode");
+        define_qenum_value_under(rb_cQTextOptionWrapMode, "NoWrap", QTextOption::WrapMode::NoWrap);
+        define_qenum_value_under(rb_cQTextOptionWrapMode, "WordWrap", QTextOption::WrapMode::WordWrap);
+        define_qenum_value_under(rb_cQTextOptionWrapMode, "ManualWrap", QTextOption::WrapMode::ManualWrap);
+        define_qenum_value_under(rb_cQTextOptionWrapMode, "WrapAnywhere", QTextOption::WrapMode::WrapAnywhere);
+        define_qenum_value_under(rb_cQTextOptionWrapMode, "WrapAtWordBoundaryOrAnywhere", QTextOption::WrapMode::WrapAtWordBoundaryOrAnywhere);
 
     Data_Type<QFlags<QTextOption::Flag>> rb_cQTextOptionFlags =
         // RubyQt6::QtGui::QTextOption::Flags

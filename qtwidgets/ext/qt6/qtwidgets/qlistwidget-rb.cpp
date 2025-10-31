@@ -114,9 +114,9 @@ void Init_qlistwidget(Rice::Module rb_mQt6QtWidgets)
             .define_method("whats_this", &QListWidgetItem::whatsThis)
             .define_method("write", &QListWidgetItem::write, Arg("out"));
 
-    Enum<QListWidgetItem::ItemType> rb_cQListWidgetItemItemType =
+    Data_Type<QListWidgetItem::ItemType> rb_cQListWidgetItemItemType =
         // RubyQt6::QtWidgets::QListWidgetItem::ItemType
-        define_qenum_under<QListWidgetItem::ItemType>("ItemType", rb_cQListWidgetItem)
-            .define_value("Type", QListWidgetItem::ItemType::Type)
-            .define_value("UserType", QListWidgetItem::ItemType::UserType);
+        define_qenum_under<QListWidgetItem::ItemType>(rb_cQListWidgetItem, "ItemType");
+        define_qenum_value_under(rb_cQListWidgetItemItemType, "Type", QListWidgetItem::ItemType::Type);
+        define_qenum_value_under(rb_cQListWidgetItemItemType, "UserType", QListWidgetItem::ItemType::UserType);
 }

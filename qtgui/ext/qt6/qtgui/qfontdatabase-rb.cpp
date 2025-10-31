@@ -51,51 +51,51 @@ void Init_qfontdatabase(Rice::Module rb_mQt6QtGui)
             .define_singleton_function<QList<QFontDatabase::WritingSystem> (*)()>("writing_systems", &QFontDatabase::writingSystems)
             .define_singleton_function<QList<QFontDatabase::WritingSystem> (*)(const QString &)>("writing_systems", &QFontDatabase::writingSystems, Arg("family"));
 
-    Enum<QFontDatabase::WritingSystem> rb_cQFontDatabaseWritingSystem =
+    Data_Type<QFontDatabase::WritingSystem> rb_cQFontDatabaseWritingSystem =
         // RubyQt6::QtGui::QFontDatabase::WritingSystem
-        define_qenum_under<QFontDatabase::WritingSystem>("WritingSystem", rb_cQFontDatabase)
-            .define_value("Any", QFontDatabase::WritingSystem::Any)
-            .define_value("Latin", QFontDatabase::WritingSystem::Latin)
-            .define_value("Greek", QFontDatabase::WritingSystem::Greek)
-            .define_value("Cyrillic", QFontDatabase::WritingSystem::Cyrillic)
-            .define_value("Armenian", QFontDatabase::WritingSystem::Armenian)
-            .define_value("Hebrew", QFontDatabase::WritingSystem::Hebrew)
-            .define_value("Arabic", QFontDatabase::WritingSystem::Arabic)
-            .define_value("Syriac", QFontDatabase::WritingSystem::Syriac)
-            .define_value("Thaana", QFontDatabase::WritingSystem::Thaana)
-            .define_value("Devanagari", QFontDatabase::WritingSystem::Devanagari)
-            .define_value("Bengali", QFontDatabase::WritingSystem::Bengali)
-            .define_value("Gurmukhi", QFontDatabase::WritingSystem::Gurmukhi)
-            .define_value("Gujarati", QFontDatabase::WritingSystem::Gujarati)
-            .define_value("Oriya", QFontDatabase::WritingSystem::Oriya)
-            .define_value("Tamil", QFontDatabase::WritingSystem::Tamil)
-            .define_value("Telugu", QFontDatabase::WritingSystem::Telugu)
-            .define_value("Kannada", QFontDatabase::WritingSystem::Kannada)
-            .define_value("Malayalam", QFontDatabase::WritingSystem::Malayalam)
-            .define_value("Sinhala", QFontDatabase::WritingSystem::Sinhala)
-            .define_value("Thai", QFontDatabase::WritingSystem::Thai)
-            .define_value("Lao", QFontDatabase::WritingSystem::Lao)
-            .define_value("Tibetan", QFontDatabase::WritingSystem::Tibetan)
-            .define_value("Myanmar", QFontDatabase::WritingSystem::Myanmar)
-            .define_value("Georgian", QFontDatabase::WritingSystem::Georgian)
-            .define_value("Khmer", QFontDatabase::WritingSystem::Khmer)
-            .define_value("SimplifiedChinese", QFontDatabase::WritingSystem::SimplifiedChinese)
-            .define_value("TraditionalChinese", QFontDatabase::WritingSystem::TraditionalChinese)
-            .define_value("Japanese", QFontDatabase::WritingSystem::Japanese)
-            .define_value("Korean", QFontDatabase::WritingSystem::Korean)
-            .define_value("Vietnamese", QFontDatabase::WritingSystem::Vietnamese)
-            .define_value("Symbol", QFontDatabase::WritingSystem::Symbol)
-            .define_value("Other", QFontDatabase::WritingSystem::Other)
-            .define_value("Ogham", QFontDatabase::WritingSystem::Ogham)
-            .define_value("Runic", QFontDatabase::WritingSystem::Runic)
-            .define_value("Nko", QFontDatabase::WritingSystem::Nko)
-            .define_value("WritingSystemsCount", QFontDatabase::WritingSystem::WritingSystemsCount);
+        define_qenum_under<QFontDatabase::WritingSystem>(rb_cQFontDatabase, "WritingSystem");
+        define_qenum_value_under(rb_cQFontDatabaseWritingSystem, "Any", QFontDatabase::WritingSystem::Any);
+        define_qenum_value_under(rb_cQFontDatabaseWritingSystem, "Latin", QFontDatabase::WritingSystem::Latin);
+        define_qenum_value_under(rb_cQFontDatabaseWritingSystem, "Greek", QFontDatabase::WritingSystem::Greek);
+        define_qenum_value_under(rb_cQFontDatabaseWritingSystem, "Cyrillic", QFontDatabase::WritingSystem::Cyrillic);
+        define_qenum_value_under(rb_cQFontDatabaseWritingSystem, "Armenian", QFontDatabase::WritingSystem::Armenian);
+        define_qenum_value_under(rb_cQFontDatabaseWritingSystem, "Hebrew", QFontDatabase::WritingSystem::Hebrew);
+        define_qenum_value_under(rb_cQFontDatabaseWritingSystem, "Arabic", QFontDatabase::WritingSystem::Arabic);
+        define_qenum_value_under(rb_cQFontDatabaseWritingSystem, "Syriac", QFontDatabase::WritingSystem::Syriac);
+        define_qenum_value_under(rb_cQFontDatabaseWritingSystem, "Thaana", QFontDatabase::WritingSystem::Thaana);
+        define_qenum_value_under(rb_cQFontDatabaseWritingSystem, "Devanagari", QFontDatabase::WritingSystem::Devanagari);
+        define_qenum_value_under(rb_cQFontDatabaseWritingSystem, "Bengali", QFontDatabase::WritingSystem::Bengali);
+        define_qenum_value_under(rb_cQFontDatabaseWritingSystem, "Gurmukhi", QFontDatabase::WritingSystem::Gurmukhi);
+        define_qenum_value_under(rb_cQFontDatabaseWritingSystem, "Gujarati", QFontDatabase::WritingSystem::Gujarati);
+        define_qenum_value_under(rb_cQFontDatabaseWritingSystem, "Oriya", QFontDatabase::WritingSystem::Oriya);
+        define_qenum_value_under(rb_cQFontDatabaseWritingSystem, "Tamil", QFontDatabase::WritingSystem::Tamil);
+        define_qenum_value_under(rb_cQFontDatabaseWritingSystem, "Telugu", QFontDatabase::WritingSystem::Telugu);
+        define_qenum_value_under(rb_cQFontDatabaseWritingSystem, "Kannada", QFontDatabase::WritingSystem::Kannada);
+        define_qenum_value_under(rb_cQFontDatabaseWritingSystem, "Malayalam", QFontDatabase::WritingSystem::Malayalam);
+        define_qenum_value_under(rb_cQFontDatabaseWritingSystem, "Sinhala", QFontDatabase::WritingSystem::Sinhala);
+        define_qenum_value_under(rb_cQFontDatabaseWritingSystem, "Thai", QFontDatabase::WritingSystem::Thai);
+        define_qenum_value_under(rb_cQFontDatabaseWritingSystem, "Lao", QFontDatabase::WritingSystem::Lao);
+        define_qenum_value_under(rb_cQFontDatabaseWritingSystem, "Tibetan", QFontDatabase::WritingSystem::Tibetan);
+        define_qenum_value_under(rb_cQFontDatabaseWritingSystem, "Myanmar", QFontDatabase::WritingSystem::Myanmar);
+        define_qenum_value_under(rb_cQFontDatabaseWritingSystem, "Georgian", QFontDatabase::WritingSystem::Georgian);
+        define_qenum_value_under(rb_cQFontDatabaseWritingSystem, "Khmer", QFontDatabase::WritingSystem::Khmer);
+        define_qenum_value_under(rb_cQFontDatabaseWritingSystem, "SimplifiedChinese", QFontDatabase::WritingSystem::SimplifiedChinese);
+        define_qenum_value_under(rb_cQFontDatabaseWritingSystem, "TraditionalChinese", QFontDatabase::WritingSystem::TraditionalChinese);
+        define_qenum_value_under(rb_cQFontDatabaseWritingSystem, "Japanese", QFontDatabase::WritingSystem::Japanese);
+        define_qenum_value_under(rb_cQFontDatabaseWritingSystem, "Korean", QFontDatabase::WritingSystem::Korean);
+        define_qenum_value_under(rb_cQFontDatabaseWritingSystem, "Vietnamese", QFontDatabase::WritingSystem::Vietnamese);
+        define_qenum_value_under(rb_cQFontDatabaseWritingSystem, "Symbol", QFontDatabase::WritingSystem::Symbol);
+        define_qenum_value_under(rb_cQFontDatabaseWritingSystem, "Other", QFontDatabase::WritingSystem::Other);
+        define_qenum_value_under(rb_cQFontDatabaseWritingSystem, "Ogham", QFontDatabase::WritingSystem::Ogham);
+        define_qenum_value_under(rb_cQFontDatabaseWritingSystem, "Runic", QFontDatabase::WritingSystem::Runic);
+        define_qenum_value_under(rb_cQFontDatabaseWritingSystem, "Nko", QFontDatabase::WritingSystem::Nko);
+        define_qenum_value_under(rb_cQFontDatabaseWritingSystem, "WritingSystemsCount", QFontDatabase::WritingSystem::WritingSystemsCount);
 
-    Enum<QFontDatabase::SystemFont> rb_cQFontDatabaseSystemFont =
+    Data_Type<QFontDatabase::SystemFont> rb_cQFontDatabaseSystemFont =
         // RubyQt6::QtGui::QFontDatabase::SystemFont
-        define_qenum_under<QFontDatabase::SystemFont>("SystemFont", rb_cQFontDatabase)
-            .define_value("GeneralFont", QFontDatabase::SystemFont::GeneralFont)
-            .define_value("FixedFont", QFontDatabase::SystemFont::FixedFont)
-            .define_value("TitleFont", QFontDatabase::SystemFont::TitleFont)
-            .define_value("SmallestReadableFont", QFontDatabase::SystemFont::SmallestReadableFont);
+        define_qenum_under<QFontDatabase::SystemFont>(rb_cQFontDatabase, "SystemFont");
+        define_qenum_value_under(rb_cQFontDatabaseSystemFont, "GeneralFont", QFontDatabase::SystemFont::GeneralFont);
+        define_qenum_value_under(rb_cQFontDatabaseSystemFont, "FixedFont", QFontDatabase::SystemFont::FixedFont);
+        define_qenum_value_under(rb_cQFontDatabaseSystemFont, "TitleFont", QFontDatabase::SystemFont::TitleFont);
+        define_qenum_value_under(rb_cQFontDatabaseSystemFont, "SmallestReadableFont", QFontDatabase::SystemFont::SmallestReadableFont);
 }

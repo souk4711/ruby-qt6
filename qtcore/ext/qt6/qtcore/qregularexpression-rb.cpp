@@ -40,39 +40,39 @@ void Init_qregularexpression(Rice::Module rb_mQt6QtCore)
             .define_singleton_function<QString (*)(QStringView, QRegularExpression::WildcardConversionOptions)>("wildcard_to_regular_expression", &QRegularExpression::wildcardToRegularExpression, Arg("str"), Arg("options") = static_cast<QRegularExpression::WildcardConversionOptions>(QRegularExpression::WildcardConversionOption::DefaultWildcardConversion))
             .define_singleton_function<QString (*)(const QString &, QRegularExpression::WildcardConversionOptions)>("wildcard_to_regular_expression", &QRegularExpression::wildcardToRegularExpression, Arg("str"), Arg("options") = static_cast<QRegularExpression::WildcardConversionOptions>(QRegularExpression::WildcardConversionOption::DefaultWildcardConversion));
 
-    Enum<QRegularExpression::PatternOption> rb_cQRegularExpressionPatternOption =
+    Data_Type<QRegularExpression::PatternOption> rb_cQRegularExpressionPatternOption =
         // RubyQt6::QtCore::QRegularExpression::PatternOption
-        define_qenum_under<QRegularExpression::PatternOption>("PatternOption", rb_cQRegularExpression)
-            .define_value("NoPatternOption", QRegularExpression::PatternOption::NoPatternOption)
-            .define_value("CaseInsensitiveOption", QRegularExpression::PatternOption::CaseInsensitiveOption)
-            .define_value("DotMatchesEverythingOption", QRegularExpression::PatternOption::DotMatchesEverythingOption)
-            .define_value("MultilineOption", QRegularExpression::PatternOption::MultilineOption)
-            .define_value("ExtendedPatternSyntaxOption", QRegularExpression::PatternOption::ExtendedPatternSyntaxOption)
-            .define_value("InvertedGreedinessOption", QRegularExpression::PatternOption::InvertedGreedinessOption)
-            .define_value("DontCaptureOption", QRegularExpression::PatternOption::DontCaptureOption)
-            .define_value("UseUnicodePropertiesOption", QRegularExpression::PatternOption::UseUnicodePropertiesOption);
+        define_qenum_under<QRegularExpression::PatternOption>(rb_cQRegularExpression, "PatternOption");
+        define_qenum_value_under(rb_cQRegularExpressionPatternOption, "NoPatternOption", QRegularExpression::PatternOption::NoPatternOption);
+        define_qenum_value_under(rb_cQRegularExpressionPatternOption, "CaseInsensitiveOption", QRegularExpression::PatternOption::CaseInsensitiveOption);
+        define_qenum_value_under(rb_cQRegularExpressionPatternOption, "DotMatchesEverythingOption", QRegularExpression::PatternOption::DotMatchesEverythingOption);
+        define_qenum_value_under(rb_cQRegularExpressionPatternOption, "MultilineOption", QRegularExpression::PatternOption::MultilineOption);
+        define_qenum_value_under(rb_cQRegularExpressionPatternOption, "ExtendedPatternSyntaxOption", QRegularExpression::PatternOption::ExtendedPatternSyntaxOption);
+        define_qenum_value_under(rb_cQRegularExpressionPatternOption, "InvertedGreedinessOption", QRegularExpression::PatternOption::InvertedGreedinessOption);
+        define_qenum_value_under(rb_cQRegularExpressionPatternOption, "DontCaptureOption", QRegularExpression::PatternOption::DontCaptureOption);
+        define_qenum_value_under(rb_cQRegularExpressionPatternOption, "UseUnicodePropertiesOption", QRegularExpression::PatternOption::UseUnicodePropertiesOption);
 
-    Enum<QRegularExpression::MatchType> rb_cQRegularExpressionMatchType =
+    Data_Type<QRegularExpression::MatchType> rb_cQRegularExpressionMatchType =
         // RubyQt6::QtCore::QRegularExpression::MatchType
-        define_qenum_under<QRegularExpression::MatchType>("MatchType", rb_cQRegularExpression)
-            .define_value("NormalMatch", QRegularExpression::MatchType::NormalMatch)
-            .define_value("PartialPreferCompleteMatch", QRegularExpression::MatchType::PartialPreferCompleteMatch)
-            .define_value("PartialPreferFirstMatch", QRegularExpression::MatchType::PartialPreferFirstMatch)
-            .define_value("NoMatch", QRegularExpression::MatchType::NoMatch);
+        define_qenum_under<QRegularExpression::MatchType>(rb_cQRegularExpression, "MatchType");
+        define_qenum_value_under(rb_cQRegularExpressionMatchType, "NormalMatch", QRegularExpression::MatchType::NormalMatch);
+        define_qenum_value_under(rb_cQRegularExpressionMatchType, "PartialPreferCompleteMatch", QRegularExpression::MatchType::PartialPreferCompleteMatch);
+        define_qenum_value_under(rb_cQRegularExpressionMatchType, "PartialPreferFirstMatch", QRegularExpression::MatchType::PartialPreferFirstMatch);
+        define_qenum_value_under(rb_cQRegularExpressionMatchType, "NoMatch", QRegularExpression::MatchType::NoMatch);
 
-    Enum<QRegularExpression::MatchOption> rb_cQRegularExpressionMatchOption =
+    Data_Type<QRegularExpression::MatchOption> rb_cQRegularExpressionMatchOption =
         // RubyQt6::QtCore::QRegularExpression::MatchOption
-        define_qenum_under<QRegularExpression::MatchOption>("MatchOption", rb_cQRegularExpression)
-            .define_value("NoMatchOption", QRegularExpression::MatchOption::NoMatchOption)
-            .define_value("AnchorAtOffsetMatchOption", QRegularExpression::MatchOption::AnchorAtOffsetMatchOption)
-            .define_value("DontCheckSubjectStringMatchOption", QRegularExpression::MatchOption::DontCheckSubjectStringMatchOption);
+        define_qenum_under<QRegularExpression::MatchOption>(rb_cQRegularExpression, "MatchOption");
+        define_qenum_value_under(rb_cQRegularExpressionMatchOption, "NoMatchOption", QRegularExpression::MatchOption::NoMatchOption);
+        define_qenum_value_under(rb_cQRegularExpressionMatchOption, "AnchorAtOffsetMatchOption", QRegularExpression::MatchOption::AnchorAtOffsetMatchOption);
+        define_qenum_value_under(rb_cQRegularExpressionMatchOption, "DontCheckSubjectStringMatchOption", QRegularExpression::MatchOption::DontCheckSubjectStringMatchOption);
 
-    Enum<QRegularExpression::WildcardConversionOption> rb_cQRegularExpressionWildcardConversionOption =
+    Data_Type<QRegularExpression::WildcardConversionOption> rb_cQRegularExpressionWildcardConversionOption =
         // RubyQt6::QtCore::QRegularExpression::WildcardConversionOption
-        define_qenum_under<QRegularExpression::WildcardConversionOption>("WildcardConversionOption", rb_cQRegularExpression)
-            .define_value("DefaultWildcardConversion", QRegularExpression::WildcardConversionOption::DefaultWildcardConversion)
-            .define_value("UnanchoredWildcardConversion", QRegularExpression::WildcardConversionOption::UnanchoredWildcardConversion)
-            .define_value("NonPathWildcardConversion", QRegularExpression::WildcardConversionOption::NonPathWildcardConversion);
+        define_qenum_under<QRegularExpression::WildcardConversionOption>(rb_cQRegularExpression, "WildcardConversionOption");
+        define_qenum_value_under(rb_cQRegularExpressionWildcardConversionOption, "DefaultWildcardConversion", QRegularExpression::WildcardConversionOption::DefaultWildcardConversion);
+        define_qenum_value_under(rb_cQRegularExpressionWildcardConversionOption, "UnanchoredWildcardConversion", QRegularExpression::WildcardConversionOption::UnanchoredWildcardConversion);
+        define_qenum_value_under(rb_cQRegularExpressionWildcardConversionOption, "NonPathWildcardConversion", QRegularExpression::WildcardConversionOption::NonPathWildcardConversion);
 
     Data_Type<QFlags<QRegularExpression::MatchOption>> rb_cQRegularExpressionMatchOptions =
         // RubyQt6::QtCore::QRegularExpression::MatchOptions

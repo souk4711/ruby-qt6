@@ -137,11 +137,11 @@ void Init_qtablewidget(Rice::Module rb_mQt6QtWidgets)
             .define_method("whats_this", &QTableWidgetItem::whatsThis)
             .define_method("write", &QTableWidgetItem::write, Arg("out"));
 
-    Enum<QTableWidgetItem::ItemType> rb_cQTableWidgetItemItemType =
+    Data_Type<QTableWidgetItem::ItemType> rb_cQTableWidgetItemItemType =
         // RubyQt6::QtWidgets::QTableWidgetItem::ItemType
-        define_qenum_under<QTableWidgetItem::ItemType>("ItemType", rb_cQTableWidgetItem)
-            .define_value("Type", QTableWidgetItem::ItemType::Type)
-            .define_value("UserType", QTableWidgetItem::ItemType::UserType);
+        define_qenum_under<QTableWidgetItem::ItemType>(rb_cQTableWidgetItem, "ItemType");
+        define_qenum_value_under(rb_cQTableWidgetItemItemType, "Type", QTableWidgetItem::ItemType::Type);
+        define_qenum_value_under(rb_cQTableWidgetItemItemType, "UserType", QTableWidgetItem::ItemType::UserType);
 
     rb_cQTableWidgetSelectionRange =
         // RubyQt6::QtWidgets::QTableWidgetSelectionRange

@@ -57,41 +57,41 @@ void Init_qpalette(Rice::Module rb_mQt6QtGui)
             .define_method("window", &QPalette::window)
             .define_method("window_text", &QPalette::windowText);
 
-    Enum<QPalette::ColorGroup> rb_cQPaletteColorGroup =
+    Data_Type<QPalette::ColorGroup> rb_cQPaletteColorGroup =
         // RubyQt6::QtGui::QPalette::ColorGroup
-        define_qenum_under<QPalette::ColorGroup>("ColorGroup", rb_cQPalette)
-            .define_value("Active", QPalette::ColorGroup::Active)
-            .define_value("Disabled", QPalette::ColorGroup::Disabled)
-            .define_value("Inactive", QPalette::ColorGroup::Inactive)
-            .define_value("NColorGroups", QPalette::ColorGroup::NColorGroups)
-            .define_value("Current", QPalette::ColorGroup::Current)
-            .define_value("All", QPalette::ColorGroup::All)
-            .define_value("Normal", QPalette::ColorGroup::Normal);
+        define_qenum_under<QPalette::ColorGroup>(rb_cQPalette, "ColorGroup");
+        define_qenum_value_under(rb_cQPaletteColorGroup, "Active", QPalette::ColorGroup::Active);
+        define_qenum_value_under(rb_cQPaletteColorGroup, "Disabled", QPalette::ColorGroup::Disabled);
+        define_qenum_value_under(rb_cQPaletteColorGroup, "Inactive", QPalette::ColorGroup::Inactive);
+        define_qenum_value_under(rb_cQPaletteColorGroup, "NColorGroups", QPalette::ColorGroup::NColorGroups);
+        define_qenum_value_under(rb_cQPaletteColorGroup, "Current", QPalette::ColorGroup::Current);
+        define_qenum_value_under(rb_cQPaletteColorGroup, "All", QPalette::ColorGroup::All);
+        define_qenum_value_under(rb_cQPaletteColorGroup, "Normal", QPalette::ColorGroup::Normal);
 
-    Enum<QPalette::ColorRole> rb_cQPaletteColorRole =
+    Data_Type<QPalette::ColorRole> rb_cQPaletteColorRole =
         // RubyQt6::QtGui::QPalette::ColorRole
-        define_qenum_under<QPalette::ColorRole>("ColorRole", rb_cQPalette)
-            .define_value("WindowText", QPalette::ColorRole::WindowText)
-            .define_value("Button", QPalette::ColorRole::Button)
-            .define_value("Light", QPalette::ColorRole::Light)
-            .define_value("Midlight", QPalette::ColorRole::Midlight)
-            .define_value("Dark", QPalette::ColorRole::Dark)
-            .define_value("Mid", QPalette::ColorRole::Mid)
-            .define_value("Text", QPalette::ColorRole::Text)
-            .define_value("BrightText", QPalette::ColorRole::BrightText)
-            .define_value("ButtonText", QPalette::ColorRole::ButtonText)
-            .define_value("Base", QPalette::ColorRole::Base)
-            .define_value("Window", QPalette::ColorRole::Window)
-            .define_value("Shadow", QPalette::ColorRole::Shadow)
-            .define_value("Highlight", QPalette::ColorRole::Highlight)
-            .define_value("HighlightedText", QPalette::ColorRole::HighlightedText)
-            .define_value("Link", QPalette::ColorRole::Link)
-            .define_value("LinkVisited", QPalette::ColorRole::LinkVisited)
-            .define_value("AlternateBase", QPalette::ColorRole::AlternateBase)
-            .define_value("NoRole", QPalette::ColorRole::NoRole)
-            .define_value("ToolTipBase", QPalette::ColorRole::ToolTipBase)
-            .define_value("ToolTipText", QPalette::ColorRole::ToolTipText)
-            .define_value("PlaceholderText", QPalette::ColorRole::PlaceholderText)
-            .define_value("Accent", QPalette::ColorRole::Accent)
-            .define_value("NColorRoles", QPalette::ColorRole::NColorRoles);
+        define_qenum_under<QPalette::ColorRole>(rb_cQPalette, "ColorRole");
+        define_qenum_value_under(rb_cQPaletteColorRole, "WindowText", QPalette::ColorRole::WindowText);
+        define_qenum_value_under(rb_cQPaletteColorRole, "Button", QPalette::ColorRole::Button);
+        define_qenum_value_under(rb_cQPaletteColorRole, "Light", QPalette::ColorRole::Light);
+        define_qenum_value_under(rb_cQPaletteColorRole, "Midlight", QPalette::ColorRole::Midlight);
+        define_qenum_value_under(rb_cQPaletteColorRole, "Dark", QPalette::ColorRole::Dark);
+        define_qenum_value_under(rb_cQPaletteColorRole, "Mid", QPalette::ColorRole::Mid);
+        define_qenum_value_under(rb_cQPaletteColorRole, "Text", QPalette::ColorRole::Text);
+        define_qenum_value_under(rb_cQPaletteColorRole, "BrightText", QPalette::ColorRole::BrightText);
+        define_qenum_value_under(rb_cQPaletteColorRole, "ButtonText", QPalette::ColorRole::ButtonText);
+        define_qenum_value_under(rb_cQPaletteColorRole, "Base", QPalette::ColorRole::Base);
+        define_qenum_value_under(rb_cQPaletteColorRole, "Window", QPalette::ColorRole::Window);
+        define_qenum_value_under(rb_cQPaletteColorRole, "Shadow", QPalette::ColorRole::Shadow);
+        define_qenum_value_under(rb_cQPaletteColorRole, "Highlight", QPalette::ColorRole::Highlight);
+        define_qenum_value_under(rb_cQPaletteColorRole, "HighlightedText", QPalette::ColorRole::HighlightedText);
+        define_qenum_value_under(rb_cQPaletteColorRole, "Link", QPalette::ColorRole::Link);
+        define_qenum_value_under(rb_cQPaletteColorRole, "LinkVisited", QPalette::ColorRole::LinkVisited);
+        define_qenum_value_under(rb_cQPaletteColorRole, "AlternateBase", QPalette::ColorRole::AlternateBase);
+        define_qenum_value_under(rb_cQPaletteColorRole, "NoRole", QPalette::ColorRole::NoRole);
+        define_qenum_value_under(rb_cQPaletteColorRole, "ToolTipBase", QPalette::ColorRole::ToolTipBase);
+        define_qenum_value_under(rb_cQPaletteColorRole, "ToolTipText", QPalette::ColorRole::ToolTipText);
+        define_qenum_value_under(rb_cQPaletteColorRole, "PlaceholderText", QPalette::ColorRole::PlaceholderText);
+        define_qenum_value_under(rb_cQPaletteColorRole, "Accent", QPalette::ColorRole::Accent);
+        define_qenum_value_under(rb_cQPaletteColorRole, "NColorRoles", QPalette::ColorRole::NColorRoles);
 }

@@ -79,28 +79,28 @@ void Init_qtabbar(Rice::Module rb_mQt6QtWidgets)
             .define_method("tab_close_requested", &QTabBar::tabCloseRequested, Arg("index"))
             .define_method("tab_moved", &QTabBar::tabMoved, Arg("from"), Arg("to"));
 
-    Enum<QTabBar::ButtonPosition> rb_cQTabBarButtonPosition =
+    Data_Type<QTabBar::ButtonPosition> rb_cQTabBarButtonPosition =
         // RubyQt6::QtWidgets::QTabBar::ButtonPosition
-        define_qenum_under<QTabBar::ButtonPosition>("ButtonPosition", rb_cQTabBar)
-            .define_value("LeftSide", QTabBar::ButtonPosition::LeftSide)
-            .define_value("RightSide", QTabBar::ButtonPosition::RightSide);
+        define_qenum_under<QTabBar::ButtonPosition>(rb_cQTabBar, "ButtonPosition");
+        define_qenum_value_under(rb_cQTabBarButtonPosition, "LeftSide", QTabBar::ButtonPosition::LeftSide);
+        define_qenum_value_under(rb_cQTabBarButtonPosition, "RightSide", QTabBar::ButtonPosition::RightSide);
 
-    Enum<QTabBar::SelectionBehavior> rb_cQTabBarSelectionBehavior =
+    Data_Type<QTabBar::SelectionBehavior> rb_cQTabBarSelectionBehavior =
         // RubyQt6::QtWidgets::QTabBar::SelectionBehavior
-        define_qenum_under<QTabBar::SelectionBehavior>("SelectionBehavior", rb_cQTabBar)
-            .define_value("SelectLeftTab", QTabBar::SelectionBehavior::SelectLeftTab)
-            .define_value("SelectRightTab", QTabBar::SelectionBehavior::SelectRightTab)
-            .define_value("SelectPreviousTab", QTabBar::SelectionBehavior::SelectPreviousTab);
+        define_qenum_under<QTabBar::SelectionBehavior>(rb_cQTabBar, "SelectionBehavior");
+        define_qenum_value_under(rb_cQTabBarSelectionBehavior, "SelectLeftTab", QTabBar::SelectionBehavior::SelectLeftTab);
+        define_qenum_value_under(rb_cQTabBarSelectionBehavior, "SelectRightTab", QTabBar::SelectionBehavior::SelectRightTab);
+        define_qenum_value_under(rb_cQTabBarSelectionBehavior, "SelectPreviousTab", QTabBar::SelectionBehavior::SelectPreviousTab);
 
-    Enum<QTabBar::Shape> rb_cQTabBarShape =
+    Data_Type<QTabBar::Shape> rb_cQTabBarShape =
         // RubyQt6::QtWidgets::QTabBar::Shape
-        define_qenum_under<QTabBar::Shape>("Shape", rb_cQTabBar)
-            .define_value("RoundedNorth", QTabBar::Shape::RoundedNorth)
-            .define_value("RoundedSouth", QTabBar::Shape::RoundedSouth)
-            .define_value("RoundedWest", QTabBar::Shape::RoundedWest)
-            .define_value("RoundedEast", QTabBar::Shape::RoundedEast)
-            .define_value("TriangularNorth", QTabBar::Shape::TriangularNorth)
-            .define_value("TriangularSouth", QTabBar::Shape::TriangularSouth)
-            .define_value("TriangularWest", QTabBar::Shape::TriangularWest)
-            .define_value("TriangularEast", QTabBar::Shape::TriangularEast);
+        define_qenum_under<QTabBar::Shape>(rb_cQTabBar, "Shape");
+        define_qenum_value_under(rb_cQTabBarShape, "RoundedNorth", QTabBar::Shape::RoundedNorth);
+        define_qenum_value_under(rb_cQTabBarShape, "RoundedSouth", QTabBar::Shape::RoundedSouth);
+        define_qenum_value_under(rb_cQTabBarShape, "RoundedWest", QTabBar::Shape::RoundedWest);
+        define_qenum_value_under(rb_cQTabBarShape, "RoundedEast", QTabBar::Shape::RoundedEast);
+        define_qenum_value_under(rb_cQTabBarShape, "TriangularNorth", QTabBar::Shape::TriangularNorth);
+        define_qenum_value_under(rb_cQTabBarShape, "TriangularSouth", QTabBar::Shape::TriangularSouth);
+        define_qenum_value_under(rb_cQTabBarShape, "TriangularWest", QTabBar::Shape::TriangularWest);
+        define_qenum_value_under(rb_cQTabBarShape, "TriangularEast", QTabBar::Shape::TriangularEast);
 }

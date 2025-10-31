@@ -45,12 +45,12 @@ void Init_qdbusmessage(Rice::Module rb_mQt6QtDBus)
             .define_singleton_function("_create_signal", &QDBusMessage::createSignal, Arg("path"), Arg("interface"), Arg("name"))
             .define_singleton_function("_create_targeted_signal", &QDBusMessage::createTargetedSignal, Arg("service"), Arg("path"), Arg("interface"), Arg("name"));
 
-    Enum<QDBusMessage::MessageType> rb_cQDBusMessageMessageType =
+    Data_Type<QDBusMessage::MessageType> rb_cQDBusMessageMessageType =
         // RubyQt6::QtDBus::QDBusMessage::MessageType
-        define_qenum_under<QDBusMessage::MessageType>("MessageType", rb_cQDBusMessage)
-            .define_value("InvalidMessage", QDBusMessage::MessageType::InvalidMessage)
-            .define_value("MethodCallMessage", QDBusMessage::MessageType::MethodCallMessage)
-            .define_value("ReplyMessage", QDBusMessage::MessageType::ReplyMessage)
-            .define_value("ErrorMessage", QDBusMessage::MessageType::ErrorMessage)
-            .define_value("SignalMessage", QDBusMessage::MessageType::SignalMessage);
+        define_qenum_under<QDBusMessage::MessageType>(rb_cQDBusMessage, "MessageType");
+        define_qenum_value_under(rb_cQDBusMessageMessageType, "InvalidMessage", QDBusMessage::MessageType::InvalidMessage);
+        define_qenum_value_under(rb_cQDBusMessageMessageType, "MethodCallMessage", QDBusMessage::MessageType::MethodCallMessage);
+        define_qenum_value_under(rb_cQDBusMessageMessageType, "ReplyMessage", QDBusMessage::MessageType::ReplyMessage);
+        define_qenum_value_under(rb_cQDBusMessageMessageType, "ErrorMessage", QDBusMessage::MessageType::ErrorMessage);
+        define_qenum_value_under(rb_cQDBusMessageMessageType, "SignalMessage", QDBusMessage::MessageType::SignalMessage);
 }

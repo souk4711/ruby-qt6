@@ -38,16 +38,16 @@ void Init_qdockwidget(Rice::Module rb_mQt6QtWidgets)
             .define_method("top_level_changed", &QDockWidget::topLevelChanged, Arg("top_level"))
             .define_method("visibility_changed", &QDockWidget::visibilityChanged, Arg("visible"));
 
-    Enum<QDockWidget::DockWidgetFeature> rb_cQDockWidgetDockWidgetFeature =
+    Data_Type<QDockWidget::DockWidgetFeature> rb_cQDockWidgetDockWidgetFeature =
         // RubyQt6::QtWidgets::QDockWidget::DockWidgetFeature
-        define_qenum_under<QDockWidget::DockWidgetFeature>("DockWidgetFeature", rb_cQDockWidget)
-            .define_value("DockWidgetClosable", QDockWidget::DockWidgetFeature::DockWidgetClosable)
-            .define_value("DockWidgetMovable", QDockWidget::DockWidgetFeature::DockWidgetMovable)
-            .define_value("DockWidgetFloatable", QDockWidget::DockWidgetFeature::DockWidgetFloatable)
-            .define_value("DockWidgetVerticalTitleBar", QDockWidget::DockWidgetFeature::DockWidgetVerticalTitleBar)
-            .define_value("DockWidgetFeatureMask", QDockWidget::DockWidgetFeature::DockWidgetFeatureMask)
-            .define_value("NoDockWidgetFeatures", QDockWidget::DockWidgetFeature::NoDockWidgetFeatures)
-            .define_value("Reserved", QDockWidget::DockWidgetFeature::Reserved);
+        define_qenum_under<QDockWidget::DockWidgetFeature>(rb_cQDockWidget, "DockWidgetFeature");
+        define_qenum_value_under(rb_cQDockWidgetDockWidgetFeature, "DockWidgetClosable", QDockWidget::DockWidgetFeature::DockWidgetClosable);
+        define_qenum_value_under(rb_cQDockWidgetDockWidgetFeature, "DockWidgetMovable", QDockWidget::DockWidgetFeature::DockWidgetMovable);
+        define_qenum_value_under(rb_cQDockWidgetDockWidgetFeature, "DockWidgetFloatable", QDockWidget::DockWidgetFeature::DockWidgetFloatable);
+        define_qenum_value_under(rb_cQDockWidgetDockWidgetFeature, "DockWidgetVerticalTitleBar", QDockWidget::DockWidgetFeature::DockWidgetVerticalTitleBar);
+        define_qenum_value_under(rb_cQDockWidgetDockWidgetFeature, "DockWidgetFeatureMask", QDockWidget::DockWidgetFeature::DockWidgetFeatureMask);
+        define_qenum_value_under(rb_cQDockWidgetDockWidgetFeature, "NoDockWidgetFeatures", QDockWidget::DockWidgetFeature::NoDockWidgetFeatures);
+        define_qenum_value_under(rb_cQDockWidgetDockWidgetFeature, "Reserved", QDockWidget::DockWidgetFeature::Reserved);
 
     Data_Type<QFlags<QDockWidget::DockWidgetFeature>> rb_cQDockWidgetDockWidgetFeatures =
         // RubyQt6::QtWidgets::QDockWidget::DockWidgetFeatures

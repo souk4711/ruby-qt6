@@ -318,12 +318,12 @@ void Init_qwidget(Rice::Module rb_mQt6QtWidgets)
             // .define_singleton_function("set_tab_order", &QWidget::setTabOrder, Arg("widgets"))
             .define_singleton_function<void (*)(QWidget *, QWidget *)>("set_tab_order", &QWidget::setTabOrder, Arg("first"), Arg("second"));
 
-    Enum<QWidget::RenderFlag> rb_cQWidgetRenderFlag =
+    Data_Type<QWidget::RenderFlag> rb_cQWidgetRenderFlag =
         // RubyQt6::QtWidgets::QWidget::RenderFlag
-        define_qenum_under<QWidget::RenderFlag>("RenderFlag", rb_cQWidget)
-            .define_value("DrawWindowBackground", QWidget::RenderFlag::DrawWindowBackground)
-            .define_value("DrawChildren", QWidget::RenderFlag::DrawChildren)
-            .define_value("IgnoreMask", QWidget::RenderFlag::IgnoreMask);
+        define_qenum_under<QWidget::RenderFlag>(rb_cQWidget, "RenderFlag");
+        define_qenum_value_under(rb_cQWidgetRenderFlag, "DrawWindowBackground", QWidget::RenderFlag::DrawWindowBackground);
+        define_qenum_value_under(rb_cQWidgetRenderFlag, "DrawChildren", QWidget::RenderFlag::DrawChildren);
+        define_qenum_value_under(rb_cQWidgetRenderFlag, "IgnoreMask", QWidget::RenderFlag::IgnoreMask);
 
     Data_Type<QFlags<QWidget::RenderFlag>> rb_cQWidgetRenderFlags =
         // RubyQt6::QtWidgets::QWidget::RenderFlags

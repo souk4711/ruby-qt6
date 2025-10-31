@@ -30,16 +30,22 @@
 using namespace Rice;
 
 template<typename Enum_T>
-Enum<Enum_T> define_qenum_under(char const* name, Module module)
+Data_Type<Enum_T> define_qenum_under(Module module, char const* name)
 {
-    Enum<Enum_T> qenum = define_enum_under<Enum_T>(name, module);
-
-    qenum
-        .define_singleton_function("_qvariant_register_metatype", []() -> int { return qRegisterMetaType<Enum_T>(); })
-        .define_singleton_function("_qvariant_from_value", [](const Enum_T &value) -> QVariant { return QVariant::fromValue(value); })
-        .define_singleton_function("_qvariant_to_value", [](const QVariant &qvariant) -> Enum_T { return qvariant.value<Enum_T>(); });
-
+    Data_Type<Enum_T> qenum =
+        define_class_under<Enum_T>(module, name)
+            .template define_method("to_i", [](Enum_T *self) -> int { return (int)(*self); })
+            .define_singleton_function("_qvariant_register_metatype", []() -> int { return qRegisterMetaType<Enum_T>(); })
+            .define_singleton_function("_qvariant_from_value", [](const Enum_T &value) -> QVariant { return QVariant::fromValue(value); })
+            .define_singleton_function("_qvariant_to_value", [](const QVariant &qvariant) -> Enum_T { return qvariant.value<Enum_T>(); });
     return qenum;
+}
+
+template<typename Enum_T>
+void define_qenum_value_under(Data_Type<Enum_T> qenum, std::string name, Enum_T value)
+{
+    Data_Object<Enum_T> object(value, true, Data_Type<Enum_T>::klass());
+    qenum.const_set(name, object);
 }
 
 #endif

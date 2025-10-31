@@ -40,18 +40,18 @@ void Init_qlcdnumber(Rice::Module rb_mQt6QtWidgets)
             // Signals
             .define_method("overflow", &QLCDNumber::overflow);
 
-    Enum<QLCDNumber::Mode> rb_cQLCDNumberMode =
+    Data_Type<QLCDNumber::Mode> rb_cQLCDNumberMode =
         // RubyQt6::QtWidgets::QLCDNumber::Mode
-        define_qenum_under<QLCDNumber::Mode>("Mode", rb_cQLCDNumber)
-            .define_value("Hex", QLCDNumber::Mode::Hex)
-            .define_value("Dec", QLCDNumber::Mode::Dec)
-            .define_value("Oct", QLCDNumber::Mode::Oct)
-            .define_value("Bin", QLCDNumber::Mode::Bin);
+        define_qenum_under<QLCDNumber::Mode>(rb_cQLCDNumber, "Mode");
+        define_qenum_value_under(rb_cQLCDNumberMode, "Hex", QLCDNumber::Mode::Hex);
+        define_qenum_value_under(rb_cQLCDNumberMode, "Dec", QLCDNumber::Mode::Dec);
+        define_qenum_value_under(rb_cQLCDNumberMode, "Oct", QLCDNumber::Mode::Oct);
+        define_qenum_value_under(rb_cQLCDNumberMode, "Bin", QLCDNumber::Mode::Bin);
 
-    Enum<QLCDNumber::SegmentStyle> rb_cQLCDNumberSegmentStyle =
+    Data_Type<QLCDNumber::SegmentStyle> rb_cQLCDNumberSegmentStyle =
         // RubyQt6::QtWidgets::QLCDNumber::SegmentStyle
-        define_qenum_under<QLCDNumber::SegmentStyle>("SegmentStyle", rb_cQLCDNumber)
-            .define_value("Outline", QLCDNumber::SegmentStyle::Outline)
-            .define_value("Filled", QLCDNumber::SegmentStyle::Filled)
-            .define_value("Flat", QLCDNumber::SegmentStyle::Flat);
+        define_qenum_under<QLCDNumber::SegmentStyle>(rb_cQLCDNumber, "SegmentStyle");
+        define_qenum_value_under(rb_cQLCDNumberSegmentStyle, "Outline", QLCDNumber::SegmentStyle::Outline);
+        define_qenum_value_under(rb_cQLCDNumberSegmentStyle, "Filled", QLCDNumber::SegmentStyle::Filled);
+        define_qenum_value_under(rb_cQLCDNumberSegmentStyle, "Flat", QLCDNumber::SegmentStyle::Flat);
 }

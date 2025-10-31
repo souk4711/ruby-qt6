@@ -101,9 +101,9 @@ void Init_qplaintextedit(Rice::Module rb_mQt6QtWidgets)
             .define_method("undo_available", &QPlainTextEdit::undoAvailable, Arg("b"))
             .define_method("update_request", &QPlainTextEdit::updateRequest, Arg("rect"), Arg("dy"));
 
-    Enum<QPlainTextEdit::LineWrapMode> rb_cQPlainTextEditLineWrapMode =
+    Data_Type<QPlainTextEdit::LineWrapMode> rb_cQPlainTextEditLineWrapMode =
         // RubyQt6::QtWidgets::QPlainTextEdit::LineWrapMode
-        define_qenum_under<QPlainTextEdit::LineWrapMode>("LineWrapMode", rb_cQPlainTextEdit)
-            .define_value("NoWrap", QPlainTextEdit::LineWrapMode::NoWrap)
-            .define_value("WidgetWidth", QPlainTextEdit::LineWrapMode::WidgetWidth);
+        define_qenum_under<QPlainTextEdit::LineWrapMode>(rb_cQPlainTextEdit, "LineWrapMode");
+        define_qenum_value_under(rb_cQPlainTextEditLineWrapMode, "NoWrap", QPlainTextEdit::LineWrapMode::NoWrap);
+        define_qenum_value_under(rb_cQPlainTextEditLineWrapMode, "WidgetWidth", QPlainTextEdit::LineWrapMode::WidgetWidth);
 }

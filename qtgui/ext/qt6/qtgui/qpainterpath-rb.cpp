@@ -80,13 +80,13 @@ void Init_qpainterpath(Rice::Module rb_mQt6QtGui)
             .define_method<QPainterPath (QPainterPath::*)(qreal, qreal) const>("translated", &QPainterPath::translated, Arg("dx"), Arg("dy"))
             .define_method("united", &QPainterPath::united, Arg("r"));
 
-    Enum<QPainterPath::ElementType> rb_cQPainterPathElementType =
+    Data_Type<QPainterPath::ElementType> rb_cQPainterPathElementType =
         // RubyQt6::QtGui::QPainterPath::ElementType
-        define_qenum_under<QPainterPath::ElementType>("ElementType", rb_cQPainterPath)
-            .define_value("MoveToElement", QPainterPath::ElementType::MoveToElement)
-            .define_value("LineToElement", QPainterPath::ElementType::LineToElement)
-            .define_value("CurveToElement", QPainterPath::ElementType::CurveToElement)
-            .define_value("CurveToDataElement", QPainterPath::ElementType::CurveToDataElement);
+        define_qenum_under<QPainterPath::ElementType>(rb_cQPainterPath, "ElementType");
+        define_qenum_value_under(rb_cQPainterPathElementType, "MoveToElement", QPainterPath::ElementType::MoveToElement);
+        define_qenum_value_under(rb_cQPainterPathElementType, "LineToElement", QPainterPath::ElementType::LineToElement);
+        define_qenum_value_under(rb_cQPainterPathElementType, "CurveToElement", QPainterPath::ElementType::CurveToElement);
+        define_qenum_value_under(rb_cQPainterPathElementType, "CurveToDataElement", QPainterPath::ElementType::CurveToDataElement);
 
     rb_cQPainterPathElement =
         // RubyQt6::QtGui::QPainterPath::Element

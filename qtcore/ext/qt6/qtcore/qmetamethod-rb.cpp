@@ -42,25 +42,25 @@ void Init_qmetamethod(Rice::Module rb_mQt6QtCore)
             .define_method("tag", &QMetaMethod::tag)
             .define_method("type_name", &QMetaMethod::typeName);
 
-    Enum<QMetaMethod::Access> rb_cQMetaMethodAccess =
+    Data_Type<QMetaMethod::Access> rb_cQMetaMethodAccess =
         // RubyQt6::QtCore::QMetaMethod::Access
-        define_qenum_under<QMetaMethod::Access>("Access", rb_cQMetaMethod)
-            .define_value("Private", QMetaMethod::Access::Private)
-            .define_value("Protected", QMetaMethod::Access::Protected)
-            .define_value("Public", QMetaMethod::Access::Public);
+        define_qenum_under<QMetaMethod::Access>(rb_cQMetaMethod, "Access");
+        define_qenum_value_under(rb_cQMetaMethodAccess, "Private", QMetaMethod::Access::Private);
+        define_qenum_value_under(rb_cQMetaMethodAccess, "Protected", QMetaMethod::Access::Protected);
+        define_qenum_value_under(rb_cQMetaMethodAccess, "Public", QMetaMethod::Access::Public);
 
-    Enum<QMetaMethod::Attributes> rb_cQMetaMethodAttributes =
+    Data_Type<QMetaMethod::Attributes> rb_cQMetaMethodAttributes =
         // RubyQt6::QtCore::QMetaMethod::Attributes
-        define_qenum_under<QMetaMethod::Attributes>("Attributes", rb_cQMetaMethod)
-            .define_value("Compatibility", QMetaMethod::Attributes::Compatibility)
-            .define_value("Cloned", QMetaMethod::Attributes::Cloned)
-            .define_value("Scriptable", QMetaMethod::Attributes::Scriptable);
+        define_qenum_under<QMetaMethod::Attributes>(rb_cQMetaMethod, "Attributes");
+        define_qenum_value_under(rb_cQMetaMethodAttributes, "Compatibility", QMetaMethod::Attributes::Compatibility);
+        define_qenum_value_under(rb_cQMetaMethodAttributes, "Cloned", QMetaMethod::Attributes::Cloned);
+        define_qenum_value_under(rb_cQMetaMethodAttributes, "Scriptable", QMetaMethod::Attributes::Scriptable);
 
-    Enum<QMetaMethod::MethodType> rb_cQMetaMethodMethodType =
+    Data_Type<QMetaMethod::MethodType> rb_cQMetaMethodMethodType =
         // RubyQt6::QtCore::QMetaMethod::MethodType
-        define_qenum_under<QMetaMethod::MethodType>("MethodType", rb_cQMetaMethod)
-            .define_value("Method", QMetaMethod::MethodType::Method)
-            .define_value("Signal", QMetaMethod::MethodType::Signal)
-            .define_value("Slot", QMetaMethod::MethodType::Slot)
-            .define_value("Constructor", QMetaMethod::MethodType::Constructor);
+        define_qenum_under<QMetaMethod::MethodType>(rb_cQMetaMethod, "MethodType");
+        define_qenum_value_under(rb_cQMetaMethodMethodType, "Method", QMetaMethod::MethodType::Method);
+        define_qenum_value_under(rb_cQMetaMethodMethodType, "Signal", QMetaMethod::MethodType::Signal);
+        define_qenum_value_under(rb_cQMetaMethodMethodType, "Slot", QMetaMethod::MethodType::Slot);
+        define_qenum_value_under(rb_cQMetaMethodMethodType, "Constructor", QMetaMethod::MethodType::Constructor);
 }

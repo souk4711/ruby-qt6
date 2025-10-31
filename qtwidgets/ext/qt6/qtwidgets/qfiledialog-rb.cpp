@@ -93,45 +93,45 @@ void Init_qfiledialog(Rice::Module rb_mQt6QtWidgets)
             .define_singleton_function("get_open_file_content", &QFileDialog::getOpenFileContent, Arg("name_filter"), Arg("file_contents_ready"), Arg("parent") = static_cast<QWidget *>(nullptr))
             .define_singleton_function("save_file_content", &QFileDialog::saveFileContent, Arg("file_content"), Arg("file_name_hint"), Arg("parent") = static_cast<QWidget *>(nullptr));
 
-    Enum<QFileDialog::AcceptMode> rb_cQFileDialogAcceptMode =
+    Data_Type<QFileDialog::AcceptMode> rb_cQFileDialogAcceptMode =
         // RubyQt6::QtWidgets::QFileDialog::AcceptMode
-        define_qenum_under<QFileDialog::AcceptMode>("AcceptMode", rb_cQFileDialog)
-            .define_value("AcceptOpen", QFileDialog::AcceptMode::AcceptOpen)
-            .define_value("AcceptSave", QFileDialog::AcceptMode::AcceptSave);
+        define_qenum_under<QFileDialog::AcceptMode>(rb_cQFileDialog, "AcceptMode");
+        define_qenum_value_under(rb_cQFileDialogAcceptMode, "AcceptOpen", QFileDialog::AcceptMode::AcceptOpen);
+        define_qenum_value_under(rb_cQFileDialogAcceptMode, "AcceptSave", QFileDialog::AcceptMode::AcceptSave);
 
-    Enum<QFileDialog::DialogLabel> rb_cQFileDialogDialogLabel =
+    Data_Type<QFileDialog::DialogLabel> rb_cQFileDialogDialogLabel =
         // RubyQt6::QtWidgets::QFileDialog::DialogLabel
-        define_qenum_under<QFileDialog::DialogLabel>("DialogLabel", rb_cQFileDialog)
-            .define_value("LookIn", QFileDialog::DialogLabel::LookIn)
-            .define_value("FileName", QFileDialog::DialogLabel::FileName)
-            .define_value("FileType", QFileDialog::DialogLabel::FileType)
-            .define_value("Accept", QFileDialog::DialogLabel::Accept)
-            .define_value("Reject", QFileDialog::DialogLabel::Reject);
+        define_qenum_under<QFileDialog::DialogLabel>(rb_cQFileDialog, "DialogLabel");
+        define_qenum_value_under(rb_cQFileDialogDialogLabel, "LookIn", QFileDialog::DialogLabel::LookIn);
+        define_qenum_value_under(rb_cQFileDialogDialogLabel, "FileName", QFileDialog::DialogLabel::FileName);
+        define_qenum_value_under(rb_cQFileDialogDialogLabel, "FileType", QFileDialog::DialogLabel::FileType);
+        define_qenum_value_under(rb_cQFileDialogDialogLabel, "Accept", QFileDialog::DialogLabel::Accept);
+        define_qenum_value_under(rb_cQFileDialogDialogLabel, "Reject", QFileDialog::DialogLabel::Reject);
 
-    Enum<QFileDialog::FileMode> rb_cQFileDialogFileMode =
+    Data_Type<QFileDialog::FileMode> rb_cQFileDialogFileMode =
         // RubyQt6::QtWidgets::QFileDialog::FileMode
-        define_qenum_under<QFileDialog::FileMode>("FileMode", rb_cQFileDialog)
-            .define_value("AnyFile", QFileDialog::FileMode::AnyFile)
-            .define_value("ExistingFile", QFileDialog::FileMode::ExistingFile)
-            .define_value("Directory", QFileDialog::FileMode::Directory)
-            .define_value("ExistingFiles", QFileDialog::FileMode::ExistingFiles);
+        define_qenum_under<QFileDialog::FileMode>(rb_cQFileDialog, "FileMode");
+        define_qenum_value_under(rb_cQFileDialogFileMode, "AnyFile", QFileDialog::FileMode::AnyFile);
+        define_qenum_value_under(rb_cQFileDialogFileMode, "ExistingFile", QFileDialog::FileMode::ExistingFile);
+        define_qenum_value_under(rb_cQFileDialogFileMode, "Directory", QFileDialog::FileMode::Directory);
+        define_qenum_value_under(rb_cQFileDialogFileMode, "ExistingFiles", QFileDialog::FileMode::ExistingFiles);
 
-   Enum<QFileDialog::Option> rb_cQFileDialogOption =
+   Data_Type<QFileDialog::Option> rb_cQFileDialogOption =
         // RubyQt6::QtWidgets::QFileDialog::Option
-        define_qenum_under<QFileDialog::Option>("Option", rb_cQFileDialog)
-            .define_value("ShowDirsOnly", QFileDialog::Option::ShowDirsOnly)
-            .define_value("DontResolveSymlinks", QFileDialog::Option::DontResolveSymlinks)
-            .define_value("DontConfirmOverwrite", QFileDialog::Option::DontConfirmOverwrite)
-            .define_value("DontUseNativeDialog", QFileDialog::Option::DontUseNativeDialog)
-            .define_value("ReadOnly", QFileDialog::Option::ReadOnly)
-            .define_value("HideNameFilterDetails", QFileDialog::Option::HideNameFilterDetails)
-            .define_value("DontUseCustomDirectoryIcons", QFileDialog::Option::DontUseCustomDirectoryIcons);
+        define_qenum_under<QFileDialog::Option>(rb_cQFileDialog, "Option");
+        define_qenum_value_under(rb_cQFileDialogOption, "ShowDirsOnly", QFileDialog::Option::ShowDirsOnly);
+        define_qenum_value_under(rb_cQFileDialogOption, "DontResolveSymlinks", QFileDialog::Option::DontResolveSymlinks);
+        define_qenum_value_under(rb_cQFileDialogOption, "DontConfirmOverwrite", QFileDialog::Option::DontConfirmOverwrite);
+        define_qenum_value_under(rb_cQFileDialogOption, "DontUseNativeDialog", QFileDialog::Option::DontUseNativeDialog);
+        define_qenum_value_under(rb_cQFileDialogOption, "ReadOnly", QFileDialog::Option::ReadOnly);
+        define_qenum_value_under(rb_cQFileDialogOption, "HideNameFilterDetails", QFileDialog::Option::HideNameFilterDetails);
+        define_qenum_value_under(rb_cQFileDialogOption, "DontUseCustomDirectoryIcons", QFileDialog::Option::DontUseCustomDirectoryIcons);
 
-    Enum<QFileDialog::ViewMode> rb_cQFileDialogViewMode =
+    Data_Type<QFileDialog::ViewMode> rb_cQFileDialogViewMode =
         // RubyQt6::QtWidgets::QFileDialog::ViewMode
-        define_qenum_under<QFileDialog::ViewMode>("ViewMode", rb_cQFileDialog)
-            .define_value("Detail", QFileDialog::ViewMode::Detail)
-            .define_value("List", QFileDialog::ViewMode::List);
+        define_qenum_under<QFileDialog::ViewMode>(rb_cQFileDialog, "ViewMode");
+        define_qenum_value_under(rb_cQFileDialogViewMode, "Detail", QFileDialog::ViewMode::Detail);
+        define_qenum_value_under(rb_cQFileDialogViewMode, "List", QFileDialog::ViewMode::List);
 
     Data_Type<QFlags<QFileDialog::Option>> rb_cQFileDialogOptions =
         // RubyQt6::QtWidgets::QFileDialog::Options

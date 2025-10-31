@@ -104,19 +104,19 @@ void Init_qcolor(Rice::Module rb_mQt6QtGui)
             .define_singleton_function<QColor (*)(int, int, int, int)>("from_rgb", &QColor::fromRgb, Arg("r"), Arg("g"), Arg("b"), Arg("a") = static_cast<int>(255))
             .define_singleton_function("from_rgb_f", &QColor::fromRgbF, Arg("r"), Arg("g"), Arg("b"), Arg("a") = static_cast<float>(1.0));
 
-    Enum<QColor::NameFormat> rb_cQColorNameFormat =
+    Data_Type<QColor::NameFormat> rb_cQColorNameFormat =
         // RubyQt6::QtGui::QColor::NameFormat
-        define_qenum_under<QColor::NameFormat>("NameFormat", rb_cQColor)
-            .define_value("HexRgb", QColor::NameFormat::HexRgb)
-            .define_value("HexArgb", QColor::NameFormat::HexArgb);
+        define_qenum_under<QColor::NameFormat>(rb_cQColor, "NameFormat");
+        define_qenum_value_under(rb_cQColorNameFormat, "HexRgb", QColor::NameFormat::HexRgb);
+        define_qenum_value_under(rb_cQColorNameFormat, "HexArgb", QColor::NameFormat::HexArgb);
 
-    Enum<QColor::Spec> rb_cQColorSpec =
+    Data_Type<QColor::Spec> rb_cQColorSpec =
         // RubyQt6::QtGui::QColor::Spec
-        define_qenum_under<QColor::Spec>("Spec", rb_cQColor)
-            .define_value("Invalid", QColor::Spec::Invalid)
-            .define_value("Rgb", QColor::Spec::Rgb)
-            .define_value("Hsv", QColor::Spec::Hsv)
-            .define_value("Cmyk", QColor::Spec::Cmyk)
-            .define_value("Hsl", QColor::Spec::Hsl)
-            .define_value("ExtendedRgb", QColor::Spec::ExtendedRgb);
+        define_qenum_under<QColor::Spec>(rb_cQColor, "Spec");
+        define_qenum_value_under(rb_cQColorSpec, "Invalid", QColor::Spec::Invalid);
+        define_qenum_value_under(rb_cQColorSpec, "Rgb", QColor::Spec::Rgb);
+        define_qenum_value_under(rb_cQColorSpec, "Hsv", QColor::Spec::Hsv);
+        define_qenum_value_under(rb_cQColorSpec, "Cmyk", QColor::Spec::Cmyk);
+        define_qenum_value_under(rb_cQColorSpec, "Hsl", QColor::Spec::Hsl);
+        define_qenum_value_under(rb_cQColorSpec, "ExtendedRgb", QColor::Spec::ExtendedRgb);
 }

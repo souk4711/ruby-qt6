@@ -100,46 +100,46 @@ void Init_qtextcursor(Rice::Module rb_mQt6QtGui)
             .define_method("vertical_movement_x", &QTextCursor::verticalMovementX)
             .define_method("visual_navigation", &QTextCursor::visualNavigation);
 
-    Enum<QTextCursor::MoveMode> rb_cQTextCursorMoveMode =
+    Data_Type<QTextCursor::MoveMode> rb_cQTextCursorMoveMode =
         // RubyQt6::QtGui::QTextCursor::MoveMode
-        define_qenum_under<QTextCursor::MoveMode>("MoveMode", rb_cQTextCursor)
-            .define_value("MoveAnchor", QTextCursor::MoveMode::MoveAnchor)
-            .define_value("KeepAnchor", QTextCursor::MoveMode::KeepAnchor);
+        define_qenum_under<QTextCursor::MoveMode>(rb_cQTextCursor, "MoveMode");
+        define_qenum_value_under(rb_cQTextCursorMoveMode, "MoveAnchor", QTextCursor::MoveMode::MoveAnchor);
+        define_qenum_value_under(rb_cQTextCursorMoveMode, "KeepAnchor", QTextCursor::MoveMode::KeepAnchor);
 
-    Enum<QTextCursor::MoveOperation> rb_cQTextCursorMoveOperation =
+    Data_Type<QTextCursor::MoveOperation> rb_cQTextCursorMoveOperation =
         // RubyQt6::QtGui::QTextCursor::MoveOperation
-        define_qenum_under<QTextCursor::MoveOperation>("MoveOperation", rb_cQTextCursor)
-            .define_value("NoMove", QTextCursor::MoveOperation::NoMove)
-            .define_value("Start", QTextCursor::MoveOperation::Start)
-            .define_value("Up", QTextCursor::MoveOperation::Up)
-            .define_value("StartOfLine", QTextCursor::MoveOperation::StartOfLine)
-            .define_value("StartOfBlock", QTextCursor::MoveOperation::StartOfBlock)
-            .define_value("StartOfWord", QTextCursor::MoveOperation::StartOfWord)
-            .define_value("PreviousBlock", QTextCursor::MoveOperation::PreviousBlock)
-            .define_value("PreviousCharacter", QTextCursor::MoveOperation::PreviousCharacter)
-            .define_value("PreviousWord", QTextCursor::MoveOperation::PreviousWord)
-            .define_value("Left", QTextCursor::MoveOperation::Left)
-            .define_value("WordLeft", QTextCursor::MoveOperation::WordLeft)
-            .define_value("End", QTextCursor::MoveOperation::End)
-            .define_value("Down", QTextCursor::MoveOperation::Down)
-            .define_value("EndOfLine", QTextCursor::MoveOperation::EndOfLine)
-            .define_value("EndOfWord", QTextCursor::MoveOperation::EndOfWord)
-            .define_value("EndOfBlock", QTextCursor::MoveOperation::EndOfBlock)
-            .define_value("NextBlock", QTextCursor::MoveOperation::NextBlock)
-            .define_value("NextCharacter", QTextCursor::MoveOperation::NextCharacter)
-            .define_value("NextWord", QTextCursor::MoveOperation::NextWord)
-            .define_value("Right", QTextCursor::MoveOperation::Right)
-            .define_value("WordRight", QTextCursor::MoveOperation::WordRight)
-            .define_value("NextCell", QTextCursor::MoveOperation::NextCell)
-            .define_value("PreviousCell", QTextCursor::MoveOperation::PreviousCell)
-            .define_value("NextRow", QTextCursor::MoveOperation::NextRow)
-            .define_value("PreviousRow", QTextCursor::MoveOperation::PreviousRow);
+        define_qenum_under<QTextCursor::MoveOperation>(rb_cQTextCursor, "MoveOperation");
+        define_qenum_value_under(rb_cQTextCursorMoveOperation, "NoMove", QTextCursor::MoveOperation::NoMove);
+        define_qenum_value_under(rb_cQTextCursorMoveOperation, "Start", QTextCursor::MoveOperation::Start);
+        define_qenum_value_under(rb_cQTextCursorMoveOperation, "Up", QTextCursor::MoveOperation::Up);
+        define_qenum_value_under(rb_cQTextCursorMoveOperation, "StartOfLine", QTextCursor::MoveOperation::StartOfLine);
+        define_qenum_value_under(rb_cQTextCursorMoveOperation, "StartOfBlock", QTextCursor::MoveOperation::StartOfBlock);
+        define_qenum_value_under(rb_cQTextCursorMoveOperation, "StartOfWord", QTextCursor::MoveOperation::StartOfWord);
+        define_qenum_value_under(rb_cQTextCursorMoveOperation, "PreviousBlock", QTextCursor::MoveOperation::PreviousBlock);
+        define_qenum_value_under(rb_cQTextCursorMoveOperation, "PreviousCharacter", QTextCursor::MoveOperation::PreviousCharacter);
+        define_qenum_value_under(rb_cQTextCursorMoveOperation, "PreviousWord", QTextCursor::MoveOperation::PreviousWord);
+        define_qenum_value_under(rb_cQTextCursorMoveOperation, "Left", QTextCursor::MoveOperation::Left);
+        define_qenum_value_under(rb_cQTextCursorMoveOperation, "WordLeft", QTextCursor::MoveOperation::WordLeft);
+        define_qenum_value_under(rb_cQTextCursorMoveOperation, "End", QTextCursor::MoveOperation::End);
+        define_qenum_value_under(rb_cQTextCursorMoveOperation, "Down", QTextCursor::MoveOperation::Down);
+        define_qenum_value_under(rb_cQTextCursorMoveOperation, "EndOfLine", QTextCursor::MoveOperation::EndOfLine);
+        define_qenum_value_under(rb_cQTextCursorMoveOperation, "EndOfWord", QTextCursor::MoveOperation::EndOfWord);
+        define_qenum_value_under(rb_cQTextCursorMoveOperation, "EndOfBlock", QTextCursor::MoveOperation::EndOfBlock);
+        define_qenum_value_under(rb_cQTextCursorMoveOperation, "NextBlock", QTextCursor::MoveOperation::NextBlock);
+        define_qenum_value_under(rb_cQTextCursorMoveOperation, "NextCharacter", QTextCursor::MoveOperation::NextCharacter);
+        define_qenum_value_under(rb_cQTextCursorMoveOperation, "NextWord", QTextCursor::MoveOperation::NextWord);
+        define_qenum_value_under(rb_cQTextCursorMoveOperation, "Right", QTextCursor::MoveOperation::Right);
+        define_qenum_value_under(rb_cQTextCursorMoveOperation, "WordRight", QTextCursor::MoveOperation::WordRight);
+        define_qenum_value_under(rb_cQTextCursorMoveOperation, "NextCell", QTextCursor::MoveOperation::NextCell);
+        define_qenum_value_under(rb_cQTextCursorMoveOperation, "PreviousCell", QTextCursor::MoveOperation::PreviousCell);
+        define_qenum_value_under(rb_cQTextCursorMoveOperation, "NextRow", QTextCursor::MoveOperation::NextRow);
+        define_qenum_value_under(rb_cQTextCursorMoveOperation, "PreviousRow", QTextCursor::MoveOperation::PreviousRow);
 
-    Enum<QTextCursor::SelectionType> rb_cQTextCursorSelectionType =
+    Data_Type<QTextCursor::SelectionType> rb_cQTextCursorSelectionType =
         // RubyQt6::QtGui::QTextCursor::SelectionType
-        define_qenum_under<QTextCursor::SelectionType>("SelectionType", rb_cQTextCursor)
-            .define_value("WordUnderCursor", QTextCursor::SelectionType::WordUnderCursor)
-            .define_value("LineUnderCursor", QTextCursor::SelectionType::LineUnderCursor)
-            .define_value("BlockUnderCursor", QTextCursor::SelectionType::BlockUnderCursor)
-            .define_value("Document", QTextCursor::SelectionType::Document);
+        define_qenum_under<QTextCursor::SelectionType>(rb_cQTextCursor, "SelectionType");
+        define_qenum_value_under(rb_cQTextCursorSelectionType, "WordUnderCursor", QTextCursor::SelectionType::WordUnderCursor);
+        define_qenum_value_under(rb_cQTextCursorSelectionType, "LineUnderCursor", QTextCursor::SelectionType::LineUnderCursor);
+        define_qenum_value_under(rb_cQTextCursorSelectionType, "BlockUnderCursor", QTextCursor::SelectionType::BlockUnderCursor);
+        define_qenum_value_under(rb_cQTextCursorSelectionType, "Document", QTextCursor::SelectionType::Document);
 }

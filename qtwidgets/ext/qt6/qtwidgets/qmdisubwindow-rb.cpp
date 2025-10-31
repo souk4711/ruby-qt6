@@ -41,13 +41,13 @@ void Init_qmdisubwindow(Rice::Module rb_mQt6QtWidgets)
             .define_method("about_to_activate", &QMdiSubWindow::aboutToActivate)
             .define_method("window_state_changed", &QMdiSubWindow::windowStateChanged, Arg("old_state"), Arg("new_state"));
 
-    Enum<QMdiSubWindow::SubWindowOption> rb_cQMdiSubWindowSubWindowOption =
+    Data_Type<QMdiSubWindow::SubWindowOption> rb_cQMdiSubWindowSubWindowOption =
         // RubyQt6::QtWidgets::QMdiSubWindow::SubWindowOption
-        define_qenum_under<QMdiSubWindow::SubWindowOption>("SubWindowOption", rb_cQMdiSubWindow)
-            .define_value("AllowOutsideAreaHorizontally", QMdiSubWindow::SubWindowOption::AllowOutsideAreaHorizontally)
-            .define_value("AllowOutsideAreaVertically", QMdiSubWindow::SubWindowOption::AllowOutsideAreaVertically)
-            .define_value("RubberBandResize", QMdiSubWindow::SubWindowOption::RubberBandResize)
-            .define_value("RubberBandMove", QMdiSubWindow::SubWindowOption::RubberBandMove);
+        define_qenum_under<QMdiSubWindow::SubWindowOption>(rb_cQMdiSubWindow, "SubWindowOption");
+        define_qenum_value_under(rb_cQMdiSubWindowSubWindowOption, "AllowOutsideAreaHorizontally", QMdiSubWindow::SubWindowOption::AllowOutsideAreaHorizontally);
+        define_qenum_value_under(rb_cQMdiSubWindowSubWindowOption, "AllowOutsideAreaVertically", QMdiSubWindow::SubWindowOption::AllowOutsideAreaVertically);
+        define_qenum_value_under(rb_cQMdiSubWindowSubWindowOption, "RubberBandResize", QMdiSubWindow::SubWindowOption::RubberBandResize);
+        define_qenum_value_under(rb_cQMdiSubWindowSubWindowOption, "RubberBandMove", QMdiSubWindow::SubWindowOption::RubberBandMove);
 
     Data_Type<QFlags<QMdiSubWindow::SubWindowOption>> rb_cQMdiSubWindowSubWindowOptions =
         // RubyQt6::QtWidgets::QMdiSubWindow::SubWindowOptions

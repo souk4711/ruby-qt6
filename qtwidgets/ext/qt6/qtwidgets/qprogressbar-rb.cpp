@@ -43,9 +43,9 @@ void Init_qprogressbar(Rice::Module rb_mQt6QtWidgets)
             // Signals
             .define_method("value_changed", &QProgressBar::valueChanged, Arg("value"));
 
-    Enum<QProgressBar::Direction> rb_cQProgressBarDirection =
+    Data_Type<QProgressBar::Direction> rb_cQProgressBarDirection =
         // RubyQt6::QtWidgets::QProgressBar::Direction
-        define_qenum_under<QProgressBar::Direction>("Direction", rb_cQProgressBar)
-            .define_value("TopToBottom", QProgressBar::Direction::TopToBottom)
-            .define_value("BottomToTop", QProgressBar::Direction::BottomToTop);
+        define_qenum_under<QProgressBar::Direction>(rb_cQProgressBar, "Direction");
+        define_qenum_value_under(rb_cQProgressBarDirection, "TopToBottom", QProgressBar::Direction::TopToBottom);
+        define_qenum_value_under(rb_cQProgressBarDirection, "BottomToTop", QProgressBar::Direction::BottomToTop);
 }

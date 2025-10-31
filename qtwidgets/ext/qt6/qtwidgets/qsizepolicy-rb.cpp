@@ -36,43 +36,43 @@ void Init_qsizepolicy(Rice::Module rb_mQt6QtWidgets)
             .define_method("vertical_policy", &QSizePolicy::verticalPolicy)
             .define_method("vertical_stretch", &QSizePolicy::verticalStretch);
 
-    Enum<QSizePolicy::ControlType> rb_cQSizePolicyControlType =
+    Data_Type<QSizePolicy::ControlType> rb_cQSizePolicyControlType =
         // RubyQt6::QtWidgets::QSizePolicy::ControlType
-        define_qenum_under<QSizePolicy::ControlType>("ControlType", rb_cQSizePolicy)
-            .define_value("DefaultType", QSizePolicy::ControlType::DefaultType)
-            .define_value("ButtonBox", QSizePolicy::ControlType::ButtonBox)
-            .define_value("CheckBox", QSizePolicy::ControlType::CheckBox)
-            .define_value("ComboBox", QSizePolicy::ControlType::ComboBox)
-            .define_value("Frame", QSizePolicy::ControlType::Frame)
-            .define_value("GroupBox", QSizePolicy::ControlType::GroupBox)
-            .define_value("Label", QSizePolicy::ControlType::Label)
-            .define_value("Line", QSizePolicy::ControlType::Line)
-            .define_value("LineEdit", QSizePolicy::ControlType::LineEdit)
-            .define_value("PushButton", QSizePolicy::ControlType::PushButton)
-            .define_value("RadioButton", QSizePolicy::ControlType::RadioButton)
-            .define_value("Slider", QSizePolicy::ControlType::Slider)
-            .define_value("SpinBox", QSizePolicy::ControlType::SpinBox)
-            .define_value("TabWidget", QSizePolicy::ControlType::TabWidget)
-            .define_value("ToolButton", QSizePolicy::ControlType::ToolButton);
+        define_qenum_under<QSizePolicy::ControlType>(rb_cQSizePolicy, "ControlType");
+        define_qenum_value_under(rb_cQSizePolicyControlType, "DefaultType", QSizePolicy::ControlType::DefaultType);
+        define_qenum_value_under(rb_cQSizePolicyControlType, "ButtonBox", QSizePolicy::ControlType::ButtonBox);
+        define_qenum_value_under(rb_cQSizePolicyControlType, "CheckBox", QSizePolicy::ControlType::CheckBox);
+        define_qenum_value_under(rb_cQSizePolicyControlType, "ComboBox", QSizePolicy::ControlType::ComboBox);
+        define_qenum_value_under(rb_cQSizePolicyControlType, "Frame", QSizePolicy::ControlType::Frame);
+        define_qenum_value_under(rb_cQSizePolicyControlType, "GroupBox", QSizePolicy::ControlType::GroupBox);
+        define_qenum_value_under(rb_cQSizePolicyControlType, "Label", QSizePolicy::ControlType::Label);
+        define_qenum_value_under(rb_cQSizePolicyControlType, "Line", QSizePolicy::ControlType::Line);
+        define_qenum_value_under(rb_cQSizePolicyControlType, "LineEdit", QSizePolicy::ControlType::LineEdit);
+        define_qenum_value_under(rb_cQSizePolicyControlType, "PushButton", QSizePolicy::ControlType::PushButton);
+        define_qenum_value_under(rb_cQSizePolicyControlType, "RadioButton", QSizePolicy::ControlType::RadioButton);
+        define_qenum_value_under(rb_cQSizePolicyControlType, "Slider", QSizePolicy::ControlType::Slider);
+        define_qenum_value_under(rb_cQSizePolicyControlType, "SpinBox", QSizePolicy::ControlType::SpinBox);
+        define_qenum_value_under(rb_cQSizePolicyControlType, "TabWidget", QSizePolicy::ControlType::TabWidget);
+        define_qenum_value_under(rb_cQSizePolicyControlType, "ToolButton", QSizePolicy::ControlType::ToolButton);
 
-    Enum<QSizePolicy::Policy> rb_cQSizePolicyPolicy =
+    Data_Type<QSizePolicy::Policy> rb_cQSizePolicyPolicy =
         // RubyQt6::QtWidgets::QSizePolicy::Policy
-        define_qenum_under<QSizePolicy::Policy>("Policy", rb_cQSizePolicy)
-            .define_value("Fixed", QSizePolicy::Policy::Fixed)
-            .define_value("Minimum", QSizePolicy::Policy::Minimum)
-            .define_value("Maximum", QSizePolicy::Policy::Maximum)
-            .define_value("Preferred", QSizePolicy::Policy::Preferred)
-            .define_value("MinimumExpanding", QSizePolicy::Policy::MinimumExpanding)
-            .define_value("Expanding", QSizePolicy::Policy::Expanding)
-            .define_value("Ignored", QSizePolicy::Policy::Ignored);
+        define_qenum_under<QSizePolicy::Policy>(rb_cQSizePolicy, "Policy");
+        define_qenum_value_under(rb_cQSizePolicyPolicy, "Fixed", QSizePolicy::Policy::Fixed);
+        define_qenum_value_under(rb_cQSizePolicyPolicy, "Minimum", QSizePolicy::Policy::Minimum);
+        define_qenum_value_under(rb_cQSizePolicyPolicy, "Maximum", QSizePolicy::Policy::Maximum);
+        define_qenum_value_under(rb_cQSizePolicyPolicy, "Preferred", QSizePolicy::Policy::Preferred);
+        define_qenum_value_under(rb_cQSizePolicyPolicy, "MinimumExpanding", QSizePolicy::Policy::MinimumExpanding);
+        define_qenum_value_under(rb_cQSizePolicyPolicy, "Expanding", QSizePolicy::Policy::Expanding);
+        define_qenum_value_under(rb_cQSizePolicyPolicy, "Ignored", QSizePolicy::Policy::Ignored);
 
-    Enum<QSizePolicy::PolicyFlag> rb_cQSizePolicyPolicyFlag =
+    Data_Type<QSizePolicy::PolicyFlag> rb_cQSizePolicyPolicyFlag =
         // RubyQt6::QtWidgets::QSizePolicy::PolicyFlag
-        define_qenum_under<QSizePolicy::PolicyFlag>("PolicyFlag", rb_cQSizePolicy)
-            .define_value("GrowFlag", QSizePolicy::PolicyFlag::GrowFlag)
-            .define_value("ExpandFlag", QSizePolicy::PolicyFlag::ExpandFlag)
-            .define_value("ShrinkFlag", QSizePolicy::PolicyFlag::ShrinkFlag)
-            .define_value("IgnoreFlag", QSizePolicy::PolicyFlag::IgnoreFlag);
+        define_qenum_under<QSizePolicy::PolicyFlag>(rb_cQSizePolicy, "PolicyFlag");
+        define_qenum_value_under(rb_cQSizePolicyPolicyFlag, "GrowFlag", QSizePolicy::PolicyFlag::GrowFlag);
+        define_qenum_value_under(rb_cQSizePolicyPolicyFlag, "ExpandFlag", QSizePolicy::PolicyFlag::ExpandFlag);
+        define_qenum_value_under(rb_cQSizePolicyPolicyFlag, "ShrinkFlag", QSizePolicy::PolicyFlag::ShrinkFlag);
+        define_qenum_value_under(rb_cQSizePolicyPolicyFlag, "IgnoreFlag", QSizePolicy::PolicyFlag::IgnoreFlag);
 
     Data_Type<QFlags<QSizePolicy::ControlType>> rb_cQSizePolicyControlTypes =
         // RubyQt6::QtWidgets::QSizePolicy::ControlTypes

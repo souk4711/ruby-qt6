@@ -33,9 +33,9 @@ void Init_qdialog(Rice::Module rb_mQt6QtWidgets)
             .define_method("finished", &QDialog::finished, Arg("result"))
             .define_method("rejected", &QDialog::rejected);
 
-    Enum<QDialog::DialogCode> rb_cQDialogDialogCode =
+    Data_Type<QDialog::DialogCode> rb_cQDialogDialogCode =
         // RubyQt6::QtWidgets::QDialog::DialogCode
-        define_qenum_under<QDialog::DialogCode>("DialogCode", rb_cQDialog)
-            .define_value("Rejected", QDialog::DialogCode::Rejected)
-            .define_value("Accepted", QDialog::DialogCode::Accepted);
+        define_qenum_under<QDialog::DialogCode>(rb_cQDialog, "DialogCode");
+        define_qenum_value_under(rb_cQDialogDialogCode, "Rejected", QDialog::DialogCode::Rejected);
+        define_qenum_value_under(rb_cQDialogDialogCode, "Accepted", QDialog::DialogCode::Accepted);
 }

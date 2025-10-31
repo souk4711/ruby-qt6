@@ -71,17 +71,17 @@ void Init_qtabwidget(Rice::Module rb_mQt6QtWidgets)
             .define_method("tab_bar_double_clicked", &QTabWidget::tabBarDoubleClicked, Arg("index"))
             .define_method("tab_close_requested", &QTabWidget::tabCloseRequested, Arg("index"));
 
-    Enum<QTabWidget::TabPosition> rb_cQTabWidgetTabPosition =
+    Data_Type<QTabWidget::TabPosition> rb_cQTabWidgetTabPosition =
         // RubyQt6::QtWidgets::QTabWidget::TabPosition
-        define_qenum_under<QTabWidget::TabPosition>("TabPosition", rb_cQTabWidget)
-            .define_value("North", QTabWidget::TabPosition::North)
-            .define_value("South", QTabWidget::TabPosition::South)
-            .define_value("West", QTabWidget::TabPosition::West)
-            .define_value("East", QTabWidget::TabPosition::East);
+        define_qenum_under<QTabWidget::TabPosition>(rb_cQTabWidget, "TabPosition");
+        define_qenum_value_under(rb_cQTabWidgetTabPosition, "North", QTabWidget::TabPosition::North);
+        define_qenum_value_under(rb_cQTabWidgetTabPosition, "South", QTabWidget::TabPosition::South);
+        define_qenum_value_under(rb_cQTabWidgetTabPosition, "West", QTabWidget::TabPosition::West);
+        define_qenum_value_under(rb_cQTabWidgetTabPosition, "East", QTabWidget::TabPosition::East);
 
-    Enum<QTabWidget::TabShape> rb_cQTabWidgetTabShape =
+    Data_Type<QTabWidget::TabShape> rb_cQTabWidgetTabShape =
         // RubyQt6::QtWidgets::QTabWidget::TabShape
-        define_qenum_under<QTabWidget::TabShape>("TabShape", rb_cQTabWidget)
-            .define_value("Rounded", QTabWidget::TabShape::Rounded)
-            .define_value("Triangular", QTabWidget::TabShape::Triangular);
+        define_qenum_under<QTabWidget::TabShape>(rb_cQTabWidget, "TabShape");
+        define_qenum_value_under(rb_cQTabWidgetTabShape, "Rounded", QTabWidget::TabShape::Rounded);
+        define_qenum_value_under(rb_cQTabWidgetTabShape, "Triangular", QTabWidget::TabShape::Triangular);
 }

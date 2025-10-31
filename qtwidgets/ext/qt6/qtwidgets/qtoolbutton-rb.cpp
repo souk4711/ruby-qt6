@@ -35,10 +35,10 @@ void Init_qtoolbutton(Rice::Module rb_mQt6QtWidgets)
             // Signals
             .define_method("triggered", &QToolButton::triggered, Arg("action"));
 
-    Enum<QToolButton::ToolButtonPopupMode> rb_cQToolButtonToolButtonPopupMode =
+    Data_Type<QToolButton::ToolButtonPopupMode> rb_cQToolButtonToolButtonPopupMode =
         // RubyQt6::QtWidgets::QToolButton::ToolButtonPopupMode
-        define_qenum_under<QToolButton::ToolButtonPopupMode>("ToolButtonPopupMode", rb_cQToolButton)
-            .define_value("DelayedPopup", QToolButton::ToolButtonPopupMode::DelayedPopup)
-            .define_value("MenuButtonPopup", QToolButton::ToolButtonPopupMode::MenuButtonPopup)
-            .define_value("InstantPopup", QToolButton::ToolButtonPopupMode::InstantPopup);
+        define_qenum_under<QToolButton::ToolButtonPopupMode>(rb_cQToolButton, "ToolButtonPopupMode");
+        define_qenum_value_under(rb_cQToolButtonToolButtonPopupMode, "DelayedPopup", QToolButton::ToolButtonPopupMode::DelayedPopup);
+        define_qenum_value_under(rb_cQToolButtonToolButtonPopupMode, "MenuButtonPopup", QToolButton::ToolButtonPopupMode::MenuButtonPopup);
+        define_qenum_value_under(rb_cQToolButtonToolButtonPopupMode, "InstantPopup", QToolButton::ToolButtonPopupMode::InstantPopup);
 }

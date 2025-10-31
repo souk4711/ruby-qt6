@@ -25,36 +25,36 @@ void Init_qdbuserror(Rice::Module rb_mQt6QtDBus)
             // Static Public Members
             .define_singleton_function("error_string", &QDBusError::errorString, Arg("error"));
 
-    Enum<QDBusError::ErrorType> rb_cQDBusErrorErrorType =
+    Data_Type<QDBusError::ErrorType> rb_cQDBusErrorErrorType =
         // RubyQt6::QtDBus::QDBusError::ErrorType
-        define_qenum_under<QDBusError::ErrorType>("ErrorType", rb_cQDBusError)
-            .define_value("NoError", QDBusError::ErrorType::NoError)
-            .define_value("Other", QDBusError::ErrorType::Other)
-            .define_value("Failed", QDBusError::ErrorType::Failed)
-            .define_value("NoMemory", QDBusError::ErrorType::NoMemory)
-            .define_value("ServiceUnknown", QDBusError::ErrorType::ServiceUnknown)
-            .define_value("NoReply", QDBusError::ErrorType::NoReply)
-            .define_value("BadAddress", QDBusError::ErrorType::BadAddress)
-            .define_value("NotSupported", QDBusError::ErrorType::NotSupported)
-            .define_value("LimitsExceeded", QDBusError::ErrorType::LimitsExceeded)
-            .define_value("AccessDenied", QDBusError::ErrorType::AccessDenied)
-            .define_value("NoServer", QDBusError::ErrorType::NoServer)
-            .define_value("Timeout", QDBusError::ErrorType::Timeout)
-            .define_value("NoNetwork", QDBusError::ErrorType::NoNetwork)
-            .define_value("AddressInUse", QDBusError::ErrorType::AddressInUse)
-            .define_value("Disconnected", QDBusError::ErrorType::Disconnected)
-            .define_value("InvalidArgs", QDBusError::ErrorType::InvalidArgs)
-            .define_value("UnknownMethod", QDBusError::ErrorType::UnknownMethod)
-            .define_value("TimedOut", QDBusError::ErrorType::TimedOut)
-            .define_value("InvalidSignature", QDBusError::ErrorType::InvalidSignature)
-            .define_value("UnknownInterface", QDBusError::ErrorType::UnknownInterface)
-            .define_value("UnknownObject", QDBusError::ErrorType::UnknownObject)
-            .define_value("UnknownProperty", QDBusError::ErrorType::UnknownProperty)
-            .define_value("PropertyReadOnly", QDBusError::ErrorType::PropertyReadOnly)
-            .define_value("InternalError", QDBusError::ErrorType::InternalError)
-            .define_value("InvalidService", QDBusError::ErrorType::InvalidService)
-            .define_value("InvalidObjectPath", QDBusError::ErrorType::InvalidObjectPath)
-            .define_value("InvalidInterface", QDBusError::ErrorType::InvalidInterface)
-            .define_value("InvalidMember", QDBusError::ErrorType::InvalidMember)
-            .define_value("LastErrorType", QDBusError::ErrorType::LastErrorType);
+        define_qenum_under<QDBusError::ErrorType>(rb_cQDBusError, "ErrorType");
+        define_qenum_value_under(rb_cQDBusErrorErrorType, "NoError", QDBusError::ErrorType::NoError);
+        define_qenum_value_under(rb_cQDBusErrorErrorType, "Other", QDBusError::ErrorType::Other);
+        define_qenum_value_under(rb_cQDBusErrorErrorType, "Failed", QDBusError::ErrorType::Failed);
+        define_qenum_value_under(rb_cQDBusErrorErrorType, "NoMemory", QDBusError::ErrorType::NoMemory);
+        define_qenum_value_under(rb_cQDBusErrorErrorType, "ServiceUnknown", QDBusError::ErrorType::ServiceUnknown);
+        define_qenum_value_under(rb_cQDBusErrorErrorType, "NoReply", QDBusError::ErrorType::NoReply);
+        define_qenum_value_under(rb_cQDBusErrorErrorType, "BadAddress", QDBusError::ErrorType::BadAddress);
+        define_qenum_value_under(rb_cQDBusErrorErrorType, "NotSupported", QDBusError::ErrorType::NotSupported);
+        define_qenum_value_under(rb_cQDBusErrorErrorType, "LimitsExceeded", QDBusError::ErrorType::LimitsExceeded);
+        define_qenum_value_under(rb_cQDBusErrorErrorType, "AccessDenied", QDBusError::ErrorType::AccessDenied);
+        define_qenum_value_under(rb_cQDBusErrorErrorType, "NoServer", QDBusError::ErrorType::NoServer);
+        define_qenum_value_under(rb_cQDBusErrorErrorType, "Timeout", QDBusError::ErrorType::Timeout);
+        define_qenum_value_under(rb_cQDBusErrorErrorType, "NoNetwork", QDBusError::ErrorType::NoNetwork);
+        define_qenum_value_under(rb_cQDBusErrorErrorType, "AddressInUse", QDBusError::ErrorType::AddressInUse);
+        define_qenum_value_under(rb_cQDBusErrorErrorType, "Disconnected", QDBusError::ErrorType::Disconnected);
+        define_qenum_value_under(rb_cQDBusErrorErrorType, "InvalidArgs", QDBusError::ErrorType::InvalidArgs);
+        define_qenum_value_under(rb_cQDBusErrorErrorType, "UnknownMethod", QDBusError::ErrorType::UnknownMethod);
+        define_qenum_value_under(rb_cQDBusErrorErrorType, "TimedOut", QDBusError::ErrorType::TimedOut);
+        define_qenum_value_under(rb_cQDBusErrorErrorType, "InvalidSignature", QDBusError::ErrorType::InvalidSignature);
+        define_qenum_value_under(rb_cQDBusErrorErrorType, "UnknownInterface", QDBusError::ErrorType::UnknownInterface);
+        define_qenum_value_under(rb_cQDBusErrorErrorType, "UnknownObject", QDBusError::ErrorType::UnknownObject);
+        define_qenum_value_under(rb_cQDBusErrorErrorType, "UnknownProperty", QDBusError::ErrorType::UnknownProperty);
+        define_qenum_value_under(rb_cQDBusErrorErrorType, "PropertyReadOnly", QDBusError::ErrorType::PropertyReadOnly);
+        define_qenum_value_under(rb_cQDBusErrorErrorType, "InternalError", QDBusError::ErrorType::InternalError);
+        define_qenum_value_under(rb_cQDBusErrorErrorType, "InvalidService", QDBusError::ErrorType::InvalidService);
+        define_qenum_value_under(rb_cQDBusErrorErrorType, "InvalidObjectPath", QDBusError::ErrorType::InvalidObjectPath);
+        define_qenum_value_under(rb_cQDBusErrorErrorType, "InvalidInterface", QDBusError::ErrorType::InvalidInterface);
+        define_qenum_value_under(rb_cQDBusErrorErrorType, "InvalidMember", QDBusError::ErrorType::InvalidMember);
+        define_qenum_value_under(rb_cQDBusErrorErrorType, "LastErrorType", QDBusError::ErrorType::LastErrorType);
 }

@@ -131,44 +131,44 @@ void Init_qtextdocument(Rice::Module rb_mQt6QtGui)
             .define_singleton_function("default_resource_provider", &QTextDocument::defaultResourceProvider)
             .define_singleton_function("set_default_resource_provider", &QTextDocument::setDefaultResourceProvider, Arg("provider"));
 
-    Enum<QTextDocument::FindFlag> rb_cQTextDocumentFindFlag =
+    Data_Type<QTextDocument::FindFlag> rb_cQTextDocumentFindFlag =
         // RubyQt6::QtGui::QTextDocument::FindFlag
-        define_qenum_under<QTextDocument::FindFlag>("FindFlag", rb_cQTextDocument)
-            .define_value("FindBackward", QTextDocument::FindFlag::FindBackward)
-            .define_value("FindCaseSensitively", QTextDocument::FindFlag::FindCaseSensitively)
-            .define_value("FindWholeWords", QTextDocument::FindFlag::FindWholeWords);
+        define_qenum_under<QTextDocument::FindFlag>(rb_cQTextDocument, "FindFlag");
+        define_qenum_value_under(rb_cQTextDocumentFindFlag, "FindBackward", QTextDocument::FindFlag::FindBackward);
+        define_qenum_value_under(rb_cQTextDocumentFindFlag, "FindCaseSensitively", QTextDocument::FindFlag::FindCaseSensitively);
+        define_qenum_value_under(rb_cQTextDocumentFindFlag, "FindWholeWords", QTextDocument::FindFlag::FindWholeWords);
 
-    Enum<QTextDocument::MarkdownFeature> rb_cQTextDocumentMarkdownFeature =
+    Data_Type<QTextDocument::MarkdownFeature> rb_cQTextDocumentMarkdownFeature =
         // RubyQt6::QtGui::QTextDocument::MarkdownFeature
-        define_qenum_under<QTextDocument::MarkdownFeature>("MarkdownFeature", rb_cQTextDocument)
-            .define_value("MarkdownNoHTML", QTextDocument::MarkdownFeature::MarkdownNoHTML)
-            .define_value("MarkdownDialectCommonMark", QTextDocument::MarkdownFeature::MarkdownDialectCommonMark)
-            .define_value("MarkdownDialectGitHub", QTextDocument::MarkdownFeature::MarkdownDialectGitHub);
+        define_qenum_under<QTextDocument::MarkdownFeature>(rb_cQTextDocument, "MarkdownFeature");
+        define_qenum_value_under(rb_cQTextDocumentMarkdownFeature, "MarkdownNoHTML", QTextDocument::MarkdownFeature::MarkdownNoHTML);
+        define_qenum_value_under(rb_cQTextDocumentMarkdownFeature, "MarkdownDialectCommonMark", QTextDocument::MarkdownFeature::MarkdownDialectCommonMark);
+        define_qenum_value_under(rb_cQTextDocumentMarkdownFeature, "MarkdownDialectGitHub", QTextDocument::MarkdownFeature::MarkdownDialectGitHub);
 
-    Enum<QTextDocument::MetaInformation> rb_cQTextDocumentMetaInformation =
+    Data_Type<QTextDocument::MetaInformation> rb_cQTextDocumentMetaInformation =
         // RubyQt6::QtGui::QTextDocument::MetaInformation
-        define_qenum_under<QTextDocument::MetaInformation>("MetaInformation", rb_cQTextDocument)
-            .define_value("DocumentTitle", QTextDocument::MetaInformation::DocumentTitle)
-            .define_value("DocumentUrl", QTextDocument::MetaInformation::DocumentUrl)
-            .define_value("CssMedia", QTextDocument::MetaInformation::CssMedia)
-            .define_value("FrontMatter", QTextDocument::MetaInformation::FrontMatter);
+        define_qenum_under<QTextDocument::MetaInformation>(rb_cQTextDocument, "MetaInformation");
+        define_qenum_value_under(rb_cQTextDocumentMetaInformation, "DocumentTitle", QTextDocument::MetaInformation::DocumentTitle);
+        define_qenum_value_under(rb_cQTextDocumentMetaInformation, "DocumentUrl", QTextDocument::MetaInformation::DocumentUrl);
+        define_qenum_value_under(rb_cQTextDocumentMetaInformation, "CssMedia", QTextDocument::MetaInformation::CssMedia);
+        define_qenum_value_under(rb_cQTextDocumentMetaInformation, "FrontMatter", QTextDocument::MetaInformation::FrontMatter);
 
-    Enum<QTextDocument::ResourceType> rb_cQTextDocumentResourceType =
+    Data_Type<QTextDocument::ResourceType> rb_cQTextDocumentResourceType =
         // RubyQt6::QtGui::QTextDocument::ResourceType
-        define_qenum_under<QTextDocument::ResourceType>("ResourceType", rb_cQTextDocument)
-            .define_value("UnknownResource", QTextDocument::ResourceType::UnknownResource)
-            .define_value("HtmlResource", QTextDocument::ResourceType::HtmlResource)
-            .define_value("ImageResource", QTextDocument::ResourceType::ImageResource)
-            .define_value("StyleSheetResource", QTextDocument::ResourceType::StyleSheetResource)
-            .define_value("MarkdownResource", QTextDocument::ResourceType::MarkdownResource)
-            .define_value("UserResource", QTextDocument::ResourceType::UserResource);
+        define_qenum_under<QTextDocument::ResourceType>(rb_cQTextDocument, "ResourceType");
+        define_qenum_value_under(rb_cQTextDocumentResourceType, "UnknownResource", QTextDocument::ResourceType::UnknownResource);
+        define_qenum_value_under(rb_cQTextDocumentResourceType, "HtmlResource", QTextDocument::ResourceType::HtmlResource);
+        define_qenum_value_under(rb_cQTextDocumentResourceType, "ImageResource", QTextDocument::ResourceType::ImageResource);
+        define_qenum_value_under(rb_cQTextDocumentResourceType, "StyleSheetResource", QTextDocument::ResourceType::StyleSheetResource);
+        define_qenum_value_under(rb_cQTextDocumentResourceType, "MarkdownResource", QTextDocument::ResourceType::MarkdownResource);
+        define_qenum_value_under(rb_cQTextDocumentResourceType, "UserResource", QTextDocument::ResourceType::UserResource);
 
-    Enum<QTextDocument::Stacks> rb_cQTextDocumentStacks =
+    Data_Type<QTextDocument::Stacks> rb_cQTextDocumentStacks =
         // RubyQt6::QtGui::QTextDocument::Stacks
-        define_qenum_under<QTextDocument::Stacks>("Stacks", rb_cQTextDocument)
-            .define_value("UndoStack", QTextDocument::Stacks::UndoStack)
-            .define_value("RedoStack", QTextDocument::Stacks::RedoStack)
-            .define_value("UndoAndRedoStacks", QTextDocument::Stacks::UndoAndRedoStacks);
+        define_qenum_under<QTextDocument::Stacks>(rb_cQTextDocument, "Stacks");
+        define_qenum_value_under(rb_cQTextDocumentStacks, "UndoStack", QTextDocument::Stacks::UndoStack);
+        define_qenum_value_under(rb_cQTextDocumentStacks, "RedoStack", QTextDocument::Stacks::RedoStack);
+        define_qenum_value_under(rb_cQTextDocumentStacks, "UndoAndRedoStacks", QTextDocument::Stacks::UndoAndRedoStacks);
 
     Data_Type<QFlags<QTextDocument::FindFlag>> rb_cQTextDocumentFindFlags =
         // RubyQt6::QtGui::QTextDocument::FindFlags

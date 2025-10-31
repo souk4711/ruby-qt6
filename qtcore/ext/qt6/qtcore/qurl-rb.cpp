@@ -75,53 +75,53 @@ void Init_qurl(Rice::Module rb_mQt6QtCore)
             .define_singleton_function("to_percent_encoding", &QUrl::toPercentEncoding, Arg("input"), Arg("exclude") = static_cast<const QByteArray &>(QByteArray()), Arg("include") = static_cast<const QByteArray &>(QByteArray()))
             .define_singleton_function("to_string_list", &QUrl::toStringList, Arg("uris"), Arg("options") = static_cast<QUrl::FormattingOptions>(QUrl::ComponentFormattingOption::PrettyDecoded));
 
-    Enum<QUrl::AceProcessingOption> rb_cQUrlAceProcessingOption =
+    Data_Type<QUrl::AceProcessingOption> rb_cQUrlAceProcessingOption =
         // RubyQt6::QtCore::QUrl::AceProcessingOption
-        define_qenum_under<QUrl::AceProcessingOption>("AceProcessingOption", rb_cQUrl)
-            .define_value("IgnoreIDNWhitelist", QUrl::AceProcessingOption::IgnoreIDNWhitelist)
-            .define_value("AceTransitionalProcessing", QUrl::AceProcessingOption::AceTransitionalProcessing);
+        define_qenum_under<QUrl::AceProcessingOption>(rb_cQUrl, "AceProcessingOption");
+        define_qenum_value_under(rb_cQUrlAceProcessingOption, "IgnoreIDNWhitelist", QUrl::AceProcessingOption::IgnoreIDNWhitelist);
+        define_qenum_value_under(rb_cQUrlAceProcessingOption, "AceTransitionalProcessing", QUrl::AceProcessingOption::AceTransitionalProcessing);
 
-    Enum<QUrl::ComponentFormattingOption> rb_cQUrlComponentFormattingOption =
+    Data_Type<QUrl::ComponentFormattingOption> rb_cQUrlComponentFormattingOption =
         // RubyQt6::QtCore::QUrl::ComponentFormattingOption
-        define_qenum_under<QUrl::ComponentFormattingOption>("ComponentFormattingOption", rb_cQUrl)
-            .define_value("PrettyDecoded", QUrl::ComponentFormattingOption::PrettyDecoded)
-            .define_value("EncodeSpaces", QUrl::ComponentFormattingOption::EncodeSpaces)
-            .define_value("EncodeUnicode", QUrl::ComponentFormattingOption::EncodeUnicode)
-            .define_value("EncodeDelimiters", QUrl::ComponentFormattingOption::EncodeDelimiters)
-            .define_value("EncodeReserved", QUrl::ComponentFormattingOption::EncodeReserved)
-            .define_value("DecodeReserved", QUrl::ComponentFormattingOption::DecodeReserved)
-            .define_value("FullyEncoded", QUrl::ComponentFormattingOption::FullyEncoded)
-            .define_value("FullyDecoded", QUrl::ComponentFormattingOption::FullyDecoded);
+        define_qenum_under<QUrl::ComponentFormattingOption>(rb_cQUrl, "ComponentFormattingOption");
+        define_qenum_value_under(rb_cQUrlComponentFormattingOption, "PrettyDecoded", QUrl::ComponentFormattingOption::PrettyDecoded);
+        define_qenum_value_under(rb_cQUrlComponentFormattingOption, "EncodeSpaces", QUrl::ComponentFormattingOption::EncodeSpaces);
+        define_qenum_value_under(rb_cQUrlComponentFormattingOption, "EncodeUnicode", QUrl::ComponentFormattingOption::EncodeUnicode);
+        define_qenum_value_under(rb_cQUrlComponentFormattingOption, "EncodeDelimiters", QUrl::ComponentFormattingOption::EncodeDelimiters);
+        define_qenum_value_under(rb_cQUrlComponentFormattingOption, "EncodeReserved", QUrl::ComponentFormattingOption::EncodeReserved);
+        define_qenum_value_under(rb_cQUrlComponentFormattingOption, "DecodeReserved", QUrl::ComponentFormattingOption::DecodeReserved);
+        define_qenum_value_under(rb_cQUrlComponentFormattingOption, "FullyEncoded", QUrl::ComponentFormattingOption::FullyEncoded);
+        define_qenum_value_under(rb_cQUrlComponentFormattingOption, "FullyDecoded", QUrl::ComponentFormattingOption::FullyDecoded);
 
-    Enum<QUrl::ParsingMode> rb_cQUrlParsingMode =
+    Data_Type<QUrl::ParsingMode> rb_cQUrlParsingMode =
         // RubyQt6::QtCore::QUrl::ParsingMode
-        define_qenum_under<QUrl::ParsingMode>("ParsingMode", rb_cQUrl)
-            .define_value("TolerantMode", QUrl::ParsingMode::TolerantMode)
-            .define_value("StrictMode", QUrl::ParsingMode::StrictMode)
-            .define_value("DecodedMode", QUrl::ParsingMode::DecodedMode);
+        define_qenum_under<QUrl::ParsingMode>(rb_cQUrl, "ParsingMode");
+        define_qenum_value_under(rb_cQUrlParsingMode, "TolerantMode", QUrl::ParsingMode::TolerantMode);
+        define_qenum_value_under(rb_cQUrlParsingMode, "StrictMode", QUrl::ParsingMode::StrictMode);
+        define_qenum_value_under(rb_cQUrlParsingMode, "DecodedMode", QUrl::ParsingMode::DecodedMode);
 
-    Enum<QUrl::UrlFormattingOption> rb_cQUrlUrlFormattingOption =
+    Data_Type<QUrl::UrlFormattingOption> rb_cQUrlUrlFormattingOption =
         // RubyQt6::QtCore::QUrl::UrlFormattingOption
-        define_qenum_under<QUrl::UrlFormattingOption>("UrlFormattingOption", rb_cQUrl)
-            .define_value("None", QUrl::UrlFormattingOption::None)
-            .define_value("RemoveScheme", QUrl::UrlFormattingOption::RemoveScheme)
-            .define_value("RemovePassword", QUrl::UrlFormattingOption::RemovePassword)
-            .define_value("RemoveUserInfo", QUrl::UrlFormattingOption::RemoveUserInfo)
-            .define_value("RemovePort", QUrl::UrlFormattingOption::RemovePort)
-            .define_value("RemoveAuthority", QUrl::UrlFormattingOption::RemoveAuthority)
-            .define_value("RemovePath", QUrl::UrlFormattingOption::RemovePath)
-            .define_value("RemoveQuery", QUrl::UrlFormattingOption::RemoveQuery)
-            .define_value("RemoveFragment", QUrl::UrlFormattingOption::RemoveFragment)
-            .define_value("PreferLocalFile", QUrl::UrlFormattingOption::PreferLocalFile)
-            .define_value("StripTrailingSlash", QUrl::UrlFormattingOption::StripTrailingSlash)
-            .define_value("RemoveFilename", QUrl::UrlFormattingOption::RemoveFilename)
-            .define_value("NormalizePathSegments", QUrl::UrlFormattingOption::NormalizePathSegments);
+        define_qenum_under<QUrl::UrlFormattingOption>(rb_cQUrl, "UrlFormattingOption");
+        define_qenum_value_under(rb_cQUrlUrlFormattingOption, "None", QUrl::UrlFormattingOption::None);
+        define_qenum_value_under(rb_cQUrlUrlFormattingOption, "RemoveScheme", QUrl::UrlFormattingOption::RemoveScheme);
+        define_qenum_value_under(rb_cQUrlUrlFormattingOption, "RemovePassword", QUrl::UrlFormattingOption::RemovePassword);
+        define_qenum_value_under(rb_cQUrlUrlFormattingOption, "RemoveUserInfo", QUrl::UrlFormattingOption::RemoveUserInfo);
+        define_qenum_value_under(rb_cQUrlUrlFormattingOption, "RemovePort", QUrl::UrlFormattingOption::RemovePort);
+        define_qenum_value_under(rb_cQUrlUrlFormattingOption, "RemoveAuthority", QUrl::UrlFormattingOption::RemoveAuthority);
+        define_qenum_value_under(rb_cQUrlUrlFormattingOption, "RemovePath", QUrl::UrlFormattingOption::RemovePath);
+        define_qenum_value_under(rb_cQUrlUrlFormattingOption, "RemoveQuery", QUrl::UrlFormattingOption::RemoveQuery);
+        define_qenum_value_under(rb_cQUrlUrlFormattingOption, "RemoveFragment", QUrl::UrlFormattingOption::RemoveFragment);
+        define_qenum_value_under(rb_cQUrlUrlFormattingOption, "PreferLocalFile", QUrl::UrlFormattingOption::PreferLocalFile);
+        define_qenum_value_under(rb_cQUrlUrlFormattingOption, "StripTrailingSlash", QUrl::UrlFormattingOption::StripTrailingSlash);
+        define_qenum_value_under(rb_cQUrlUrlFormattingOption, "RemoveFilename", QUrl::UrlFormattingOption::RemoveFilename);
+        define_qenum_value_under(rb_cQUrlUrlFormattingOption, "NormalizePathSegments", QUrl::UrlFormattingOption::NormalizePathSegments);
 
-    Enum<QUrl::UserInputResolutionOption> rb_cQUrlUserInputResolutionOption =
+    Data_Type<QUrl::UserInputResolutionOption> rb_cQUrlUserInputResolutionOption =
         // RubyQt6::QtCore::QUrl::UserInputResolutionOption
-        define_qenum_under<QUrl::UserInputResolutionOption>("UserInputResolutionOption", rb_cQUrl)
-            .define_value("DefaultResolution", QUrl::UserInputResolutionOption::DefaultResolution)
-            .define_value("AssumeLocalFile", QUrl::UserInputResolutionOption::AssumeLocalFile);
+        define_qenum_under<QUrl::UserInputResolutionOption>(rb_cQUrl, "UserInputResolutionOption");
+        define_qenum_value_under(rb_cQUrlUserInputResolutionOption, "DefaultResolution", QUrl::UserInputResolutionOption::DefaultResolution);
+        define_qenum_value_under(rb_cQUrlUserInputResolutionOption, "AssumeLocalFile", QUrl::UserInputResolutionOption::AssumeLocalFile);
 
     Data_Type<QFlags<QUrl::AceProcessingOption>> rb_cQUrlAceProcessingOptions =
         // RubyQt6::QtCore::QUrl::AceProcessingOptions

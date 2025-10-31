@@ -113,19 +113,19 @@ void Init_qinputdialog(Rice::Module rb_mQt6QtWidgets)
             .define_method("text_value_changed", &QInputDialog::textValueChanged, Arg("text"))
             .define_method("text_value_selected", &QInputDialog::textValueSelected, Arg("text"));
 
-    Enum<QInputDialog::InputDialogOption> rb_cQInputDialogInputDialogOption =
+    Data_Type<QInputDialog::InputDialogOption> rb_cQInputDialogInputDialogOption =
         // RubyQt6::QtWidgets::QInputDialog::InputDialogOption
-        define_qenum_under<QInputDialog::InputDialogOption>("InputDialogOption", rb_cQInputDialog)
-            .define_value("NoButtons", QInputDialog::InputDialogOption::NoButtons)
-            .define_value("UseListViewForComboBoxItems", QInputDialog::InputDialogOption::UseListViewForComboBoxItems)
-            .define_value("UsePlainTextEditForTextInput", QInputDialog::InputDialogOption::UsePlainTextEditForTextInput);
+        define_qenum_under<QInputDialog::InputDialogOption>(rb_cQInputDialog, "InputDialogOption");
+        define_qenum_value_under(rb_cQInputDialogInputDialogOption, "NoButtons", QInputDialog::InputDialogOption::NoButtons);
+        define_qenum_value_under(rb_cQInputDialogInputDialogOption, "UseListViewForComboBoxItems", QInputDialog::InputDialogOption::UseListViewForComboBoxItems);
+        define_qenum_value_under(rb_cQInputDialogInputDialogOption, "UsePlainTextEditForTextInput", QInputDialog::InputDialogOption::UsePlainTextEditForTextInput);
 
-    Enum<QInputDialog::InputMode> rb_cQInputDialogInputMode =
+    Data_Type<QInputDialog::InputMode> rb_cQInputDialogInputMode =
         // RubyQt6::QtWidgets::QInputDialog::InputMode
-        define_qenum_under<QInputDialog::InputMode>("InputMode", rb_cQInputDialog)
-            .define_value("TextInput", QInputDialog::InputMode::TextInput)
-            .define_value("IntInput", QInputDialog::InputMode::IntInput)
-            .define_value("DoubleInput", QInputDialog::InputMode::DoubleInput);
+        define_qenum_under<QInputDialog::InputMode>(rb_cQInputDialog, "InputMode");
+        define_qenum_value_under(rb_cQInputDialogInputMode, "TextInput", QInputDialog::InputMode::TextInput);
+        define_qenum_value_under(rb_cQInputDialogInputMode, "IntInput", QInputDialog::InputMode::IntInput);
+        define_qenum_value_under(rb_cQInputDialogInputMode, "DoubleInput", QInputDialog::InputMode::DoubleInput);
 
     Data_Type<QFlags<QInputDialog::InputDialogOption>> rb_cQInputDialogInputDialogOptions =
         // RubyQt6::QtWidgets::QInputDialog::InputDialogOptions

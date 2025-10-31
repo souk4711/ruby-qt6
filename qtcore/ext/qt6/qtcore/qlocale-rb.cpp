@@ -130,894 +130,894 @@ void Init_qlocale(Rice::Module rb_mQt6QtCore)
             .define_singleton_function("territory_to_code", &QLocale::territoryToCode, Arg("territory"))
             .define_singleton_function("territory_to_string", &QLocale::territoryToString, Arg("territory"));
 
-    Enum<QLocale::Language> rb_cQLocaleLanguage =
+    Data_Type<QLocale::Language> rb_cQLocaleLanguage =
         // RubyQt6::QtCore::QLocale::Language
-        define_qenum_under<QLocale::Language>("Language", rb_cQLocale)
-            .define_value("AnyLanguage", QLocale::Language::AnyLanguage)
-            .define_value("C", QLocale::Language::C)
-            .define_value("Abkhazian", QLocale::Language::Abkhazian)
-            .define_value("Afar", QLocale::Language::Afar)
-            .define_value("Afrikaans", QLocale::Language::Afrikaans)
-            .define_value("Aghem", QLocale::Language::Aghem)
-            .define_value("Akan", QLocale::Language::Akan)
-            .define_value("Akkadian", QLocale::Language::Akkadian)
-            .define_value("Akoose", QLocale::Language::Akoose)
-            .define_value("Albanian", QLocale::Language::Albanian)
-            .define_value("AmericanSignLanguage", QLocale::Language::AmericanSignLanguage)
-            .define_value("Amharic", QLocale::Language::Amharic)
-            .define_value("AncientEgyptian", QLocale::Language::AncientEgyptian)
-            .define_value("AncientGreek", QLocale::Language::AncientGreek)
-            .define_value("Arabic", QLocale::Language::Arabic)
-            .define_value("Aragonese", QLocale::Language::Aragonese)
-            .define_value("Aramaic", QLocale::Language::Aramaic)
-            .define_value("Armenian", QLocale::Language::Armenian)
-            .define_value("Assamese", QLocale::Language::Assamese)
-            .define_value("Asturian", QLocale::Language::Asturian)
-            .define_value("Asu", QLocale::Language::Asu)
-            .define_value("Atsam", QLocale::Language::Atsam)
-            .define_value("Avaric", QLocale::Language::Avaric)
-            .define_value("Avestan", QLocale::Language::Avestan)
-            .define_value("Aymara", QLocale::Language::Aymara)
-            .define_value("Azerbaijani", QLocale::Language::Azerbaijani)
-            .define_value("Bafia", QLocale::Language::Bafia)
-            .define_value("Balinese", QLocale::Language::Balinese)
-            .define_value("Bambara", QLocale::Language::Bambara)
-            .define_value("Bamun", QLocale::Language::Bamun)
-            .define_value("Bangla", QLocale::Language::Bangla)
-            .define_value("Basaa", QLocale::Language::Basaa)
-            .define_value("Bashkir", QLocale::Language::Bashkir)
-            .define_value("Basque", QLocale::Language::Basque)
-            .define_value("BatakToba", QLocale::Language::BatakToba)
-            .define_value("Belarusian", QLocale::Language::Belarusian)
-            .define_value("Bemba", QLocale::Language::Bemba)
-            .define_value("Bena", QLocale::Language::Bena)
-            .define_value("Bhojpuri", QLocale::Language::Bhojpuri)
-            .define_value("Bislama", QLocale::Language::Bislama)
-            .define_value("Blin", QLocale::Language::Blin)
-            .define_value("Bodo", QLocale::Language::Bodo)
-            .define_value("Bosnian", QLocale::Language::Bosnian)
-            .define_value("Breton", QLocale::Language::Breton)
-            .define_value("Buginese", QLocale::Language::Buginese)
-            .define_value("Bulgarian", QLocale::Language::Bulgarian)
-            .define_value("Burmese", QLocale::Language::Burmese)
-            .define_value("Cantonese", QLocale::Language::Cantonese)
-            .define_value("Catalan", QLocale::Language::Catalan)
-            .define_value("Cebuano", QLocale::Language::Cebuano)
-            .define_value("CentralAtlasTamazight", QLocale::Language::CentralAtlasTamazight)
-            .define_value("CentralKurdish", QLocale::Language::CentralKurdish)
-            .define_value("Chakma", QLocale::Language::Chakma)
-            .define_value("Chamorro", QLocale::Language::Chamorro)
-            .define_value("Chechen", QLocale::Language::Chechen)
-            .define_value("Cherokee", QLocale::Language::Cherokee)
-            .define_value("Chickasaw", QLocale::Language::Chickasaw)
-            .define_value("Chiga", QLocale::Language::Chiga)
-            .define_value("Chinese", QLocale::Language::Chinese)
-            .define_value("Church", QLocale::Language::Church)
-            .define_value("Chuvash", QLocale::Language::Chuvash)
-            .define_value("Colognian", QLocale::Language::Colognian)
-            .define_value("Coptic", QLocale::Language::Coptic)
-            .define_value("Cornish", QLocale::Language::Cornish)
-            .define_value("Corsican", QLocale::Language::Corsican)
-            .define_value("Cree", QLocale::Language::Cree)
-            .define_value("Croatian", QLocale::Language::Croatian)
-            .define_value("Czech", QLocale::Language::Czech)
-            .define_value("Danish", QLocale::Language::Danish)
-            .define_value("Divehi", QLocale::Language::Divehi)
-            .define_value("Dogri", QLocale::Language::Dogri)
-            .define_value("Duala", QLocale::Language::Duala)
-            .define_value("Dutch", QLocale::Language::Dutch)
-            .define_value("Dzongkha", QLocale::Language::Dzongkha)
-            .define_value("Embu", QLocale::Language::Embu)
-            .define_value("English", QLocale::Language::English)
-            .define_value("Erzya", QLocale::Language::Erzya)
-            .define_value("Esperanto", QLocale::Language::Esperanto)
-            .define_value("Estonian", QLocale::Language::Estonian)
-            .define_value("Ewe", QLocale::Language::Ewe)
-            .define_value("Ewondo", QLocale::Language::Ewondo)
-            .define_value("Faroese", QLocale::Language::Faroese)
-            .define_value("Fijian", QLocale::Language::Fijian)
-            .define_value("Filipino", QLocale::Language::Filipino)
-            .define_value("Finnish", QLocale::Language::Finnish)
-            .define_value("French", QLocale::Language::French)
-            .define_value("Friulian", QLocale::Language::Friulian)
-            .define_value("Fulah", QLocale::Language::Fulah)
-            .define_value("Gaelic", QLocale::Language::Gaelic)
-            .define_value("Ga", QLocale::Language::Ga)
-            .define_value("Galician", QLocale::Language::Galician)
-            .define_value("Ganda", QLocale::Language::Ganda)
-            .define_value("Geez", QLocale::Language::Geez)
-            .define_value("Georgian", QLocale::Language::Georgian)
-            .define_value("German", QLocale::Language::German)
-            .define_value("Gothic", QLocale::Language::Gothic)
-            .define_value("Greek", QLocale::Language::Greek)
-            .define_value("Guarani", QLocale::Language::Guarani)
-            .define_value("Gujarati", QLocale::Language::Gujarati)
-            .define_value("Gusii", QLocale::Language::Gusii)
-            .define_value("Haitian", QLocale::Language::Haitian)
-            .define_value("Hausa", QLocale::Language::Hausa)
-            .define_value("Hawaiian", QLocale::Language::Hawaiian)
-            .define_value("Hebrew", QLocale::Language::Hebrew)
-            .define_value("Herero", QLocale::Language::Herero)
-            .define_value("Hindi", QLocale::Language::Hindi)
-            .define_value("HiriMotu", QLocale::Language::HiriMotu)
-            .define_value("Hungarian", QLocale::Language::Hungarian)
-            .define_value("Icelandic", QLocale::Language::Icelandic)
-            .define_value("Ido", QLocale::Language::Ido)
-            .define_value("Igbo", QLocale::Language::Igbo)
-            .define_value("InariSami", QLocale::Language::InariSami)
-            .define_value("Indonesian", QLocale::Language::Indonesian)
-            .define_value("Ingush", QLocale::Language::Ingush)
-            .define_value("Interlingua", QLocale::Language::Interlingua)
-            .define_value("Interlingue", QLocale::Language::Interlingue)
-            .define_value("Inuktitut", QLocale::Language::Inuktitut)
-            .define_value("Inupiaq", QLocale::Language::Inupiaq)
-            .define_value("Irish", QLocale::Language::Irish)
-            .define_value("Italian", QLocale::Language::Italian)
-            .define_value("Japanese", QLocale::Language::Japanese)
-            .define_value("Javanese", QLocale::Language::Javanese)
-            .define_value("Jju", QLocale::Language::Jju)
-            .define_value("JolaFonyi", QLocale::Language::JolaFonyi)
-            .define_value("Kabuverdianu", QLocale::Language::Kabuverdianu)
-            .define_value("Kabyle", QLocale::Language::Kabyle)
-            .define_value("Kako", QLocale::Language::Kako)
-            .define_value("Kalaallisut", QLocale::Language::Kalaallisut)
-            .define_value("Kalenjin", QLocale::Language::Kalenjin)
-            .define_value("Kamba", QLocale::Language::Kamba)
-            .define_value("Kannada", QLocale::Language::Kannada)
-            .define_value("Kanuri", QLocale::Language::Kanuri)
-            .define_value("Kashmiri", QLocale::Language::Kashmiri)
-            .define_value("Kazakh", QLocale::Language::Kazakh)
-            .define_value("Kenyang", QLocale::Language::Kenyang)
-            .define_value("Khmer", QLocale::Language::Khmer)
-            .define_value("Kiche", QLocale::Language::Kiche)
-            .define_value("Kikuyu", QLocale::Language::Kikuyu)
-            .define_value("Kinyarwanda", QLocale::Language::Kinyarwanda)
-            .define_value("Komi", QLocale::Language::Komi)
-            .define_value("Kongo", QLocale::Language::Kongo)
-            .define_value("Konkani", QLocale::Language::Konkani)
-            .define_value("Korean", QLocale::Language::Korean)
-            .define_value("Koro", QLocale::Language::Koro)
-            .define_value("KoyraboroSenni", QLocale::Language::KoyraboroSenni)
-            .define_value("KoyraChiini", QLocale::Language::KoyraChiini)
-            .define_value("Kpelle", QLocale::Language::Kpelle)
-            .define_value("Kuanyama", QLocale::Language::Kuanyama)
-            .define_value("Kurdish", QLocale::Language::Kurdish)
-            .define_value("Kwasio", QLocale::Language::Kwasio)
-            .define_value("Kyrgyz", QLocale::Language::Kyrgyz)
-            .define_value("Lakota", QLocale::Language::Lakota)
-            .define_value("Langi", QLocale::Language::Langi)
-            .define_value("Lao", QLocale::Language::Lao)
-            .define_value("Latin", QLocale::Language::Latin)
-            .define_value("Latvian", QLocale::Language::Latvian)
-            .define_value("Lezghian", QLocale::Language::Lezghian)
-            .define_value("Limburgish", QLocale::Language::Limburgish)
-            .define_value("Lingala", QLocale::Language::Lingala)
-            .define_value("LiteraryChinese", QLocale::Language::LiteraryChinese)
-            .define_value("Lithuanian", QLocale::Language::Lithuanian)
-            .define_value("Lojban", QLocale::Language::Lojban)
-            .define_value("LowerSorbian", QLocale::Language::LowerSorbian)
-            .define_value("LowGerman", QLocale::Language::LowGerman)
-            .define_value("LubaKatanga", QLocale::Language::LubaKatanga)
-            .define_value("LuleSami", QLocale::Language::LuleSami)
-            .define_value("Luo", QLocale::Language::Luo)
-            .define_value("Luxembourgish", QLocale::Language::Luxembourgish)
-            .define_value("Luyia", QLocale::Language::Luyia)
-            .define_value("Macedonian", QLocale::Language::Macedonian)
-            .define_value("Machame", QLocale::Language::Machame)
-            .define_value("Maithili", QLocale::Language::Maithili)
-            .define_value("MakhuwaMeetto", QLocale::Language::MakhuwaMeetto)
-            .define_value("Makonde", QLocale::Language::Makonde)
-            .define_value("Malagasy", QLocale::Language::Malagasy)
-            .define_value("Malayalam", QLocale::Language::Malayalam)
-            .define_value("Malay", QLocale::Language::Malay)
-            .define_value("Maltese", QLocale::Language::Maltese)
-            .define_value("Mandingo", QLocale::Language::Mandingo)
-            .define_value("Manipuri", QLocale::Language::Manipuri)
-            .define_value("Manx", QLocale::Language::Manx)
-            .define_value("Maori", QLocale::Language::Maori)
-            .define_value("Mapuche", QLocale::Language::Mapuche)
-            .define_value("Marathi", QLocale::Language::Marathi)
-            .define_value("Marshallese", QLocale::Language::Marshallese)
-            .define_value("Masai", QLocale::Language::Masai)
-            .define_value("Mazanderani", QLocale::Language::Mazanderani)
-            .define_value("Mende", QLocale::Language::Mende)
-            .define_value("Meru", QLocale::Language::Meru)
-            .define_value("Meta", QLocale::Language::Meta)
-            .define_value("Mohawk", QLocale::Language::Mohawk)
-            .define_value("Mongolian", QLocale::Language::Mongolian)
-            .define_value("Morisyen", QLocale::Language::Morisyen)
-            .define_value("Mundang", QLocale::Language::Mundang)
-            .define_value("Muscogee", QLocale::Language::Muscogee)
-            .define_value("Nama", QLocale::Language::Nama)
-            .define_value("NauruLanguage", QLocale::Language::NauruLanguage)
-            .define_value("Navajo", QLocale::Language::Navajo)
-            .define_value("Ndonga", QLocale::Language::Ndonga)
-            .define_value("Nepali", QLocale::Language::Nepali)
-            .define_value("Newari", QLocale::Language::Newari)
-            .define_value("Ngiemboon", QLocale::Language::Ngiemboon)
-            .define_value("Ngomba", QLocale::Language::Ngomba)
-            .define_value("NigerianPidgin", QLocale::Language::NigerianPidgin)
-            .define_value("Nko", QLocale::Language::Nko)
-            .define_value("NorthernLuri", QLocale::Language::NorthernLuri)
-            .define_value("NorthernSami", QLocale::Language::NorthernSami)
-            .define_value("NorthernSotho", QLocale::Language::NorthernSotho)
-            .define_value("NorthNdebele", QLocale::Language::NorthNdebele)
-            .define_value("NorwegianBokmal", QLocale::Language::NorwegianBokmal)
-            .define_value("NorwegianNynorsk", QLocale::Language::NorwegianNynorsk)
-            .define_value("Nuer", QLocale::Language::Nuer)
-            .define_value("Nyanja", QLocale::Language::Nyanja)
-            .define_value("Nyankole", QLocale::Language::Nyankole)
-            .define_value("Occitan", QLocale::Language::Occitan)
-            .define_value("Odia", QLocale::Language::Odia)
-            .define_value("Ojibwa", QLocale::Language::Ojibwa)
-            .define_value("OldIrish", QLocale::Language::OldIrish)
-            .define_value("OldNorse", QLocale::Language::OldNorse)
-            .define_value("OldPersian", QLocale::Language::OldPersian)
-            .define_value("Oromo", QLocale::Language::Oromo)
-            .define_value("Osage", QLocale::Language::Osage)
-            .define_value("Ossetic", QLocale::Language::Ossetic)
-            .define_value("Pahlavi", QLocale::Language::Pahlavi)
-            .define_value("Palauan", QLocale::Language::Palauan)
-            .define_value("Pali", QLocale::Language::Pali)
-            .define_value("Papiamento", QLocale::Language::Papiamento)
-            .define_value("Pashto", QLocale::Language::Pashto)
-            .define_value("Persian", QLocale::Language::Persian)
-            .define_value("Phoenician", QLocale::Language::Phoenician)
-            .define_value("Polish", QLocale::Language::Polish)
-            .define_value("Portuguese", QLocale::Language::Portuguese)
-            .define_value("Prussian", QLocale::Language::Prussian)
-            .define_value("Punjabi", QLocale::Language::Punjabi)
-            .define_value("Quechua", QLocale::Language::Quechua)
-            .define_value("Romanian", QLocale::Language::Romanian)
-            .define_value("Romansh", QLocale::Language::Romansh)
-            .define_value("Rombo", QLocale::Language::Rombo)
-            .define_value("Rundi", QLocale::Language::Rundi)
-            .define_value("Russian", QLocale::Language::Russian)
-            .define_value("Rwa", QLocale::Language::Rwa)
-            .define_value("Saho", QLocale::Language::Saho)
-            .define_value("Sakha", QLocale::Language::Sakha)
-            .define_value("Samburu", QLocale::Language::Samburu)
-            .define_value("Samoan", QLocale::Language::Samoan)
-            .define_value("Sango", QLocale::Language::Sango)
-            .define_value("Sangu", QLocale::Language::Sangu)
-            .define_value("Sanskrit", QLocale::Language::Sanskrit)
-            .define_value("Santali", QLocale::Language::Santali)
-            .define_value("Sardinian", QLocale::Language::Sardinian)
-            .define_value("Saurashtra", QLocale::Language::Saurashtra)
-            .define_value("Sena", QLocale::Language::Sena)
-            .define_value("Serbian", QLocale::Language::Serbian)
-            .define_value("Shambala", QLocale::Language::Shambala)
-            .define_value("Shona", QLocale::Language::Shona)
-            .define_value("SichuanYi", QLocale::Language::SichuanYi)
-            .define_value("Sicilian", QLocale::Language::Sicilian)
-            .define_value("Sidamo", QLocale::Language::Sidamo)
-            .define_value("Silesian", QLocale::Language::Silesian)
-            .define_value("Sindhi", QLocale::Language::Sindhi)
-            .define_value("Sinhala", QLocale::Language::Sinhala)
-            .define_value("SkoltSami", QLocale::Language::SkoltSami)
-            .define_value("Slovak", QLocale::Language::Slovak)
-            .define_value("Slovenian", QLocale::Language::Slovenian)
-            .define_value("Soga", QLocale::Language::Soga)
-            .define_value("Somali", QLocale::Language::Somali)
-            .define_value("SouthernKurdish", QLocale::Language::SouthernKurdish)
-            .define_value("SouthernSami", QLocale::Language::SouthernSami)
-            .define_value("SouthernSotho", QLocale::Language::SouthernSotho)
-            .define_value("SouthNdebele", QLocale::Language::SouthNdebele)
-            .define_value("Spanish", QLocale::Language::Spanish)
-            .define_value("StandardMoroccanTamazight", QLocale::Language::StandardMoroccanTamazight)
-            .define_value("Sundanese", QLocale::Language::Sundanese)
-            .define_value("Swahili", QLocale::Language::Swahili)
-            .define_value("Swati", QLocale::Language::Swati)
-            .define_value("Swedish", QLocale::Language::Swedish)
-            .define_value("SwissGerman", QLocale::Language::SwissGerman)
-            .define_value("Syriac", QLocale::Language::Syriac)
-            .define_value("Tachelhit", QLocale::Language::Tachelhit)
-            .define_value("Tahitian", QLocale::Language::Tahitian)
-            .define_value("TaiDam", QLocale::Language::TaiDam)
-            .define_value("Taita", QLocale::Language::Taita)
-            .define_value("Tajik", QLocale::Language::Tajik)
-            .define_value("Tamil", QLocale::Language::Tamil)
-            .define_value("Taroko", QLocale::Language::Taroko)
-            .define_value("Tasawaq", QLocale::Language::Tasawaq)
-            .define_value("Tatar", QLocale::Language::Tatar)
-            .define_value("Telugu", QLocale::Language::Telugu)
-            .define_value("Teso", QLocale::Language::Teso)
-            .define_value("Thai", QLocale::Language::Thai)
-            .define_value("Tibetan", QLocale::Language::Tibetan)
-            .define_value("Tigre", QLocale::Language::Tigre)
-            .define_value("Tigrinya", QLocale::Language::Tigrinya)
-            .define_value("TokelauLanguage", QLocale::Language::TokelauLanguage)
-            .define_value("TokPisin", QLocale::Language::TokPisin)
-            .define_value("Tongan", QLocale::Language::Tongan)
-            .define_value("Tsonga", QLocale::Language::Tsonga)
-            .define_value("Tswana", QLocale::Language::Tswana)
-            .define_value("Turkish", QLocale::Language::Turkish)
-            .define_value("Turkmen", QLocale::Language::Turkmen)
-            .define_value("TuvaluLanguage", QLocale::Language::TuvaluLanguage)
-            .define_value("Tyap", QLocale::Language::Tyap)
-            .define_value("Ugaritic", QLocale::Language::Ugaritic)
-            .define_value("Ukrainian", QLocale::Language::Ukrainian)
-            .define_value("UpperSorbian", QLocale::Language::UpperSorbian)
-            .define_value("Urdu", QLocale::Language::Urdu)
-            .define_value("Uyghur", QLocale::Language::Uyghur)
-            .define_value("Uzbek", QLocale::Language::Uzbek)
-            .define_value("Vai", QLocale::Language::Vai)
-            .define_value("Venda", QLocale::Language::Venda)
-            .define_value("Vietnamese", QLocale::Language::Vietnamese)
-            .define_value("Volapuk", QLocale::Language::Volapuk)
-            .define_value("Vunjo", QLocale::Language::Vunjo)
-            .define_value("Walloon", QLocale::Language::Walloon)
-            .define_value("Walser", QLocale::Language::Walser)
-            .define_value("Warlpiri", QLocale::Language::Warlpiri)
-            .define_value("Welsh", QLocale::Language::Welsh)
-            .define_value("WesternBalochi", QLocale::Language::WesternBalochi)
-            .define_value("WesternFrisian", QLocale::Language::WesternFrisian)
-            .define_value("Wolaytta", QLocale::Language::Wolaytta)
-            .define_value("Wolof", QLocale::Language::Wolof)
-            .define_value("Xhosa", QLocale::Language::Xhosa)
-            .define_value("Yangben", QLocale::Language::Yangben)
-            .define_value("Yiddish", QLocale::Language::Yiddish)
-            .define_value("Yoruba", QLocale::Language::Yoruba)
-            .define_value("Zarma", QLocale::Language::Zarma)
-            .define_value("Zhuang", QLocale::Language::Zhuang)
-            .define_value("Zulu", QLocale::Language::Zulu)
-            .define_value("Kaingang", QLocale::Language::Kaingang)
-            .define_value("Nheengatu", QLocale::Language::Nheengatu)
-            .define_value("Haryanvi", QLocale::Language::Haryanvi)
-            .define_value("NorthernFrisian", QLocale::Language::NorthernFrisian)
-            .define_value("Rajasthani", QLocale::Language::Rajasthani)
-            .define_value("Moksha", QLocale::Language::Moksha)
-            .define_value("TokiPona", QLocale::Language::TokiPona)
-            .define_value("Pijin", QLocale::Language::Pijin)
-            .define_value("Obolo", QLocale::Language::Obolo)
-            .define_value("Baluchi", QLocale::Language::Baluchi)
-            .define_value("Ligurian", QLocale::Language::Ligurian)
-            .define_value("Rohingya", QLocale::Language::Rohingya)
-            .define_value("Torwali", QLocale::Language::Torwali)
-            .define_value("Anii", QLocale::Language::Anii)
-            .define_value("Kangri", QLocale::Language::Kangri)
-            .define_value("Venetian", QLocale::Language::Venetian)
-            .define_value("Kuvi", QLocale::Language::Kuvi)
-            .define_value("KaraKalpak", QLocale::Language::KaraKalpak)
-            .define_value("SwampyCree", QLocale::Language::SwampyCree)
-            .define_value("Afan", QLocale::Language::Afan)
-            .define_value("Bengali", QLocale::Language::Bengali)
-            .define_value("Bhutani", QLocale::Language::Bhutani)
-            .define_value("Byelorussian", QLocale::Language::Byelorussian)
-            .define_value("Cambodian", QLocale::Language::Cambodian)
-            .define_value("CentralMoroccoTamazight", QLocale::Language::CentralMoroccoTamazight)
-            .define_value("Chewa", QLocale::Language::Chewa)
-            .define_value("Frisian", QLocale::Language::Frisian)
-            .define_value("Greenlandic", QLocale::Language::Greenlandic)
-            .define_value("Inupiak", QLocale::Language::Inupiak)
-            .define_value("Kirghiz", QLocale::Language::Kirghiz)
-            .define_value("Kurundi", QLocale::Language::Kurundi)
-            .define_value("Kwanyama", QLocale::Language::Kwanyama)
-            .define_value("Navaho", QLocale::Language::Navaho)
-            .define_value("Oriya", QLocale::Language::Oriya)
-            .define_value("RhaetoRomance", QLocale::Language::RhaetoRomance)
-            .define_value("Uighur", QLocale::Language::Uighur)
-            .define_value("Uigur", QLocale::Language::Uigur)
-            .define_value("Walamo", QLocale::Language::Walamo)
-            .define_value("LastLanguage", QLocale::Language::LastLanguage);
+        define_qenum_under<QLocale::Language>(rb_cQLocale, "Language");
+        define_qenum_value_under(rb_cQLocaleLanguage, "AnyLanguage", QLocale::Language::AnyLanguage);
+        define_qenum_value_under(rb_cQLocaleLanguage, "C", QLocale::Language::C);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Abkhazian", QLocale::Language::Abkhazian);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Afar", QLocale::Language::Afar);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Afrikaans", QLocale::Language::Afrikaans);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Aghem", QLocale::Language::Aghem);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Akan", QLocale::Language::Akan);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Akkadian", QLocale::Language::Akkadian);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Akoose", QLocale::Language::Akoose);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Albanian", QLocale::Language::Albanian);
+        define_qenum_value_under(rb_cQLocaleLanguage, "AmericanSignLanguage", QLocale::Language::AmericanSignLanguage);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Amharic", QLocale::Language::Amharic);
+        define_qenum_value_under(rb_cQLocaleLanguage, "AncientEgyptian", QLocale::Language::AncientEgyptian);
+        define_qenum_value_under(rb_cQLocaleLanguage, "AncientGreek", QLocale::Language::AncientGreek);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Arabic", QLocale::Language::Arabic);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Aragonese", QLocale::Language::Aragonese);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Aramaic", QLocale::Language::Aramaic);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Armenian", QLocale::Language::Armenian);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Assamese", QLocale::Language::Assamese);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Asturian", QLocale::Language::Asturian);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Asu", QLocale::Language::Asu);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Atsam", QLocale::Language::Atsam);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Avaric", QLocale::Language::Avaric);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Avestan", QLocale::Language::Avestan);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Aymara", QLocale::Language::Aymara);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Azerbaijani", QLocale::Language::Azerbaijani);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Bafia", QLocale::Language::Bafia);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Balinese", QLocale::Language::Balinese);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Bambara", QLocale::Language::Bambara);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Bamun", QLocale::Language::Bamun);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Bangla", QLocale::Language::Bangla);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Basaa", QLocale::Language::Basaa);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Bashkir", QLocale::Language::Bashkir);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Basque", QLocale::Language::Basque);
+        define_qenum_value_under(rb_cQLocaleLanguage, "BatakToba", QLocale::Language::BatakToba);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Belarusian", QLocale::Language::Belarusian);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Bemba", QLocale::Language::Bemba);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Bena", QLocale::Language::Bena);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Bhojpuri", QLocale::Language::Bhojpuri);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Bislama", QLocale::Language::Bislama);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Blin", QLocale::Language::Blin);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Bodo", QLocale::Language::Bodo);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Bosnian", QLocale::Language::Bosnian);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Breton", QLocale::Language::Breton);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Buginese", QLocale::Language::Buginese);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Bulgarian", QLocale::Language::Bulgarian);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Burmese", QLocale::Language::Burmese);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Cantonese", QLocale::Language::Cantonese);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Catalan", QLocale::Language::Catalan);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Cebuano", QLocale::Language::Cebuano);
+        define_qenum_value_under(rb_cQLocaleLanguage, "CentralAtlasTamazight", QLocale::Language::CentralAtlasTamazight);
+        define_qenum_value_under(rb_cQLocaleLanguage, "CentralKurdish", QLocale::Language::CentralKurdish);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Chakma", QLocale::Language::Chakma);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Chamorro", QLocale::Language::Chamorro);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Chechen", QLocale::Language::Chechen);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Cherokee", QLocale::Language::Cherokee);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Chickasaw", QLocale::Language::Chickasaw);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Chiga", QLocale::Language::Chiga);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Chinese", QLocale::Language::Chinese);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Church", QLocale::Language::Church);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Chuvash", QLocale::Language::Chuvash);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Colognian", QLocale::Language::Colognian);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Coptic", QLocale::Language::Coptic);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Cornish", QLocale::Language::Cornish);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Corsican", QLocale::Language::Corsican);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Cree", QLocale::Language::Cree);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Croatian", QLocale::Language::Croatian);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Czech", QLocale::Language::Czech);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Danish", QLocale::Language::Danish);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Divehi", QLocale::Language::Divehi);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Dogri", QLocale::Language::Dogri);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Duala", QLocale::Language::Duala);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Dutch", QLocale::Language::Dutch);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Dzongkha", QLocale::Language::Dzongkha);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Embu", QLocale::Language::Embu);
+        define_qenum_value_under(rb_cQLocaleLanguage, "English", QLocale::Language::English);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Erzya", QLocale::Language::Erzya);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Esperanto", QLocale::Language::Esperanto);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Estonian", QLocale::Language::Estonian);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Ewe", QLocale::Language::Ewe);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Ewondo", QLocale::Language::Ewondo);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Faroese", QLocale::Language::Faroese);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Fijian", QLocale::Language::Fijian);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Filipino", QLocale::Language::Filipino);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Finnish", QLocale::Language::Finnish);
+        define_qenum_value_under(rb_cQLocaleLanguage, "French", QLocale::Language::French);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Friulian", QLocale::Language::Friulian);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Fulah", QLocale::Language::Fulah);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Gaelic", QLocale::Language::Gaelic);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Ga", QLocale::Language::Ga);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Galician", QLocale::Language::Galician);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Ganda", QLocale::Language::Ganda);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Geez", QLocale::Language::Geez);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Georgian", QLocale::Language::Georgian);
+        define_qenum_value_under(rb_cQLocaleLanguage, "German", QLocale::Language::German);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Gothic", QLocale::Language::Gothic);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Greek", QLocale::Language::Greek);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Guarani", QLocale::Language::Guarani);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Gujarati", QLocale::Language::Gujarati);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Gusii", QLocale::Language::Gusii);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Haitian", QLocale::Language::Haitian);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Hausa", QLocale::Language::Hausa);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Hawaiian", QLocale::Language::Hawaiian);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Hebrew", QLocale::Language::Hebrew);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Herero", QLocale::Language::Herero);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Hindi", QLocale::Language::Hindi);
+        define_qenum_value_under(rb_cQLocaleLanguage, "HiriMotu", QLocale::Language::HiriMotu);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Hungarian", QLocale::Language::Hungarian);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Icelandic", QLocale::Language::Icelandic);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Ido", QLocale::Language::Ido);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Igbo", QLocale::Language::Igbo);
+        define_qenum_value_under(rb_cQLocaleLanguage, "InariSami", QLocale::Language::InariSami);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Indonesian", QLocale::Language::Indonesian);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Ingush", QLocale::Language::Ingush);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Interlingua", QLocale::Language::Interlingua);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Interlingue", QLocale::Language::Interlingue);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Inuktitut", QLocale::Language::Inuktitut);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Inupiaq", QLocale::Language::Inupiaq);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Irish", QLocale::Language::Irish);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Italian", QLocale::Language::Italian);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Japanese", QLocale::Language::Japanese);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Javanese", QLocale::Language::Javanese);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Jju", QLocale::Language::Jju);
+        define_qenum_value_under(rb_cQLocaleLanguage, "JolaFonyi", QLocale::Language::JolaFonyi);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Kabuverdianu", QLocale::Language::Kabuverdianu);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Kabyle", QLocale::Language::Kabyle);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Kako", QLocale::Language::Kako);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Kalaallisut", QLocale::Language::Kalaallisut);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Kalenjin", QLocale::Language::Kalenjin);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Kamba", QLocale::Language::Kamba);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Kannada", QLocale::Language::Kannada);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Kanuri", QLocale::Language::Kanuri);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Kashmiri", QLocale::Language::Kashmiri);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Kazakh", QLocale::Language::Kazakh);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Kenyang", QLocale::Language::Kenyang);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Khmer", QLocale::Language::Khmer);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Kiche", QLocale::Language::Kiche);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Kikuyu", QLocale::Language::Kikuyu);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Kinyarwanda", QLocale::Language::Kinyarwanda);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Komi", QLocale::Language::Komi);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Kongo", QLocale::Language::Kongo);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Konkani", QLocale::Language::Konkani);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Korean", QLocale::Language::Korean);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Koro", QLocale::Language::Koro);
+        define_qenum_value_under(rb_cQLocaleLanguage, "KoyraboroSenni", QLocale::Language::KoyraboroSenni);
+        define_qenum_value_under(rb_cQLocaleLanguage, "KoyraChiini", QLocale::Language::KoyraChiini);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Kpelle", QLocale::Language::Kpelle);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Kuanyama", QLocale::Language::Kuanyama);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Kurdish", QLocale::Language::Kurdish);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Kwasio", QLocale::Language::Kwasio);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Kyrgyz", QLocale::Language::Kyrgyz);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Lakota", QLocale::Language::Lakota);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Langi", QLocale::Language::Langi);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Lao", QLocale::Language::Lao);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Latin", QLocale::Language::Latin);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Latvian", QLocale::Language::Latvian);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Lezghian", QLocale::Language::Lezghian);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Limburgish", QLocale::Language::Limburgish);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Lingala", QLocale::Language::Lingala);
+        define_qenum_value_under(rb_cQLocaleLanguage, "LiteraryChinese", QLocale::Language::LiteraryChinese);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Lithuanian", QLocale::Language::Lithuanian);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Lojban", QLocale::Language::Lojban);
+        define_qenum_value_under(rb_cQLocaleLanguage, "LowerSorbian", QLocale::Language::LowerSorbian);
+        define_qenum_value_under(rb_cQLocaleLanguage, "LowGerman", QLocale::Language::LowGerman);
+        define_qenum_value_under(rb_cQLocaleLanguage, "LubaKatanga", QLocale::Language::LubaKatanga);
+        define_qenum_value_under(rb_cQLocaleLanguage, "LuleSami", QLocale::Language::LuleSami);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Luo", QLocale::Language::Luo);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Luxembourgish", QLocale::Language::Luxembourgish);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Luyia", QLocale::Language::Luyia);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Macedonian", QLocale::Language::Macedonian);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Machame", QLocale::Language::Machame);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Maithili", QLocale::Language::Maithili);
+        define_qenum_value_under(rb_cQLocaleLanguage, "MakhuwaMeetto", QLocale::Language::MakhuwaMeetto);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Makonde", QLocale::Language::Makonde);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Malagasy", QLocale::Language::Malagasy);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Malayalam", QLocale::Language::Malayalam);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Malay", QLocale::Language::Malay);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Maltese", QLocale::Language::Maltese);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Mandingo", QLocale::Language::Mandingo);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Manipuri", QLocale::Language::Manipuri);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Manx", QLocale::Language::Manx);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Maori", QLocale::Language::Maori);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Mapuche", QLocale::Language::Mapuche);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Marathi", QLocale::Language::Marathi);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Marshallese", QLocale::Language::Marshallese);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Masai", QLocale::Language::Masai);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Mazanderani", QLocale::Language::Mazanderani);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Mende", QLocale::Language::Mende);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Meru", QLocale::Language::Meru);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Meta", QLocale::Language::Meta);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Mohawk", QLocale::Language::Mohawk);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Mongolian", QLocale::Language::Mongolian);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Morisyen", QLocale::Language::Morisyen);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Mundang", QLocale::Language::Mundang);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Muscogee", QLocale::Language::Muscogee);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Nama", QLocale::Language::Nama);
+        define_qenum_value_under(rb_cQLocaleLanguage, "NauruLanguage", QLocale::Language::NauruLanguage);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Navajo", QLocale::Language::Navajo);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Ndonga", QLocale::Language::Ndonga);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Nepali", QLocale::Language::Nepali);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Newari", QLocale::Language::Newari);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Ngiemboon", QLocale::Language::Ngiemboon);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Ngomba", QLocale::Language::Ngomba);
+        define_qenum_value_under(rb_cQLocaleLanguage, "NigerianPidgin", QLocale::Language::NigerianPidgin);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Nko", QLocale::Language::Nko);
+        define_qenum_value_under(rb_cQLocaleLanguage, "NorthernLuri", QLocale::Language::NorthernLuri);
+        define_qenum_value_under(rb_cQLocaleLanguage, "NorthernSami", QLocale::Language::NorthernSami);
+        define_qenum_value_under(rb_cQLocaleLanguage, "NorthernSotho", QLocale::Language::NorthernSotho);
+        define_qenum_value_under(rb_cQLocaleLanguage, "NorthNdebele", QLocale::Language::NorthNdebele);
+        define_qenum_value_under(rb_cQLocaleLanguage, "NorwegianBokmal", QLocale::Language::NorwegianBokmal);
+        define_qenum_value_under(rb_cQLocaleLanguage, "NorwegianNynorsk", QLocale::Language::NorwegianNynorsk);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Nuer", QLocale::Language::Nuer);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Nyanja", QLocale::Language::Nyanja);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Nyankole", QLocale::Language::Nyankole);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Occitan", QLocale::Language::Occitan);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Odia", QLocale::Language::Odia);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Ojibwa", QLocale::Language::Ojibwa);
+        define_qenum_value_under(rb_cQLocaleLanguage, "OldIrish", QLocale::Language::OldIrish);
+        define_qenum_value_under(rb_cQLocaleLanguage, "OldNorse", QLocale::Language::OldNorse);
+        define_qenum_value_under(rb_cQLocaleLanguage, "OldPersian", QLocale::Language::OldPersian);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Oromo", QLocale::Language::Oromo);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Osage", QLocale::Language::Osage);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Ossetic", QLocale::Language::Ossetic);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Pahlavi", QLocale::Language::Pahlavi);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Palauan", QLocale::Language::Palauan);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Pali", QLocale::Language::Pali);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Papiamento", QLocale::Language::Papiamento);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Pashto", QLocale::Language::Pashto);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Persian", QLocale::Language::Persian);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Phoenician", QLocale::Language::Phoenician);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Polish", QLocale::Language::Polish);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Portuguese", QLocale::Language::Portuguese);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Prussian", QLocale::Language::Prussian);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Punjabi", QLocale::Language::Punjabi);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Quechua", QLocale::Language::Quechua);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Romanian", QLocale::Language::Romanian);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Romansh", QLocale::Language::Romansh);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Rombo", QLocale::Language::Rombo);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Rundi", QLocale::Language::Rundi);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Russian", QLocale::Language::Russian);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Rwa", QLocale::Language::Rwa);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Saho", QLocale::Language::Saho);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Sakha", QLocale::Language::Sakha);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Samburu", QLocale::Language::Samburu);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Samoan", QLocale::Language::Samoan);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Sango", QLocale::Language::Sango);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Sangu", QLocale::Language::Sangu);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Sanskrit", QLocale::Language::Sanskrit);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Santali", QLocale::Language::Santali);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Sardinian", QLocale::Language::Sardinian);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Saurashtra", QLocale::Language::Saurashtra);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Sena", QLocale::Language::Sena);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Serbian", QLocale::Language::Serbian);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Shambala", QLocale::Language::Shambala);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Shona", QLocale::Language::Shona);
+        define_qenum_value_under(rb_cQLocaleLanguage, "SichuanYi", QLocale::Language::SichuanYi);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Sicilian", QLocale::Language::Sicilian);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Sidamo", QLocale::Language::Sidamo);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Silesian", QLocale::Language::Silesian);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Sindhi", QLocale::Language::Sindhi);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Sinhala", QLocale::Language::Sinhala);
+        define_qenum_value_under(rb_cQLocaleLanguage, "SkoltSami", QLocale::Language::SkoltSami);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Slovak", QLocale::Language::Slovak);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Slovenian", QLocale::Language::Slovenian);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Soga", QLocale::Language::Soga);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Somali", QLocale::Language::Somali);
+        define_qenum_value_under(rb_cQLocaleLanguage, "SouthernKurdish", QLocale::Language::SouthernKurdish);
+        define_qenum_value_under(rb_cQLocaleLanguage, "SouthernSami", QLocale::Language::SouthernSami);
+        define_qenum_value_under(rb_cQLocaleLanguage, "SouthernSotho", QLocale::Language::SouthernSotho);
+        define_qenum_value_under(rb_cQLocaleLanguage, "SouthNdebele", QLocale::Language::SouthNdebele);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Spanish", QLocale::Language::Spanish);
+        define_qenum_value_under(rb_cQLocaleLanguage, "StandardMoroccanTamazight", QLocale::Language::StandardMoroccanTamazight);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Sundanese", QLocale::Language::Sundanese);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Swahili", QLocale::Language::Swahili);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Swati", QLocale::Language::Swati);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Swedish", QLocale::Language::Swedish);
+        define_qenum_value_under(rb_cQLocaleLanguage, "SwissGerman", QLocale::Language::SwissGerman);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Syriac", QLocale::Language::Syriac);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Tachelhit", QLocale::Language::Tachelhit);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Tahitian", QLocale::Language::Tahitian);
+        define_qenum_value_under(rb_cQLocaleLanguage, "TaiDam", QLocale::Language::TaiDam);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Taita", QLocale::Language::Taita);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Tajik", QLocale::Language::Tajik);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Tamil", QLocale::Language::Tamil);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Taroko", QLocale::Language::Taroko);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Tasawaq", QLocale::Language::Tasawaq);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Tatar", QLocale::Language::Tatar);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Telugu", QLocale::Language::Telugu);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Teso", QLocale::Language::Teso);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Thai", QLocale::Language::Thai);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Tibetan", QLocale::Language::Tibetan);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Tigre", QLocale::Language::Tigre);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Tigrinya", QLocale::Language::Tigrinya);
+        define_qenum_value_under(rb_cQLocaleLanguage, "TokelauLanguage", QLocale::Language::TokelauLanguage);
+        define_qenum_value_under(rb_cQLocaleLanguage, "TokPisin", QLocale::Language::TokPisin);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Tongan", QLocale::Language::Tongan);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Tsonga", QLocale::Language::Tsonga);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Tswana", QLocale::Language::Tswana);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Turkish", QLocale::Language::Turkish);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Turkmen", QLocale::Language::Turkmen);
+        define_qenum_value_under(rb_cQLocaleLanguage, "TuvaluLanguage", QLocale::Language::TuvaluLanguage);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Tyap", QLocale::Language::Tyap);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Ugaritic", QLocale::Language::Ugaritic);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Ukrainian", QLocale::Language::Ukrainian);
+        define_qenum_value_under(rb_cQLocaleLanguage, "UpperSorbian", QLocale::Language::UpperSorbian);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Urdu", QLocale::Language::Urdu);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Uyghur", QLocale::Language::Uyghur);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Uzbek", QLocale::Language::Uzbek);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Vai", QLocale::Language::Vai);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Venda", QLocale::Language::Venda);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Vietnamese", QLocale::Language::Vietnamese);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Volapuk", QLocale::Language::Volapuk);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Vunjo", QLocale::Language::Vunjo);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Walloon", QLocale::Language::Walloon);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Walser", QLocale::Language::Walser);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Warlpiri", QLocale::Language::Warlpiri);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Welsh", QLocale::Language::Welsh);
+        define_qenum_value_under(rb_cQLocaleLanguage, "WesternBalochi", QLocale::Language::WesternBalochi);
+        define_qenum_value_under(rb_cQLocaleLanguage, "WesternFrisian", QLocale::Language::WesternFrisian);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Wolaytta", QLocale::Language::Wolaytta);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Wolof", QLocale::Language::Wolof);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Xhosa", QLocale::Language::Xhosa);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Yangben", QLocale::Language::Yangben);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Yiddish", QLocale::Language::Yiddish);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Yoruba", QLocale::Language::Yoruba);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Zarma", QLocale::Language::Zarma);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Zhuang", QLocale::Language::Zhuang);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Zulu", QLocale::Language::Zulu);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Kaingang", QLocale::Language::Kaingang);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Nheengatu", QLocale::Language::Nheengatu);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Haryanvi", QLocale::Language::Haryanvi);
+        define_qenum_value_under(rb_cQLocaleLanguage, "NorthernFrisian", QLocale::Language::NorthernFrisian);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Rajasthani", QLocale::Language::Rajasthani);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Moksha", QLocale::Language::Moksha);
+        define_qenum_value_under(rb_cQLocaleLanguage, "TokiPona", QLocale::Language::TokiPona);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Pijin", QLocale::Language::Pijin);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Obolo", QLocale::Language::Obolo);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Baluchi", QLocale::Language::Baluchi);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Ligurian", QLocale::Language::Ligurian);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Rohingya", QLocale::Language::Rohingya);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Torwali", QLocale::Language::Torwali);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Anii", QLocale::Language::Anii);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Kangri", QLocale::Language::Kangri);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Venetian", QLocale::Language::Venetian);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Kuvi", QLocale::Language::Kuvi);
+        define_qenum_value_under(rb_cQLocaleLanguage, "KaraKalpak", QLocale::Language::KaraKalpak);
+        define_qenum_value_under(rb_cQLocaleLanguage, "SwampyCree", QLocale::Language::SwampyCree);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Afan", QLocale::Language::Afan);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Bengali", QLocale::Language::Bengali);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Bhutani", QLocale::Language::Bhutani);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Byelorussian", QLocale::Language::Byelorussian);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Cambodian", QLocale::Language::Cambodian);
+        define_qenum_value_under(rb_cQLocaleLanguage, "CentralMoroccoTamazight", QLocale::Language::CentralMoroccoTamazight);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Chewa", QLocale::Language::Chewa);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Frisian", QLocale::Language::Frisian);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Greenlandic", QLocale::Language::Greenlandic);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Inupiak", QLocale::Language::Inupiak);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Kirghiz", QLocale::Language::Kirghiz);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Kurundi", QLocale::Language::Kurundi);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Kwanyama", QLocale::Language::Kwanyama);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Navaho", QLocale::Language::Navaho);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Oriya", QLocale::Language::Oriya);
+        define_qenum_value_under(rb_cQLocaleLanguage, "RhaetoRomance", QLocale::Language::RhaetoRomance);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Uighur", QLocale::Language::Uighur);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Uigur", QLocale::Language::Uigur);
+        define_qenum_value_under(rb_cQLocaleLanguage, "Walamo", QLocale::Language::Walamo);
+        define_qenum_value_under(rb_cQLocaleLanguage, "LastLanguage", QLocale::Language::LastLanguage);
 
-    Enum<QLocale::Script> rb_cQLocaleScript =
+    Data_Type<QLocale::Script> rb_cQLocaleScript =
         // RubyQt6::QtCore::QLocale::Script
-        define_qenum_under<QLocale::Script>("Script", rb_cQLocale)
-            .define_value("AnyScript", QLocale::Script::AnyScript)
-            .define_value("AdlamScript", QLocale::Script::AdlamScript)
-            .define_value("AhomScript", QLocale::Script::AhomScript)
-            .define_value("AnatolianHieroglyphsScript", QLocale::Script::AnatolianHieroglyphsScript)
-            .define_value("ArabicScript", QLocale::Script::ArabicScript)
-            .define_value("ArmenianScript", QLocale::Script::ArmenianScript)
-            .define_value("AvestanScript", QLocale::Script::AvestanScript)
-            .define_value("BalineseScript", QLocale::Script::BalineseScript)
-            .define_value("BamumScript", QLocale::Script::BamumScript)
-            .define_value("BanglaScript", QLocale::Script::BanglaScript)
-            .define_value("BassaVahScript", QLocale::Script::BassaVahScript)
-            .define_value("BatakScript", QLocale::Script::BatakScript)
-            .define_value("BhaiksukiScript", QLocale::Script::BhaiksukiScript)
-            .define_value("BopomofoScript", QLocale::Script::BopomofoScript)
-            .define_value("BrahmiScript", QLocale::Script::BrahmiScript)
-            .define_value("BrailleScript", QLocale::Script::BrailleScript)
-            .define_value("BugineseScript", QLocale::Script::BugineseScript)
-            .define_value("BuhidScript", QLocale::Script::BuhidScript)
-            .define_value("CanadianAboriginalScript", QLocale::Script::CanadianAboriginalScript)
-            .define_value("CarianScript", QLocale::Script::CarianScript)
-            .define_value("CaucasianAlbanianScript", QLocale::Script::CaucasianAlbanianScript)
-            .define_value("ChakmaScript", QLocale::Script::ChakmaScript)
-            .define_value("ChamScript", QLocale::Script::ChamScript)
-            .define_value("CherokeeScript", QLocale::Script::CherokeeScript)
-            .define_value("CopticScript", QLocale::Script::CopticScript)
-            .define_value("CuneiformScript", QLocale::Script::CuneiformScript)
-            .define_value("CypriotScript", QLocale::Script::CypriotScript)
-            .define_value("CyrillicScript", QLocale::Script::CyrillicScript)
-            .define_value("DeseretScript", QLocale::Script::DeseretScript)
-            .define_value("DevanagariScript", QLocale::Script::DevanagariScript)
-            .define_value("DuployanScript", QLocale::Script::DuployanScript)
-            .define_value("EgyptianHieroglyphsScript", QLocale::Script::EgyptianHieroglyphsScript)
-            .define_value("ElbasanScript", QLocale::Script::ElbasanScript)
-            .define_value("EthiopicScript", QLocale::Script::EthiopicScript)
-            .define_value("FraserScript", QLocale::Script::FraserScript)
-            .define_value("GeorgianScript", QLocale::Script::GeorgianScript)
-            .define_value("GlagoliticScript", QLocale::Script::GlagoliticScript)
-            .define_value("GothicScript", QLocale::Script::GothicScript)
-            .define_value("GranthaScript", QLocale::Script::GranthaScript)
-            .define_value("GreekScript", QLocale::Script::GreekScript)
-            .define_value("GujaratiScript", QLocale::Script::GujaratiScript)
-            .define_value("GurmukhiScript", QLocale::Script::GurmukhiScript)
-            .define_value("HangulScript", QLocale::Script::HangulScript)
-            .define_value("HanScript", QLocale::Script::HanScript)
-            .define_value("HanunooScript", QLocale::Script::HanunooScript)
-            .define_value("HanWithBopomofoScript", QLocale::Script::HanWithBopomofoScript)
-            .define_value("HatranScript", QLocale::Script::HatranScript)
-            .define_value("HebrewScript", QLocale::Script::HebrewScript)
-            .define_value("HiraganaScript", QLocale::Script::HiraganaScript)
-            .define_value("ImperialAramaicScript", QLocale::Script::ImperialAramaicScript)
-            .define_value("InscriptionalPahlaviScript", QLocale::Script::InscriptionalPahlaviScript)
-            .define_value("InscriptionalParthianScript", QLocale::Script::InscriptionalParthianScript)
-            .define_value("JamoScript", QLocale::Script::JamoScript)
-            .define_value("JapaneseScript", QLocale::Script::JapaneseScript)
-            .define_value("JavaneseScript", QLocale::Script::JavaneseScript)
-            .define_value("KaithiScript", QLocale::Script::KaithiScript)
-            .define_value("KannadaScript", QLocale::Script::KannadaScript)
-            .define_value("KatakanaScript", QLocale::Script::KatakanaScript)
-            .define_value("KayahLiScript", QLocale::Script::KayahLiScript)
-            .define_value("KharoshthiScript", QLocale::Script::KharoshthiScript)
-            .define_value("KhmerScript", QLocale::Script::KhmerScript)
-            .define_value("KhojkiScript", QLocale::Script::KhojkiScript)
-            .define_value("KhudawadiScript", QLocale::Script::KhudawadiScript)
-            .define_value("KoreanScript", QLocale::Script::KoreanScript)
-            .define_value("LannaScript", QLocale::Script::LannaScript)
-            .define_value("LaoScript", QLocale::Script::LaoScript)
-            .define_value("LatinScript", QLocale::Script::LatinScript)
-            .define_value("LepchaScript", QLocale::Script::LepchaScript)
-            .define_value("LimbuScript", QLocale::Script::LimbuScript)
-            .define_value("LinearAScript", QLocale::Script::LinearAScript)
-            .define_value("LinearBScript", QLocale::Script::LinearBScript)
-            .define_value("LycianScript", QLocale::Script::LycianScript)
-            .define_value("LydianScript", QLocale::Script::LydianScript)
-            .define_value("MahajaniScript", QLocale::Script::MahajaniScript)
-            .define_value("MalayalamScript", QLocale::Script::MalayalamScript)
-            .define_value("MandaeanScript", QLocale::Script::MandaeanScript)
-            .define_value("ManichaeanScript", QLocale::Script::ManichaeanScript)
-            .define_value("MarchenScript", QLocale::Script::MarchenScript)
-            .define_value("MeiteiMayekScript", QLocale::Script::MeiteiMayekScript)
-            .define_value("MendeScript", QLocale::Script::MendeScript)
-            .define_value("MeroiticCursiveScript", QLocale::Script::MeroiticCursiveScript)
-            .define_value("MeroiticScript", QLocale::Script::MeroiticScript)
-            .define_value("ModiScript", QLocale::Script::ModiScript)
-            .define_value("MongolianScript", QLocale::Script::MongolianScript)
-            .define_value("MroScript", QLocale::Script::MroScript)
-            .define_value("MultaniScript", QLocale::Script::MultaniScript)
-            .define_value("MyanmarScript", QLocale::Script::MyanmarScript)
-            .define_value("NabataeanScript", QLocale::Script::NabataeanScript)
-            .define_value("NewaScript", QLocale::Script::NewaScript)
-            .define_value("NewTaiLueScript", QLocale::Script::NewTaiLueScript)
-            .define_value("NkoScript", QLocale::Script::NkoScript)
-            .define_value("OdiaScript", QLocale::Script::OdiaScript)
-            .define_value("OghamScript", QLocale::Script::OghamScript)
-            .define_value("OlChikiScript", QLocale::Script::OlChikiScript)
-            .define_value("OldHungarianScript", QLocale::Script::OldHungarianScript)
-            .define_value("OldItalicScript", QLocale::Script::OldItalicScript)
-            .define_value("OldNorthArabianScript", QLocale::Script::OldNorthArabianScript)
-            .define_value("OldPermicScript", QLocale::Script::OldPermicScript)
-            .define_value("OldPersianScript", QLocale::Script::OldPersianScript)
-            .define_value("OldSouthArabianScript", QLocale::Script::OldSouthArabianScript)
-            .define_value("OrkhonScript", QLocale::Script::OrkhonScript)
-            .define_value("OsageScript", QLocale::Script::OsageScript)
-            .define_value("OsmanyaScript", QLocale::Script::OsmanyaScript)
-            .define_value("PahawhHmongScript", QLocale::Script::PahawhHmongScript)
-            .define_value("PalmyreneScript", QLocale::Script::PalmyreneScript)
-            .define_value("PauCinHauScript", QLocale::Script::PauCinHauScript)
-            .define_value("PhagsPaScript", QLocale::Script::PhagsPaScript)
-            .define_value("PhoenicianScript", QLocale::Script::PhoenicianScript)
-            .define_value("PollardPhoneticScript", QLocale::Script::PollardPhoneticScript)
-            .define_value("PsalterPahlaviScript", QLocale::Script::PsalterPahlaviScript)
-            .define_value("RejangScript", QLocale::Script::RejangScript)
-            .define_value("RunicScript", QLocale::Script::RunicScript)
-            .define_value("SamaritanScript", QLocale::Script::SamaritanScript)
-            .define_value("SaurashtraScript", QLocale::Script::SaurashtraScript)
-            .define_value("SharadaScript", QLocale::Script::SharadaScript)
-            .define_value("ShavianScript", QLocale::Script::ShavianScript)
-            .define_value("SiddhamScript", QLocale::Script::SiddhamScript)
-            .define_value("SignWritingScript", QLocale::Script::SignWritingScript)
-            .define_value("SimplifiedHanScript", QLocale::Script::SimplifiedHanScript)
-            .define_value("SinhalaScript", QLocale::Script::SinhalaScript)
-            .define_value("SoraSompengScript", QLocale::Script::SoraSompengScript)
-            .define_value("SundaneseScript", QLocale::Script::SundaneseScript)
-            .define_value("SylotiNagriScript", QLocale::Script::SylotiNagriScript)
-            .define_value("SyriacScript", QLocale::Script::SyriacScript)
-            .define_value("TagalogScript", QLocale::Script::TagalogScript)
-            .define_value("TagbanwaScript", QLocale::Script::TagbanwaScript)
-            .define_value("TaiLeScript", QLocale::Script::TaiLeScript)
-            .define_value("TaiVietScript", QLocale::Script::TaiVietScript)
-            .define_value("TakriScript", QLocale::Script::TakriScript)
-            .define_value("TamilScript", QLocale::Script::TamilScript)
-            .define_value("TangutScript", QLocale::Script::TangutScript)
-            .define_value("TeluguScript", QLocale::Script::TeluguScript)
-            .define_value("ThaanaScript", QLocale::Script::ThaanaScript)
-            .define_value("ThaiScript", QLocale::Script::ThaiScript)
-            .define_value("TibetanScript", QLocale::Script::TibetanScript)
-            .define_value("TifinaghScript", QLocale::Script::TifinaghScript)
-            .define_value("TirhutaScript", QLocale::Script::TirhutaScript)
-            .define_value("TraditionalHanScript", QLocale::Script::TraditionalHanScript)
-            .define_value("UgariticScript", QLocale::Script::UgariticScript)
-            .define_value("VaiScript", QLocale::Script::VaiScript)
-            .define_value("VarangKshitiScript", QLocale::Script::VarangKshitiScript)
-            .define_value("YiScript", QLocale::Script::YiScript)
-            .define_value("HanifiScript", QLocale::Script::HanifiScript)
-            .define_value("BengaliScript", QLocale::Script::BengaliScript)
-            .define_value("MendeKikakuiScript", QLocale::Script::MendeKikakuiScript)
-            .define_value("OriyaScript", QLocale::Script::OriyaScript)
-            .define_value("SimplifiedChineseScript", QLocale::Script::SimplifiedChineseScript)
-            .define_value("TraditionalChineseScript", QLocale::Script::TraditionalChineseScript)
-            .define_value("LastScript", QLocale::Script::LastScript);
+        define_qenum_under<QLocale::Script>(rb_cQLocale, "Script");
+        define_qenum_value_under(rb_cQLocaleScript, "AnyScript", QLocale::Script::AnyScript);
+        define_qenum_value_under(rb_cQLocaleScript, "AdlamScript", QLocale::Script::AdlamScript);
+        define_qenum_value_under(rb_cQLocaleScript, "AhomScript", QLocale::Script::AhomScript);
+        define_qenum_value_under(rb_cQLocaleScript, "AnatolianHieroglyphsScript", QLocale::Script::AnatolianHieroglyphsScript);
+        define_qenum_value_under(rb_cQLocaleScript, "ArabicScript", QLocale::Script::ArabicScript);
+        define_qenum_value_under(rb_cQLocaleScript, "ArmenianScript", QLocale::Script::ArmenianScript);
+        define_qenum_value_under(rb_cQLocaleScript, "AvestanScript", QLocale::Script::AvestanScript);
+        define_qenum_value_under(rb_cQLocaleScript, "BalineseScript", QLocale::Script::BalineseScript);
+        define_qenum_value_under(rb_cQLocaleScript, "BamumScript", QLocale::Script::BamumScript);
+        define_qenum_value_under(rb_cQLocaleScript, "BanglaScript", QLocale::Script::BanglaScript);
+        define_qenum_value_under(rb_cQLocaleScript, "BassaVahScript", QLocale::Script::BassaVahScript);
+        define_qenum_value_under(rb_cQLocaleScript, "BatakScript", QLocale::Script::BatakScript);
+        define_qenum_value_under(rb_cQLocaleScript, "BhaiksukiScript", QLocale::Script::BhaiksukiScript);
+        define_qenum_value_under(rb_cQLocaleScript, "BopomofoScript", QLocale::Script::BopomofoScript);
+        define_qenum_value_under(rb_cQLocaleScript, "BrahmiScript", QLocale::Script::BrahmiScript);
+        define_qenum_value_under(rb_cQLocaleScript, "BrailleScript", QLocale::Script::BrailleScript);
+        define_qenum_value_under(rb_cQLocaleScript, "BugineseScript", QLocale::Script::BugineseScript);
+        define_qenum_value_under(rb_cQLocaleScript, "BuhidScript", QLocale::Script::BuhidScript);
+        define_qenum_value_under(rb_cQLocaleScript, "CanadianAboriginalScript", QLocale::Script::CanadianAboriginalScript);
+        define_qenum_value_under(rb_cQLocaleScript, "CarianScript", QLocale::Script::CarianScript);
+        define_qenum_value_under(rb_cQLocaleScript, "CaucasianAlbanianScript", QLocale::Script::CaucasianAlbanianScript);
+        define_qenum_value_under(rb_cQLocaleScript, "ChakmaScript", QLocale::Script::ChakmaScript);
+        define_qenum_value_under(rb_cQLocaleScript, "ChamScript", QLocale::Script::ChamScript);
+        define_qenum_value_under(rb_cQLocaleScript, "CherokeeScript", QLocale::Script::CherokeeScript);
+        define_qenum_value_under(rb_cQLocaleScript, "CopticScript", QLocale::Script::CopticScript);
+        define_qenum_value_under(rb_cQLocaleScript, "CuneiformScript", QLocale::Script::CuneiformScript);
+        define_qenum_value_under(rb_cQLocaleScript, "CypriotScript", QLocale::Script::CypriotScript);
+        define_qenum_value_under(rb_cQLocaleScript, "CyrillicScript", QLocale::Script::CyrillicScript);
+        define_qenum_value_under(rb_cQLocaleScript, "DeseretScript", QLocale::Script::DeseretScript);
+        define_qenum_value_under(rb_cQLocaleScript, "DevanagariScript", QLocale::Script::DevanagariScript);
+        define_qenum_value_under(rb_cQLocaleScript, "DuployanScript", QLocale::Script::DuployanScript);
+        define_qenum_value_under(rb_cQLocaleScript, "EgyptianHieroglyphsScript", QLocale::Script::EgyptianHieroglyphsScript);
+        define_qenum_value_under(rb_cQLocaleScript, "ElbasanScript", QLocale::Script::ElbasanScript);
+        define_qenum_value_under(rb_cQLocaleScript, "EthiopicScript", QLocale::Script::EthiopicScript);
+        define_qenum_value_under(rb_cQLocaleScript, "FraserScript", QLocale::Script::FraserScript);
+        define_qenum_value_under(rb_cQLocaleScript, "GeorgianScript", QLocale::Script::GeorgianScript);
+        define_qenum_value_under(rb_cQLocaleScript, "GlagoliticScript", QLocale::Script::GlagoliticScript);
+        define_qenum_value_under(rb_cQLocaleScript, "GothicScript", QLocale::Script::GothicScript);
+        define_qenum_value_under(rb_cQLocaleScript, "GranthaScript", QLocale::Script::GranthaScript);
+        define_qenum_value_under(rb_cQLocaleScript, "GreekScript", QLocale::Script::GreekScript);
+        define_qenum_value_under(rb_cQLocaleScript, "GujaratiScript", QLocale::Script::GujaratiScript);
+        define_qenum_value_under(rb_cQLocaleScript, "GurmukhiScript", QLocale::Script::GurmukhiScript);
+        define_qenum_value_under(rb_cQLocaleScript, "HangulScript", QLocale::Script::HangulScript);
+        define_qenum_value_under(rb_cQLocaleScript, "HanScript", QLocale::Script::HanScript);
+        define_qenum_value_under(rb_cQLocaleScript, "HanunooScript", QLocale::Script::HanunooScript);
+        define_qenum_value_under(rb_cQLocaleScript, "HanWithBopomofoScript", QLocale::Script::HanWithBopomofoScript);
+        define_qenum_value_under(rb_cQLocaleScript, "HatranScript", QLocale::Script::HatranScript);
+        define_qenum_value_under(rb_cQLocaleScript, "HebrewScript", QLocale::Script::HebrewScript);
+        define_qenum_value_under(rb_cQLocaleScript, "HiraganaScript", QLocale::Script::HiraganaScript);
+        define_qenum_value_under(rb_cQLocaleScript, "ImperialAramaicScript", QLocale::Script::ImperialAramaicScript);
+        define_qenum_value_under(rb_cQLocaleScript, "InscriptionalPahlaviScript", QLocale::Script::InscriptionalPahlaviScript);
+        define_qenum_value_under(rb_cQLocaleScript, "InscriptionalParthianScript", QLocale::Script::InscriptionalParthianScript);
+        define_qenum_value_under(rb_cQLocaleScript, "JamoScript", QLocale::Script::JamoScript);
+        define_qenum_value_under(rb_cQLocaleScript, "JapaneseScript", QLocale::Script::JapaneseScript);
+        define_qenum_value_under(rb_cQLocaleScript, "JavaneseScript", QLocale::Script::JavaneseScript);
+        define_qenum_value_under(rb_cQLocaleScript, "KaithiScript", QLocale::Script::KaithiScript);
+        define_qenum_value_under(rb_cQLocaleScript, "KannadaScript", QLocale::Script::KannadaScript);
+        define_qenum_value_under(rb_cQLocaleScript, "KatakanaScript", QLocale::Script::KatakanaScript);
+        define_qenum_value_under(rb_cQLocaleScript, "KayahLiScript", QLocale::Script::KayahLiScript);
+        define_qenum_value_under(rb_cQLocaleScript, "KharoshthiScript", QLocale::Script::KharoshthiScript);
+        define_qenum_value_under(rb_cQLocaleScript, "KhmerScript", QLocale::Script::KhmerScript);
+        define_qenum_value_under(rb_cQLocaleScript, "KhojkiScript", QLocale::Script::KhojkiScript);
+        define_qenum_value_under(rb_cQLocaleScript, "KhudawadiScript", QLocale::Script::KhudawadiScript);
+        define_qenum_value_under(rb_cQLocaleScript, "KoreanScript", QLocale::Script::KoreanScript);
+        define_qenum_value_under(rb_cQLocaleScript, "LannaScript", QLocale::Script::LannaScript);
+        define_qenum_value_under(rb_cQLocaleScript, "LaoScript", QLocale::Script::LaoScript);
+        define_qenum_value_under(rb_cQLocaleScript, "LatinScript", QLocale::Script::LatinScript);
+        define_qenum_value_under(rb_cQLocaleScript, "LepchaScript", QLocale::Script::LepchaScript);
+        define_qenum_value_under(rb_cQLocaleScript, "LimbuScript", QLocale::Script::LimbuScript);
+        define_qenum_value_under(rb_cQLocaleScript, "LinearAScript", QLocale::Script::LinearAScript);
+        define_qenum_value_under(rb_cQLocaleScript, "LinearBScript", QLocale::Script::LinearBScript);
+        define_qenum_value_under(rb_cQLocaleScript, "LycianScript", QLocale::Script::LycianScript);
+        define_qenum_value_under(rb_cQLocaleScript, "LydianScript", QLocale::Script::LydianScript);
+        define_qenum_value_under(rb_cQLocaleScript, "MahajaniScript", QLocale::Script::MahajaniScript);
+        define_qenum_value_under(rb_cQLocaleScript, "MalayalamScript", QLocale::Script::MalayalamScript);
+        define_qenum_value_under(rb_cQLocaleScript, "MandaeanScript", QLocale::Script::MandaeanScript);
+        define_qenum_value_under(rb_cQLocaleScript, "ManichaeanScript", QLocale::Script::ManichaeanScript);
+        define_qenum_value_under(rb_cQLocaleScript, "MarchenScript", QLocale::Script::MarchenScript);
+        define_qenum_value_under(rb_cQLocaleScript, "MeiteiMayekScript", QLocale::Script::MeiteiMayekScript);
+        define_qenum_value_under(rb_cQLocaleScript, "MendeScript", QLocale::Script::MendeScript);
+        define_qenum_value_under(rb_cQLocaleScript, "MeroiticCursiveScript", QLocale::Script::MeroiticCursiveScript);
+        define_qenum_value_under(rb_cQLocaleScript, "MeroiticScript", QLocale::Script::MeroiticScript);
+        define_qenum_value_under(rb_cQLocaleScript, "ModiScript", QLocale::Script::ModiScript);
+        define_qenum_value_under(rb_cQLocaleScript, "MongolianScript", QLocale::Script::MongolianScript);
+        define_qenum_value_under(rb_cQLocaleScript, "MroScript", QLocale::Script::MroScript);
+        define_qenum_value_under(rb_cQLocaleScript, "MultaniScript", QLocale::Script::MultaniScript);
+        define_qenum_value_under(rb_cQLocaleScript, "MyanmarScript", QLocale::Script::MyanmarScript);
+        define_qenum_value_under(rb_cQLocaleScript, "NabataeanScript", QLocale::Script::NabataeanScript);
+        define_qenum_value_under(rb_cQLocaleScript, "NewaScript", QLocale::Script::NewaScript);
+        define_qenum_value_under(rb_cQLocaleScript, "NewTaiLueScript", QLocale::Script::NewTaiLueScript);
+        define_qenum_value_under(rb_cQLocaleScript, "NkoScript", QLocale::Script::NkoScript);
+        define_qenum_value_under(rb_cQLocaleScript, "OdiaScript", QLocale::Script::OdiaScript);
+        define_qenum_value_under(rb_cQLocaleScript, "OghamScript", QLocale::Script::OghamScript);
+        define_qenum_value_under(rb_cQLocaleScript, "OlChikiScript", QLocale::Script::OlChikiScript);
+        define_qenum_value_under(rb_cQLocaleScript, "OldHungarianScript", QLocale::Script::OldHungarianScript);
+        define_qenum_value_under(rb_cQLocaleScript, "OldItalicScript", QLocale::Script::OldItalicScript);
+        define_qenum_value_under(rb_cQLocaleScript, "OldNorthArabianScript", QLocale::Script::OldNorthArabianScript);
+        define_qenum_value_under(rb_cQLocaleScript, "OldPermicScript", QLocale::Script::OldPermicScript);
+        define_qenum_value_under(rb_cQLocaleScript, "OldPersianScript", QLocale::Script::OldPersianScript);
+        define_qenum_value_under(rb_cQLocaleScript, "OldSouthArabianScript", QLocale::Script::OldSouthArabianScript);
+        define_qenum_value_under(rb_cQLocaleScript, "OrkhonScript", QLocale::Script::OrkhonScript);
+        define_qenum_value_under(rb_cQLocaleScript, "OsageScript", QLocale::Script::OsageScript);
+        define_qenum_value_under(rb_cQLocaleScript, "OsmanyaScript", QLocale::Script::OsmanyaScript);
+        define_qenum_value_under(rb_cQLocaleScript, "PahawhHmongScript", QLocale::Script::PahawhHmongScript);
+        define_qenum_value_under(rb_cQLocaleScript, "PalmyreneScript", QLocale::Script::PalmyreneScript);
+        define_qenum_value_under(rb_cQLocaleScript, "PauCinHauScript", QLocale::Script::PauCinHauScript);
+        define_qenum_value_under(rb_cQLocaleScript, "PhagsPaScript", QLocale::Script::PhagsPaScript);
+        define_qenum_value_under(rb_cQLocaleScript, "PhoenicianScript", QLocale::Script::PhoenicianScript);
+        define_qenum_value_under(rb_cQLocaleScript, "PollardPhoneticScript", QLocale::Script::PollardPhoneticScript);
+        define_qenum_value_under(rb_cQLocaleScript, "PsalterPahlaviScript", QLocale::Script::PsalterPahlaviScript);
+        define_qenum_value_under(rb_cQLocaleScript, "RejangScript", QLocale::Script::RejangScript);
+        define_qenum_value_under(rb_cQLocaleScript, "RunicScript", QLocale::Script::RunicScript);
+        define_qenum_value_under(rb_cQLocaleScript, "SamaritanScript", QLocale::Script::SamaritanScript);
+        define_qenum_value_under(rb_cQLocaleScript, "SaurashtraScript", QLocale::Script::SaurashtraScript);
+        define_qenum_value_under(rb_cQLocaleScript, "SharadaScript", QLocale::Script::SharadaScript);
+        define_qenum_value_under(rb_cQLocaleScript, "ShavianScript", QLocale::Script::ShavianScript);
+        define_qenum_value_under(rb_cQLocaleScript, "SiddhamScript", QLocale::Script::SiddhamScript);
+        define_qenum_value_under(rb_cQLocaleScript, "SignWritingScript", QLocale::Script::SignWritingScript);
+        define_qenum_value_under(rb_cQLocaleScript, "SimplifiedHanScript", QLocale::Script::SimplifiedHanScript);
+        define_qenum_value_under(rb_cQLocaleScript, "SinhalaScript", QLocale::Script::SinhalaScript);
+        define_qenum_value_under(rb_cQLocaleScript, "SoraSompengScript", QLocale::Script::SoraSompengScript);
+        define_qenum_value_under(rb_cQLocaleScript, "SundaneseScript", QLocale::Script::SundaneseScript);
+        define_qenum_value_under(rb_cQLocaleScript, "SylotiNagriScript", QLocale::Script::SylotiNagriScript);
+        define_qenum_value_under(rb_cQLocaleScript, "SyriacScript", QLocale::Script::SyriacScript);
+        define_qenum_value_under(rb_cQLocaleScript, "TagalogScript", QLocale::Script::TagalogScript);
+        define_qenum_value_under(rb_cQLocaleScript, "TagbanwaScript", QLocale::Script::TagbanwaScript);
+        define_qenum_value_under(rb_cQLocaleScript, "TaiLeScript", QLocale::Script::TaiLeScript);
+        define_qenum_value_under(rb_cQLocaleScript, "TaiVietScript", QLocale::Script::TaiVietScript);
+        define_qenum_value_under(rb_cQLocaleScript, "TakriScript", QLocale::Script::TakriScript);
+        define_qenum_value_under(rb_cQLocaleScript, "TamilScript", QLocale::Script::TamilScript);
+        define_qenum_value_under(rb_cQLocaleScript, "TangutScript", QLocale::Script::TangutScript);
+        define_qenum_value_under(rb_cQLocaleScript, "TeluguScript", QLocale::Script::TeluguScript);
+        define_qenum_value_under(rb_cQLocaleScript, "ThaanaScript", QLocale::Script::ThaanaScript);
+        define_qenum_value_under(rb_cQLocaleScript, "ThaiScript", QLocale::Script::ThaiScript);
+        define_qenum_value_under(rb_cQLocaleScript, "TibetanScript", QLocale::Script::TibetanScript);
+        define_qenum_value_under(rb_cQLocaleScript, "TifinaghScript", QLocale::Script::TifinaghScript);
+        define_qenum_value_under(rb_cQLocaleScript, "TirhutaScript", QLocale::Script::TirhutaScript);
+        define_qenum_value_under(rb_cQLocaleScript, "TraditionalHanScript", QLocale::Script::TraditionalHanScript);
+        define_qenum_value_under(rb_cQLocaleScript, "UgariticScript", QLocale::Script::UgariticScript);
+        define_qenum_value_under(rb_cQLocaleScript, "VaiScript", QLocale::Script::VaiScript);
+        define_qenum_value_under(rb_cQLocaleScript, "VarangKshitiScript", QLocale::Script::VarangKshitiScript);
+        define_qenum_value_under(rb_cQLocaleScript, "YiScript", QLocale::Script::YiScript);
+        define_qenum_value_under(rb_cQLocaleScript, "HanifiScript", QLocale::Script::HanifiScript);
+        define_qenum_value_under(rb_cQLocaleScript, "BengaliScript", QLocale::Script::BengaliScript);
+        define_qenum_value_under(rb_cQLocaleScript, "MendeKikakuiScript", QLocale::Script::MendeKikakuiScript);
+        define_qenum_value_under(rb_cQLocaleScript, "OriyaScript", QLocale::Script::OriyaScript);
+        define_qenum_value_under(rb_cQLocaleScript, "SimplifiedChineseScript", QLocale::Script::SimplifiedChineseScript);
+        define_qenum_value_under(rb_cQLocaleScript, "TraditionalChineseScript", QLocale::Script::TraditionalChineseScript);
+        define_qenum_value_under(rb_cQLocaleScript, "LastScript", QLocale::Script::LastScript);
 
-    Enum<QLocale::Country> rb_cQLocaleCountry =
+    Data_Type<QLocale::Country> rb_cQLocaleCountry =
         // RubyQt6::QtCore::QLocale::Country
-        define_qenum_under<QLocale::Country>("Country", rb_cQLocale)
-            .define_value("AnyTerritory", QLocale::Country::AnyTerritory)
-            .define_value("Afghanistan", QLocale::Country::Afghanistan)
-            .define_value("AlandIslands", QLocale::Country::AlandIslands)
-            .define_value("Albania", QLocale::Country::Albania)
-            .define_value("Algeria", QLocale::Country::Algeria)
-            .define_value("AmericanSamoa", QLocale::Country::AmericanSamoa)
-            .define_value("Andorra", QLocale::Country::Andorra)
-            .define_value("Angola", QLocale::Country::Angola)
-            .define_value("Anguilla", QLocale::Country::Anguilla)
-            .define_value("Antarctica", QLocale::Country::Antarctica)
-            .define_value("AntiguaAndBarbuda", QLocale::Country::AntiguaAndBarbuda)
-            .define_value("Argentina", QLocale::Country::Argentina)
-            .define_value("Armenia", QLocale::Country::Armenia)
-            .define_value("Aruba", QLocale::Country::Aruba)
-            .define_value("AscensionIsland", QLocale::Country::AscensionIsland)
-            .define_value("Australia", QLocale::Country::Australia)
-            .define_value("Austria", QLocale::Country::Austria)
-            .define_value("Azerbaijan", QLocale::Country::Azerbaijan)
-            .define_value("Bahamas", QLocale::Country::Bahamas)
-            .define_value("Bahrain", QLocale::Country::Bahrain)
-            .define_value("Bangladesh", QLocale::Country::Bangladesh)
-            .define_value("Barbados", QLocale::Country::Barbados)
-            .define_value("Belarus", QLocale::Country::Belarus)
-            .define_value("Belgium", QLocale::Country::Belgium)
-            .define_value("Belize", QLocale::Country::Belize)
-            .define_value("Benin", QLocale::Country::Benin)
-            .define_value("Bermuda", QLocale::Country::Bermuda)
-            .define_value("Bhutan", QLocale::Country::Bhutan)
-            .define_value("Bolivia", QLocale::Country::Bolivia)
-            .define_value("BosniaAndHerzegovina", QLocale::Country::BosniaAndHerzegovina)
-            .define_value("Botswana", QLocale::Country::Botswana)
-            .define_value("BouvetIsland", QLocale::Country::BouvetIsland)
-            .define_value("Brazil", QLocale::Country::Brazil)
-            .define_value("BritishIndianOceanTerritory", QLocale::Country::BritishIndianOceanTerritory)
-            .define_value("BritishVirginIslands", QLocale::Country::BritishVirginIslands)
-            .define_value("Brunei", QLocale::Country::Brunei)
-            .define_value("Bulgaria", QLocale::Country::Bulgaria)
-            .define_value("BurkinaFaso", QLocale::Country::BurkinaFaso)
-            .define_value("Burundi", QLocale::Country::Burundi)
-            .define_value("Cambodia", QLocale::Country::Cambodia)
-            .define_value("Cameroon", QLocale::Country::Cameroon)
-            .define_value("Canada", QLocale::Country::Canada)
-            .define_value("CanaryIslands", QLocale::Country::CanaryIslands)
-            .define_value("CapeVerde", QLocale::Country::CapeVerde)
-            .define_value("CaribbeanNetherlands", QLocale::Country::CaribbeanNetherlands)
-            .define_value("CaymanIslands", QLocale::Country::CaymanIslands)
-            .define_value("CentralAfricanRepublic", QLocale::Country::CentralAfricanRepublic)
-            .define_value("CeutaAndMelilla", QLocale::Country::CeutaAndMelilla)
-            .define_value("Chad", QLocale::Country::Chad)
-            .define_value("Chile", QLocale::Country::Chile)
-            .define_value("China", QLocale::Country::China)
-            .define_value("ChristmasIsland", QLocale::Country::ChristmasIsland)
-            .define_value("ClippertonIsland", QLocale::Country::ClippertonIsland)
-            .define_value("CocosIslands", QLocale::Country::CocosIslands)
-            .define_value("Colombia", QLocale::Country::Colombia)
-            .define_value("Comoros", QLocale::Country::Comoros)
-            .define_value("CongoBrazzaville", QLocale::Country::CongoBrazzaville)
-            .define_value("CongoKinshasa", QLocale::Country::CongoKinshasa)
-            .define_value("CookIslands", QLocale::Country::CookIslands)
-            .define_value("CostaRica", QLocale::Country::CostaRica)
-            .define_value("Croatia", QLocale::Country::Croatia)
-            .define_value("Cuba", QLocale::Country::Cuba)
-            .define_value("Curacao", QLocale::Country::Curacao)
-            .define_value("Cyprus", QLocale::Country::Cyprus)
-            .define_value("Czechia", QLocale::Country::Czechia)
-            .define_value("Denmark", QLocale::Country::Denmark)
-            .define_value("DiegoGarcia", QLocale::Country::DiegoGarcia)
-            .define_value("Djibouti", QLocale::Country::Djibouti)
-            .define_value("Dominica", QLocale::Country::Dominica)
-            .define_value("DominicanRepublic", QLocale::Country::DominicanRepublic)
-            .define_value("Ecuador", QLocale::Country::Ecuador)
-            .define_value("Egypt", QLocale::Country::Egypt)
-            .define_value("ElSalvador", QLocale::Country::ElSalvador)
-            .define_value("EquatorialGuinea", QLocale::Country::EquatorialGuinea)
-            .define_value("Eritrea", QLocale::Country::Eritrea)
-            .define_value("Estonia", QLocale::Country::Estonia)
-            .define_value("Eswatini", QLocale::Country::Eswatini)
-            .define_value("Ethiopia", QLocale::Country::Ethiopia)
-            .define_value("Europe", QLocale::Country::Europe)
-            .define_value("EuropeanUnion", QLocale::Country::EuropeanUnion)
-            .define_value("FalklandIslands", QLocale::Country::FalklandIslands)
-            .define_value("FaroeIslands", QLocale::Country::FaroeIslands)
-            .define_value("Fiji", QLocale::Country::Fiji)
-            .define_value("Finland", QLocale::Country::Finland)
-            .define_value("France", QLocale::Country::France)
-            .define_value("FrenchGuiana", QLocale::Country::FrenchGuiana)
-            .define_value("FrenchPolynesia", QLocale::Country::FrenchPolynesia)
-            .define_value("FrenchSouthernTerritories", QLocale::Country::FrenchSouthernTerritories)
-            .define_value("Gabon", QLocale::Country::Gabon)
-            .define_value("Gambia", QLocale::Country::Gambia)
-            .define_value("Georgia", QLocale::Country::Georgia)
-            .define_value("Germany", QLocale::Country::Germany)
-            .define_value("Ghana", QLocale::Country::Ghana)
-            .define_value("Gibraltar", QLocale::Country::Gibraltar)
-            .define_value("Greece", QLocale::Country::Greece)
-            .define_value("Greenland", QLocale::Country::Greenland)
-            .define_value("Grenada", QLocale::Country::Grenada)
-            .define_value("Guadeloupe", QLocale::Country::Guadeloupe)
-            .define_value("Guam", QLocale::Country::Guam)
-            .define_value("Guatemala", QLocale::Country::Guatemala)
-            .define_value("Guernsey", QLocale::Country::Guernsey)
-            .define_value("GuineaBissau", QLocale::Country::GuineaBissau)
-            .define_value("Guinea", QLocale::Country::Guinea)
-            .define_value("Guyana", QLocale::Country::Guyana)
-            .define_value("Haiti", QLocale::Country::Haiti)
-            .define_value("HeardAndMcDonaldIslands", QLocale::Country::HeardAndMcDonaldIslands)
-            .define_value("Honduras", QLocale::Country::Honduras)
-            .define_value("HongKong", QLocale::Country::HongKong)
-            .define_value("Hungary", QLocale::Country::Hungary)
-            .define_value("Iceland", QLocale::Country::Iceland)
-            .define_value("India", QLocale::Country::India)
-            .define_value("Indonesia", QLocale::Country::Indonesia)
-            .define_value("Iran", QLocale::Country::Iran)
-            .define_value("Iraq", QLocale::Country::Iraq)
-            .define_value("Ireland", QLocale::Country::Ireland)
-            .define_value("IsleOfMan", QLocale::Country::IsleOfMan)
-            .define_value("Israel", QLocale::Country::Israel)
-            .define_value("Italy", QLocale::Country::Italy)
-            .define_value("IvoryCoast", QLocale::Country::IvoryCoast)
-            .define_value("Jamaica", QLocale::Country::Jamaica)
-            .define_value("Japan", QLocale::Country::Japan)
-            .define_value("Jersey", QLocale::Country::Jersey)
-            .define_value("Jordan", QLocale::Country::Jordan)
-            .define_value("Kazakhstan", QLocale::Country::Kazakhstan)
-            .define_value("Kenya", QLocale::Country::Kenya)
-            .define_value("Kiribati", QLocale::Country::Kiribati)
-            .define_value("Kosovo", QLocale::Country::Kosovo)
-            .define_value("Kuwait", QLocale::Country::Kuwait)
-            .define_value("Kyrgyzstan", QLocale::Country::Kyrgyzstan)
-            .define_value("Laos", QLocale::Country::Laos)
-            .define_value("LatinAmerica", QLocale::Country::LatinAmerica)
-            .define_value("Latvia", QLocale::Country::Latvia)
-            .define_value("Lebanon", QLocale::Country::Lebanon)
-            .define_value("Lesotho", QLocale::Country::Lesotho)
-            .define_value("Liberia", QLocale::Country::Liberia)
-            .define_value("Libya", QLocale::Country::Libya)
-            .define_value("Liechtenstein", QLocale::Country::Liechtenstein)
-            .define_value("Lithuania", QLocale::Country::Lithuania)
-            .define_value("Luxembourg", QLocale::Country::Luxembourg)
-            .define_value("Macao", QLocale::Country::Macao)
-            .define_value("Macedonia", QLocale::Country::Macedonia)
-            .define_value("Madagascar", QLocale::Country::Madagascar)
-            .define_value("Malawi", QLocale::Country::Malawi)
-            .define_value("Malaysia", QLocale::Country::Malaysia)
-            .define_value("Maldives", QLocale::Country::Maldives)
-            .define_value("Mali", QLocale::Country::Mali)
-            .define_value("Malta", QLocale::Country::Malta)
-            .define_value("MarshallIslands", QLocale::Country::MarshallIslands)
-            .define_value("Martinique", QLocale::Country::Martinique)
-            .define_value("Mauritania", QLocale::Country::Mauritania)
-            .define_value("Mauritius", QLocale::Country::Mauritius)
-            .define_value("Mayotte", QLocale::Country::Mayotte)
-            .define_value("Mexico", QLocale::Country::Mexico)
-            .define_value("Micronesia", QLocale::Country::Micronesia)
-            .define_value("Moldova", QLocale::Country::Moldova)
-            .define_value("Monaco", QLocale::Country::Monaco)
-            .define_value("Mongolia", QLocale::Country::Mongolia)
-            .define_value("Montenegro", QLocale::Country::Montenegro)
-            .define_value("Montserrat", QLocale::Country::Montserrat)
-            .define_value("Morocco", QLocale::Country::Morocco)
-            .define_value("Mozambique", QLocale::Country::Mozambique)
-            .define_value("Myanmar", QLocale::Country::Myanmar)
-            .define_value("Namibia", QLocale::Country::Namibia)
-            .define_value("NauruTerritory", QLocale::Country::NauruTerritory)
-            .define_value("Nepal", QLocale::Country::Nepal)
-            .define_value("Netherlands", QLocale::Country::Netherlands)
-            .define_value("NewCaledonia", QLocale::Country::NewCaledonia)
-            .define_value("NewZealand", QLocale::Country::NewZealand)
-            .define_value("Nicaragua", QLocale::Country::Nicaragua)
-            .define_value("Nigeria", QLocale::Country::Nigeria)
-            .define_value("Niger", QLocale::Country::Niger)
-            .define_value("Niue", QLocale::Country::Niue)
-            .define_value("NorfolkIsland", QLocale::Country::NorfolkIsland)
-            .define_value("NorthernMarianaIslands", QLocale::Country::NorthernMarianaIslands)
-            .define_value("NorthKorea", QLocale::Country::NorthKorea)
-            .define_value("Norway", QLocale::Country::Norway)
-            .define_value("Oman", QLocale::Country::Oman)
-            .define_value("OutlyingOceania", QLocale::Country::OutlyingOceania)
-            .define_value("Pakistan", QLocale::Country::Pakistan)
-            .define_value("Palau", QLocale::Country::Palau)
-            .define_value("PalestinianTerritories", QLocale::Country::PalestinianTerritories)
-            .define_value("Panama", QLocale::Country::Panama)
-            .define_value("PapuaNewGuinea", QLocale::Country::PapuaNewGuinea)
-            .define_value("Paraguay", QLocale::Country::Paraguay)
-            .define_value("Peru", QLocale::Country::Peru)
-            .define_value("Philippines", QLocale::Country::Philippines)
-            .define_value("Pitcairn", QLocale::Country::Pitcairn)
-            .define_value("Poland", QLocale::Country::Poland)
-            .define_value("Portugal", QLocale::Country::Portugal)
-            .define_value("PuertoRico", QLocale::Country::PuertoRico)
-            .define_value("Qatar", QLocale::Country::Qatar)
-            .define_value("Reunion", QLocale::Country::Reunion)
-            .define_value("Romania", QLocale::Country::Romania)
-            .define_value("Russia", QLocale::Country::Russia)
-            .define_value("Rwanda", QLocale::Country::Rwanda)
-            .define_value("SaintBarthelemy", QLocale::Country::SaintBarthelemy)
-            .define_value("SaintHelena", QLocale::Country::SaintHelena)
-            .define_value("SaintKittsAndNevis", QLocale::Country::SaintKittsAndNevis)
-            .define_value("SaintLucia", QLocale::Country::SaintLucia)
-            .define_value("SaintMartin", QLocale::Country::SaintMartin)
-            .define_value("SaintPierreAndMiquelon", QLocale::Country::SaintPierreAndMiquelon)
-            .define_value("SaintVincentAndGrenadines", QLocale::Country::SaintVincentAndGrenadines)
-            .define_value("Samoa", QLocale::Country::Samoa)
-            .define_value("SanMarino", QLocale::Country::SanMarino)
-            .define_value("SaoTomeAndPrincipe", QLocale::Country::SaoTomeAndPrincipe)
-            .define_value("SaudiArabia", QLocale::Country::SaudiArabia)
-            .define_value("Senegal", QLocale::Country::Senegal)
-            .define_value("Serbia", QLocale::Country::Serbia)
-            .define_value("Seychelles", QLocale::Country::Seychelles)
-            .define_value("SierraLeone", QLocale::Country::SierraLeone)
-            .define_value("Singapore", QLocale::Country::Singapore)
-            .define_value("SintMaarten", QLocale::Country::SintMaarten)
-            .define_value("Slovakia", QLocale::Country::Slovakia)
-            .define_value("Slovenia", QLocale::Country::Slovenia)
-            .define_value("SolomonIslands", QLocale::Country::SolomonIslands)
-            .define_value("Somalia", QLocale::Country::Somalia)
-            .define_value("SouthAfrica", QLocale::Country::SouthAfrica)
-            .define_value("SouthGeorgiaAndSouthSandwichIslands", QLocale::Country::SouthGeorgiaAndSouthSandwichIslands)
-            .define_value("SouthKorea", QLocale::Country::SouthKorea)
-            .define_value("SouthSudan", QLocale::Country::SouthSudan)
-            .define_value("Spain", QLocale::Country::Spain)
-            .define_value("SriLanka", QLocale::Country::SriLanka)
-            .define_value("Sudan", QLocale::Country::Sudan)
-            .define_value("Suriname", QLocale::Country::Suriname)
-            .define_value("SvalbardAndJanMayen", QLocale::Country::SvalbardAndJanMayen)
-            .define_value("Sweden", QLocale::Country::Sweden)
-            .define_value("Switzerland", QLocale::Country::Switzerland)
-            .define_value("Syria", QLocale::Country::Syria)
-            .define_value("Taiwan", QLocale::Country::Taiwan)
-            .define_value("Tajikistan", QLocale::Country::Tajikistan)
-            .define_value("Tanzania", QLocale::Country::Tanzania)
-            .define_value("Thailand", QLocale::Country::Thailand)
-            .define_value("TimorLeste", QLocale::Country::TimorLeste)
-            .define_value("Togo", QLocale::Country::Togo)
-            .define_value("TokelauTerritory", QLocale::Country::TokelauTerritory)
-            .define_value("Tonga", QLocale::Country::Tonga)
-            .define_value("TrinidadAndTobago", QLocale::Country::TrinidadAndTobago)
-            .define_value("TristanDaCunha", QLocale::Country::TristanDaCunha)
-            .define_value("Tunisia", QLocale::Country::Tunisia)
-            .define_value("Turkey", QLocale::Country::Turkey)
-            .define_value("Turkmenistan", QLocale::Country::Turkmenistan)
-            .define_value("TurksAndCaicosIslands", QLocale::Country::TurksAndCaicosIslands)
-            .define_value("TuvaluTerritory", QLocale::Country::TuvaluTerritory)
-            .define_value("Uganda", QLocale::Country::Uganda)
-            .define_value("Ukraine", QLocale::Country::Ukraine)
-            .define_value("UnitedArabEmirates", QLocale::Country::UnitedArabEmirates)
-            .define_value("UnitedKingdom", QLocale::Country::UnitedKingdom)
-            .define_value("UnitedStatesOutlyingIslands", QLocale::Country::UnitedStatesOutlyingIslands)
-            .define_value("UnitedStates", QLocale::Country::UnitedStates)
-            .define_value("UnitedStatesVirginIslands", QLocale::Country::UnitedStatesVirginIslands)
-            .define_value("Uruguay", QLocale::Country::Uruguay)
-            .define_value("Uzbekistan", QLocale::Country::Uzbekistan)
-            .define_value("Vanuatu", QLocale::Country::Vanuatu)
-            .define_value("VaticanCity", QLocale::Country::VaticanCity)
-            .define_value("Venezuela", QLocale::Country::Venezuela)
-            .define_value("Vietnam", QLocale::Country::Vietnam)
-            .define_value("WallisAndFutuna", QLocale::Country::WallisAndFutuna)
-            .define_value("WesternSahara", QLocale::Country::WesternSahara)
-            .define_value("World", QLocale::Country::World)
-            .define_value("Yemen", QLocale::Country::Yemen)
-            .define_value("Zambia", QLocale::Country::Zambia)
-            .define_value("Zimbabwe", QLocale::Country::Zimbabwe)
-            .define_value("AnyCountry", QLocale::Country::AnyCountry)
-            .define_value("Bonaire", QLocale::Country::Bonaire)
-            .define_value("BosniaAndHerzegowina", QLocale::Country::BosniaAndHerzegowina)
-            .define_value("CuraSao", QLocale::Country::CuraSao)
-            .define_value("CzechRepublic", QLocale::Country::CzechRepublic)
-            .define_value("DemocraticRepublicOfCongo", QLocale::Country::DemocraticRepublicOfCongo)
-            .define_value("DemocraticRepublicOfKorea", QLocale::Country::DemocraticRepublicOfKorea)
-            .define_value("EastTimor", QLocale::Country::EastTimor)
-            .define_value("LatinAmericaAndTheCaribbean", QLocale::Country::LatinAmericaAndTheCaribbean)
-            .define_value("Macau", QLocale::Country::Macau)
-            .define_value("NauruCountry", QLocale::Country::NauruCountry)
-            .define_value("PeoplesRepublicOfCongo", QLocale::Country::PeoplesRepublicOfCongo)
-            .define_value("RepublicOfKorea", QLocale::Country::RepublicOfKorea)
-            .define_value("RussianFederation", QLocale::Country::RussianFederation)
-            .define_value("SaintVincentAndTheGrenadines", QLocale::Country::SaintVincentAndTheGrenadines)
-            .define_value("SouthGeorgiaAndTheSouthSandwichIslands", QLocale::Country::SouthGeorgiaAndTheSouthSandwichIslands)
-            .define_value("SvalbardAndJanMayenIslands", QLocale::Country::SvalbardAndJanMayenIslands)
-            .define_value("Swaziland", QLocale::Country::Swaziland)
-            .define_value("SyrianArabRepublic", QLocale::Country::SyrianArabRepublic)
-            .define_value("TokelauCountry", QLocale::Country::TokelauCountry)
-            .define_value("TuvaluCountry", QLocale::Country::TuvaluCountry)
-            .define_value("UnitedStatesMinorOutlyingIslands", QLocale::Country::UnitedStatesMinorOutlyingIslands)
-            .define_value("VaticanCityState", QLocale::Country::VaticanCityState)
-            .define_value("WallisAndFutunaIslands", QLocale::Country::WallisAndFutunaIslands)
-            .define_value("LastTerritory", QLocale::Country::LastTerritory)
-            .define_value("LastCountry", QLocale::Country::LastCountry);
+        define_qenum_under<QLocale::Country>(rb_cQLocale, "Country");
+        define_qenum_value_under(rb_cQLocaleCountry, "AnyTerritory", QLocale::Country::AnyTerritory);
+        define_qenum_value_under(rb_cQLocaleCountry, "Afghanistan", QLocale::Country::Afghanistan);
+        define_qenum_value_under(rb_cQLocaleCountry, "AlandIslands", QLocale::Country::AlandIslands);
+        define_qenum_value_under(rb_cQLocaleCountry, "Albania", QLocale::Country::Albania);
+        define_qenum_value_under(rb_cQLocaleCountry, "Algeria", QLocale::Country::Algeria);
+        define_qenum_value_under(rb_cQLocaleCountry, "AmericanSamoa", QLocale::Country::AmericanSamoa);
+        define_qenum_value_under(rb_cQLocaleCountry, "Andorra", QLocale::Country::Andorra);
+        define_qenum_value_under(rb_cQLocaleCountry, "Angola", QLocale::Country::Angola);
+        define_qenum_value_under(rb_cQLocaleCountry, "Anguilla", QLocale::Country::Anguilla);
+        define_qenum_value_under(rb_cQLocaleCountry, "Antarctica", QLocale::Country::Antarctica);
+        define_qenum_value_under(rb_cQLocaleCountry, "AntiguaAndBarbuda", QLocale::Country::AntiguaAndBarbuda);
+        define_qenum_value_under(rb_cQLocaleCountry, "Argentina", QLocale::Country::Argentina);
+        define_qenum_value_under(rb_cQLocaleCountry, "Armenia", QLocale::Country::Armenia);
+        define_qenum_value_under(rb_cQLocaleCountry, "Aruba", QLocale::Country::Aruba);
+        define_qenum_value_under(rb_cQLocaleCountry, "AscensionIsland", QLocale::Country::AscensionIsland);
+        define_qenum_value_under(rb_cQLocaleCountry, "Australia", QLocale::Country::Australia);
+        define_qenum_value_under(rb_cQLocaleCountry, "Austria", QLocale::Country::Austria);
+        define_qenum_value_under(rb_cQLocaleCountry, "Azerbaijan", QLocale::Country::Azerbaijan);
+        define_qenum_value_under(rb_cQLocaleCountry, "Bahamas", QLocale::Country::Bahamas);
+        define_qenum_value_under(rb_cQLocaleCountry, "Bahrain", QLocale::Country::Bahrain);
+        define_qenum_value_under(rb_cQLocaleCountry, "Bangladesh", QLocale::Country::Bangladesh);
+        define_qenum_value_under(rb_cQLocaleCountry, "Barbados", QLocale::Country::Barbados);
+        define_qenum_value_under(rb_cQLocaleCountry, "Belarus", QLocale::Country::Belarus);
+        define_qenum_value_under(rb_cQLocaleCountry, "Belgium", QLocale::Country::Belgium);
+        define_qenum_value_under(rb_cQLocaleCountry, "Belize", QLocale::Country::Belize);
+        define_qenum_value_under(rb_cQLocaleCountry, "Benin", QLocale::Country::Benin);
+        define_qenum_value_under(rb_cQLocaleCountry, "Bermuda", QLocale::Country::Bermuda);
+        define_qenum_value_under(rb_cQLocaleCountry, "Bhutan", QLocale::Country::Bhutan);
+        define_qenum_value_under(rb_cQLocaleCountry, "Bolivia", QLocale::Country::Bolivia);
+        define_qenum_value_under(rb_cQLocaleCountry, "BosniaAndHerzegovina", QLocale::Country::BosniaAndHerzegovina);
+        define_qenum_value_under(rb_cQLocaleCountry, "Botswana", QLocale::Country::Botswana);
+        define_qenum_value_under(rb_cQLocaleCountry, "BouvetIsland", QLocale::Country::BouvetIsland);
+        define_qenum_value_under(rb_cQLocaleCountry, "Brazil", QLocale::Country::Brazil);
+        define_qenum_value_under(rb_cQLocaleCountry, "BritishIndianOceanTerritory", QLocale::Country::BritishIndianOceanTerritory);
+        define_qenum_value_under(rb_cQLocaleCountry, "BritishVirginIslands", QLocale::Country::BritishVirginIslands);
+        define_qenum_value_under(rb_cQLocaleCountry, "Brunei", QLocale::Country::Brunei);
+        define_qenum_value_under(rb_cQLocaleCountry, "Bulgaria", QLocale::Country::Bulgaria);
+        define_qenum_value_under(rb_cQLocaleCountry, "BurkinaFaso", QLocale::Country::BurkinaFaso);
+        define_qenum_value_under(rb_cQLocaleCountry, "Burundi", QLocale::Country::Burundi);
+        define_qenum_value_under(rb_cQLocaleCountry, "Cambodia", QLocale::Country::Cambodia);
+        define_qenum_value_under(rb_cQLocaleCountry, "Cameroon", QLocale::Country::Cameroon);
+        define_qenum_value_under(rb_cQLocaleCountry, "Canada", QLocale::Country::Canada);
+        define_qenum_value_under(rb_cQLocaleCountry, "CanaryIslands", QLocale::Country::CanaryIslands);
+        define_qenum_value_under(rb_cQLocaleCountry, "CapeVerde", QLocale::Country::CapeVerde);
+        define_qenum_value_under(rb_cQLocaleCountry, "CaribbeanNetherlands", QLocale::Country::CaribbeanNetherlands);
+        define_qenum_value_under(rb_cQLocaleCountry, "CaymanIslands", QLocale::Country::CaymanIslands);
+        define_qenum_value_under(rb_cQLocaleCountry, "CentralAfricanRepublic", QLocale::Country::CentralAfricanRepublic);
+        define_qenum_value_under(rb_cQLocaleCountry, "CeutaAndMelilla", QLocale::Country::CeutaAndMelilla);
+        define_qenum_value_under(rb_cQLocaleCountry, "Chad", QLocale::Country::Chad);
+        define_qenum_value_under(rb_cQLocaleCountry, "Chile", QLocale::Country::Chile);
+        define_qenum_value_under(rb_cQLocaleCountry, "China", QLocale::Country::China);
+        define_qenum_value_under(rb_cQLocaleCountry, "ChristmasIsland", QLocale::Country::ChristmasIsland);
+        define_qenum_value_under(rb_cQLocaleCountry, "ClippertonIsland", QLocale::Country::ClippertonIsland);
+        define_qenum_value_under(rb_cQLocaleCountry, "CocosIslands", QLocale::Country::CocosIslands);
+        define_qenum_value_under(rb_cQLocaleCountry, "Colombia", QLocale::Country::Colombia);
+        define_qenum_value_under(rb_cQLocaleCountry, "Comoros", QLocale::Country::Comoros);
+        define_qenum_value_under(rb_cQLocaleCountry, "CongoBrazzaville", QLocale::Country::CongoBrazzaville);
+        define_qenum_value_under(rb_cQLocaleCountry, "CongoKinshasa", QLocale::Country::CongoKinshasa);
+        define_qenum_value_under(rb_cQLocaleCountry, "CookIslands", QLocale::Country::CookIslands);
+        define_qenum_value_under(rb_cQLocaleCountry, "CostaRica", QLocale::Country::CostaRica);
+        define_qenum_value_under(rb_cQLocaleCountry, "Croatia", QLocale::Country::Croatia);
+        define_qenum_value_under(rb_cQLocaleCountry, "Cuba", QLocale::Country::Cuba);
+        define_qenum_value_under(rb_cQLocaleCountry, "Curacao", QLocale::Country::Curacao);
+        define_qenum_value_under(rb_cQLocaleCountry, "Cyprus", QLocale::Country::Cyprus);
+        define_qenum_value_under(rb_cQLocaleCountry, "Czechia", QLocale::Country::Czechia);
+        define_qenum_value_under(rb_cQLocaleCountry, "Denmark", QLocale::Country::Denmark);
+        define_qenum_value_under(rb_cQLocaleCountry, "DiegoGarcia", QLocale::Country::DiegoGarcia);
+        define_qenum_value_under(rb_cQLocaleCountry, "Djibouti", QLocale::Country::Djibouti);
+        define_qenum_value_under(rb_cQLocaleCountry, "Dominica", QLocale::Country::Dominica);
+        define_qenum_value_under(rb_cQLocaleCountry, "DominicanRepublic", QLocale::Country::DominicanRepublic);
+        define_qenum_value_under(rb_cQLocaleCountry, "Ecuador", QLocale::Country::Ecuador);
+        define_qenum_value_under(rb_cQLocaleCountry, "Egypt", QLocale::Country::Egypt);
+        define_qenum_value_under(rb_cQLocaleCountry, "ElSalvador", QLocale::Country::ElSalvador);
+        define_qenum_value_under(rb_cQLocaleCountry, "EquatorialGuinea", QLocale::Country::EquatorialGuinea);
+        define_qenum_value_under(rb_cQLocaleCountry, "Eritrea", QLocale::Country::Eritrea);
+        define_qenum_value_under(rb_cQLocaleCountry, "Estonia", QLocale::Country::Estonia);
+        define_qenum_value_under(rb_cQLocaleCountry, "Eswatini", QLocale::Country::Eswatini);
+        define_qenum_value_under(rb_cQLocaleCountry, "Ethiopia", QLocale::Country::Ethiopia);
+        define_qenum_value_under(rb_cQLocaleCountry, "Europe", QLocale::Country::Europe);
+        define_qenum_value_under(rb_cQLocaleCountry, "EuropeanUnion", QLocale::Country::EuropeanUnion);
+        define_qenum_value_under(rb_cQLocaleCountry, "FalklandIslands", QLocale::Country::FalklandIslands);
+        define_qenum_value_under(rb_cQLocaleCountry, "FaroeIslands", QLocale::Country::FaroeIslands);
+        define_qenum_value_under(rb_cQLocaleCountry, "Fiji", QLocale::Country::Fiji);
+        define_qenum_value_under(rb_cQLocaleCountry, "Finland", QLocale::Country::Finland);
+        define_qenum_value_under(rb_cQLocaleCountry, "France", QLocale::Country::France);
+        define_qenum_value_under(rb_cQLocaleCountry, "FrenchGuiana", QLocale::Country::FrenchGuiana);
+        define_qenum_value_under(rb_cQLocaleCountry, "FrenchPolynesia", QLocale::Country::FrenchPolynesia);
+        define_qenum_value_under(rb_cQLocaleCountry, "FrenchSouthernTerritories", QLocale::Country::FrenchSouthernTerritories);
+        define_qenum_value_under(rb_cQLocaleCountry, "Gabon", QLocale::Country::Gabon);
+        define_qenum_value_under(rb_cQLocaleCountry, "Gambia", QLocale::Country::Gambia);
+        define_qenum_value_under(rb_cQLocaleCountry, "Georgia", QLocale::Country::Georgia);
+        define_qenum_value_under(rb_cQLocaleCountry, "Germany", QLocale::Country::Germany);
+        define_qenum_value_under(rb_cQLocaleCountry, "Ghana", QLocale::Country::Ghana);
+        define_qenum_value_under(rb_cQLocaleCountry, "Gibraltar", QLocale::Country::Gibraltar);
+        define_qenum_value_under(rb_cQLocaleCountry, "Greece", QLocale::Country::Greece);
+        define_qenum_value_under(rb_cQLocaleCountry, "Greenland", QLocale::Country::Greenland);
+        define_qenum_value_under(rb_cQLocaleCountry, "Grenada", QLocale::Country::Grenada);
+        define_qenum_value_under(rb_cQLocaleCountry, "Guadeloupe", QLocale::Country::Guadeloupe);
+        define_qenum_value_under(rb_cQLocaleCountry, "Guam", QLocale::Country::Guam);
+        define_qenum_value_under(rb_cQLocaleCountry, "Guatemala", QLocale::Country::Guatemala);
+        define_qenum_value_under(rb_cQLocaleCountry, "Guernsey", QLocale::Country::Guernsey);
+        define_qenum_value_under(rb_cQLocaleCountry, "GuineaBissau", QLocale::Country::GuineaBissau);
+        define_qenum_value_under(rb_cQLocaleCountry, "Guinea", QLocale::Country::Guinea);
+        define_qenum_value_under(rb_cQLocaleCountry, "Guyana", QLocale::Country::Guyana);
+        define_qenum_value_under(rb_cQLocaleCountry, "Haiti", QLocale::Country::Haiti);
+        define_qenum_value_under(rb_cQLocaleCountry, "HeardAndMcDonaldIslands", QLocale::Country::HeardAndMcDonaldIslands);
+        define_qenum_value_under(rb_cQLocaleCountry, "Honduras", QLocale::Country::Honduras);
+        define_qenum_value_under(rb_cQLocaleCountry, "HongKong", QLocale::Country::HongKong);
+        define_qenum_value_under(rb_cQLocaleCountry, "Hungary", QLocale::Country::Hungary);
+        define_qenum_value_under(rb_cQLocaleCountry, "Iceland", QLocale::Country::Iceland);
+        define_qenum_value_under(rb_cQLocaleCountry, "India", QLocale::Country::India);
+        define_qenum_value_under(rb_cQLocaleCountry, "Indonesia", QLocale::Country::Indonesia);
+        define_qenum_value_under(rb_cQLocaleCountry, "Iran", QLocale::Country::Iran);
+        define_qenum_value_under(rb_cQLocaleCountry, "Iraq", QLocale::Country::Iraq);
+        define_qenum_value_under(rb_cQLocaleCountry, "Ireland", QLocale::Country::Ireland);
+        define_qenum_value_under(rb_cQLocaleCountry, "IsleOfMan", QLocale::Country::IsleOfMan);
+        define_qenum_value_under(rb_cQLocaleCountry, "Israel", QLocale::Country::Israel);
+        define_qenum_value_under(rb_cQLocaleCountry, "Italy", QLocale::Country::Italy);
+        define_qenum_value_under(rb_cQLocaleCountry, "IvoryCoast", QLocale::Country::IvoryCoast);
+        define_qenum_value_under(rb_cQLocaleCountry, "Jamaica", QLocale::Country::Jamaica);
+        define_qenum_value_under(rb_cQLocaleCountry, "Japan", QLocale::Country::Japan);
+        define_qenum_value_under(rb_cQLocaleCountry, "Jersey", QLocale::Country::Jersey);
+        define_qenum_value_under(rb_cQLocaleCountry, "Jordan", QLocale::Country::Jordan);
+        define_qenum_value_under(rb_cQLocaleCountry, "Kazakhstan", QLocale::Country::Kazakhstan);
+        define_qenum_value_under(rb_cQLocaleCountry, "Kenya", QLocale::Country::Kenya);
+        define_qenum_value_under(rb_cQLocaleCountry, "Kiribati", QLocale::Country::Kiribati);
+        define_qenum_value_under(rb_cQLocaleCountry, "Kosovo", QLocale::Country::Kosovo);
+        define_qenum_value_under(rb_cQLocaleCountry, "Kuwait", QLocale::Country::Kuwait);
+        define_qenum_value_under(rb_cQLocaleCountry, "Kyrgyzstan", QLocale::Country::Kyrgyzstan);
+        define_qenum_value_under(rb_cQLocaleCountry, "Laos", QLocale::Country::Laos);
+        define_qenum_value_under(rb_cQLocaleCountry, "LatinAmerica", QLocale::Country::LatinAmerica);
+        define_qenum_value_under(rb_cQLocaleCountry, "Latvia", QLocale::Country::Latvia);
+        define_qenum_value_under(rb_cQLocaleCountry, "Lebanon", QLocale::Country::Lebanon);
+        define_qenum_value_under(rb_cQLocaleCountry, "Lesotho", QLocale::Country::Lesotho);
+        define_qenum_value_under(rb_cQLocaleCountry, "Liberia", QLocale::Country::Liberia);
+        define_qenum_value_under(rb_cQLocaleCountry, "Libya", QLocale::Country::Libya);
+        define_qenum_value_under(rb_cQLocaleCountry, "Liechtenstein", QLocale::Country::Liechtenstein);
+        define_qenum_value_under(rb_cQLocaleCountry, "Lithuania", QLocale::Country::Lithuania);
+        define_qenum_value_under(rb_cQLocaleCountry, "Luxembourg", QLocale::Country::Luxembourg);
+        define_qenum_value_under(rb_cQLocaleCountry, "Macao", QLocale::Country::Macao);
+        define_qenum_value_under(rb_cQLocaleCountry, "Macedonia", QLocale::Country::Macedonia);
+        define_qenum_value_under(rb_cQLocaleCountry, "Madagascar", QLocale::Country::Madagascar);
+        define_qenum_value_under(rb_cQLocaleCountry, "Malawi", QLocale::Country::Malawi);
+        define_qenum_value_under(rb_cQLocaleCountry, "Malaysia", QLocale::Country::Malaysia);
+        define_qenum_value_under(rb_cQLocaleCountry, "Maldives", QLocale::Country::Maldives);
+        define_qenum_value_under(rb_cQLocaleCountry, "Mali", QLocale::Country::Mali);
+        define_qenum_value_under(rb_cQLocaleCountry, "Malta", QLocale::Country::Malta);
+        define_qenum_value_under(rb_cQLocaleCountry, "MarshallIslands", QLocale::Country::MarshallIslands);
+        define_qenum_value_under(rb_cQLocaleCountry, "Martinique", QLocale::Country::Martinique);
+        define_qenum_value_under(rb_cQLocaleCountry, "Mauritania", QLocale::Country::Mauritania);
+        define_qenum_value_under(rb_cQLocaleCountry, "Mauritius", QLocale::Country::Mauritius);
+        define_qenum_value_under(rb_cQLocaleCountry, "Mayotte", QLocale::Country::Mayotte);
+        define_qenum_value_under(rb_cQLocaleCountry, "Mexico", QLocale::Country::Mexico);
+        define_qenum_value_under(rb_cQLocaleCountry, "Micronesia", QLocale::Country::Micronesia);
+        define_qenum_value_under(rb_cQLocaleCountry, "Moldova", QLocale::Country::Moldova);
+        define_qenum_value_under(rb_cQLocaleCountry, "Monaco", QLocale::Country::Monaco);
+        define_qenum_value_under(rb_cQLocaleCountry, "Mongolia", QLocale::Country::Mongolia);
+        define_qenum_value_under(rb_cQLocaleCountry, "Montenegro", QLocale::Country::Montenegro);
+        define_qenum_value_under(rb_cQLocaleCountry, "Montserrat", QLocale::Country::Montserrat);
+        define_qenum_value_under(rb_cQLocaleCountry, "Morocco", QLocale::Country::Morocco);
+        define_qenum_value_under(rb_cQLocaleCountry, "Mozambique", QLocale::Country::Mozambique);
+        define_qenum_value_under(rb_cQLocaleCountry, "Myanmar", QLocale::Country::Myanmar);
+        define_qenum_value_under(rb_cQLocaleCountry, "Namibia", QLocale::Country::Namibia);
+        define_qenum_value_under(rb_cQLocaleCountry, "NauruTerritory", QLocale::Country::NauruTerritory);
+        define_qenum_value_under(rb_cQLocaleCountry, "Nepal", QLocale::Country::Nepal);
+        define_qenum_value_under(rb_cQLocaleCountry, "Netherlands", QLocale::Country::Netherlands);
+        define_qenum_value_under(rb_cQLocaleCountry, "NewCaledonia", QLocale::Country::NewCaledonia);
+        define_qenum_value_under(rb_cQLocaleCountry, "NewZealand", QLocale::Country::NewZealand);
+        define_qenum_value_under(rb_cQLocaleCountry, "Nicaragua", QLocale::Country::Nicaragua);
+        define_qenum_value_under(rb_cQLocaleCountry, "Nigeria", QLocale::Country::Nigeria);
+        define_qenum_value_under(rb_cQLocaleCountry, "Niger", QLocale::Country::Niger);
+        define_qenum_value_under(rb_cQLocaleCountry, "Niue", QLocale::Country::Niue);
+        define_qenum_value_under(rb_cQLocaleCountry, "NorfolkIsland", QLocale::Country::NorfolkIsland);
+        define_qenum_value_under(rb_cQLocaleCountry, "NorthernMarianaIslands", QLocale::Country::NorthernMarianaIslands);
+        define_qenum_value_under(rb_cQLocaleCountry, "NorthKorea", QLocale::Country::NorthKorea);
+        define_qenum_value_under(rb_cQLocaleCountry, "Norway", QLocale::Country::Norway);
+        define_qenum_value_under(rb_cQLocaleCountry, "Oman", QLocale::Country::Oman);
+        define_qenum_value_under(rb_cQLocaleCountry, "OutlyingOceania", QLocale::Country::OutlyingOceania);
+        define_qenum_value_under(rb_cQLocaleCountry, "Pakistan", QLocale::Country::Pakistan);
+        define_qenum_value_under(rb_cQLocaleCountry, "Palau", QLocale::Country::Palau);
+        define_qenum_value_under(rb_cQLocaleCountry, "PalestinianTerritories", QLocale::Country::PalestinianTerritories);
+        define_qenum_value_under(rb_cQLocaleCountry, "Panama", QLocale::Country::Panama);
+        define_qenum_value_under(rb_cQLocaleCountry, "PapuaNewGuinea", QLocale::Country::PapuaNewGuinea);
+        define_qenum_value_under(rb_cQLocaleCountry, "Paraguay", QLocale::Country::Paraguay);
+        define_qenum_value_under(rb_cQLocaleCountry, "Peru", QLocale::Country::Peru);
+        define_qenum_value_under(rb_cQLocaleCountry, "Philippines", QLocale::Country::Philippines);
+        define_qenum_value_under(rb_cQLocaleCountry, "Pitcairn", QLocale::Country::Pitcairn);
+        define_qenum_value_under(rb_cQLocaleCountry, "Poland", QLocale::Country::Poland);
+        define_qenum_value_under(rb_cQLocaleCountry, "Portugal", QLocale::Country::Portugal);
+        define_qenum_value_under(rb_cQLocaleCountry, "PuertoRico", QLocale::Country::PuertoRico);
+        define_qenum_value_under(rb_cQLocaleCountry, "Qatar", QLocale::Country::Qatar);
+        define_qenum_value_under(rb_cQLocaleCountry, "Reunion", QLocale::Country::Reunion);
+        define_qenum_value_under(rb_cQLocaleCountry, "Romania", QLocale::Country::Romania);
+        define_qenum_value_under(rb_cQLocaleCountry, "Russia", QLocale::Country::Russia);
+        define_qenum_value_under(rb_cQLocaleCountry, "Rwanda", QLocale::Country::Rwanda);
+        define_qenum_value_under(rb_cQLocaleCountry, "SaintBarthelemy", QLocale::Country::SaintBarthelemy);
+        define_qenum_value_under(rb_cQLocaleCountry, "SaintHelena", QLocale::Country::SaintHelena);
+        define_qenum_value_under(rb_cQLocaleCountry, "SaintKittsAndNevis", QLocale::Country::SaintKittsAndNevis);
+        define_qenum_value_under(rb_cQLocaleCountry, "SaintLucia", QLocale::Country::SaintLucia);
+        define_qenum_value_under(rb_cQLocaleCountry, "SaintMartin", QLocale::Country::SaintMartin);
+        define_qenum_value_under(rb_cQLocaleCountry, "SaintPierreAndMiquelon", QLocale::Country::SaintPierreAndMiquelon);
+        define_qenum_value_under(rb_cQLocaleCountry, "SaintVincentAndGrenadines", QLocale::Country::SaintVincentAndGrenadines);
+        define_qenum_value_under(rb_cQLocaleCountry, "Samoa", QLocale::Country::Samoa);
+        define_qenum_value_under(rb_cQLocaleCountry, "SanMarino", QLocale::Country::SanMarino);
+        define_qenum_value_under(rb_cQLocaleCountry, "SaoTomeAndPrincipe", QLocale::Country::SaoTomeAndPrincipe);
+        define_qenum_value_under(rb_cQLocaleCountry, "SaudiArabia", QLocale::Country::SaudiArabia);
+        define_qenum_value_under(rb_cQLocaleCountry, "Senegal", QLocale::Country::Senegal);
+        define_qenum_value_under(rb_cQLocaleCountry, "Serbia", QLocale::Country::Serbia);
+        define_qenum_value_under(rb_cQLocaleCountry, "Seychelles", QLocale::Country::Seychelles);
+        define_qenum_value_under(rb_cQLocaleCountry, "SierraLeone", QLocale::Country::SierraLeone);
+        define_qenum_value_under(rb_cQLocaleCountry, "Singapore", QLocale::Country::Singapore);
+        define_qenum_value_under(rb_cQLocaleCountry, "SintMaarten", QLocale::Country::SintMaarten);
+        define_qenum_value_under(rb_cQLocaleCountry, "Slovakia", QLocale::Country::Slovakia);
+        define_qenum_value_under(rb_cQLocaleCountry, "Slovenia", QLocale::Country::Slovenia);
+        define_qenum_value_under(rb_cQLocaleCountry, "SolomonIslands", QLocale::Country::SolomonIslands);
+        define_qenum_value_under(rb_cQLocaleCountry, "Somalia", QLocale::Country::Somalia);
+        define_qenum_value_under(rb_cQLocaleCountry, "SouthAfrica", QLocale::Country::SouthAfrica);
+        define_qenum_value_under(rb_cQLocaleCountry, "SouthGeorgiaAndSouthSandwichIslands", QLocale::Country::SouthGeorgiaAndSouthSandwichIslands);
+        define_qenum_value_under(rb_cQLocaleCountry, "SouthKorea", QLocale::Country::SouthKorea);
+        define_qenum_value_under(rb_cQLocaleCountry, "SouthSudan", QLocale::Country::SouthSudan);
+        define_qenum_value_under(rb_cQLocaleCountry, "Spain", QLocale::Country::Spain);
+        define_qenum_value_under(rb_cQLocaleCountry, "SriLanka", QLocale::Country::SriLanka);
+        define_qenum_value_under(rb_cQLocaleCountry, "Sudan", QLocale::Country::Sudan);
+        define_qenum_value_under(rb_cQLocaleCountry, "Suriname", QLocale::Country::Suriname);
+        define_qenum_value_under(rb_cQLocaleCountry, "SvalbardAndJanMayen", QLocale::Country::SvalbardAndJanMayen);
+        define_qenum_value_under(rb_cQLocaleCountry, "Sweden", QLocale::Country::Sweden);
+        define_qenum_value_under(rb_cQLocaleCountry, "Switzerland", QLocale::Country::Switzerland);
+        define_qenum_value_under(rb_cQLocaleCountry, "Syria", QLocale::Country::Syria);
+        define_qenum_value_under(rb_cQLocaleCountry, "Taiwan", QLocale::Country::Taiwan);
+        define_qenum_value_under(rb_cQLocaleCountry, "Tajikistan", QLocale::Country::Tajikistan);
+        define_qenum_value_under(rb_cQLocaleCountry, "Tanzania", QLocale::Country::Tanzania);
+        define_qenum_value_under(rb_cQLocaleCountry, "Thailand", QLocale::Country::Thailand);
+        define_qenum_value_under(rb_cQLocaleCountry, "TimorLeste", QLocale::Country::TimorLeste);
+        define_qenum_value_under(rb_cQLocaleCountry, "Togo", QLocale::Country::Togo);
+        define_qenum_value_under(rb_cQLocaleCountry, "TokelauTerritory", QLocale::Country::TokelauTerritory);
+        define_qenum_value_under(rb_cQLocaleCountry, "Tonga", QLocale::Country::Tonga);
+        define_qenum_value_under(rb_cQLocaleCountry, "TrinidadAndTobago", QLocale::Country::TrinidadAndTobago);
+        define_qenum_value_under(rb_cQLocaleCountry, "TristanDaCunha", QLocale::Country::TristanDaCunha);
+        define_qenum_value_under(rb_cQLocaleCountry, "Tunisia", QLocale::Country::Tunisia);
+        define_qenum_value_under(rb_cQLocaleCountry, "Turkey", QLocale::Country::Turkey);
+        define_qenum_value_under(rb_cQLocaleCountry, "Turkmenistan", QLocale::Country::Turkmenistan);
+        define_qenum_value_under(rb_cQLocaleCountry, "TurksAndCaicosIslands", QLocale::Country::TurksAndCaicosIslands);
+        define_qenum_value_under(rb_cQLocaleCountry, "TuvaluTerritory", QLocale::Country::TuvaluTerritory);
+        define_qenum_value_under(rb_cQLocaleCountry, "Uganda", QLocale::Country::Uganda);
+        define_qenum_value_under(rb_cQLocaleCountry, "Ukraine", QLocale::Country::Ukraine);
+        define_qenum_value_under(rb_cQLocaleCountry, "UnitedArabEmirates", QLocale::Country::UnitedArabEmirates);
+        define_qenum_value_under(rb_cQLocaleCountry, "UnitedKingdom", QLocale::Country::UnitedKingdom);
+        define_qenum_value_under(rb_cQLocaleCountry, "UnitedStatesOutlyingIslands", QLocale::Country::UnitedStatesOutlyingIslands);
+        define_qenum_value_under(rb_cQLocaleCountry, "UnitedStates", QLocale::Country::UnitedStates);
+        define_qenum_value_under(rb_cQLocaleCountry, "UnitedStatesVirginIslands", QLocale::Country::UnitedStatesVirginIslands);
+        define_qenum_value_under(rb_cQLocaleCountry, "Uruguay", QLocale::Country::Uruguay);
+        define_qenum_value_under(rb_cQLocaleCountry, "Uzbekistan", QLocale::Country::Uzbekistan);
+        define_qenum_value_under(rb_cQLocaleCountry, "Vanuatu", QLocale::Country::Vanuatu);
+        define_qenum_value_under(rb_cQLocaleCountry, "VaticanCity", QLocale::Country::VaticanCity);
+        define_qenum_value_under(rb_cQLocaleCountry, "Venezuela", QLocale::Country::Venezuela);
+        define_qenum_value_under(rb_cQLocaleCountry, "Vietnam", QLocale::Country::Vietnam);
+        define_qenum_value_under(rb_cQLocaleCountry, "WallisAndFutuna", QLocale::Country::WallisAndFutuna);
+        define_qenum_value_under(rb_cQLocaleCountry, "WesternSahara", QLocale::Country::WesternSahara);
+        define_qenum_value_under(rb_cQLocaleCountry, "World", QLocale::Country::World);
+        define_qenum_value_under(rb_cQLocaleCountry, "Yemen", QLocale::Country::Yemen);
+        define_qenum_value_under(rb_cQLocaleCountry, "Zambia", QLocale::Country::Zambia);
+        define_qenum_value_under(rb_cQLocaleCountry, "Zimbabwe", QLocale::Country::Zimbabwe);
+        define_qenum_value_under(rb_cQLocaleCountry, "AnyCountry", QLocale::Country::AnyCountry);
+        define_qenum_value_under(rb_cQLocaleCountry, "Bonaire", QLocale::Country::Bonaire);
+        define_qenum_value_under(rb_cQLocaleCountry, "BosniaAndHerzegowina", QLocale::Country::BosniaAndHerzegowina);
+        define_qenum_value_under(rb_cQLocaleCountry, "CuraSao", QLocale::Country::CuraSao);
+        define_qenum_value_under(rb_cQLocaleCountry, "CzechRepublic", QLocale::Country::CzechRepublic);
+        define_qenum_value_under(rb_cQLocaleCountry, "DemocraticRepublicOfCongo", QLocale::Country::DemocraticRepublicOfCongo);
+        define_qenum_value_under(rb_cQLocaleCountry, "DemocraticRepublicOfKorea", QLocale::Country::DemocraticRepublicOfKorea);
+        define_qenum_value_under(rb_cQLocaleCountry, "EastTimor", QLocale::Country::EastTimor);
+        define_qenum_value_under(rb_cQLocaleCountry, "LatinAmericaAndTheCaribbean", QLocale::Country::LatinAmericaAndTheCaribbean);
+        define_qenum_value_under(rb_cQLocaleCountry, "Macau", QLocale::Country::Macau);
+        define_qenum_value_under(rb_cQLocaleCountry, "NauruCountry", QLocale::Country::NauruCountry);
+        define_qenum_value_under(rb_cQLocaleCountry, "PeoplesRepublicOfCongo", QLocale::Country::PeoplesRepublicOfCongo);
+        define_qenum_value_under(rb_cQLocaleCountry, "RepublicOfKorea", QLocale::Country::RepublicOfKorea);
+        define_qenum_value_under(rb_cQLocaleCountry, "RussianFederation", QLocale::Country::RussianFederation);
+        define_qenum_value_under(rb_cQLocaleCountry, "SaintVincentAndTheGrenadines", QLocale::Country::SaintVincentAndTheGrenadines);
+        define_qenum_value_under(rb_cQLocaleCountry, "SouthGeorgiaAndTheSouthSandwichIslands", QLocale::Country::SouthGeorgiaAndTheSouthSandwichIslands);
+        define_qenum_value_under(rb_cQLocaleCountry, "SvalbardAndJanMayenIslands", QLocale::Country::SvalbardAndJanMayenIslands);
+        define_qenum_value_under(rb_cQLocaleCountry, "Swaziland", QLocale::Country::Swaziland);
+        define_qenum_value_under(rb_cQLocaleCountry, "SyrianArabRepublic", QLocale::Country::SyrianArabRepublic);
+        define_qenum_value_under(rb_cQLocaleCountry, "TokelauCountry", QLocale::Country::TokelauCountry);
+        define_qenum_value_under(rb_cQLocaleCountry, "TuvaluCountry", QLocale::Country::TuvaluCountry);
+        define_qenum_value_under(rb_cQLocaleCountry, "UnitedStatesMinorOutlyingIslands", QLocale::Country::UnitedStatesMinorOutlyingIslands);
+        define_qenum_value_under(rb_cQLocaleCountry, "VaticanCityState", QLocale::Country::VaticanCityState);
+        define_qenum_value_under(rb_cQLocaleCountry, "WallisAndFutunaIslands", QLocale::Country::WallisAndFutunaIslands);
+        define_qenum_value_under(rb_cQLocaleCountry, "LastTerritory", QLocale::Country::LastTerritory);
+        define_qenum_value_under(rb_cQLocaleCountry, "LastCountry", QLocale::Country::LastCountry);
 
-    Enum<QLocale::MeasurementSystem> rb_cQLocaleMeasurementSystem =
+    Data_Type<QLocale::MeasurementSystem> rb_cQLocaleMeasurementSystem =
         // RubyQt6::QtCore::QLocale::MeasurementSystem
-        define_qenum_under<QLocale::MeasurementSystem>("MeasurementSystem", rb_cQLocale)
-            .define_value("MetricSystem", QLocale::MeasurementSystem::MetricSystem)
-            .define_value("ImperialUSSystem", QLocale::MeasurementSystem::ImperialUSSystem)
-            .define_value("ImperialUKSystem", QLocale::MeasurementSystem::ImperialUKSystem)
-            .define_value("ImperialSystem", QLocale::MeasurementSystem::ImperialSystem);
+        define_qenum_under<QLocale::MeasurementSystem>(rb_cQLocale, "MeasurementSystem");
+        define_qenum_value_under(rb_cQLocaleMeasurementSystem, "MetricSystem", QLocale::MeasurementSystem::MetricSystem);
+        define_qenum_value_under(rb_cQLocaleMeasurementSystem, "ImperialUSSystem", QLocale::MeasurementSystem::ImperialUSSystem);
+        define_qenum_value_under(rb_cQLocaleMeasurementSystem, "ImperialUKSystem", QLocale::MeasurementSystem::ImperialUKSystem);
+        define_qenum_value_under(rb_cQLocaleMeasurementSystem, "ImperialSystem", QLocale::MeasurementSystem::ImperialSystem);
 
-    Enum<QLocale::FormatType> rb_cQLocaleFormatType =
+    Data_Type<QLocale::FormatType> rb_cQLocaleFormatType =
         // RubyQt6::QtCore::QLocale::FormatType
-        define_qenum_under<QLocale::FormatType>("FormatType", rb_cQLocale)
-            .define_value("LongFormat", QLocale::FormatType::LongFormat)
-            .define_value("ShortFormat", QLocale::FormatType::ShortFormat)
-            .define_value("NarrowFormat", QLocale::FormatType::NarrowFormat);
+        define_qenum_under<QLocale::FormatType>(rb_cQLocale, "FormatType");
+        define_qenum_value_under(rb_cQLocaleFormatType, "LongFormat", QLocale::FormatType::LongFormat);
+        define_qenum_value_under(rb_cQLocaleFormatType, "ShortFormat", QLocale::FormatType::ShortFormat);
+        define_qenum_value_under(rb_cQLocaleFormatType, "NarrowFormat", QLocale::FormatType::NarrowFormat);
 
-    Enum<QLocale::NumberOption> rb_cQLocaleNumberOption =
+    Data_Type<QLocale::NumberOption> rb_cQLocaleNumberOption =
         // RubyQt6::QtCore::QLocale::NumberOption
-        define_qenum_under<QLocale::NumberOption>("NumberOption", rb_cQLocale)
-            .define_value("DefaultNumberOptions", QLocale::NumberOption::DefaultNumberOptions)
-            .define_value("OmitGroupSeparator", QLocale::NumberOption::OmitGroupSeparator)
-            .define_value("RejectGroupSeparator", QLocale::NumberOption::RejectGroupSeparator)
-            .define_value("OmitLeadingZeroInExponent", QLocale::NumberOption::OmitLeadingZeroInExponent)
-            .define_value("RejectLeadingZeroInExponent", QLocale::NumberOption::RejectLeadingZeroInExponent)
-            .define_value("IncludeTrailingZeroesAfterDot", QLocale::NumberOption::IncludeTrailingZeroesAfterDot)
-            .define_value("RejectTrailingZeroesAfterDot", QLocale::NumberOption::RejectTrailingZeroesAfterDot);
+        define_qenum_under<QLocale::NumberOption>(rb_cQLocale, "NumberOption");
+        define_qenum_value_under(rb_cQLocaleNumberOption, "DefaultNumberOptions", QLocale::NumberOption::DefaultNumberOptions);
+        define_qenum_value_under(rb_cQLocaleNumberOption, "OmitGroupSeparator", QLocale::NumberOption::OmitGroupSeparator);
+        define_qenum_value_under(rb_cQLocaleNumberOption, "RejectGroupSeparator", QLocale::NumberOption::RejectGroupSeparator);
+        define_qenum_value_under(rb_cQLocaleNumberOption, "OmitLeadingZeroInExponent", QLocale::NumberOption::OmitLeadingZeroInExponent);
+        define_qenum_value_under(rb_cQLocaleNumberOption, "RejectLeadingZeroInExponent", QLocale::NumberOption::RejectLeadingZeroInExponent);
+        define_qenum_value_under(rb_cQLocaleNumberOption, "IncludeTrailingZeroesAfterDot", QLocale::NumberOption::IncludeTrailingZeroesAfterDot);
+        define_qenum_value_under(rb_cQLocaleNumberOption, "RejectTrailingZeroesAfterDot", QLocale::NumberOption::RejectTrailingZeroesAfterDot);
 
-    Enum<QLocale::FloatingPointPrecisionOption> rb_cQLocaleFloatingPointPrecisionOption =
+    Data_Type<QLocale::FloatingPointPrecisionOption> rb_cQLocaleFloatingPointPrecisionOption =
         // RubyQt6::QtCore::QLocale::FloatingPointPrecisionOption
-        define_qenum_under<QLocale::FloatingPointPrecisionOption>("FloatingPointPrecisionOption", rb_cQLocale)
-            .define_value("FloatingPointShortest", QLocale::FloatingPointPrecisionOption::FloatingPointShortest);
+        define_qenum_under<QLocale::FloatingPointPrecisionOption>(rb_cQLocale, "FloatingPointPrecisionOption");
+        define_qenum_value_under(rb_cQLocaleFloatingPointPrecisionOption, "FloatingPointShortest", QLocale::FloatingPointPrecisionOption::FloatingPointShortest);
 
-    Enum<QLocale::TagSeparator> rb_cQLocaleTagSeparator =
+    Data_Type<QLocale::TagSeparator> rb_cQLocaleTagSeparator =
         // RubyQt6::QtCore::QLocale::TagSeparator
-        define_qenum_under<QLocale::TagSeparator>("TagSeparator", rb_cQLocale)
-            .define_value("Dash", QLocale::TagSeparator::Dash)
-            .define_value("Underscore", QLocale::TagSeparator::Underscore);
+        define_qenum_under<QLocale::TagSeparator>(rb_cQLocale, "TagSeparator");
+        define_qenum_value_under(rb_cQLocaleTagSeparator, "Dash", QLocale::TagSeparator::Dash);
+        define_qenum_value_under(rb_cQLocaleTagSeparator, "Underscore", QLocale::TagSeparator::Underscore);
 
-    Enum<QLocale::CurrencySymbolFormat> rb_cQLocaleCurrencySymbolFormat =
+    Data_Type<QLocale::CurrencySymbolFormat> rb_cQLocaleCurrencySymbolFormat =
         // RubyQt6::QtCore::QLocale::CurrencySymbolFormat
-        define_qenum_under<QLocale::CurrencySymbolFormat>("CurrencySymbolFormat", rb_cQLocale)
-            .define_value("CurrencyIsoCode", QLocale::CurrencySymbolFormat::CurrencyIsoCode)
-            .define_value("CurrencySymbol", QLocale::CurrencySymbolFormat::CurrencySymbol)
-            .define_value("CurrencyDisplayName", QLocale::CurrencySymbolFormat::CurrencyDisplayName);
+        define_qenum_under<QLocale::CurrencySymbolFormat>(rb_cQLocale, "CurrencySymbolFormat");
+        define_qenum_value_under(rb_cQLocaleCurrencySymbolFormat, "CurrencyIsoCode", QLocale::CurrencySymbolFormat::CurrencyIsoCode);
+        define_qenum_value_under(rb_cQLocaleCurrencySymbolFormat, "CurrencySymbol", QLocale::CurrencySymbolFormat::CurrencySymbol);
+        define_qenum_value_under(rb_cQLocaleCurrencySymbolFormat, "CurrencyDisplayName", QLocale::CurrencySymbolFormat::CurrencyDisplayName);
 
-    Enum<QLocale::DataSizeFormat> rb_cQLocaleDataSizeFormat =
+    Data_Type<QLocale::DataSizeFormat> rb_cQLocaleDataSizeFormat =
         // RubyQt6::QtCore::QLocale::DataSizeFormat
-        define_qenum_under<QLocale::DataSizeFormat>("DataSizeFormat", rb_cQLocale)
-            .define_value("DataSizeBase1000", QLocale::DataSizeFormat::DataSizeBase1000)
-            .define_value("DataSizeSIQuantifiers", QLocale::DataSizeFormat::DataSizeSIQuantifiers)
-            .define_value("DataSizeIecFormat", QLocale::DataSizeFormat::DataSizeIecFormat)
-            .define_value("DataSizeTraditionalFormat", QLocale::DataSizeFormat::DataSizeTraditionalFormat)
-            .define_value("DataSizeSIFormat", QLocale::DataSizeFormat::DataSizeSIFormat);
+        define_qenum_under<QLocale::DataSizeFormat>(rb_cQLocale, "DataSizeFormat");
+        define_qenum_value_under(rb_cQLocaleDataSizeFormat, "DataSizeBase1000", QLocale::DataSizeFormat::DataSizeBase1000);
+        define_qenum_value_under(rb_cQLocaleDataSizeFormat, "DataSizeSIQuantifiers", QLocale::DataSizeFormat::DataSizeSIQuantifiers);
+        define_qenum_value_under(rb_cQLocaleDataSizeFormat, "DataSizeIecFormat", QLocale::DataSizeFormat::DataSizeIecFormat);
+        define_qenum_value_under(rb_cQLocaleDataSizeFormat, "DataSizeTraditionalFormat", QLocale::DataSizeFormat::DataSizeTraditionalFormat);
+        define_qenum_value_under(rb_cQLocaleDataSizeFormat, "DataSizeSIFormat", QLocale::DataSizeFormat::DataSizeSIFormat);
 
-    Enum<QLocale::LanguageCodeType> rb_cQLocaleLanguageCodeType =
+    Data_Type<QLocale::LanguageCodeType> rb_cQLocaleLanguageCodeType =
         // RubyQt6::QtCore::QLocale::LanguageCodeType
-        define_qenum_under<QLocale::LanguageCodeType>("LanguageCodeType", rb_cQLocale)
-            .define_value("ISO639Part1", QLocale::LanguageCodeType::ISO639Part1)
-            .define_value("ISO639Part2B", QLocale::LanguageCodeType::ISO639Part2B)
-            .define_value("ISO639Part2T", QLocale::LanguageCodeType::ISO639Part2T)
-            .define_value("ISO639Part3", QLocale::LanguageCodeType::ISO639Part3)
-            .define_value("LegacyLanguageCode", QLocale::LanguageCodeType::LegacyLanguageCode)
-            .define_value("ISO639Part2", QLocale::LanguageCodeType::ISO639Part2)
-            .define_value("ISO639Alpha2", QLocale::LanguageCodeType::ISO639Alpha2)
-            .define_value("ISO639Alpha3", QLocale::LanguageCodeType::ISO639Alpha3)
-            .define_value("ISO639", QLocale::LanguageCodeType::ISO639)
-            .define_value("AnyLanguageCode", QLocale::LanguageCodeType::AnyLanguageCode);
+        define_qenum_under<QLocale::LanguageCodeType>(rb_cQLocale, "LanguageCodeType");
+        define_qenum_value_under(rb_cQLocaleLanguageCodeType, "ISO639Part1", QLocale::LanguageCodeType::ISO639Part1);
+        define_qenum_value_under(rb_cQLocaleLanguageCodeType, "ISO639Part2B", QLocale::LanguageCodeType::ISO639Part2B);
+        define_qenum_value_under(rb_cQLocaleLanguageCodeType, "ISO639Part2T", QLocale::LanguageCodeType::ISO639Part2T);
+        define_qenum_value_under(rb_cQLocaleLanguageCodeType, "ISO639Part3", QLocale::LanguageCodeType::ISO639Part3);
+        define_qenum_value_under(rb_cQLocaleLanguageCodeType, "LegacyLanguageCode", QLocale::LanguageCodeType::LegacyLanguageCode);
+        define_qenum_value_under(rb_cQLocaleLanguageCodeType, "ISO639Part2", QLocale::LanguageCodeType::ISO639Part2);
+        define_qenum_value_under(rb_cQLocaleLanguageCodeType, "ISO639Alpha2", QLocale::LanguageCodeType::ISO639Alpha2);
+        define_qenum_value_under(rb_cQLocaleLanguageCodeType, "ISO639Alpha3", QLocale::LanguageCodeType::ISO639Alpha3);
+        define_qenum_value_under(rb_cQLocaleLanguageCodeType, "ISO639", QLocale::LanguageCodeType::ISO639);
+        define_qenum_value_under(rb_cQLocaleLanguageCodeType, "AnyLanguageCode", QLocale::LanguageCodeType::AnyLanguageCode);
 
-    Enum<QLocale::QuotationStyle> rb_cQLocaleQuotationStyle =
+    Data_Type<QLocale::QuotationStyle> rb_cQLocaleQuotationStyle =
         // RubyQt6::QtCore::QLocale::QuotationStyle
-        define_qenum_under<QLocale::QuotationStyle>("QuotationStyle", rb_cQLocale)
-            .define_value("StandardQuotation", QLocale::QuotationStyle::StandardQuotation)
-            .define_value("AlternateQuotation", QLocale::QuotationStyle::AlternateQuotation);
+        define_qenum_under<QLocale::QuotationStyle>(rb_cQLocale, "QuotationStyle");
+        define_qenum_value_under(rb_cQLocaleQuotationStyle, "StandardQuotation", QLocale::QuotationStyle::StandardQuotation);
+        define_qenum_value_under(rb_cQLocaleQuotationStyle, "AlternateQuotation", QLocale::QuotationStyle::AlternateQuotation);
 
     Data_Type<QFlags<QLocale::NumberOption>> rb_cQLocaleNumberOptions =
         // RubyQt6::QtCore::QLocale::NumberOptions

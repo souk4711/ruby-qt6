@@ -52,172 +52,172 @@ void Init_qicon(Rice::Module rb_mQt6QtGui)
             .define_singleton_function("theme_name", &QIcon::themeName)
             .define_singleton_function("theme_search_paths", &QIcon::themeSearchPaths);
 
-    Enum<QIcon::Mode> rb_cQIconMode =
+    Data_Type<QIcon::Mode> rb_cQIconMode =
         // RubyQt6::QtGui::QIcon::Mode
-        define_qenum_under<QIcon::Mode>("Mode", rb_cQIcon)
-            .define_value("Normal", QIcon::Mode::Normal)
-            .define_value("Disabled", QIcon::Mode::Disabled)
-            .define_value("Active", QIcon::Mode::Active)
-            .define_value("Selected", QIcon::Mode::Selected);
+        define_qenum_under<QIcon::Mode>(rb_cQIcon, "Mode");
+        define_qenum_value_under(rb_cQIconMode, "Normal", QIcon::Mode::Normal);
+        define_qenum_value_under(rb_cQIconMode, "Disabled", QIcon::Mode::Disabled);
+        define_qenum_value_under(rb_cQIconMode, "Active", QIcon::Mode::Active);
+        define_qenum_value_under(rb_cQIconMode, "Selected", QIcon::Mode::Selected);
 
-    Enum<QIcon::State> rb_cQIconState =
+    Data_Type<QIcon::State> rb_cQIconState =
         // RubyQt6::QtGui::QIcon::State
-        define_qenum_under<QIcon::State>("State", rb_cQIcon)
-            .define_value("On", QIcon::State::On)
-            .define_value("Off", QIcon::State::Off);
+        define_qenum_under<QIcon::State>(rb_cQIcon, "State");
+        define_qenum_value_under(rb_cQIconState, "On", QIcon::State::On);
+        define_qenum_value_under(rb_cQIconState, "Off", QIcon::State::Off);
 
-    Enum<QIcon::ThemeIcon> rb_cQIconThemeIcon =
+    Data_Type<QIcon::ThemeIcon> rb_cQIconThemeIcon =
         // RubyQt6::QtGui::QIcon::ThemeIcon
-        define_qenum_under<QIcon::ThemeIcon>("ThemeIcon", rb_cQIcon)
-            .define_value("AddressBookNew", QIcon::ThemeIcon::AddressBookNew)
-            .define_value("ApplicationExit", QIcon::ThemeIcon::ApplicationExit)
-            .define_value("AppointmentNew", QIcon::ThemeIcon::AppointmentNew)
-            .define_value("CallStart", QIcon::ThemeIcon::CallStart)
-            .define_value("CallStop", QIcon::ThemeIcon::CallStop)
-            .define_value("ContactNew", QIcon::ThemeIcon::ContactNew)
-            .define_value("DocumentNew", QIcon::ThemeIcon::DocumentNew)
-            .define_value("DocumentOpen", QIcon::ThemeIcon::DocumentOpen)
-            .define_value("DocumentOpenRecent", QIcon::ThemeIcon::DocumentOpenRecent)
-            .define_value("DocumentPageSetup", QIcon::ThemeIcon::DocumentPageSetup)
-            .define_value("DocumentPrint", QIcon::ThemeIcon::DocumentPrint)
-            .define_value("DocumentPrintPreview", QIcon::ThemeIcon::DocumentPrintPreview)
-            .define_value("DocumentProperties", QIcon::ThemeIcon::DocumentProperties)
-            .define_value("DocumentRevert", QIcon::ThemeIcon::DocumentRevert)
-            .define_value("DocumentSave", QIcon::ThemeIcon::DocumentSave)
-            .define_value("DocumentSaveAs", QIcon::ThemeIcon::DocumentSaveAs)
-            .define_value("DocumentSend", QIcon::ThemeIcon::DocumentSend)
-            .define_value("EditClear", QIcon::ThemeIcon::EditClear)
-            .define_value("EditCopy", QIcon::ThemeIcon::EditCopy)
-            .define_value("EditCut", QIcon::ThemeIcon::EditCut)
-            .define_value("EditDelete", QIcon::ThemeIcon::EditDelete)
-            .define_value("EditFind", QIcon::ThemeIcon::EditFind)
-            .define_value("EditPaste", QIcon::ThemeIcon::EditPaste)
-            .define_value("EditRedo", QIcon::ThemeIcon::EditRedo)
-            .define_value("EditSelectAll", QIcon::ThemeIcon::EditSelectAll)
-            .define_value("EditUndo", QIcon::ThemeIcon::EditUndo)
-            .define_value("FolderNew", QIcon::ThemeIcon::FolderNew)
-            .define_value("FormatIndentLess", QIcon::ThemeIcon::FormatIndentLess)
-            .define_value("FormatIndentMore", QIcon::ThemeIcon::FormatIndentMore)
-            .define_value("FormatJustifyCenter", QIcon::ThemeIcon::FormatJustifyCenter)
-            .define_value("FormatJustifyFill", QIcon::ThemeIcon::FormatJustifyFill)
-            .define_value("FormatJustifyLeft", QIcon::ThemeIcon::FormatJustifyLeft)
-            .define_value("FormatJustifyRight", QIcon::ThemeIcon::FormatJustifyRight)
-            .define_value("FormatTextDirectionLtr", QIcon::ThemeIcon::FormatTextDirectionLtr)
-            .define_value("FormatTextDirectionRtl", QIcon::ThemeIcon::FormatTextDirectionRtl)
-            .define_value("FormatTextBold", QIcon::ThemeIcon::FormatTextBold)
-            .define_value("FormatTextItalic", QIcon::ThemeIcon::FormatTextItalic)
-            .define_value("FormatTextUnderline", QIcon::ThemeIcon::FormatTextUnderline)
-            .define_value("FormatTextStrikethrough", QIcon::ThemeIcon::FormatTextStrikethrough)
-            .define_value("GoDown", QIcon::ThemeIcon::GoDown)
-            .define_value("GoHome", QIcon::ThemeIcon::GoHome)
-            .define_value("GoNext", QIcon::ThemeIcon::GoNext)
-            .define_value("GoPrevious", QIcon::ThemeIcon::GoPrevious)
-            .define_value("GoUp", QIcon::ThemeIcon::GoUp)
-            .define_value("HelpAbout", QIcon::ThemeIcon::HelpAbout)
-            .define_value("HelpFaq", QIcon::ThemeIcon::HelpFaq)
-            .define_value("InsertImage", QIcon::ThemeIcon::InsertImage)
-            .define_value("InsertLink", QIcon::ThemeIcon::InsertLink)
-            .define_value("InsertText", QIcon::ThemeIcon::InsertText)
-            .define_value("ListAdd", QIcon::ThemeIcon::ListAdd)
-            .define_value("ListRemove", QIcon::ThemeIcon::ListRemove)
-            .define_value("MailForward", QIcon::ThemeIcon::MailForward)
-            .define_value("MailMarkImportant", QIcon::ThemeIcon::MailMarkImportant)
-            .define_value("MailMarkRead", QIcon::ThemeIcon::MailMarkRead)
-            .define_value("MailMarkUnread", QIcon::ThemeIcon::MailMarkUnread)
-            .define_value("MailMessageNew", QIcon::ThemeIcon::MailMessageNew)
-            .define_value("MailReplyAll", QIcon::ThemeIcon::MailReplyAll)
-            .define_value("MailReplySender", QIcon::ThemeIcon::MailReplySender)
-            .define_value("MailSend", QIcon::ThemeIcon::MailSend)
-            .define_value("MediaEject", QIcon::ThemeIcon::MediaEject)
-            .define_value("MediaPlaybackPause", QIcon::ThemeIcon::MediaPlaybackPause)
-            .define_value("MediaPlaybackStart", QIcon::ThemeIcon::MediaPlaybackStart)
-            .define_value("MediaPlaybackStop", QIcon::ThemeIcon::MediaPlaybackStop)
-            .define_value("MediaRecord", QIcon::ThemeIcon::MediaRecord)
-            .define_value("MediaSeekBackward", QIcon::ThemeIcon::MediaSeekBackward)
-            .define_value("MediaSeekForward", QIcon::ThemeIcon::MediaSeekForward)
-            .define_value("MediaSkipBackward", QIcon::ThemeIcon::MediaSkipBackward)
-            .define_value("MediaSkipForward", QIcon::ThemeIcon::MediaSkipForward)
-            .define_value("ObjectRotateLeft", QIcon::ThemeIcon::ObjectRotateLeft)
-            .define_value("ObjectRotateRight", QIcon::ThemeIcon::ObjectRotateRight)
-            .define_value("ProcessStop", QIcon::ThemeIcon::ProcessStop)
-            .define_value("SystemLockScreen", QIcon::ThemeIcon::SystemLockScreen)
-            .define_value("SystemLogOut", QIcon::ThemeIcon::SystemLogOut)
-            .define_value("SystemSearch", QIcon::ThemeIcon::SystemSearch)
-            .define_value("SystemReboot", QIcon::ThemeIcon::SystemReboot)
-            .define_value("SystemShutdown", QIcon::ThemeIcon::SystemShutdown)
-            .define_value("ToolsCheckSpelling", QIcon::ThemeIcon::ToolsCheckSpelling)
-            .define_value("ViewFullscreen", QIcon::ThemeIcon::ViewFullscreen)
-            .define_value("ViewRefresh", QIcon::ThemeIcon::ViewRefresh)
-            .define_value("ViewRestore", QIcon::ThemeIcon::ViewRestore)
-            .define_value("WindowClose", QIcon::ThemeIcon::WindowClose)
-            .define_value("WindowNew", QIcon::ThemeIcon::WindowNew)
-            .define_value("ZoomFitBest", QIcon::ThemeIcon::ZoomFitBest)
-            .define_value("ZoomIn", QIcon::ThemeIcon::ZoomIn)
-            .define_value("ZoomOut", QIcon::ThemeIcon::ZoomOut)
-            .define_value("AudioCard", QIcon::ThemeIcon::AudioCard)
-            .define_value("AudioInputMicrophone", QIcon::ThemeIcon::AudioInputMicrophone)
-            .define_value("Battery", QIcon::ThemeIcon::Battery)
-            .define_value("CameraPhoto", QIcon::ThemeIcon::CameraPhoto)
-            .define_value("CameraVideo", QIcon::ThemeIcon::CameraVideo)
-            .define_value("CameraWeb", QIcon::ThemeIcon::CameraWeb)
-            .define_value("Computer", QIcon::ThemeIcon::Computer)
-            .define_value("DriveHarddisk", QIcon::ThemeIcon::DriveHarddisk)
-            .define_value("DriveOptical", QIcon::ThemeIcon::DriveOptical)
-            .define_value("InputGaming", QIcon::ThemeIcon::InputGaming)
-            .define_value("InputKeyboard", QIcon::ThemeIcon::InputKeyboard)
-            .define_value("InputMouse", QIcon::ThemeIcon::InputMouse)
-            .define_value("InputTablet", QIcon::ThemeIcon::InputTablet)
-            .define_value("MediaFlash", QIcon::ThemeIcon::MediaFlash)
-            .define_value("MediaOptical", QIcon::ThemeIcon::MediaOptical)
-            .define_value("MediaTape", QIcon::ThemeIcon::MediaTape)
-            .define_value("MultimediaPlayer", QIcon::ThemeIcon::MultimediaPlayer)
-            .define_value("NetworkWired", QIcon::ThemeIcon::NetworkWired)
-            .define_value("NetworkWireless", QIcon::ThemeIcon::NetworkWireless)
-            .define_value("Phone", QIcon::ThemeIcon::Phone)
-            .define_value("Printer", QIcon::ThemeIcon::Printer)
-            .define_value("Scanner", QIcon::ThemeIcon::Scanner)
-            .define_value("VideoDisplay", QIcon::ThemeIcon::VideoDisplay)
-            .define_value("AppointmentMissed", QIcon::ThemeIcon::AppointmentMissed)
-            .define_value("AppointmentSoon", QIcon::ThemeIcon::AppointmentSoon)
-            .define_value("AudioVolumeHigh", QIcon::ThemeIcon::AudioVolumeHigh)
-            .define_value("AudioVolumeLow", QIcon::ThemeIcon::AudioVolumeLow)
-            .define_value("AudioVolumeMedium", QIcon::ThemeIcon::AudioVolumeMedium)
-            .define_value("AudioVolumeMuted", QIcon::ThemeIcon::AudioVolumeMuted)
-            .define_value("BatteryCaution", QIcon::ThemeIcon::BatteryCaution)
-            .define_value("BatteryLow", QIcon::ThemeIcon::BatteryLow)
-            .define_value("DialogError", QIcon::ThemeIcon::DialogError)
-            .define_value("DialogInformation", QIcon::ThemeIcon::DialogInformation)
-            .define_value("DialogPassword", QIcon::ThemeIcon::DialogPassword)
-            .define_value("DialogQuestion", QIcon::ThemeIcon::DialogQuestion)
-            .define_value("DialogWarning", QIcon::ThemeIcon::DialogWarning)
-            .define_value("FolderDragAccept", QIcon::ThemeIcon::FolderDragAccept)
-            .define_value("FolderOpen", QIcon::ThemeIcon::FolderOpen)
-            .define_value("FolderVisiting", QIcon::ThemeIcon::FolderVisiting)
-            .define_value("ImageLoading", QIcon::ThemeIcon::ImageLoading)
-            .define_value("ImageMissing", QIcon::ThemeIcon::ImageMissing)
-            .define_value("MailAttachment", QIcon::ThemeIcon::MailAttachment)
-            .define_value("MailUnread", QIcon::ThemeIcon::MailUnread)
-            .define_value("MailRead", QIcon::ThemeIcon::MailRead)
-            .define_value("MailReplied", QIcon::ThemeIcon::MailReplied)
-            .define_value("MediaPlaylistRepeat", QIcon::ThemeIcon::MediaPlaylistRepeat)
-            .define_value("MediaPlaylistShuffle", QIcon::ThemeIcon::MediaPlaylistShuffle)
-            .define_value("NetworkOffline", QIcon::ThemeIcon::NetworkOffline)
-            .define_value("PrinterPrinting", QIcon::ThemeIcon::PrinterPrinting)
-            .define_value("SecurityHigh", QIcon::ThemeIcon::SecurityHigh)
-            .define_value("SecurityLow", QIcon::ThemeIcon::SecurityLow)
-            .define_value("SoftwareUpdateAvailable", QIcon::ThemeIcon::SoftwareUpdateAvailable)
-            .define_value("SoftwareUpdateUrgent", QIcon::ThemeIcon::SoftwareUpdateUrgent)
-            .define_value("SyncError", QIcon::ThemeIcon::SyncError)
-            .define_value("SyncSynchronizing", QIcon::ThemeIcon::SyncSynchronizing)
-            .define_value("UserAvailable", QIcon::ThemeIcon::UserAvailable)
-            .define_value("UserOffline", QIcon::ThemeIcon::UserOffline)
-            .define_value("WeatherClear", QIcon::ThemeIcon::WeatherClear)
-            .define_value("WeatherClearNight", QIcon::ThemeIcon::WeatherClearNight)
-            .define_value("WeatherFewClouds", QIcon::ThemeIcon::WeatherFewClouds)
-            .define_value("WeatherFewCloudsNight", QIcon::ThemeIcon::WeatherFewCloudsNight)
-            .define_value("WeatherFog", QIcon::ThemeIcon::WeatherFog)
-            .define_value("WeatherShowers", QIcon::ThemeIcon::WeatherShowers)
-            .define_value("WeatherSnow", QIcon::ThemeIcon::WeatherSnow)
-            .define_value("WeatherStorm", QIcon::ThemeIcon::WeatherStorm)
-            .define_value("NThemeIcons", QIcon::ThemeIcon::NThemeIcons);
+        define_qenum_under<QIcon::ThemeIcon>(rb_cQIcon, "ThemeIcon");
+        define_qenum_value_under(rb_cQIconThemeIcon, "AddressBookNew", QIcon::ThemeIcon::AddressBookNew);
+        define_qenum_value_under(rb_cQIconThemeIcon, "ApplicationExit", QIcon::ThemeIcon::ApplicationExit);
+        define_qenum_value_under(rb_cQIconThemeIcon, "AppointmentNew", QIcon::ThemeIcon::AppointmentNew);
+        define_qenum_value_under(rb_cQIconThemeIcon, "CallStart", QIcon::ThemeIcon::CallStart);
+        define_qenum_value_under(rb_cQIconThemeIcon, "CallStop", QIcon::ThemeIcon::CallStop);
+        define_qenum_value_under(rb_cQIconThemeIcon, "ContactNew", QIcon::ThemeIcon::ContactNew);
+        define_qenum_value_under(rb_cQIconThemeIcon, "DocumentNew", QIcon::ThemeIcon::DocumentNew);
+        define_qenum_value_under(rb_cQIconThemeIcon, "DocumentOpen", QIcon::ThemeIcon::DocumentOpen);
+        define_qenum_value_under(rb_cQIconThemeIcon, "DocumentOpenRecent", QIcon::ThemeIcon::DocumentOpenRecent);
+        define_qenum_value_under(rb_cQIconThemeIcon, "DocumentPageSetup", QIcon::ThemeIcon::DocumentPageSetup);
+        define_qenum_value_under(rb_cQIconThemeIcon, "DocumentPrint", QIcon::ThemeIcon::DocumentPrint);
+        define_qenum_value_under(rb_cQIconThemeIcon, "DocumentPrintPreview", QIcon::ThemeIcon::DocumentPrintPreview);
+        define_qenum_value_under(rb_cQIconThemeIcon, "DocumentProperties", QIcon::ThemeIcon::DocumentProperties);
+        define_qenum_value_under(rb_cQIconThemeIcon, "DocumentRevert", QIcon::ThemeIcon::DocumentRevert);
+        define_qenum_value_under(rb_cQIconThemeIcon, "DocumentSave", QIcon::ThemeIcon::DocumentSave);
+        define_qenum_value_under(rb_cQIconThemeIcon, "DocumentSaveAs", QIcon::ThemeIcon::DocumentSaveAs);
+        define_qenum_value_under(rb_cQIconThemeIcon, "DocumentSend", QIcon::ThemeIcon::DocumentSend);
+        define_qenum_value_under(rb_cQIconThemeIcon, "EditClear", QIcon::ThemeIcon::EditClear);
+        define_qenum_value_under(rb_cQIconThemeIcon, "EditCopy", QIcon::ThemeIcon::EditCopy);
+        define_qenum_value_under(rb_cQIconThemeIcon, "EditCut", QIcon::ThemeIcon::EditCut);
+        define_qenum_value_under(rb_cQIconThemeIcon, "EditDelete", QIcon::ThemeIcon::EditDelete);
+        define_qenum_value_under(rb_cQIconThemeIcon, "EditFind", QIcon::ThemeIcon::EditFind);
+        define_qenum_value_under(rb_cQIconThemeIcon, "EditPaste", QIcon::ThemeIcon::EditPaste);
+        define_qenum_value_under(rb_cQIconThemeIcon, "EditRedo", QIcon::ThemeIcon::EditRedo);
+        define_qenum_value_under(rb_cQIconThemeIcon, "EditSelectAll", QIcon::ThemeIcon::EditSelectAll);
+        define_qenum_value_under(rb_cQIconThemeIcon, "EditUndo", QIcon::ThemeIcon::EditUndo);
+        define_qenum_value_under(rb_cQIconThemeIcon, "FolderNew", QIcon::ThemeIcon::FolderNew);
+        define_qenum_value_under(rb_cQIconThemeIcon, "FormatIndentLess", QIcon::ThemeIcon::FormatIndentLess);
+        define_qenum_value_under(rb_cQIconThemeIcon, "FormatIndentMore", QIcon::ThemeIcon::FormatIndentMore);
+        define_qenum_value_under(rb_cQIconThemeIcon, "FormatJustifyCenter", QIcon::ThemeIcon::FormatJustifyCenter);
+        define_qenum_value_under(rb_cQIconThemeIcon, "FormatJustifyFill", QIcon::ThemeIcon::FormatJustifyFill);
+        define_qenum_value_under(rb_cQIconThemeIcon, "FormatJustifyLeft", QIcon::ThemeIcon::FormatJustifyLeft);
+        define_qenum_value_under(rb_cQIconThemeIcon, "FormatJustifyRight", QIcon::ThemeIcon::FormatJustifyRight);
+        define_qenum_value_under(rb_cQIconThemeIcon, "FormatTextDirectionLtr", QIcon::ThemeIcon::FormatTextDirectionLtr);
+        define_qenum_value_under(rb_cQIconThemeIcon, "FormatTextDirectionRtl", QIcon::ThemeIcon::FormatTextDirectionRtl);
+        define_qenum_value_under(rb_cQIconThemeIcon, "FormatTextBold", QIcon::ThemeIcon::FormatTextBold);
+        define_qenum_value_under(rb_cQIconThemeIcon, "FormatTextItalic", QIcon::ThemeIcon::FormatTextItalic);
+        define_qenum_value_under(rb_cQIconThemeIcon, "FormatTextUnderline", QIcon::ThemeIcon::FormatTextUnderline);
+        define_qenum_value_under(rb_cQIconThemeIcon, "FormatTextStrikethrough", QIcon::ThemeIcon::FormatTextStrikethrough);
+        define_qenum_value_under(rb_cQIconThemeIcon, "GoDown", QIcon::ThemeIcon::GoDown);
+        define_qenum_value_under(rb_cQIconThemeIcon, "GoHome", QIcon::ThemeIcon::GoHome);
+        define_qenum_value_under(rb_cQIconThemeIcon, "GoNext", QIcon::ThemeIcon::GoNext);
+        define_qenum_value_under(rb_cQIconThemeIcon, "GoPrevious", QIcon::ThemeIcon::GoPrevious);
+        define_qenum_value_under(rb_cQIconThemeIcon, "GoUp", QIcon::ThemeIcon::GoUp);
+        define_qenum_value_under(rb_cQIconThemeIcon, "HelpAbout", QIcon::ThemeIcon::HelpAbout);
+        define_qenum_value_under(rb_cQIconThemeIcon, "HelpFaq", QIcon::ThemeIcon::HelpFaq);
+        define_qenum_value_under(rb_cQIconThemeIcon, "InsertImage", QIcon::ThemeIcon::InsertImage);
+        define_qenum_value_under(rb_cQIconThemeIcon, "InsertLink", QIcon::ThemeIcon::InsertLink);
+        define_qenum_value_under(rb_cQIconThemeIcon, "InsertText", QIcon::ThemeIcon::InsertText);
+        define_qenum_value_under(rb_cQIconThemeIcon, "ListAdd", QIcon::ThemeIcon::ListAdd);
+        define_qenum_value_under(rb_cQIconThemeIcon, "ListRemove", QIcon::ThemeIcon::ListRemove);
+        define_qenum_value_under(rb_cQIconThemeIcon, "MailForward", QIcon::ThemeIcon::MailForward);
+        define_qenum_value_under(rb_cQIconThemeIcon, "MailMarkImportant", QIcon::ThemeIcon::MailMarkImportant);
+        define_qenum_value_under(rb_cQIconThemeIcon, "MailMarkRead", QIcon::ThemeIcon::MailMarkRead);
+        define_qenum_value_under(rb_cQIconThemeIcon, "MailMarkUnread", QIcon::ThemeIcon::MailMarkUnread);
+        define_qenum_value_under(rb_cQIconThemeIcon, "MailMessageNew", QIcon::ThemeIcon::MailMessageNew);
+        define_qenum_value_under(rb_cQIconThemeIcon, "MailReplyAll", QIcon::ThemeIcon::MailReplyAll);
+        define_qenum_value_under(rb_cQIconThemeIcon, "MailReplySender", QIcon::ThemeIcon::MailReplySender);
+        define_qenum_value_under(rb_cQIconThemeIcon, "MailSend", QIcon::ThemeIcon::MailSend);
+        define_qenum_value_under(rb_cQIconThemeIcon, "MediaEject", QIcon::ThemeIcon::MediaEject);
+        define_qenum_value_under(rb_cQIconThemeIcon, "MediaPlaybackPause", QIcon::ThemeIcon::MediaPlaybackPause);
+        define_qenum_value_under(rb_cQIconThemeIcon, "MediaPlaybackStart", QIcon::ThemeIcon::MediaPlaybackStart);
+        define_qenum_value_under(rb_cQIconThemeIcon, "MediaPlaybackStop", QIcon::ThemeIcon::MediaPlaybackStop);
+        define_qenum_value_under(rb_cQIconThemeIcon, "MediaRecord", QIcon::ThemeIcon::MediaRecord);
+        define_qenum_value_under(rb_cQIconThemeIcon, "MediaSeekBackward", QIcon::ThemeIcon::MediaSeekBackward);
+        define_qenum_value_under(rb_cQIconThemeIcon, "MediaSeekForward", QIcon::ThemeIcon::MediaSeekForward);
+        define_qenum_value_under(rb_cQIconThemeIcon, "MediaSkipBackward", QIcon::ThemeIcon::MediaSkipBackward);
+        define_qenum_value_under(rb_cQIconThemeIcon, "MediaSkipForward", QIcon::ThemeIcon::MediaSkipForward);
+        define_qenum_value_under(rb_cQIconThemeIcon, "ObjectRotateLeft", QIcon::ThemeIcon::ObjectRotateLeft);
+        define_qenum_value_under(rb_cQIconThemeIcon, "ObjectRotateRight", QIcon::ThemeIcon::ObjectRotateRight);
+        define_qenum_value_under(rb_cQIconThemeIcon, "ProcessStop", QIcon::ThemeIcon::ProcessStop);
+        define_qenum_value_under(rb_cQIconThemeIcon, "SystemLockScreen", QIcon::ThemeIcon::SystemLockScreen);
+        define_qenum_value_under(rb_cQIconThemeIcon, "SystemLogOut", QIcon::ThemeIcon::SystemLogOut);
+        define_qenum_value_under(rb_cQIconThemeIcon, "SystemSearch", QIcon::ThemeIcon::SystemSearch);
+        define_qenum_value_under(rb_cQIconThemeIcon, "SystemReboot", QIcon::ThemeIcon::SystemReboot);
+        define_qenum_value_under(rb_cQIconThemeIcon, "SystemShutdown", QIcon::ThemeIcon::SystemShutdown);
+        define_qenum_value_under(rb_cQIconThemeIcon, "ToolsCheckSpelling", QIcon::ThemeIcon::ToolsCheckSpelling);
+        define_qenum_value_under(rb_cQIconThemeIcon, "ViewFullscreen", QIcon::ThemeIcon::ViewFullscreen);
+        define_qenum_value_under(rb_cQIconThemeIcon, "ViewRefresh", QIcon::ThemeIcon::ViewRefresh);
+        define_qenum_value_under(rb_cQIconThemeIcon, "ViewRestore", QIcon::ThemeIcon::ViewRestore);
+        define_qenum_value_under(rb_cQIconThemeIcon, "WindowClose", QIcon::ThemeIcon::WindowClose);
+        define_qenum_value_under(rb_cQIconThemeIcon, "WindowNew", QIcon::ThemeIcon::WindowNew);
+        define_qenum_value_under(rb_cQIconThemeIcon, "ZoomFitBest", QIcon::ThemeIcon::ZoomFitBest);
+        define_qenum_value_under(rb_cQIconThemeIcon, "ZoomIn", QIcon::ThemeIcon::ZoomIn);
+        define_qenum_value_under(rb_cQIconThemeIcon, "ZoomOut", QIcon::ThemeIcon::ZoomOut);
+        define_qenum_value_under(rb_cQIconThemeIcon, "AudioCard", QIcon::ThemeIcon::AudioCard);
+        define_qenum_value_under(rb_cQIconThemeIcon, "AudioInputMicrophone", QIcon::ThemeIcon::AudioInputMicrophone);
+        define_qenum_value_under(rb_cQIconThemeIcon, "Battery", QIcon::ThemeIcon::Battery);
+        define_qenum_value_under(rb_cQIconThemeIcon, "CameraPhoto", QIcon::ThemeIcon::CameraPhoto);
+        define_qenum_value_under(rb_cQIconThemeIcon, "CameraVideo", QIcon::ThemeIcon::CameraVideo);
+        define_qenum_value_under(rb_cQIconThemeIcon, "CameraWeb", QIcon::ThemeIcon::CameraWeb);
+        define_qenum_value_under(rb_cQIconThemeIcon, "Computer", QIcon::ThemeIcon::Computer);
+        define_qenum_value_under(rb_cQIconThemeIcon, "DriveHarddisk", QIcon::ThemeIcon::DriveHarddisk);
+        define_qenum_value_under(rb_cQIconThemeIcon, "DriveOptical", QIcon::ThemeIcon::DriveOptical);
+        define_qenum_value_under(rb_cQIconThemeIcon, "InputGaming", QIcon::ThemeIcon::InputGaming);
+        define_qenum_value_under(rb_cQIconThemeIcon, "InputKeyboard", QIcon::ThemeIcon::InputKeyboard);
+        define_qenum_value_under(rb_cQIconThemeIcon, "InputMouse", QIcon::ThemeIcon::InputMouse);
+        define_qenum_value_under(rb_cQIconThemeIcon, "InputTablet", QIcon::ThemeIcon::InputTablet);
+        define_qenum_value_under(rb_cQIconThemeIcon, "MediaFlash", QIcon::ThemeIcon::MediaFlash);
+        define_qenum_value_under(rb_cQIconThemeIcon, "MediaOptical", QIcon::ThemeIcon::MediaOptical);
+        define_qenum_value_under(rb_cQIconThemeIcon, "MediaTape", QIcon::ThemeIcon::MediaTape);
+        define_qenum_value_under(rb_cQIconThemeIcon, "MultimediaPlayer", QIcon::ThemeIcon::MultimediaPlayer);
+        define_qenum_value_under(rb_cQIconThemeIcon, "NetworkWired", QIcon::ThemeIcon::NetworkWired);
+        define_qenum_value_under(rb_cQIconThemeIcon, "NetworkWireless", QIcon::ThemeIcon::NetworkWireless);
+        define_qenum_value_under(rb_cQIconThemeIcon, "Phone", QIcon::ThemeIcon::Phone);
+        define_qenum_value_under(rb_cQIconThemeIcon, "Printer", QIcon::ThemeIcon::Printer);
+        define_qenum_value_under(rb_cQIconThemeIcon, "Scanner", QIcon::ThemeIcon::Scanner);
+        define_qenum_value_under(rb_cQIconThemeIcon, "VideoDisplay", QIcon::ThemeIcon::VideoDisplay);
+        define_qenum_value_under(rb_cQIconThemeIcon, "AppointmentMissed", QIcon::ThemeIcon::AppointmentMissed);
+        define_qenum_value_under(rb_cQIconThemeIcon, "AppointmentSoon", QIcon::ThemeIcon::AppointmentSoon);
+        define_qenum_value_under(rb_cQIconThemeIcon, "AudioVolumeHigh", QIcon::ThemeIcon::AudioVolumeHigh);
+        define_qenum_value_under(rb_cQIconThemeIcon, "AudioVolumeLow", QIcon::ThemeIcon::AudioVolumeLow);
+        define_qenum_value_under(rb_cQIconThemeIcon, "AudioVolumeMedium", QIcon::ThemeIcon::AudioVolumeMedium);
+        define_qenum_value_under(rb_cQIconThemeIcon, "AudioVolumeMuted", QIcon::ThemeIcon::AudioVolumeMuted);
+        define_qenum_value_under(rb_cQIconThemeIcon, "BatteryCaution", QIcon::ThemeIcon::BatteryCaution);
+        define_qenum_value_under(rb_cQIconThemeIcon, "BatteryLow", QIcon::ThemeIcon::BatteryLow);
+        define_qenum_value_under(rb_cQIconThemeIcon, "DialogError", QIcon::ThemeIcon::DialogError);
+        define_qenum_value_under(rb_cQIconThemeIcon, "DialogInformation", QIcon::ThemeIcon::DialogInformation);
+        define_qenum_value_under(rb_cQIconThemeIcon, "DialogPassword", QIcon::ThemeIcon::DialogPassword);
+        define_qenum_value_under(rb_cQIconThemeIcon, "DialogQuestion", QIcon::ThemeIcon::DialogQuestion);
+        define_qenum_value_under(rb_cQIconThemeIcon, "DialogWarning", QIcon::ThemeIcon::DialogWarning);
+        define_qenum_value_under(rb_cQIconThemeIcon, "FolderDragAccept", QIcon::ThemeIcon::FolderDragAccept);
+        define_qenum_value_under(rb_cQIconThemeIcon, "FolderOpen", QIcon::ThemeIcon::FolderOpen);
+        define_qenum_value_under(rb_cQIconThemeIcon, "FolderVisiting", QIcon::ThemeIcon::FolderVisiting);
+        define_qenum_value_under(rb_cQIconThemeIcon, "ImageLoading", QIcon::ThemeIcon::ImageLoading);
+        define_qenum_value_under(rb_cQIconThemeIcon, "ImageMissing", QIcon::ThemeIcon::ImageMissing);
+        define_qenum_value_under(rb_cQIconThemeIcon, "MailAttachment", QIcon::ThemeIcon::MailAttachment);
+        define_qenum_value_under(rb_cQIconThemeIcon, "MailUnread", QIcon::ThemeIcon::MailUnread);
+        define_qenum_value_under(rb_cQIconThemeIcon, "MailRead", QIcon::ThemeIcon::MailRead);
+        define_qenum_value_under(rb_cQIconThemeIcon, "MailReplied", QIcon::ThemeIcon::MailReplied);
+        define_qenum_value_under(rb_cQIconThemeIcon, "MediaPlaylistRepeat", QIcon::ThemeIcon::MediaPlaylistRepeat);
+        define_qenum_value_under(rb_cQIconThemeIcon, "MediaPlaylistShuffle", QIcon::ThemeIcon::MediaPlaylistShuffle);
+        define_qenum_value_under(rb_cQIconThemeIcon, "NetworkOffline", QIcon::ThemeIcon::NetworkOffline);
+        define_qenum_value_under(rb_cQIconThemeIcon, "PrinterPrinting", QIcon::ThemeIcon::PrinterPrinting);
+        define_qenum_value_under(rb_cQIconThemeIcon, "SecurityHigh", QIcon::ThemeIcon::SecurityHigh);
+        define_qenum_value_under(rb_cQIconThemeIcon, "SecurityLow", QIcon::ThemeIcon::SecurityLow);
+        define_qenum_value_under(rb_cQIconThemeIcon, "SoftwareUpdateAvailable", QIcon::ThemeIcon::SoftwareUpdateAvailable);
+        define_qenum_value_under(rb_cQIconThemeIcon, "SoftwareUpdateUrgent", QIcon::ThemeIcon::SoftwareUpdateUrgent);
+        define_qenum_value_under(rb_cQIconThemeIcon, "SyncError", QIcon::ThemeIcon::SyncError);
+        define_qenum_value_under(rb_cQIconThemeIcon, "SyncSynchronizing", QIcon::ThemeIcon::SyncSynchronizing);
+        define_qenum_value_under(rb_cQIconThemeIcon, "UserAvailable", QIcon::ThemeIcon::UserAvailable);
+        define_qenum_value_under(rb_cQIconThemeIcon, "UserOffline", QIcon::ThemeIcon::UserOffline);
+        define_qenum_value_under(rb_cQIconThemeIcon, "WeatherClear", QIcon::ThemeIcon::WeatherClear);
+        define_qenum_value_under(rb_cQIconThemeIcon, "WeatherClearNight", QIcon::ThemeIcon::WeatherClearNight);
+        define_qenum_value_under(rb_cQIconThemeIcon, "WeatherFewClouds", QIcon::ThemeIcon::WeatherFewClouds);
+        define_qenum_value_under(rb_cQIconThemeIcon, "WeatherFewCloudsNight", QIcon::ThemeIcon::WeatherFewCloudsNight);
+        define_qenum_value_under(rb_cQIconThemeIcon, "WeatherFog", QIcon::ThemeIcon::WeatherFog);
+        define_qenum_value_under(rb_cQIconThemeIcon, "WeatherShowers", QIcon::ThemeIcon::WeatherShowers);
+        define_qenum_value_under(rb_cQIconThemeIcon, "WeatherSnow", QIcon::ThemeIcon::WeatherSnow);
+        define_qenum_value_under(rb_cQIconThemeIcon, "WeatherStorm", QIcon::ThemeIcon::WeatherStorm);
+        define_qenum_value_under(rb_cQIconThemeIcon, "NThemeIcons", QIcon::ThemeIcon::NThemeIcons);
 }

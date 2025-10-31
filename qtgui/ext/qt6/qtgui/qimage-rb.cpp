@@ -135,51 +135,51 @@ void Init_qimage(Rice::Module rb_mQt6QtGui)
             // .define_singleton_function("to_pixel_format", &QImage::toPixelFormat, Arg("format"))
             .define_singleton_function("true_matrix", &QImage::trueMatrix, Arg("matrix"), Arg("w"), Arg("h"));
 
-    Enum<QImage::Format> rb_cQImageFormat =
+    Data_Type<QImage::Format> rb_cQImageFormat =
         // RubyQt6::QtGui::QImage::Format
-        define_qenum_under<QImage::Format>("Format", rb_cQImage)
-            .define_value("Format_Invalid", QImage::Format::Format_Invalid)
-            .define_value("Format_Mono", QImage::Format::Format_Mono)
-            .define_value("Format_MonoLSB", QImage::Format::Format_MonoLSB)
-            .define_value("Format_Indexed8", QImage::Format::Format_Indexed8)
-            .define_value("Format_RGB32", QImage::Format::Format_RGB32)
-            .define_value("Format_ARGB32", QImage::Format::Format_ARGB32)
-            .define_value("Format_ARGB32_Premultiplied", QImage::Format::Format_ARGB32_Premultiplied)
-            .define_value("Format_RGB16", QImage::Format::Format_RGB16)
-            .define_value("Format_ARGB8565_Premultiplied", QImage::Format::Format_ARGB8565_Premultiplied)
-            .define_value("Format_RGB666", QImage::Format::Format_RGB666)
-            .define_value("Format_ARGB6666_Premultiplied", QImage::Format::Format_ARGB6666_Premultiplied)
-            .define_value("Format_RGB555", QImage::Format::Format_RGB555)
-            .define_value("Format_ARGB8555_Premultiplied", QImage::Format::Format_ARGB8555_Premultiplied)
-            .define_value("Format_RGB888", QImage::Format::Format_RGB888)
-            .define_value("Format_RGB444", QImage::Format::Format_RGB444)
-            .define_value("Format_ARGB4444_Premultiplied", QImage::Format::Format_ARGB4444_Premultiplied)
-            .define_value("Format_RGBX8888", QImage::Format::Format_RGBX8888)
-            .define_value("Format_RGBA8888", QImage::Format::Format_RGBA8888)
-            .define_value("Format_RGBA8888_Premultiplied", QImage::Format::Format_RGBA8888_Premultiplied)
-            .define_value("Format_BGR30", QImage::Format::Format_BGR30)
-            .define_value("Format_A2BGR30_Premultiplied", QImage::Format::Format_A2BGR30_Premultiplied)
-            .define_value("Format_RGB30", QImage::Format::Format_RGB30)
-            .define_value("Format_A2RGB30_Premultiplied", QImage::Format::Format_A2RGB30_Premultiplied)
-            .define_value("Format_Alpha8", QImage::Format::Format_Alpha8)
-            .define_value("Format_Grayscale8", QImage::Format::Format_Grayscale8)
-            .define_value("Format_RGBX64", QImage::Format::Format_RGBX64)
-            .define_value("Format_RGBA64", QImage::Format::Format_RGBA64)
-            .define_value("Format_RGBA64_Premultiplied", QImage::Format::Format_RGBA64_Premultiplied)
-            .define_value("Format_Grayscale16", QImage::Format::Format_Grayscale16)
-            .define_value("Format_BGR888", QImage::Format::Format_BGR888)
-            .define_value("Format_RGBX16FPx4", QImage::Format::Format_RGBX16FPx4)
-            .define_value("Format_RGBA16FPx4", QImage::Format::Format_RGBA16FPx4)
-            .define_value("Format_RGBA16FPx4_Premultiplied", QImage::Format::Format_RGBA16FPx4_Premultiplied)
-            .define_value("Format_RGBX32FPx4", QImage::Format::Format_RGBX32FPx4)
-            .define_value("Format_RGBA32FPx4", QImage::Format::Format_RGBA32FPx4)
-            .define_value("Format_RGBA32FPx4_Premultiplied", QImage::Format::Format_RGBA32FPx4_Premultiplied)
-            .define_value("Format_CMYK8888", QImage::Format::Format_CMYK8888)
-            .define_value("NImageFormats", QImage::Format::NImageFormats);
+        define_qenum_under<QImage::Format>(rb_cQImage, "Format");
+        define_qenum_value_under(rb_cQImageFormat, "Format_Invalid", QImage::Format::Format_Invalid);
+        define_qenum_value_under(rb_cQImageFormat, "Format_Mono", QImage::Format::Format_Mono);
+        define_qenum_value_under(rb_cQImageFormat, "Format_MonoLSB", QImage::Format::Format_MonoLSB);
+        define_qenum_value_under(rb_cQImageFormat, "Format_Indexed8", QImage::Format::Format_Indexed8);
+        define_qenum_value_under(rb_cQImageFormat, "Format_RGB32", QImage::Format::Format_RGB32);
+        define_qenum_value_under(rb_cQImageFormat, "Format_ARGB32", QImage::Format::Format_ARGB32);
+        define_qenum_value_under(rb_cQImageFormat, "Format_ARGB32_Premultiplied", QImage::Format::Format_ARGB32_Premultiplied);
+        define_qenum_value_under(rb_cQImageFormat, "Format_RGB16", QImage::Format::Format_RGB16);
+        define_qenum_value_under(rb_cQImageFormat, "Format_ARGB8565_Premultiplied", QImage::Format::Format_ARGB8565_Premultiplied);
+        define_qenum_value_under(rb_cQImageFormat, "Format_RGB666", QImage::Format::Format_RGB666);
+        define_qenum_value_under(rb_cQImageFormat, "Format_ARGB6666_Premultiplied", QImage::Format::Format_ARGB6666_Premultiplied);
+        define_qenum_value_under(rb_cQImageFormat, "Format_RGB555", QImage::Format::Format_RGB555);
+        define_qenum_value_under(rb_cQImageFormat, "Format_ARGB8555_Premultiplied", QImage::Format::Format_ARGB8555_Premultiplied);
+        define_qenum_value_under(rb_cQImageFormat, "Format_RGB888", QImage::Format::Format_RGB888);
+        define_qenum_value_under(rb_cQImageFormat, "Format_RGB444", QImage::Format::Format_RGB444);
+        define_qenum_value_under(rb_cQImageFormat, "Format_ARGB4444_Premultiplied", QImage::Format::Format_ARGB4444_Premultiplied);
+        define_qenum_value_under(rb_cQImageFormat, "Format_RGBX8888", QImage::Format::Format_RGBX8888);
+        define_qenum_value_under(rb_cQImageFormat, "Format_RGBA8888", QImage::Format::Format_RGBA8888);
+        define_qenum_value_under(rb_cQImageFormat, "Format_RGBA8888_Premultiplied", QImage::Format::Format_RGBA8888_Premultiplied);
+        define_qenum_value_under(rb_cQImageFormat, "Format_BGR30", QImage::Format::Format_BGR30);
+        define_qenum_value_under(rb_cQImageFormat, "Format_A2BGR30_Premultiplied", QImage::Format::Format_A2BGR30_Premultiplied);
+        define_qenum_value_under(rb_cQImageFormat, "Format_RGB30", QImage::Format::Format_RGB30);
+        define_qenum_value_under(rb_cQImageFormat, "Format_A2RGB30_Premultiplied", QImage::Format::Format_A2RGB30_Premultiplied);
+        define_qenum_value_under(rb_cQImageFormat, "Format_Alpha8", QImage::Format::Format_Alpha8);
+        define_qenum_value_under(rb_cQImageFormat, "Format_Grayscale8", QImage::Format::Format_Grayscale8);
+        define_qenum_value_under(rb_cQImageFormat, "Format_RGBX64", QImage::Format::Format_RGBX64);
+        define_qenum_value_under(rb_cQImageFormat, "Format_RGBA64", QImage::Format::Format_RGBA64);
+        define_qenum_value_under(rb_cQImageFormat, "Format_RGBA64_Premultiplied", QImage::Format::Format_RGBA64_Premultiplied);
+        define_qenum_value_under(rb_cQImageFormat, "Format_Grayscale16", QImage::Format::Format_Grayscale16);
+        define_qenum_value_under(rb_cQImageFormat, "Format_BGR888", QImage::Format::Format_BGR888);
+        define_qenum_value_under(rb_cQImageFormat, "Format_RGBX16FPx4", QImage::Format::Format_RGBX16FPx4);
+        define_qenum_value_under(rb_cQImageFormat, "Format_RGBA16FPx4", QImage::Format::Format_RGBA16FPx4);
+        define_qenum_value_under(rb_cQImageFormat, "Format_RGBA16FPx4_Premultiplied", QImage::Format::Format_RGBA16FPx4_Premultiplied);
+        define_qenum_value_under(rb_cQImageFormat, "Format_RGBX32FPx4", QImage::Format::Format_RGBX32FPx4);
+        define_qenum_value_under(rb_cQImageFormat, "Format_RGBA32FPx4", QImage::Format::Format_RGBA32FPx4);
+        define_qenum_value_under(rb_cQImageFormat, "Format_RGBA32FPx4_Premultiplied", QImage::Format::Format_RGBA32FPx4_Premultiplied);
+        define_qenum_value_under(rb_cQImageFormat, "Format_CMYK8888", QImage::Format::Format_CMYK8888);
+        define_qenum_value_under(rb_cQImageFormat, "NImageFormats", QImage::Format::NImageFormats);
 
-    Enum<QImage::InvertMode> rb_cQImageInvertMode =
+    Data_Type<QImage::InvertMode> rb_cQImageInvertMode =
         // RubyQt6::QtGui::QImage::InvertMode
-        define_qenum_under<QImage::InvertMode>("InvertMode", rb_cQImage)
-            .define_value("InvertRgb", QImage::InvertMode::InvertRgb)
-            .define_value("InvertRgba", QImage::InvertMode::InvertRgba);
+        define_qenum_under<QImage::InvertMode>(rb_cQImage, "InvertMode");
+        define_qenum_value_under(rb_cQImageInvertMode, "InvertRgb", QImage::InvertMode::InvertRgb);
+        define_qenum_value_under(rb_cQImageInvertMode, "InvertRgba", QImage::InvertMode::InvertRgba);
 }

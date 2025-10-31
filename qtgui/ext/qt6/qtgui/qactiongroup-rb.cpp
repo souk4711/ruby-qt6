@@ -36,10 +36,10 @@ void Init_qactiongroup(Rice::Module rb_mQt6QtGui)
             .define_method("hovered", &QActionGroup::hovered, Arg("action"))
             .define_method("triggered", &QActionGroup::triggered, Arg("action"));
 
-    Enum<QActionGroup::ExclusionPolicy> rb_cQActionGroupExclusionPolicy =
+    Data_Type<QActionGroup::ExclusionPolicy> rb_cQActionGroupExclusionPolicy =
         // RubyQt6::QtGui::QActionGroup::ExclusionPolicy
-        define_qenum_under<QActionGroup::ExclusionPolicy>("ExclusionPolicy", rb_cQActionGroup)
-            .define_value("None", QActionGroup::ExclusionPolicy::None)
-            .define_value("Exclusive", QActionGroup::ExclusionPolicy::Exclusive)
-            .define_value("ExclusiveOptional", QActionGroup::ExclusionPolicy::ExclusiveOptional);
+        define_qenum_under<QActionGroup::ExclusionPolicy>(rb_cQActionGroup, "ExclusionPolicy");
+        define_qenum_value_under(rb_cQActionGroupExclusionPolicy, "None", QActionGroup::ExclusionPolicy::None);
+        define_qenum_value_under(rb_cQActionGroupExclusionPolicy, "Exclusive", QActionGroup::ExclusionPolicy::Exclusive);
+        define_qenum_value_under(rb_cQActionGroupExclusionPolicy, "ExclusiveOptional", QActionGroup::ExclusionPolicy::ExclusiveOptional);
 }

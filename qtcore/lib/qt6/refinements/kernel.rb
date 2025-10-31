@@ -18,8 +18,6 @@ module Kernel
     enum.define_method(:~) { ~flags.new(self) }
 
     flags.define_method(:to_qflags) { self }
-    flags.define_method(:zero?) { to_i.zero? }
-    flags.define_method(:nonzero?) { to_i.nonzero? }
     flags.define_method(:inspect) { RubyQt6::T.inspect_struct_enum(self, int: to_i) }
   end
 end

@@ -75,20 +75,20 @@ void Init_qdatetimeedit(Rice::Module rb_mQt6QtWidgets)
             .define_method("date_time_changed", &QDateTimeEdit::dateTimeChanged, Arg("date_time"))
             .define_method("time_changed", &QDateTimeEdit::timeChanged, Arg("time"));
 
-    Enum<QDateTimeEdit::Section> rb_cQDateTimeEditSection =
+    Data_Type<QDateTimeEdit::Section> rb_cQDateTimeEditSection =
         // RubyQt6::QtWidgets::QDateTimeEdit::Section
-        define_qenum_under<QDateTimeEdit::Section>("Section", rb_cQDateTimeEdit)
-            .define_value("NoSection", QDateTimeEdit::Section::NoSection)
-            .define_value("AmPmSection", QDateTimeEdit::Section::AmPmSection)
-            .define_value("MSecSection", QDateTimeEdit::Section::MSecSection)
-            .define_value("SecondSection", QDateTimeEdit::Section::SecondSection)
-            .define_value("MinuteSection", QDateTimeEdit::Section::MinuteSection)
-            .define_value("HourSection", QDateTimeEdit::Section::HourSection)
-            .define_value("DaySection", QDateTimeEdit::Section::DaySection)
-            .define_value("MonthSection", QDateTimeEdit::Section::MonthSection)
-            .define_value("YearSection", QDateTimeEdit::Section::YearSection)
-            .define_value("TimeSections_Mask", QDateTimeEdit::Section::TimeSections_Mask)
-            .define_value("DateSections_Mask", QDateTimeEdit::Section::DateSections_Mask);
+        define_qenum_under<QDateTimeEdit::Section>(rb_cQDateTimeEdit, "Section");
+        define_qenum_value_under(rb_cQDateTimeEditSection, "NoSection", QDateTimeEdit::Section::NoSection);
+        define_qenum_value_under(rb_cQDateTimeEditSection, "AmPmSection", QDateTimeEdit::Section::AmPmSection);
+        define_qenum_value_under(rb_cQDateTimeEditSection, "MSecSection", QDateTimeEdit::Section::MSecSection);
+        define_qenum_value_under(rb_cQDateTimeEditSection, "SecondSection", QDateTimeEdit::Section::SecondSection);
+        define_qenum_value_under(rb_cQDateTimeEditSection, "MinuteSection", QDateTimeEdit::Section::MinuteSection);
+        define_qenum_value_under(rb_cQDateTimeEditSection, "HourSection", QDateTimeEdit::Section::HourSection);
+        define_qenum_value_under(rb_cQDateTimeEditSection, "DaySection", QDateTimeEdit::Section::DaySection);
+        define_qenum_value_under(rb_cQDateTimeEditSection, "MonthSection", QDateTimeEdit::Section::MonthSection);
+        define_qenum_value_under(rb_cQDateTimeEditSection, "YearSection", QDateTimeEdit::Section::YearSection);
+        define_qenum_value_under(rb_cQDateTimeEditSection, "TimeSections_Mask", QDateTimeEdit::Section::TimeSections_Mask);
+        define_qenum_value_under(rb_cQDateTimeEditSection, "DateSections_Mask", QDateTimeEdit::Section::DateSections_Mask);
 
     Data_Type<QFlags<QDateTimeEdit::Section>> rb_cQDateTimeEditSections =
         // RubyQt6::QtWidgets::QDateTimeEdit::Sections

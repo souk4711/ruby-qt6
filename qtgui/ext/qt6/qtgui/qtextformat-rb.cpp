@@ -71,149 +71,149 @@ void Init_qtextformat(Rice::Module rb_mQt6QtGui)
             .define_method("to_table_format", &QTextFormat::toTableFormat)
             .define_method("type", &QTextFormat::type);
 
-    Enum<QTextFormat::FormatType> rb_cQTextFormatFormatType =
+    Data_Type<QTextFormat::FormatType> rb_cQTextFormatFormatType =
         // RubyQt6::QtGui::QTextFormat::FormatType
-        define_qenum_under<QTextFormat::FormatType>("FormatType", rb_cQTextFormat)
-            .define_value("InvalidFormat", QTextFormat::FormatType::InvalidFormat)
-            .define_value("BlockFormat", QTextFormat::FormatType::BlockFormat)
-            .define_value("CharFormat", QTextFormat::FormatType::CharFormat)
-            .define_value("ListFormat", QTextFormat::FormatType::ListFormat)
-            .define_value("FrameFormat", QTextFormat::FormatType::FrameFormat)
-            .define_value("UserFormat", QTextFormat::FormatType::UserFormat);
+        define_qenum_under<QTextFormat::FormatType>(rb_cQTextFormat, "FormatType");
+        define_qenum_value_under(rb_cQTextFormatFormatType, "InvalidFormat", QTextFormat::FormatType::InvalidFormat);
+        define_qenum_value_under(rb_cQTextFormatFormatType, "BlockFormat", QTextFormat::FormatType::BlockFormat);
+        define_qenum_value_under(rb_cQTextFormatFormatType, "CharFormat", QTextFormat::FormatType::CharFormat);
+        define_qenum_value_under(rb_cQTextFormatFormatType, "ListFormat", QTextFormat::FormatType::ListFormat);
+        define_qenum_value_under(rb_cQTextFormatFormatType, "FrameFormat", QTextFormat::FormatType::FrameFormat);
+        define_qenum_value_under(rb_cQTextFormatFormatType, "UserFormat", QTextFormat::FormatType::UserFormat);
 
-    Enum<QTextFormat::Property> rb_cQTextFormatProperty =
+    Data_Type<QTextFormat::Property> rb_cQTextFormatProperty =
         // RubyQt6::QtGui::QTextFormat::Property
-        define_qenum_under<QTextFormat::Property>("Property", rb_cQTextFormat)
-            .define_value("ObjectIndex", QTextFormat::Property::ObjectIndex)
-            .define_value("CssFloat", QTextFormat::Property::CssFloat)
-            .define_value("LayoutDirection", QTextFormat::Property::LayoutDirection)
-            .define_value("OutlinePen", QTextFormat::Property::OutlinePen)
-            .define_value("BackgroundBrush", QTextFormat::Property::BackgroundBrush)
-            .define_value("ForegroundBrush", QTextFormat::Property::ForegroundBrush)
-            .define_value("BackgroundImageUrl", QTextFormat::Property::BackgroundImageUrl)
-            .define_value("BlockAlignment", QTextFormat::Property::BlockAlignment)
-            .define_value("BlockTopMargin", QTextFormat::Property::BlockTopMargin)
-            .define_value("BlockBottomMargin", QTextFormat::Property::BlockBottomMargin)
-            .define_value("BlockLeftMargin", QTextFormat::Property::BlockLeftMargin)
-            .define_value("BlockRightMargin", QTextFormat::Property::BlockRightMargin)
-            .define_value("TextIndent", QTextFormat::Property::TextIndent)
-            .define_value("TabPositions", QTextFormat::Property::TabPositions)
-            .define_value("BlockIndent", QTextFormat::Property::BlockIndent)
-            .define_value("LineHeight", QTextFormat::Property::LineHeight)
-            .define_value("LineHeightType", QTextFormat::Property::LineHeightType)
-            .define_value("BlockNonBreakableLines", QTextFormat::Property::BlockNonBreakableLines)
-            .define_value("BlockTrailingHorizontalRulerWidth", QTextFormat::Property::BlockTrailingHorizontalRulerWidth)
-            .define_value("HeadingLevel", QTextFormat::Property::HeadingLevel)
-            .define_value("BlockQuoteLevel", QTextFormat::Property::BlockQuoteLevel)
-            .define_value("BlockCodeLanguage", QTextFormat::Property::BlockCodeLanguage)
-            .define_value("BlockCodeFence", QTextFormat::Property::BlockCodeFence)
-            .define_value("BlockMarker", QTextFormat::Property::BlockMarker)
-            .define_value("FirstFontProperty", QTextFormat::Property::FirstFontProperty)
-            .define_value("FontCapitalization", QTextFormat::Property::FontCapitalization)
-            .define_value("FontLetterSpacing", QTextFormat::Property::FontLetterSpacing)
-            .define_value("FontWordSpacing", QTextFormat::Property::FontWordSpacing)
-            .define_value("FontStyleHint", QTextFormat::Property::FontStyleHint)
-            .define_value("FontStyleStrategy", QTextFormat::Property::FontStyleStrategy)
-            .define_value("FontKerning", QTextFormat::Property::FontKerning)
-            .define_value("FontHintingPreference", QTextFormat::Property::FontHintingPreference)
-            .define_value("FontFamilies", QTextFormat::Property::FontFamilies)
-            .define_value("FontStyleName", QTextFormat::Property::FontStyleName)
-            .define_value("FontLetterSpacingType", QTextFormat::Property::FontLetterSpacingType)
-            .define_value("FontStretch", QTextFormat::Property::FontStretch)
-            .define_value("FontFamily", QTextFormat::Property::FontFamily)
-            .define_value("FontPointSize", QTextFormat::Property::FontPointSize)
-            .define_value("FontSizeAdjustment", QTextFormat::Property::FontSizeAdjustment)
-            .define_value("FontSizeIncrement", QTextFormat::Property::FontSizeIncrement)
-            .define_value("FontWeight", QTextFormat::Property::FontWeight)
-            .define_value("FontItalic", QTextFormat::Property::FontItalic)
-            .define_value("FontUnderline", QTextFormat::Property::FontUnderline)
-            .define_value("FontOverline", QTextFormat::Property::FontOverline)
-            .define_value("FontStrikeOut", QTextFormat::Property::FontStrikeOut)
-            .define_value("FontFixedPitch", QTextFormat::Property::FontFixedPitch)
-            .define_value("FontPixelSize", QTextFormat::Property::FontPixelSize)
-            .define_value("LastFontProperty", QTextFormat::Property::LastFontProperty)
-            .define_value("TextUnderlineColor", QTextFormat::Property::TextUnderlineColor)
-            .define_value("TextVerticalAlignment", QTextFormat::Property::TextVerticalAlignment)
-            .define_value("TextOutline", QTextFormat::Property::TextOutline)
-            .define_value("TextUnderlineStyle", QTextFormat::Property::TextUnderlineStyle)
-            .define_value("TextToolTip", QTextFormat::Property::TextToolTip)
-            .define_value("TextSuperScriptBaseline", QTextFormat::Property::TextSuperScriptBaseline)
-            .define_value("TextSubScriptBaseline", QTextFormat::Property::TextSubScriptBaseline)
-            .define_value("TextBaselineOffset", QTextFormat::Property::TextBaselineOffset)
-            .define_value("IsAnchor", QTextFormat::Property::IsAnchor)
-            .define_value("AnchorHref", QTextFormat::Property::AnchorHref)
-            .define_value("AnchorName", QTextFormat::Property::AnchorName)
-            .define_value("OldFontLetterSpacingType", QTextFormat::Property::OldFontLetterSpacingType)
-            .define_value("OldFontStretch", QTextFormat::Property::OldFontStretch)
-            .define_value("OldTextUnderlineColor", QTextFormat::Property::OldTextUnderlineColor)
-            .define_value("OldFontFamily", QTextFormat::Property::OldFontFamily)
-            .define_value("ObjectType", QTextFormat::Property::ObjectType)
-            .define_value("ListStyle", QTextFormat::Property::ListStyle)
-            .define_value("ListIndent", QTextFormat::Property::ListIndent)
-            .define_value("ListNumberPrefix", QTextFormat::Property::ListNumberPrefix)
-            .define_value("ListNumberSuffix", QTextFormat::Property::ListNumberSuffix)
-            .define_value("ListStart", QTextFormat::Property::ListStart)
-            .define_value("FrameBorder", QTextFormat::Property::FrameBorder)
-            .define_value("FrameMargin", QTextFormat::Property::FrameMargin)
-            .define_value("FramePadding", QTextFormat::Property::FramePadding)
-            .define_value("FrameWidth", QTextFormat::Property::FrameWidth)
-            .define_value("FrameHeight", QTextFormat::Property::FrameHeight)
-            .define_value("FrameTopMargin", QTextFormat::Property::FrameTopMargin)
-            .define_value("FrameBottomMargin", QTextFormat::Property::FrameBottomMargin)
-            .define_value("FrameLeftMargin", QTextFormat::Property::FrameLeftMargin)
-            .define_value("FrameRightMargin", QTextFormat::Property::FrameRightMargin)
-            .define_value("FrameBorderBrush", QTextFormat::Property::FrameBorderBrush)
-            .define_value("FrameBorderStyle", QTextFormat::Property::FrameBorderStyle)
-            .define_value("TableColumns", QTextFormat::Property::TableColumns)
-            .define_value("TableColumnWidthConstraints", QTextFormat::Property::TableColumnWidthConstraints)
-            .define_value("TableCellSpacing", QTextFormat::Property::TableCellSpacing)
-            .define_value("TableCellPadding", QTextFormat::Property::TableCellPadding)
-            .define_value("TableHeaderRowCount", QTextFormat::Property::TableHeaderRowCount)
-            .define_value("TableBorderCollapse", QTextFormat::Property::TableBorderCollapse)
-            .define_value("TableCellRowSpan", QTextFormat::Property::TableCellRowSpan)
-            .define_value("TableCellColumnSpan", QTextFormat::Property::TableCellColumnSpan)
-            .define_value("TableCellTopPadding", QTextFormat::Property::TableCellTopPadding)
-            .define_value("TableCellBottomPadding", QTextFormat::Property::TableCellBottomPadding)
-            .define_value("TableCellLeftPadding", QTextFormat::Property::TableCellLeftPadding)
-            .define_value("TableCellRightPadding", QTextFormat::Property::TableCellRightPadding)
-            .define_value("TableCellTopBorder", QTextFormat::Property::TableCellTopBorder)
-            .define_value("TableCellBottomBorder", QTextFormat::Property::TableCellBottomBorder)
-            .define_value("TableCellLeftBorder", QTextFormat::Property::TableCellLeftBorder)
-            .define_value("TableCellRightBorder", QTextFormat::Property::TableCellRightBorder)
-            .define_value("TableCellTopBorderStyle", QTextFormat::Property::TableCellTopBorderStyle)
-            .define_value("TableCellBottomBorderStyle", QTextFormat::Property::TableCellBottomBorderStyle)
-            .define_value("TableCellLeftBorderStyle", QTextFormat::Property::TableCellLeftBorderStyle)
-            .define_value("TableCellRightBorderStyle", QTextFormat::Property::TableCellRightBorderStyle)
-            .define_value("TableCellTopBorderBrush", QTextFormat::Property::TableCellTopBorderBrush)
-            .define_value("TableCellBottomBorderBrush", QTextFormat::Property::TableCellBottomBorderBrush)
-            .define_value("TableCellLeftBorderBrush", QTextFormat::Property::TableCellLeftBorderBrush)
-            .define_value("TableCellRightBorderBrush", QTextFormat::Property::TableCellRightBorderBrush)
-            .define_value("ImageName", QTextFormat::Property::ImageName)
-            .define_value("ImageTitle", QTextFormat::Property::ImageTitle)
-            .define_value("ImageAltText", QTextFormat::Property::ImageAltText)
-            .define_value("ImageWidth", QTextFormat::Property::ImageWidth)
-            .define_value("ImageHeight", QTextFormat::Property::ImageHeight)
-            .define_value("ImageQuality", QTextFormat::Property::ImageQuality)
-            .define_value("ImageMaxWidth", QTextFormat::Property::ImageMaxWidth)
-            .define_value("FullWidthSelection", QTextFormat::Property::FullWidthSelection)
-            .define_value("PageBreakPolicy", QTextFormat::Property::PageBreakPolicy)
-            .define_value("UserProperty", QTextFormat::Property::UserProperty);
+        define_qenum_under<QTextFormat::Property>(rb_cQTextFormat, "Property");
+        define_qenum_value_under(rb_cQTextFormatProperty, "ObjectIndex", QTextFormat::Property::ObjectIndex);
+        define_qenum_value_under(rb_cQTextFormatProperty, "CssFloat", QTextFormat::Property::CssFloat);
+        define_qenum_value_under(rb_cQTextFormatProperty, "LayoutDirection", QTextFormat::Property::LayoutDirection);
+        define_qenum_value_under(rb_cQTextFormatProperty, "OutlinePen", QTextFormat::Property::OutlinePen);
+        define_qenum_value_under(rb_cQTextFormatProperty, "BackgroundBrush", QTextFormat::Property::BackgroundBrush);
+        define_qenum_value_under(rb_cQTextFormatProperty, "ForegroundBrush", QTextFormat::Property::ForegroundBrush);
+        define_qenum_value_under(rb_cQTextFormatProperty, "BackgroundImageUrl", QTextFormat::Property::BackgroundImageUrl);
+        define_qenum_value_under(rb_cQTextFormatProperty, "BlockAlignment", QTextFormat::Property::BlockAlignment);
+        define_qenum_value_under(rb_cQTextFormatProperty, "BlockTopMargin", QTextFormat::Property::BlockTopMargin);
+        define_qenum_value_under(rb_cQTextFormatProperty, "BlockBottomMargin", QTextFormat::Property::BlockBottomMargin);
+        define_qenum_value_under(rb_cQTextFormatProperty, "BlockLeftMargin", QTextFormat::Property::BlockLeftMargin);
+        define_qenum_value_under(rb_cQTextFormatProperty, "BlockRightMargin", QTextFormat::Property::BlockRightMargin);
+        define_qenum_value_under(rb_cQTextFormatProperty, "TextIndent", QTextFormat::Property::TextIndent);
+        define_qenum_value_under(rb_cQTextFormatProperty, "TabPositions", QTextFormat::Property::TabPositions);
+        define_qenum_value_under(rb_cQTextFormatProperty, "BlockIndent", QTextFormat::Property::BlockIndent);
+        define_qenum_value_under(rb_cQTextFormatProperty, "LineHeight", QTextFormat::Property::LineHeight);
+        define_qenum_value_under(rb_cQTextFormatProperty, "LineHeightType", QTextFormat::Property::LineHeightType);
+        define_qenum_value_under(rb_cQTextFormatProperty, "BlockNonBreakableLines", QTextFormat::Property::BlockNonBreakableLines);
+        define_qenum_value_under(rb_cQTextFormatProperty, "BlockTrailingHorizontalRulerWidth", QTextFormat::Property::BlockTrailingHorizontalRulerWidth);
+        define_qenum_value_under(rb_cQTextFormatProperty, "HeadingLevel", QTextFormat::Property::HeadingLevel);
+        define_qenum_value_under(rb_cQTextFormatProperty, "BlockQuoteLevel", QTextFormat::Property::BlockQuoteLevel);
+        define_qenum_value_under(rb_cQTextFormatProperty, "BlockCodeLanguage", QTextFormat::Property::BlockCodeLanguage);
+        define_qenum_value_under(rb_cQTextFormatProperty, "BlockCodeFence", QTextFormat::Property::BlockCodeFence);
+        define_qenum_value_under(rb_cQTextFormatProperty, "BlockMarker", QTextFormat::Property::BlockMarker);
+        define_qenum_value_under(rb_cQTextFormatProperty, "FirstFontProperty", QTextFormat::Property::FirstFontProperty);
+        define_qenum_value_under(rb_cQTextFormatProperty, "FontCapitalization", QTextFormat::Property::FontCapitalization);
+        define_qenum_value_under(rb_cQTextFormatProperty, "FontLetterSpacing", QTextFormat::Property::FontLetterSpacing);
+        define_qenum_value_under(rb_cQTextFormatProperty, "FontWordSpacing", QTextFormat::Property::FontWordSpacing);
+        define_qenum_value_under(rb_cQTextFormatProperty, "FontStyleHint", QTextFormat::Property::FontStyleHint);
+        define_qenum_value_under(rb_cQTextFormatProperty, "FontStyleStrategy", QTextFormat::Property::FontStyleStrategy);
+        define_qenum_value_under(rb_cQTextFormatProperty, "FontKerning", QTextFormat::Property::FontKerning);
+        define_qenum_value_under(rb_cQTextFormatProperty, "FontHintingPreference", QTextFormat::Property::FontHintingPreference);
+        define_qenum_value_under(rb_cQTextFormatProperty, "FontFamilies", QTextFormat::Property::FontFamilies);
+        define_qenum_value_under(rb_cQTextFormatProperty, "FontStyleName", QTextFormat::Property::FontStyleName);
+        define_qenum_value_under(rb_cQTextFormatProperty, "FontLetterSpacingType", QTextFormat::Property::FontLetterSpacingType);
+        define_qenum_value_under(rb_cQTextFormatProperty, "FontStretch", QTextFormat::Property::FontStretch);
+        define_qenum_value_under(rb_cQTextFormatProperty, "FontFamily", QTextFormat::Property::FontFamily);
+        define_qenum_value_under(rb_cQTextFormatProperty, "FontPointSize", QTextFormat::Property::FontPointSize);
+        define_qenum_value_under(rb_cQTextFormatProperty, "FontSizeAdjustment", QTextFormat::Property::FontSizeAdjustment);
+        define_qenum_value_under(rb_cQTextFormatProperty, "FontSizeIncrement", QTextFormat::Property::FontSizeIncrement);
+        define_qenum_value_under(rb_cQTextFormatProperty, "FontWeight", QTextFormat::Property::FontWeight);
+        define_qenum_value_under(rb_cQTextFormatProperty, "FontItalic", QTextFormat::Property::FontItalic);
+        define_qenum_value_under(rb_cQTextFormatProperty, "FontUnderline", QTextFormat::Property::FontUnderline);
+        define_qenum_value_under(rb_cQTextFormatProperty, "FontOverline", QTextFormat::Property::FontOverline);
+        define_qenum_value_under(rb_cQTextFormatProperty, "FontStrikeOut", QTextFormat::Property::FontStrikeOut);
+        define_qenum_value_under(rb_cQTextFormatProperty, "FontFixedPitch", QTextFormat::Property::FontFixedPitch);
+        define_qenum_value_under(rb_cQTextFormatProperty, "FontPixelSize", QTextFormat::Property::FontPixelSize);
+        define_qenum_value_under(rb_cQTextFormatProperty, "LastFontProperty", QTextFormat::Property::LastFontProperty);
+        define_qenum_value_under(rb_cQTextFormatProperty, "TextUnderlineColor", QTextFormat::Property::TextUnderlineColor);
+        define_qenum_value_under(rb_cQTextFormatProperty, "TextVerticalAlignment", QTextFormat::Property::TextVerticalAlignment);
+        define_qenum_value_under(rb_cQTextFormatProperty, "TextOutline", QTextFormat::Property::TextOutline);
+        define_qenum_value_under(rb_cQTextFormatProperty, "TextUnderlineStyle", QTextFormat::Property::TextUnderlineStyle);
+        define_qenum_value_under(rb_cQTextFormatProperty, "TextToolTip", QTextFormat::Property::TextToolTip);
+        define_qenum_value_under(rb_cQTextFormatProperty, "TextSuperScriptBaseline", QTextFormat::Property::TextSuperScriptBaseline);
+        define_qenum_value_under(rb_cQTextFormatProperty, "TextSubScriptBaseline", QTextFormat::Property::TextSubScriptBaseline);
+        define_qenum_value_under(rb_cQTextFormatProperty, "TextBaselineOffset", QTextFormat::Property::TextBaselineOffset);
+        define_qenum_value_under(rb_cQTextFormatProperty, "IsAnchor", QTextFormat::Property::IsAnchor);
+        define_qenum_value_under(rb_cQTextFormatProperty, "AnchorHref", QTextFormat::Property::AnchorHref);
+        define_qenum_value_under(rb_cQTextFormatProperty, "AnchorName", QTextFormat::Property::AnchorName);
+        define_qenum_value_under(rb_cQTextFormatProperty, "OldFontLetterSpacingType", QTextFormat::Property::OldFontLetterSpacingType);
+        define_qenum_value_under(rb_cQTextFormatProperty, "OldFontStretch", QTextFormat::Property::OldFontStretch);
+        define_qenum_value_under(rb_cQTextFormatProperty, "OldTextUnderlineColor", QTextFormat::Property::OldTextUnderlineColor);
+        define_qenum_value_under(rb_cQTextFormatProperty, "OldFontFamily", QTextFormat::Property::OldFontFamily);
+        define_qenum_value_under(rb_cQTextFormatProperty, "ObjectType", QTextFormat::Property::ObjectType);
+        define_qenum_value_under(rb_cQTextFormatProperty, "ListStyle", QTextFormat::Property::ListStyle);
+        define_qenum_value_under(rb_cQTextFormatProperty, "ListIndent", QTextFormat::Property::ListIndent);
+        define_qenum_value_under(rb_cQTextFormatProperty, "ListNumberPrefix", QTextFormat::Property::ListNumberPrefix);
+        define_qenum_value_under(rb_cQTextFormatProperty, "ListNumberSuffix", QTextFormat::Property::ListNumberSuffix);
+        define_qenum_value_under(rb_cQTextFormatProperty, "ListStart", QTextFormat::Property::ListStart);
+        define_qenum_value_under(rb_cQTextFormatProperty, "FrameBorder", QTextFormat::Property::FrameBorder);
+        define_qenum_value_under(rb_cQTextFormatProperty, "FrameMargin", QTextFormat::Property::FrameMargin);
+        define_qenum_value_under(rb_cQTextFormatProperty, "FramePadding", QTextFormat::Property::FramePadding);
+        define_qenum_value_under(rb_cQTextFormatProperty, "FrameWidth", QTextFormat::Property::FrameWidth);
+        define_qenum_value_under(rb_cQTextFormatProperty, "FrameHeight", QTextFormat::Property::FrameHeight);
+        define_qenum_value_under(rb_cQTextFormatProperty, "FrameTopMargin", QTextFormat::Property::FrameTopMargin);
+        define_qenum_value_under(rb_cQTextFormatProperty, "FrameBottomMargin", QTextFormat::Property::FrameBottomMargin);
+        define_qenum_value_under(rb_cQTextFormatProperty, "FrameLeftMargin", QTextFormat::Property::FrameLeftMargin);
+        define_qenum_value_under(rb_cQTextFormatProperty, "FrameRightMargin", QTextFormat::Property::FrameRightMargin);
+        define_qenum_value_under(rb_cQTextFormatProperty, "FrameBorderBrush", QTextFormat::Property::FrameBorderBrush);
+        define_qenum_value_under(rb_cQTextFormatProperty, "FrameBorderStyle", QTextFormat::Property::FrameBorderStyle);
+        define_qenum_value_under(rb_cQTextFormatProperty, "TableColumns", QTextFormat::Property::TableColumns);
+        define_qenum_value_under(rb_cQTextFormatProperty, "TableColumnWidthConstraints", QTextFormat::Property::TableColumnWidthConstraints);
+        define_qenum_value_under(rb_cQTextFormatProperty, "TableCellSpacing", QTextFormat::Property::TableCellSpacing);
+        define_qenum_value_under(rb_cQTextFormatProperty, "TableCellPadding", QTextFormat::Property::TableCellPadding);
+        define_qenum_value_under(rb_cQTextFormatProperty, "TableHeaderRowCount", QTextFormat::Property::TableHeaderRowCount);
+        define_qenum_value_under(rb_cQTextFormatProperty, "TableBorderCollapse", QTextFormat::Property::TableBorderCollapse);
+        define_qenum_value_under(rb_cQTextFormatProperty, "TableCellRowSpan", QTextFormat::Property::TableCellRowSpan);
+        define_qenum_value_under(rb_cQTextFormatProperty, "TableCellColumnSpan", QTextFormat::Property::TableCellColumnSpan);
+        define_qenum_value_under(rb_cQTextFormatProperty, "TableCellTopPadding", QTextFormat::Property::TableCellTopPadding);
+        define_qenum_value_under(rb_cQTextFormatProperty, "TableCellBottomPadding", QTextFormat::Property::TableCellBottomPadding);
+        define_qenum_value_under(rb_cQTextFormatProperty, "TableCellLeftPadding", QTextFormat::Property::TableCellLeftPadding);
+        define_qenum_value_under(rb_cQTextFormatProperty, "TableCellRightPadding", QTextFormat::Property::TableCellRightPadding);
+        define_qenum_value_under(rb_cQTextFormatProperty, "TableCellTopBorder", QTextFormat::Property::TableCellTopBorder);
+        define_qenum_value_under(rb_cQTextFormatProperty, "TableCellBottomBorder", QTextFormat::Property::TableCellBottomBorder);
+        define_qenum_value_under(rb_cQTextFormatProperty, "TableCellLeftBorder", QTextFormat::Property::TableCellLeftBorder);
+        define_qenum_value_under(rb_cQTextFormatProperty, "TableCellRightBorder", QTextFormat::Property::TableCellRightBorder);
+        define_qenum_value_under(rb_cQTextFormatProperty, "TableCellTopBorderStyle", QTextFormat::Property::TableCellTopBorderStyle);
+        define_qenum_value_under(rb_cQTextFormatProperty, "TableCellBottomBorderStyle", QTextFormat::Property::TableCellBottomBorderStyle);
+        define_qenum_value_under(rb_cQTextFormatProperty, "TableCellLeftBorderStyle", QTextFormat::Property::TableCellLeftBorderStyle);
+        define_qenum_value_under(rb_cQTextFormatProperty, "TableCellRightBorderStyle", QTextFormat::Property::TableCellRightBorderStyle);
+        define_qenum_value_under(rb_cQTextFormatProperty, "TableCellTopBorderBrush", QTextFormat::Property::TableCellTopBorderBrush);
+        define_qenum_value_under(rb_cQTextFormatProperty, "TableCellBottomBorderBrush", QTextFormat::Property::TableCellBottomBorderBrush);
+        define_qenum_value_under(rb_cQTextFormatProperty, "TableCellLeftBorderBrush", QTextFormat::Property::TableCellLeftBorderBrush);
+        define_qenum_value_under(rb_cQTextFormatProperty, "TableCellRightBorderBrush", QTextFormat::Property::TableCellRightBorderBrush);
+        define_qenum_value_under(rb_cQTextFormatProperty, "ImageName", QTextFormat::Property::ImageName);
+        define_qenum_value_under(rb_cQTextFormatProperty, "ImageTitle", QTextFormat::Property::ImageTitle);
+        define_qenum_value_under(rb_cQTextFormatProperty, "ImageAltText", QTextFormat::Property::ImageAltText);
+        define_qenum_value_under(rb_cQTextFormatProperty, "ImageWidth", QTextFormat::Property::ImageWidth);
+        define_qenum_value_under(rb_cQTextFormatProperty, "ImageHeight", QTextFormat::Property::ImageHeight);
+        define_qenum_value_under(rb_cQTextFormatProperty, "ImageQuality", QTextFormat::Property::ImageQuality);
+        define_qenum_value_under(rb_cQTextFormatProperty, "ImageMaxWidth", QTextFormat::Property::ImageMaxWidth);
+        define_qenum_value_under(rb_cQTextFormatProperty, "FullWidthSelection", QTextFormat::Property::FullWidthSelection);
+        define_qenum_value_under(rb_cQTextFormatProperty, "PageBreakPolicy", QTextFormat::Property::PageBreakPolicy);
+        define_qenum_value_under(rb_cQTextFormatProperty, "UserProperty", QTextFormat::Property::UserProperty);
 
-    Enum<QTextFormat::ObjectTypes> rb_cQTextFormatObjectTypes =
+    Data_Type<QTextFormat::ObjectTypes> rb_cQTextFormatObjectTypes =
         // RubyQt6::QtGui::QTextFormat::ObjectTypes
-        define_qenum_under<QTextFormat::ObjectTypes>("ObjectTypes", rb_cQTextFormat)
-            .define_value("NoObject", QTextFormat::ObjectTypes::NoObject)
-            .define_value("ImageObject", QTextFormat::ObjectTypes::ImageObject)
-            .define_value("TableObject", QTextFormat::ObjectTypes::TableObject)
-            .define_value("TableCellObject", QTextFormat::ObjectTypes::TableCellObject)
-            .define_value("UserObject", QTextFormat::ObjectTypes::UserObject);
+        define_qenum_under<QTextFormat::ObjectTypes>(rb_cQTextFormat, "ObjectTypes");
+        define_qenum_value_under(rb_cQTextFormatObjectTypes, "NoObject", QTextFormat::ObjectTypes::NoObject);
+        define_qenum_value_under(rb_cQTextFormatObjectTypes, "ImageObject", QTextFormat::ObjectTypes::ImageObject);
+        define_qenum_value_under(rb_cQTextFormatObjectTypes, "TableObject", QTextFormat::ObjectTypes::TableObject);
+        define_qenum_value_under(rb_cQTextFormatObjectTypes, "TableCellObject", QTextFormat::ObjectTypes::TableCellObject);
+        define_qenum_value_under(rb_cQTextFormatObjectTypes, "UserObject", QTextFormat::ObjectTypes::UserObject);
 
-    Enum<QTextFormat::PageBreakFlag> rb_cQTextFormatPageBreakFlag =
+    Data_Type<QTextFormat::PageBreakFlag> rb_cQTextFormatPageBreakFlag =
         // RubyQt6::QtGui::QTextFormat::PageBreakFlag
-        define_qenum_under<QTextFormat::PageBreakFlag>("PageBreakFlag", rb_cQTextFormat)
-            .define_value("PageBreak_Auto", QTextFormat::PageBreakFlag::PageBreak_Auto)
-            .define_value("PageBreak_AlwaysBefore", QTextFormat::PageBreakFlag::PageBreak_AlwaysBefore)
-            .define_value("PageBreak_AlwaysAfter", QTextFormat::PageBreakFlag::PageBreak_AlwaysAfter);
+        define_qenum_under<QTextFormat::PageBreakFlag>(rb_cQTextFormat, "PageBreakFlag");
+        define_qenum_value_under(rb_cQTextFormatPageBreakFlag, "PageBreak_Auto", QTextFormat::PageBreakFlag::PageBreak_Auto);
+        define_qenum_value_under(rb_cQTextFormatPageBreakFlag, "PageBreak_AlwaysBefore", QTextFormat::PageBreakFlag::PageBreak_AlwaysBefore);
+        define_qenum_value_under(rb_cQTextFormatPageBreakFlag, "PageBreak_AlwaysAfter", QTextFormat::PageBreakFlag::PageBreak_AlwaysAfter);
 
     Data_Type<QFlags<QTextFormat::PageBreakFlag>> rb_cQTextFormatPageBreakFlags =
         // RubyQt6::QtGui::QTextFormat::PageBreakFlags
@@ -257,21 +257,21 @@ void Init_qtextformat(Rice::Module rb_mQt6QtGui)
             .define_method("text_indent", &QTextBlockFormat::textIndent)
             .define_method("top_margin", &QTextBlockFormat::topMargin);
 
-    Enum<QTextBlockFormat::LineHeightTypes> rb_cQTextBlockFormatLineHeightTypes =
+    Data_Type<QTextBlockFormat::LineHeightTypes> rb_cQTextBlockFormatLineHeightTypes =
         // RubyQt6::QtGui::QTextBlockFormat::LineHeightTypes
-        define_qenum_under<QTextBlockFormat::LineHeightTypes>("LineHeightTypes", rb_cQTextBlockFormat)
-            .define_value("SingleHeight", QTextBlockFormat::LineHeightTypes::SingleHeight)
-            .define_value("ProportionalHeight", QTextBlockFormat::LineHeightTypes::ProportionalHeight)
-            .define_value("FixedHeight", QTextBlockFormat::LineHeightTypes::FixedHeight)
-            .define_value("MinimumHeight", QTextBlockFormat::LineHeightTypes::MinimumHeight)
-            .define_value("LineDistanceHeight", QTextBlockFormat::LineHeightTypes::LineDistanceHeight);
+        define_qenum_under<QTextBlockFormat::LineHeightTypes>(rb_cQTextBlockFormat, "LineHeightTypes");
+        define_qenum_value_under(rb_cQTextBlockFormatLineHeightTypes, "SingleHeight", QTextBlockFormat::LineHeightTypes::SingleHeight);
+        define_qenum_value_under(rb_cQTextBlockFormatLineHeightTypes, "ProportionalHeight", QTextBlockFormat::LineHeightTypes::ProportionalHeight);
+        define_qenum_value_under(rb_cQTextBlockFormatLineHeightTypes, "FixedHeight", QTextBlockFormat::LineHeightTypes::FixedHeight);
+        define_qenum_value_under(rb_cQTextBlockFormatLineHeightTypes, "MinimumHeight", QTextBlockFormat::LineHeightTypes::MinimumHeight);
+        define_qenum_value_under(rb_cQTextBlockFormatLineHeightTypes, "LineDistanceHeight", QTextBlockFormat::LineHeightTypes::LineDistanceHeight);
 
-    Enum<QTextBlockFormat::MarkerType> rb_cQTextBlockFormatMarkerType =
+    Data_Type<QTextBlockFormat::MarkerType> rb_cQTextBlockFormatMarkerType =
         // RubyQt6::QtGui::QTextBlockFormat::MarkerType
-        define_qenum_under<QTextBlockFormat::MarkerType>("MarkerType", rb_cQTextBlockFormat)
-            .define_value("NoMarker", QTextBlockFormat::MarkerType::NoMarker)
-            .define_value("Unchecked", QTextBlockFormat::MarkerType::Unchecked)
-            .define_value("Checked", QTextBlockFormat::MarkerType::Checked);
+        define_qenum_under<QTextBlockFormat::MarkerType>(rb_cQTextBlockFormat, "MarkerType");
+        define_qenum_value_under(rb_cQTextBlockFormatMarkerType, "NoMarker", QTextBlockFormat::MarkerType::NoMarker);
+        define_qenum_value_under(rb_cQTextBlockFormatMarkerType, "Unchecked", QTextBlockFormat::MarkerType::Unchecked);
+        define_qenum_value_under(rb_cQTextBlockFormatMarkerType, "Checked", QTextBlockFormat::MarkerType::Checked);
 
     rb_cQTextCharFormat =
         // RubyQt6::QtGui::QTextCharFormat
@@ -345,34 +345,34 @@ void Init_qtextformat(Rice::Module rb_mQt6QtGui)
             .define_method("underline_style", &QTextCharFormat::underlineStyle)
             .define_method("vertical_alignment", &QTextCharFormat::verticalAlignment);
 
-   Enum<QTextCharFormat::VerticalAlignment> rb_cQTextCharFormatVerticalAlignment =
+   Data_Type<QTextCharFormat::VerticalAlignment> rb_cQTextCharFormatVerticalAlignment =
         // RubyQt6::QtGui::QTextCharFormat::VerticalAlignment
-        define_qenum_under<QTextCharFormat::VerticalAlignment>("VerticalAlignment", rb_cQTextCharFormat)
-            .define_value("AlignNormal", QTextCharFormat::VerticalAlignment::AlignNormal)
-            .define_value("AlignSuperScript", QTextCharFormat::VerticalAlignment::AlignSuperScript)
-            .define_value("AlignSubScript", QTextCharFormat::VerticalAlignment::AlignSubScript)
-            .define_value("AlignMiddle", QTextCharFormat::VerticalAlignment::AlignMiddle)
-            .define_value("AlignTop", QTextCharFormat::VerticalAlignment::AlignTop)
-            .define_value("AlignBottom", QTextCharFormat::VerticalAlignment::AlignBottom)
-            .define_value("AlignBaseline", QTextCharFormat::VerticalAlignment::AlignBaseline);
+        define_qenum_under<QTextCharFormat::VerticalAlignment>(rb_cQTextCharFormat, "VerticalAlignment");
+        define_qenum_value_under(rb_cQTextCharFormatVerticalAlignment, "AlignNormal", QTextCharFormat::VerticalAlignment::AlignNormal);
+        define_qenum_value_under(rb_cQTextCharFormatVerticalAlignment, "AlignSuperScript", QTextCharFormat::VerticalAlignment::AlignSuperScript);
+        define_qenum_value_under(rb_cQTextCharFormatVerticalAlignment, "AlignSubScript", QTextCharFormat::VerticalAlignment::AlignSubScript);
+        define_qenum_value_under(rb_cQTextCharFormatVerticalAlignment, "AlignMiddle", QTextCharFormat::VerticalAlignment::AlignMiddle);
+        define_qenum_value_under(rb_cQTextCharFormatVerticalAlignment, "AlignTop", QTextCharFormat::VerticalAlignment::AlignTop);
+        define_qenum_value_under(rb_cQTextCharFormatVerticalAlignment, "AlignBottom", QTextCharFormat::VerticalAlignment::AlignBottom);
+        define_qenum_value_under(rb_cQTextCharFormatVerticalAlignment, "AlignBaseline", QTextCharFormat::VerticalAlignment::AlignBaseline);
 
-    Enum<QTextCharFormat::UnderlineStyle> rb_cQTextCharFormatUnderlineStyle =
+    Data_Type<QTextCharFormat::UnderlineStyle> rb_cQTextCharFormatUnderlineStyle =
         // RubyQt6::QtGui::QTextCharFormat::UnderlineStyle
-        define_qenum_under<QTextCharFormat::UnderlineStyle>("UnderlineStyle", rb_cQTextCharFormat)
-            .define_value("NoUnderline", QTextCharFormat::UnderlineStyle::NoUnderline)
-            .define_value("SingleUnderline", QTextCharFormat::UnderlineStyle::SingleUnderline)
-            .define_value("DashUnderline", QTextCharFormat::UnderlineStyle::DashUnderline)
-            .define_value("DotLine", QTextCharFormat::UnderlineStyle::DotLine)
-            .define_value("DashDotLine", QTextCharFormat::UnderlineStyle::DashDotLine)
-            .define_value("DashDotDotLine", QTextCharFormat::UnderlineStyle::DashDotDotLine)
-            .define_value("WaveUnderline", QTextCharFormat::UnderlineStyle::WaveUnderline)
-            .define_value("SpellCheckUnderline", QTextCharFormat::UnderlineStyle::SpellCheckUnderline);
+        define_qenum_under<QTextCharFormat::UnderlineStyle>(rb_cQTextCharFormat, "UnderlineStyle");
+        define_qenum_value_under(rb_cQTextCharFormatUnderlineStyle, "NoUnderline", QTextCharFormat::UnderlineStyle::NoUnderline);
+        define_qenum_value_under(rb_cQTextCharFormatUnderlineStyle, "SingleUnderline", QTextCharFormat::UnderlineStyle::SingleUnderline);
+        define_qenum_value_under(rb_cQTextCharFormatUnderlineStyle, "DashUnderline", QTextCharFormat::UnderlineStyle::DashUnderline);
+        define_qenum_value_under(rb_cQTextCharFormatUnderlineStyle, "DotLine", QTextCharFormat::UnderlineStyle::DotLine);
+        define_qenum_value_under(rb_cQTextCharFormatUnderlineStyle, "DashDotLine", QTextCharFormat::UnderlineStyle::DashDotLine);
+        define_qenum_value_under(rb_cQTextCharFormatUnderlineStyle, "DashDotDotLine", QTextCharFormat::UnderlineStyle::DashDotDotLine);
+        define_qenum_value_under(rb_cQTextCharFormatUnderlineStyle, "WaveUnderline", QTextCharFormat::UnderlineStyle::WaveUnderline);
+        define_qenum_value_under(rb_cQTextCharFormatUnderlineStyle, "SpellCheckUnderline", QTextCharFormat::UnderlineStyle::SpellCheckUnderline);
 
-    Enum<QTextCharFormat::FontPropertiesInheritanceBehavior> rb_cQTextCharFormatFontPropertiesInheritanceBehavior =
+    Data_Type<QTextCharFormat::FontPropertiesInheritanceBehavior> rb_cQTextCharFormatFontPropertiesInheritanceBehavior =
         // RubyQt6::QtGui::QTextCharFormat::FontPropertiesInheritanceBehavior
-        define_qenum_under<QTextCharFormat::FontPropertiesInheritanceBehavior>("FontPropertiesInheritanceBehavior", rb_cQTextCharFormat)
-            .define_value("FontPropertiesSpecifiedOnly", QTextCharFormat::FontPropertiesInheritanceBehavior::FontPropertiesSpecifiedOnly)
-            .define_value("FontPropertiesAll", QTextCharFormat::FontPropertiesInheritanceBehavior::FontPropertiesAll);
+        define_qenum_under<QTextCharFormat::FontPropertiesInheritanceBehavior>(rb_cQTextCharFormat, "FontPropertiesInheritanceBehavior");
+        define_qenum_value_under(rb_cQTextCharFormatFontPropertiesInheritanceBehavior, "FontPropertiesSpecifiedOnly", QTextCharFormat::FontPropertiesInheritanceBehavior::FontPropertiesSpecifiedOnly);
+        define_qenum_value_under(rb_cQTextCharFormatFontPropertiesInheritanceBehavior, "FontPropertiesAll", QTextCharFormat::FontPropertiesInheritanceBehavior::FontPropertiesAll);
 
     rb_cQTextImageFormat =
         // RubyQt6::QtGui::QTextImageFormat
@@ -472,27 +472,27 @@ void Init_qtextformat(Rice::Module rb_mQt6QtGui)
             .define_method("top_margin", &QTextFrameFormat::topMargin)
             .define_method("width", &QTextFrameFormat::width);
 
-    Enum<QTextFrameFormat::Position> rb_cQTextFrameFormatPosition =
+    Data_Type<QTextFrameFormat::Position> rb_cQTextFrameFormatPosition =
         // RubyQt6::QtGui::QTextFrameFormat::Position
-        define_qenum_under<QTextFrameFormat::Position>("Position", rb_cQTextFrameFormat)
-            .define_value("InFlow", QTextFrameFormat::Position::InFlow)
-            .define_value("FloatLeft", QTextFrameFormat::Position::FloatLeft)
-            .define_value("FloatRight", QTextFrameFormat::Position::FloatRight);
+        define_qenum_under<QTextFrameFormat::Position>(rb_cQTextFrameFormat, "Position");
+        define_qenum_value_under(rb_cQTextFrameFormatPosition, "InFlow", QTextFrameFormat::Position::InFlow);
+        define_qenum_value_under(rb_cQTextFrameFormatPosition, "FloatLeft", QTextFrameFormat::Position::FloatLeft);
+        define_qenum_value_under(rb_cQTextFrameFormatPosition, "FloatRight", QTextFrameFormat::Position::FloatRight);
 
-    Enum<QTextFrameFormat::BorderStyle> rb_cQTextFrameFormatBorderStyle =
+    Data_Type<QTextFrameFormat::BorderStyle> rb_cQTextFrameFormatBorderStyle =
         // RubyQt6::QtGui::QTextFrameFormat::BorderStyle
-        define_qenum_under<QTextFrameFormat::BorderStyle>("BorderStyle", rb_cQTextFrameFormat)
-            .define_value("BorderStyle_None", QTextFrameFormat::BorderStyle::BorderStyle_None)
-            .define_value("BorderStyle_Dotted", QTextFrameFormat::BorderStyle::BorderStyle_Dotted)
-            .define_value("BorderStyle_Dashed", QTextFrameFormat::BorderStyle::BorderStyle_Dashed)
-            .define_value("BorderStyle_Solid", QTextFrameFormat::BorderStyle::BorderStyle_Solid)
-            .define_value("BorderStyle_Double", QTextFrameFormat::BorderStyle::BorderStyle_Double)
-            .define_value("BorderStyle_DotDash", QTextFrameFormat::BorderStyle::BorderStyle_DotDash)
-            .define_value("BorderStyle_DotDotDash", QTextFrameFormat::BorderStyle::BorderStyle_DotDotDash)
-            .define_value("BorderStyle_Groove", QTextFrameFormat::BorderStyle::BorderStyle_Groove)
-            .define_value("BorderStyle_Ridge", QTextFrameFormat::BorderStyle::BorderStyle_Ridge)
-            .define_value("BorderStyle_Inset", QTextFrameFormat::BorderStyle::BorderStyle_Inset)
-            .define_value("BorderStyle_Outset", QTextFrameFormat::BorderStyle::BorderStyle_Outset);
+        define_qenum_under<QTextFrameFormat::BorderStyle>(rb_cQTextFrameFormat, "BorderStyle");
+        define_qenum_value_under(rb_cQTextFrameFormatBorderStyle, "BorderStyle_None", QTextFrameFormat::BorderStyle::BorderStyle_None);
+        define_qenum_value_under(rb_cQTextFrameFormatBorderStyle, "BorderStyle_Dotted", QTextFrameFormat::BorderStyle::BorderStyle_Dotted);
+        define_qenum_value_under(rb_cQTextFrameFormatBorderStyle, "BorderStyle_Dashed", QTextFrameFormat::BorderStyle::BorderStyle_Dashed);
+        define_qenum_value_under(rb_cQTextFrameFormatBorderStyle, "BorderStyle_Solid", QTextFrameFormat::BorderStyle::BorderStyle_Solid);
+        define_qenum_value_under(rb_cQTextFrameFormatBorderStyle, "BorderStyle_Double", QTextFrameFormat::BorderStyle::BorderStyle_Double);
+        define_qenum_value_under(rb_cQTextFrameFormatBorderStyle, "BorderStyle_DotDash", QTextFrameFormat::BorderStyle::BorderStyle_DotDash);
+        define_qenum_value_under(rb_cQTextFrameFormatBorderStyle, "BorderStyle_DotDotDash", QTextFrameFormat::BorderStyle::BorderStyle_DotDotDash);
+        define_qenum_value_under(rb_cQTextFrameFormatBorderStyle, "BorderStyle_Groove", QTextFrameFormat::BorderStyle::BorderStyle_Groove);
+        define_qenum_value_under(rb_cQTextFrameFormatBorderStyle, "BorderStyle_Ridge", QTextFrameFormat::BorderStyle::BorderStyle_Ridge);
+        define_qenum_value_under(rb_cQTextFrameFormatBorderStyle, "BorderStyle_Inset", QTextFrameFormat::BorderStyle::BorderStyle_Inset);
+        define_qenum_value_under(rb_cQTextFrameFormatBorderStyle, "BorderStyle_Outset", QTextFrameFormat::BorderStyle::BorderStyle_Outset);
 
     rb_cQTextTableFormat =
         // RubyQt6::QtGui::QTextTableFormat
@@ -537,16 +537,16 @@ void Init_qtextformat(Rice::Module rb_mQt6QtGui)
             .define_method("start", &QTextListFormat::start)
             .define_method("style", &QTextListFormat::style);
 
-    Enum<QTextListFormat::Style> rb_cQTextListFormatStyle =
+    Data_Type<QTextListFormat::Style> rb_cQTextListFormatStyle =
         // RubyQt6::QtGui::QTextListFormat::Style
-        define_qenum_under<QTextListFormat::Style>("Style", rb_cQTextListFormat)
-            .define_value("ListDisc", QTextListFormat::Style::ListDisc)
-            .define_value("ListCircle", QTextListFormat::Style::ListCircle)
-            .define_value("ListSquare", QTextListFormat::Style::ListSquare)
-            .define_value("ListDecimal", QTextListFormat::Style::ListDecimal)
-            .define_value("ListLowerAlpha", QTextListFormat::Style::ListLowerAlpha)
-            .define_value("ListUpperAlpha", QTextListFormat::Style::ListUpperAlpha)
-            .define_value("ListLowerRoman", QTextListFormat::Style::ListLowerRoman)
-            .define_value("ListUpperRoman", QTextListFormat::Style::ListUpperRoman)
-            .define_value("ListStyleUndefined", QTextListFormat::Style::ListStyleUndefined);
+        define_qenum_under<QTextListFormat::Style>(rb_cQTextListFormat, "Style");
+        define_qenum_value_under(rb_cQTextListFormatStyle, "ListDisc", QTextListFormat::Style::ListDisc);
+        define_qenum_value_under(rb_cQTextListFormatStyle, "ListCircle", QTextListFormat::Style::ListCircle);
+        define_qenum_value_under(rb_cQTextListFormatStyle, "ListSquare", QTextListFormat::Style::ListSquare);
+        define_qenum_value_under(rb_cQTextListFormatStyle, "ListDecimal", QTextListFormat::Style::ListDecimal);
+        define_qenum_value_under(rb_cQTextListFormatStyle, "ListLowerAlpha", QTextListFormat::Style::ListLowerAlpha);
+        define_qenum_value_under(rb_cQTextListFormatStyle, "ListUpperAlpha", QTextListFormat::Style::ListUpperAlpha);
+        define_qenum_value_under(rb_cQTextListFormatStyle, "ListLowerRoman", QTextListFormat::Style::ListLowerRoman);
+        define_qenum_value_under(rb_cQTextListFormatStyle, "ListUpperRoman", QTextListFormat::Style::ListUpperRoman);
+        define_qenum_value_under(rb_cQTextListFormatStyle, "ListStyleUndefined", QTextListFormat::Style::ListStyleUndefined);
 }

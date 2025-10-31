@@ -117,8 +117,9 @@ module RubyQt6
           take_next_line
         end
 
-        while (matched = line.match(/^Enum<.*rb_c#{name}(.*) =/))
-          enum = OpenStruct.new(name: matched[1])
+        while (matched = line.match(/^Data_Type<(.*)rb_c#{name}(.*) =/))
+          break if matched[1].start_with?("QFlags")
+          enum = OpenStruct.new(name: matched[2])
           qlass.enums << enum
           parse_qlass_definition_enum(qlass, enum)
         end
@@ -167,11 +168,11 @@ module RubyQt6
         when /(<.*>)?\("([\w?]+)", &#{qlass.name}::([a-zA-Z0-9_]+)/
           rbname = $2
           cppname = $3
-        when /(<.*>)?\("([\W]+)", \[\]/
+        when /(<.*>)?\("(\W+)", \[\]/
           rbname = $2
-        when /(<.*>)?\("([\W]+)", [A-Z]/
+        when /(<.*>)?\("(\W+)", [A-Z]/
           rbname = $2
-        when /(<.*>)?\("([\W]+)", &#{qlass.name}::operator/
+        when /(<.*>)?\("(\W+)", &#{qlass.name}::operator/
           rbname = $2
         else
           raise "Invalid method line: #{line}"
@@ -184,7 +185,7 @@ module RubyQt6
         name = qlass.name
         enum_name = enum.name
 
-        expected = "Enum<#{name}::#{enum_name}> rb_c#{name}#{enum_name} ="
+        expected = "Data_Type<#{name}::#{enum_name}> rb_c#{name}#{enum_name} ="
         if line == expected
           take_next_line
         else
@@ -198,14 +199,14 @@ module RubyQt6
           raise MissingLine.new(expected, line)
         end
 
-        expected = "define_qenum_under<#{name}::#{enum_name}>(\"#{enum_name}\", rb_c#{name})"
+        expected = "define_qenum_under<#{name}::#{enum_name}>(rb_c#{name}, \"#{enum_name}\");"
         if line == expected
           take_next_line
         else
           raise MissingLine.new(expected, line)
         end
 
-        while line == "" || line.start_with?(".define_value")
+        while line == "" || line.start_with?("define_qenum_value_under")
           take_next_line
         end
       end

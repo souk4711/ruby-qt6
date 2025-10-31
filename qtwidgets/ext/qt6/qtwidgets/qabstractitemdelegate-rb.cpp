@@ -18,12 +18,12 @@ void Init_qabstractitemdelegate(Rice::Module rb_mQt6QtWidgets)
             .define_method("commit_data", &QAbstractItemDelegate::commitData, Arg("editor"))
             .define_method("size_hint_changed", &QAbstractItemDelegate::sizeHintChanged, Arg("index"));
 
-   Enum<QAbstractItemDelegate::EndEditHint> rb_cQAbstractItemDelegateEndEditHint =
+   Data_Type<QAbstractItemDelegate::EndEditHint> rb_cQAbstractItemDelegateEndEditHint =
         // RubyQt6::QtWidgets::QAbstractItemDelegate::EndEditHint
-        define_qenum_under<QAbstractItemDelegate::EndEditHint>("EndEditHint", rb_cQAbstractItemDelegate)
-            .define_value("NoHint", QAbstractItemDelegate::EndEditHint::NoHint)
-            .define_value("EditNextItem", QAbstractItemDelegate::EndEditHint::EditNextItem)
-            .define_value("EditPreviousItem", QAbstractItemDelegate::EndEditHint::EditPreviousItem)
-            .define_value("SubmitModelCache", QAbstractItemDelegate::EndEditHint::SubmitModelCache)
-            .define_value("RevertModelCache", QAbstractItemDelegate::EndEditHint::RevertModelCache);
+        define_qenum_under<QAbstractItemDelegate::EndEditHint>(rb_cQAbstractItemDelegate, "EndEditHint");
+        define_qenum_value_under(rb_cQAbstractItemDelegateEndEditHint, "NoHint", QAbstractItemDelegate::EndEditHint::NoHint);
+        define_qenum_value_under(rb_cQAbstractItemDelegateEndEditHint, "EditNextItem", QAbstractItemDelegate::EndEditHint::EditNextItem);
+        define_qenum_value_under(rb_cQAbstractItemDelegateEndEditHint, "EditPreviousItem", QAbstractItemDelegate::EndEditHint::EditPreviousItem);
+        define_qenum_value_under(rb_cQAbstractItemDelegateEndEditHint, "SubmitModelCache", QAbstractItemDelegate::EndEditHint::SubmitModelCache);
+        define_qenum_value_under(rb_cQAbstractItemDelegateEndEditHint, "RevertModelCache", QAbstractItemDelegate::EndEditHint::RevertModelCache);
 }

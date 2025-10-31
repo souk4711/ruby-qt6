@@ -63,16 +63,16 @@ void Init_qmovie(Rice::Module rb_mQt6QtGui)
             // Static Public Members
             .define_singleton_function("supported_formats", &QMovie::supportedFormats);
 
-    Enum<QMovie::CacheMode> rb_cQMovieCacheMode =
+    Data_Type<QMovie::CacheMode> rb_cQMovieCacheMode =
         // RubyQt6::QtGui::QMovie::CacheMode
-        define_qenum_under<QMovie::CacheMode>("CacheMode", rb_cQMovie)
-            .define_value("CacheNone", QMovie::CacheMode::CacheNone)
-            .define_value("CacheAll", QMovie::CacheMode::CacheAll);
+        define_qenum_under<QMovie::CacheMode>(rb_cQMovie, "CacheMode");
+        define_qenum_value_under(rb_cQMovieCacheMode, "CacheNone", QMovie::CacheMode::CacheNone);
+        define_qenum_value_under(rb_cQMovieCacheMode, "CacheAll", QMovie::CacheMode::CacheAll);
 
-    Enum<QMovie::MovieState> rb_cQMovieMovieState =
+    Data_Type<QMovie::MovieState> rb_cQMovieMovieState =
         // RubyQt6::QtGui::QMovie::MovieState
-        define_qenum_under<QMovie::MovieState>("MovieState", rb_cQMovie)
-            .define_value("NotRunning", QMovie::MovieState::NotRunning)
-            .define_value("Paused", QMovie::MovieState::Paused)
-            .define_value("Running", QMovie::MovieState::Running);
+        define_qenum_under<QMovie::MovieState>(rb_cQMovie, "MovieState");
+        define_qenum_value_under(rb_cQMovieMovieState, "NotRunning", QMovie::MovieState::NotRunning);
+        define_qenum_value_under(rb_cQMovieMovieState, "Paused", QMovie::MovieState::Paused);
+        define_qenum_value_under(rb_cQMovieMovieState, "Running", QMovie::MovieState::Running);
 }

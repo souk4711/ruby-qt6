@@ -21,11 +21,11 @@ void Init_qpagedpaintdevice(Rice::Module rb_mQt6QtGui)
             .define_method("set_page_ranges", &QPagedPaintDevice::setPageRanges, Arg("ranges"))
             .define_method("set_page_size", &QPagedPaintDevice::setPageSize, Arg("page_size"));
 
-    Enum<QPagedPaintDevice::PdfVersion> rb_cQPagedPaintDevicePdfVersion =
+    Data_Type<QPagedPaintDevice::PdfVersion> rb_cQPagedPaintDevicePdfVersion =
         // RubyQt6::QtGui::QPagedPaintDevice::PdfVersion
-        define_qenum_under<QPagedPaintDevice::PdfVersion>("PdfVersion", rb_cQPagedPaintDevice)
-            .define_value("PdfVersion_1_4", QPagedPaintDevice::PdfVersion::PdfVersion_1_4)
-            .define_value("PdfVersion_A1b", QPagedPaintDevice::PdfVersion::PdfVersion_A1b)
-            .define_value("PdfVersion_1_6", QPagedPaintDevice::PdfVersion::PdfVersion_1_6)
-            .define_value("PdfVersion_X4", QPagedPaintDevice::PdfVersion::PdfVersion_X4);
+        define_qenum_under<QPagedPaintDevice::PdfVersion>(rb_cQPagedPaintDevice, "PdfVersion");
+        define_qenum_value_under(rb_cQPagedPaintDevicePdfVersion, "PdfVersion_1_4", QPagedPaintDevice::PdfVersion::PdfVersion_1_4);
+        define_qenum_value_under(rb_cQPagedPaintDevicePdfVersion, "PdfVersion_A1b", QPagedPaintDevice::PdfVersion::PdfVersion_A1b);
+        define_qenum_value_under(rb_cQPagedPaintDevicePdfVersion, "PdfVersion_1_6", QPagedPaintDevice::PdfVersion::PdfVersion_1_6);
+        define_qenum_value_under(rb_cQPagedPaintDevicePdfVersion, "PdfVersion_X4", QPagedPaintDevice::PdfVersion::PdfVersion_X4);
 }

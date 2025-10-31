@@ -54,610 +54,610 @@ void Init_qstyle(Rice::Module rb_mQt6QtWidgets)
             .define_singleton_function("visual_pos", &QStyle::visualPos, Arg("direction"), Arg("bounding_rect"), Arg("logical_pos"))
             .define_singleton_function("visual_rect", &QStyle::visualRect, Arg("direction"), Arg("bounding_rect"), Arg("logical_rect"));
 
-    Enum<QStyle::StateFlag> rb_cQStyleStateFlag =
+    Data_Type<QStyle::StateFlag> rb_cQStyleStateFlag =
         // RubyQt6::QtWidgets::QStyle::StateFlag
-        define_qenum_under<QStyle::StateFlag>("StateFlag", rb_cQStyle)
-            .define_value("State_None", QStyle::StateFlag::State_None)
-            .define_value("State_Enabled", QStyle::StateFlag::State_Enabled)
-            .define_value("State_Raised", QStyle::StateFlag::State_Raised)
-            .define_value("State_Sunken", QStyle::StateFlag::State_Sunken)
-            .define_value("State_Off", QStyle::StateFlag::State_Off)
-            .define_value("State_NoChange", QStyle::StateFlag::State_NoChange)
-            .define_value("State_On", QStyle::StateFlag::State_On)
-            .define_value("State_DownArrow", QStyle::StateFlag::State_DownArrow)
-            .define_value("State_Horizontal", QStyle::StateFlag::State_Horizontal)
-            .define_value("State_HasFocus", QStyle::StateFlag::State_HasFocus)
-            .define_value("State_Top", QStyle::StateFlag::State_Top)
-            .define_value("State_Bottom", QStyle::StateFlag::State_Bottom)
-            .define_value("State_FocusAtBorder", QStyle::StateFlag::State_FocusAtBorder)
-            .define_value("State_AutoRaise", QStyle::StateFlag::State_AutoRaise)
-            .define_value("State_MouseOver", QStyle::StateFlag::State_MouseOver)
-            .define_value("State_UpArrow", QStyle::StateFlag::State_UpArrow)
-            .define_value("State_Selected", QStyle::StateFlag::State_Selected)
-            .define_value("State_Active", QStyle::StateFlag::State_Active)
-            .define_value("State_Window", QStyle::StateFlag::State_Window)
-            .define_value("State_Open", QStyle::StateFlag::State_Open)
-            .define_value("State_Children", QStyle::StateFlag::State_Children)
-            .define_value("State_Item", QStyle::StateFlag::State_Item)
-            .define_value("State_Sibling", QStyle::StateFlag::State_Sibling)
-            .define_value("State_Editing", QStyle::StateFlag::State_Editing)
-            .define_value("State_KeyboardFocusChange", QStyle::StateFlag::State_KeyboardFocusChange)
-            .define_value("State_ReadOnly", QStyle::StateFlag::State_ReadOnly)
-            .define_value("State_Small", QStyle::StateFlag::State_Small)
-            .define_value("State_Mini", QStyle::StateFlag::State_Mini);
+        define_qenum_under<QStyle::StateFlag>(rb_cQStyle, "StateFlag");
+        define_qenum_value_under(rb_cQStyleStateFlag, "State_None", QStyle::StateFlag::State_None);
+        define_qenum_value_under(rb_cQStyleStateFlag, "State_Enabled", QStyle::StateFlag::State_Enabled);
+        define_qenum_value_under(rb_cQStyleStateFlag, "State_Raised", QStyle::StateFlag::State_Raised);
+        define_qenum_value_under(rb_cQStyleStateFlag, "State_Sunken", QStyle::StateFlag::State_Sunken);
+        define_qenum_value_under(rb_cQStyleStateFlag, "State_Off", QStyle::StateFlag::State_Off);
+        define_qenum_value_under(rb_cQStyleStateFlag, "State_NoChange", QStyle::StateFlag::State_NoChange);
+        define_qenum_value_under(rb_cQStyleStateFlag, "State_On", QStyle::StateFlag::State_On);
+        define_qenum_value_under(rb_cQStyleStateFlag, "State_DownArrow", QStyle::StateFlag::State_DownArrow);
+        define_qenum_value_under(rb_cQStyleStateFlag, "State_Horizontal", QStyle::StateFlag::State_Horizontal);
+        define_qenum_value_under(rb_cQStyleStateFlag, "State_HasFocus", QStyle::StateFlag::State_HasFocus);
+        define_qenum_value_under(rb_cQStyleStateFlag, "State_Top", QStyle::StateFlag::State_Top);
+        define_qenum_value_under(rb_cQStyleStateFlag, "State_Bottom", QStyle::StateFlag::State_Bottom);
+        define_qenum_value_under(rb_cQStyleStateFlag, "State_FocusAtBorder", QStyle::StateFlag::State_FocusAtBorder);
+        define_qenum_value_under(rb_cQStyleStateFlag, "State_AutoRaise", QStyle::StateFlag::State_AutoRaise);
+        define_qenum_value_under(rb_cQStyleStateFlag, "State_MouseOver", QStyle::StateFlag::State_MouseOver);
+        define_qenum_value_under(rb_cQStyleStateFlag, "State_UpArrow", QStyle::StateFlag::State_UpArrow);
+        define_qenum_value_under(rb_cQStyleStateFlag, "State_Selected", QStyle::StateFlag::State_Selected);
+        define_qenum_value_under(rb_cQStyleStateFlag, "State_Active", QStyle::StateFlag::State_Active);
+        define_qenum_value_under(rb_cQStyleStateFlag, "State_Window", QStyle::StateFlag::State_Window);
+        define_qenum_value_under(rb_cQStyleStateFlag, "State_Open", QStyle::StateFlag::State_Open);
+        define_qenum_value_under(rb_cQStyleStateFlag, "State_Children", QStyle::StateFlag::State_Children);
+        define_qenum_value_under(rb_cQStyleStateFlag, "State_Item", QStyle::StateFlag::State_Item);
+        define_qenum_value_under(rb_cQStyleStateFlag, "State_Sibling", QStyle::StateFlag::State_Sibling);
+        define_qenum_value_under(rb_cQStyleStateFlag, "State_Editing", QStyle::StateFlag::State_Editing);
+        define_qenum_value_under(rb_cQStyleStateFlag, "State_KeyboardFocusChange", QStyle::StateFlag::State_KeyboardFocusChange);
+        define_qenum_value_under(rb_cQStyleStateFlag, "State_ReadOnly", QStyle::StateFlag::State_ReadOnly);
+        define_qenum_value_under(rb_cQStyleStateFlag, "State_Small", QStyle::StateFlag::State_Small);
+        define_qenum_value_under(rb_cQStyleStateFlag, "State_Mini", QStyle::StateFlag::State_Mini);
 
-    Enum<QStyle::PrimitiveElement> rb_cQStylePrimitiveElement =
+    Data_Type<QStyle::PrimitiveElement> rb_cQStylePrimitiveElement =
         // RubyQt6::QtWidgets::QStyle::PrimitiveElement
-        define_qenum_under<QStyle::PrimitiveElement>("PrimitiveElement", rb_cQStyle)
-            .define_value("PE_Frame", QStyle::PrimitiveElement::PE_Frame)
-            .define_value("PE_FrameDefaultButton", QStyle::PrimitiveElement::PE_FrameDefaultButton)
-            .define_value("PE_FrameDockWidget", QStyle::PrimitiveElement::PE_FrameDockWidget)
-            .define_value("PE_FrameFocusRect", QStyle::PrimitiveElement::PE_FrameFocusRect)
-            .define_value("PE_FrameGroupBox", QStyle::PrimitiveElement::PE_FrameGroupBox)
-            .define_value("PE_FrameLineEdit", QStyle::PrimitiveElement::PE_FrameLineEdit)
-            .define_value("PE_FrameMenu", QStyle::PrimitiveElement::PE_FrameMenu)
-            .define_value("PE_FrameStatusBarItem", QStyle::PrimitiveElement::PE_FrameStatusBarItem)
-            .define_value("PE_FrameTabWidget", QStyle::PrimitiveElement::PE_FrameTabWidget)
-            .define_value("PE_FrameWindow", QStyle::PrimitiveElement::PE_FrameWindow)
-            .define_value("PE_FrameButtonBevel", QStyle::PrimitiveElement::PE_FrameButtonBevel)
-            .define_value("PE_FrameButtonTool", QStyle::PrimitiveElement::PE_FrameButtonTool)
-            .define_value("PE_FrameTabBarBase", QStyle::PrimitiveElement::PE_FrameTabBarBase)
-            .define_value("PE_PanelButtonCommand", QStyle::PrimitiveElement::PE_PanelButtonCommand)
-            .define_value("PE_PanelButtonBevel", QStyle::PrimitiveElement::PE_PanelButtonBevel)
-            .define_value("PE_PanelButtonTool", QStyle::PrimitiveElement::PE_PanelButtonTool)
-            .define_value("PE_PanelMenuBar", QStyle::PrimitiveElement::PE_PanelMenuBar)
-            .define_value("PE_PanelToolBar", QStyle::PrimitiveElement::PE_PanelToolBar)
-            .define_value("PE_PanelLineEdit", QStyle::PrimitiveElement::PE_PanelLineEdit)
-            .define_value("PE_IndicatorArrowDown", QStyle::PrimitiveElement::PE_IndicatorArrowDown)
-            .define_value("PE_IndicatorArrowLeft", QStyle::PrimitiveElement::PE_IndicatorArrowLeft)
-            .define_value("PE_IndicatorArrowRight", QStyle::PrimitiveElement::PE_IndicatorArrowRight)
-            .define_value("PE_IndicatorArrowUp", QStyle::PrimitiveElement::PE_IndicatorArrowUp)
-            .define_value("PE_IndicatorBranch", QStyle::PrimitiveElement::PE_IndicatorBranch)
-            .define_value("PE_IndicatorButtonDropDown", QStyle::PrimitiveElement::PE_IndicatorButtonDropDown)
-            .define_value("PE_IndicatorItemViewItemCheck", QStyle::PrimitiveElement::PE_IndicatorItemViewItemCheck)
-            .define_value("PE_IndicatorCheckBox", QStyle::PrimitiveElement::PE_IndicatorCheckBox)
-            .define_value("PE_IndicatorDockWidgetResizeHandle", QStyle::PrimitiveElement::PE_IndicatorDockWidgetResizeHandle)
-            .define_value("PE_IndicatorHeaderArrow", QStyle::PrimitiveElement::PE_IndicatorHeaderArrow)
-            .define_value("PE_IndicatorMenuCheckMark", QStyle::PrimitiveElement::PE_IndicatorMenuCheckMark)
-            .define_value("PE_IndicatorProgressChunk", QStyle::PrimitiveElement::PE_IndicatorProgressChunk)
-            .define_value("PE_IndicatorRadioButton", QStyle::PrimitiveElement::PE_IndicatorRadioButton)
-            .define_value("PE_IndicatorSpinDown", QStyle::PrimitiveElement::PE_IndicatorSpinDown)
-            .define_value("PE_IndicatorSpinMinus", QStyle::PrimitiveElement::PE_IndicatorSpinMinus)
-            .define_value("PE_IndicatorSpinPlus", QStyle::PrimitiveElement::PE_IndicatorSpinPlus)
-            .define_value("PE_IndicatorSpinUp", QStyle::PrimitiveElement::PE_IndicatorSpinUp)
-            .define_value("PE_IndicatorToolBarHandle", QStyle::PrimitiveElement::PE_IndicatorToolBarHandle)
-            .define_value("PE_IndicatorToolBarSeparator", QStyle::PrimitiveElement::PE_IndicatorToolBarSeparator)
-            .define_value("PE_PanelTipLabel", QStyle::PrimitiveElement::PE_PanelTipLabel)
-            .define_value("PE_IndicatorTabTear", QStyle::PrimitiveElement::PE_IndicatorTabTear)
-            .define_value("PE_IndicatorTabTearLeft", QStyle::PrimitiveElement::PE_IndicatorTabTearLeft)
-            .define_value("PE_PanelScrollAreaCorner", QStyle::PrimitiveElement::PE_PanelScrollAreaCorner)
-            .define_value("PE_Widget", QStyle::PrimitiveElement::PE_Widget)
-            .define_value("PE_IndicatorColumnViewArrow", QStyle::PrimitiveElement::PE_IndicatorColumnViewArrow)
-            .define_value("PE_IndicatorItemViewItemDrop", QStyle::PrimitiveElement::PE_IndicatorItemViewItemDrop)
-            .define_value("PE_PanelItemViewItem", QStyle::PrimitiveElement::PE_PanelItemViewItem)
-            .define_value("PE_PanelItemViewRow", QStyle::PrimitiveElement::PE_PanelItemViewRow)
-            .define_value("PE_PanelStatusBar", QStyle::PrimitiveElement::PE_PanelStatusBar)
-            .define_value("PE_IndicatorTabClose", QStyle::PrimitiveElement::PE_IndicatorTabClose)
-            .define_value("PE_PanelMenu", QStyle::PrimitiveElement::PE_PanelMenu)
-            .define_value("PE_IndicatorTabTearRight", QStyle::PrimitiveElement::PE_IndicatorTabTearRight)
-            .define_value("PE_CustomBase", QStyle::PrimitiveElement::PE_CustomBase);
+        define_qenum_under<QStyle::PrimitiveElement>(rb_cQStyle, "PrimitiveElement");
+        define_qenum_value_under(rb_cQStylePrimitiveElement, "PE_Frame", QStyle::PrimitiveElement::PE_Frame);
+        define_qenum_value_under(rb_cQStylePrimitiveElement, "PE_FrameDefaultButton", QStyle::PrimitiveElement::PE_FrameDefaultButton);
+        define_qenum_value_under(rb_cQStylePrimitiveElement, "PE_FrameDockWidget", QStyle::PrimitiveElement::PE_FrameDockWidget);
+        define_qenum_value_under(rb_cQStylePrimitiveElement, "PE_FrameFocusRect", QStyle::PrimitiveElement::PE_FrameFocusRect);
+        define_qenum_value_under(rb_cQStylePrimitiveElement, "PE_FrameGroupBox", QStyle::PrimitiveElement::PE_FrameGroupBox);
+        define_qenum_value_under(rb_cQStylePrimitiveElement, "PE_FrameLineEdit", QStyle::PrimitiveElement::PE_FrameLineEdit);
+        define_qenum_value_under(rb_cQStylePrimitiveElement, "PE_FrameMenu", QStyle::PrimitiveElement::PE_FrameMenu);
+        define_qenum_value_under(rb_cQStylePrimitiveElement, "PE_FrameStatusBarItem", QStyle::PrimitiveElement::PE_FrameStatusBarItem);
+        define_qenum_value_under(rb_cQStylePrimitiveElement, "PE_FrameTabWidget", QStyle::PrimitiveElement::PE_FrameTabWidget);
+        define_qenum_value_under(rb_cQStylePrimitiveElement, "PE_FrameWindow", QStyle::PrimitiveElement::PE_FrameWindow);
+        define_qenum_value_under(rb_cQStylePrimitiveElement, "PE_FrameButtonBevel", QStyle::PrimitiveElement::PE_FrameButtonBevel);
+        define_qenum_value_under(rb_cQStylePrimitiveElement, "PE_FrameButtonTool", QStyle::PrimitiveElement::PE_FrameButtonTool);
+        define_qenum_value_under(rb_cQStylePrimitiveElement, "PE_FrameTabBarBase", QStyle::PrimitiveElement::PE_FrameTabBarBase);
+        define_qenum_value_under(rb_cQStylePrimitiveElement, "PE_PanelButtonCommand", QStyle::PrimitiveElement::PE_PanelButtonCommand);
+        define_qenum_value_under(rb_cQStylePrimitiveElement, "PE_PanelButtonBevel", QStyle::PrimitiveElement::PE_PanelButtonBevel);
+        define_qenum_value_under(rb_cQStylePrimitiveElement, "PE_PanelButtonTool", QStyle::PrimitiveElement::PE_PanelButtonTool);
+        define_qenum_value_under(rb_cQStylePrimitiveElement, "PE_PanelMenuBar", QStyle::PrimitiveElement::PE_PanelMenuBar);
+        define_qenum_value_under(rb_cQStylePrimitiveElement, "PE_PanelToolBar", QStyle::PrimitiveElement::PE_PanelToolBar);
+        define_qenum_value_under(rb_cQStylePrimitiveElement, "PE_PanelLineEdit", QStyle::PrimitiveElement::PE_PanelLineEdit);
+        define_qenum_value_under(rb_cQStylePrimitiveElement, "PE_IndicatorArrowDown", QStyle::PrimitiveElement::PE_IndicatorArrowDown);
+        define_qenum_value_under(rb_cQStylePrimitiveElement, "PE_IndicatorArrowLeft", QStyle::PrimitiveElement::PE_IndicatorArrowLeft);
+        define_qenum_value_under(rb_cQStylePrimitiveElement, "PE_IndicatorArrowRight", QStyle::PrimitiveElement::PE_IndicatorArrowRight);
+        define_qenum_value_under(rb_cQStylePrimitiveElement, "PE_IndicatorArrowUp", QStyle::PrimitiveElement::PE_IndicatorArrowUp);
+        define_qenum_value_under(rb_cQStylePrimitiveElement, "PE_IndicatorBranch", QStyle::PrimitiveElement::PE_IndicatorBranch);
+        define_qenum_value_under(rb_cQStylePrimitiveElement, "PE_IndicatorButtonDropDown", QStyle::PrimitiveElement::PE_IndicatorButtonDropDown);
+        define_qenum_value_under(rb_cQStylePrimitiveElement, "PE_IndicatorItemViewItemCheck", QStyle::PrimitiveElement::PE_IndicatorItemViewItemCheck);
+        define_qenum_value_under(rb_cQStylePrimitiveElement, "PE_IndicatorCheckBox", QStyle::PrimitiveElement::PE_IndicatorCheckBox);
+        define_qenum_value_under(rb_cQStylePrimitiveElement, "PE_IndicatorDockWidgetResizeHandle", QStyle::PrimitiveElement::PE_IndicatorDockWidgetResizeHandle);
+        define_qenum_value_under(rb_cQStylePrimitiveElement, "PE_IndicatorHeaderArrow", QStyle::PrimitiveElement::PE_IndicatorHeaderArrow);
+        define_qenum_value_under(rb_cQStylePrimitiveElement, "PE_IndicatorMenuCheckMark", QStyle::PrimitiveElement::PE_IndicatorMenuCheckMark);
+        define_qenum_value_under(rb_cQStylePrimitiveElement, "PE_IndicatorProgressChunk", QStyle::PrimitiveElement::PE_IndicatorProgressChunk);
+        define_qenum_value_under(rb_cQStylePrimitiveElement, "PE_IndicatorRadioButton", QStyle::PrimitiveElement::PE_IndicatorRadioButton);
+        define_qenum_value_under(rb_cQStylePrimitiveElement, "PE_IndicatorSpinDown", QStyle::PrimitiveElement::PE_IndicatorSpinDown);
+        define_qenum_value_under(rb_cQStylePrimitiveElement, "PE_IndicatorSpinMinus", QStyle::PrimitiveElement::PE_IndicatorSpinMinus);
+        define_qenum_value_under(rb_cQStylePrimitiveElement, "PE_IndicatorSpinPlus", QStyle::PrimitiveElement::PE_IndicatorSpinPlus);
+        define_qenum_value_under(rb_cQStylePrimitiveElement, "PE_IndicatorSpinUp", QStyle::PrimitiveElement::PE_IndicatorSpinUp);
+        define_qenum_value_under(rb_cQStylePrimitiveElement, "PE_IndicatorToolBarHandle", QStyle::PrimitiveElement::PE_IndicatorToolBarHandle);
+        define_qenum_value_under(rb_cQStylePrimitiveElement, "PE_IndicatorToolBarSeparator", QStyle::PrimitiveElement::PE_IndicatorToolBarSeparator);
+        define_qenum_value_under(rb_cQStylePrimitiveElement, "PE_PanelTipLabel", QStyle::PrimitiveElement::PE_PanelTipLabel);
+        define_qenum_value_under(rb_cQStylePrimitiveElement, "PE_IndicatorTabTear", QStyle::PrimitiveElement::PE_IndicatorTabTear);
+        define_qenum_value_under(rb_cQStylePrimitiveElement, "PE_IndicatorTabTearLeft", QStyle::PrimitiveElement::PE_IndicatorTabTearLeft);
+        define_qenum_value_under(rb_cQStylePrimitiveElement, "PE_PanelScrollAreaCorner", QStyle::PrimitiveElement::PE_PanelScrollAreaCorner);
+        define_qenum_value_under(rb_cQStylePrimitiveElement, "PE_Widget", QStyle::PrimitiveElement::PE_Widget);
+        define_qenum_value_under(rb_cQStylePrimitiveElement, "PE_IndicatorColumnViewArrow", QStyle::PrimitiveElement::PE_IndicatorColumnViewArrow);
+        define_qenum_value_under(rb_cQStylePrimitiveElement, "PE_IndicatorItemViewItemDrop", QStyle::PrimitiveElement::PE_IndicatorItemViewItemDrop);
+        define_qenum_value_under(rb_cQStylePrimitiveElement, "PE_PanelItemViewItem", QStyle::PrimitiveElement::PE_PanelItemViewItem);
+        define_qenum_value_under(rb_cQStylePrimitiveElement, "PE_PanelItemViewRow", QStyle::PrimitiveElement::PE_PanelItemViewRow);
+        define_qenum_value_under(rb_cQStylePrimitiveElement, "PE_PanelStatusBar", QStyle::PrimitiveElement::PE_PanelStatusBar);
+        define_qenum_value_under(rb_cQStylePrimitiveElement, "PE_IndicatorTabClose", QStyle::PrimitiveElement::PE_IndicatorTabClose);
+        define_qenum_value_under(rb_cQStylePrimitiveElement, "PE_PanelMenu", QStyle::PrimitiveElement::PE_PanelMenu);
+        define_qenum_value_under(rb_cQStylePrimitiveElement, "PE_IndicatorTabTearRight", QStyle::PrimitiveElement::PE_IndicatorTabTearRight);
+        define_qenum_value_under(rb_cQStylePrimitiveElement, "PE_CustomBase", QStyle::PrimitiveElement::PE_CustomBase);
 
-    Enum<QStyle::ControlElement> rb_cQStyleControlElement =
+    Data_Type<QStyle::ControlElement> rb_cQStyleControlElement =
         // RubyQt6::QtWidgets::QStyle::ControlElement
-        define_qenum_under<QStyle::ControlElement>("ControlElement", rb_cQStyle)
-            .define_value("CE_PushButton", QStyle::ControlElement::CE_PushButton)
-            .define_value("CE_PushButtonBevel", QStyle::ControlElement::CE_PushButtonBevel)
-            .define_value("CE_PushButtonLabel", QStyle::ControlElement::CE_PushButtonLabel)
-            .define_value("CE_CheckBox", QStyle::ControlElement::CE_CheckBox)
-            .define_value("CE_CheckBoxLabel", QStyle::ControlElement::CE_CheckBoxLabel)
-            .define_value("CE_RadioButton", QStyle::ControlElement::CE_RadioButton)
-            .define_value("CE_RadioButtonLabel", QStyle::ControlElement::CE_RadioButtonLabel)
-            .define_value("CE_TabBarTab", QStyle::ControlElement::CE_TabBarTab)
-            .define_value("CE_TabBarTabShape", QStyle::ControlElement::CE_TabBarTabShape)
-            .define_value("CE_TabBarTabLabel", QStyle::ControlElement::CE_TabBarTabLabel)
-            .define_value("CE_ProgressBar", QStyle::ControlElement::CE_ProgressBar)
-            .define_value("CE_ProgressBarGroove", QStyle::ControlElement::CE_ProgressBarGroove)
-            .define_value("CE_ProgressBarContents", QStyle::ControlElement::CE_ProgressBarContents)
-            .define_value("CE_ProgressBarLabel", QStyle::ControlElement::CE_ProgressBarLabel)
-            .define_value("CE_MenuItem", QStyle::ControlElement::CE_MenuItem)
-            .define_value("CE_MenuScroller", QStyle::ControlElement::CE_MenuScroller)
-            .define_value("CE_MenuVMargin", QStyle::ControlElement::CE_MenuVMargin)
-            .define_value("CE_MenuHMargin", QStyle::ControlElement::CE_MenuHMargin)
-            .define_value("CE_MenuTearoff", QStyle::ControlElement::CE_MenuTearoff)
-            .define_value("CE_MenuEmptyArea", QStyle::ControlElement::CE_MenuEmptyArea)
-            .define_value("CE_MenuBarItem", QStyle::ControlElement::CE_MenuBarItem)
-            .define_value("CE_MenuBarEmptyArea", QStyle::ControlElement::CE_MenuBarEmptyArea)
-            .define_value("CE_ToolButtonLabel", QStyle::ControlElement::CE_ToolButtonLabel)
-            .define_value("CE_Header", QStyle::ControlElement::CE_Header)
-            .define_value("CE_HeaderSection", QStyle::ControlElement::CE_HeaderSection)
-            .define_value("CE_HeaderLabel", QStyle::ControlElement::CE_HeaderLabel)
-            .define_value("CE_ToolBoxTab", QStyle::ControlElement::CE_ToolBoxTab)
-            .define_value("CE_SizeGrip", QStyle::ControlElement::CE_SizeGrip)
-            .define_value("CE_Splitter", QStyle::ControlElement::CE_Splitter)
-            .define_value("CE_RubberBand", QStyle::ControlElement::CE_RubberBand)
-            .define_value("CE_DockWidgetTitle", QStyle::ControlElement::CE_DockWidgetTitle)
-            .define_value("CE_ScrollBarAddLine", QStyle::ControlElement::CE_ScrollBarAddLine)
-            .define_value("CE_ScrollBarSubLine", QStyle::ControlElement::CE_ScrollBarSubLine)
-            .define_value("CE_ScrollBarAddPage", QStyle::ControlElement::CE_ScrollBarAddPage)
-            .define_value("CE_ScrollBarSubPage", QStyle::ControlElement::CE_ScrollBarSubPage)
-            .define_value("CE_ScrollBarSlider", QStyle::ControlElement::CE_ScrollBarSlider)
-            .define_value("CE_ScrollBarFirst", QStyle::ControlElement::CE_ScrollBarFirst)
-            .define_value("CE_ScrollBarLast", QStyle::ControlElement::CE_ScrollBarLast)
-            .define_value("CE_FocusFrame", QStyle::ControlElement::CE_FocusFrame)
-            .define_value("CE_ComboBoxLabel", QStyle::ControlElement::CE_ComboBoxLabel)
-            .define_value("CE_ToolBar", QStyle::ControlElement::CE_ToolBar)
-            .define_value("CE_ToolBoxTabShape", QStyle::ControlElement::CE_ToolBoxTabShape)
-            .define_value("CE_ToolBoxTabLabel", QStyle::ControlElement::CE_ToolBoxTabLabel)
-            .define_value("CE_HeaderEmptyArea", QStyle::ControlElement::CE_HeaderEmptyArea)
-            .define_value("CE_ColumnViewGrip", QStyle::ControlElement::CE_ColumnViewGrip)
-            .define_value("CE_ItemViewItem", QStyle::ControlElement::CE_ItemViewItem)
-            .define_value("CE_ShapedFrame", QStyle::ControlElement::CE_ShapedFrame)
-            .define_value("CE_CustomBase", QStyle::ControlElement::CE_CustomBase);
+        define_qenum_under<QStyle::ControlElement>(rb_cQStyle, "ControlElement");
+        define_qenum_value_under(rb_cQStyleControlElement, "CE_PushButton", QStyle::ControlElement::CE_PushButton);
+        define_qenum_value_under(rb_cQStyleControlElement, "CE_PushButtonBevel", QStyle::ControlElement::CE_PushButtonBevel);
+        define_qenum_value_under(rb_cQStyleControlElement, "CE_PushButtonLabel", QStyle::ControlElement::CE_PushButtonLabel);
+        define_qenum_value_under(rb_cQStyleControlElement, "CE_CheckBox", QStyle::ControlElement::CE_CheckBox);
+        define_qenum_value_under(rb_cQStyleControlElement, "CE_CheckBoxLabel", QStyle::ControlElement::CE_CheckBoxLabel);
+        define_qenum_value_under(rb_cQStyleControlElement, "CE_RadioButton", QStyle::ControlElement::CE_RadioButton);
+        define_qenum_value_under(rb_cQStyleControlElement, "CE_RadioButtonLabel", QStyle::ControlElement::CE_RadioButtonLabel);
+        define_qenum_value_under(rb_cQStyleControlElement, "CE_TabBarTab", QStyle::ControlElement::CE_TabBarTab);
+        define_qenum_value_under(rb_cQStyleControlElement, "CE_TabBarTabShape", QStyle::ControlElement::CE_TabBarTabShape);
+        define_qenum_value_under(rb_cQStyleControlElement, "CE_TabBarTabLabel", QStyle::ControlElement::CE_TabBarTabLabel);
+        define_qenum_value_under(rb_cQStyleControlElement, "CE_ProgressBar", QStyle::ControlElement::CE_ProgressBar);
+        define_qenum_value_under(rb_cQStyleControlElement, "CE_ProgressBarGroove", QStyle::ControlElement::CE_ProgressBarGroove);
+        define_qenum_value_under(rb_cQStyleControlElement, "CE_ProgressBarContents", QStyle::ControlElement::CE_ProgressBarContents);
+        define_qenum_value_under(rb_cQStyleControlElement, "CE_ProgressBarLabel", QStyle::ControlElement::CE_ProgressBarLabel);
+        define_qenum_value_under(rb_cQStyleControlElement, "CE_MenuItem", QStyle::ControlElement::CE_MenuItem);
+        define_qenum_value_under(rb_cQStyleControlElement, "CE_MenuScroller", QStyle::ControlElement::CE_MenuScroller);
+        define_qenum_value_under(rb_cQStyleControlElement, "CE_MenuVMargin", QStyle::ControlElement::CE_MenuVMargin);
+        define_qenum_value_under(rb_cQStyleControlElement, "CE_MenuHMargin", QStyle::ControlElement::CE_MenuHMargin);
+        define_qenum_value_under(rb_cQStyleControlElement, "CE_MenuTearoff", QStyle::ControlElement::CE_MenuTearoff);
+        define_qenum_value_under(rb_cQStyleControlElement, "CE_MenuEmptyArea", QStyle::ControlElement::CE_MenuEmptyArea);
+        define_qenum_value_under(rb_cQStyleControlElement, "CE_MenuBarItem", QStyle::ControlElement::CE_MenuBarItem);
+        define_qenum_value_under(rb_cQStyleControlElement, "CE_MenuBarEmptyArea", QStyle::ControlElement::CE_MenuBarEmptyArea);
+        define_qenum_value_under(rb_cQStyleControlElement, "CE_ToolButtonLabel", QStyle::ControlElement::CE_ToolButtonLabel);
+        define_qenum_value_under(rb_cQStyleControlElement, "CE_Header", QStyle::ControlElement::CE_Header);
+        define_qenum_value_under(rb_cQStyleControlElement, "CE_HeaderSection", QStyle::ControlElement::CE_HeaderSection);
+        define_qenum_value_under(rb_cQStyleControlElement, "CE_HeaderLabel", QStyle::ControlElement::CE_HeaderLabel);
+        define_qenum_value_under(rb_cQStyleControlElement, "CE_ToolBoxTab", QStyle::ControlElement::CE_ToolBoxTab);
+        define_qenum_value_under(rb_cQStyleControlElement, "CE_SizeGrip", QStyle::ControlElement::CE_SizeGrip);
+        define_qenum_value_under(rb_cQStyleControlElement, "CE_Splitter", QStyle::ControlElement::CE_Splitter);
+        define_qenum_value_under(rb_cQStyleControlElement, "CE_RubberBand", QStyle::ControlElement::CE_RubberBand);
+        define_qenum_value_under(rb_cQStyleControlElement, "CE_DockWidgetTitle", QStyle::ControlElement::CE_DockWidgetTitle);
+        define_qenum_value_under(rb_cQStyleControlElement, "CE_ScrollBarAddLine", QStyle::ControlElement::CE_ScrollBarAddLine);
+        define_qenum_value_under(rb_cQStyleControlElement, "CE_ScrollBarSubLine", QStyle::ControlElement::CE_ScrollBarSubLine);
+        define_qenum_value_under(rb_cQStyleControlElement, "CE_ScrollBarAddPage", QStyle::ControlElement::CE_ScrollBarAddPage);
+        define_qenum_value_under(rb_cQStyleControlElement, "CE_ScrollBarSubPage", QStyle::ControlElement::CE_ScrollBarSubPage);
+        define_qenum_value_under(rb_cQStyleControlElement, "CE_ScrollBarSlider", QStyle::ControlElement::CE_ScrollBarSlider);
+        define_qenum_value_under(rb_cQStyleControlElement, "CE_ScrollBarFirst", QStyle::ControlElement::CE_ScrollBarFirst);
+        define_qenum_value_under(rb_cQStyleControlElement, "CE_ScrollBarLast", QStyle::ControlElement::CE_ScrollBarLast);
+        define_qenum_value_under(rb_cQStyleControlElement, "CE_FocusFrame", QStyle::ControlElement::CE_FocusFrame);
+        define_qenum_value_under(rb_cQStyleControlElement, "CE_ComboBoxLabel", QStyle::ControlElement::CE_ComboBoxLabel);
+        define_qenum_value_under(rb_cQStyleControlElement, "CE_ToolBar", QStyle::ControlElement::CE_ToolBar);
+        define_qenum_value_under(rb_cQStyleControlElement, "CE_ToolBoxTabShape", QStyle::ControlElement::CE_ToolBoxTabShape);
+        define_qenum_value_under(rb_cQStyleControlElement, "CE_ToolBoxTabLabel", QStyle::ControlElement::CE_ToolBoxTabLabel);
+        define_qenum_value_under(rb_cQStyleControlElement, "CE_HeaderEmptyArea", QStyle::ControlElement::CE_HeaderEmptyArea);
+        define_qenum_value_under(rb_cQStyleControlElement, "CE_ColumnViewGrip", QStyle::ControlElement::CE_ColumnViewGrip);
+        define_qenum_value_under(rb_cQStyleControlElement, "CE_ItemViewItem", QStyle::ControlElement::CE_ItemViewItem);
+        define_qenum_value_under(rb_cQStyleControlElement, "CE_ShapedFrame", QStyle::ControlElement::CE_ShapedFrame);
+        define_qenum_value_under(rb_cQStyleControlElement, "CE_CustomBase", QStyle::ControlElement::CE_CustomBase);
 
-    Enum<QStyle::SubElement> rb_cQStyleSubElement =
+    Data_Type<QStyle::SubElement> rb_cQStyleSubElement =
         // RubyQt6::QtWidgets::QStyle::SubElement
-        define_qenum_under<QStyle::SubElement>("SubElement", rb_cQStyle)
-            .define_value("SE_PushButtonContents", QStyle::SubElement::SE_PushButtonContents)
-            .define_value("SE_PushButtonFocusRect", QStyle::SubElement::SE_PushButtonFocusRect)
-            .define_value("SE_CheckBoxIndicator", QStyle::SubElement::SE_CheckBoxIndicator)
-            .define_value("SE_CheckBoxContents", QStyle::SubElement::SE_CheckBoxContents)
-            .define_value("SE_CheckBoxFocusRect", QStyle::SubElement::SE_CheckBoxFocusRect)
-            .define_value("SE_CheckBoxClickRect", QStyle::SubElement::SE_CheckBoxClickRect)
-            .define_value("SE_RadioButtonIndicator", QStyle::SubElement::SE_RadioButtonIndicator)
-            .define_value("SE_RadioButtonContents", QStyle::SubElement::SE_RadioButtonContents)
-            .define_value("SE_RadioButtonFocusRect", QStyle::SubElement::SE_RadioButtonFocusRect)
-            .define_value("SE_RadioButtonClickRect", QStyle::SubElement::SE_RadioButtonClickRect)
-            .define_value("SE_ComboBoxFocusRect", QStyle::SubElement::SE_ComboBoxFocusRect)
-            .define_value("SE_SliderFocusRect", QStyle::SubElement::SE_SliderFocusRect)
-            .define_value("SE_ProgressBarGroove", QStyle::SubElement::SE_ProgressBarGroove)
-            .define_value("SE_ProgressBarContents", QStyle::SubElement::SE_ProgressBarContents)
-            .define_value("SE_ProgressBarLabel", QStyle::SubElement::SE_ProgressBarLabel)
-            .define_value("SE_ToolBoxTabContents", QStyle::SubElement::SE_ToolBoxTabContents)
-            .define_value("SE_HeaderLabel", QStyle::SubElement::SE_HeaderLabel)
-            .define_value("SE_HeaderArrow", QStyle::SubElement::SE_HeaderArrow)
-            .define_value("SE_TabWidgetTabBar", QStyle::SubElement::SE_TabWidgetTabBar)
-            .define_value("SE_TabWidgetTabPane", QStyle::SubElement::SE_TabWidgetTabPane)
-            .define_value("SE_TabWidgetTabContents", QStyle::SubElement::SE_TabWidgetTabContents)
-            .define_value("SE_TabWidgetLeftCorner", QStyle::SubElement::SE_TabWidgetLeftCorner)
-            .define_value("SE_TabWidgetRightCorner", QStyle::SubElement::SE_TabWidgetRightCorner)
-            .define_value("SE_ItemViewItemCheckIndicator", QStyle::SubElement::SE_ItemViewItemCheckIndicator)
-            .define_value("SE_TabBarTearIndicator", QStyle::SubElement::SE_TabBarTearIndicator)
-            .define_value("SE_TabBarTearIndicatorLeft", QStyle::SubElement::SE_TabBarTearIndicatorLeft)
-            .define_value("SE_TreeViewDisclosureItem", QStyle::SubElement::SE_TreeViewDisclosureItem)
-            .define_value("SE_LineEditContents", QStyle::SubElement::SE_LineEditContents)
-            .define_value("SE_FrameContents", QStyle::SubElement::SE_FrameContents)
-            .define_value("SE_DockWidgetCloseButton", QStyle::SubElement::SE_DockWidgetCloseButton)
-            .define_value("SE_DockWidgetFloatButton", QStyle::SubElement::SE_DockWidgetFloatButton)
-            .define_value("SE_DockWidgetTitleBarText", QStyle::SubElement::SE_DockWidgetTitleBarText)
-            .define_value("SE_DockWidgetIcon", QStyle::SubElement::SE_DockWidgetIcon)
-            .define_value("SE_CheckBoxLayoutItem", QStyle::SubElement::SE_CheckBoxLayoutItem)
-            .define_value("SE_ComboBoxLayoutItem", QStyle::SubElement::SE_ComboBoxLayoutItem)
-            .define_value("SE_DateTimeEditLayoutItem", QStyle::SubElement::SE_DateTimeEditLayoutItem)
-            .define_value("SE_LabelLayoutItem", QStyle::SubElement::SE_LabelLayoutItem)
-            .define_value("SE_ProgressBarLayoutItem", QStyle::SubElement::SE_ProgressBarLayoutItem)
-            .define_value("SE_PushButtonLayoutItem", QStyle::SubElement::SE_PushButtonLayoutItem)
-            .define_value("SE_RadioButtonLayoutItem", QStyle::SubElement::SE_RadioButtonLayoutItem)
-            .define_value("SE_SliderLayoutItem", QStyle::SubElement::SE_SliderLayoutItem)
-            .define_value("SE_SpinBoxLayoutItem", QStyle::SubElement::SE_SpinBoxLayoutItem)
-            .define_value("SE_ToolButtonLayoutItem", QStyle::SubElement::SE_ToolButtonLayoutItem)
-            .define_value("SE_FrameLayoutItem", QStyle::SubElement::SE_FrameLayoutItem)
-            .define_value("SE_GroupBoxLayoutItem", QStyle::SubElement::SE_GroupBoxLayoutItem)
-            .define_value("SE_TabWidgetLayoutItem", QStyle::SubElement::SE_TabWidgetLayoutItem)
-            .define_value("SE_ItemViewItemDecoration", QStyle::SubElement::SE_ItemViewItemDecoration)
-            .define_value("SE_ItemViewItemText", QStyle::SubElement::SE_ItemViewItemText)
-            .define_value("SE_ItemViewItemFocusRect", QStyle::SubElement::SE_ItemViewItemFocusRect)
-            .define_value("SE_TabBarTabLeftButton", QStyle::SubElement::SE_TabBarTabLeftButton)
-            .define_value("SE_TabBarTabRightButton", QStyle::SubElement::SE_TabBarTabRightButton)
-            .define_value("SE_TabBarTabText", QStyle::SubElement::SE_TabBarTabText)
-            .define_value("SE_ShapedFrameContents", QStyle::SubElement::SE_ShapedFrameContents)
-            .define_value("SE_ToolBarHandle", QStyle::SubElement::SE_ToolBarHandle)
-            .define_value("SE_TabBarScrollLeftButton", QStyle::SubElement::SE_TabBarScrollLeftButton)
-            .define_value("SE_TabBarScrollRightButton", QStyle::SubElement::SE_TabBarScrollRightButton)
-            .define_value("SE_TabBarTearIndicatorRight", QStyle::SubElement::SE_TabBarTearIndicatorRight)
-            .define_value("SE_PushButtonBevel", QStyle::SubElement::SE_PushButtonBevel)
-            .define_value("SE_CustomBase", QStyle::SubElement::SE_CustomBase);
+        define_qenum_under<QStyle::SubElement>(rb_cQStyle, "SubElement");
+        define_qenum_value_under(rb_cQStyleSubElement, "SE_PushButtonContents", QStyle::SubElement::SE_PushButtonContents);
+        define_qenum_value_under(rb_cQStyleSubElement, "SE_PushButtonFocusRect", QStyle::SubElement::SE_PushButtonFocusRect);
+        define_qenum_value_under(rb_cQStyleSubElement, "SE_CheckBoxIndicator", QStyle::SubElement::SE_CheckBoxIndicator);
+        define_qenum_value_under(rb_cQStyleSubElement, "SE_CheckBoxContents", QStyle::SubElement::SE_CheckBoxContents);
+        define_qenum_value_under(rb_cQStyleSubElement, "SE_CheckBoxFocusRect", QStyle::SubElement::SE_CheckBoxFocusRect);
+        define_qenum_value_under(rb_cQStyleSubElement, "SE_CheckBoxClickRect", QStyle::SubElement::SE_CheckBoxClickRect);
+        define_qenum_value_under(rb_cQStyleSubElement, "SE_RadioButtonIndicator", QStyle::SubElement::SE_RadioButtonIndicator);
+        define_qenum_value_under(rb_cQStyleSubElement, "SE_RadioButtonContents", QStyle::SubElement::SE_RadioButtonContents);
+        define_qenum_value_under(rb_cQStyleSubElement, "SE_RadioButtonFocusRect", QStyle::SubElement::SE_RadioButtonFocusRect);
+        define_qenum_value_under(rb_cQStyleSubElement, "SE_RadioButtonClickRect", QStyle::SubElement::SE_RadioButtonClickRect);
+        define_qenum_value_under(rb_cQStyleSubElement, "SE_ComboBoxFocusRect", QStyle::SubElement::SE_ComboBoxFocusRect);
+        define_qenum_value_under(rb_cQStyleSubElement, "SE_SliderFocusRect", QStyle::SubElement::SE_SliderFocusRect);
+        define_qenum_value_under(rb_cQStyleSubElement, "SE_ProgressBarGroove", QStyle::SubElement::SE_ProgressBarGroove);
+        define_qenum_value_under(rb_cQStyleSubElement, "SE_ProgressBarContents", QStyle::SubElement::SE_ProgressBarContents);
+        define_qenum_value_under(rb_cQStyleSubElement, "SE_ProgressBarLabel", QStyle::SubElement::SE_ProgressBarLabel);
+        define_qenum_value_under(rb_cQStyleSubElement, "SE_ToolBoxTabContents", QStyle::SubElement::SE_ToolBoxTabContents);
+        define_qenum_value_under(rb_cQStyleSubElement, "SE_HeaderLabel", QStyle::SubElement::SE_HeaderLabel);
+        define_qenum_value_under(rb_cQStyleSubElement, "SE_HeaderArrow", QStyle::SubElement::SE_HeaderArrow);
+        define_qenum_value_under(rb_cQStyleSubElement, "SE_TabWidgetTabBar", QStyle::SubElement::SE_TabWidgetTabBar);
+        define_qenum_value_under(rb_cQStyleSubElement, "SE_TabWidgetTabPane", QStyle::SubElement::SE_TabWidgetTabPane);
+        define_qenum_value_under(rb_cQStyleSubElement, "SE_TabWidgetTabContents", QStyle::SubElement::SE_TabWidgetTabContents);
+        define_qenum_value_under(rb_cQStyleSubElement, "SE_TabWidgetLeftCorner", QStyle::SubElement::SE_TabWidgetLeftCorner);
+        define_qenum_value_under(rb_cQStyleSubElement, "SE_TabWidgetRightCorner", QStyle::SubElement::SE_TabWidgetRightCorner);
+        define_qenum_value_under(rb_cQStyleSubElement, "SE_ItemViewItemCheckIndicator", QStyle::SubElement::SE_ItemViewItemCheckIndicator);
+        define_qenum_value_under(rb_cQStyleSubElement, "SE_TabBarTearIndicator", QStyle::SubElement::SE_TabBarTearIndicator);
+        define_qenum_value_under(rb_cQStyleSubElement, "SE_TabBarTearIndicatorLeft", QStyle::SubElement::SE_TabBarTearIndicatorLeft);
+        define_qenum_value_under(rb_cQStyleSubElement, "SE_TreeViewDisclosureItem", QStyle::SubElement::SE_TreeViewDisclosureItem);
+        define_qenum_value_under(rb_cQStyleSubElement, "SE_LineEditContents", QStyle::SubElement::SE_LineEditContents);
+        define_qenum_value_under(rb_cQStyleSubElement, "SE_FrameContents", QStyle::SubElement::SE_FrameContents);
+        define_qenum_value_under(rb_cQStyleSubElement, "SE_DockWidgetCloseButton", QStyle::SubElement::SE_DockWidgetCloseButton);
+        define_qenum_value_under(rb_cQStyleSubElement, "SE_DockWidgetFloatButton", QStyle::SubElement::SE_DockWidgetFloatButton);
+        define_qenum_value_under(rb_cQStyleSubElement, "SE_DockWidgetTitleBarText", QStyle::SubElement::SE_DockWidgetTitleBarText);
+        define_qenum_value_under(rb_cQStyleSubElement, "SE_DockWidgetIcon", QStyle::SubElement::SE_DockWidgetIcon);
+        define_qenum_value_under(rb_cQStyleSubElement, "SE_CheckBoxLayoutItem", QStyle::SubElement::SE_CheckBoxLayoutItem);
+        define_qenum_value_under(rb_cQStyleSubElement, "SE_ComboBoxLayoutItem", QStyle::SubElement::SE_ComboBoxLayoutItem);
+        define_qenum_value_under(rb_cQStyleSubElement, "SE_DateTimeEditLayoutItem", QStyle::SubElement::SE_DateTimeEditLayoutItem);
+        define_qenum_value_under(rb_cQStyleSubElement, "SE_LabelLayoutItem", QStyle::SubElement::SE_LabelLayoutItem);
+        define_qenum_value_under(rb_cQStyleSubElement, "SE_ProgressBarLayoutItem", QStyle::SubElement::SE_ProgressBarLayoutItem);
+        define_qenum_value_under(rb_cQStyleSubElement, "SE_PushButtonLayoutItem", QStyle::SubElement::SE_PushButtonLayoutItem);
+        define_qenum_value_under(rb_cQStyleSubElement, "SE_RadioButtonLayoutItem", QStyle::SubElement::SE_RadioButtonLayoutItem);
+        define_qenum_value_under(rb_cQStyleSubElement, "SE_SliderLayoutItem", QStyle::SubElement::SE_SliderLayoutItem);
+        define_qenum_value_under(rb_cQStyleSubElement, "SE_SpinBoxLayoutItem", QStyle::SubElement::SE_SpinBoxLayoutItem);
+        define_qenum_value_under(rb_cQStyleSubElement, "SE_ToolButtonLayoutItem", QStyle::SubElement::SE_ToolButtonLayoutItem);
+        define_qenum_value_under(rb_cQStyleSubElement, "SE_FrameLayoutItem", QStyle::SubElement::SE_FrameLayoutItem);
+        define_qenum_value_under(rb_cQStyleSubElement, "SE_GroupBoxLayoutItem", QStyle::SubElement::SE_GroupBoxLayoutItem);
+        define_qenum_value_under(rb_cQStyleSubElement, "SE_TabWidgetLayoutItem", QStyle::SubElement::SE_TabWidgetLayoutItem);
+        define_qenum_value_under(rb_cQStyleSubElement, "SE_ItemViewItemDecoration", QStyle::SubElement::SE_ItemViewItemDecoration);
+        define_qenum_value_under(rb_cQStyleSubElement, "SE_ItemViewItemText", QStyle::SubElement::SE_ItemViewItemText);
+        define_qenum_value_under(rb_cQStyleSubElement, "SE_ItemViewItemFocusRect", QStyle::SubElement::SE_ItemViewItemFocusRect);
+        define_qenum_value_under(rb_cQStyleSubElement, "SE_TabBarTabLeftButton", QStyle::SubElement::SE_TabBarTabLeftButton);
+        define_qenum_value_under(rb_cQStyleSubElement, "SE_TabBarTabRightButton", QStyle::SubElement::SE_TabBarTabRightButton);
+        define_qenum_value_under(rb_cQStyleSubElement, "SE_TabBarTabText", QStyle::SubElement::SE_TabBarTabText);
+        define_qenum_value_under(rb_cQStyleSubElement, "SE_ShapedFrameContents", QStyle::SubElement::SE_ShapedFrameContents);
+        define_qenum_value_under(rb_cQStyleSubElement, "SE_ToolBarHandle", QStyle::SubElement::SE_ToolBarHandle);
+        define_qenum_value_under(rb_cQStyleSubElement, "SE_TabBarScrollLeftButton", QStyle::SubElement::SE_TabBarScrollLeftButton);
+        define_qenum_value_under(rb_cQStyleSubElement, "SE_TabBarScrollRightButton", QStyle::SubElement::SE_TabBarScrollRightButton);
+        define_qenum_value_under(rb_cQStyleSubElement, "SE_TabBarTearIndicatorRight", QStyle::SubElement::SE_TabBarTearIndicatorRight);
+        define_qenum_value_under(rb_cQStyleSubElement, "SE_PushButtonBevel", QStyle::SubElement::SE_PushButtonBevel);
+        define_qenum_value_under(rb_cQStyleSubElement, "SE_CustomBase", QStyle::SubElement::SE_CustomBase);
 
-    Enum<QStyle::ComplexControl> rb_cQStyleComplexControl =
+    Data_Type<QStyle::ComplexControl> rb_cQStyleComplexControl =
         // RubyQt6::QtWidgets::QStyle::ComplexControl
-        define_qenum_under<QStyle::ComplexControl>("ComplexControl", rb_cQStyle)
-            .define_value("CC_SpinBox", QStyle::ComplexControl::CC_SpinBox)
-            .define_value("CC_ComboBox", QStyle::ComplexControl::CC_ComboBox)
-            .define_value("CC_ScrollBar", QStyle::ComplexControl::CC_ScrollBar)
-            .define_value("CC_Slider", QStyle::ComplexControl::CC_Slider)
-            .define_value("CC_ToolButton", QStyle::ComplexControl::CC_ToolButton)
-            .define_value("CC_TitleBar", QStyle::ComplexControl::CC_TitleBar)
-            .define_value("CC_Dial", QStyle::ComplexControl::CC_Dial)
-            .define_value("CC_GroupBox", QStyle::ComplexControl::CC_GroupBox)
-            .define_value("CC_MdiControls", QStyle::ComplexControl::CC_MdiControls)
-            .define_value("CC_CustomBase", QStyle::ComplexControl::CC_CustomBase);
+        define_qenum_under<QStyle::ComplexControl>(rb_cQStyle, "ComplexControl");
+        define_qenum_value_under(rb_cQStyleComplexControl, "CC_SpinBox", QStyle::ComplexControl::CC_SpinBox);
+        define_qenum_value_under(rb_cQStyleComplexControl, "CC_ComboBox", QStyle::ComplexControl::CC_ComboBox);
+        define_qenum_value_under(rb_cQStyleComplexControl, "CC_ScrollBar", QStyle::ComplexControl::CC_ScrollBar);
+        define_qenum_value_under(rb_cQStyleComplexControl, "CC_Slider", QStyle::ComplexControl::CC_Slider);
+        define_qenum_value_under(rb_cQStyleComplexControl, "CC_ToolButton", QStyle::ComplexControl::CC_ToolButton);
+        define_qenum_value_under(rb_cQStyleComplexControl, "CC_TitleBar", QStyle::ComplexControl::CC_TitleBar);
+        define_qenum_value_under(rb_cQStyleComplexControl, "CC_Dial", QStyle::ComplexControl::CC_Dial);
+        define_qenum_value_under(rb_cQStyleComplexControl, "CC_GroupBox", QStyle::ComplexControl::CC_GroupBox);
+        define_qenum_value_under(rb_cQStyleComplexControl, "CC_MdiControls", QStyle::ComplexControl::CC_MdiControls);
+        define_qenum_value_under(rb_cQStyleComplexControl, "CC_CustomBase", QStyle::ComplexControl::CC_CustomBase);
 
-    Enum<QStyle::SubControl> rb_cQStyleSubControl =
+    Data_Type<QStyle::SubControl> rb_cQStyleSubControl =
         // RubyQt6::QtWidgets::QStyle::SubControl
-        define_qenum_under<QStyle::SubControl>("SubControl", rb_cQStyle)
-            .define_value("SC_None", QStyle::SubControl::SC_None)
-            .define_value("SC_ScrollBarAddLine", QStyle::SubControl::SC_ScrollBarAddLine)
-            .define_value("SC_ScrollBarSubLine", QStyle::SubControl::SC_ScrollBarSubLine)
-            .define_value("SC_ScrollBarAddPage", QStyle::SubControl::SC_ScrollBarAddPage)
-            .define_value("SC_ScrollBarSubPage", QStyle::SubControl::SC_ScrollBarSubPage)
-            .define_value("SC_ScrollBarFirst", QStyle::SubControl::SC_ScrollBarFirst)
-            .define_value("SC_ScrollBarLast", QStyle::SubControl::SC_ScrollBarLast)
-            .define_value("SC_ScrollBarSlider", QStyle::SubControl::SC_ScrollBarSlider)
-            .define_value("SC_ScrollBarGroove", QStyle::SubControl::SC_ScrollBarGroove)
-            .define_value("SC_SpinBoxUp", QStyle::SubControl::SC_SpinBoxUp)
-            .define_value("SC_SpinBoxDown", QStyle::SubControl::SC_SpinBoxDown)
-            .define_value("SC_SpinBoxFrame", QStyle::SubControl::SC_SpinBoxFrame)
-            .define_value("SC_SpinBoxEditField", QStyle::SubControl::SC_SpinBoxEditField)
-            .define_value("SC_ComboBoxFrame", QStyle::SubControl::SC_ComboBoxFrame)
-            .define_value("SC_ComboBoxEditField", QStyle::SubControl::SC_ComboBoxEditField)
-            .define_value("SC_ComboBoxArrow", QStyle::SubControl::SC_ComboBoxArrow)
-            .define_value("SC_ComboBoxListBoxPopup", QStyle::SubControl::SC_ComboBoxListBoxPopup)
-            .define_value("SC_SliderGroove", QStyle::SubControl::SC_SliderGroove)
-            .define_value("SC_SliderHandle", QStyle::SubControl::SC_SliderHandle)
-            .define_value("SC_SliderTickmarks", QStyle::SubControl::SC_SliderTickmarks)
-            .define_value("SC_ToolButton", QStyle::SubControl::SC_ToolButton)
-            .define_value("SC_ToolButtonMenu", QStyle::SubControl::SC_ToolButtonMenu)
-            .define_value("SC_TitleBarSysMenu", QStyle::SubControl::SC_TitleBarSysMenu)
-            .define_value("SC_TitleBarMinButton", QStyle::SubControl::SC_TitleBarMinButton)
-            .define_value("SC_TitleBarMaxButton", QStyle::SubControl::SC_TitleBarMaxButton)
-            .define_value("SC_TitleBarCloseButton", QStyle::SubControl::SC_TitleBarCloseButton)
-            .define_value("SC_TitleBarNormalButton", QStyle::SubControl::SC_TitleBarNormalButton)
-            .define_value("SC_TitleBarShadeButton", QStyle::SubControl::SC_TitleBarShadeButton)
-            .define_value("SC_TitleBarUnshadeButton", QStyle::SubControl::SC_TitleBarUnshadeButton)
-            .define_value("SC_TitleBarContextHelpButton", QStyle::SubControl::SC_TitleBarContextHelpButton)
-            .define_value("SC_TitleBarLabel", QStyle::SubControl::SC_TitleBarLabel)
-            .define_value("SC_DialGroove", QStyle::SubControl::SC_DialGroove)
-            .define_value("SC_DialHandle", QStyle::SubControl::SC_DialHandle)
-            .define_value("SC_DialTickmarks", QStyle::SubControl::SC_DialTickmarks)
-            .define_value("SC_GroupBoxCheckBox", QStyle::SubControl::SC_GroupBoxCheckBox)
-            .define_value("SC_GroupBoxLabel", QStyle::SubControl::SC_GroupBoxLabel)
-            .define_value("SC_GroupBoxContents", QStyle::SubControl::SC_GroupBoxContents)
-            .define_value("SC_GroupBoxFrame", QStyle::SubControl::SC_GroupBoxFrame)
-            .define_value("SC_MdiMinButton", QStyle::SubControl::SC_MdiMinButton)
-            .define_value("SC_MdiNormalButton", QStyle::SubControl::SC_MdiNormalButton)
-            .define_value("SC_MdiCloseButton", QStyle::SubControl::SC_MdiCloseButton)
-            .define_value("SC_CustomBase", QStyle::SubControl::SC_CustomBase)
-            .define_value("SC_All", QStyle::SubControl::SC_All);
+        define_qenum_under<QStyle::SubControl>(rb_cQStyle, "SubControl");
+        define_qenum_value_under(rb_cQStyleSubControl, "SC_None", QStyle::SubControl::SC_None);
+        define_qenum_value_under(rb_cQStyleSubControl, "SC_ScrollBarAddLine", QStyle::SubControl::SC_ScrollBarAddLine);
+        define_qenum_value_under(rb_cQStyleSubControl, "SC_ScrollBarSubLine", QStyle::SubControl::SC_ScrollBarSubLine);
+        define_qenum_value_under(rb_cQStyleSubControl, "SC_ScrollBarAddPage", QStyle::SubControl::SC_ScrollBarAddPage);
+        define_qenum_value_under(rb_cQStyleSubControl, "SC_ScrollBarSubPage", QStyle::SubControl::SC_ScrollBarSubPage);
+        define_qenum_value_under(rb_cQStyleSubControl, "SC_ScrollBarFirst", QStyle::SubControl::SC_ScrollBarFirst);
+        define_qenum_value_under(rb_cQStyleSubControl, "SC_ScrollBarLast", QStyle::SubControl::SC_ScrollBarLast);
+        define_qenum_value_under(rb_cQStyleSubControl, "SC_ScrollBarSlider", QStyle::SubControl::SC_ScrollBarSlider);
+        define_qenum_value_under(rb_cQStyleSubControl, "SC_ScrollBarGroove", QStyle::SubControl::SC_ScrollBarGroove);
+        define_qenum_value_under(rb_cQStyleSubControl, "SC_SpinBoxUp", QStyle::SubControl::SC_SpinBoxUp);
+        define_qenum_value_under(rb_cQStyleSubControl, "SC_SpinBoxDown", QStyle::SubControl::SC_SpinBoxDown);
+        define_qenum_value_under(rb_cQStyleSubControl, "SC_SpinBoxFrame", QStyle::SubControl::SC_SpinBoxFrame);
+        define_qenum_value_under(rb_cQStyleSubControl, "SC_SpinBoxEditField", QStyle::SubControl::SC_SpinBoxEditField);
+        define_qenum_value_under(rb_cQStyleSubControl, "SC_ComboBoxFrame", QStyle::SubControl::SC_ComboBoxFrame);
+        define_qenum_value_under(rb_cQStyleSubControl, "SC_ComboBoxEditField", QStyle::SubControl::SC_ComboBoxEditField);
+        define_qenum_value_under(rb_cQStyleSubControl, "SC_ComboBoxArrow", QStyle::SubControl::SC_ComboBoxArrow);
+        define_qenum_value_under(rb_cQStyleSubControl, "SC_ComboBoxListBoxPopup", QStyle::SubControl::SC_ComboBoxListBoxPopup);
+        define_qenum_value_under(rb_cQStyleSubControl, "SC_SliderGroove", QStyle::SubControl::SC_SliderGroove);
+        define_qenum_value_under(rb_cQStyleSubControl, "SC_SliderHandle", QStyle::SubControl::SC_SliderHandle);
+        define_qenum_value_under(rb_cQStyleSubControl, "SC_SliderTickmarks", QStyle::SubControl::SC_SliderTickmarks);
+        define_qenum_value_under(rb_cQStyleSubControl, "SC_ToolButton", QStyle::SubControl::SC_ToolButton);
+        define_qenum_value_under(rb_cQStyleSubControl, "SC_ToolButtonMenu", QStyle::SubControl::SC_ToolButtonMenu);
+        define_qenum_value_under(rb_cQStyleSubControl, "SC_TitleBarSysMenu", QStyle::SubControl::SC_TitleBarSysMenu);
+        define_qenum_value_under(rb_cQStyleSubControl, "SC_TitleBarMinButton", QStyle::SubControl::SC_TitleBarMinButton);
+        define_qenum_value_under(rb_cQStyleSubControl, "SC_TitleBarMaxButton", QStyle::SubControl::SC_TitleBarMaxButton);
+        define_qenum_value_under(rb_cQStyleSubControl, "SC_TitleBarCloseButton", QStyle::SubControl::SC_TitleBarCloseButton);
+        define_qenum_value_under(rb_cQStyleSubControl, "SC_TitleBarNormalButton", QStyle::SubControl::SC_TitleBarNormalButton);
+        define_qenum_value_under(rb_cQStyleSubControl, "SC_TitleBarShadeButton", QStyle::SubControl::SC_TitleBarShadeButton);
+        define_qenum_value_under(rb_cQStyleSubControl, "SC_TitleBarUnshadeButton", QStyle::SubControl::SC_TitleBarUnshadeButton);
+        define_qenum_value_under(rb_cQStyleSubControl, "SC_TitleBarContextHelpButton", QStyle::SubControl::SC_TitleBarContextHelpButton);
+        define_qenum_value_under(rb_cQStyleSubControl, "SC_TitleBarLabel", QStyle::SubControl::SC_TitleBarLabel);
+        define_qenum_value_under(rb_cQStyleSubControl, "SC_DialGroove", QStyle::SubControl::SC_DialGroove);
+        define_qenum_value_under(rb_cQStyleSubControl, "SC_DialHandle", QStyle::SubControl::SC_DialHandle);
+        define_qenum_value_under(rb_cQStyleSubControl, "SC_DialTickmarks", QStyle::SubControl::SC_DialTickmarks);
+        define_qenum_value_under(rb_cQStyleSubControl, "SC_GroupBoxCheckBox", QStyle::SubControl::SC_GroupBoxCheckBox);
+        define_qenum_value_under(rb_cQStyleSubControl, "SC_GroupBoxLabel", QStyle::SubControl::SC_GroupBoxLabel);
+        define_qenum_value_under(rb_cQStyleSubControl, "SC_GroupBoxContents", QStyle::SubControl::SC_GroupBoxContents);
+        define_qenum_value_under(rb_cQStyleSubControl, "SC_GroupBoxFrame", QStyle::SubControl::SC_GroupBoxFrame);
+        define_qenum_value_under(rb_cQStyleSubControl, "SC_MdiMinButton", QStyle::SubControl::SC_MdiMinButton);
+        define_qenum_value_under(rb_cQStyleSubControl, "SC_MdiNormalButton", QStyle::SubControl::SC_MdiNormalButton);
+        define_qenum_value_under(rb_cQStyleSubControl, "SC_MdiCloseButton", QStyle::SubControl::SC_MdiCloseButton);
+        define_qenum_value_under(rb_cQStyleSubControl, "SC_CustomBase", QStyle::SubControl::SC_CustomBase);
+        define_qenum_value_under(rb_cQStyleSubControl, "SC_All", QStyle::SubControl::SC_All);
 
-    Enum<QStyle::PixelMetric> rb_cQStylePixelMetric =
+    Data_Type<QStyle::PixelMetric> rb_cQStylePixelMetric =
         // RubyQt6::QtWidgets::QStyle::PixelMetric
-        define_qenum_under<QStyle::PixelMetric>("PixelMetric", rb_cQStyle)
-            .define_value("PM_ButtonMargin", QStyle::PixelMetric::PM_ButtonMargin)
-            .define_value("PM_ButtonDefaultIndicator", QStyle::PixelMetric::PM_ButtonDefaultIndicator)
-            .define_value("PM_MenuButtonIndicator", QStyle::PixelMetric::PM_MenuButtonIndicator)
-            .define_value("PM_ButtonShiftHorizontal", QStyle::PixelMetric::PM_ButtonShiftHorizontal)
-            .define_value("PM_ButtonShiftVertical", QStyle::PixelMetric::PM_ButtonShiftVertical)
-            .define_value("PM_DefaultFrameWidth", QStyle::PixelMetric::PM_DefaultFrameWidth)
-            .define_value("PM_SpinBoxFrameWidth", QStyle::PixelMetric::PM_SpinBoxFrameWidth)
-            .define_value("PM_ComboBoxFrameWidth", QStyle::PixelMetric::PM_ComboBoxFrameWidth)
-            .define_value("PM_MaximumDragDistance", QStyle::PixelMetric::PM_MaximumDragDistance)
-            .define_value("PM_ScrollBarExtent", QStyle::PixelMetric::PM_ScrollBarExtent)
-            .define_value("PM_ScrollBarSliderMin", QStyle::PixelMetric::PM_ScrollBarSliderMin)
-            .define_value("PM_SliderThickness", QStyle::PixelMetric::PM_SliderThickness)
-            .define_value("PM_SliderControlThickness", QStyle::PixelMetric::PM_SliderControlThickness)
-            .define_value("PM_SliderLength", QStyle::PixelMetric::PM_SliderLength)
-            .define_value("PM_SliderTickmarkOffset", QStyle::PixelMetric::PM_SliderTickmarkOffset)
-            .define_value("PM_SliderSpaceAvailable", QStyle::PixelMetric::PM_SliderSpaceAvailable)
-            .define_value("PM_DockWidgetSeparatorExtent", QStyle::PixelMetric::PM_DockWidgetSeparatorExtent)
-            .define_value("PM_DockWidgetHandleExtent", QStyle::PixelMetric::PM_DockWidgetHandleExtent)
-            .define_value("PM_DockWidgetFrameWidth", QStyle::PixelMetric::PM_DockWidgetFrameWidth)
-            .define_value("PM_TabBarTabOverlap", QStyle::PixelMetric::PM_TabBarTabOverlap)
-            .define_value("PM_TabBarTabHSpace", QStyle::PixelMetric::PM_TabBarTabHSpace)
-            .define_value("PM_TabBarTabVSpace", QStyle::PixelMetric::PM_TabBarTabVSpace)
-            .define_value("PM_TabBarBaseHeight", QStyle::PixelMetric::PM_TabBarBaseHeight)
-            .define_value("PM_TabBarBaseOverlap", QStyle::PixelMetric::PM_TabBarBaseOverlap)
-            .define_value("PM_ProgressBarChunkWidth", QStyle::PixelMetric::PM_ProgressBarChunkWidth)
-            .define_value("PM_SplitterWidth", QStyle::PixelMetric::PM_SplitterWidth)
-            .define_value("PM_TitleBarHeight", QStyle::PixelMetric::PM_TitleBarHeight)
-            .define_value("PM_MenuScrollerHeight", QStyle::PixelMetric::PM_MenuScrollerHeight)
-            .define_value("PM_MenuHMargin", QStyle::PixelMetric::PM_MenuHMargin)
-            .define_value("PM_MenuVMargin", QStyle::PixelMetric::PM_MenuVMargin)
-            .define_value("PM_MenuPanelWidth", QStyle::PixelMetric::PM_MenuPanelWidth)
-            .define_value("PM_MenuTearoffHeight", QStyle::PixelMetric::PM_MenuTearoffHeight)
-            .define_value("PM_MenuDesktopFrameWidth", QStyle::PixelMetric::PM_MenuDesktopFrameWidth)
-            .define_value("PM_MenuBarPanelWidth", QStyle::PixelMetric::PM_MenuBarPanelWidth)
-            .define_value("PM_MenuBarItemSpacing", QStyle::PixelMetric::PM_MenuBarItemSpacing)
-            .define_value("PM_MenuBarVMargin", QStyle::PixelMetric::PM_MenuBarVMargin)
-            .define_value("PM_MenuBarHMargin", QStyle::PixelMetric::PM_MenuBarHMargin)
-            .define_value("PM_IndicatorWidth", QStyle::PixelMetric::PM_IndicatorWidth)
-            .define_value("PM_IndicatorHeight", QStyle::PixelMetric::PM_IndicatorHeight)
-            .define_value("PM_ExclusiveIndicatorWidth", QStyle::PixelMetric::PM_ExclusiveIndicatorWidth)
-            .define_value("PM_ExclusiveIndicatorHeight", QStyle::PixelMetric::PM_ExclusiveIndicatorHeight)
-            .define_value("PM_MdiSubWindowFrameWidth", QStyle::PixelMetric::PM_MdiSubWindowFrameWidth)
-            .define_value("PM_MdiSubWindowMinimizedWidth", QStyle::PixelMetric::PM_MdiSubWindowMinimizedWidth)
-            .define_value("PM_HeaderMargin", QStyle::PixelMetric::PM_HeaderMargin)
-            .define_value("PM_HeaderMarkSize", QStyle::PixelMetric::PM_HeaderMarkSize)
-            .define_value("PM_HeaderGripMargin", QStyle::PixelMetric::PM_HeaderGripMargin)
-            .define_value("PM_TabBarTabShiftHorizontal", QStyle::PixelMetric::PM_TabBarTabShiftHorizontal)
-            .define_value("PM_TabBarTabShiftVertical", QStyle::PixelMetric::PM_TabBarTabShiftVertical)
-            .define_value("PM_TabBarScrollButtonWidth", QStyle::PixelMetric::PM_TabBarScrollButtonWidth)
-            .define_value("PM_ToolBarFrameWidth", QStyle::PixelMetric::PM_ToolBarFrameWidth)
-            .define_value("PM_ToolBarHandleExtent", QStyle::PixelMetric::PM_ToolBarHandleExtent)
-            .define_value("PM_ToolBarItemSpacing", QStyle::PixelMetric::PM_ToolBarItemSpacing)
-            .define_value("PM_ToolBarItemMargin", QStyle::PixelMetric::PM_ToolBarItemMargin)
-            .define_value("PM_ToolBarSeparatorExtent", QStyle::PixelMetric::PM_ToolBarSeparatorExtent)
-            .define_value("PM_ToolBarExtensionExtent", QStyle::PixelMetric::PM_ToolBarExtensionExtent)
-            .define_value("PM_SpinBoxSliderHeight", QStyle::PixelMetric::PM_SpinBoxSliderHeight)
-            .define_value("PM_ToolBarIconSize", QStyle::PixelMetric::PM_ToolBarIconSize)
-            .define_value("PM_ListViewIconSize", QStyle::PixelMetric::PM_ListViewIconSize)
-            .define_value("PM_IconViewIconSize", QStyle::PixelMetric::PM_IconViewIconSize)
-            .define_value("PM_SmallIconSize", QStyle::PixelMetric::PM_SmallIconSize)
-            .define_value("PM_LargeIconSize", QStyle::PixelMetric::PM_LargeIconSize)
-            .define_value("PM_FocusFrameVMargin", QStyle::PixelMetric::PM_FocusFrameVMargin)
-            .define_value("PM_FocusFrameHMargin", QStyle::PixelMetric::PM_FocusFrameHMargin)
-            .define_value("PM_ToolTipLabelFrameWidth", QStyle::PixelMetric::PM_ToolTipLabelFrameWidth)
-            .define_value("PM_CheckBoxLabelSpacing", QStyle::PixelMetric::PM_CheckBoxLabelSpacing)
-            .define_value("PM_TabBarIconSize", QStyle::PixelMetric::PM_TabBarIconSize)
-            .define_value("PM_SizeGripSize", QStyle::PixelMetric::PM_SizeGripSize)
-            .define_value("PM_DockWidgetTitleMargin", QStyle::PixelMetric::PM_DockWidgetTitleMargin)
-            .define_value("PM_MessageBoxIconSize", QStyle::PixelMetric::PM_MessageBoxIconSize)
-            .define_value("PM_ButtonIconSize", QStyle::PixelMetric::PM_ButtonIconSize)
-            .define_value("PM_DockWidgetTitleBarButtonMargin", QStyle::PixelMetric::PM_DockWidgetTitleBarButtonMargin)
-            .define_value("PM_RadioButtonLabelSpacing", QStyle::PixelMetric::PM_RadioButtonLabelSpacing)
-            .define_value("PM_LayoutLeftMargin", QStyle::PixelMetric::PM_LayoutLeftMargin)
-            .define_value("PM_LayoutTopMargin", QStyle::PixelMetric::PM_LayoutTopMargin)
-            .define_value("PM_LayoutRightMargin", QStyle::PixelMetric::PM_LayoutRightMargin)
-            .define_value("PM_LayoutBottomMargin", QStyle::PixelMetric::PM_LayoutBottomMargin)
-            .define_value("PM_LayoutHorizontalSpacing", QStyle::PixelMetric::PM_LayoutHorizontalSpacing)
-            .define_value("PM_LayoutVerticalSpacing", QStyle::PixelMetric::PM_LayoutVerticalSpacing)
-            .define_value("PM_TabBar_ScrollButtonOverlap", QStyle::PixelMetric::PM_TabBar_ScrollButtonOverlap)
-            .define_value("PM_TextCursorWidth", QStyle::PixelMetric::PM_TextCursorWidth)
-            .define_value("PM_TabCloseIndicatorWidth", QStyle::PixelMetric::PM_TabCloseIndicatorWidth)
-            .define_value("PM_TabCloseIndicatorHeight", QStyle::PixelMetric::PM_TabCloseIndicatorHeight)
-            .define_value("PM_ScrollView_ScrollBarSpacing", QStyle::PixelMetric::PM_ScrollView_ScrollBarSpacing)
-            .define_value("PM_ScrollView_ScrollBarOverlap", QStyle::PixelMetric::PM_ScrollView_ScrollBarOverlap)
-            .define_value("PM_SubMenuOverlap", QStyle::PixelMetric::PM_SubMenuOverlap)
-            .define_value("PM_TreeViewIndentation", QStyle::PixelMetric::PM_TreeViewIndentation)
-            .define_value("PM_HeaderDefaultSectionSizeHorizontal", QStyle::PixelMetric::PM_HeaderDefaultSectionSizeHorizontal)
-            .define_value("PM_HeaderDefaultSectionSizeVertical", QStyle::PixelMetric::PM_HeaderDefaultSectionSizeVertical)
-            .define_value("PM_TitleBarButtonIconSize", QStyle::PixelMetric::PM_TitleBarButtonIconSize)
-            .define_value("PM_TitleBarButtonSize", QStyle::PixelMetric::PM_TitleBarButtonSize)
-            .define_value("PM_LineEditIconSize", QStyle::PixelMetric::PM_LineEditIconSize)
-            .define_value("PM_LineEditIconMargin", QStyle::PixelMetric::PM_LineEditIconMargin)
-            .define_value("PM_CustomBase", QStyle::PixelMetric::PM_CustomBase);
+        define_qenum_under<QStyle::PixelMetric>(rb_cQStyle, "PixelMetric");
+        define_qenum_value_under(rb_cQStylePixelMetric, "PM_ButtonMargin", QStyle::PixelMetric::PM_ButtonMargin);
+        define_qenum_value_under(rb_cQStylePixelMetric, "PM_ButtonDefaultIndicator", QStyle::PixelMetric::PM_ButtonDefaultIndicator);
+        define_qenum_value_under(rb_cQStylePixelMetric, "PM_MenuButtonIndicator", QStyle::PixelMetric::PM_MenuButtonIndicator);
+        define_qenum_value_under(rb_cQStylePixelMetric, "PM_ButtonShiftHorizontal", QStyle::PixelMetric::PM_ButtonShiftHorizontal);
+        define_qenum_value_under(rb_cQStylePixelMetric, "PM_ButtonShiftVertical", QStyle::PixelMetric::PM_ButtonShiftVertical);
+        define_qenum_value_under(rb_cQStylePixelMetric, "PM_DefaultFrameWidth", QStyle::PixelMetric::PM_DefaultFrameWidth);
+        define_qenum_value_under(rb_cQStylePixelMetric, "PM_SpinBoxFrameWidth", QStyle::PixelMetric::PM_SpinBoxFrameWidth);
+        define_qenum_value_under(rb_cQStylePixelMetric, "PM_ComboBoxFrameWidth", QStyle::PixelMetric::PM_ComboBoxFrameWidth);
+        define_qenum_value_under(rb_cQStylePixelMetric, "PM_MaximumDragDistance", QStyle::PixelMetric::PM_MaximumDragDistance);
+        define_qenum_value_under(rb_cQStylePixelMetric, "PM_ScrollBarExtent", QStyle::PixelMetric::PM_ScrollBarExtent);
+        define_qenum_value_under(rb_cQStylePixelMetric, "PM_ScrollBarSliderMin", QStyle::PixelMetric::PM_ScrollBarSliderMin);
+        define_qenum_value_under(rb_cQStylePixelMetric, "PM_SliderThickness", QStyle::PixelMetric::PM_SliderThickness);
+        define_qenum_value_under(rb_cQStylePixelMetric, "PM_SliderControlThickness", QStyle::PixelMetric::PM_SliderControlThickness);
+        define_qenum_value_under(rb_cQStylePixelMetric, "PM_SliderLength", QStyle::PixelMetric::PM_SliderLength);
+        define_qenum_value_under(rb_cQStylePixelMetric, "PM_SliderTickmarkOffset", QStyle::PixelMetric::PM_SliderTickmarkOffset);
+        define_qenum_value_under(rb_cQStylePixelMetric, "PM_SliderSpaceAvailable", QStyle::PixelMetric::PM_SliderSpaceAvailable);
+        define_qenum_value_under(rb_cQStylePixelMetric, "PM_DockWidgetSeparatorExtent", QStyle::PixelMetric::PM_DockWidgetSeparatorExtent);
+        define_qenum_value_under(rb_cQStylePixelMetric, "PM_DockWidgetHandleExtent", QStyle::PixelMetric::PM_DockWidgetHandleExtent);
+        define_qenum_value_under(rb_cQStylePixelMetric, "PM_DockWidgetFrameWidth", QStyle::PixelMetric::PM_DockWidgetFrameWidth);
+        define_qenum_value_under(rb_cQStylePixelMetric, "PM_TabBarTabOverlap", QStyle::PixelMetric::PM_TabBarTabOverlap);
+        define_qenum_value_under(rb_cQStylePixelMetric, "PM_TabBarTabHSpace", QStyle::PixelMetric::PM_TabBarTabHSpace);
+        define_qenum_value_under(rb_cQStylePixelMetric, "PM_TabBarTabVSpace", QStyle::PixelMetric::PM_TabBarTabVSpace);
+        define_qenum_value_under(rb_cQStylePixelMetric, "PM_TabBarBaseHeight", QStyle::PixelMetric::PM_TabBarBaseHeight);
+        define_qenum_value_under(rb_cQStylePixelMetric, "PM_TabBarBaseOverlap", QStyle::PixelMetric::PM_TabBarBaseOverlap);
+        define_qenum_value_under(rb_cQStylePixelMetric, "PM_ProgressBarChunkWidth", QStyle::PixelMetric::PM_ProgressBarChunkWidth);
+        define_qenum_value_under(rb_cQStylePixelMetric, "PM_SplitterWidth", QStyle::PixelMetric::PM_SplitterWidth);
+        define_qenum_value_under(rb_cQStylePixelMetric, "PM_TitleBarHeight", QStyle::PixelMetric::PM_TitleBarHeight);
+        define_qenum_value_under(rb_cQStylePixelMetric, "PM_MenuScrollerHeight", QStyle::PixelMetric::PM_MenuScrollerHeight);
+        define_qenum_value_under(rb_cQStylePixelMetric, "PM_MenuHMargin", QStyle::PixelMetric::PM_MenuHMargin);
+        define_qenum_value_under(rb_cQStylePixelMetric, "PM_MenuVMargin", QStyle::PixelMetric::PM_MenuVMargin);
+        define_qenum_value_under(rb_cQStylePixelMetric, "PM_MenuPanelWidth", QStyle::PixelMetric::PM_MenuPanelWidth);
+        define_qenum_value_under(rb_cQStylePixelMetric, "PM_MenuTearoffHeight", QStyle::PixelMetric::PM_MenuTearoffHeight);
+        define_qenum_value_under(rb_cQStylePixelMetric, "PM_MenuDesktopFrameWidth", QStyle::PixelMetric::PM_MenuDesktopFrameWidth);
+        define_qenum_value_under(rb_cQStylePixelMetric, "PM_MenuBarPanelWidth", QStyle::PixelMetric::PM_MenuBarPanelWidth);
+        define_qenum_value_under(rb_cQStylePixelMetric, "PM_MenuBarItemSpacing", QStyle::PixelMetric::PM_MenuBarItemSpacing);
+        define_qenum_value_under(rb_cQStylePixelMetric, "PM_MenuBarVMargin", QStyle::PixelMetric::PM_MenuBarVMargin);
+        define_qenum_value_under(rb_cQStylePixelMetric, "PM_MenuBarHMargin", QStyle::PixelMetric::PM_MenuBarHMargin);
+        define_qenum_value_under(rb_cQStylePixelMetric, "PM_IndicatorWidth", QStyle::PixelMetric::PM_IndicatorWidth);
+        define_qenum_value_under(rb_cQStylePixelMetric, "PM_IndicatorHeight", QStyle::PixelMetric::PM_IndicatorHeight);
+        define_qenum_value_under(rb_cQStylePixelMetric, "PM_ExclusiveIndicatorWidth", QStyle::PixelMetric::PM_ExclusiveIndicatorWidth);
+        define_qenum_value_under(rb_cQStylePixelMetric, "PM_ExclusiveIndicatorHeight", QStyle::PixelMetric::PM_ExclusiveIndicatorHeight);
+        define_qenum_value_under(rb_cQStylePixelMetric, "PM_MdiSubWindowFrameWidth", QStyle::PixelMetric::PM_MdiSubWindowFrameWidth);
+        define_qenum_value_under(rb_cQStylePixelMetric, "PM_MdiSubWindowMinimizedWidth", QStyle::PixelMetric::PM_MdiSubWindowMinimizedWidth);
+        define_qenum_value_under(rb_cQStylePixelMetric, "PM_HeaderMargin", QStyle::PixelMetric::PM_HeaderMargin);
+        define_qenum_value_under(rb_cQStylePixelMetric, "PM_HeaderMarkSize", QStyle::PixelMetric::PM_HeaderMarkSize);
+        define_qenum_value_under(rb_cQStylePixelMetric, "PM_HeaderGripMargin", QStyle::PixelMetric::PM_HeaderGripMargin);
+        define_qenum_value_under(rb_cQStylePixelMetric, "PM_TabBarTabShiftHorizontal", QStyle::PixelMetric::PM_TabBarTabShiftHorizontal);
+        define_qenum_value_under(rb_cQStylePixelMetric, "PM_TabBarTabShiftVertical", QStyle::PixelMetric::PM_TabBarTabShiftVertical);
+        define_qenum_value_under(rb_cQStylePixelMetric, "PM_TabBarScrollButtonWidth", QStyle::PixelMetric::PM_TabBarScrollButtonWidth);
+        define_qenum_value_under(rb_cQStylePixelMetric, "PM_ToolBarFrameWidth", QStyle::PixelMetric::PM_ToolBarFrameWidth);
+        define_qenum_value_under(rb_cQStylePixelMetric, "PM_ToolBarHandleExtent", QStyle::PixelMetric::PM_ToolBarHandleExtent);
+        define_qenum_value_under(rb_cQStylePixelMetric, "PM_ToolBarItemSpacing", QStyle::PixelMetric::PM_ToolBarItemSpacing);
+        define_qenum_value_under(rb_cQStylePixelMetric, "PM_ToolBarItemMargin", QStyle::PixelMetric::PM_ToolBarItemMargin);
+        define_qenum_value_under(rb_cQStylePixelMetric, "PM_ToolBarSeparatorExtent", QStyle::PixelMetric::PM_ToolBarSeparatorExtent);
+        define_qenum_value_under(rb_cQStylePixelMetric, "PM_ToolBarExtensionExtent", QStyle::PixelMetric::PM_ToolBarExtensionExtent);
+        define_qenum_value_under(rb_cQStylePixelMetric, "PM_SpinBoxSliderHeight", QStyle::PixelMetric::PM_SpinBoxSliderHeight);
+        define_qenum_value_under(rb_cQStylePixelMetric, "PM_ToolBarIconSize", QStyle::PixelMetric::PM_ToolBarIconSize);
+        define_qenum_value_under(rb_cQStylePixelMetric, "PM_ListViewIconSize", QStyle::PixelMetric::PM_ListViewIconSize);
+        define_qenum_value_under(rb_cQStylePixelMetric, "PM_IconViewIconSize", QStyle::PixelMetric::PM_IconViewIconSize);
+        define_qenum_value_under(rb_cQStylePixelMetric, "PM_SmallIconSize", QStyle::PixelMetric::PM_SmallIconSize);
+        define_qenum_value_under(rb_cQStylePixelMetric, "PM_LargeIconSize", QStyle::PixelMetric::PM_LargeIconSize);
+        define_qenum_value_under(rb_cQStylePixelMetric, "PM_FocusFrameVMargin", QStyle::PixelMetric::PM_FocusFrameVMargin);
+        define_qenum_value_under(rb_cQStylePixelMetric, "PM_FocusFrameHMargin", QStyle::PixelMetric::PM_FocusFrameHMargin);
+        define_qenum_value_under(rb_cQStylePixelMetric, "PM_ToolTipLabelFrameWidth", QStyle::PixelMetric::PM_ToolTipLabelFrameWidth);
+        define_qenum_value_under(rb_cQStylePixelMetric, "PM_CheckBoxLabelSpacing", QStyle::PixelMetric::PM_CheckBoxLabelSpacing);
+        define_qenum_value_under(rb_cQStylePixelMetric, "PM_TabBarIconSize", QStyle::PixelMetric::PM_TabBarIconSize);
+        define_qenum_value_under(rb_cQStylePixelMetric, "PM_SizeGripSize", QStyle::PixelMetric::PM_SizeGripSize);
+        define_qenum_value_under(rb_cQStylePixelMetric, "PM_DockWidgetTitleMargin", QStyle::PixelMetric::PM_DockWidgetTitleMargin);
+        define_qenum_value_under(rb_cQStylePixelMetric, "PM_MessageBoxIconSize", QStyle::PixelMetric::PM_MessageBoxIconSize);
+        define_qenum_value_under(rb_cQStylePixelMetric, "PM_ButtonIconSize", QStyle::PixelMetric::PM_ButtonIconSize);
+        define_qenum_value_under(rb_cQStylePixelMetric, "PM_DockWidgetTitleBarButtonMargin", QStyle::PixelMetric::PM_DockWidgetTitleBarButtonMargin);
+        define_qenum_value_under(rb_cQStylePixelMetric, "PM_RadioButtonLabelSpacing", QStyle::PixelMetric::PM_RadioButtonLabelSpacing);
+        define_qenum_value_under(rb_cQStylePixelMetric, "PM_LayoutLeftMargin", QStyle::PixelMetric::PM_LayoutLeftMargin);
+        define_qenum_value_under(rb_cQStylePixelMetric, "PM_LayoutTopMargin", QStyle::PixelMetric::PM_LayoutTopMargin);
+        define_qenum_value_under(rb_cQStylePixelMetric, "PM_LayoutRightMargin", QStyle::PixelMetric::PM_LayoutRightMargin);
+        define_qenum_value_under(rb_cQStylePixelMetric, "PM_LayoutBottomMargin", QStyle::PixelMetric::PM_LayoutBottomMargin);
+        define_qenum_value_under(rb_cQStylePixelMetric, "PM_LayoutHorizontalSpacing", QStyle::PixelMetric::PM_LayoutHorizontalSpacing);
+        define_qenum_value_under(rb_cQStylePixelMetric, "PM_LayoutVerticalSpacing", QStyle::PixelMetric::PM_LayoutVerticalSpacing);
+        define_qenum_value_under(rb_cQStylePixelMetric, "PM_TabBar_ScrollButtonOverlap", QStyle::PixelMetric::PM_TabBar_ScrollButtonOverlap);
+        define_qenum_value_under(rb_cQStylePixelMetric, "PM_TextCursorWidth", QStyle::PixelMetric::PM_TextCursorWidth);
+        define_qenum_value_under(rb_cQStylePixelMetric, "PM_TabCloseIndicatorWidth", QStyle::PixelMetric::PM_TabCloseIndicatorWidth);
+        define_qenum_value_under(rb_cQStylePixelMetric, "PM_TabCloseIndicatorHeight", QStyle::PixelMetric::PM_TabCloseIndicatorHeight);
+        define_qenum_value_under(rb_cQStylePixelMetric, "PM_ScrollView_ScrollBarSpacing", QStyle::PixelMetric::PM_ScrollView_ScrollBarSpacing);
+        define_qenum_value_under(rb_cQStylePixelMetric, "PM_ScrollView_ScrollBarOverlap", QStyle::PixelMetric::PM_ScrollView_ScrollBarOverlap);
+        define_qenum_value_under(rb_cQStylePixelMetric, "PM_SubMenuOverlap", QStyle::PixelMetric::PM_SubMenuOverlap);
+        define_qenum_value_under(rb_cQStylePixelMetric, "PM_TreeViewIndentation", QStyle::PixelMetric::PM_TreeViewIndentation);
+        define_qenum_value_under(rb_cQStylePixelMetric, "PM_HeaderDefaultSectionSizeHorizontal", QStyle::PixelMetric::PM_HeaderDefaultSectionSizeHorizontal);
+        define_qenum_value_under(rb_cQStylePixelMetric, "PM_HeaderDefaultSectionSizeVertical", QStyle::PixelMetric::PM_HeaderDefaultSectionSizeVertical);
+        define_qenum_value_under(rb_cQStylePixelMetric, "PM_TitleBarButtonIconSize", QStyle::PixelMetric::PM_TitleBarButtonIconSize);
+        define_qenum_value_under(rb_cQStylePixelMetric, "PM_TitleBarButtonSize", QStyle::PixelMetric::PM_TitleBarButtonSize);
+        define_qenum_value_under(rb_cQStylePixelMetric, "PM_LineEditIconSize", QStyle::PixelMetric::PM_LineEditIconSize);
+        define_qenum_value_under(rb_cQStylePixelMetric, "PM_LineEditIconMargin", QStyle::PixelMetric::PM_LineEditIconMargin);
+        define_qenum_value_under(rb_cQStylePixelMetric, "PM_CustomBase", QStyle::PixelMetric::PM_CustomBase);
 
-    Enum<QStyle::ContentsType> rb_cQStyleContentsType =
+    Data_Type<QStyle::ContentsType> rb_cQStyleContentsType =
         // RubyQt6::QtWidgets::QStyle::ContentsType
-        define_qenum_under<QStyle::ContentsType>("ContentsType", rb_cQStyle)
-            .define_value("CT_PushButton", QStyle::ContentsType::CT_PushButton)
-            .define_value("CT_CheckBox", QStyle::ContentsType::CT_CheckBox)
-            .define_value("CT_RadioButton", QStyle::ContentsType::CT_RadioButton)
-            .define_value("CT_ToolButton", QStyle::ContentsType::CT_ToolButton)
-            .define_value("CT_ComboBox", QStyle::ContentsType::CT_ComboBox)
-            .define_value("CT_Splitter", QStyle::ContentsType::CT_Splitter)
-            .define_value("CT_ProgressBar", QStyle::ContentsType::CT_ProgressBar)
-            .define_value("CT_MenuItem", QStyle::ContentsType::CT_MenuItem)
-            .define_value("CT_MenuBarItem", QStyle::ContentsType::CT_MenuBarItem)
-            .define_value("CT_MenuBar", QStyle::ContentsType::CT_MenuBar)
-            .define_value("CT_Menu", QStyle::ContentsType::CT_Menu)
-            .define_value("CT_TabBarTab", QStyle::ContentsType::CT_TabBarTab)
-            .define_value("CT_Slider", QStyle::ContentsType::CT_Slider)
-            .define_value("CT_ScrollBar", QStyle::ContentsType::CT_ScrollBar)
-            .define_value("CT_LineEdit", QStyle::ContentsType::CT_LineEdit)
-            .define_value("CT_SpinBox", QStyle::ContentsType::CT_SpinBox)
-            .define_value("CT_SizeGrip", QStyle::ContentsType::CT_SizeGrip)
-            .define_value("CT_TabWidget", QStyle::ContentsType::CT_TabWidget)
-            .define_value("CT_DialogButtons", QStyle::ContentsType::CT_DialogButtons)
-            .define_value("CT_HeaderSection", QStyle::ContentsType::CT_HeaderSection)
-            .define_value("CT_GroupBox", QStyle::ContentsType::CT_GroupBox)
-            .define_value("CT_MdiControls", QStyle::ContentsType::CT_MdiControls)
-            .define_value("CT_ItemViewItem", QStyle::ContentsType::CT_ItemViewItem)
-            .define_value("CT_CustomBase", QStyle::ContentsType::CT_CustomBase);
+        define_qenum_under<QStyle::ContentsType>(rb_cQStyle, "ContentsType");
+        define_qenum_value_under(rb_cQStyleContentsType, "CT_PushButton", QStyle::ContentsType::CT_PushButton);
+        define_qenum_value_under(rb_cQStyleContentsType, "CT_CheckBox", QStyle::ContentsType::CT_CheckBox);
+        define_qenum_value_under(rb_cQStyleContentsType, "CT_RadioButton", QStyle::ContentsType::CT_RadioButton);
+        define_qenum_value_under(rb_cQStyleContentsType, "CT_ToolButton", QStyle::ContentsType::CT_ToolButton);
+        define_qenum_value_under(rb_cQStyleContentsType, "CT_ComboBox", QStyle::ContentsType::CT_ComboBox);
+        define_qenum_value_under(rb_cQStyleContentsType, "CT_Splitter", QStyle::ContentsType::CT_Splitter);
+        define_qenum_value_under(rb_cQStyleContentsType, "CT_ProgressBar", QStyle::ContentsType::CT_ProgressBar);
+        define_qenum_value_under(rb_cQStyleContentsType, "CT_MenuItem", QStyle::ContentsType::CT_MenuItem);
+        define_qenum_value_under(rb_cQStyleContentsType, "CT_MenuBarItem", QStyle::ContentsType::CT_MenuBarItem);
+        define_qenum_value_under(rb_cQStyleContentsType, "CT_MenuBar", QStyle::ContentsType::CT_MenuBar);
+        define_qenum_value_under(rb_cQStyleContentsType, "CT_Menu", QStyle::ContentsType::CT_Menu);
+        define_qenum_value_under(rb_cQStyleContentsType, "CT_TabBarTab", QStyle::ContentsType::CT_TabBarTab);
+        define_qenum_value_under(rb_cQStyleContentsType, "CT_Slider", QStyle::ContentsType::CT_Slider);
+        define_qenum_value_under(rb_cQStyleContentsType, "CT_ScrollBar", QStyle::ContentsType::CT_ScrollBar);
+        define_qenum_value_under(rb_cQStyleContentsType, "CT_LineEdit", QStyle::ContentsType::CT_LineEdit);
+        define_qenum_value_under(rb_cQStyleContentsType, "CT_SpinBox", QStyle::ContentsType::CT_SpinBox);
+        define_qenum_value_under(rb_cQStyleContentsType, "CT_SizeGrip", QStyle::ContentsType::CT_SizeGrip);
+        define_qenum_value_under(rb_cQStyleContentsType, "CT_TabWidget", QStyle::ContentsType::CT_TabWidget);
+        define_qenum_value_under(rb_cQStyleContentsType, "CT_DialogButtons", QStyle::ContentsType::CT_DialogButtons);
+        define_qenum_value_under(rb_cQStyleContentsType, "CT_HeaderSection", QStyle::ContentsType::CT_HeaderSection);
+        define_qenum_value_under(rb_cQStyleContentsType, "CT_GroupBox", QStyle::ContentsType::CT_GroupBox);
+        define_qenum_value_under(rb_cQStyleContentsType, "CT_MdiControls", QStyle::ContentsType::CT_MdiControls);
+        define_qenum_value_under(rb_cQStyleContentsType, "CT_ItemViewItem", QStyle::ContentsType::CT_ItemViewItem);
+        define_qenum_value_under(rb_cQStyleContentsType, "CT_CustomBase", QStyle::ContentsType::CT_CustomBase);
 
-    Enum<QStyle::RequestSoftwareInputPanel> rb_cQStyleRequestSoftwareInputPanel =
+    Data_Type<QStyle::RequestSoftwareInputPanel> rb_cQStyleRequestSoftwareInputPanel =
         // RubyQt6::QtWidgets::QStyle::RequestSoftwareInputPanel
-        define_qenum_under<QStyle::RequestSoftwareInputPanel>("RequestSoftwareInputPanel", rb_cQStyle)
-            .define_value("RSIP_OnMouseClickAndAlreadyFocused", QStyle::RequestSoftwareInputPanel::RSIP_OnMouseClickAndAlreadyFocused)
-            .define_value("RSIP_OnMouseClick", QStyle::RequestSoftwareInputPanel::RSIP_OnMouseClick);
+        define_qenum_under<QStyle::RequestSoftwareInputPanel>(rb_cQStyle, "RequestSoftwareInputPanel");
+        define_qenum_value_under(rb_cQStyleRequestSoftwareInputPanel, "RSIP_OnMouseClickAndAlreadyFocused", QStyle::RequestSoftwareInputPanel::RSIP_OnMouseClickAndAlreadyFocused);
+        define_qenum_value_under(rb_cQStyleRequestSoftwareInputPanel, "RSIP_OnMouseClick", QStyle::RequestSoftwareInputPanel::RSIP_OnMouseClick);
 
-    Enum<QStyle::StyleHint> rb_cQStyleStyleHint =
+    Data_Type<QStyle::StyleHint> rb_cQStyleStyleHint =
         // RubyQt6::QtWidgets::QStyle::StyleHint
-        define_qenum_under<QStyle::StyleHint>("StyleHint", rb_cQStyle)
-            .define_value("SH_EtchDisabledText", QStyle::StyleHint::SH_EtchDisabledText)
-            .define_value("SH_DitherDisabledText", QStyle::StyleHint::SH_DitherDisabledText)
-            .define_value("SH_ScrollBar_MiddleClickAbsolutePosition", QStyle::StyleHint::SH_ScrollBar_MiddleClickAbsolutePosition)
-            .define_value("SH_ScrollBar_ScrollWhenPointerLeavesControl", QStyle::StyleHint::SH_ScrollBar_ScrollWhenPointerLeavesControl)
-            .define_value("SH_TabBar_SelectMouseType", QStyle::StyleHint::SH_TabBar_SelectMouseType)
-            .define_value("SH_TabBar_Alignment", QStyle::StyleHint::SH_TabBar_Alignment)
-            .define_value("SH_Header_ArrowAlignment", QStyle::StyleHint::SH_Header_ArrowAlignment)
-            .define_value("SH_Slider_SnapToValue", QStyle::StyleHint::SH_Slider_SnapToValue)
-            .define_value("SH_Slider_SloppyKeyEvents", QStyle::StyleHint::SH_Slider_SloppyKeyEvents)
-            .define_value("SH_ProgressDialog_CenterCancelButton", QStyle::StyleHint::SH_ProgressDialog_CenterCancelButton)
-            .define_value("SH_ProgressDialog_TextLabelAlignment", QStyle::StyleHint::SH_ProgressDialog_TextLabelAlignment)
-            .define_value("SH_PrintDialog_RightAlignButtons", QStyle::StyleHint::SH_PrintDialog_RightAlignButtons)
-            .define_value("SH_MainWindow_SpaceBelowMenuBar", QStyle::StyleHint::SH_MainWindow_SpaceBelowMenuBar)
-            .define_value("SH_FontDialog_SelectAssociatedText", QStyle::StyleHint::SH_FontDialog_SelectAssociatedText)
-            .define_value("SH_Menu_AllowActiveAndDisabled", QStyle::StyleHint::SH_Menu_AllowActiveAndDisabled)
-            .define_value("SH_Menu_SpaceActivatesItem", QStyle::StyleHint::SH_Menu_SpaceActivatesItem)
-            .define_value("SH_Menu_SubMenuPopupDelay", QStyle::StyleHint::SH_Menu_SubMenuPopupDelay)
-            .define_value("SH_ScrollView_FrameOnlyAroundContents", QStyle::StyleHint::SH_ScrollView_FrameOnlyAroundContents)
-            .define_value("SH_MenuBar_AltKeyNavigation", QStyle::StyleHint::SH_MenuBar_AltKeyNavigation)
-            .define_value("SH_ComboBox_ListMouseTracking", QStyle::StyleHint::SH_ComboBox_ListMouseTracking)
-            .define_value("SH_Menu_MouseTracking", QStyle::StyleHint::SH_Menu_MouseTracking)
-            .define_value("SH_MenuBar_MouseTracking", QStyle::StyleHint::SH_MenuBar_MouseTracking)
-            .define_value("SH_ItemView_ChangeHighlightOnFocus", QStyle::StyleHint::SH_ItemView_ChangeHighlightOnFocus)
-            .define_value("SH_Widget_ShareActivation", QStyle::StyleHint::SH_Widget_ShareActivation)
-            .define_value("SH_Workspace_FillSpaceOnMaximize", QStyle::StyleHint::SH_Workspace_FillSpaceOnMaximize)
-            .define_value("SH_ComboBox_Popup", QStyle::StyleHint::SH_ComboBox_Popup)
-            .define_value("SH_TitleBar_NoBorder", QStyle::StyleHint::SH_TitleBar_NoBorder)
-            .define_value("SH_Slider_StopMouseOverSlider", QStyle::StyleHint::SH_Slider_StopMouseOverSlider)
-            .define_value("SH_BlinkCursorWhenTextSelected", QStyle::StyleHint::SH_BlinkCursorWhenTextSelected)
-            .define_value("SH_RichText_FullWidthSelection", QStyle::StyleHint::SH_RichText_FullWidthSelection)
-            .define_value("SH_Menu_Scrollable", QStyle::StyleHint::SH_Menu_Scrollable)
-            .define_value("SH_GroupBox_TextLabelVerticalAlignment", QStyle::StyleHint::SH_GroupBox_TextLabelVerticalAlignment)
-            .define_value("SH_GroupBox_TextLabelColor", QStyle::StyleHint::SH_GroupBox_TextLabelColor)
-            .define_value("SH_Menu_SloppySubMenus", QStyle::StyleHint::SH_Menu_SloppySubMenus)
-            .define_value("SH_Table_GridLineColor", QStyle::StyleHint::SH_Table_GridLineColor)
-            .define_value("SH_LineEdit_PasswordCharacter", QStyle::StyleHint::SH_LineEdit_PasswordCharacter)
-            .define_value("SH_DialogButtons_DefaultButton", QStyle::StyleHint::SH_DialogButtons_DefaultButton)
-            .define_value("SH_ToolBox_SelectedPageTitleBold", QStyle::StyleHint::SH_ToolBox_SelectedPageTitleBold)
-            .define_value("SH_TabBar_PreferNoArrows", QStyle::StyleHint::SH_TabBar_PreferNoArrows)
-            .define_value("SH_ScrollBar_LeftClickAbsolutePosition", QStyle::StyleHint::SH_ScrollBar_LeftClickAbsolutePosition)
-            .define_value("SH_ListViewExpand_SelectMouseType", QStyle::StyleHint::SH_ListViewExpand_SelectMouseType)
-            .define_value("SH_UnderlineShortcut", QStyle::StyleHint::SH_UnderlineShortcut)
-            .define_value("SH_SpinBox_AnimateButton", QStyle::StyleHint::SH_SpinBox_AnimateButton)
-            .define_value("SH_SpinBox_KeyPressAutoRepeatRate", QStyle::StyleHint::SH_SpinBox_KeyPressAutoRepeatRate)
-            .define_value("SH_SpinBox_ClickAutoRepeatRate", QStyle::StyleHint::SH_SpinBox_ClickAutoRepeatRate)
-            .define_value("SH_Menu_FillScreenWithScroll", QStyle::StyleHint::SH_Menu_FillScreenWithScroll)
-            .define_value("SH_ToolTipLabel_Opacity", QStyle::StyleHint::SH_ToolTipLabel_Opacity)
-            .define_value("SH_DrawMenuBarSeparator", QStyle::StyleHint::SH_DrawMenuBarSeparator)
-            .define_value("SH_TitleBar_ModifyNotification", QStyle::StyleHint::SH_TitleBar_ModifyNotification)
-            .define_value("SH_Button_FocusPolicy", QStyle::StyleHint::SH_Button_FocusPolicy)
-            .define_value("SH_MessageBox_UseBorderForButtonSpacing", QStyle::StyleHint::SH_MessageBox_UseBorderForButtonSpacing)
-            .define_value("SH_TitleBar_AutoRaise", QStyle::StyleHint::SH_TitleBar_AutoRaise)
-            .define_value("SH_ToolButton_PopupDelay", QStyle::StyleHint::SH_ToolButton_PopupDelay)
-            .define_value("SH_FocusFrame_Mask", QStyle::StyleHint::SH_FocusFrame_Mask)
-            .define_value("SH_RubberBand_Mask", QStyle::StyleHint::SH_RubberBand_Mask)
-            .define_value("SH_WindowFrame_Mask", QStyle::StyleHint::SH_WindowFrame_Mask)
-            .define_value("SH_SpinControls_DisableOnBounds", QStyle::StyleHint::SH_SpinControls_DisableOnBounds)
-            .define_value("SH_Dial_BackgroundRole", QStyle::StyleHint::SH_Dial_BackgroundRole)
-            .define_value("SH_ComboBox_LayoutDirection", QStyle::StyleHint::SH_ComboBox_LayoutDirection)
-            .define_value("SH_ItemView_EllipsisLocation", QStyle::StyleHint::SH_ItemView_EllipsisLocation)
-            .define_value("SH_ItemView_ShowDecorationSelected", QStyle::StyleHint::SH_ItemView_ShowDecorationSelected)
-            .define_value("SH_ItemView_ActivateItemOnSingleClick", QStyle::StyleHint::SH_ItemView_ActivateItemOnSingleClick)
-            .define_value("SH_ScrollBar_ContextMenu", QStyle::StyleHint::SH_ScrollBar_ContextMenu)
-            .define_value("SH_ScrollBar_RollBetweenButtons", QStyle::StyleHint::SH_ScrollBar_RollBetweenButtons)
-            .define_value("SH_Slider_AbsoluteSetButtons", QStyle::StyleHint::SH_Slider_AbsoluteSetButtons)
-            .define_value("SH_Slider_PageSetButtons", QStyle::StyleHint::SH_Slider_PageSetButtons)
-            .define_value("SH_Menu_KeyboardSearch", QStyle::StyleHint::SH_Menu_KeyboardSearch)
-            .define_value("SH_TabBar_ElideMode", QStyle::StyleHint::SH_TabBar_ElideMode)
-            .define_value("SH_DialogButtonLayout", QStyle::StyleHint::SH_DialogButtonLayout)
-            .define_value("SH_ComboBox_PopupFrameStyle", QStyle::StyleHint::SH_ComboBox_PopupFrameStyle)
-            .define_value("SH_MessageBox_TextInteractionFlags", QStyle::StyleHint::SH_MessageBox_TextInteractionFlags)
-            .define_value("SH_DialogButtonBox_ButtonsHaveIcons", QStyle::StyleHint::SH_DialogButtonBox_ButtonsHaveIcons)
-            .define_value("SH_MessageBox_CenterButtons", QStyle::StyleHint::SH_MessageBox_CenterButtons)
-            .define_value("SH_Menu_SelectionWrap", QStyle::StyleHint::SH_Menu_SelectionWrap)
-            .define_value("SH_ItemView_MovementWithoutUpdatingSelection", QStyle::StyleHint::SH_ItemView_MovementWithoutUpdatingSelection)
-            .define_value("SH_ToolTip_Mask", QStyle::StyleHint::SH_ToolTip_Mask)
-            .define_value("SH_FocusFrame_AboveWidget", QStyle::StyleHint::SH_FocusFrame_AboveWidget)
-            .define_value("SH_TextControl_FocusIndicatorTextCharFormat", QStyle::StyleHint::SH_TextControl_FocusIndicatorTextCharFormat)
-            .define_value("SH_WizardStyle", QStyle::StyleHint::SH_WizardStyle)
-            .define_value("SH_ItemView_ArrowKeysNavigateIntoChildren", QStyle::StyleHint::SH_ItemView_ArrowKeysNavigateIntoChildren)
-            .define_value("SH_Menu_Mask", QStyle::StyleHint::SH_Menu_Mask)
-            .define_value("SH_Menu_FlashTriggeredItem", QStyle::StyleHint::SH_Menu_FlashTriggeredItem)
-            .define_value("SH_Menu_FadeOutOnHide", QStyle::StyleHint::SH_Menu_FadeOutOnHide)
-            .define_value("SH_SpinBox_ClickAutoRepeatThreshold", QStyle::StyleHint::SH_SpinBox_ClickAutoRepeatThreshold)
-            .define_value("SH_ItemView_PaintAlternatingRowColorsForEmptyArea", QStyle::StyleHint::SH_ItemView_PaintAlternatingRowColorsForEmptyArea)
-            .define_value("SH_FormLayoutWrapPolicy", QStyle::StyleHint::SH_FormLayoutWrapPolicy)
-            .define_value("SH_TabWidget_DefaultTabPosition", QStyle::StyleHint::SH_TabWidget_DefaultTabPosition)
-            .define_value("SH_ToolBar_Movable", QStyle::StyleHint::SH_ToolBar_Movable)
-            .define_value("SH_FormLayoutFieldGrowthPolicy", QStyle::StyleHint::SH_FormLayoutFieldGrowthPolicy)
-            .define_value("SH_FormLayoutFormAlignment", QStyle::StyleHint::SH_FormLayoutFormAlignment)
-            .define_value("SH_FormLayoutLabelAlignment", QStyle::StyleHint::SH_FormLayoutLabelAlignment)
-            .define_value("SH_ItemView_DrawDelegateFrame", QStyle::StyleHint::SH_ItemView_DrawDelegateFrame)
-            .define_value("SH_TabBar_CloseButtonPosition", QStyle::StyleHint::SH_TabBar_CloseButtonPosition)
-            .define_value("SH_DockWidget_ButtonsHaveFrame", QStyle::StyleHint::SH_DockWidget_ButtonsHaveFrame)
-            .define_value("SH_ToolButtonStyle", QStyle::StyleHint::SH_ToolButtonStyle)
-            .define_value("SH_RequestSoftwareInputPanel", QStyle::StyleHint::SH_RequestSoftwareInputPanel)
-            .define_value("SH_ScrollBar_Transient", QStyle::StyleHint::SH_ScrollBar_Transient)
-            .define_value("SH_Menu_SupportsSections", QStyle::StyleHint::SH_Menu_SupportsSections)
-            .define_value("SH_ToolTip_WakeUpDelay", QStyle::StyleHint::SH_ToolTip_WakeUpDelay)
-            .define_value("SH_ToolTip_FallAsleepDelay", QStyle::StyleHint::SH_ToolTip_FallAsleepDelay)
-            .define_value("SH_Widget_Animate", QStyle::StyleHint::SH_Widget_Animate)
-            .define_value("SH_Splitter_OpaqueResize", QStyle::StyleHint::SH_Splitter_OpaqueResize)
-            .define_value("SH_ComboBox_UseNativePopup", QStyle::StyleHint::SH_ComboBox_UseNativePopup)
-            .define_value("SH_LineEdit_PasswordMaskDelay", QStyle::StyleHint::SH_LineEdit_PasswordMaskDelay)
-            .define_value("SH_TabBar_ChangeCurrentDelay", QStyle::StyleHint::SH_TabBar_ChangeCurrentDelay)
-            .define_value("SH_Menu_SubMenuUniDirection", QStyle::StyleHint::SH_Menu_SubMenuUniDirection)
-            .define_value("SH_Menu_SubMenuUniDirectionFailCount", QStyle::StyleHint::SH_Menu_SubMenuUniDirectionFailCount)
-            .define_value("SH_Menu_SubMenuSloppySelectOtherActions", QStyle::StyleHint::SH_Menu_SubMenuSloppySelectOtherActions)
-            .define_value("SH_Menu_SubMenuSloppyCloseTimeout", QStyle::StyleHint::SH_Menu_SubMenuSloppyCloseTimeout)
-            .define_value("SH_Menu_SubMenuResetWhenReenteringParent", QStyle::StyleHint::SH_Menu_SubMenuResetWhenReenteringParent)
-            .define_value("SH_Menu_SubMenuDontStartSloppyOnLeave", QStyle::StyleHint::SH_Menu_SubMenuDontStartSloppyOnLeave)
-            .define_value("SH_ItemView_ScrollMode", QStyle::StyleHint::SH_ItemView_ScrollMode)
-            .define_value("SH_TitleBar_ShowToolTipsOnButtons", QStyle::StyleHint::SH_TitleBar_ShowToolTipsOnButtons)
-            .define_value("SH_Widget_Animation_Duration", QStyle::StyleHint::SH_Widget_Animation_Duration)
-            .define_value("SH_ComboBox_AllowWheelScrolling", QStyle::StyleHint::SH_ComboBox_AllowWheelScrolling)
-            .define_value("SH_SpinBox_ButtonsInsideFrame", QStyle::StyleHint::SH_SpinBox_ButtonsInsideFrame)
-            .define_value("SH_SpinBox_StepModifier", QStyle::StyleHint::SH_SpinBox_StepModifier)
-            .define_value("SH_TabBar_AllowWheelScrolling", QStyle::StyleHint::SH_TabBar_AllowWheelScrolling)
-            .define_value("SH_Table_AlwaysDrawLeftTopGridLines", QStyle::StyleHint::SH_Table_AlwaysDrawLeftTopGridLines)
-            .define_value("SH_SpinBox_SelectOnStep", QStyle::StyleHint::SH_SpinBox_SelectOnStep)
-            .define_value("SH_CustomBase", QStyle::StyleHint::SH_CustomBase);
+        define_qenum_under<QStyle::StyleHint>(rb_cQStyle, "StyleHint");
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_EtchDisabledText", QStyle::StyleHint::SH_EtchDisabledText);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_DitherDisabledText", QStyle::StyleHint::SH_DitherDisabledText);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_ScrollBar_MiddleClickAbsolutePosition", QStyle::StyleHint::SH_ScrollBar_MiddleClickAbsolutePosition);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_ScrollBar_ScrollWhenPointerLeavesControl", QStyle::StyleHint::SH_ScrollBar_ScrollWhenPointerLeavesControl);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_TabBar_SelectMouseType", QStyle::StyleHint::SH_TabBar_SelectMouseType);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_TabBar_Alignment", QStyle::StyleHint::SH_TabBar_Alignment);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_Header_ArrowAlignment", QStyle::StyleHint::SH_Header_ArrowAlignment);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_Slider_SnapToValue", QStyle::StyleHint::SH_Slider_SnapToValue);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_Slider_SloppyKeyEvents", QStyle::StyleHint::SH_Slider_SloppyKeyEvents);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_ProgressDialog_CenterCancelButton", QStyle::StyleHint::SH_ProgressDialog_CenterCancelButton);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_ProgressDialog_TextLabelAlignment", QStyle::StyleHint::SH_ProgressDialog_TextLabelAlignment);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_PrintDialog_RightAlignButtons", QStyle::StyleHint::SH_PrintDialog_RightAlignButtons);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_MainWindow_SpaceBelowMenuBar", QStyle::StyleHint::SH_MainWindow_SpaceBelowMenuBar);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_FontDialog_SelectAssociatedText", QStyle::StyleHint::SH_FontDialog_SelectAssociatedText);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_Menu_AllowActiveAndDisabled", QStyle::StyleHint::SH_Menu_AllowActiveAndDisabled);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_Menu_SpaceActivatesItem", QStyle::StyleHint::SH_Menu_SpaceActivatesItem);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_Menu_SubMenuPopupDelay", QStyle::StyleHint::SH_Menu_SubMenuPopupDelay);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_ScrollView_FrameOnlyAroundContents", QStyle::StyleHint::SH_ScrollView_FrameOnlyAroundContents);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_MenuBar_AltKeyNavigation", QStyle::StyleHint::SH_MenuBar_AltKeyNavigation);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_ComboBox_ListMouseTracking", QStyle::StyleHint::SH_ComboBox_ListMouseTracking);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_Menu_MouseTracking", QStyle::StyleHint::SH_Menu_MouseTracking);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_MenuBar_MouseTracking", QStyle::StyleHint::SH_MenuBar_MouseTracking);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_ItemView_ChangeHighlightOnFocus", QStyle::StyleHint::SH_ItemView_ChangeHighlightOnFocus);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_Widget_ShareActivation", QStyle::StyleHint::SH_Widget_ShareActivation);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_Workspace_FillSpaceOnMaximize", QStyle::StyleHint::SH_Workspace_FillSpaceOnMaximize);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_ComboBox_Popup", QStyle::StyleHint::SH_ComboBox_Popup);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_TitleBar_NoBorder", QStyle::StyleHint::SH_TitleBar_NoBorder);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_Slider_StopMouseOverSlider", QStyle::StyleHint::SH_Slider_StopMouseOverSlider);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_BlinkCursorWhenTextSelected", QStyle::StyleHint::SH_BlinkCursorWhenTextSelected);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_RichText_FullWidthSelection", QStyle::StyleHint::SH_RichText_FullWidthSelection);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_Menu_Scrollable", QStyle::StyleHint::SH_Menu_Scrollable);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_GroupBox_TextLabelVerticalAlignment", QStyle::StyleHint::SH_GroupBox_TextLabelVerticalAlignment);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_GroupBox_TextLabelColor", QStyle::StyleHint::SH_GroupBox_TextLabelColor);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_Menu_SloppySubMenus", QStyle::StyleHint::SH_Menu_SloppySubMenus);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_Table_GridLineColor", QStyle::StyleHint::SH_Table_GridLineColor);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_LineEdit_PasswordCharacter", QStyle::StyleHint::SH_LineEdit_PasswordCharacter);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_DialogButtons_DefaultButton", QStyle::StyleHint::SH_DialogButtons_DefaultButton);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_ToolBox_SelectedPageTitleBold", QStyle::StyleHint::SH_ToolBox_SelectedPageTitleBold);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_TabBar_PreferNoArrows", QStyle::StyleHint::SH_TabBar_PreferNoArrows);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_ScrollBar_LeftClickAbsolutePosition", QStyle::StyleHint::SH_ScrollBar_LeftClickAbsolutePosition);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_ListViewExpand_SelectMouseType", QStyle::StyleHint::SH_ListViewExpand_SelectMouseType);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_UnderlineShortcut", QStyle::StyleHint::SH_UnderlineShortcut);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_SpinBox_AnimateButton", QStyle::StyleHint::SH_SpinBox_AnimateButton);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_SpinBox_KeyPressAutoRepeatRate", QStyle::StyleHint::SH_SpinBox_KeyPressAutoRepeatRate);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_SpinBox_ClickAutoRepeatRate", QStyle::StyleHint::SH_SpinBox_ClickAutoRepeatRate);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_Menu_FillScreenWithScroll", QStyle::StyleHint::SH_Menu_FillScreenWithScroll);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_ToolTipLabel_Opacity", QStyle::StyleHint::SH_ToolTipLabel_Opacity);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_DrawMenuBarSeparator", QStyle::StyleHint::SH_DrawMenuBarSeparator);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_TitleBar_ModifyNotification", QStyle::StyleHint::SH_TitleBar_ModifyNotification);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_Button_FocusPolicy", QStyle::StyleHint::SH_Button_FocusPolicy);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_MessageBox_UseBorderForButtonSpacing", QStyle::StyleHint::SH_MessageBox_UseBorderForButtonSpacing);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_TitleBar_AutoRaise", QStyle::StyleHint::SH_TitleBar_AutoRaise);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_ToolButton_PopupDelay", QStyle::StyleHint::SH_ToolButton_PopupDelay);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_FocusFrame_Mask", QStyle::StyleHint::SH_FocusFrame_Mask);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_RubberBand_Mask", QStyle::StyleHint::SH_RubberBand_Mask);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_WindowFrame_Mask", QStyle::StyleHint::SH_WindowFrame_Mask);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_SpinControls_DisableOnBounds", QStyle::StyleHint::SH_SpinControls_DisableOnBounds);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_Dial_BackgroundRole", QStyle::StyleHint::SH_Dial_BackgroundRole);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_ComboBox_LayoutDirection", QStyle::StyleHint::SH_ComboBox_LayoutDirection);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_ItemView_EllipsisLocation", QStyle::StyleHint::SH_ItemView_EllipsisLocation);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_ItemView_ShowDecorationSelected", QStyle::StyleHint::SH_ItemView_ShowDecorationSelected);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_ItemView_ActivateItemOnSingleClick", QStyle::StyleHint::SH_ItemView_ActivateItemOnSingleClick);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_ScrollBar_ContextMenu", QStyle::StyleHint::SH_ScrollBar_ContextMenu);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_ScrollBar_RollBetweenButtons", QStyle::StyleHint::SH_ScrollBar_RollBetweenButtons);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_Slider_AbsoluteSetButtons", QStyle::StyleHint::SH_Slider_AbsoluteSetButtons);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_Slider_PageSetButtons", QStyle::StyleHint::SH_Slider_PageSetButtons);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_Menu_KeyboardSearch", QStyle::StyleHint::SH_Menu_KeyboardSearch);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_TabBar_ElideMode", QStyle::StyleHint::SH_TabBar_ElideMode);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_DialogButtonLayout", QStyle::StyleHint::SH_DialogButtonLayout);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_ComboBox_PopupFrameStyle", QStyle::StyleHint::SH_ComboBox_PopupFrameStyle);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_MessageBox_TextInteractionFlags", QStyle::StyleHint::SH_MessageBox_TextInteractionFlags);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_DialogButtonBox_ButtonsHaveIcons", QStyle::StyleHint::SH_DialogButtonBox_ButtonsHaveIcons);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_MessageBox_CenterButtons", QStyle::StyleHint::SH_MessageBox_CenterButtons);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_Menu_SelectionWrap", QStyle::StyleHint::SH_Menu_SelectionWrap);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_ItemView_MovementWithoutUpdatingSelection", QStyle::StyleHint::SH_ItemView_MovementWithoutUpdatingSelection);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_ToolTip_Mask", QStyle::StyleHint::SH_ToolTip_Mask);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_FocusFrame_AboveWidget", QStyle::StyleHint::SH_FocusFrame_AboveWidget);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_TextControl_FocusIndicatorTextCharFormat", QStyle::StyleHint::SH_TextControl_FocusIndicatorTextCharFormat);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_WizardStyle", QStyle::StyleHint::SH_WizardStyle);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_ItemView_ArrowKeysNavigateIntoChildren", QStyle::StyleHint::SH_ItemView_ArrowKeysNavigateIntoChildren);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_Menu_Mask", QStyle::StyleHint::SH_Menu_Mask);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_Menu_FlashTriggeredItem", QStyle::StyleHint::SH_Menu_FlashTriggeredItem);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_Menu_FadeOutOnHide", QStyle::StyleHint::SH_Menu_FadeOutOnHide);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_SpinBox_ClickAutoRepeatThreshold", QStyle::StyleHint::SH_SpinBox_ClickAutoRepeatThreshold);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_ItemView_PaintAlternatingRowColorsForEmptyArea", QStyle::StyleHint::SH_ItemView_PaintAlternatingRowColorsForEmptyArea);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_FormLayoutWrapPolicy", QStyle::StyleHint::SH_FormLayoutWrapPolicy);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_TabWidget_DefaultTabPosition", QStyle::StyleHint::SH_TabWidget_DefaultTabPosition);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_ToolBar_Movable", QStyle::StyleHint::SH_ToolBar_Movable);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_FormLayoutFieldGrowthPolicy", QStyle::StyleHint::SH_FormLayoutFieldGrowthPolicy);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_FormLayoutFormAlignment", QStyle::StyleHint::SH_FormLayoutFormAlignment);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_FormLayoutLabelAlignment", QStyle::StyleHint::SH_FormLayoutLabelAlignment);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_ItemView_DrawDelegateFrame", QStyle::StyleHint::SH_ItemView_DrawDelegateFrame);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_TabBar_CloseButtonPosition", QStyle::StyleHint::SH_TabBar_CloseButtonPosition);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_DockWidget_ButtonsHaveFrame", QStyle::StyleHint::SH_DockWidget_ButtonsHaveFrame);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_ToolButtonStyle", QStyle::StyleHint::SH_ToolButtonStyle);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_RequestSoftwareInputPanel", QStyle::StyleHint::SH_RequestSoftwareInputPanel);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_ScrollBar_Transient", QStyle::StyleHint::SH_ScrollBar_Transient);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_Menu_SupportsSections", QStyle::StyleHint::SH_Menu_SupportsSections);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_ToolTip_WakeUpDelay", QStyle::StyleHint::SH_ToolTip_WakeUpDelay);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_ToolTip_FallAsleepDelay", QStyle::StyleHint::SH_ToolTip_FallAsleepDelay);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_Widget_Animate", QStyle::StyleHint::SH_Widget_Animate);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_Splitter_OpaqueResize", QStyle::StyleHint::SH_Splitter_OpaqueResize);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_ComboBox_UseNativePopup", QStyle::StyleHint::SH_ComboBox_UseNativePopup);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_LineEdit_PasswordMaskDelay", QStyle::StyleHint::SH_LineEdit_PasswordMaskDelay);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_TabBar_ChangeCurrentDelay", QStyle::StyleHint::SH_TabBar_ChangeCurrentDelay);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_Menu_SubMenuUniDirection", QStyle::StyleHint::SH_Menu_SubMenuUniDirection);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_Menu_SubMenuUniDirectionFailCount", QStyle::StyleHint::SH_Menu_SubMenuUniDirectionFailCount);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_Menu_SubMenuSloppySelectOtherActions", QStyle::StyleHint::SH_Menu_SubMenuSloppySelectOtherActions);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_Menu_SubMenuSloppyCloseTimeout", QStyle::StyleHint::SH_Menu_SubMenuSloppyCloseTimeout);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_Menu_SubMenuResetWhenReenteringParent", QStyle::StyleHint::SH_Menu_SubMenuResetWhenReenteringParent);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_Menu_SubMenuDontStartSloppyOnLeave", QStyle::StyleHint::SH_Menu_SubMenuDontStartSloppyOnLeave);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_ItemView_ScrollMode", QStyle::StyleHint::SH_ItemView_ScrollMode);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_TitleBar_ShowToolTipsOnButtons", QStyle::StyleHint::SH_TitleBar_ShowToolTipsOnButtons);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_Widget_Animation_Duration", QStyle::StyleHint::SH_Widget_Animation_Duration);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_ComboBox_AllowWheelScrolling", QStyle::StyleHint::SH_ComboBox_AllowWheelScrolling);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_SpinBox_ButtonsInsideFrame", QStyle::StyleHint::SH_SpinBox_ButtonsInsideFrame);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_SpinBox_StepModifier", QStyle::StyleHint::SH_SpinBox_StepModifier);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_TabBar_AllowWheelScrolling", QStyle::StyleHint::SH_TabBar_AllowWheelScrolling);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_Table_AlwaysDrawLeftTopGridLines", QStyle::StyleHint::SH_Table_AlwaysDrawLeftTopGridLines);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_SpinBox_SelectOnStep", QStyle::StyleHint::SH_SpinBox_SelectOnStep);
+        define_qenum_value_under(rb_cQStyleStyleHint, "SH_CustomBase", QStyle::StyleHint::SH_CustomBase);
 
-    Enum<QStyle::StandardPixmap> rb_cQStyleStandardPixmap =
+    Data_Type<QStyle::StandardPixmap> rb_cQStyleStandardPixmap =
         // RubyQt6::QtWidgets::QStyle::StandardPixmap
-        define_qenum_under<QStyle::StandardPixmap>("StandardPixmap", rb_cQStyle)
-            .define_value("SP_TitleBarMenuButton", QStyle::StandardPixmap::SP_TitleBarMenuButton)
-            .define_value("SP_TitleBarMinButton", QStyle::StandardPixmap::SP_TitleBarMinButton)
-            .define_value("SP_TitleBarMaxButton", QStyle::StandardPixmap::SP_TitleBarMaxButton)
-            .define_value("SP_TitleBarCloseButton", QStyle::StandardPixmap::SP_TitleBarCloseButton)
-            .define_value("SP_TitleBarNormalButton", QStyle::StandardPixmap::SP_TitleBarNormalButton)
-            .define_value("SP_TitleBarShadeButton", QStyle::StandardPixmap::SP_TitleBarShadeButton)
-            .define_value("SP_TitleBarUnshadeButton", QStyle::StandardPixmap::SP_TitleBarUnshadeButton)
-            .define_value("SP_TitleBarContextHelpButton", QStyle::StandardPixmap::SP_TitleBarContextHelpButton)
-            .define_value("SP_DockWidgetCloseButton", QStyle::StandardPixmap::SP_DockWidgetCloseButton)
-            .define_value("SP_MessageBoxInformation", QStyle::StandardPixmap::SP_MessageBoxInformation)
-            .define_value("SP_MessageBoxWarning", QStyle::StandardPixmap::SP_MessageBoxWarning)
-            .define_value("SP_MessageBoxCritical", QStyle::StandardPixmap::SP_MessageBoxCritical)
-            .define_value("SP_MessageBoxQuestion", QStyle::StandardPixmap::SP_MessageBoxQuestion)
-            .define_value("SP_DesktopIcon", QStyle::StandardPixmap::SP_DesktopIcon)
-            .define_value("SP_TrashIcon", QStyle::StandardPixmap::SP_TrashIcon)
-            .define_value("SP_ComputerIcon", QStyle::StandardPixmap::SP_ComputerIcon)
-            .define_value("SP_DriveFDIcon", QStyle::StandardPixmap::SP_DriveFDIcon)
-            .define_value("SP_DriveHDIcon", QStyle::StandardPixmap::SP_DriveHDIcon)
-            .define_value("SP_DriveCDIcon", QStyle::StandardPixmap::SP_DriveCDIcon)
-            .define_value("SP_DriveDVDIcon", QStyle::StandardPixmap::SP_DriveDVDIcon)
-            .define_value("SP_DriveNetIcon", QStyle::StandardPixmap::SP_DriveNetIcon)
-            .define_value("SP_DirOpenIcon", QStyle::StandardPixmap::SP_DirOpenIcon)
-            .define_value("SP_DirClosedIcon", QStyle::StandardPixmap::SP_DirClosedIcon)
-            .define_value("SP_DirLinkIcon", QStyle::StandardPixmap::SP_DirLinkIcon)
-            .define_value("SP_DirLinkOpenIcon", QStyle::StandardPixmap::SP_DirLinkOpenIcon)
-            .define_value("SP_FileIcon", QStyle::StandardPixmap::SP_FileIcon)
-            .define_value("SP_FileLinkIcon", QStyle::StandardPixmap::SP_FileLinkIcon)
-            .define_value("SP_ToolBarHorizontalExtensionButton", QStyle::StandardPixmap::SP_ToolBarHorizontalExtensionButton)
-            .define_value("SP_ToolBarVerticalExtensionButton", QStyle::StandardPixmap::SP_ToolBarVerticalExtensionButton)
-            .define_value("SP_FileDialogStart", QStyle::StandardPixmap::SP_FileDialogStart)
-            .define_value("SP_FileDialogEnd", QStyle::StandardPixmap::SP_FileDialogEnd)
-            .define_value("SP_FileDialogToParent", QStyle::StandardPixmap::SP_FileDialogToParent)
-            .define_value("SP_FileDialogNewFolder", QStyle::StandardPixmap::SP_FileDialogNewFolder)
-            .define_value("SP_FileDialogDetailedView", QStyle::StandardPixmap::SP_FileDialogDetailedView)
-            .define_value("SP_FileDialogInfoView", QStyle::StandardPixmap::SP_FileDialogInfoView)
-            .define_value("SP_FileDialogContentsView", QStyle::StandardPixmap::SP_FileDialogContentsView)
-            .define_value("SP_FileDialogListView", QStyle::StandardPixmap::SP_FileDialogListView)
-            .define_value("SP_FileDialogBack", QStyle::StandardPixmap::SP_FileDialogBack)
-            .define_value("SP_DirIcon", QStyle::StandardPixmap::SP_DirIcon)
-            .define_value("SP_DialogOkButton", QStyle::StandardPixmap::SP_DialogOkButton)
-            .define_value("SP_DialogCancelButton", QStyle::StandardPixmap::SP_DialogCancelButton)
-            .define_value("SP_DialogHelpButton", QStyle::StandardPixmap::SP_DialogHelpButton)
-            .define_value("SP_DialogOpenButton", QStyle::StandardPixmap::SP_DialogOpenButton)
-            .define_value("SP_DialogSaveButton", QStyle::StandardPixmap::SP_DialogSaveButton)
-            .define_value("SP_DialogCloseButton", QStyle::StandardPixmap::SP_DialogCloseButton)
-            .define_value("SP_DialogApplyButton", QStyle::StandardPixmap::SP_DialogApplyButton)
-            .define_value("SP_DialogResetButton", QStyle::StandardPixmap::SP_DialogResetButton)
-            .define_value("SP_DialogDiscardButton", QStyle::StandardPixmap::SP_DialogDiscardButton)
-            .define_value("SP_DialogYesButton", QStyle::StandardPixmap::SP_DialogYesButton)
-            .define_value("SP_DialogNoButton", QStyle::StandardPixmap::SP_DialogNoButton)
-            .define_value("SP_ArrowUp", QStyle::StandardPixmap::SP_ArrowUp)
-            .define_value("SP_ArrowDown", QStyle::StandardPixmap::SP_ArrowDown)
-            .define_value("SP_ArrowLeft", QStyle::StandardPixmap::SP_ArrowLeft)
-            .define_value("SP_ArrowRight", QStyle::StandardPixmap::SP_ArrowRight)
-            .define_value("SP_ArrowBack", QStyle::StandardPixmap::SP_ArrowBack)
-            .define_value("SP_ArrowForward", QStyle::StandardPixmap::SP_ArrowForward)
-            .define_value("SP_DirHomeIcon", QStyle::StandardPixmap::SP_DirHomeIcon)
-            .define_value("SP_CommandLink", QStyle::StandardPixmap::SP_CommandLink)
-            .define_value("SP_VistaShield", QStyle::StandardPixmap::SP_VistaShield)
-            .define_value("SP_BrowserReload", QStyle::StandardPixmap::SP_BrowserReload)
-            .define_value("SP_BrowserStop", QStyle::StandardPixmap::SP_BrowserStop)
-            .define_value("SP_MediaPlay", QStyle::StandardPixmap::SP_MediaPlay)
-            .define_value("SP_MediaStop", QStyle::StandardPixmap::SP_MediaStop)
-            .define_value("SP_MediaPause", QStyle::StandardPixmap::SP_MediaPause)
-            .define_value("SP_MediaSkipForward", QStyle::StandardPixmap::SP_MediaSkipForward)
-            .define_value("SP_MediaSkipBackward", QStyle::StandardPixmap::SP_MediaSkipBackward)
-            .define_value("SP_MediaSeekForward", QStyle::StandardPixmap::SP_MediaSeekForward)
-            .define_value("SP_MediaSeekBackward", QStyle::StandardPixmap::SP_MediaSeekBackward)
-            .define_value("SP_MediaVolume", QStyle::StandardPixmap::SP_MediaVolume)
-            .define_value("SP_MediaVolumeMuted", QStyle::StandardPixmap::SP_MediaVolumeMuted)
-            .define_value("SP_LineEditClearButton", QStyle::StandardPixmap::SP_LineEditClearButton)
-            .define_value("SP_DialogYesToAllButton", QStyle::StandardPixmap::SP_DialogYesToAllButton)
-            .define_value("SP_DialogNoToAllButton", QStyle::StandardPixmap::SP_DialogNoToAllButton)
-            .define_value("SP_DialogSaveAllButton", QStyle::StandardPixmap::SP_DialogSaveAllButton)
-            .define_value("SP_DialogAbortButton", QStyle::StandardPixmap::SP_DialogAbortButton)
-            .define_value("SP_DialogRetryButton", QStyle::StandardPixmap::SP_DialogRetryButton)
-            .define_value("SP_DialogIgnoreButton", QStyle::StandardPixmap::SP_DialogIgnoreButton)
-            .define_value("SP_RestoreDefaultsButton", QStyle::StandardPixmap::SP_RestoreDefaultsButton)
-            .define_value("SP_TabCloseButton", QStyle::StandardPixmap::SP_TabCloseButton)
-            .define_value("NStandardPixmap", QStyle::StandardPixmap::NStandardPixmap)
-            .define_value("SP_CustomBase", QStyle::StandardPixmap::SP_CustomBase);
+        define_qenum_under<QStyle::StandardPixmap>(rb_cQStyle, "StandardPixmap");
+        define_qenum_value_under(rb_cQStyleStandardPixmap, "SP_TitleBarMenuButton", QStyle::StandardPixmap::SP_TitleBarMenuButton);
+        define_qenum_value_under(rb_cQStyleStandardPixmap, "SP_TitleBarMinButton", QStyle::StandardPixmap::SP_TitleBarMinButton);
+        define_qenum_value_under(rb_cQStyleStandardPixmap, "SP_TitleBarMaxButton", QStyle::StandardPixmap::SP_TitleBarMaxButton);
+        define_qenum_value_under(rb_cQStyleStandardPixmap, "SP_TitleBarCloseButton", QStyle::StandardPixmap::SP_TitleBarCloseButton);
+        define_qenum_value_under(rb_cQStyleStandardPixmap, "SP_TitleBarNormalButton", QStyle::StandardPixmap::SP_TitleBarNormalButton);
+        define_qenum_value_under(rb_cQStyleStandardPixmap, "SP_TitleBarShadeButton", QStyle::StandardPixmap::SP_TitleBarShadeButton);
+        define_qenum_value_under(rb_cQStyleStandardPixmap, "SP_TitleBarUnshadeButton", QStyle::StandardPixmap::SP_TitleBarUnshadeButton);
+        define_qenum_value_under(rb_cQStyleStandardPixmap, "SP_TitleBarContextHelpButton", QStyle::StandardPixmap::SP_TitleBarContextHelpButton);
+        define_qenum_value_under(rb_cQStyleStandardPixmap, "SP_DockWidgetCloseButton", QStyle::StandardPixmap::SP_DockWidgetCloseButton);
+        define_qenum_value_under(rb_cQStyleStandardPixmap, "SP_MessageBoxInformation", QStyle::StandardPixmap::SP_MessageBoxInformation);
+        define_qenum_value_under(rb_cQStyleStandardPixmap, "SP_MessageBoxWarning", QStyle::StandardPixmap::SP_MessageBoxWarning);
+        define_qenum_value_under(rb_cQStyleStandardPixmap, "SP_MessageBoxCritical", QStyle::StandardPixmap::SP_MessageBoxCritical);
+        define_qenum_value_under(rb_cQStyleStandardPixmap, "SP_MessageBoxQuestion", QStyle::StandardPixmap::SP_MessageBoxQuestion);
+        define_qenum_value_under(rb_cQStyleStandardPixmap, "SP_DesktopIcon", QStyle::StandardPixmap::SP_DesktopIcon);
+        define_qenum_value_under(rb_cQStyleStandardPixmap, "SP_TrashIcon", QStyle::StandardPixmap::SP_TrashIcon);
+        define_qenum_value_under(rb_cQStyleStandardPixmap, "SP_ComputerIcon", QStyle::StandardPixmap::SP_ComputerIcon);
+        define_qenum_value_under(rb_cQStyleStandardPixmap, "SP_DriveFDIcon", QStyle::StandardPixmap::SP_DriveFDIcon);
+        define_qenum_value_under(rb_cQStyleStandardPixmap, "SP_DriveHDIcon", QStyle::StandardPixmap::SP_DriveHDIcon);
+        define_qenum_value_under(rb_cQStyleStandardPixmap, "SP_DriveCDIcon", QStyle::StandardPixmap::SP_DriveCDIcon);
+        define_qenum_value_under(rb_cQStyleStandardPixmap, "SP_DriveDVDIcon", QStyle::StandardPixmap::SP_DriveDVDIcon);
+        define_qenum_value_under(rb_cQStyleStandardPixmap, "SP_DriveNetIcon", QStyle::StandardPixmap::SP_DriveNetIcon);
+        define_qenum_value_under(rb_cQStyleStandardPixmap, "SP_DirOpenIcon", QStyle::StandardPixmap::SP_DirOpenIcon);
+        define_qenum_value_under(rb_cQStyleStandardPixmap, "SP_DirClosedIcon", QStyle::StandardPixmap::SP_DirClosedIcon);
+        define_qenum_value_under(rb_cQStyleStandardPixmap, "SP_DirLinkIcon", QStyle::StandardPixmap::SP_DirLinkIcon);
+        define_qenum_value_under(rb_cQStyleStandardPixmap, "SP_DirLinkOpenIcon", QStyle::StandardPixmap::SP_DirLinkOpenIcon);
+        define_qenum_value_under(rb_cQStyleStandardPixmap, "SP_FileIcon", QStyle::StandardPixmap::SP_FileIcon);
+        define_qenum_value_under(rb_cQStyleStandardPixmap, "SP_FileLinkIcon", QStyle::StandardPixmap::SP_FileLinkIcon);
+        define_qenum_value_under(rb_cQStyleStandardPixmap, "SP_ToolBarHorizontalExtensionButton", QStyle::StandardPixmap::SP_ToolBarHorizontalExtensionButton);
+        define_qenum_value_under(rb_cQStyleStandardPixmap, "SP_ToolBarVerticalExtensionButton", QStyle::StandardPixmap::SP_ToolBarVerticalExtensionButton);
+        define_qenum_value_under(rb_cQStyleStandardPixmap, "SP_FileDialogStart", QStyle::StandardPixmap::SP_FileDialogStart);
+        define_qenum_value_under(rb_cQStyleStandardPixmap, "SP_FileDialogEnd", QStyle::StandardPixmap::SP_FileDialogEnd);
+        define_qenum_value_under(rb_cQStyleStandardPixmap, "SP_FileDialogToParent", QStyle::StandardPixmap::SP_FileDialogToParent);
+        define_qenum_value_under(rb_cQStyleStandardPixmap, "SP_FileDialogNewFolder", QStyle::StandardPixmap::SP_FileDialogNewFolder);
+        define_qenum_value_under(rb_cQStyleStandardPixmap, "SP_FileDialogDetailedView", QStyle::StandardPixmap::SP_FileDialogDetailedView);
+        define_qenum_value_under(rb_cQStyleStandardPixmap, "SP_FileDialogInfoView", QStyle::StandardPixmap::SP_FileDialogInfoView);
+        define_qenum_value_under(rb_cQStyleStandardPixmap, "SP_FileDialogContentsView", QStyle::StandardPixmap::SP_FileDialogContentsView);
+        define_qenum_value_under(rb_cQStyleStandardPixmap, "SP_FileDialogListView", QStyle::StandardPixmap::SP_FileDialogListView);
+        define_qenum_value_under(rb_cQStyleStandardPixmap, "SP_FileDialogBack", QStyle::StandardPixmap::SP_FileDialogBack);
+        define_qenum_value_under(rb_cQStyleStandardPixmap, "SP_DirIcon", QStyle::StandardPixmap::SP_DirIcon);
+        define_qenum_value_under(rb_cQStyleStandardPixmap, "SP_DialogOkButton", QStyle::StandardPixmap::SP_DialogOkButton);
+        define_qenum_value_under(rb_cQStyleStandardPixmap, "SP_DialogCancelButton", QStyle::StandardPixmap::SP_DialogCancelButton);
+        define_qenum_value_under(rb_cQStyleStandardPixmap, "SP_DialogHelpButton", QStyle::StandardPixmap::SP_DialogHelpButton);
+        define_qenum_value_under(rb_cQStyleStandardPixmap, "SP_DialogOpenButton", QStyle::StandardPixmap::SP_DialogOpenButton);
+        define_qenum_value_under(rb_cQStyleStandardPixmap, "SP_DialogSaveButton", QStyle::StandardPixmap::SP_DialogSaveButton);
+        define_qenum_value_under(rb_cQStyleStandardPixmap, "SP_DialogCloseButton", QStyle::StandardPixmap::SP_DialogCloseButton);
+        define_qenum_value_under(rb_cQStyleStandardPixmap, "SP_DialogApplyButton", QStyle::StandardPixmap::SP_DialogApplyButton);
+        define_qenum_value_under(rb_cQStyleStandardPixmap, "SP_DialogResetButton", QStyle::StandardPixmap::SP_DialogResetButton);
+        define_qenum_value_under(rb_cQStyleStandardPixmap, "SP_DialogDiscardButton", QStyle::StandardPixmap::SP_DialogDiscardButton);
+        define_qenum_value_under(rb_cQStyleStandardPixmap, "SP_DialogYesButton", QStyle::StandardPixmap::SP_DialogYesButton);
+        define_qenum_value_under(rb_cQStyleStandardPixmap, "SP_DialogNoButton", QStyle::StandardPixmap::SP_DialogNoButton);
+        define_qenum_value_under(rb_cQStyleStandardPixmap, "SP_ArrowUp", QStyle::StandardPixmap::SP_ArrowUp);
+        define_qenum_value_under(rb_cQStyleStandardPixmap, "SP_ArrowDown", QStyle::StandardPixmap::SP_ArrowDown);
+        define_qenum_value_under(rb_cQStyleStandardPixmap, "SP_ArrowLeft", QStyle::StandardPixmap::SP_ArrowLeft);
+        define_qenum_value_under(rb_cQStyleStandardPixmap, "SP_ArrowRight", QStyle::StandardPixmap::SP_ArrowRight);
+        define_qenum_value_under(rb_cQStyleStandardPixmap, "SP_ArrowBack", QStyle::StandardPixmap::SP_ArrowBack);
+        define_qenum_value_under(rb_cQStyleStandardPixmap, "SP_ArrowForward", QStyle::StandardPixmap::SP_ArrowForward);
+        define_qenum_value_under(rb_cQStyleStandardPixmap, "SP_DirHomeIcon", QStyle::StandardPixmap::SP_DirHomeIcon);
+        define_qenum_value_under(rb_cQStyleStandardPixmap, "SP_CommandLink", QStyle::StandardPixmap::SP_CommandLink);
+        define_qenum_value_under(rb_cQStyleStandardPixmap, "SP_VistaShield", QStyle::StandardPixmap::SP_VistaShield);
+        define_qenum_value_under(rb_cQStyleStandardPixmap, "SP_BrowserReload", QStyle::StandardPixmap::SP_BrowserReload);
+        define_qenum_value_under(rb_cQStyleStandardPixmap, "SP_BrowserStop", QStyle::StandardPixmap::SP_BrowserStop);
+        define_qenum_value_under(rb_cQStyleStandardPixmap, "SP_MediaPlay", QStyle::StandardPixmap::SP_MediaPlay);
+        define_qenum_value_under(rb_cQStyleStandardPixmap, "SP_MediaStop", QStyle::StandardPixmap::SP_MediaStop);
+        define_qenum_value_under(rb_cQStyleStandardPixmap, "SP_MediaPause", QStyle::StandardPixmap::SP_MediaPause);
+        define_qenum_value_under(rb_cQStyleStandardPixmap, "SP_MediaSkipForward", QStyle::StandardPixmap::SP_MediaSkipForward);
+        define_qenum_value_under(rb_cQStyleStandardPixmap, "SP_MediaSkipBackward", QStyle::StandardPixmap::SP_MediaSkipBackward);
+        define_qenum_value_under(rb_cQStyleStandardPixmap, "SP_MediaSeekForward", QStyle::StandardPixmap::SP_MediaSeekForward);
+        define_qenum_value_under(rb_cQStyleStandardPixmap, "SP_MediaSeekBackward", QStyle::StandardPixmap::SP_MediaSeekBackward);
+        define_qenum_value_under(rb_cQStyleStandardPixmap, "SP_MediaVolume", QStyle::StandardPixmap::SP_MediaVolume);
+        define_qenum_value_under(rb_cQStyleStandardPixmap, "SP_MediaVolumeMuted", QStyle::StandardPixmap::SP_MediaVolumeMuted);
+        define_qenum_value_under(rb_cQStyleStandardPixmap, "SP_LineEditClearButton", QStyle::StandardPixmap::SP_LineEditClearButton);
+        define_qenum_value_under(rb_cQStyleStandardPixmap, "SP_DialogYesToAllButton", QStyle::StandardPixmap::SP_DialogYesToAllButton);
+        define_qenum_value_under(rb_cQStyleStandardPixmap, "SP_DialogNoToAllButton", QStyle::StandardPixmap::SP_DialogNoToAllButton);
+        define_qenum_value_under(rb_cQStyleStandardPixmap, "SP_DialogSaveAllButton", QStyle::StandardPixmap::SP_DialogSaveAllButton);
+        define_qenum_value_under(rb_cQStyleStandardPixmap, "SP_DialogAbortButton", QStyle::StandardPixmap::SP_DialogAbortButton);
+        define_qenum_value_under(rb_cQStyleStandardPixmap, "SP_DialogRetryButton", QStyle::StandardPixmap::SP_DialogRetryButton);
+        define_qenum_value_under(rb_cQStyleStandardPixmap, "SP_DialogIgnoreButton", QStyle::StandardPixmap::SP_DialogIgnoreButton);
+        define_qenum_value_under(rb_cQStyleStandardPixmap, "SP_RestoreDefaultsButton", QStyle::StandardPixmap::SP_RestoreDefaultsButton);
+        define_qenum_value_under(rb_cQStyleStandardPixmap, "SP_TabCloseButton", QStyle::StandardPixmap::SP_TabCloseButton);
+        define_qenum_value_under(rb_cQStyleStandardPixmap, "NStandardPixmap", QStyle::StandardPixmap::NStandardPixmap);
+        define_qenum_value_under(rb_cQStyleStandardPixmap, "SP_CustomBase", QStyle::StandardPixmap::SP_CustomBase);
 
     Data_Type<QFlags<QStyle::StateFlag>> rb_cQStyleState =
         // RubyQt6::QtWidgets::QStyle::State

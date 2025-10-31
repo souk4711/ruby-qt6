@@ -226,63 +226,63 @@ void Init_qpainter(Rice::Module rb_mQt6QtGui)
             .define_method("world_matrix_enabled", &QPainter::worldMatrixEnabled)
             .define_method("world_transform", &QPainter::worldTransform);
 
-    Enum<QPainter::CompositionMode> rb_cQPainterCompositionMode =
+    Data_Type<QPainter::CompositionMode> rb_cQPainterCompositionMode =
         // RubyQt6::QtGui::QPainter::CompositionMode
-        define_qenum_under<QPainter::CompositionMode>("CompositionMode", rb_cQPainter)
-            .define_value("CompositionMode_SourceOver", QPainter::CompositionMode::CompositionMode_SourceOver)
-            .define_value("CompositionMode_DestinationOver", QPainter::CompositionMode::CompositionMode_DestinationOver)
-            .define_value("CompositionMode_Clear", QPainter::CompositionMode::CompositionMode_Clear)
-            .define_value("CompositionMode_Source", QPainter::CompositionMode::CompositionMode_Source)
-            .define_value("CompositionMode_Destination", QPainter::CompositionMode::CompositionMode_Destination)
-            .define_value("CompositionMode_SourceIn", QPainter::CompositionMode::CompositionMode_SourceIn)
-            .define_value("CompositionMode_DestinationIn", QPainter::CompositionMode::CompositionMode_DestinationIn)
-            .define_value("CompositionMode_SourceOut", QPainter::CompositionMode::CompositionMode_SourceOut)
-            .define_value("CompositionMode_DestinationOut", QPainter::CompositionMode::CompositionMode_DestinationOut)
-            .define_value("CompositionMode_SourceAtop", QPainter::CompositionMode::CompositionMode_SourceAtop)
-            .define_value("CompositionMode_DestinationAtop", QPainter::CompositionMode::CompositionMode_DestinationAtop)
-            .define_value("CompositionMode_Xor", QPainter::CompositionMode::CompositionMode_Xor)
-            .define_value("CompositionMode_Plus", QPainter::CompositionMode::CompositionMode_Plus)
-            .define_value("CompositionMode_Multiply", QPainter::CompositionMode::CompositionMode_Multiply)
-            .define_value("CompositionMode_Screen", QPainter::CompositionMode::CompositionMode_Screen)
-            .define_value("CompositionMode_Overlay", QPainter::CompositionMode::CompositionMode_Overlay)
-            .define_value("CompositionMode_Darken", QPainter::CompositionMode::CompositionMode_Darken)
-            .define_value("CompositionMode_Lighten", QPainter::CompositionMode::CompositionMode_Lighten)
-            .define_value("CompositionMode_ColorDodge", QPainter::CompositionMode::CompositionMode_ColorDodge)
-            .define_value("CompositionMode_ColorBurn", QPainter::CompositionMode::CompositionMode_ColorBurn)
-            .define_value("CompositionMode_HardLight", QPainter::CompositionMode::CompositionMode_HardLight)
-            .define_value("CompositionMode_SoftLight", QPainter::CompositionMode::CompositionMode_SoftLight)
-            .define_value("CompositionMode_Difference", QPainter::CompositionMode::CompositionMode_Difference)
-            .define_value("CompositionMode_Exclusion", QPainter::CompositionMode::CompositionMode_Exclusion)
-            .define_value("RasterOp_SourceOrDestination", QPainter::CompositionMode::RasterOp_SourceOrDestination)
-            .define_value("RasterOp_SourceAndDestination", QPainter::CompositionMode::RasterOp_SourceAndDestination)
-            .define_value("RasterOp_SourceXorDestination", QPainter::CompositionMode::RasterOp_SourceXorDestination)
-            .define_value("RasterOp_NotSourceAndNotDestination", QPainter::CompositionMode::RasterOp_NotSourceAndNotDestination)
-            .define_value("RasterOp_NotSourceOrNotDestination", QPainter::CompositionMode::RasterOp_NotSourceOrNotDestination)
-            .define_value("RasterOp_NotSourceXorDestination", QPainter::CompositionMode::RasterOp_NotSourceXorDestination)
-            .define_value("RasterOp_NotSource", QPainter::CompositionMode::RasterOp_NotSource)
-            .define_value("RasterOp_NotSourceAndDestination", QPainter::CompositionMode::RasterOp_NotSourceAndDestination)
-            .define_value("RasterOp_SourceAndNotDestination", QPainter::CompositionMode::RasterOp_SourceAndNotDestination)
-            .define_value("RasterOp_NotSourceOrDestination", QPainter::CompositionMode::RasterOp_NotSourceOrDestination)
-            .define_value("RasterOp_SourceOrNotDestination", QPainter::CompositionMode::RasterOp_SourceOrNotDestination)
-            .define_value("RasterOp_ClearDestination", QPainter::CompositionMode::RasterOp_ClearDestination)
-            .define_value("RasterOp_SetDestination", QPainter::CompositionMode::RasterOp_SetDestination)
-            .define_value("RasterOp_NotDestination", QPainter::CompositionMode::RasterOp_NotDestination)
-            .define_value("NCompositionModes", QPainter::CompositionMode::NCompositionModes);
+        define_qenum_under<QPainter::CompositionMode>(rb_cQPainter, "CompositionMode");
+        define_qenum_value_under(rb_cQPainterCompositionMode, "CompositionMode_SourceOver", QPainter::CompositionMode::CompositionMode_SourceOver);
+        define_qenum_value_under(rb_cQPainterCompositionMode, "CompositionMode_DestinationOver", QPainter::CompositionMode::CompositionMode_DestinationOver);
+        define_qenum_value_under(rb_cQPainterCompositionMode, "CompositionMode_Clear", QPainter::CompositionMode::CompositionMode_Clear);
+        define_qenum_value_under(rb_cQPainterCompositionMode, "CompositionMode_Source", QPainter::CompositionMode::CompositionMode_Source);
+        define_qenum_value_under(rb_cQPainterCompositionMode, "CompositionMode_Destination", QPainter::CompositionMode::CompositionMode_Destination);
+        define_qenum_value_under(rb_cQPainterCompositionMode, "CompositionMode_SourceIn", QPainter::CompositionMode::CompositionMode_SourceIn);
+        define_qenum_value_under(rb_cQPainterCompositionMode, "CompositionMode_DestinationIn", QPainter::CompositionMode::CompositionMode_DestinationIn);
+        define_qenum_value_under(rb_cQPainterCompositionMode, "CompositionMode_SourceOut", QPainter::CompositionMode::CompositionMode_SourceOut);
+        define_qenum_value_under(rb_cQPainterCompositionMode, "CompositionMode_DestinationOut", QPainter::CompositionMode::CompositionMode_DestinationOut);
+        define_qenum_value_under(rb_cQPainterCompositionMode, "CompositionMode_SourceAtop", QPainter::CompositionMode::CompositionMode_SourceAtop);
+        define_qenum_value_under(rb_cQPainterCompositionMode, "CompositionMode_DestinationAtop", QPainter::CompositionMode::CompositionMode_DestinationAtop);
+        define_qenum_value_under(rb_cQPainterCompositionMode, "CompositionMode_Xor", QPainter::CompositionMode::CompositionMode_Xor);
+        define_qenum_value_under(rb_cQPainterCompositionMode, "CompositionMode_Plus", QPainter::CompositionMode::CompositionMode_Plus);
+        define_qenum_value_under(rb_cQPainterCompositionMode, "CompositionMode_Multiply", QPainter::CompositionMode::CompositionMode_Multiply);
+        define_qenum_value_under(rb_cQPainterCompositionMode, "CompositionMode_Screen", QPainter::CompositionMode::CompositionMode_Screen);
+        define_qenum_value_under(rb_cQPainterCompositionMode, "CompositionMode_Overlay", QPainter::CompositionMode::CompositionMode_Overlay);
+        define_qenum_value_under(rb_cQPainterCompositionMode, "CompositionMode_Darken", QPainter::CompositionMode::CompositionMode_Darken);
+        define_qenum_value_under(rb_cQPainterCompositionMode, "CompositionMode_Lighten", QPainter::CompositionMode::CompositionMode_Lighten);
+        define_qenum_value_under(rb_cQPainterCompositionMode, "CompositionMode_ColorDodge", QPainter::CompositionMode::CompositionMode_ColorDodge);
+        define_qenum_value_under(rb_cQPainterCompositionMode, "CompositionMode_ColorBurn", QPainter::CompositionMode::CompositionMode_ColorBurn);
+        define_qenum_value_under(rb_cQPainterCompositionMode, "CompositionMode_HardLight", QPainter::CompositionMode::CompositionMode_HardLight);
+        define_qenum_value_under(rb_cQPainterCompositionMode, "CompositionMode_SoftLight", QPainter::CompositionMode::CompositionMode_SoftLight);
+        define_qenum_value_under(rb_cQPainterCompositionMode, "CompositionMode_Difference", QPainter::CompositionMode::CompositionMode_Difference);
+        define_qenum_value_under(rb_cQPainterCompositionMode, "CompositionMode_Exclusion", QPainter::CompositionMode::CompositionMode_Exclusion);
+        define_qenum_value_under(rb_cQPainterCompositionMode, "RasterOp_SourceOrDestination", QPainter::CompositionMode::RasterOp_SourceOrDestination);
+        define_qenum_value_under(rb_cQPainterCompositionMode, "RasterOp_SourceAndDestination", QPainter::CompositionMode::RasterOp_SourceAndDestination);
+        define_qenum_value_under(rb_cQPainterCompositionMode, "RasterOp_SourceXorDestination", QPainter::CompositionMode::RasterOp_SourceXorDestination);
+        define_qenum_value_under(rb_cQPainterCompositionMode, "RasterOp_NotSourceAndNotDestination", QPainter::CompositionMode::RasterOp_NotSourceAndNotDestination);
+        define_qenum_value_under(rb_cQPainterCompositionMode, "RasterOp_NotSourceOrNotDestination", QPainter::CompositionMode::RasterOp_NotSourceOrNotDestination);
+        define_qenum_value_under(rb_cQPainterCompositionMode, "RasterOp_NotSourceXorDestination", QPainter::CompositionMode::RasterOp_NotSourceXorDestination);
+        define_qenum_value_under(rb_cQPainterCompositionMode, "RasterOp_NotSource", QPainter::CompositionMode::RasterOp_NotSource);
+        define_qenum_value_under(rb_cQPainterCompositionMode, "RasterOp_NotSourceAndDestination", QPainter::CompositionMode::RasterOp_NotSourceAndDestination);
+        define_qenum_value_under(rb_cQPainterCompositionMode, "RasterOp_SourceAndNotDestination", QPainter::CompositionMode::RasterOp_SourceAndNotDestination);
+        define_qenum_value_under(rb_cQPainterCompositionMode, "RasterOp_NotSourceOrDestination", QPainter::CompositionMode::RasterOp_NotSourceOrDestination);
+        define_qenum_value_under(rb_cQPainterCompositionMode, "RasterOp_SourceOrNotDestination", QPainter::CompositionMode::RasterOp_SourceOrNotDestination);
+        define_qenum_value_under(rb_cQPainterCompositionMode, "RasterOp_ClearDestination", QPainter::CompositionMode::RasterOp_ClearDestination);
+        define_qenum_value_under(rb_cQPainterCompositionMode, "RasterOp_SetDestination", QPainter::CompositionMode::RasterOp_SetDestination);
+        define_qenum_value_under(rb_cQPainterCompositionMode, "RasterOp_NotDestination", QPainter::CompositionMode::RasterOp_NotDestination);
+        define_qenum_value_under(rb_cQPainterCompositionMode, "NCompositionModes", QPainter::CompositionMode::NCompositionModes);
 
-    Enum<QPainter::PixmapFragmentHint> rb_cQPainterPixmapFragmentHint =
+    Data_Type<QPainter::PixmapFragmentHint> rb_cQPainterPixmapFragmentHint =
         // RubyQt6::QtGui::QPainter::PixmapFragmentHint
-        define_qenum_under<QPainter::PixmapFragmentHint>("PixmapFragmentHint", rb_cQPainter)
-            .define_value("OpaqueHint", QPainter::PixmapFragmentHint::OpaqueHint);
+        define_qenum_under<QPainter::PixmapFragmentHint>(rb_cQPainter, "PixmapFragmentHint");
+        define_qenum_value_under(rb_cQPainterPixmapFragmentHint, "OpaqueHint", QPainter::PixmapFragmentHint::OpaqueHint);
 
-    Enum<QPainter::RenderHint> rb_cQPainterRenderHint =
+    Data_Type<QPainter::RenderHint> rb_cQPainterRenderHint =
         // RubyQt6::QtGui::QPainter::RenderHint
-        define_qenum_under<QPainter::RenderHint>("RenderHint", rb_cQPainter)
-            .define_value("Antialiasing", QPainter::RenderHint::Antialiasing)
-            .define_value("TextAntialiasing", QPainter::RenderHint::TextAntialiasing)
-            .define_value("SmoothPixmapTransform", QPainter::RenderHint::SmoothPixmapTransform)
-            .define_value("VerticalSubpixelPositioning", QPainter::RenderHint::VerticalSubpixelPositioning)
-            .define_value("LosslessImageRendering", QPainter::RenderHint::LosslessImageRendering)
-            .define_value("NonCosmeticBrushPatterns", QPainter::RenderHint::NonCosmeticBrushPatterns);
+        define_qenum_under<QPainter::RenderHint>(rb_cQPainter, "RenderHint");
+        define_qenum_value_under(rb_cQPainterRenderHint, "Antialiasing", QPainter::RenderHint::Antialiasing);
+        define_qenum_value_under(rb_cQPainterRenderHint, "TextAntialiasing", QPainter::RenderHint::TextAntialiasing);
+        define_qenum_value_under(rb_cQPainterRenderHint, "SmoothPixmapTransform", QPainter::RenderHint::SmoothPixmapTransform);
+        define_qenum_value_under(rb_cQPainterRenderHint, "VerticalSubpixelPositioning", QPainter::RenderHint::VerticalSubpixelPositioning);
+        define_qenum_value_under(rb_cQPainterRenderHint, "LosslessImageRendering", QPainter::RenderHint::LosslessImageRendering);
+        define_qenum_value_under(rb_cQPainterRenderHint, "NonCosmeticBrushPatterns", QPainter::RenderHint::NonCosmeticBrushPatterns);
 
     Data_Type<QFlags<QPainter::PixmapFragmentHint>> rb_cQPainterPixmapFragmentHints =
         // RubyQt6::QtGui::QPainter::PixmapFragmentHints

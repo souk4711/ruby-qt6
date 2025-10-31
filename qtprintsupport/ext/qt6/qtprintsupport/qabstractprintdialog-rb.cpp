@@ -30,23 +30,23 @@ void Init_qabstractprintdialog(Rice::Module rb_mQt6QtPrintSupport)
             .define_method("set_print_range", &QAbstractPrintDialog::setPrintRange, Arg("range"))
             .define_method("to_page", &QAbstractPrintDialog::toPage);
 
-   Enum<QAbstractPrintDialog::PrintDialogOption> rb_cQAbstractPrintDialogPrintDialogOption =
+   Data_Type<QAbstractPrintDialog::PrintDialogOption> rb_cQAbstractPrintDialogPrintDialogOption =
         // RubyQt6::QtPrintSupport::QAbstractPrintDialog::PrintDialogOption
-        define_qenum_under<QAbstractPrintDialog::PrintDialogOption>("PrintDialogOption", rb_cQAbstractPrintDialog)
-            .define_value("PrintToFile", QAbstractPrintDialog::PrintDialogOption::PrintToFile)
-            .define_value("PrintSelection", QAbstractPrintDialog::PrintDialogOption::PrintSelection)
-            .define_value("PrintPageRange", QAbstractPrintDialog::PrintDialogOption::PrintPageRange)
-            .define_value("PrintShowPageSize", QAbstractPrintDialog::PrintDialogOption::PrintShowPageSize)
-            .define_value("PrintCollateCopies", QAbstractPrintDialog::PrintDialogOption::PrintCollateCopies)
-            .define_value("PrintCurrentPage", QAbstractPrintDialog::PrintDialogOption::PrintCurrentPage);
+        define_qenum_under<QAbstractPrintDialog::PrintDialogOption>(rb_cQAbstractPrintDialog, "PrintDialogOption");
+        define_qenum_value_under(rb_cQAbstractPrintDialogPrintDialogOption, "PrintToFile", QAbstractPrintDialog::PrintDialogOption::PrintToFile);
+        define_qenum_value_under(rb_cQAbstractPrintDialogPrintDialogOption, "PrintSelection", QAbstractPrintDialog::PrintDialogOption::PrintSelection);
+        define_qenum_value_under(rb_cQAbstractPrintDialogPrintDialogOption, "PrintPageRange", QAbstractPrintDialog::PrintDialogOption::PrintPageRange);
+        define_qenum_value_under(rb_cQAbstractPrintDialogPrintDialogOption, "PrintShowPageSize", QAbstractPrintDialog::PrintDialogOption::PrintShowPageSize);
+        define_qenum_value_under(rb_cQAbstractPrintDialogPrintDialogOption, "PrintCollateCopies", QAbstractPrintDialog::PrintDialogOption::PrintCollateCopies);
+        define_qenum_value_under(rb_cQAbstractPrintDialogPrintDialogOption, "PrintCurrentPage", QAbstractPrintDialog::PrintDialogOption::PrintCurrentPage);
 
-    Enum<QAbstractPrintDialog::PrintRange> rb_cQAbstractPrintDialogPrintRange =
+    Data_Type<QAbstractPrintDialog::PrintRange> rb_cQAbstractPrintDialogPrintRange =
         // RubyQt6::QtPrintSupport::QAbstractPrintDialog::PrintRange
-        define_qenum_under<QAbstractPrintDialog::PrintRange>("PrintRange", rb_cQAbstractPrintDialog)
-            .define_value("AllPages", QAbstractPrintDialog::PrintRange::AllPages)
-            .define_value("Selection", QAbstractPrintDialog::PrintRange::Selection)
-            .define_value("PageRange", QAbstractPrintDialog::PrintRange::PageRange)
-            .define_value("CurrentPage", QAbstractPrintDialog::PrintRange::CurrentPage);
+        define_qenum_under<QAbstractPrintDialog::PrintRange>(rb_cQAbstractPrintDialog, "PrintRange");
+        define_qenum_value_under(rb_cQAbstractPrintDialogPrintRange, "AllPages", QAbstractPrintDialog::PrintRange::AllPages);
+        define_qenum_value_under(rb_cQAbstractPrintDialogPrintRange, "Selection", QAbstractPrintDialog::PrintRange::Selection);
+        define_qenum_value_under(rb_cQAbstractPrintDialogPrintRange, "PageRange", QAbstractPrintDialog::PrintRange::PageRange);
+        define_qenum_value_under(rb_cQAbstractPrintDialogPrintRange, "CurrentPage", QAbstractPrintDialog::PrintRange::CurrentPage);
 
     Data_Type<QFlags<QAbstractPrintDialog::PrintDialogOption>> rb_cQAbstractPrintDialogPrintDialogOptions =
         // RubyQt6::QtPrintSupport::QAbstractPrintDialog::PrintDialogOptions

@@ -97,27 +97,27 @@ void Init_qcombobox(Rice::Module rb_mQt6QtWidgets)
             .define_method("text_activated", &QComboBox::textActivated, Arg("text"))
             .define_method("text_highlighted", &QComboBox::textHighlighted, Arg("text"));
 
-    Enum<QComboBox::InsertPolicy> rb_cQComboBoxInsertPolicy =
+    Data_Type<QComboBox::InsertPolicy> rb_cQComboBoxInsertPolicy =
         // RubyQt6::QtWidgets::QComboBox::InsertPolicy
-        define_qenum_under<QComboBox::InsertPolicy>("InsertPolicy", rb_cQComboBox)
-            .define_value("NoInsert", QComboBox::InsertPolicy::NoInsert)
-            .define_value("InsertAtTop", QComboBox::InsertPolicy::InsertAtTop)
-            .define_value("InsertAtCurrent", QComboBox::InsertPolicy::InsertAtCurrent)
-            .define_value("InsertAtBottom", QComboBox::InsertPolicy::InsertAtBottom)
-            .define_value("InsertAfterCurrent", QComboBox::InsertPolicy::InsertAfterCurrent)
-            .define_value("InsertBeforeCurrent", QComboBox::InsertPolicy::InsertBeforeCurrent)
-            .define_value("InsertAlphabetically", QComboBox::InsertPolicy::InsertAlphabetically);
+        define_qenum_under<QComboBox::InsertPolicy>(rb_cQComboBox, "InsertPolicy");
+        define_qenum_value_under(rb_cQComboBoxInsertPolicy, "NoInsert", QComboBox::InsertPolicy::NoInsert);
+        define_qenum_value_under(rb_cQComboBoxInsertPolicy, "InsertAtTop", QComboBox::InsertPolicy::InsertAtTop);
+        define_qenum_value_under(rb_cQComboBoxInsertPolicy, "InsertAtCurrent", QComboBox::InsertPolicy::InsertAtCurrent);
+        define_qenum_value_under(rb_cQComboBoxInsertPolicy, "InsertAtBottom", QComboBox::InsertPolicy::InsertAtBottom);
+        define_qenum_value_under(rb_cQComboBoxInsertPolicy, "InsertAfterCurrent", QComboBox::InsertPolicy::InsertAfterCurrent);
+        define_qenum_value_under(rb_cQComboBoxInsertPolicy, "InsertBeforeCurrent", QComboBox::InsertPolicy::InsertBeforeCurrent);
+        define_qenum_value_under(rb_cQComboBoxInsertPolicy, "InsertAlphabetically", QComboBox::InsertPolicy::InsertAlphabetically);
 
-    Enum<QComboBox::LabelDrawingMode> rb_cQComboBoxLabelDrawingMode =
+    Data_Type<QComboBox::LabelDrawingMode> rb_cQComboBoxLabelDrawingMode =
         // RubyQt6::QtWidgets::QComboBox::LabelDrawingMode
-        define_qenum_under<QComboBox::LabelDrawingMode>("LabelDrawingMode", rb_cQComboBox)
-            .define_value("UseStyle", QComboBox::LabelDrawingMode::UseStyle)
-            .define_value("UseDelegate", QComboBox::LabelDrawingMode::UseDelegate);
+        define_qenum_under<QComboBox::LabelDrawingMode>(rb_cQComboBox, "LabelDrawingMode");
+        define_qenum_value_under(rb_cQComboBoxLabelDrawingMode, "UseStyle", QComboBox::LabelDrawingMode::UseStyle);
+        define_qenum_value_under(rb_cQComboBoxLabelDrawingMode, "UseDelegate", QComboBox::LabelDrawingMode::UseDelegate);
 
-    Enum<QComboBox::SizeAdjustPolicy> rb_cQComboBoxSizeAdjustPolicy =
+    Data_Type<QComboBox::SizeAdjustPolicy> rb_cQComboBoxSizeAdjustPolicy =
         // RubyQt6::QtWidgets::QComboBox::SizeAdjustPolicy
-        define_qenum_under<QComboBox::SizeAdjustPolicy>("SizeAdjustPolicy", rb_cQComboBox)
-            .define_value("AdjustToContents", QComboBox::SizeAdjustPolicy::AdjustToContents)
-            .define_value("AdjustToContentsOnFirstShow", QComboBox::SizeAdjustPolicy::AdjustToContentsOnFirstShow)
-            .define_value("AdjustToMinimumContentsLengthWithIcon", QComboBox::SizeAdjustPolicy::AdjustToMinimumContentsLengthWithIcon);
+        define_qenum_under<QComboBox::SizeAdjustPolicy>(rb_cQComboBox, "SizeAdjustPolicy");
+        define_qenum_value_under(rb_cQComboBoxSizeAdjustPolicy, "AdjustToContents", QComboBox::SizeAdjustPolicy::AdjustToContents);
+        define_qenum_value_under(rb_cQComboBoxSizeAdjustPolicy, "AdjustToContentsOnFirstShow", QComboBox::SizeAdjustPolicy::AdjustToContentsOnFirstShow);
+        define_qenum_value_under(rb_cQComboBoxSizeAdjustPolicy, "AdjustToMinimumContentsLengthWithIcon", QComboBox::SizeAdjustPolicy::AdjustToMinimumContentsLengthWithIcon);
 }

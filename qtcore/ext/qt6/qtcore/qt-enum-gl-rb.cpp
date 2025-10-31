@@ -10,694 +10,694 @@ void Init_qt_enum_gl(Rice::Module rb_mQt6QtCore)
         // RubyQt6::QtCore::Qt
         define_module_under(rb_mQt6QtCore, "Qt");
 
-    Enum<Qt::GestureFlag> rb_cQtGestureFlag =
+    Data_Type<Qt::GestureFlag> rb_cQtGestureFlag =
         // RubyQt6::QtCore::Qt::GestureFlag
-        define_qenum_under<Qt::GestureFlag>("GestureFlag", rb_mQt)
-            .define_value("DontStartGestureOnChildren", Qt::GestureFlag::DontStartGestureOnChildren)
-            .define_value("ReceivePartialGestures", Qt::GestureFlag::ReceivePartialGestures)
-            .define_value("IgnoredGesturesPropagateToParent", Qt::GestureFlag::IgnoredGesturesPropagateToParent);
+        define_qenum_under<Qt::GestureFlag>(rb_mQt, "GestureFlag");
+        define_qenum_value_under(rb_cQtGestureFlag, "DontStartGestureOnChildren", Qt::GestureFlag::DontStartGestureOnChildren);
+        define_qenum_value_under(rb_cQtGestureFlag, "ReceivePartialGestures", Qt::GestureFlag::ReceivePartialGestures);
+        define_qenum_value_under(rb_cQtGestureFlag, "IgnoredGesturesPropagateToParent", Qt::GestureFlag::IgnoredGesturesPropagateToParent);
 
-    Enum<Qt::GestureState> rb_cQtGestureState =
+    Data_Type<Qt::GestureState> rb_cQtGestureState =
         // RubyQt6::QtCore::Qt::GestureState
-        define_qenum_under<Qt::GestureState>("GestureState", rb_mQt)
-            .define_value("NoGesture", Qt::GestureState::NoGesture)
-            .define_value("GestureStarted", Qt::GestureState::GestureStarted)
-            .define_value("GestureUpdated", Qt::GestureState::GestureUpdated)
-            .define_value("GestureFinished", Qt::GestureState::GestureFinished)
-            .define_value("GestureCanceled", Qt::GestureState::GestureCanceled);
+        define_qenum_under<Qt::GestureState>(rb_mQt, "GestureState");
+        define_qenum_value_under(rb_cQtGestureState, "NoGesture", Qt::GestureState::NoGesture);
+        define_qenum_value_under(rb_cQtGestureState, "GestureStarted", Qt::GestureState::GestureStarted);
+        define_qenum_value_under(rb_cQtGestureState, "GestureUpdated", Qt::GestureState::GestureUpdated);
+        define_qenum_value_under(rb_cQtGestureState, "GestureFinished", Qt::GestureState::GestureFinished);
+        define_qenum_value_under(rb_cQtGestureState, "GestureCanceled", Qt::GestureState::GestureCanceled);
 
-    Enum<Qt::GestureType> rb_cQtGestureType =
+    Data_Type<Qt::GestureType> rb_cQtGestureType =
         // RubyQt6::QtCore::Qt::GestureType
-        define_qenum_under<Qt::GestureType>("GestureType", rb_mQt)
-            .define_value("TapGesture", Qt::GestureType::TapGesture)
-            .define_value("TapAndHoldGesture", Qt::GestureType::TapAndHoldGesture)
-            .define_value("PanGesture", Qt::GestureType::PanGesture)
-            .define_value("PinchGesture", Qt::GestureType::PinchGesture)
-            .define_value("SwipeGesture", Qt::GestureType::SwipeGesture)
-            .define_value("CustomGesture", Qt::GestureType::CustomGesture)
-            .define_value("LastGestureType", Qt::GestureType::LastGestureType);
+        define_qenum_under<Qt::GestureType>(rb_mQt, "GestureType");
+        define_qenum_value_under(rb_cQtGestureType, "TapGesture", Qt::GestureType::TapGesture);
+        define_qenum_value_under(rb_cQtGestureType, "TapAndHoldGesture", Qt::GestureType::TapAndHoldGesture);
+        define_qenum_value_under(rb_cQtGestureType, "PanGesture", Qt::GestureType::PanGesture);
+        define_qenum_value_under(rb_cQtGestureType, "PinchGesture", Qt::GestureType::PinchGesture);
+        define_qenum_value_under(rb_cQtGestureType, "SwipeGesture", Qt::GestureType::SwipeGesture);
+        define_qenum_value_under(rb_cQtGestureType, "CustomGesture", Qt::GestureType::CustomGesture);
+        define_qenum_value_under(rb_cQtGestureType, "LastGestureType", Qt::GestureType::LastGestureType);
 
-    Enum<Qt::GlobalColor> rb_cQtGlobalColor =
+    Data_Type<Qt::GlobalColor> rb_cQtGlobalColor =
         // RubyQt6::QtCore::Qt::GlobalColor
-        define_qenum_under<Qt::GlobalColor>("GlobalColor", rb_mQt)
-            .define_value("Color0", Qt::GlobalColor::color0)
-            .define_value("Color1", Qt::GlobalColor::color1)
-            .define_value("Black", Qt::GlobalColor::black)
-            .define_value("White", Qt::GlobalColor::white)
-            .define_value("DarkGray", Qt::GlobalColor::darkGray)
-            .define_value("Gray", Qt::GlobalColor::gray)
-            .define_value("LightGray", Qt::GlobalColor::lightGray)
-            .define_value("Red", Qt::GlobalColor::red)
-            .define_value("Green", Qt::GlobalColor::green)
-            .define_value("Blue", Qt::GlobalColor::blue)
-            .define_value("Cyan", Qt::GlobalColor::cyan)
-            .define_value("Magenta", Qt::GlobalColor::magenta)
-            .define_value("Yellow", Qt::GlobalColor::yellow)
-            .define_value("DarkRed", Qt::GlobalColor::darkRed)
-            .define_value("DarkGreen", Qt::GlobalColor::darkGreen)
-            .define_value("DarkBlue", Qt::GlobalColor::darkBlue)
-            .define_value("DarkCyan", Qt::GlobalColor::darkCyan)
-            .define_value("DarkMagenta", Qt::GlobalColor::darkMagenta)
-            .define_value("DarkYellow", Qt::GlobalColor::darkYellow)
-            .define_value("Transparent", Qt::GlobalColor::transparent);
+        define_qenum_under<Qt::GlobalColor>(rb_mQt, "GlobalColor");
+        define_qenum_value_under(rb_cQtGlobalColor, "Color0", Qt::GlobalColor::color0);
+        define_qenum_value_under(rb_cQtGlobalColor, "Color1", Qt::GlobalColor::color1);
+        define_qenum_value_under(rb_cQtGlobalColor, "Black", Qt::GlobalColor::black);
+        define_qenum_value_under(rb_cQtGlobalColor, "White", Qt::GlobalColor::white);
+        define_qenum_value_under(rb_cQtGlobalColor, "DarkGray", Qt::GlobalColor::darkGray);
+        define_qenum_value_under(rb_cQtGlobalColor, "Gray", Qt::GlobalColor::gray);
+        define_qenum_value_under(rb_cQtGlobalColor, "LightGray", Qt::GlobalColor::lightGray);
+        define_qenum_value_under(rb_cQtGlobalColor, "Red", Qt::GlobalColor::red);
+        define_qenum_value_under(rb_cQtGlobalColor, "Green", Qt::GlobalColor::green);
+        define_qenum_value_under(rb_cQtGlobalColor, "Blue", Qt::GlobalColor::blue);
+        define_qenum_value_under(rb_cQtGlobalColor, "Cyan", Qt::GlobalColor::cyan);
+        define_qenum_value_under(rb_cQtGlobalColor, "Magenta", Qt::GlobalColor::magenta);
+        define_qenum_value_under(rb_cQtGlobalColor, "Yellow", Qt::GlobalColor::yellow);
+        define_qenum_value_under(rb_cQtGlobalColor, "DarkRed", Qt::GlobalColor::darkRed);
+        define_qenum_value_under(rb_cQtGlobalColor, "DarkGreen", Qt::GlobalColor::darkGreen);
+        define_qenum_value_under(rb_cQtGlobalColor, "DarkBlue", Qt::GlobalColor::darkBlue);
+        define_qenum_value_under(rb_cQtGlobalColor, "DarkCyan", Qt::GlobalColor::darkCyan);
+        define_qenum_value_under(rb_cQtGlobalColor, "DarkMagenta", Qt::GlobalColor::darkMagenta);
+        define_qenum_value_under(rb_cQtGlobalColor, "DarkYellow", Qt::GlobalColor::darkYellow);
+        define_qenum_value_under(rb_cQtGlobalColor, "Transparent", Qt::GlobalColor::transparent);
 
-    Enum<Qt::HighDpiScaleFactorRoundingPolicy> rb_cQtHighDpiScaleFactorRoundingPolicy =
+    Data_Type<Qt::HighDpiScaleFactorRoundingPolicy> rb_cQtHighDpiScaleFactorRoundingPolicy =
         // RubyQt6::QtCore::Qt::HighDpiScaleFactorRoundingPolicy
-        define_qenum_under<Qt::HighDpiScaleFactorRoundingPolicy>("HighDpiScaleFactorRoundingPolicy", rb_mQt)
-            .define_value("Unset", Qt::HighDpiScaleFactorRoundingPolicy::Unset)
-            .define_value("Round", Qt::HighDpiScaleFactorRoundingPolicy::Round)
-            .define_value("Ceil", Qt::HighDpiScaleFactorRoundingPolicy::Ceil)
-            .define_value("Floor", Qt::HighDpiScaleFactorRoundingPolicy::Floor)
-            .define_value("RoundPreferFloor", Qt::HighDpiScaleFactorRoundingPolicy::RoundPreferFloor)
-            .define_value("PassThrough", Qt::HighDpiScaleFactorRoundingPolicy::PassThrough);
+        define_qenum_under<Qt::HighDpiScaleFactorRoundingPolicy>(rb_mQt, "HighDpiScaleFactorRoundingPolicy");
+        define_qenum_value_under(rb_cQtHighDpiScaleFactorRoundingPolicy, "Unset", Qt::HighDpiScaleFactorRoundingPolicy::Unset);
+        define_qenum_value_under(rb_cQtHighDpiScaleFactorRoundingPolicy, "Round", Qt::HighDpiScaleFactorRoundingPolicy::Round);
+        define_qenum_value_under(rb_cQtHighDpiScaleFactorRoundingPolicy, "Ceil", Qt::HighDpiScaleFactorRoundingPolicy::Ceil);
+        define_qenum_value_under(rb_cQtHighDpiScaleFactorRoundingPolicy, "Floor", Qt::HighDpiScaleFactorRoundingPolicy::Floor);
+        define_qenum_value_under(rb_cQtHighDpiScaleFactorRoundingPolicy, "RoundPreferFloor", Qt::HighDpiScaleFactorRoundingPolicy::RoundPreferFloor);
+        define_qenum_value_under(rb_cQtHighDpiScaleFactorRoundingPolicy, "PassThrough", Qt::HighDpiScaleFactorRoundingPolicy::PassThrough);
 
-    Enum<Qt::HitTestAccuracy> rb_cQtHitTestAccuracy =
+    Data_Type<Qt::HitTestAccuracy> rb_cQtHitTestAccuracy =
         // RubyQt6::QtCore::Qt::HitTestAccuracy
-        define_qenum_under<Qt::HitTestAccuracy>("HitTestAccuracy", rb_mQt)
-            .define_value("ExactHit", Qt::HitTestAccuracy::ExactHit)
-            .define_value("FuzzyHit", Qt::HitTestAccuracy::FuzzyHit);
+        define_qenum_under<Qt::HitTestAccuracy>(rb_mQt, "HitTestAccuracy");
+        define_qenum_value_under(rb_cQtHitTestAccuracy, "ExactHit", Qt::HitTestAccuracy::ExactHit);
+        define_qenum_value_under(rb_cQtHitTestAccuracy, "FuzzyHit", Qt::HitTestAccuracy::FuzzyHit);
 
-    Enum<Qt::ImageConversionFlag> rb_cQtImageConversionFlag =
+    Data_Type<Qt::ImageConversionFlag> rb_cQtImageConversionFlag =
         // RubyQt6::QtCore::Qt::ImageConversionFlag
-        define_qenum_under<Qt::ImageConversionFlag>("ImageConversionFlag", rb_mQt)
-            .define_value("ColorMode_Mask", Qt::ImageConversionFlag::ColorMode_Mask)
-            .define_value("AutoColor", Qt::ImageConversionFlag::AutoColor)
-            .define_value("ColorOnly", Qt::ImageConversionFlag::ColorOnly)
-            .define_value("MonoOnly", Qt::ImageConversionFlag::MonoOnly)
-            .define_value("AlphaDither_Mask", Qt::ImageConversionFlag::AlphaDither_Mask)
-            .define_value("ThresholdAlphaDither", Qt::ImageConversionFlag::ThresholdAlphaDither)
-            .define_value("OrderedAlphaDither", Qt::ImageConversionFlag::OrderedAlphaDither)
-            .define_value("DiffuseAlphaDither", Qt::ImageConversionFlag::DiffuseAlphaDither)
-            .define_value("NoAlpha", Qt::ImageConversionFlag::NoAlpha)
-            .define_value("Dither_Mask", Qt::ImageConversionFlag::Dither_Mask)
-            .define_value("DiffuseDither", Qt::ImageConversionFlag::DiffuseDither)
-            .define_value("OrderedDither", Qt::ImageConversionFlag::OrderedDither)
-            .define_value("ThresholdDither", Qt::ImageConversionFlag::ThresholdDither)
-            .define_value("DitherMode_Mask", Qt::ImageConversionFlag::DitherMode_Mask)
-            .define_value("AutoDither", Qt::ImageConversionFlag::AutoDither)
-            .define_value("PreferDither", Qt::ImageConversionFlag::PreferDither)
-            .define_value("AvoidDither", Qt::ImageConversionFlag::AvoidDither)
-            .define_value("NoOpaqueDetection", Qt::ImageConversionFlag::NoOpaqueDetection)
-            .define_value("NoFormatConversion", Qt::ImageConversionFlag::NoFormatConversion);
+        define_qenum_under<Qt::ImageConversionFlag>(rb_mQt, "ImageConversionFlag");
+        define_qenum_value_under(rb_cQtImageConversionFlag, "ColorMode_Mask", Qt::ImageConversionFlag::ColorMode_Mask);
+        define_qenum_value_under(rb_cQtImageConversionFlag, "AutoColor", Qt::ImageConversionFlag::AutoColor);
+        define_qenum_value_under(rb_cQtImageConversionFlag, "ColorOnly", Qt::ImageConversionFlag::ColorOnly);
+        define_qenum_value_under(rb_cQtImageConversionFlag, "MonoOnly", Qt::ImageConversionFlag::MonoOnly);
+        define_qenum_value_under(rb_cQtImageConversionFlag, "AlphaDither_Mask", Qt::ImageConversionFlag::AlphaDither_Mask);
+        define_qenum_value_under(rb_cQtImageConversionFlag, "ThresholdAlphaDither", Qt::ImageConversionFlag::ThresholdAlphaDither);
+        define_qenum_value_under(rb_cQtImageConversionFlag, "OrderedAlphaDither", Qt::ImageConversionFlag::OrderedAlphaDither);
+        define_qenum_value_under(rb_cQtImageConversionFlag, "DiffuseAlphaDither", Qt::ImageConversionFlag::DiffuseAlphaDither);
+        define_qenum_value_under(rb_cQtImageConversionFlag, "NoAlpha", Qt::ImageConversionFlag::NoAlpha);
+        define_qenum_value_under(rb_cQtImageConversionFlag, "Dither_Mask", Qt::ImageConversionFlag::Dither_Mask);
+        define_qenum_value_under(rb_cQtImageConversionFlag, "DiffuseDither", Qt::ImageConversionFlag::DiffuseDither);
+        define_qenum_value_under(rb_cQtImageConversionFlag, "OrderedDither", Qt::ImageConversionFlag::OrderedDither);
+        define_qenum_value_under(rb_cQtImageConversionFlag, "ThresholdDither", Qt::ImageConversionFlag::ThresholdDither);
+        define_qenum_value_under(rb_cQtImageConversionFlag, "DitherMode_Mask", Qt::ImageConversionFlag::DitherMode_Mask);
+        define_qenum_value_under(rb_cQtImageConversionFlag, "AutoDither", Qt::ImageConversionFlag::AutoDither);
+        define_qenum_value_under(rb_cQtImageConversionFlag, "PreferDither", Qt::ImageConversionFlag::PreferDither);
+        define_qenum_value_under(rb_cQtImageConversionFlag, "AvoidDither", Qt::ImageConversionFlag::AvoidDither);
+        define_qenum_value_under(rb_cQtImageConversionFlag, "NoOpaqueDetection", Qt::ImageConversionFlag::NoOpaqueDetection);
+        define_qenum_value_under(rb_cQtImageConversionFlag, "NoFormatConversion", Qt::ImageConversionFlag::NoFormatConversion);
 
-    Enum<Qt::Initialization> rb_cQtInitialization =
+    Data_Type<Qt::Initialization> rb_cQtInitialization =
         // RubyQt6::QtCore::Qt::Initialization
-        define_qenum_under<Qt::Initialization>("Initialization", rb_mQt)
-            .define_value("Uninitialized", Qt::Initialization::Uninitialized);
+        define_qenum_under<Qt::Initialization>(rb_mQt, "Initialization");
+        define_qenum_value_under(rb_cQtInitialization, "Uninitialized", Qt::Initialization::Uninitialized);
 
-    Enum<Qt::InputMethodHint> rb_cQtInputMethodHint =
+    Data_Type<Qt::InputMethodHint> rb_cQtInputMethodHint =
         // RubyQt6::QtCore::Qt::InputMethodHint
-        define_qenum_under<Qt::InputMethodHint>("InputMethodHint", rb_mQt)
-            .define_value("ImhNone", Qt::InputMethodHint::ImhNone)
-            .define_value("ImhHiddenText", Qt::InputMethodHint::ImhHiddenText)
-            .define_value("ImhSensitiveData", Qt::InputMethodHint::ImhSensitiveData)
-            .define_value("ImhNoAutoUppercase", Qt::InputMethodHint::ImhNoAutoUppercase)
-            .define_value("ImhPreferNumbers", Qt::InputMethodHint::ImhPreferNumbers)
-            .define_value("ImhPreferUppercase", Qt::InputMethodHint::ImhPreferUppercase)
-            .define_value("ImhPreferLowercase", Qt::InputMethodHint::ImhPreferLowercase)
-            .define_value("ImhNoPredictiveText", Qt::InputMethodHint::ImhNoPredictiveText)
-            .define_value("ImhDate", Qt::InputMethodHint::ImhDate)
-            .define_value("ImhTime", Qt::InputMethodHint::ImhTime)
-            .define_value("ImhPreferLatin", Qt::InputMethodHint::ImhPreferLatin)
-            .define_value("ImhMultiLine", Qt::InputMethodHint::ImhMultiLine)
-            .define_value("ImhNoEditMenu", Qt::InputMethodHint::ImhNoEditMenu)
-            .define_value("ImhNoTextHandles", Qt::InputMethodHint::ImhNoTextHandles)
-            .define_value("ImhDigitsOnly", Qt::InputMethodHint::ImhDigitsOnly)
-            .define_value("ImhFormattedNumbersOnly", Qt::InputMethodHint::ImhFormattedNumbersOnly)
-            .define_value("ImhUppercaseOnly", Qt::InputMethodHint::ImhUppercaseOnly)
-            .define_value("ImhLowercaseOnly", Qt::InputMethodHint::ImhLowercaseOnly)
-            .define_value("ImhDialableCharactersOnly", Qt::InputMethodHint::ImhDialableCharactersOnly)
-            .define_value("ImhEmailCharactersOnly", Qt::InputMethodHint::ImhEmailCharactersOnly)
-            .define_value("ImhUrlCharactersOnly", Qt::InputMethodHint::ImhUrlCharactersOnly)
-            .define_value("ImhLatinOnly", Qt::InputMethodHint::ImhLatinOnly)
-            .define_value("ImhExclusiveInputMask", Qt::InputMethodHint::ImhExclusiveInputMask);
+        define_qenum_under<Qt::InputMethodHint>(rb_mQt, "InputMethodHint");
+        define_qenum_value_under(rb_cQtInputMethodHint, "ImhNone", Qt::InputMethodHint::ImhNone);
+        define_qenum_value_under(rb_cQtInputMethodHint, "ImhHiddenText", Qt::InputMethodHint::ImhHiddenText);
+        define_qenum_value_under(rb_cQtInputMethodHint, "ImhSensitiveData", Qt::InputMethodHint::ImhSensitiveData);
+        define_qenum_value_under(rb_cQtInputMethodHint, "ImhNoAutoUppercase", Qt::InputMethodHint::ImhNoAutoUppercase);
+        define_qenum_value_under(rb_cQtInputMethodHint, "ImhPreferNumbers", Qt::InputMethodHint::ImhPreferNumbers);
+        define_qenum_value_under(rb_cQtInputMethodHint, "ImhPreferUppercase", Qt::InputMethodHint::ImhPreferUppercase);
+        define_qenum_value_under(rb_cQtInputMethodHint, "ImhPreferLowercase", Qt::InputMethodHint::ImhPreferLowercase);
+        define_qenum_value_under(rb_cQtInputMethodHint, "ImhNoPredictiveText", Qt::InputMethodHint::ImhNoPredictiveText);
+        define_qenum_value_under(rb_cQtInputMethodHint, "ImhDate", Qt::InputMethodHint::ImhDate);
+        define_qenum_value_under(rb_cQtInputMethodHint, "ImhTime", Qt::InputMethodHint::ImhTime);
+        define_qenum_value_under(rb_cQtInputMethodHint, "ImhPreferLatin", Qt::InputMethodHint::ImhPreferLatin);
+        define_qenum_value_under(rb_cQtInputMethodHint, "ImhMultiLine", Qt::InputMethodHint::ImhMultiLine);
+        define_qenum_value_under(rb_cQtInputMethodHint, "ImhNoEditMenu", Qt::InputMethodHint::ImhNoEditMenu);
+        define_qenum_value_under(rb_cQtInputMethodHint, "ImhNoTextHandles", Qt::InputMethodHint::ImhNoTextHandles);
+        define_qenum_value_under(rb_cQtInputMethodHint, "ImhDigitsOnly", Qt::InputMethodHint::ImhDigitsOnly);
+        define_qenum_value_under(rb_cQtInputMethodHint, "ImhFormattedNumbersOnly", Qt::InputMethodHint::ImhFormattedNumbersOnly);
+        define_qenum_value_under(rb_cQtInputMethodHint, "ImhUppercaseOnly", Qt::InputMethodHint::ImhUppercaseOnly);
+        define_qenum_value_under(rb_cQtInputMethodHint, "ImhLowercaseOnly", Qt::InputMethodHint::ImhLowercaseOnly);
+        define_qenum_value_under(rb_cQtInputMethodHint, "ImhDialableCharactersOnly", Qt::InputMethodHint::ImhDialableCharactersOnly);
+        define_qenum_value_under(rb_cQtInputMethodHint, "ImhEmailCharactersOnly", Qt::InputMethodHint::ImhEmailCharactersOnly);
+        define_qenum_value_under(rb_cQtInputMethodHint, "ImhUrlCharactersOnly", Qt::InputMethodHint::ImhUrlCharactersOnly);
+        define_qenum_value_under(rb_cQtInputMethodHint, "ImhLatinOnly", Qt::InputMethodHint::ImhLatinOnly);
+        define_qenum_value_under(rb_cQtInputMethodHint, "ImhExclusiveInputMask", Qt::InputMethodHint::ImhExclusiveInputMask);
 
-    Enum<Qt::InputMethodQuery> rb_cQtInputMethodQuery =
+    Data_Type<Qt::InputMethodQuery> rb_cQtInputMethodQuery =
         // RubyQt6::QtCore::Qt::InputMethodQuery
-        define_qenum_under<Qt::InputMethodQuery>("InputMethodQuery", rb_mQt)
-            .define_value("ImEnabled", Qt::InputMethodQuery::ImEnabled)
-            .define_value("ImCursorRectangle", Qt::InputMethodQuery::ImCursorRectangle)
-            .define_value("ImFont", Qt::InputMethodQuery::ImFont)
-            .define_value("ImCursorPosition", Qt::InputMethodQuery::ImCursorPosition)
-            .define_value("ImSurroundingText", Qt::InputMethodQuery::ImSurroundingText)
-            .define_value("ImCurrentSelection", Qt::InputMethodQuery::ImCurrentSelection)
-            .define_value("ImMaximumTextLength", Qt::InputMethodQuery::ImMaximumTextLength)
-            .define_value("ImAnchorPosition", Qt::InputMethodQuery::ImAnchorPosition)
-            .define_value("ImHints", Qt::InputMethodQuery::ImHints)
-            .define_value("ImPreferredLanguage", Qt::InputMethodQuery::ImPreferredLanguage)
-            .define_value("ImAbsolutePosition", Qt::InputMethodQuery::ImAbsolutePosition)
-            .define_value("ImTextBeforeCursor", Qt::InputMethodQuery::ImTextBeforeCursor)
-            .define_value("ImTextAfterCursor", Qt::InputMethodQuery::ImTextAfterCursor)
-            .define_value("ImEnterKeyType", Qt::InputMethodQuery::ImEnterKeyType)
-            .define_value("ImAnchorRectangle", Qt::InputMethodQuery::ImAnchorRectangle)
-            .define_value("ImInputItemClipRectangle", Qt::InputMethodQuery::ImInputItemClipRectangle)
-            .define_value("ImReadOnly", Qt::InputMethodQuery::ImReadOnly)
-            .define_value("ImPlatformData", Qt::InputMethodQuery::ImPlatformData)
-            .define_value("ImQueryInput", Qt::InputMethodQuery::ImQueryInput)
-            .define_value("ImQueryAll", Qt::InputMethodQuery::ImQueryAll);
+        define_qenum_under<Qt::InputMethodQuery>(rb_mQt, "InputMethodQuery");
+        define_qenum_value_under(rb_cQtInputMethodQuery, "ImEnabled", Qt::InputMethodQuery::ImEnabled);
+        define_qenum_value_under(rb_cQtInputMethodQuery, "ImCursorRectangle", Qt::InputMethodQuery::ImCursorRectangle);
+        define_qenum_value_under(rb_cQtInputMethodQuery, "ImFont", Qt::InputMethodQuery::ImFont);
+        define_qenum_value_under(rb_cQtInputMethodQuery, "ImCursorPosition", Qt::InputMethodQuery::ImCursorPosition);
+        define_qenum_value_under(rb_cQtInputMethodQuery, "ImSurroundingText", Qt::InputMethodQuery::ImSurroundingText);
+        define_qenum_value_under(rb_cQtInputMethodQuery, "ImCurrentSelection", Qt::InputMethodQuery::ImCurrentSelection);
+        define_qenum_value_under(rb_cQtInputMethodQuery, "ImMaximumTextLength", Qt::InputMethodQuery::ImMaximumTextLength);
+        define_qenum_value_under(rb_cQtInputMethodQuery, "ImAnchorPosition", Qt::InputMethodQuery::ImAnchorPosition);
+        define_qenum_value_under(rb_cQtInputMethodQuery, "ImHints", Qt::InputMethodQuery::ImHints);
+        define_qenum_value_under(rb_cQtInputMethodQuery, "ImPreferredLanguage", Qt::InputMethodQuery::ImPreferredLanguage);
+        define_qenum_value_under(rb_cQtInputMethodQuery, "ImAbsolutePosition", Qt::InputMethodQuery::ImAbsolutePosition);
+        define_qenum_value_under(rb_cQtInputMethodQuery, "ImTextBeforeCursor", Qt::InputMethodQuery::ImTextBeforeCursor);
+        define_qenum_value_under(rb_cQtInputMethodQuery, "ImTextAfterCursor", Qt::InputMethodQuery::ImTextAfterCursor);
+        define_qenum_value_under(rb_cQtInputMethodQuery, "ImEnterKeyType", Qt::InputMethodQuery::ImEnterKeyType);
+        define_qenum_value_under(rb_cQtInputMethodQuery, "ImAnchorRectangle", Qt::InputMethodQuery::ImAnchorRectangle);
+        define_qenum_value_under(rb_cQtInputMethodQuery, "ImInputItemClipRectangle", Qt::InputMethodQuery::ImInputItemClipRectangle);
+        define_qenum_value_under(rb_cQtInputMethodQuery, "ImReadOnly", Qt::InputMethodQuery::ImReadOnly);
+        define_qenum_value_under(rb_cQtInputMethodQuery, "ImPlatformData", Qt::InputMethodQuery::ImPlatformData);
+        define_qenum_value_under(rb_cQtInputMethodQuery, "ImQueryInput", Qt::InputMethodQuery::ImQueryInput);
+        define_qenum_value_under(rb_cQtInputMethodQuery, "ImQueryAll", Qt::InputMethodQuery::ImQueryAll);
 
-    Enum<Qt::ItemDataRole> rb_cQtItemDataRole =
+    Data_Type<Qt::ItemDataRole> rb_cQtItemDataRole =
         // RubyQt6::QtCore::Qt::ItemDataRole
-        define_qenum_under<Qt::ItemDataRole>("ItemDataRole", rb_mQt)
-            .define_value("DisplayRole", Qt::ItemDataRole::DisplayRole)
-            .define_value("DecorationRole", Qt::ItemDataRole::DecorationRole)
-            .define_value("EditRole", Qt::ItemDataRole::EditRole)
-            .define_value("ToolTipRole", Qt::ItemDataRole::ToolTipRole)
-            .define_value("StatusTipRole", Qt::ItemDataRole::StatusTipRole)
-            .define_value("WhatsThisRole", Qt::ItemDataRole::WhatsThisRole)
-            .define_value("FontRole", Qt::ItemDataRole::FontRole)
-            .define_value("TextAlignmentRole", Qt::ItemDataRole::TextAlignmentRole)
-            .define_value("BackgroundRole", Qt::ItemDataRole::BackgroundRole)
-            .define_value("ForegroundRole", Qt::ItemDataRole::ForegroundRole)
-            .define_value("CheckStateRole", Qt::ItemDataRole::CheckStateRole)
-            .define_value("AccessibleTextRole", Qt::ItemDataRole::AccessibleTextRole)
-            .define_value("AccessibleDescriptionRole", Qt::ItemDataRole::AccessibleDescriptionRole)
-            .define_value("SizeHintRole", Qt::ItemDataRole::SizeHintRole)
-            .define_value("InitialSortOrderRole", Qt::ItemDataRole::InitialSortOrderRole)
-            .define_value("DisplayPropertyRole", Qt::ItemDataRole::DisplayPropertyRole)
-            .define_value("DecorationPropertyRole", Qt::ItemDataRole::DecorationPropertyRole)
-            .define_value("ToolTipPropertyRole", Qt::ItemDataRole::ToolTipPropertyRole)
-            .define_value("StatusTipPropertyRole", Qt::ItemDataRole::StatusTipPropertyRole)
-            .define_value("WhatsThisPropertyRole", Qt::ItemDataRole::WhatsThisPropertyRole)
-            .define_value("UserRole", Qt::ItemDataRole::UserRole);
+        define_qenum_under<Qt::ItemDataRole>(rb_mQt, "ItemDataRole");
+        define_qenum_value_under(rb_cQtItemDataRole, "DisplayRole", Qt::ItemDataRole::DisplayRole);
+        define_qenum_value_under(rb_cQtItemDataRole, "DecorationRole", Qt::ItemDataRole::DecorationRole);
+        define_qenum_value_under(rb_cQtItemDataRole, "EditRole", Qt::ItemDataRole::EditRole);
+        define_qenum_value_under(rb_cQtItemDataRole, "ToolTipRole", Qt::ItemDataRole::ToolTipRole);
+        define_qenum_value_under(rb_cQtItemDataRole, "StatusTipRole", Qt::ItemDataRole::StatusTipRole);
+        define_qenum_value_under(rb_cQtItemDataRole, "WhatsThisRole", Qt::ItemDataRole::WhatsThisRole);
+        define_qenum_value_under(rb_cQtItemDataRole, "FontRole", Qt::ItemDataRole::FontRole);
+        define_qenum_value_under(rb_cQtItemDataRole, "TextAlignmentRole", Qt::ItemDataRole::TextAlignmentRole);
+        define_qenum_value_under(rb_cQtItemDataRole, "BackgroundRole", Qt::ItemDataRole::BackgroundRole);
+        define_qenum_value_under(rb_cQtItemDataRole, "ForegroundRole", Qt::ItemDataRole::ForegroundRole);
+        define_qenum_value_under(rb_cQtItemDataRole, "CheckStateRole", Qt::ItemDataRole::CheckStateRole);
+        define_qenum_value_under(rb_cQtItemDataRole, "AccessibleTextRole", Qt::ItemDataRole::AccessibleTextRole);
+        define_qenum_value_under(rb_cQtItemDataRole, "AccessibleDescriptionRole", Qt::ItemDataRole::AccessibleDescriptionRole);
+        define_qenum_value_under(rb_cQtItemDataRole, "SizeHintRole", Qt::ItemDataRole::SizeHintRole);
+        define_qenum_value_under(rb_cQtItemDataRole, "InitialSortOrderRole", Qt::ItemDataRole::InitialSortOrderRole);
+        define_qenum_value_under(rb_cQtItemDataRole, "DisplayPropertyRole", Qt::ItemDataRole::DisplayPropertyRole);
+        define_qenum_value_under(rb_cQtItemDataRole, "DecorationPropertyRole", Qt::ItemDataRole::DecorationPropertyRole);
+        define_qenum_value_under(rb_cQtItemDataRole, "ToolTipPropertyRole", Qt::ItemDataRole::ToolTipPropertyRole);
+        define_qenum_value_under(rb_cQtItemDataRole, "StatusTipPropertyRole", Qt::ItemDataRole::StatusTipPropertyRole);
+        define_qenum_value_under(rb_cQtItemDataRole, "WhatsThisPropertyRole", Qt::ItemDataRole::WhatsThisPropertyRole);
+        define_qenum_value_under(rb_cQtItemDataRole, "UserRole", Qt::ItemDataRole::UserRole);
 
-    Enum<Qt::ItemFlag> rb_cQtItemFlag =
+    Data_Type<Qt::ItemFlag> rb_cQtItemFlag =
         // RubyQt6::QtCore::Qt::ItemFlag
-        define_qenum_under<Qt::ItemFlag>("ItemFlag", rb_mQt)
-            .define_value("NoItemFlags", Qt::ItemFlag::NoItemFlags)
-            .define_value("ItemIsSelectable", Qt::ItemFlag::ItemIsSelectable)
-            .define_value("ItemIsEditable", Qt::ItemFlag::ItemIsEditable)
-            .define_value("ItemIsDragEnabled", Qt::ItemFlag::ItemIsDragEnabled)
-            .define_value("ItemIsDropEnabled", Qt::ItemFlag::ItemIsDropEnabled)
-            .define_value("ItemIsUserCheckable", Qt::ItemFlag::ItemIsUserCheckable)
-            .define_value("ItemIsEnabled", Qt::ItemFlag::ItemIsEnabled)
-            .define_value("ItemIsAutoTristate", Qt::ItemFlag::ItemIsAutoTristate)
-            .define_value("ItemNeverHasChildren", Qt::ItemFlag::ItemNeverHasChildren)
-            .define_value("ItemIsUserTristate", Qt::ItemFlag::ItemIsUserTristate);
+        define_qenum_under<Qt::ItemFlag>(rb_mQt, "ItemFlag");
+        define_qenum_value_under(rb_cQtItemFlag, "NoItemFlags", Qt::ItemFlag::NoItemFlags);
+        define_qenum_value_under(rb_cQtItemFlag, "ItemIsSelectable", Qt::ItemFlag::ItemIsSelectable);
+        define_qenum_value_under(rb_cQtItemFlag, "ItemIsEditable", Qt::ItemFlag::ItemIsEditable);
+        define_qenum_value_under(rb_cQtItemFlag, "ItemIsDragEnabled", Qt::ItemFlag::ItemIsDragEnabled);
+        define_qenum_value_under(rb_cQtItemFlag, "ItemIsDropEnabled", Qt::ItemFlag::ItemIsDropEnabled);
+        define_qenum_value_under(rb_cQtItemFlag, "ItemIsUserCheckable", Qt::ItemFlag::ItemIsUserCheckable);
+        define_qenum_value_under(rb_cQtItemFlag, "ItemIsEnabled", Qt::ItemFlag::ItemIsEnabled);
+        define_qenum_value_under(rb_cQtItemFlag, "ItemIsAutoTristate", Qt::ItemFlag::ItemIsAutoTristate);
+        define_qenum_value_under(rb_cQtItemFlag, "ItemNeverHasChildren", Qt::ItemFlag::ItemNeverHasChildren);
+        define_qenum_value_under(rb_cQtItemFlag, "ItemIsUserTristate", Qt::ItemFlag::ItemIsUserTristate);
 
-    Enum<Qt::ItemSelectionMode> rb_cQtItemSelectionMode =
+    Data_Type<Qt::ItemSelectionMode> rb_cQtItemSelectionMode =
         // RubyQt6::QtCore::Qt::ItemSelectionMode
-        define_qenum_under<Qt::ItemSelectionMode>("ItemSelectionMode", rb_mQt)
-            .define_value("ContainsItemShape", Qt::ItemSelectionMode::ContainsItemShape)
-            .define_value("IntersectsItemShape", Qt::ItemSelectionMode::IntersectsItemShape)
-            .define_value("ContainsItemBoundingRect", Qt::ItemSelectionMode::ContainsItemBoundingRect)
-            .define_value("IntersectsItemBoundingRect", Qt::ItemSelectionMode::IntersectsItemBoundingRect);
+        define_qenum_under<Qt::ItemSelectionMode>(rb_mQt, "ItemSelectionMode");
+        define_qenum_value_under(rb_cQtItemSelectionMode, "ContainsItemShape", Qt::ItemSelectionMode::ContainsItemShape);
+        define_qenum_value_under(rb_cQtItemSelectionMode, "IntersectsItemShape", Qt::ItemSelectionMode::IntersectsItemShape);
+        define_qenum_value_under(rb_cQtItemSelectionMode, "ContainsItemBoundingRect", Qt::ItemSelectionMode::ContainsItemBoundingRect);
+        define_qenum_value_under(rb_cQtItemSelectionMode, "IntersectsItemBoundingRect", Qt::ItemSelectionMode::IntersectsItemBoundingRect);
 
-    Enum<Qt::ItemSelectionOperation> rb_cQtItemSelectionOperation =
+    Data_Type<Qt::ItemSelectionOperation> rb_cQtItemSelectionOperation =
         // RubyQt6::QtCore::Qt::ItemSelectionOperation
-        define_qenum_under<Qt::ItemSelectionOperation>("ItemSelectionOperation", rb_mQt)
-            .define_value("ReplaceSelection", Qt::ItemSelectionOperation::ReplaceSelection)
-            .define_value("AddToSelection", Qt::ItemSelectionOperation::AddToSelection);
+        define_qenum_under<Qt::ItemSelectionOperation>(rb_mQt, "ItemSelectionOperation");
+        define_qenum_value_under(rb_cQtItemSelectionOperation, "ReplaceSelection", Qt::ItemSelectionOperation::ReplaceSelection);
+        define_qenum_value_under(rb_cQtItemSelectionOperation, "AddToSelection", Qt::ItemSelectionOperation::AddToSelection);
 
-    Enum<Qt::Key> rb_cQtKey =
+    Data_Type<Qt::Key> rb_cQtKey =
         // RubyQt6::QtCore::Qt::Key
-        define_qenum_under<Qt::Key>("Key", rb_mQt)
-            .define_value("Key_Space", Qt::Key::Key_Space)
-            .define_value("Key_Any", Qt::Key::Key_Any)
-            .define_value("Key_Exclam", Qt::Key::Key_Exclam)
-            .define_value("Key_QuoteDbl", Qt::Key::Key_QuoteDbl)
-            .define_value("Key_NumberSign", Qt::Key::Key_NumberSign)
-            .define_value("Key_Dollar", Qt::Key::Key_Dollar)
-            .define_value("Key_Percent", Qt::Key::Key_Percent)
-            .define_value("Key_Ampersand", Qt::Key::Key_Ampersand)
-            .define_value("Key_Apostrophe", Qt::Key::Key_Apostrophe)
-            .define_value("Key_ParenLeft", Qt::Key::Key_ParenLeft)
-            .define_value("Key_ParenRight", Qt::Key::Key_ParenRight)
-            .define_value("Key_Asterisk", Qt::Key::Key_Asterisk)
-            .define_value("Key_Plus", Qt::Key::Key_Plus)
-            .define_value("Key_Comma", Qt::Key::Key_Comma)
-            .define_value("Key_Minus", Qt::Key::Key_Minus)
-            .define_value("Key_Period", Qt::Key::Key_Period)
-            .define_value("Key_Slash", Qt::Key::Key_Slash)
-            .define_value("Key_0", Qt::Key::Key_0)
-            .define_value("Key_1", Qt::Key::Key_1)
-            .define_value("Key_2", Qt::Key::Key_2)
-            .define_value("Key_3", Qt::Key::Key_3)
-            .define_value("Key_4", Qt::Key::Key_4)
-            .define_value("Key_5", Qt::Key::Key_5)
-            .define_value("Key_6", Qt::Key::Key_6)
-            .define_value("Key_7", Qt::Key::Key_7)
-            .define_value("Key_8", Qt::Key::Key_8)
-            .define_value("Key_9", Qt::Key::Key_9)
-            .define_value("Key_Colon", Qt::Key::Key_Colon)
-            .define_value("Key_Semicolon", Qt::Key::Key_Semicolon)
-            .define_value("Key_Less", Qt::Key::Key_Less)
-            .define_value("Key_Equal", Qt::Key::Key_Equal)
-            .define_value("Key_Greater", Qt::Key::Key_Greater)
-            .define_value("Key_Question", Qt::Key::Key_Question)
-            .define_value("Key_At", Qt::Key::Key_At)
-            .define_value("Key_A", Qt::Key::Key_A)
-            .define_value("Key_B", Qt::Key::Key_B)
-            .define_value("Key_C", Qt::Key::Key_C)
-            .define_value("Key_D", Qt::Key::Key_D)
-            .define_value("Key_E", Qt::Key::Key_E)
-            .define_value("Key_F", Qt::Key::Key_F)
-            .define_value("Key_G", Qt::Key::Key_G)
-            .define_value("Key_H", Qt::Key::Key_H)
-            .define_value("Key_I", Qt::Key::Key_I)
-            .define_value("Key_J", Qt::Key::Key_J)
-            .define_value("Key_K", Qt::Key::Key_K)
-            .define_value("Key_L", Qt::Key::Key_L)
-            .define_value("Key_M", Qt::Key::Key_M)
-            .define_value("Key_N", Qt::Key::Key_N)
-            .define_value("Key_O", Qt::Key::Key_O)
-            .define_value("Key_P", Qt::Key::Key_P)
-            .define_value("Key_Q", Qt::Key::Key_Q)
-            .define_value("Key_R", Qt::Key::Key_R)
-            .define_value("Key_S", Qt::Key::Key_S)
-            .define_value("Key_T", Qt::Key::Key_T)
-            .define_value("Key_U", Qt::Key::Key_U)
-            .define_value("Key_V", Qt::Key::Key_V)
-            .define_value("Key_W", Qt::Key::Key_W)
-            .define_value("Key_X", Qt::Key::Key_X)
-            .define_value("Key_Y", Qt::Key::Key_Y)
-            .define_value("Key_Z", Qt::Key::Key_Z)
-            .define_value("Key_BracketLeft", Qt::Key::Key_BracketLeft)
-            .define_value("Key_Backslash", Qt::Key::Key_Backslash)
-            .define_value("Key_BracketRight", Qt::Key::Key_BracketRight)
-            .define_value("Key_AsciiCircum", Qt::Key::Key_AsciiCircum)
-            .define_value("Key_Underscore", Qt::Key::Key_Underscore)
-            .define_value("Key_QuoteLeft", Qt::Key::Key_QuoteLeft)
-            .define_value("Key_BraceLeft", Qt::Key::Key_BraceLeft)
-            .define_value("Key_Bar", Qt::Key::Key_Bar)
-            .define_value("Key_BraceRight", Qt::Key::Key_BraceRight)
-            .define_value("Key_AsciiTilde", Qt::Key::Key_AsciiTilde)
-            .define_value("Key_nobreakspace", Qt::Key::Key_nobreakspace)
-            .define_value("Key_exclamdown", Qt::Key::Key_exclamdown)
-            .define_value("Key_cent", Qt::Key::Key_cent)
-            .define_value("Key_sterling", Qt::Key::Key_sterling)
-            .define_value("Key_currency", Qt::Key::Key_currency)
-            .define_value("Key_yen", Qt::Key::Key_yen)
-            .define_value("Key_brokenbar", Qt::Key::Key_brokenbar)
-            .define_value("Key_section", Qt::Key::Key_section)
-            .define_value("Key_diaeresis", Qt::Key::Key_diaeresis)
-            .define_value("Key_copyright", Qt::Key::Key_copyright)
-            .define_value("Key_ordfeminine", Qt::Key::Key_ordfeminine)
-            .define_value("Key_guillemotleft", Qt::Key::Key_guillemotleft)
-            .define_value("Key_notsign", Qt::Key::Key_notsign)
-            .define_value("Key_hyphen", Qt::Key::Key_hyphen)
-            .define_value("Key_registered", Qt::Key::Key_registered)
-            .define_value("Key_macron", Qt::Key::Key_macron)
-            .define_value("Key_degree", Qt::Key::Key_degree)
-            .define_value("Key_plusminus", Qt::Key::Key_plusminus)
-            .define_value("Key_twosuperior", Qt::Key::Key_twosuperior)
-            .define_value("Key_threesuperior", Qt::Key::Key_threesuperior)
-            .define_value("Key_acute", Qt::Key::Key_acute)
-            .define_value("Key_micro", Qt::Key::Key_micro)
-            .define_value("Key_paragraph", Qt::Key::Key_paragraph)
-            .define_value("Key_periodcentered", Qt::Key::Key_periodcentered)
-            .define_value("Key_cedilla", Qt::Key::Key_cedilla)
-            .define_value("Key_onesuperior", Qt::Key::Key_onesuperior)
-            .define_value("Key_masculine", Qt::Key::Key_masculine)
-            .define_value("Key_guillemotright", Qt::Key::Key_guillemotright)
-            .define_value("Key_onequarter", Qt::Key::Key_onequarter)
-            .define_value("Key_onehalf", Qt::Key::Key_onehalf)
-            .define_value("Key_threequarters", Qt::Key::Key_threequarters)
-            .define_value("Key_questiondown", Qt::Key::Key_questiondown)
-            .define_value("Key_Agrave", Qt::Key::Key_Agrave)
-            .define_value("Key_Aacute", Qt::Key::Key_Aacute)
-            .define_value("Key_Acircumflex", Qt::Key::Key_Acircumflex)
-            .define_value("Key_Atilde", Qt::Key::Key_Atilde)
-            .define_value("Key_Adiaeresis", Qt::Key::Key_Adiaeresis)
-            .define_value("Key_Aring", Qt::Key::Key_Aring)
-            .define_value("Key_AE", Qt::Key::Key_AE)
-            .define_value("Key_Ccedilla", Qt::Key::Key_Ccedilla)
-            .define_value("Key_Egrave", Qt::Key::Key_Egrave)
-            .define_value("Key_Eacute", Qt::Key::Key_Eacute)
-            .define_value("Key_Ecircumflex", Qt::Key::Key_Ecircumflex)
-            .define_value("Key_Ediaeresis", Qt::Key::Key_Ediaeresis)
-            .define_value("Key_Igrave", Qt::Key::Key_Igrave)
-            .define_value("Key_Iacute", Qt::Key::Key_Iacute)
-            .define_value("Key_Icircumflex", Qt::Key::Key_Icircumflex)
-            .define_value("Key_Idiaeresis", Qt::Key::Key_Idiaeresis)
-            .define_value("Key_ETH", Qt::Key::Key_ETH)
-            .define_value("Key_Ntilde", Qt::Key::Key_Ntilde)
-            .define_value("Key_Ograve", Qt::Key::Key_Ograve)
-            .define_value("Key_Oacute", Qt::Key::Key_Oacute)
-            .define_value("Key_Ocircumflex", Qt::Key::Key_Ocircumflex)
-            .define_value("Key_Otilde", Qt::Key::Key_Otilde)
-            .define_value("Key_Odiaeresis", Qt::Key::Key_Odiaeresis)
-            .define_value("Key_multiply", Qt::Key::Key_multiply)
-            .define_value("Key_Ooblique", Qt::Key::Key_Ooblique)
-            .define_value("Key_Ugrave", Qt::Key::Key_Ugrave)
-            .define_value("Key_Uacute", Qt::Key::Key_Uacute)
-            .define_value("Key_Ucircumflex", Qt::Key::Key_Ucircumflex)
-            .define_value("Key_Udiaeresis", Qt::Key::Key_Udiaeresis)
-            .define_value("Key_Yacute", Qt::Key::Key_Yacute)
-            .define_value("Key_THORN", Qt::Key::Key_THORN)
-            .define_value("Key_ssharp", Qt::Key::Key_ssharp)
-            .define_value("Key_division", Qt::Key::Key_division)
-            .define_value("Key_ydiaeresis", Qt::Key::Key_ydiaeresis)
-            .define_value("Key_Escape", Qt::Key::Key_Escape)
-            .define_value("Key_Tab", Qt::Key::Key_Tab)
-            .define_value("Key_Backtab", Qt::Key::Key_Backtab)
-            .define_value("Key_Backspace", Qt::Key::Key_Backspace)
-            .define_value("Key_Return", Qt::Key::Key_Return)
-            .define_value("Key_Enter", Qt::Key::Key_Enter)
-            .define_value("Key_Insert", Qt::Key::Key_Insert)
-            .define_value("Key_Delete", Qt::Key::Key_Delete)
-            .define_value("Key_Pause", Qt::Key::Key_Pause)
-            .define_value("Key_Print", Qt::Key::Key_Print)
-            .define_value("Key_SysReq", Qt::Key::Key_SysReq)
-            .define_value("Key_Clear", Qt::Key::Key_Clear)
-            .define_value("Key_Home", Qt::Key::Key_Home)
-            .define_value("Key_End", Qt::Key::Key_End)
-            .define_value("Key_Left", Qt::Key::Key_Left)
-            .define_value("Key_Up", Qt::Key::Key_Up)
-            .define_value("Key_Right", Qt::Key::Key_Right)
-            .define_value("Key_Down", Qt::Key::Key_Down)
-            .define_value("Key_PageUp", Qt::Key::Key_PageUp)
-            .define_value("Key_PageDown", Qt::Key::Key_PageDown)
-            .define_value("Key_Shift", Qt::Key::Key_Shift)
-            .define_value("Key_Control", Qt::Key::Key_Control)
-            .define_value("Key_Meta", Qt::Key::Key_Meta)
-            .define_value("Key_Alt", Qt::Key::Key_Alt)
-            .define_value("Key_CapsLock", Qt::Key::Key_CapsLock)
-            .define_value("Key_NumLock", Qt::Key::Key_NumLock)
-            .define_value("Key_ScrollLock", Qt::Key::Key_ScrollLock)
-            .define_value("Key_F1", Qt::Key::Key_F1)
-            .define_value("Key_F2", Qt::Key::Key_F2)
-            .define_value("Key_F3", Qt::Key::Key_F3)
-            .define_value("Key_F4", Qt::Key::Key_F4)
-            .define_value("Key_F5", Qt::Key::Key_F5)
-            .define_value("Key_F6", Qt::Key::Key_F6)
-            .define_value("Key_F7", Qt::Key::Key_F7)
-            .define_value("Key_F8", Qt::Key::Key_F8)
-            .define_value("Key_F9", Qt::Key::Key_F9)
-            .define_value("Key_F10", Qt::Key::Key_F10)
-            .define_value("Key_F11", Qt::Key::Key_F11)
-            .define_value("Key_F12", Qt::Key::Key_F12)
-            .define_value("Key_F13", Qt::Key::Key_F13)
-            .define_value("Key_F14", Qt::Key::Key_F14)
-            .define_value("Key_F15", Qt::Key::Key_F15)
-            .define_value("Key_F16", Qt::Key::Key_F16)
-            .define_value("Key_F17", Qt::Key::Key_F17)
-            .define_value("Key_F18", Qt::Key::Key_F18)
-            .define_value("Key_F19", Qt::Key::Key_F19)
-            .define_value("Key_F20", Qt::Key::Key_F20)
-            .define_value("Key_F21", Qt::Key::Key_F21)
-            .define_value("Key_F22", Qt::Key::Key_F22)
-            .define_value("Key_F23", Qt::Key::Key_F23)
-            .define_value("Key_F24", Qt::Key::Key_F24)
-            .define_value("Key_F25", Qt::Key::Key_F25)
-            .define_value("Key_F26", Qt::Key::Key_F26)
-            .define_value("Key_F27", Qt::Key::Key_F27)
-            .define_value("Key_F28", Qt::Key::Key_F28)
-            .define_value("Key_F29", Qt::Key::Key_F29)
-            .define_value("Key_F30", Qt::Key::Key_F30)
-            .define_value("Key_F31", Qt::Key::Key_F31)
-            .define_value("Key_F32", Qt::Key::Key_F32)
-            .define_value("Key_F33", Qt::Key::Key_F33)
-            .define_value("Key_F34", Qt::Key::Key_F34)
-            .define_value("Key_F35", Qt::Key::Key_F35)
-            .define_value("Key_Super_L", Qt::Key::Key_Super_L)
-            .define_value("Key_Super_R", Qt::Key::Key_Super_R)
-            .define_value("Key_Menu", Qt::Key::Key_Menu)
-            .define_value("Key_Hyper_L", Qt::Key::Key_Hyper_L)
-            .define_value("Key_Hyper_R", Qt::Key::Key_Hyper_R)
-            .define_value("Key_Help", Qt::Key::Key_Help)
-            .define_value("Key_Direction_L", Qt::Key::Key_Direction_L)
-            .define_value("Key_Direction_R", Qt::Key::Key_Direction_R)
-            .define_value("Key_AltGr", Qt::Key::Key_AltGr)
-            .define_value("Key_Multi_key", Qt::Key::Key_Multi_key)
-            .define_value("Key_Codeinput", Qt::Key::Key_Codeinput)
-            .define_value("Key_SingleCandidate", Qt::Key::Key_SingleCandidate)
-            .define_value("Key_MultipleCandidate", Qt::Key::Key_MultipleCandidate)
-            .define_value("Key_PreviousCandidate", Qt::Key::Key_PreviousCandidate)
-            .define_value("Key_Mode_switch", Qt::Key::Key_Mode_switch)
-            .define_value("Key_Kanji", Qt::Key::Key_Kanji)
-            .define_value("Key_Muhenkan", Qt::Key::Key_Muhenkan)
-            .define_value("Key_Henkan", Qt::Key::Key_Henkan)
-            .define_value("Key_Romaji", Qt::Key::Key_Romaji)
-            .define_value("Key_Hiragana", Qt::Key::Key_Hiragana)
-            .define_value("Key_Katakana", Qt::Key::Key_Katakana)
-            .define_value("Key_Hiragana_Katakana", Qt::Key::Key_Hiragana_Katakana)
-            .define_value("Key_Zenkaku", Qt::Key::Key_Zenkaku)
-            .define_value("Key_Hankaku", Qt::Key::Key_Hankaku)
-            .define_value("Key_Zenkaku_Hankaku", Qt::Key::Key_Zenkaku_Hankaku)
-            .define_value("Key_Touroku", Qt::Key::Key_Touroku)
-            .define_value("Key_Massyo", Qt::Key::Key_Massyo)
-            .define_value("Key_Kana_Lock", Qt::Key::Key_Kana_Lock)
-            .define_value("Key_Kana_Shift", Qt::Key::Key_Kana_Shift)
-            .define_value("Key_Eisu_Shift", Qt::Key::Key_Eisu_Shift)
-            .define_value("Key_Eisu_toggle", Qt::Key::Key_Eisu_toggle)
-            .define_value("Key_Hangul", Qt::Key::Key_Hangul)
-            .define_value("Key_Hangul_Start", Qt::Key::Key_Hangul_Start)
-            .define_value("Key_Hangul_End", Qt::Key::Key_Hangul_End)
-            .define_value("Key_Hangul_Hanja", Qt::Key::Key_Hangul_Hanja)
-            .define_value("Key_Hangul_Jamo", Qt::Key::Key_Hangul_Jamo)
-            .define_value("Key_Hangul_Romaja", Qt::Key::Key_Hangul_Romaja)
-            .define_value("Key_Hangul_Jeonja", Qt::Key::Key_Hangul_Jeonja)
-            .define_value("Key_Hangul_Banja", Qt::Key::Key_Hangul_Banja)
-            .define_value("Key_Hangul_PreHanja", Qt::Key::Key_Hangul_PreHanja)
-            .define_value("Key_Hangul_PostHanja", Qt::Key::Key_Hangul_PostHanja)
-            .define_value("Key_Hangul_Special", Qt::Key::Key_Hangul_Special)
-            .define_value("Key_Dead_Grave", Qt::Key::Key_Dead_Grave)
-            .define_value("Key_Dead_Acute", Qt::Key::Key_Dead_Acute)
-            .define_value("Key_Dead_Circumflex", Qt::Key::Key_Dead_Circumflex)
-            .define_value("Key_Dead_Tilde", Qt::Key::Key_Dead_Tilde)
-            .define_value("Key_Dead_Macron", Qt::Key::Key_Dead_Macron)
-            .define_value("Key_Dead_Breve", Qt::Key::Key_Dead_Breve)
-            .define_value("Key_Dead_Abovedot", Qt::Key::Key_Dead_Abovedot)
-            .define_value("Key_Dead_Diaeresis", Qt::Key::Key_Dead_Diaeresis)
-            .define_value("Key_Dead_Abovering", Qt::Key::Key_Dead_Abovering)
-            .define_value("Key_Dead_Doubleacute", Qt::Key::Key_Dead_Doubleacute)
-            .define_value("Key_Dead_Caron", Qt::Key::Key_Dead_Caron)
-            .define_value("Key_Dead_Cedilla", Qt::Key::Key_Dead_Cedilla)
-            .define_value("Key_Dead_Ogonek", Qt::Key::Key_Dead_Ogonek)
-            .define_value("Key_Dead_Iota", Qt::Key::Key_Dead_Iota)
-            .define_value("Key_Dead_Voiced_Sound", Qt::Key::Key_Dead_Voiced_Sound)
-            .define_value("Key_Dead_Semivoiced_Sound", Qt::Key::Key_Dead_Semivoiced_Sound)
-            .define_value("Key_Dead_Belowdot", Qt::Key::Key_Dead_Belowdot)
-            .define_value("Key_Dead_Hook", Qt::Key::Key_Dead_Hook)
-            .define_value("Key_Dead_Horn", Qt::Key::Key_Dead_Horn)
-            .define_value("Key_Dead_Stroke", Qt::Key::Key_Dead_Stroke)
-            .define_value("Key_Dead_Abovecomma", Qt::Key::Key_Dead_Abovecomma)
-            .define_value("Key_Dead_Abovereversedcomma", Qt::Key::Key_Dead_Abovereversedcomma)
-            .define_value("Key_Dead_Doublegrave", Qt::Key::Key_Dead_Doublegrave)
-            .define_value("Key_Dead_Belowring", Qt::Key::Key_Dead_Belowring)
-            .define_value("Key_Dead_Belowmacron", Qt::Key::Key_Dead_Belowmacron)
-            .define_value("Key_Dead_Belowcircumflex", Qt::Key::Key_Dead_Belowcircumflex)
-            .define_value("Key_Dead_Belowtilde", Qt::Key::Key_Dead_Belowtilde)
-            .define_value("Key_Dead_Belowbreve", Qt::Key::Key_Dead_Belowbreve)
-            .define_value("Key_Dead_Belowdiaeresis", Qt::Key::Key_Dead_Belowdiaeresis)
-            .define_value("Key_Dead_Invertedbreve", Qt::Key::Key_Dead_Invertedbreve)
-            .define_value("Key_Dead_Belowcomma", Qt::Key::Key_Dead_Belowcomma)
-            .define_value("Key_Dead_Currency", Qt::Key::Key_Dead_Currency)
-            .define_value("Key_Dead_a", Qt::Key::Key_Dead_a)
-            .define_value("Key_Dead_A", Qt::Key::Key_Dead_A)
-            .define_value("Key_Dead_e", Qt::Key::Key_Dead_e)
-            .define_value("Key_Dead_E", Qt::Key::Key_Dead_E)
-            .define_value("Key_Dead_i", Qt::Key::Key_Dead_i)
-            .define_value("Key_Dead_I", Qt::Key::Key_Dead_I)
-            .define_value("Key_Dead_o", Qt::Key::Key_Dead_o)
-            .define_value("Key_Dead_O", Qt::Key::Key_Dead_O)
-            .define_value("Key_Dead_u", Qt::Key::Key_Dead_u)
-            .define_value("Key_Dead_U", Qt::Key::Key_Dead_U)
-            .define_value("Key_Dead_Small_Schwa", Qt::Key::Key_Dead_Small_Schwa)
-            .define_value("Key_Dead_Capital_Schwa", Qt::Key::Key_Dead_Capital_Schwa)
-            .define_value("Key_Dead_Greek", Qt::Key::Key_Dead_Greek)
-            .define_value("Key_Dead_Lowline", Qt::Key::Key_Dead_Lowline)
-            .define_value("Key_Dead_Aboveverticalline", Qt::Key::Key_Dead_Aboveverticalline)
-            .define_value("Key_Dead_Belowverticalline", Qt::Key::Key_Dead_Belowverticalline)
-            .define_value("Key_Dead_Longsolidusoverlay", Qt::Key::Key_Dead_Longsolidusoverlay)
-            .define_value("Key_Back", Qt::Key::Key_Back)
-            .define_value("Key_Forward", Qt::Key::Key_Forward)
-            .define_value("Key_Stop", Qt::Key::Key_Stop)
-            .define_value("Key_Refresh", Qt::Key::Key_Refresh)
-            .define_value("Key_VolumeDown", Qt::Key::Key_VolumeDown)
-            .define_value("Key_VolumeMute", Qt::Key::Key_VolumeMute)
-            .define_value("Key_VolumeUp", Qt::Key::Key_VolumeUp)
-            .define_value("Key_BassBoost", Qt::Key::Key_BassBoost)
-            .define_value("Key_BassUp", Qt::Key::Key_BassUp)
-            .define_value("Key_BassDown", Qt::Key::Key_BassDown)
-            .define_value("Key_TrebleUp", Qt::Key::Key_TrebleUp)
-            .define_value("Key_TrebleDown", Qt::Key::Key_TrebleDown)
-            .define_value("Key_MediaPlay", Qt::Key::Key_MediaPlay)
-            .define_value("Key_MediaStop", Qt::Key::Key_MediaStop)
-            .define_value("Key_MediaPrevious", Qt::Key::Key_MediaPrevious)
-            .define_value("Key_MediaNext", Qt::Key::Key_MediaNext)
-            .define_value("Key_MediaRecord", Qt::Key::Key_MediaRecord)
-            .define_value("Key_MediaPause", Qt::Key::Key_MediaPause)
-            .define_value("Key_MediaTogglePlayPause", Qt::Key::Key_MediaTogglePlayPause)
-            .define_value("Key_HomePage", Qt::Key::Key_HomePage)
-            .define_value("Key_Favorites", Qt::Key::Key_Favorites)
-            .define_value("Key_Search", Qt::Key::Key_Search)
-            .define_value("Key_Standby", Qt::Key::Key_Standby)
-            .define_value("Key_OpenUrl", Qt::Key::Key_OpenUrl)
-            .define_value("Key_LaunchMail", Qt::Key::Key_LaunchMail)
-            .define_value("Key_LaunchMedia", Qt::Key::Key_LaunchMedia)
-            .define_value("Key_Launch0", Qt::Key::Key_Launch0)
-            .define_value("Key_Launch1", Qt::Key::Key_Launch1)
-            .define_value("Key_Launch2", Qt::Key::Key_Launch2)
-            .define_value("Key_Launch3", Qt::Key::Key_Launch3)
-            .define_value("Key_Launch4", Qt::Key::Key_Launch4)
-            .define_value("Key_Launch5", Qt::Key::Key_Launch5)
-            .define_value("Key_Launch6", Qt::Key::Key_Launch6)
-            .define_value("Key_Launch7", Qt::Key::Key_Launch7)
-            .define_value("Key_Launch8", Qt::Key::Key_Launch8)
-            .define_value("Key_Launch9", Qt::Key::Key_Launch9)
-            .define_value("Key_LaunchA", Qt::Key::Key_LaunchA)
-            .define_value("Key_LaunchB", Qt::Key::Key_LaunchB)
-            .define_value("Key_LaunchC", Qt::Key::Key_LaunchC)
-            .define_value("Key_LaunchD", Qt::Key::Key_LaunchD)
-            .define_value("Key_LaunchE", Qt::Key::Key_LaunchE)
-            .define_value("Key_LaunchF", Qt::Key::Key_LaunchF)
-            .define_value("Key_MonBrightnessUp", Qt::Key::Key_MonBrightnessUp)
-            .define_value("Key_MonBrightnessDown", Qt::Key::Key_MonBrightnessDown)
-            .define_value("Key_KeyboardLightOnOff", Qt::Key::Key_KeyboardLightOnOff)
-            .define_value("Key_KeyboardBrightnessUp", Qt::Key::Key_KeyboardBrightnessUp)
-            .define_value("Key_KeyboardBrightnessDown", Qt::Key::Key_KeyboardBrightnessDown)
-            .define_value("Key_PowerOff", Qt::Key::Key_PowerOff)
-            .define_value("Key_WakeUp", Qt::Key::Key_WakeUp)
-            .define_value("Key_Eject", Qt::Key::Key_Eject)
-            .define_value("Key_ScreenSaver", Qt::Key::Key_ScreenSaver)
-            .define_value("Key_WWW", Qt::Key::Key_WWW)
-            .define_value("Key_Memo", Qt::Key::Key_Memo)
-            .define_value("Key_LightBulb", Qt::Key::Key_LightBulb)
-            .define_value("Key_Shop", Qt::Key::Key_Shop)
-            .define_value("Key_History", Qt::Key::Key_History)
-            .define_value("Key_AddFavorite", Qt::Key::Key_AddFavorite)
-            .define_value("Key_HotLinks", Qt::Key::Key_HotLinks)
-            .define_value("Key_BrightnessAdjust", Qt::Key::Key_BrightnessAdjust)
-            .define_value("Key_Finance", Qt::Key::Key_Finance)
-            .define_value("Key_Community", Qt::Key::Key_Community)
-            .define_value("Key_AudioRewind", Qt::Key::Key_AudioRewind)
-            .define_value("Key_BackForward", Qt::Key::Key_BackForward)
-            .define_value("Key_ApplicationLeft", Qt::Key::Key_ApplicationLeft)
-            .define_value("Key_ApplicationRight", Qt::Key::Key_ApplicationRight)
-            .define_value("Key_Book", Qt::Key::Key_Book)
-            .define_value("Key_CD", Qt::Key::Key_CD)
-            .define_value("Key_Calculator", Qt::Key::Key_Calculator)
-            .define_value("Key_ToDoList", Qt::Key::Key_ToDoList)
-            .define_value("Key_ClearGrab", Qt::Key::Key_ClearGrab)
-            .define_value("Key_Close", Qt::Key::Key_Close)
-            .define_value("Key_Copy", Qt::Key::Key_Copy)
-            .define_value("Key_Cut", Qt::Key::Key_Cut)
-            .define_value("Key_Display", Qt::Key::Key_Display)
-            .define_value("Key_DOS", Qt::Key::Key_DOS)
-            .define_value("Key_Documents", Qt::Key::Key_Documents)
-            .define_value("Key_Excel", Qt::Key::Key_Excel)
-            .define_value("Key_Explorer", Qt::Key::Key_Explorer)
-            .define_value("Key_Game", Qt::Key::Key_Game)
-            .define_value("Key_Go", Qt::Key::Key_Go)
-            .define_value("Key_iTouch", Qt::Key::Key_iTouch)
-            .define_value("Key_LogOff", Qt::Key::Key_LogOff)
-            .define_value("Key_Market", Qt::Key::Key_Market)
-            .define_value("Key_Meeting", Qt::Key::Key_Meeting)
-            .define_value("Key_MenuKB", Qt::Key::Key_MenuKB)
-            .define_value("Key_MenuPB", Qt::Key::Key_MenuPB)
-            .define_value("Key_MySites", Qt::Key::Key_MySites)
-            .define_value("Key_News", Qt::Key::Key_News)
-            .define_value("Key_OfficeHome", Qt::Key::Key_OfficeHome)
-            .define_value("Key_Option", Qt::Key::Key_Option)
-            .define_value("Key_Paste", Qt::Key::Key_Paste)
-            .define_value("Key_Phone", Qt::Key::Key_Phone)
-            .define_value("Key_Calendar", Qt::Key::Key_Calendar)
-            .define_value("Key_Reply", Qt::Key::Key_Reply)
-            .define_value("Key_Reload", Qt::Key::Key_Reload)
-            .define_value("Key_RotateWindows", Qt::Key::Key_RotateWindows)
-            .define_value("Key_RotationPB", Qt::Key::Key_RotationPB)
-            .define_value("Key_RotationKB", Qt::Key::Key_RotationKB)
-            .define_value("Key_Save", Qt::Key::Key_Save)
-            .define_value("Key_Send", Qt::Key::Key_Send)
-            .define_value("Key_Spell", Qt::Key::Key_Spell)
-            .define_value("Key_SplitScreen", Qt::Key::Key_SplitScreen)
-            .define_value("Key_Support", Qt::Key::Key_Support)
-            .define_value("Key_TaskPane", Qt::Key::Key_TaskPane)
-            .define_value("Key_Terminal", Qt::Key::Key_Terminal)
-            .define_value("Key_Tools", Qt::Key::Key_Tools)
-            .define_value("Key_Travel", Qt::Key::Key_Travel)
-            .define_value("Key_Video", Qt::Key::Key_Video)
-            .define_value("Key_Word", Qt::Key::Key_Word)
-            .define_value("Key_Xfer", Qt::Key::Key_Xfer)
-            .define_value("Key_ZoomIn", Qt::Key::Key_ZoomIn)
-            .define_value("Key_ZoomOut", Qt::Key::Key_ZoomOut)
-            .define_value("Key_Away", Qt::Key::Key_Away)
-            .define_value("Key_Messenger", Qt::Key::Key_Messenger)
-            .define_value("Key_WebCam", Qt::Key::Key_WebCam)
-            .define_value("Key_MailForward", Qt::Key::Key_MailForward)
-            .define_value("Key_Pictures", Qt::Key::Key_Pictures)
-            .define_value("Key_Music", Qt::Key::Key_Music)
-            .define_value("Key_Battery", Qt::Key::Key_Battery)
-            .define_value("Key_Bluetooth", Qt::Key::Key_Bluetooth)
-            .define_value("Key_WLAN", Qt::Key::Key_WLAN)
-            .define_value("Key_UWB", Qt::Key::Key_UWB)
-            .define_value("Key_AudioForward", Qt::Key::Key_AudioForward)
-            .define_value("Key_AudioRepeat", Qt::Key::Key_AudioRepeat)
-            .define_value("Key_AudioRandomPlay", Qt::Key::Key_AudioRandomPlay)
-            .define_value("Key_Subtitle", Qt::Key::Key_Subtitle)
-            .define_value("Key_AudioCycleTrack", Qt::Key::Key_AudioCycleTrack)
-            .define_value("Key_Time", Qt::Key::Key_Time)
-            .define_value("Key_Hibernate", Qt::Key::Key_Hibernate)
-            .define_value("Key_View", Qt::Key::Key_View)
-            .define_value("Key_TopMenu", Qt::Key::Key_TopMenu)
-            .define_value("Key_PowerDown", Qt::Key::Key_PowerDown)
-            .define_value("Key_Suspend", Qt::Key::Key_Suspend)
-            .define_value("Key_ContrastAdjust", Qt::Key::Key_ContrastAdjust)
-            .define_value("Key_LaunchG", Qt::Key::Key_LaunchG)
-            .define_value("Key_LaunchH", Qt::Key::Key_LaunchH)
-            .define_value("Key_TouchpadToggle", Qt::Key::Key_TouchpadToggle)
-            .define_value("Key_TouchpadOn", Qt::Key::Key_TouchpadOn)
-            .define_value("Key_TouchpadOff", Qt::Key::Key_TouchpadOff)
-            .define_value("Key_MicMute", Qt::Key::Key_MicMute)
-            .define_value("Key_Red", Qt::Key::Key_Red)
-            .define_value("Key_Green", Qt::Key::Key_Green)
-            .define_value("Key_Yellow", Qt::Key::Key_Yellow)
-            .define_value("Key_Blue", Qt::Key::Key_Blue)
-            .define_value("Key_ChannelUp", Qt::Key::Key_ChannelUp)
-            .define_value("Key_ChannelDown", Qt::Key::Key_ChannelDown)
-            .define_value("Key_Guide", Qt::Key::Key_Guide)
-            .define_value("Key_Info", Qt::Key::Key_Info)
-            .define_value("Key_Settings", Qt::Key::Key_Settings)
-            .define_value("Key_MicVolumeUp", Qt::Key::Key_MicVolumeUp)
-            .define_value("Key_MicVolumeDown", Qt::Key::Key_MicVolumeDown)
-            .define_value("Key_New", Qt::Key::Key_New)
-            .define_value("Key_Open", Qt::Key::Key_Open)
-            .define_value("Key_Find", Qt::Key::Key_Find)
-            .define_value("Key_Undo", Qt::Key::Key_Undo)
-            .define_value("Key_Redo", Qt::Key::Key_Redo)
-            .define_value("Key_MediaLast", Qt::Key::Key_MediaLast)
-            .define_value("Key_Select", Qt::Key::Key_Select)
-            .define_value("Key_Yes", Qt::Key::Key_Yes)
-            .define_value("Key_No", Qt::Key::Key_No)
-            .define_value("Key_Cancel", Qt::Key::Key_Cancel)
-            .define_value("Key_Printer", Qt::Key::Key_Printer)
-            .define_value("Key_Execute", Qt::Key::Key_Execute)
-            .define_value("Key_Sleep", Qt::Key::Key_Sleep)
-            .define_value("Key_Play", Qt::Key::Key_Play)
-            .define_value("Key_Zoom", Qt::Key::Key_Zoom)
-            .define_value("Key_Exit", Qt::Key::Key_Exit)
-            .define_value("Key_Context1", Qt::Key::Key_Context1)
-            .define_value("Key_Context2", Qt::Key::Key_Context2)
-            .define_value("Key_Context3", Qt::Key::Key_Context3)
-            .define_value("Key_Context4", Qt::Key::Key_Context4)
-            .define_value("Key_Call", Qt::Key::Key_Call)
-            .define_value("Key_Hangup", Qt::Key::Key_Hangup)
-            .define_value("Key_Flip", Qt::Key::Key_Flip)
-            .define_value("Key_ToggleCallHangup", Qt::Key::Key_ToggleCallHangup)
-            .define_value("Key_VoiceDial", Qt::Key::Key_VoiceDial)
-            .define_value("Key_LastNumberRedial", Qt::Key::Key_LastNumberRedial)
-            .define_value("Key_Camera", Qt::Key::Key_Camera)
-            .define_value("Key_CameraFocus", Qt::Key::Key_CameraFocus)
-            .define_value("Key_unknown", Qt::Key::Key_unknown);
+        define_qenum_under<Qt::Key>(rb_mQt, "Key");
+        define_qenum_value_under(rb_cQtKey, "Key_Space", Qt::Key::Key_Space);
+        define_qenum_value_under(rb_cQtKey, "Key_Any", Qt::Key::Key_Any);
+        define_qenum_value_under(rb_cQtKey, "Key_Exclam", Qt::Key::Key_Exclam);
+        define_qenum_value_under(rb_cQtKey, "Key_QuoteDbl", Qt::Key::Key_QuoteDbl);
+        define_qenum_value_under(rb_cQtKey, "Key_NumberSign", Qt::Key::Key_NumberSign);
+        define_qenum_value_under(rb_cQtKey, "Key_Dollar", Qt::Key::Key_Dollar);
+        define_qenum_value_under(rb_cQtKey, "Key_Percent", Qt::Key::Key_Percent);
+        define_qenum_value_under(rb_cQtKey, "Key_Ampersand", Qt::Key::Key_Ampersand);
+        define_qenum_value_under(rb_cQtKey, "Key_Apostrophe", Qt::Key::Key_Apostrophe);
+        define_qenum_value_under(rb_cQtKey, "Key_ParenLeft", Qt::Key::Key_ParenLeft);
+        define_qenum_value_under(rb_cQtKey, "Key_ParenRight", Qt::Key::Key_ParenRight);
+        define_qenum_value_under(rb_cQtKey, "Key_Asterisk", Qt::Key::Key_Asterisk);
+        define_qenum_value_under(rb_cQtKey, "Key_Plus", Qt::Key::Key_Plus);
+        define_qenum_value_under(rb_cQtKey, "Key_Comma", Qt::Key::Key_Comma);
+        define_qenum_value_under(rb_cQtKey, "Key_Minus", Qt::Key::Key_Minus);
+        define_qenum_value_under(rb_cQtKey, "Key_Period", Qt::Key::Key_Period);
+        define_qenum_value_under(rb_cQtKey, "Key_Slash", Qt::Key::Key_Slash);
+        define_qenum_value_under(rb_cQtKey, "Key_0", Qt::Key::Key_0);
+        define_qenum_value_under(rb_cQtKey, "Key_1", Qt::Key::Key_1);
+        define_qenum_value_under(rb_cQtKey, "Key_2", Qt::Key::Key_2);
+        define_qenum_value_under(rb_cQtKey, "Key_3", Qt::Key::Key_3);
+        define_qenum_value_under(rb_cQtKey, "Key_4", Qt::Key::Key_4);
+        define_qenum_value_under(rb_cQtKey, "Key_5", Qt::Key::Key_5);
+        define_qenum_value_under(rb_cQtKey, "Key_6", Qt::Key::Key_6);
+        define_qenum_value_under(rb_cQtKey, "Key_7", Qt::Key::Key_7);
+        define_qenum_value_under(rb_cQtKey, "Key_8", Qt::Key::Key_8);
+        define_qenum_value_under(rb_cQtKey, "Key_9", Qt::Key::Key_9);
+        define_qenum_value_under(rb_cQtKey, "Key_Colon", Qt::Key::Key_Colon);
+        define_qenum_value_under(rb_cQtKey, "Key_Semicolon", Qt::Key::Key_Semicolon);
+        define_qenum_value_under(rb_cQtKey, "Key_Less", Qt::Key::Key_Less);
+        define_qenum_value_under(rb_cQtKey, "Key_Equal", Qt::Key::Key_Equal);
+        define_qenum_value_under(rb_cQtKey, "Key_Greater", Qt::Key::Key_Greater);
+        define_qenum_value_under(rb_cQtKey, "Key_Question", Qt::Key::Key_Question);
+        define_qenum_value_under(rb_cQtKey, "Key_At", Qt::Key::Key_At);
+        define_qenum_value_under(rb_cQtKey, "Key_A", Qt::Key::Key_A);
+        define_qenum_value_under(rb_cQtKey, "Key_B", Qt::Key::Key_B);
+        define_qenum_value_under(rb_cQtKey, "Key_C", Qt::Key::Key_C);
+        define_qenum_value_under(rb_cQtKey, "Key_D", Qt::Key::Key_D);
+        define_qenum_value_under(rb_cQtKey, "Key_E", Qt::Key::Key_E);
+        define_qenum_value_under(rb_cQtKey, "Key_F", Qt::Key::Key_F);
+        define_qenum_value_under(rb_cQtKey, "Key_G", Qt::Key::Key_G);
+        define_qenum_value_under(rb_cQtKey, "Key_H", Qt::Key::Key_H);
+        define_qenum_value_under(rb_cQtKey, "Key_I", Qt::Key::Key_I);
+        define_qenum_value_under(rb_cQtKey, "Key_J", Qt::Key::Key_J);
+        define_qenum_value_under(rb_cQtKey, "Key_K", Qt::Key::Key_K);
+        define_qenum_value_under(rb_cQtKey, "Key_L", Qt::Key::Key_L);
+        define_qenum_value_under(rb_cQtKey, "Key_M", Qt::Key::Key_M);
+        define_qenum_value_under(rb_cQtKey, "Key_N", Qt::Key::Key_N);
+        define_qenum_value_under(rb_cQtKey, "Key_O", Qt::Key::Key_O);
+        define_qenum_value_under(rb_cQtKey, "Key_P", Qt::Key::Key_P);
+        define_qenum_value_under(rb_cQtKey, "Key_Q", Qt::Key::Key_Q);
+        define_qenum_value_under(rb_cQtKey, "Key_R", Qt::Key::Key_R);
+        define_qenum_value_under(rb_cQtKey, "Key_S", Qt::Key::Key_S);
+        define_qenum_value_under(rb_cQtKey, "Key_T", Qt::Key::Key_T);
+        define_qenum_value_under(rb_cQtKey, "Key_U", Qt::Key::Key_U);
+        define_qenum_value_under(rb_cQtKey, "Key_V", Qt::Key::Key_V);
+        define_qenum_value_under(rb_cQtKey, "Key_W", Qt::Key::Key_W);
+        define_qenum_value_under(rb_cQtKey, "Key_X", Qt::Key::Key_X);
+        define_qenum_value_under(rb_cQtKey, "Key_Y", Qt::Key::Key_Y);
+        define_qenum_value_under(rb_cQtKey, "Key_Z", Qt::Key::Key_Z);
+        define_qenum_value_under(rb_cQtKey, "Key_BracketLeft", Qt::Key::Key_BracketLeft);
+        define_qenum_value_under(rb_cQtKey, "Key_Backslash", Qt::Key::Key_Backslash);
+        define_qenum_value_under(rb_cQtKey, "Key_BracketRight", Qt::Key::Key_BracketRight);
+        define_qenum_value_under(rb_cQtKey, "Key_AsciiCircum", Qt::Key::Key_AsciiCircum);
+        define_qenum_value_under(rb_cQtKey, "Key_Underscore", Qt::Key::Key_Underscore);
+        define_qenum_value_under(rb_cQtKey, "Key_QuoteLeft", Qt::Key::Key_QuoteLeft);
+        define_qenum_value_under(rb_cQtKey, "Key_BraceLeft", Qt::Key::Key_BraceLeft);
+        define_qenum_value_under(rb_cQtKey, "Key_Bar", Qt::Key::Key_Bar);
+        define_qenum_value_under(rb_cQtKey, "Key_BraceRight", Qt::Key::Key_BraceRight);
+        define_qenum_value_under(rb_cQtKey, "Key_AsciiTilde", Qt::Key::Key_AsciiTilde);
+        define_qenum_value_under(rb_cQtKey, "Key_nobreakspace", Qt::Key::Key_nobreakspace);
+        define_qenum_value_under(rb_cQtKey, "Key_exclamdown", Qt::Key::Key_exclamdown);
+        define_qenum_value_under(rb_cQtKey, "Key_cent", Qt::Key::Key_cent);
+        define_qenum_value_under(rb_cQtKey, "Key_sterling", Qt::Key::Key_sterling);
+        define_qenum_value_under(rb_cQtKey, "Key_currency", Qt::Key::Key_currency);
+        define_qenum_value_under(rb_cQtKey, "Key_yen", Qt::Key::Key_yen);
+        define_qenum_value_under(rb_cQtKey, "Key_brokenbar", Qt::Key::Key_brokenbar);
+        define_qenum_value_under(rb_cQtKey, "Key_section", Qt::Key::Key_section);
+        define_qenum_value_under(rb_cQtKey, "Key_diaeresis", Qt::Key::Key_diaeresis);
+        define_qenum_value_under(rb_cQtKey, "Key_copyright", Qt::Key::Key_copyright);
+        define_qenum_value_under(rb_cQtKey, "Key_ordfeminine", Qt::Key::Key_ordfeminine);
+        define_qenum_value_under(rb_cQtKey, "Key_guillemotleft", Qt::Key::Key_guillemotleft);
+        define_qenum_value_under(rb_cQtKey, "Key_notsign", Qt::Key::Key_notsign);
+        define_qenum_value_under(rb_cQtKey, "Key_hyphen", Qt::Key::Key_hyphen);
+        define_qenum_value_under(rb_cQtKey, "Key_registered", Qt::Key::Key_registered);
+        define_qenum_value_under(rb_cQtKey, "Key_macron", Qt::Key::Key_macron);
+        define_qenum_value_under(rb_cQtKey, "Key_degree", Qt::Key::Key_degree);
+        define_qenum_value_under(rb_cQtKey, "Key_plusminus", Qt::Key::Key_plusminus);
+        define_qenum_value_under(rb_cQtKey, "Key_twosuperior", Qt::Key::Key_twosuperior);
+        define_qenum_value_under(rb_cQtKey, "Key_threesuperior", Qt::Key::Key_threesuperior);
+        define_qenum_value_under(rb_cQtKey, "Key_acute", Qt::Key::Key_acute);
+        define_qenum_value_under(rb_cQtKey, "Key_micro", Qt::Key::Key_micro);
+        define_qenum_value_under(rb_cQtKey, "Key_paragraph", Qt::Key::Key_paragraph);
+        define_qenum_value_under(rb_cQtKey, "Key_periodcentered", Qt::Key::Key_periodcentered);
+        define_qenum_value_under(rb_cQtKey, "Key_cedilla", Qt::Key::Key_cedilla);
+        define_qenum_value_under(rb_cQtKey, "Key_onesuperior", Qt::Key::Key_onesuperior);
+        define_qenum_value_under(rb_cQtKey, "Key_masculine", Qt::Key::Key_masculine);
+        define_qenum_value_under(rb_cQtKey, "Key_guillemotright", Qt::Key::Key_guillemotright);
+        define_qenum_value_under(rb_cQtKey, "Key_onequarter", Qt::Key::Key_onequarter);
+        define_qenum_value_under(rb_cQtKey, "Key_onehalf", Qt::Key::Key_onehalf);
+        define_qenum_value_under(rb_cQtKey, "Key_threequarters", Qt::Key::Key_threequarters);
+        define_qenum_value_under(rb_cQtKey, "Key_questiondown", Qt::Key::Key_questiondown);
+        define_qenum_value_under(rb_cQtKey, "Key_Agrave", Qt::Key::Key_Agrave);
+        define_qenum_value_under(rb_cQtKey, "Key_Aacute", Qt::Key::Key_Aacute);
+        define_qenum_value_under(rb_cQtKey, "Key_Acircumflex", Qt::Key::Key_Acircumflex);
+        define_qenum_value_under(rb_cQtKey, "Key_Atilde", Qt::Key::Key_Atilde);
+        define_qenum_value_under(rb_cQtKey, "Key_Adiaeresis", Qt::Key::Key_Adiaeresis);
+        define_qenum_value_under(rb_cQtKey, "Key_Aring", Qt::Key::Key_Aring);
+        define_qenum_value_under(rb_cQtKey, "Key_AE", Qt::Key::Key_AE);
+        define_qenum_value_under(rb_cQtKey, "Key_Ccedilla", Qt::Key::Key_Ccedilla);
+        define_qenum_value_under(rb_cQtKey, "Key_Egrave", Qt::Key::Key_Egrave);
+        define_qenum_value_under(rb_cQtKey, "Key_Eacute", Qt::Key::Key_Eacute);
+        define_qenum_value_under(rb_cQtKey, "Key_Ecircumflex", Qt::Key::Key_Ecircumflex);
+        define_qenum_value_under(rb_cQtKey, "Key_Ediaeresis", Qt::Key::Key_Ediaeresis);
+        define_qenum_value_under(rb_cQtKey, "Key_Igrave", Qt::Key::Key_Igrave);
+        define_qenum_value_under(rb_cQtKey, "Key_Iacute", Qt::Key::Key_Iacute);
+        define_qenum_value_under(rb_cQtKey, "Key_Icircumflex", Qt::Key::Key_Icircumflex);
+        define_qenum_value_under(rb_cQtKey, "Key_Idiaeresis", Qt::Key::Key_Idiaeresis);
+        define_qenum_value_under(rb_cQtKey, "Key_ETH", Qt::Key::Key_ETH);
+        define_qenum_value_under(rb_cQtKey, "Key_Ntilde", Qt::Key::Key_Ntilde);
+        define_qenum_value_under(rb_cQtKey, "Key_Ograve", Qt::Key::Key_Ograve);
+        define_qenum_value_under(rb_cQtKey, "Key_Oacute", Qt::Key::Key_Oacute);
+        define_qenum_value_under(rb_cQtKey, "Key_Ocircumflex", Qt::Key::Key_Ocircumflex);
+        define_qenum_value_under(rb_cQtKey, "Key_Otilde", Qt::Key::Key_Otilde);
+        define_qenum_value_under(rb_cQtKey, "Key_Odiaeresis", Qt::Key::Key_Odiaeresis);
+        define_qenum_value_under(rb_cQtKey, "Key_multiply", Qt::Key::Key_multiply);
+        define_qenum_value_under(rb_cQtKey, "Key_Ooblique", Qt::Key::Key_Ooblique);
+        define_qenum_value_under(rb_cQtKey, "Key_Ugrave", Qt::Key::Key_Ugrave);
+        define_qenum_value_under(rb_cQtKey, "Key_Uacute", Qt::Key::Key_Uacute);
+        define_qenum_value_under(rb_cQtKey, "Key_Ucircumflex", Qt::Key::Key_Ucircumflex);
+        define_qenum_value_under(rb_cQtKey, "Key_Udiaeresis", Qt::Key::Key_Udiaeresis);
+        define_qenum_value_under(rb_cQtKey, "Key_Yacute", Qt::Key::Key_Yacute);
+        define_qenum_value_under(rb_cQtKey, "Key_THORN", Qt::Key::Key_THORN);
+        define_qenum_value_under(rb_cQtKey, "Key_ssharp", Qt::Key::Key_ssharp);
+        define_qenum_value_under(rb_cQtKey, "Key_division", Qt::Key::Key_division);
+        define_qenum_value_under(rb_cQtKey, "Key_ydiaeresis", Qt::Key::Key_ydiaeresis);
+        define_qenum_value_under(rb_cQtKey, "Key_Escape", Qt::Key::Key_Escape);
+        define_qenum_value_under(rb_cQtKey, "Key_Tab", Qt::Key::Key_Tab);
+        define_qenum_value_under(rb_cQtKey, "Key_Backtab", Qt::Key::Key_Backtab);
+        define_qenum_value_under(rb_cQtKey, "Key_Backspace", Qt::Key::Key_Backspace);
+        define_qenum_value_under(rb_cQtKey, "Key_Return", Qt::Key::Key_Return);
+        define_qenum_value_under(rb_cQtKey, "Key_Enter", Qt::Key::Key_Enter);
+        define_qenum_value_under(rb_cQtKey, "Key_Insert", Qt::Key::Key_Insert);
+        define_qenum_value_under(rb_cQtKey, "Key_Delete", Qt::Key::Key_Delete);
+        define_qenum_value_under(rb_cQtKey, "Key_Pause", Qt::Key::Key_Pause);
+        define_qenum_value_under(rb_cQtKey, "Key_Print", Qt::Key::Key_Print);
+        define_qenum_value_under(rb_cQtKey, "Key_SysReq", Qt::Key::Key_SysReq);
+        define_qenum_value_under(rb_cQtKey, "Key_Clear", Qt::Key::Key_Clear);
+        define_qenum_value_under(rb_cQtKey, "Key_Home", Qt::Key::Key_Home);
+        define_qenum_value_under(rb_cQtKey, "Key_End", Qt::Key::Key_End);
+        define_qenum_value_under(rb_cQtKey, "Key_Left", Qt::Key::Key_Left);
+        define_qenum_value_under(rb_cQtKey, "Key_Up", Qt::Key::Key_Up);
+        define_qenum_value_under(rb_cQtKey, "Key_Right", Qt::Key::Key_Right);
+        define_qenum_value_under(rb_cQtKey, "Key_Down", Qt::Key::Key_Down);
+        define_qenum_value_under(rb_cQtKey, "Key_PageUp", Qt::Key::Key_PageUp);
+        define_qenum_value_under(rb_cQtKey, "Key_PageDown", Qt::Key::Key_PageDown);
+        define_qenum_value_under(rb_cQtKey, "Key_Shift", Qt::Key::Key_Shift);
+        define_qenum_value_under(rb_cQtKey, "Key_Control", Qt::Key::Key_Control);
+        define_qenum_value_under(rb_cQtKey, "Key_Meta", Qt::Key::Key_Meta);
+        define_qenum_value_under(rb_cQtKey, "Key_Alt", Qt::Key::Key_Alt);
+        define_qenum_value_under(rb_cQtKey, "Key_CapsLock", Qt::Key::Key_CapsLock);
+        define_qenum_value_under(rb_cQtKey, "Key_NumLock", Qt::Key::Key_NumLock);
+        define_qenum_value_under(rb_cQtKey, "Key_ScrollLock", Qt::Key::Key_ScrollLock);
+        define_qenum_value_under(rb_cQtKey, "Key_F1", Qt::Key::Key_F1);
+        define_qenum_value_under(rb_cQtKey, "Key_F2", Qt::Key::Key_F2);
+        define_qenum_value_under(rb_cQtKey, "Key_F3", Qt::Key::Key_F3);
+        define_qenum_value_under(rb_cQtKey, "Key_F4", Qt::Key::Key_F4);
+        define_qenum_value_under(rb_cQtKey, "Key_F5", Qt::Key::Key_F5);
+        define_qenum_value_under(rb_cQtKey, "Key_F6", Qt::Key::Key_F6);
+        define_qenum_value_under(rb_cQtKey, "Key_F7", Qt::Key::Key_F7);
+        define_qenum_value_under(rb_cQtKey, "Key_F8", Qt::Key::Key_F8);
+        define_qenum_value_under(rb_cQtKey, "Key_F9", Qt::Key::Key_F9);
+        define_qenum_value_under(rb_cQtKey, "Key_F10", Qt::Key::Key_F10);
+        define_qenum_value_under(rb_cQtKey, "Key_F11", Qt::Key::Key_F11);
+        define_qenum_value_under(rb_cQtKey, "Key_F12", Qt::Key::Key_F12);
+        define_qenum_value_under(rb_cQtKey, "Key_F13", Qt::Key::Key_F13);
+        define_qenum_value_under(rb_cQtKey, "Key_F14", Qt::Key::Key_F14);
+        define_qenum_value_under(rb_cQtKey, "Key_F15", Qt::Key::Key_F15);
+        define_qenum_value_under(rb_cQtKey, "Key_F16", Qt::Key::Key_F16);
+        define_qenum_value_under(rb_cQtKey, "Key_F17", Qt::Key::Key_F17);
+        define_qenum_value_under(rb_cQtKey, "Key_F18", Qt::Key::Key_F18);
+        define_qenum_value_under(rb_cQtKey, "Key_F19", Qt::Key::Key_F19);
+        define_qenum_value_under(rb_cQtKey, "Key_F20", Qt::Key::Key_F20);
+        define_qenum_value_under(rb_cQtKey, "Key_F21", Qt::Key::Key_F21);
+        define_qenum_value_under(rb_cQtKey, "Key_F22", Qt::Key::Key_F22);
+        define_qenum_value_under(rb_cQtKey, "Key_F23", Qt::Key::Key_F23);
+        define_qenum_value_under(rb_cQtKey, "Key_F24", Qt::Key::Key_F24);
+        define_qenum_value_under(rb_cQtKey, "Key_F25", Qt::Key::Key_F25);
+        define_qenum_value_under(rb_cQtKey, "Key_F26", Qt::Key::Key_F26);
+        define_qenum_value_under(rb_cQtKey, "Key_F27", Qt::Key::Key_F27);
+        define_qenum_value_under(rb_cQtKey, "Key_F28", Qt::Key::Key_F28);
+        define_qenum_value_under(rb_cQtKey, "Key_F29", Qt::Key::Key_F29);
+        define_qenum_value_under(rb_cQtKey, "Key_F30", Qt::Key::Key_F30);
+        define_qenum_value_under(rb_cQtKey, "Key_F31", Qt::Key::Key_F31);
+        define_qenum_value_under(rb_cQtKey, "Key_F32", Qt::Key::Key_F32);
+        define_qenum_value_under(rb_cQtKey, "Key_F33", Qt::Key::Key_F33);
+        define_qenum_value_under(rb_cQtKey, "Key_F34", Qt::Key::Key_F34);
+        define_qenum_value_under(rb_cQtKey, "Key_F35", Qt::Key::Key_F35);
+        define_qenum_value_under(rb_cQtKey, "Key_Super_L", Qt::Key::Key_Super_L);
+        define_qenum_value_under(rb_cQtKey, "Key_Super_R", Qt::Key::Key_Super_R);
+        define_qenum_value_under(rb_cQtKey, "Key_Menu", Qt::Key::Key_Menu);
+        define_qenum_value_under(rb_cQtKey, "Key_Hyper_L", Qt::Key::Key_Hyper_L);
+        define_qenum_value_under(rb_cQtKey, "Key_Hyper_R", Qt::Key::Key_Hyper_R);
+        define_qenum_value_under(rb_cQtKey, "Key_Help", Qt::Key::Key_Help);
+        define_qenum_value_under(rb_cQtKey, "Key_Direction_L", Qt::Key::Key_Direction_L);
+        define_qenum_value_under(rb_cQtKey, "Key_Direction_R", Qt::Key::Key_Direction_R);
+        define_qenum_value_under(rb_cQtKey, "Key_AltGr", Qt::Key::Key_AltGr);
+        define_qenum_value_under(rb_cQtKey, "Key_Multi_key", Qt::Key::Key_Multi_key);
+        define_qenum_value_under(rb_cQtKey, "Key_Codeinput", Qt::Key::Key_Codeinput);
+        define_qenum_value_under(rb_cQtKey, "Key_SingleCandidate", Qt::Key::Key_SingleCandidate);
+        define_qenum_value_under(rb_cQtKey, "Key_MultipleCandidate", Qt::Key::Key_MultipleCandidate);
+        define_qenum_value_under(rb_cQtKey, "Key_PreviousCandidate", Qt::Key::Key_PreviousCandidate);
+        define_qenum_value_under(rb_cQtKey, "Key_Mode_switch", Qt::Key::Key_Mode_switch);
+        define_qenum_value_under(rb_cQtKey, "Key_Kanji", Qt::Key::Key_Kanji);
+        define_qenum_value_under(rb_cQtKey, "Key_Muhenkan", Qt::Key::Key_Muhenkan);
+        define_qenum_value_under(rb_cQtKey, "Key_Henkan", Qt::Key::Key_Henkan);
+        define_qenum_value_under(rb_cQtKey, "Key_Romaji", Qt::Key::Key_Romaji);
+        define_qenum_value_under(rb_cQtKey, "Key_Hiragana", Qt::Key::Key_Hiragana);
+        define_qenum_value_under(rb_cQtKey, "Key_Katakana", Qt::Key::Key_Katakana);
+        define_qenum_value_under(rb_cQtKey, "Key_Hiragana_Katakana", Qt::Key::Key_Hiragana_Katakana);
+        define_qenum_value_under(rb_cQtKey, "Key_Zenkaku", Qt::Key::Key_Zenkaku);
+        define_qenum_value_under(rb_cQtKey, "Key_Hankaku", Qt::Key::Key_Hankaku);
+        define_qenum_value_under(rb_cQtKey, "Key_Zenkaku_Hankaku", Qt::Key::Key_Zenkaku_Hankaku);
+        define_qenum_value_under(rb_cQtKey, "Key_Touroku", Qt::Key::Key_Touroku);
+        define_qenum_value_under(rb_cQtKey, "Key_Massyo", Qt::Key::Key_Massyo);
+        define_qenum_value_under(rb_cQtKey, "Key_Kana_Lock", Qt::Key::Key_Kana_Lock);
+        define_qenum_value_under(rb_cQtKey, "Key_Kana_Shift", Qt::Key::Key_Kana_Shift);
+        define_qenum_value_under(rb_cQtKey, "Key_Eisu_Shift", Qt::Key::Key_Eisu_Shift);
+        define_qenum_value_under(rb_cQtKey, "Key_Eisu_toggle", Qt::Key::Key_Eisu_toggle);
+        define_qenum_value_under(rb_cQtKey, "Key_Hangul", Qt::Key::Key_Hangul);
+        define_qenum_value_under(rb_cQtKey, "Key_Hangul_Start", Qt::Key::Key_Hangul_Start);
+        define_qenum_value_under(rb_cQtKey, "Key_Hangul_End", Qt::Key::Key_Hangul_End);
+        define_qenum_value_under(rb_cQtKey, "Key_Hangul_Hanja", Qt::Key::Key_Hangul_Hanja);
+        define_qenum_value_under(rb_cQtKey, "Key_Hangul_Jamo", Qt::Key::Key_Hangul_Jamo);
+        define_qenum_value_under(rb_cQtKey, "Key_Hangul_Romaja", Qt::Key::Key_Hangul_Romaja);
+        define_qenum_value_under(rb_cQtKey, "Key_Hangul_Jeonja", Qt::Key::Key_Hangul_Jeonja);
+        define_qenum_value_under(rb_cQtKey, "Key_Hangul_Banja", Qt::Key::Key_Hangul_Banja);
+        define_qenum_value_under(rb_cQtKey, "Key_Hangul_PreHanja", Qt::Key::Key_Hangul_PreHanja);
+        define_qenum_value_under(rb_cQtKey, "Key_Hangul_PostHanja", Qt::Key::Key_Hangul_PostHanja);
+        define_qenum_value_under(rb_cQtKey, "Key_Hangul_Special", Qt::Key::Key_Hangul_Special);
+        define_qenum_value_under(rb_cQtKey, "Key_Dead_Grave", Qt::Key::Key_Dead_Grave);
+        define_qenum_value_under(rb_cQtKey, "Key_Dead_Acute", Qt::Key::Key_Dead_Acute);
+        define_qenum_value_under(rb_cQtKey, "Key_Dead_Circumflex", Qt::Key::Key_Dead_Circumflex);
+        define_qenum_value_under(rb_cQtKey, "Key_Dead_Tilde", Qt::Key::Key_Dead_Tilde);
+        define_qenum_value_under(rb_cQtKey, "Key_Dead_Macron", Qt::Key::Key_Dead_Macron);
+        define_qenum_value_under(rb_cQtKey, "Key_Dead_Breve", Qt::Key::Key_Dead_Breve);
+        define_qenum_value_under(rb_cQtKey, "Key_Dead_Abovedot", Qt::Key::Key_Dead_Abovedot);
+        define_qenum_value_under(rb_cQtKey, "Key_Dead_Diaeresis", Qt::Key::Key_Dead_Diaeresis);
+        define_qenum_value_under(rb_cQtKey, "Key_Dead_Abovering", Qt::Key::Key_Dead_Abovering);
+        define_qenum_value_under(rb_cQtKey, "Key_Dead_Doubleacute", Qt::Key::Key_Dead_Doubleacute);
+        define_qenum_value_under(rb_cQtKey, "Key_Dead_Caron", Qt::Key::Key_Dead_Caron);
+        define_qenum_value_under(rb_cQtKey, "Key_Dead_Cedilla", Qt::Key::Key_Dead_Cedilla);
+        define_qenum_value_under(rb_cQtKey, "Key_Dead_Ogonek", Qt::Key::Key_Dead_Ogonek);
+        define_qenum_value_under(rb_cQtKey, "Key_Dead_Iota", Qt::Key::Key_Dead_Iota);
+        define_qenum_value_under(rb_cQtKey, "Key_Dead_Voiced_Sound", Qt::Key::Key_Dead_Voiced_Sound);
+        define_qenum_value_under(rb_cQtKey, "Key_Dead_Semivoiced_Sound", Qt::Key::Key_Dead_Semivoiced_Sound);
+        define_qenum_value_under(rb_cQtKey, "Key_Dead_Belowdot", Qt::Key::Key_Dead_Belowdot);
+        define_qenum_value_under(rb_cQtKey, "Key_Dead_Hook", Qt::Key::Key_Dead_Hook);
+        define_qenum_value_under(rb_cQtKey, "Key_Dead_Horn", Qt::Key::Key_Dead_Horn);
+        define_qenum_value_under(rb_cQtKey, "Key_Dead_Stroke", Qt::Key::Key_Dead_Stroke);
+        define_qenum_value_under(rb_cQtKey, "Key_Dead_Abovecomma", Qt::Key::Key_Dead_Abovecomma);
+        define_qenum_value_under(rb_cQtKey, "Key_Dead_Abovereversedcomma", Qt::Key::Key_Dead_Abovereversedcomma);
+        define_qenum_value_under(rb_cQtKey, "Key_Dead_Doublegrave", Qt::Key::Key_Dead_Doublegrave);
+        define_qenum_value_under(rb_cQtKey, "Key_Dead_Belowring", Qt::Key::Key_Dead_Belowring);
+        define_qenum_value_under(rb_cQtKey, "Key_Dead_Belowmacron", Qt::Key::Key_Dead_Belowmacron);
+        define_qenum_value_under(rb_cQtKey, "Key_Dead_Belowcircumflex", Qt::Key::Key_Dead_Belowcircumflex);
+        define_qenum_value_under(rb_cQtKey, "Key_Dead_Belowtilde", Qt::Key::Key_Dead_Belowtilde);
+        define_qenum_value_under(rb_cQtKey, "Key_Dead_Belowbreve", Qt::Key::Key_Dead_Belowbreve);
+        define_qenum_value_under(rb_cQtKey, "Key_Dead_Belowdiaeresis", Qt::Key::Key_Dead_Belowdiaeresis);
+        define_qenum_value_under(rb_cQtKey, "Key_Dead_Invertedbreve", Qt::Key::Key_Dead_Invertedbreve);
+        define_qenum_value_under(rb_cQtKey, "Key_Dead_Belowcomma", Qt::Key::Key_Dead_Belowcomma);
+        define_qenum_value_under(rb_cQtKey, "Key_Dead_Currency", Qt::Key::Key_Dead_Currency);
+        define_qenum_value_under(rb_cQtKey, "Key_Dead_a", Qt::Key::Key_Dead_a);
+        define_qenum_value_under(rb_cQtKey, "Key_Dead_A", Qt::Key::Key_Dead_A);
+        define_qenum_value_under(rb_cQtKey, "Key_Dead_e", Qt::Key::Key_Dead_e);
+        define_qenum_value_under(rb_cQtKey, "Key_Dead_E", Qt::Key::Key_Dead_E);
+        define_qenum_value_under(rb_cQtKey, "Key_Dead_i", Qt::Key::Key_Dead_i);
+        define_qenum_value_under(rb_cQtKey, "Key_Dead_I", Qt::Key::Key_Dead_I);
+        define_qenum_value_under(rb_cQtKey, "Key_Dead_o", Qt::Key::Key_Dead_o);
+        define_qenum_value_under(rb_cQtKey, "Key_Dead_O", Qt::Key::Key_Dead_O);
+        define_qenum_value_under(rb_cQtKey, "Key_Dead_u", Qt::Key::Key_Dead_u);
+        define_qenum_value_under(rb_cQtKey, "Key_Dead_U", Qt::Key::Key_Dead_U);
+        define_qenum_value_under(rb_cQtKey, "Key_Dead_Small_Schwa", Qt::Key::Key_Dead_Small_Schwa);
+        define_qenum_value_under(rb_cQtKey, "Key_Dead_Capital_Schwa", Qt::Key::Key_Dead_Capital_Schwa);
+        define_qenum_value_under(rb_cQtKey, "Key_Dead_Greek", Qt::Key::Key_Dead_Greek);
+        define_qenum_value_under(rb_cQtKey, "Key_Dead_Lowline", Qt::Key::Key_Dead_Lowline);
+        define_qenum_value_under(rb_cQtKey, "Key_Dead_Aboveverticalline", Qt::Key::Key_Dead_Aboveverticalline);
+        define_qenum_value_under(rb_cQtKey, "Key_Dead_Belowverticalline", Qt::Key::Key_Dead_Belowverticalline);
+        define_qenum_value_under(rb_cQtKey, "Key_Dead_Longsolidusoverlay", Qt::Key::Key_Dead_Longsolidusoverlay);
+        define_qenum_value_under(rb_cQtKey, "Key_Back", Qt::Key::Key_Back);
+        define_qenum_value_under(rb_cQtKey, "Key_Forward", Qt::Key::Key_Forward);
+        define_qenum_value_under(rb_cQtKey, "Key_Stop", Qt::Key::Key_Stop);
+        define_qenum_value_under(rb_cQtKey, "Key_Refresh", Qt::Key::Key_Refresh);
+        define_qenum_value_under(rb_cQtKey, "Key_VolumeDown", Qt::Key::Key_VolumeDown);
+        define_qenum_value_under(rb_cQtKey, "Key_VolumeMute", Qt::Key::Key_VolumeMute);
+        define_qenum_value_under(rb_cQtKey, "Key_VolumeUp", Qt::Key::Key_VolumeUp);
+        define_qenum_value_under(rb_cQtKey, "Key_BassBoost", Qt::Key::Key_BassBoost);
+        define_qenum_value_under(rb_cQtKey, "Key_BassUp", Qt::Key::Key_BassUp);
+        define_qenum_value_under(rb_cQtKey, "Key_BassDown", Qt::Key::Key_BassDown);
+        define_qenum_value_under(rb_cQtKey, "Key_TrebleUp", Qt::Key::Key_TrebleUp);
+        define_qenum_value_under(rb_cQtKey, "Key_TrebleDown", Qt::Key::Key_TrebleDown);
+        define_qenum_value_under(rb_cQtKey, "Key_MediaPlay", Qt::Key::Key_MediaPlay);
+        define_qenum_value_under(rb_cQtKey, "Key_MediaStop", Qt::Key::Key_MediaStop);
+        define_qenum_value_under(rb_cQtKey, "Key_MediaPrevious", Qt::Key::Key_MediaPrevious);
+        define_qenum_value_under(rb_cQtKey, "Key_MediaNext", Qt::Key::Key_MediaNext);
+        define_qenum_value_under(rb_cQtKey, "Key_MediaRecord", Qt::Key::Key_MediaRecord);
+        define_qenum_value_under(rb_cQtKey, "Key_MediaPause", Qt::Key::Key_MediaPause);
+        define_qenum_value_under(rb_cQtKey, "Key_MediaTogglePlayPause", Qt::Key::Key_MediaTogglePlayPause);
+        define_qenum_value_under(rb_cQtKey, "Key_HomePage", Qt::Key::Key_HomePage);
+        define_qenum_value_under(rb_cQtKey, "Key_Favorites", Qt::Key::Key_Favorites);
+        define_qenum_value_under(rb_cQtKey, "Key_Search", Qt::Key::Key_Search);
+        define_qenum_value_under(rb_cQtKey, "Key_Standby", Qt::Key::Key_Standby);
+        define_qenum_value_under(rb_cQtKey, "Key_OpenUrl", Qt::Key::Key_OpenUrl);
+        define_qenum_value_under(rb_cQtKey, "Key_LaunchMail", Qt::Key::Key_LaunchMail);
+        define_qenum_value_under(rb_cQtKey, "Key_LaunchMedia", Qt::Key::Key_LaunchMedia);
+        define_qenum_value_under(rb_cQtKey, "Key_Launch0", Qt::Key::Key_Launch0);
+        define_qenum_value_under(rb_cQtKey, "Key_Launch1", Qt::Key::Key_Launch1);
+        define_qenum_value_under(rb_cQtKey, "Key_Launch2", Qt::Key::Key_Launch2);
+        define_qenum_value_under(rb_cQtKey, "Key_Launch3", Qt::Key::Key_Launch3);
+        define_qenum_value_under(rb_cQtKey, "Key_Launch4", Qt::Key::Key_Launch4);
+        define_qenum_value_under(rb_cQtKey, "Key_Launch5", Qt::Key::Key_Launch5);
+        define_qenum_value_under(rb_cQtKey, "Key_Launch6", Qt::Key::Key_Launch6);
+        define_qenum_value_under(rb_cQtKey, "Key_Launch7", Qt::Key::Key_Launch7);
+        define_qenum_value_under(rb_cQtKey, "Key_Launch8", Qt::Key::Key_Launch8);
+        define_qenum_value_under(rb_cQtKey, "Key_Launch9", Qt::Key::Key_Launch9);
+        define_qenum_value_under(rb_cQtKey, "Key_LaunchA", Qt::Key::Key_LaunchA);
+        define_qenum_value_under(rb_cQtKey, "Key_LaunchB", Qt::Key::Key_LaunchB);
+        define_qenum_value_under(rb_cQtKey, "Key_LaunchC", Qt::Key::Key_LaunchC);
+        define_qenum_value_under(rb_cQtKey, "Key_LaunchD", Qt::Key::Key_LaunchD);
+        define_qenum_value_under(rb_cQtKey, "Key_LaunchE", Qt::Key::Key_LaunchE);
+        define_qenum_value_under(rb_cQtKey, "Key_LaunchF", Qt::Key::Key_LaunchF);
+        define_qenum_value_under(rb_cQtKey, "Key_MonBrightnessUp", Qt::Key::Key_MonBrightnessUp);
+        define_qenum_value_under(rb_cQtKey, "Key_MonBrightnessDown", Qt::Key::Key_MonBrightnessDown);
+        define_qenum_value_under(rb_cQtKey, "Key_KeyboardLightOnOff", Qt::Key::Key_KeyboardLightOnOff);
+        define_qenum_value_under(rb_cQtKey, "Key_KeyboardBrightnessUp", Qt::Key::Key_KeyboardBrightnessUp);
+        define_qenum_value_under(rb_cQtKey, "Key_KeyboardBrightnessDown", Qt::Key::Key_KeyboardBrightnessDown);
+        define_qenum_value_under(rb_cQtKey, "Key_PowerOff", Qt::Key::Key_PowerOff);
+        define_qenum_value_under(rb_cQtKey, "Key_WakeUp", Qt::Key::Key_WakeUp);
+        define_qenum_value_under(rb_cQtKey, "Key_Eject", Qt::Key::Key_Eject);
+        define_qenum_value_under(rb_cQtKey, "Key_ScreenSaver", Qt::Key::Key_ScreenSaver);
+        define_qenum_value_under(rb_cQtKey, "Key_WWW", Qt::Key::Key_WWW);
+        define_qenum_value_under(rb_cQtKey, "Key_Memo", Qt::Key::Key_Memo);
+        define_qenum_value_under(rb_cQtKey, "Key_LightBulb", Qt::Key::Key_LightBulb);
+        define_qenum_value_under(rb_cQtKey, "Key_Shop", Qt::Key::Key_Shop);
+        define_qenum_value_under(rb_cQtKey, "Key_History", Qt::Key::Key_History);
+        define_qenum_value_under(rb_cQtKey, "Key_AddFavorite", Qt::Key::Key_AddFavorite);
+        define_qenum_value_under(rb_cQtKey, "Key_HotLinks", Qt::Key::Key_HotLinks);
+        define_qenum_value_under(rb_cQtKey, "Key_BrightnessAdjust", Qt::Key::Key_BrightnessAdjust);
+        define_qenum_value_under(rb_cQtKey, "Key_Finance", Qt::Key::Key_Finance);
+        define_qenum_value_under(rb_cQtKey, "Key_Community", Qt::Key::Key_Community);
+        define_qenum_value_under(rb_cQtKey, "Key_AudioRewind", Qt::Key::Key_AudioRewind);
+        define_qenum_value_under(rb_cQtKey, "Key_BackForward", Qt::Key::Key_BackForward);
+        define_qenum_value_under(rb_cQtKey, "Key_ApplicationLeft", Qt::Key::Key_ApplicationLeft);
+        define_qenum_value_under(rb_cQtKey, "Key_ApplicationRight", Qt::Key::Key_ApplicationRight);
+        define_qenum_value_under(rb_cQtKey, "Key_Book", Qt::Key::Key_Book);
+        define_qenum_value_under(rb_cQtKey, "Key_CD", Qt::Key::Key_CD);
+        define_qenum_value_under(rb_cQtKey, "Key_Calculator", Qt::Key::Key_Calculator);
+        define_qenum_value_under(rb_cQtKey, "Key_ToDoList", Qt::Key::Key_ToDoList);
+        define_qenum_value_under(rb_cQtKey, "Key_ClearGrab", Qt::Key::Key_ClearGrab);
+        define_qenum_value_under(rb_cQtKey, "Key_Close", Qt::Key::Key_Close);
+        define_qenum_value_under(rb_cQtKey, "Key_Copy", Qt::Key::Key_Copy);
+        define_qenum_value_under(rb_cQtKey, "Key_Cut", Qt::Key::Key_Cut);
+        define_qenum_value_under(rb_cQtKey, "Key_Display", Qt::Key::Key_Display);
+        define_qenum_value_under(rb_cQtKey, "Key_DOS", Qt::Key::Key_DOS);
+        define_qenum_value_under(rb_cQtKey, "Key_Documents", Qt::Key::Key_Documents);
+        define_qenum_value_under(rb_cQtKey, "Key_Excel", Qt::Key::Key_Excel);
+        define_qenum_value_under(rb_cQtKey, "Key_Explorer", Qt::Key::Key_Explorer);
+        define_qenum_value_under(rb_cQtKey, "Key_Game", Qt::Key::Key_Game);
+        define_qenum_value_under(rb_cQtKey, "Key_Go", Qt::Key::Key_Go);
+        define_qenum_value_under(rb_cQtKey, "Key_iTouch", Qt::Key::Key_iTouch);
+        define_qenum_value_under(rb_cQtKey, "Key_LogOff", Qt::Key::Key_LogOff);
+        define_qenum_value_under(rb_cQtKey, "Key_Market", Qt::Key::Key_Market);
+        define_qenum_value_under(rb_cQtKey, "Key_Meeting", Qt::Key::Key_Meeting);
+        define_qenum_value_under(rb_cQtKey, "Key_MenuKB", Qt::Key::Key_MenuKB);
+        define_qenum_value_under(rb_cQtKey, "Key_MenuPB", Qt::Key::Key_MenuPB);
+        define_qenum_value_under(rb_cQtKey, "Key_MySites", Qt::Key::Key_MySites);
+        define_qenum_value_under(rb_cQtKey, "Key_News", Qt::Key::Key_News);
+        define_qenum_value_under(rb_cQtKey, "Key_OfficeHome", Qt::Key::Key_OfficeHome);
+        define_qenum_value_under(rb_cQtKey, "Key_Option", Qt::Key::Key_Option);
+        define_qenum_value_under(rb_cQtKey, "Key_Paste", Qt::Key::Key_Paste);
+        define_qenum_value_under(rb_cQtKey, "Key_Phone", Qt::Key::Key_Phone);
+        define_qenum_value_under(rb_cQtKey, "Key_Calendar", Qt::Key::Key_Calendar);
+        define_qenum_value_under(rb_cQtKey, "Key_Reply", Qt::Key::Key_Reply);
+        define_qenum_value_under(rb_cQtKey, "Key_Reload", Qt::Key::Key_Reload);
+        define_qenum_value_under(rb_cQtKey, "Key_RotateWindows", Qt::Key::Key_RotateWindows);
+        define_qenum_value_under(rb_cQtKey, "Key_RotationPB", Qt::Key::Key_RotationPB);
+        define_qenum_value_under(rb_cQtKey, "Key_RotationKB", Qt::Key::Key_RotationKB);
+        define_qenum_value_under(rb_cQtKey, "Key_Save", Qt::Key::Key_Save);
+        define_qenum_value_under(rb_cQtKey, "Key_Send", Qt::Key::Key_Send);
+        define_qenum_value_under(rb_cQtKey, "Key_Spell", Qt::Key::Key_Spell);
+        define_qenum_value_under(rb_cQtKey, "Key_SplitScreen", Qt::Key::Key_SplitScreen);
+        define_qenum_value_under(rb_cQtKey, "Key_Support", Qt::Key::Key_Support);
+        define_qenum_value_under(rb_cQtKey, "Key_TaskPane", Qt::Key::Key_TaskPane);
+        define_qenum_value_under(rb_cQtKey, "Key_Terminal", Qt::Key::Key_Terminal);
+        define_qenum_value_under(rb_cQtKey, "Key_Tools", Qt::Key::Key_Tools);
+        define_qenum_value_under(rb_cQtKey, "Key_Travel", Qt::Key::Key_Travel);
+        define_qenum_value_under(rb_cQtKey, "Key_Video", Qt::Key::Key_Video);
+        define_qenum_value_under(rb_cQtKey, "Key_Word", Qt::Key::Key_Word);
+        define_qenum_value_under(rb_cQtKey, "Key_Xfer", Qt::Key::Key_Xfer);
+        define_qenum_value_under(rb_cQtKey, "Key_ZoomIn", Qt::Key::Key_ZoomIn);
+        define_qenum_value_under(rb_cQtKey, "Key_ZoomOut", Qt::Key::Key_ZoomOut);
+        define_qenum_value_under(rb_cQtKey, "Key_Away", Qt::Key::Key_Away);
+        define_qenum_value_under(rb_cQtKey, "Key_Messenger", Qt::Key::Key_Messenger);
+        define_qenum_value_under(rb_cQtKey, "Key_WebCam", Qt::Key::Key_WebCam);
+        define_qenum_value_under(rb_cQtKey, "Key_MailForward", Qt::Key::Key_MailForward);
+        define_qenum_value_under(rb_cQtKey, "Key_Pictures", Qt::Key::Key_Pictures);
+        define_qenum_value_under(rb_cQtKey, "Key_Music", Qt::Key::Key_Music);
+        define_qenum_value_under(rb_cQtKey, "Key_Battery", Qt::Key::Key_Battery);
+        define_qenum_value_under(rb_cQtKey, "Key_Bluetooth", Qt::Key::Key_Bluetooth);
+        define_qenum_value_under(rb_cQtKey, "Key_WLAN", Qt::Key::Key_WLAN);
+        define_qenum_value_under(rb_cQtKey, "Key_UWB", Qt::Key::Key_UWB);
+        define_qenum_value_under(rb_cQtKey, "Key_AudioForward", Qt::Key::Key_AudioForward);
+        define_qenum_value_under(rb_cQtKey, "Key_AudioRepeat", Qt::Key::Key_AudioRepeat);
+        define_qenum_value_under(rb_cQtKey, "Key_AudioRandomPlay", Qt::Key::Key_AudioRandomPlay);
+        define_qenum_value_under(rb_cQtKey, "Key_Subtitle", Qt::Key::Key_Subtitle);
+        define_qenum_value_under(rb_cQtKey, "Key_AudioCycleTrack", Qt::Key::Key_AudioCycleTrack);
+        define_qenum_value_under(rb_cQtKey, "Key_Time", Qt::Key::Key_Time);
+        define_qenum_value_under(rb_cQtKey, "Key_Hibernate", Qt::Key::Key_Hibernate);
+        define_qenum_value_under(rb_cQtKey, "Key_View", Qt::Key::Key_View);
+        define_qenum_value_under(rb_cQtKey, "Key_TopMenu", Qt::Key::Key_TopMenu);
+        define_qenum_value_under(rb_cQtKey, "Key_PowerDown", Qt::Key::Key_PowerDown);
+        define_qenum_value_under(rb_cQtKey, "Key_Suspend", Qt::Key::Key_Suspend);
+        define_qenum_value_under(rb_cQtKey, "Key_ContrastAdjust", Qt::Key::Key_ContrastAdjust);
+        define_qenum_value_under(rb_cQtKey, "Key_LaunchG", Qt::Key::Key_LaunchG);
+        define_qenum_value_under(rb_cQtKey, "Key_LaunchH", Qt::Key::Key_LaunchH);
+        define_qenum_value_under(rb_cQtKey, "Key_TouchpadToggle", Qt::Key::Key_TouchpadToggle);
+        define_qenum_value_under(rb_cQtKey, "Key_TouchpadOn", Qt::Key::Key_TouchpadOn);
+        define_qenum_value_under(rb_cQtKey, "Key_TouchpadOff", Qt::Key::Key_TouchpadOff);
+        define_qenum_value_under(rb_cQtKey, "Key_MicMute", Qt::Key::Key_MicMute);
+        define_qenum_value_under(rb_cQtKey, "Key_Red", Qt::Key::Key_Red);
+        define_qenum_value_under(rb_cQtKey, "Key_Green", Qt::Key::Key_Green);
+        define_qenum_value_under(rb_cQtKey, "Key_Yellow", Qt::Key::Key_Yellow);
+        define_qenum_value_under(rb_cQtKey, "Key_Blue", Qt::Key::Key_Blue);
+        define_qenum_value_under(rb_cQtKey, "Key_ChannelUp", Qt::Key::Key_ChannelUp);
+        define_qenum_value_under(rb_cQtKey, "Key_ChannelDown", Qt::Key::Key_ChannelDown);
+        define_qenum_value_under(rb_cQtKey, "Key_Guide", Qt::Key::Key_Guide);
+        define_qenum_value_under(rb_cQtKey, "Key_Info", Qt::Key::Key_Info);
+        define_qenum_value_under(rb_cQtKey, "Key_Settings", Qt::Key::Key_Settings);
+        define_qenum_value_under(rb_cQtKey, "Key_MicVolumeUp", Qt::Key::Key_MicVolumeUp);
+        define_qenum_value_under(rb_cQtKey, "Key_MicVolumeDown", Qt::Key::Key_MicVolumeDown);
+        define_qenum_value_under(rb_cQtKey, "Key_New", Qt::Key::Key_New);
+        define_qenum_value_under(rb_cQtKey, "Key_Open", Qt::Key::Key_Open);
+        define_qenum_value_under(rb_cQtKey, "Key_Find", Qt::Key::Key_Find);
+        define_qenum_value_under(rb_cQtKey, "Key_Undo", Qt::Key::Key_Undo);
+        define_qenum_value_under(rb_cQtKey, "Key_Redo", Qt::Key::Key_Redo);
+        define_qenum_value_under(rb_cQtKey, "Key_MediaLast", Qt::Key::Key_MediaLast);
+        define_qenum_value_under(rb_cQtKey, "Key_Select", Qt::Key::Key_Select);
+        define_qenum_value_under(rb_cQtKey, "Key_Yes", Qt::Key::Key_Yes);
+        define_qenum_value_under(rb_cQtKey, "Key_No", Qt::Key::Key_No);
+        define_qenum_value_under(rb_cQtKey, "Key_Cancel", Qt::Key::Key_Cancel);
+        define_qenum_value_under(rb_cQtKey, "Key_Printer", Qt::Key::Key_Printer);
+        define_qenum_value_under(rb_cQtKey, "Key_Execute", Qt::Key::Key_Execute);
+        define_qenum_value_under(rb_cQtKey, "Key_Sleep", Qt::Key::Key_Sleep);
+        define_qenum_value_under(rb_cQtKey, "Key_Play", Qt::Key::Key_Play);
+        define_qenum_value_under(rb_cQtKey, "Key_Zoom", Qt::Key::Key_Zoom);
+        define_qenum_value_under(rb_cQtKey, "Key_Exit", Qt::Key::Key_Exit);
+        define_qenum_value_under(rb_cQtKey, "Key_Context1", Qt::Key::Key_Context1);
+        define_qenum_value_under(rb_cQtKey, "Key_Context2", Qt::Key::Key_Context2);
+        define_qenum_value_under(rb_cQtKey, "Key_Context3", Qt::Key::Key_Context3);
+        define_qenum_value_under(rb_cQtKey, "Key_Context4", Qt::Key::Key_Context4);
+        define_qenum_value_under(rb_cQtKey, "Key_Call", Qt::Key::Key_Call);
+        define_qenum_value_under(rb_cQtKey, "Key_Hangup", Qt::Key::Key_Hangup);
+        define_qenum_value_under(rb_cQtKey, "Key_Flip", Qt::Key::Key_Flip);
+        define_qenum_value_under(rb_cQtKey, "Key_ToggleCallHangup", Qt::Key::Key_ToggleCallHangup);
+        define_qenum_value_under(rb_cQtKey, "Key_VoiceDial", Qt::Key::Key_VoiceDial);
+        define_qenum_value_under(rb_cQtKey, "Key_LastNumberRedial", Qt::Key::Key_LastNumberRedial);
+        define_qenum_value_under(rb_cQtKey, "Key_Camera", Qt::Key::Key_Camera);
+        define_qenum_value_under(rb_cQtKey, "Key_CameraFocus", Qt::Key::Key_CameraFocus);
+        define_qenum_value_under(rb_cQtKey, "Key_unknown", Qt::Key::Key_unknown);
 
-    Enum<Qt::KeyboardModifier> rb_cQtKeyboardModifier =
+    Data_Type<Qt::KeyboardModifier> rb_cQtKeyboardModifier =
         // RubyQt6::QtCore::Qt::KeyboardModifier
-        define_qenum_under<Qt::KeyboardModifier>("KeyboardModifier", rb_mQt)
-            .define_value("NoModifier", Qt::KeyboardModifier::NoModifier)
-            .define_value("ShiftModifier", Qt::KeyboardModifier::ShiftModifier)
-            .define_value("ControlModifier", Qt::KeyboardModifier::ControlModifier)
-            .define_value("AltModifier", Qt::KeyboardModifier::AltModifier)
-            .define_value("MetaModifier", Qt::KeyboardModifier::MetaModifier)
-            .define_value("KeypadModifier", Qt::KeyboardModifier::KeypadModifier)
-            .define_value("GroupSwitchModifier", Qt::KeyboardModifier::GroupSwitchModifier)
-            .define_value("KeyboardModifierMask", Qt::KeyboardModifier::KeyboardModifierMask);
+        define_qenum_under<Qt::KeyboardModifier>(rb_mQt, "KeyboardModifier");
+        define_qenum_value_under(rb_cQtKeyboardModifier, "NoModifier", Qt::KeyboardModifier::NoModifier);
+        define_qenum_value_under(rb_cQtKeyboardModifier, "ShiftModifier", Qt::KeyboardModifier::ShiftModifier);
+        define_qenum_value_under(rb_cQtKeyboardModifier, "ControlModifier", Qt::KeyboardModifier::ControlModifier);
+        define_qenum_value_under(rb_cQtKeyboardModifier, "AltModifier", Qt::KeyboardModifier::AltModifier);
+        define_qenum_value_under(rb_cQtKeyboardModifier, "MetaModifier", Qt::KeyboardModifier::MetaModifier);
+        define_qenum_value_under(rb_cQtKeyboardModifier, "KeypadModifier", Qt::KeyboardModifier::KeypadModifier);
+        define_qenum_value_under(rb_cQtKeyboardModifier, "GroupSwitchModifier", Qt::KeyboardModifier::GroupSwitchModifier);
+        define_qenum_value_under(rb_cQtKeyboardModifier, "KeyboardModifierMask", Qt::KeyboardModifier::KeyboardModifierMask);
 
-    Enum<Qt::LayoutDirection> rb_cQtLayoutDirection =
+    Data_Type<Qt::LayoutDirection> rb_cQtLayoutDirection =
         // RubyQt6::QtCore::Qt::LayoutDirection
-        define_qenum_under<Qt::LayoutDirection>("LayoutDirection", rb_mQt)
-            .define_value("LeftToRight", Qt::LayoutDirection::LeftToRight)
-            .define_value("RightToLeft", Qt::LayoutDirection::RightToLeft)
-            .define_value("LayoutDirectionAuto", Qt::LayoutDirection::LayoutDirectionAuto);
+        define_qenum_under<Qt::LayoutDirection>(rb_mQt, "LayoutDirection");
+        define_qenum_value_under(rb_cQtLayoutDirection, "LeftToRight", Qt::LayoutDirection::LeftToRight);
+        define_qenum_value_under(rb_cQtLayoutDirection, "RightToLeft", Qt::LayoutDirection::RightToLeft);
+        define_qenum_value_under(rb_cQtLayoutDirection, "LayoutDirectionAuto", Qt::LayoutDirection::LayoutDirectionAuto);
 }

@@ -125,20 +125,20 @@ void Init_qtextedit(Rice::Module rb_mQt6QtWidgets)
             .define_method("text_changed", &QTextEdit::textChanged)
             .define_method("undo_available", &QTextEdit::undoAvailable, Arg("b"));
 
-    Enum<QTextEdit::AutoFormattingFlag> rb_cQTextEditAutoFormattingFlag =
+    Data_Type<QTextEdit::AutoFormattingFlag> rb_cQTextEditAutoFormattingFlag =
         // RubyQt6::QtWidgets::QTextEdit::AutoFormattingFlag
-        define_qenum_under<QTextEdit::AutoFormattingFlag>("AutoFormattingFlag", rb_cQTextEdit)
-            .define_value("AutoNone", QTextEdit::AutoFormattingFlag::AutoNone)
-            .define_value("AutoBulletList", QTextEdit::AutoFormattingFlag::AutoBulletList)
-            .define_value("AutoAll", QTextEdit::AutoFormattingFlag::AutoAll);
+        define_qenum_under<QTextEdit::AutoFormattingFlag>(rb_cQTextEdit, "AutoFormattingFlag");
+        define_qenum_value_under(rb_cQTextEditAutoFormattingFlag, "AutoNone", QTextEdit::AutoFormattingFlag::AutoNone);
+        define_qenum_value_under(rb_cQTextEditAutoFormattingFlag, "AutoBulletList", QTextEdit::AutoFormattingFlag::AutoBulletList);
+        define_qenum_value_under(rb_cQTextEditAutoFormattingFlag, "AutoAll", QTextEdit::AutoFormattingFlag::AutoAll);
 
-    Enum<QTextEdit::LineWrapMode> rb_cQTextEditLineWrapMode =
+    Data_Type<QTextEdit::LineWrapMode> rb_cQTextEditLineWrapMode =
         // RubyQt6::QtWidgets::QTextEdit::LineWrapMode
-        define_qenum_under<QTextEdit::LineWrapMode>("LineWrapMode", rb_cQTextEdit)
-            .define_value("NoWrap", QTextEdit::LineWrapMode::NoWrap)
-            .define_value("WidgetWidth", QTextEdit::LineWrapMode::WidgetWidth)
-            .define_value("FixedPixelWidth", QTextEdit::LineWrapMode::FixedPixelWidth)
-            .define_value("FixedColumnWidth", QTextEdit::LineWrapMode::FixedColumnWidth);
+        define_qenum_under<QTextEdit::LineWrapMode>(rb_cQTextEdit, "LineWrapMode");
+        define_qenum_value_under(rb_cQTextEditLineWrapMode, "NoWrap", QTextEdit::LineWrapMode::NoWrap);
+        define_qenum_value_under(rb_cQTextEditLineWrapMode, "WidgetWidth", QTextEdit::LineWrapMode::WidgetWidth);
+        define_qenum_value_under(rb_cQTextEditLineWrapMode, "FixedPixelWidth", QTextEdit::LineWrapMode::FixedPixelWidth);
+        define_qenum_value_under(rb_cQTextEditLineWrapMode, "FixedColumnWidth", QTextEdit::LineWrapMode::FixedColumnWidth);
 
     Data_Type<QFlags<QTextEdit::AutoFormattingFlag>> rb_cQTextEditAutoFormatting =
         // RubyQt6::QtWidgets::QTextEdit::AutoFormatting

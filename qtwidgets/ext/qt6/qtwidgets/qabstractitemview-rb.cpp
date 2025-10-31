@@ -96,55 +96,55 @@ void Init_qabstractitemview(Rice::Module rb_mQt6QtWidgets)
             .define_method("pressed", &QAbstractItemView::pressed, Arg("index"))
             .define_method("viewport_entered", &QAbstractItemView::viewportEntered);
 
-    Enum<QAbstractItemView::DragDropMode> rb_cQAbstractItemViewDragDropMode =
+    Data_Type<QAbstractItemView::DragDropMode> rb_cQAbstractItemViewDragDropMode =
         // RubyQt6::QtWidgets::QAbstractItemView::DragDropMode
-        define_qenum_under<QAbstractItemView::DragDropMode>("DragDropMode", rb_cQAbstractItemView)
-            .define_value("NoDragDrop", QAbstractItemView::DragDropMode::NoDragDrop)
-            .define_value("DragOnly", QAbstractItemView::DragDropMode::DragOnly)
-            .define_value("DropOnly", QAbstractItemView::DragDropMode::DropOnly)
-            .define_value("DragDrop", QAbstractItemView::DragDropMode::DragDrop)
-            .define_value("InternalMove", QAbstractItemView::DragDropMode::InternalMove);
+        define_qenum_under<QAbstractItemView::DragDropMode>(rb_cQAbstractItemView, "DragDropMode");
+        define_qenum_value_under(rb_cQAbstractItemViewDragDropMode, "NoDragDrop", QAbstractItemView::DragDropMode::NoDragDrop);
+        define_qenum_value_under(rb_cQAbstractItemViewDragDropMode, "DragOnly", QAbstractItemView::DragDropMode::DragOnly);
+        define_qenum_value_under(rb_cQAbstractItemViewDragDropMode, "DropOnly", QAbstractItemView::DragDropMode::DropOnly);
+        define_qenum_value_under(rb_cQAbstractItemViewDragDropMode, "DragDrop", QAbstractItemView::DragDropMode::DragDrop);
+        define_qenum_value_under(rb_cQAbstractItemViewDragDropMode, "InternalMove", QAbstractItemView::DragDropMode::InternalMove);
 
-    Enum<QAbstractItemView::EditTrigger> rb_cQAbstractItemViewEditTrigger =
+    Data_Type<QAbstractItemView::EditTrigger> rb_cQAbstractItemViewEditTrigger =
         // RubyQt6::QtWidgets::QAbstractItemView::EditTrigger
-        define_qenum_under<QAbstractItemView::EditTrigger>("EditTrigger", rb_cQAbstractItemView)
-            .define_value("NoEditTriggers", QAbstractItemView::EditTrigger::NoEditTriggers)
-            .define_value("CurrentChanged", QAbstractItemView::EditTrigger::CurrentChanged)
-            .define_value("DoubleClicked", QAbstractItemView::EditTrigger::DoubleClicked)
-            .define_value("SelectedClicked", QAbstractItemView::EditTrigger::SelectedClicked)
-            .define_value("EditKeyPressed", QAbstractItemView::EditTrigger::EditKeyPressed)
-            .define_value("AnyKeyPressed", QAbstractItemView::EditTrigger::AnyKeyPressed)
-            .define_value("AllEditTriggers", QAbstractItemView::EditTrigger::AllEditTriggers);
+        define_qenum_under<QAbstractItemView::EditTrigger>(rb_cQAbstractItemView, "EditTrigger");
+        define_qenum_value_under(rb_cQAbstractItemViewEditTrigger, "NoEditTriggers", QAbstractItemView::EditTrigger::NoEditTriggers);
+        define_qenum_value_under(rb_cQAbstractItemViewEditTrigger, "CurrentChanged", QAbstractItemView::EditTrigger::CurrentChanged);
+        define_qenum_value_under(rb_cQAbstractItemViewEditTrigger, "DoubleClicked", QAbstractItemView::EditTrigger::DoubleClicked);
+        define_qenum_value_under(rb_cQAbstractItemViewEditTrigger, "SelectedClicked", QAbstractItemView::EditTrigger::SelectedClicked);
+        define_qenum_value_under(rb_cQAbstractItemViewEditTrigger, "EditKeyPressed", QAbstractItemView::EditTrigger::EditKeyPressed);
+        define_qenum_value_under(rb_cQAbstractItemViewEditTrigger, "AnyKeyPressed", QAbstractItemView::EditTrigger::AnyKeyPressed);
+        define_qenum_value_under(rb_cQAbstractItemViewEditTrigger, "AllEditTriggers", QAbstractItemView::EditTrigger::AllEditTriggers);
 
-    Enum<QAbstractItemView::ScrollHint> rb_cQAbstractItemViewScrollHint =
+    Data_Type<QAbstractItemView::ScrollHint> rb_cQAbstractItemViewScrollHint =
         // RubyQt6::QtWidgets::QAbstractItemView::ScrollHint
-        define_qenum_under<QAbstractItemView::ScrollHint>("ScrollHint", rb_cQAbstractItemView)
-            .define_value("EnsureVisible", QAbstractItemView::ScrollHint::EnsureVisible)
-            .define_value("PositionAtTop", QAbstractItemView::ScrollHint::PositionAtTop)
-            .define_value("PositionAtBottom", QAbstractItemView::ScrollHint::PositionAtBottom)
-            .define_value("PositionAtCenter", QAbstractItemView::ScrollHint::PositionAtCenter);
+        define_qenum_under<QAbstractItemView::ScrollHint>(rb_cQAbstractItemView, "ScrollHint");
+        define_qenum_value_under(rb_cQAbstractItemViewScrollHint, "EnsureVisible", QAbstractItemView::ScrollHint::EnsureVisible);
+        define_qenum_value_under(rb_cQAbstractItemViewScrollHint, "PositionAtTop", QAbstractItemView::ScrollHint::PositionAtTop);
+        define_qenum_value_under(rb_cQAbstractItemViewScrollHint, "PositionAtBottom", QAbstractItemView::ScrollHint::PositionAtBottom);
+        define_qenum_value_under(rb_cQAbstractItemViewScrollHint, "PositionAtCenter", QAbstractItemView::ScrollHint::PositionAtCenter);
 
-    Enum<QAbstractItemView::ScrollMode> rb_cQAbstractItemViewScrollMode =
+    Data_Type<QAbstractItemView::ScrollMode> rb_cQAbstractItemViewScrollMode =
         // RubyQt6::QtWidgets::QAbstractItemView::ScrollMode
-        define_qenum_under<QAbstractItemView::ScrollMode>("ScrollMode", rb_cQAbstractItemView)
-            .define_value("ScrollPerItem", QAbstractItemView::ScrollMode::ScrollPerItem)
-            .define_value("ScrollPerPixel", QAbstractItemView::ScrollMode::ScrollPerPixel);
+        define_qenum_under<QAbstractItemView::ScrollMode>(rb_cQAbstractItemView, "ScrollMode");
+        define_qenum_value_under(rb_cQAbstractItemViewScrollMode, "ScrollPerItem", QAbstractItemView::ScrollMode::ScrollPerItem);
+        define_qenum_value_under(rb_cQAbstractItemViewScrollMode, "ScrollPerPixel", QAbstractItemView::ScrollMode::ScrollPerPixel);
 
-    Enum<QAbstractItemView::SelectionBehavior> rb_cQAbstractItemViewSelectionBehavior =
+    Data_Type<QAbstractItemView::SelectionBehavior> rb_cQAbstractItemViewSelectionBehavior =
         // RubyQt6::QtWidgets::QAbstractItemView::SelectionBehavior
-        define_qenum_under<QAbstractItemView::SelectionBehavior>("SelectionBehavior", rb_cQAbstractItemView)
-            .define_value("SelectItems", QAbstractItemView::SelectionBehavior::SelectItems)
-            .define_value("SelectRows", QAbstractItemView::SelectionBehavior::SelectRows)
-            .define_value("SelectColumns", QAbstractItemView::SelectionBehavior::SelectColumns);
+        define_qenum_under<QAbstractItemView::SelectionBehavior>(rb_cQAbstractItemView, "SelectionBehavior");
+        define_qenum_value_under(rb_cQAbstractItemViewSelectionBehavior, "SelectItems", QAbstractItemView::SelectionBehavior::SelectItems);
+        define_qenum_value_under(rb_cQAbstractItemViewSelectionBehavior, "SelectRows", QAbstractItemView::SelectionBehavior::SelectRows);
+        define_qenum_value_under(rb_cQAbstractItemViewSelectionBehavior, "SelectColumns", QAbstractItemView::SelectionBehavior::SelectColumns);
 
-    Enum<QAbstractItemView::SelectionMode> rb_cQAbstractItemViewSelectionMode =
+    Data_Type<QAbstractItemView::SelectionMode> rb_cQAbstractItemViewSelectionMode =
         // RubyQt6::QtWidgets::QAbstractItemView::SelectionMode
-        define_qenum_under<QAbstractItemView::SelectionMode>("SelectionMode", rb_cQAbstractItemView)
-            .define_value("NoSelection", QAbstractItemView::SelectionMode::NoSelection)
-            .define_value("SingleSelection", QAbstractItemView::SelectionMode::SingleSelection)
-            .define_value("MultiSelection", QAbstractItemView::SelectionMode::MultiSelection)
-            .define_value("ExtendedSelection", QAbstractItemView::SelectionMode::ExtendedSelection)
-            .define_value("ContiguousSelection", QAbstractItemView::SelectionMode::ContiguousSelection);
+        define_qenum_under<QAbstractItemView::SelectionMode>(rb_cQAbstractItemView, "SelectionMode");
+        define_qenum_value_under(rb_cQAbstractItemViewSelectionMode, "NoSelection", QAbstractItemView::SelectionMode::NoSelection);
+        define_qenum_value_under(rb_cQAbstractItemViewSelectionMode, "SingleSelection", QAbstractItemView::SelectionMode::SingleSelection);
+        define_qenum_value_under(rb_cQAbstractItemViewSelectionMode, "MultiSelection", QAbstractItemView::SelectionMode::MultiSelection);
+        define_qenum_value_under(rb_cQAbstractItemViewSelectionMode, "ExtendedSelection", QAbstractItemView::SelectionMode::ExtendedSelection);
+        define_qenum_value_under(rb_cQAbstractItemViewSelectionMode, "ContiguousSelection", QAbstractItemView::SelectionMode::ContiguousSelection);
 
     Data_Type<QFlags<QAbstractItemView::EditTrigger>> rb_cQAbstractItemViewEditTriggers =
         // RubyQt6::QtWidgets::QAbstractItemView::EditTriggers

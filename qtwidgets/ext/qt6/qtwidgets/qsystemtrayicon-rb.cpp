@@ -39,20 +39,20 @@ void Init_qsystemtrayicon(Rice::Module rb_mQt6QtWidgets)
             .define_singleton_function("system_tray_available?", &QSystemTrayIcon::isSystemTrayAvailable)
             .define_singleton_function("supports_messages", &QSystemTrayIcon::supportsMessages);
 
-    Enum<QSystemTrayIcon::ActivationReason> rb_cQSystemTrayIconActivationReason =
+    Data_Type<QSystemTrayIcon::ActivationReason> rb_cQSystemTrayIconActivationReason =
         // RubyQt6::QtWidgets::QSystemTrayIcon::ActivationReason
-        define_qenum_under<QSystemTrayIcon::ActivationReason>("ActivationReason", rb_cQSystemTrayIcon)
-            .define_value("Unknown", QSystemTrayIcon::ActivationReason::Unknown)
-            .define_value("Context", QSystemTrayIcon::ActivationReason::Context)
-            .define_value("DoubleClick", QSystemTrayIcon::ActivationReason::DoubleClick)
-            .define_value("Trigger", QSystemTrayIcon::ActivationReason::Trigger)
-            .define_value("MiddleClick", QSystemTrayIcon::ActivationReason::MiddleClick);
+        define_qenum_under<QSystemTrayIcon::ActivationReason>(rb_cQSystemTrayIcon, "ActivationReason");
+        define_qenum_value_under(rb_cQSystemTrayIconActivationReason, "Unknown", QSystemTrayIcon::ActivationReason::Unknown);
+        define_qenum_value_under(rb_cQSystemTrayIconActivationReason, "Context", QSystemTrayIcon::ActivationReason::Context);
+        define_qenum_value_under(rb_cQSystemTrayIconActivationReason, "DoubleClick", QSystemTrayIcon::ActivationReason::DoubleClick);
+        define_qenum_value_under(rb_cQSystemTrayIconActivationReason, "Trigger", QSystemTrayIcon::ActivationReason::Trigger);
+        define_qenum_value_under(rb_cQSystemTrayIconActivationReason, "MiddleClick", QSystemTrayIcon::ActivationReason::MiddleClick);
 
-    Enum<QSystemTrayIcon::MessageIcon> rb_cQSystemTrayIconMessageIcon =
+    Data_Type<QSystemTrayIcon::MessageIcon> rb_cQSystemTrayIconMessageIcon =
         // RubyQt6::QtWidgets::QSystemTrayIcon::MessageIcon
-        define_qenum_under<QSystemTrayIcon::MessageIcon>("MessageIcon", rb_cQSystemTrayIcon)
-            .define_value("NoIcon", QSystemTrayIcon::MessageIcon::NoIcon)
-            .define_value("Information", QSystemTrayIcon::MessageIcon::Information)
-            .define_value("Warning", QSystemTrayIcon::MessageIcon::Warning)
-            .define_value("Critical", QSystemTrayIcon::MessageIcon::Critical);
+        define_qenum_under<QSystemTrayIcon::MessageIcon>(rb_cQSystemTrayIcon, "MessageIcon");
+        define_qenum_value_under(rb_cQSystemTrayIconMessageIcon, "NoIcon", QSystemTrayIcon::MessageIcon::NoIcon);
+        define_qenum_value_under(rb_cQSystemTrayIconMessageIcon, "Information", QSystemTrayIcon::MessageIcon::Information);
+        define_qenum_value_under(rb_cQSystemTrayIconMessageIcon, "Warning", QSystemTrayIcon::MessageIcon::Warning);
+        define_qenum_value_under(rb_cQSystemTrayIconMessageIcon, "Critical", QSystemTrayIcon::MessageIcon::Critical);
 }

@@ -68,23 +68,23 @@ void Init_qcalendarwidget(Rice::Module rb_mQt6QtWidgets)
             .define_method("current_page_changed", &QCalendarWidget::currentPageChanged, Arg("year"), Arg("month"))
             .define_method("selection_changed", &QCalendarWidget::selectionChanged);
 
-    Enum<QCalendarWidget::HorizontalHeaderFormat> rb_cQCalendarWidgetHorizontalHeaderFormat =
+    Data_Type<QCalendarWidget::HorizontalHeaderFormat> rb_cQCalendarWidgetHorizontalHeaderFormat =
         // RubyQt6::QtWidgets::QCalendarWidget::HorizontalHeaderFormat
-        define_qenum_under<QCalendarWidget::HorizontalHeaderFormat>("HorizontalHeaderFormat", rb_cQCalendarWidget)
-            .define_value("NoHorizontalHeader", QCalendarWidget::HorizontalHeaderFormat::NoHorizontalHeader)
-            .define_value("SingleLetterDayNames", QCalendarWidget::HorizontalHeaderFormat::SingleLetterDayNames)
-            .define_value("ShortDayNames", QCalendarWidget::HorizontalHeaderFormat::ShortDayNames)
-            .define_value("LongDayNames", QCalendarWidget::HorizontalHeaderFormat::LongDayNames);
+        define_qenum_under<QCalendarWidget::HorizontalHeaderFormat>(rb_cQCalendarWidget, "HorizontalHeaderFormat");
+        define_qenum_value_under(rb_cQCalendarWidgetHorizontalHeaderFormat, "NoHorizontalHeader", QCalendarWidget::HorizontalHeaderFormat::NoHorizontalHeader);
+        define_qenum_value_under(rb_cQCalendarWidgetHorizontalHeaderFormat, "SingleLetterDayNames", QCalendarWidget::HorizontalHeaderFormat::SingleLetterDayNames);
+        define_qenum_value_under(rb_cQCalendarWidgetHorizontalHeaderFormat, "ShortDayNames", QCalendarWidget::HorizontalHeaderFormat::ShortDayNames);
+        define_qenum_value_under(rb_cQCalendarWidgetHorizontalHeaderFormat, "LongDayNames", QCalendarWidget::HorizontalHeaderFormat::LongDayNames);
 
-    Enum<QCalendarWidget::VerticalHeaderFormat> rb_cQCalendarWidgetVerticalHeaderFormat =
+    Data_Type<QCalendarWidget::VerticalHeaderFormat> rb_cQCalendarWidgetVerticalHeaderFormat =
         // RubyQt6::QtWidgets::QCalendarWidget::VerticalHeaderFormat
-        define_qenum_under<QCalendarWidget::VerticalHeaderFormat>("VerticalHeaderFormat", rb_cQCalendarWidget)
-            .define_value("NoVerticalHeader", QCalendarWidget::VerticalHeaderFormat::NoVerticalHeader)
-            .define_value("ISOWeekNumbers", QCalendarWidget::VerticalHeaderFormat::ISOWeekNumbers);
+        define_qenum_under<QCalendarWidget::VerticalHeaderFormat>(rb_cQCalendarWidget, "VerticalHeaderFormat");
+        define_qenum_value_under(rb_cQCalendarWidgetVerticalHeaderFormat, "NoVerticalHeader", QCalendarWidget::VerticalHeaderFormat::NoVerticalHeader);
+        define_qenum_value_under(rb_cQCalendarWidgetVerticalHeaderFormat, "ISOWeekNumbers", QCalendarWidget::VerticalHeaderFormat::ISOWeekNumbers);
 
-    Enum<QCalendarWidget::SelectionMode> rb_cQCalendarWidgetSelectionMode =
+    Data_Type<QCalendarWidget::SelectionMode> rb_cQCalendarWidgetSelectionMode =
         // RubyQt6::QtWidgets::QCalendarWidget::SelectionMode
-        define_qenum_under<QCalendarWidget::SelectionMode>("SelectionMode", rb_cQCalendarWidget)
-            .define_value("NoSelection", QCalendarWidget::SelectionMode::NoSelection)
-            .define_value("SingleSelection", QCalendarWidget::SelectionMode::SingleSelection);
+        define_qenum_under<QCalendarWidget::SelectionMode>(rb_cQCalendarWidget, "SelectionMode");
+        define_qenum_value_under(rb_cQCalendarWidgetSelectionMode, "NoSelection", QCalendarWidget::SelectionMode::NoSelection);
+        define_qenum_value_under(rb_cQCalendarWidgetSelectionMode, "SingleSelection", QCalendarWidget::SelectionMode::SingleSelection);
 }

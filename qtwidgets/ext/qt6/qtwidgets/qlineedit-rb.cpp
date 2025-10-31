@@ -96,17 +96,17 @@ void Init_qlineedit(Rice::Module rb_mQt6QtWidgets)
             .define_method("text_changed", &QLineEdit::textChanged, Arg("text"))
             .define_method("text_edited", &QLineEdit::textEdited, Arg("text"));
 
-    Enum<QLineEdit::ActionPosition> rb_cQLineEditActionPosition =
+    Data_Type<QLineEdit::ActionPosition> rb_cQLineEditActionPosition =
         // RubyQt6::QtWidgets::QLineEdit::ActionPosition
-        define_qenum_under<QLineEdit::ActionPosition>("ActionPosition", rb_cQLineEdit)
-            .define_value("LeadingPosition", QLineEdit::ActionPosition::LeadingPosition)
-            .define_value("TrailingPosition", QLineEdit::ActionPosition::TrailingPosition);
+        define_qenum_under<QLineEdit::ActionPosition>(rb_cQLineEdit, "ActionPosition");
+        define_qenum_value_under(rb_cQLineEditActionPosition, "LeadingPosition", QLineEdit::ActionPosition::LeadingPosition);
+        define_qenum_value_under(rb_cQLineEditActionPosition, "TrailingPosition", QLineEdit::ActionPosition::TrailingPosition);
 
-    Enum<QLineEdit::EchoMode> rb_cQLineEditEchoMode =
+    Data_Type<QLineEdit::EchoMode> rb_cQLineEditEchoMode =
         // RubyQt6::QtWidgets::QLineEdit::EchoMode
-        define_qenum_under<QLineEdit::EchoMode>("EchoMode", rb_cQLineEdit)
-            .define_value("Normal", QLineEdit::EchoMode::Normal)
-            .define_value("NoEcho", QLineEdit::EchoMode::NoEcho)
-            .define_value("Password", QLineEdit::EchoMode::Password)
-            .define_value("PasswordEchoOnEdit", QLineEdit::EchoMode::PasswordEchoOnEdit);
+        define_qenum_under<QLineEdit::EchoMode>(rb_cQLineEdit, "EchoMode");
+        define_qenum_value_under(rb_cQLineEditEchoMode, "Normal", QLineEdit::EchoMode::Normal);
+        define_qenum_value_under(rb_cQLineEditEchoMode, "NoEcho", QLineEdit::EchoMode::NoEcho);
+        define_qenum_value_under(rb_cQLineEditEchoMode, "Password", QLineEdit::EchoMode::Password);
+        define_qenum_value_under(rb_cQLineEditEchoMode, "PasswordEchoOnEdit", QLineEdit::EchoMode::PasswordEchoOnEdit);
 }

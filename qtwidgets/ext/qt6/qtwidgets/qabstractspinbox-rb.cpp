@@ -50,31 +50,31 @@ void Init_qabstractspinbox(Rice::Module rb_mQt6QtWidgets)
             // Signals
             .define_method("editing_finished", &QAbstractSpinBox::editingFinished);
 
-    Enum<QAbstractSpinBox::ButtonSymbols> rb_cQAbstractSpinBoxButtonSymbols =
+    Data_Type<QAbstractSpinBox::ButtonSymbols> rb_cQAbstractSpinBoxButtonSymbols =
         // RubyQt6::QtWidgets::QAbstractSpinBox::ButtonSymbols
-        define_qenum_under<QAbstractSpinBox::ButtonSymbols>("ButtonSymbols", rb_cQAbstractSpinBox)
-            .define_value("UpDownArrows", QAbstractSpinBox::ButtonSymbols::UpDownArrows)
-            .define_value("PlusMinus", QAbstractSpinBox::ButtonSymbols::PlusMinus)
-            .define_value("NoButtons", QAbstractSpinBox::ButtonSymbols::NoButtons);
+        define_qenum_under<QAbstractSpinBox::ButtonSymbols>(rb_cQAbstractSpinBox, "ButtonSymbols");
+        define_qenum_value_under(rb_cQAbstractSpinBoxButtonSymbols, "UpDownArrows", QAbstractSpinBox::ButtonSymbols::UpDownArrows);
+        define_qenum_value_under(rb_cQAbstractSpinBoxButtonSymbols, "PlusMinus", QAbstractSpinBox::ButtonSymbols::PlusMinus);
+        define_qenum_value_under(rb_cQAbstractSpinBoxButtonSymbols, "NoButtons", QAbstractSpinBox::ButtonSymbols::NoButtons);
 
-    Enum<QAbstractSpinBox::CorrectionMode> rb_cQAbstractSpinBoxCorrectionMode =
+    Data_Type<QAbstractSpinBox::CorrectionMode> rb_cQAbstractSpinBoxCorrectionMode =
         // RubyQt6::QtWidgets::QAbstractSpinBox::CorrectionMode
-        define_qenum_under<QAbstractSpinBox::CorrectionMode>("CorrectionMode", rb_cQAbstractSpinBox)
-            .define_value("CorrectToPreviousValue", QAbstractSpinBox::CorrectionMode::CorrectToPreviousValue)
-            .define_value("CorrectToNearestValue", QAbstractSpinBox::CorrectionMode::CorrectToNearestValue);
+        define_qenum_under<QAbstractSpinBox::CorrectionMode>(rb_cQAbstractSpinBox, "CorrectionMode");
+        define_qenum_value_under(rb_cQAbstractSpinBoxCorrectionMode, "CorrectToPreviousValue", QAbstractSpinBox::CorrectionMode::CorrectToPreviousValue);
+        define_qenum_value_under(rb_cQAbstractSpinBoxCorrectionMode, "CorrectToNearestValue", QAbstractSpinBox::CorrectionMode::CorrectToNearestValue);
 
-    Enum<QAbstractSpinBox::StepEnabledFlag> rb_cQAbstractSpinBoxStepEnabledFlag =
+    Data_Type<QAbstractSpinBox::StepEnabledFlag> rb_cQAbstractSpinBoxStepEnabledFlag =
         // RubyQt6::QtWidgets::QAbstractSpinBox::StepEnabledFlag
-        define_qenum_under<QAbstractSpinBox::StepEnabledFlag>("StepEnabledFlag", rb_cQAbstractSpinBox)
-            .define_value("StepNone", QAbstractSpinBox::StepEnabledFlag::StepNone)
-            .define_value("StepUpEnabled", QAbstractSpinBox::StepEnabledFlag::StepUpEnabled)
-            .define_value("StepDownEnabled", QAbstractSpinBox::StepEnabledFlag::StepDownEnabled);
+        define_qenum_under<QAbstractSpinBox::StepEnabledFlag>(rb_cQAbstractSpinBox, "StepEnabledFlag");
+        define_qenum_value_under(rb_cQAbstractSpinBoxStepEnabledFlag, "StepNone", QAbstractSpinBox::StepEnabledFlag::StepNone);
+        define_qenum_value_under(rb_cQAbstractSpinBoxStepEnabledFlag, "StepUpEnabled", QAbstractSpinBox::StepEnabledFlag::StepUpEnabled);
+        define_qenum_value_under(rb_cQAbstractSpinBoxStepEnabledFlag, "StepDownEnabled", QAbstractSpinBox::StepEnabledFlag::StepDownEnabled);
 
-    Enum<QAbstractSpinBox::StepType> rb_cQAbstractSpinBoxStepType =
+    Data_Type<QAbstractSpinBox::StepType> rb_cQAbstractSpinBoxStepType =
         // RubyQt6::QtWidgets::QAbstractSpinBox::StepType
-        define_qenum_under<QAbstractSpinBox::StepType>("StepType", rb_cQAbstractSpinBox)
-            .define_value("DefaultStepType", QAbstractSpinBox::StepType::DefaultStepType)
-            .define_value("AdaptiveDecimalStepType", QAbstractSpinBox::StepType::AdaptiveDecimalStepType);
+        define_qenum_under<QAbstractSpinBox::StepType>(rb_cQAbstractSpinBox, "StepType");
+        define_qenum_value_under(rb_cQAbstractSpinBoxStepType, "DefaultStepType", QAbstractSpinBox::StepType::DefaultStepType);
+        define_qenum_value_under(rb_cQAbstractSpinBoxStepType, "AdaptiveDecimalStepType", QAbstractSpinBox::StepType::AdaptiveDecimalStepType);
 
     Data_Type<QFlags<QAbstractSpinBox::StepEnabledFlag>> rb_cQAbstractSpinBoxStepEnabled =
         // RubyQt6::QtWidgets::QAbstractSpinBox::StepEnabled

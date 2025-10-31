@@ -36,60 +36,60 @@ void Init_qfiledevice(Rice::Module rb_mQt6QtCore)
             .define_method("unmap", &QFileDevice::unmap, Arg("address"))
             .define_method("unset_error", &QFileDevice::unsetError);
 
-    Enum<QFileDevice::FileError> rb_cQFileDeviceFileError =
+    Data_Type<QFileDevice::FileError> rb_cQFileDeviceFileError =
         // RubyQt6::QtCore::QFileDevice::FileError
-        define_qenum_under<QFileDevice::FileError>("FileError", rb_cQFileDevice)
-            .define_value("NoError", QFileDevice::FileError::NoError)
-            .define_value("ReadError", QFileDevice::FileError::ReadError)
-            .define_value("WriteError", QFileDevice::FileError::WriteError)
-            .define_value("FatalError", QFileDevice::FileError::FatalError)
-            .define_value("ResourceError", QFileDevice::FileError::ResourceError)
-            .define_value("OpenError", QFileDevice::FileError::OpenError)
-            .define_value("AbortError", QFileDevice::FileError::AbortError)
-            .define_value("TimeOutError", QFileDevice::FileError::TimeOutError)
-            .define_value("UnspecifiedError", QFileDevice::FileError::UnspecifiedError)
-            .define_value("RemoveError", QFileDevice::FileError::RemoveError)
-            .define_value("RenameError", QFileDevice::FileError::RenameError)
-            .define_value("PositionError", QFileDevice::FileError::PositionError)
-            .define_value("ResizeError", QFileDevice::FileError::ResizeError)
-            .define_value("PermissionsError", QFileDevice::FileError::PermissionsError)
-            .define_value("CopyError", QFileDevice::FileError::CopyError);
+        define_qenum_under<QFileDevice::FileError>(rb_cQFileDevice, "FileError");
+        define_qenum_value_under(rb_cQFileDeviceFileError, "NoError", QFileDevice::FileError::NoError);
+        define_qenum_value_under(rb_cQFileDeviceFileError, "ReadError", QFileDevice::FileError::ReadError);
+        define_qenum_value_under(rb_cQFileDeviceFileError, "WriteError", QFileDevice::FileError::WriteError);
+        define_qenum_value_under(rb_cQFileDeviceFileError, "FatalError", QFileDevice::FileError::FatalError);
+        define_qenum_value_under(rb_cQFileDeviceFileError, "ResourceError", QFileDevice::FileError::ResourceError);
+        define_qenum_value_under(rb_cQFileDeviceFileError, "OpenError", QFileDevice::FileError::OpenError);
+        define_qenum_value_under(rb_cQFileDeviceFileError, "AbortError", QFileDevice::FileError::AbortError);
+        define_qenum_value_under(rb_cQFileDeviceFileError, "TimeOutError", QFileDevice::FileError::TimeOutError);
+        define_qenum_value_under(rb_cQFileDeviceFileError, "UnspecifiedError", QFileDevice::FileError::UnspecifiedError);
+        define_qenum_value_under(rb_cQFileDeviceFileError, "RemoveError", QFileDevice::FileError::RemoveError);
+        define_qenum_value_under(rb_cQFileDeviceFileError, "RenameError", QFileDevice::FileError::RenameError);
+        define_qenum_value_under(rb_cQFileDeviceFileError, "PositionError", QFileDevice::FileError::PositionError);
+        define_qenum_value_under(rb_cQFileDeviceFileError, "ResizeError", QFileDevice::FileError::ResizeError);
+        define_qenum_value_under(rb_cQFileDeviceFileError, "PermissionsError", QFileDevice::FileError::PermissionsError);
+        define_qenum_value_under(rb_cQFileDeviceFileError, "CopyError", QFileDevice::FileError::CopyError);
 
-    Enum<QFileDevice::FileHandleFlag> rb_cQFileDeviceFileHandleFlag =
+    Data_Type<QFileDevice::FileHandleFlag> rb_cQFileDeviceFileHandleFlag =
         // RubyQt6::QtCore::QFileDevice::FileHandleFlag
-        define_qenum_under<QFileDevice::FileHandleFlag>("FileHandleFlag", rb_cQFileDevice)
-            .define_value("AutoCloseHandle", QFileDevice::FileHandleFlag::AutoCloseHandle)
-            .define_value("DontCloseHandle", QFileDevice::FileHandleFlag::DontCloseHandle);
+        define_qenum_under<QFileDevice::FileHandleFlag>(rb_cQFileDevice, "FileHandleFlag");
+        define_qenum_value_under(rb_cQFileDeviceFileHandleFlag, "AutoCloseHandle", QFileDevice::FileHandleFlag::AutoCloseHandle);
+        define_qenum_value_under(rb_cQFileDeviceFileHandleFlag, "DontCloseHandle", QFileDevice::FileHandleFlag::DontCloseHandle);
 
-    Enum<QFileDevice::FileTime> rb_cQFileDeviceFileTime =
+    Data_Type<QFileDevice::FileTime> rb_cQFileDeviceFileTime =
         // RubyQt6::QtCore::QFileDevice::FileTime
-        define_qenum_under<QFileDevice::FileTime>("FileTime", rb_cQFileDevice)
-            .define_value("FileAccessTime", QFileDevice::FileTime::FileAccessTime)
-            .define_value("FileBirthTime", QFileDevice::FileTime::FileBirthTime)
-            .define_value("FileMetadataChangeTime", QFileDevice::FileTime::FileMetadataChangeTime)
-            .define_value("FileModificationTime", QFileDevice::FileTime::FileModificationTime);
+        define_qenum_under<QFileDevice::FileTime>(rb_cQFileDevice, "FileTime");
+        define_qenum_value_under(rb_cQFileDeviceFileTime, "FileAccessTime", QFileDevice::FileTime::FileAccessTime);
+        define_qenum_value_under(rb_cQFileDeviceFileTime, "FileBirthTime", QFileDevice::FileTime::FileBirthTime);
+        define_qenum_value_under(rb_cQFileDeviceFileTime, "FileMetadataChangeTime", QFileDevice::FileTime::FileMetadataChangeTime);
+        define_qenum_value_under(rb_cQFileDeviceFileTime, "FileModificationTime", QFileDevice::FileTime::FileModificationTime);
 
-    Enum<QFileDevice::MemoryMapFlag> rb_cQFileDeviceMemoryMapFlag =
+    Data_Type<QFileDevice::MemoryMapFlag> rb_cQFileDeviceMemoryMapFlag =
         // RubyQt6::QtCore::QFileDevice::MemoryMapFlag
-        define_qenum_under<QFileDevice::MemoryMapFlag>("MemoryMapFlag", rb_cQFileDevice)
-            .define_value("NoOptions", QFileDevice::MemoryMapFlag::NoOptions)
-            .define_value("MapPrivateOption", QFileDevice::MemoryMapFlag::MapPrivateOption);
+        define_qenum_under<QFileDevice::MemoryMapFlag>(rb_cQFileDevice, "MemoryMapFlag");
+        define_qenum_value_under(rb_cQFileDeviceMemoryMapFlag, "NoOptions", QFileDevice::MemoryMapFlag::NoOptions);
+        define_qenum_value_under(rb_cQFileDeviceMemoryMapFlag, "MapPrivateOption", QFileDevice::MemoryMapFlag::MapPrivateOption);
 
-    Enum<QFileDevice::Permission> rb_cQFileDevicePermission =
+    Data_Type<QFileDevice::Permission> rb_cQFileDevicePermission =
         // RubyQt6::QtCore::QFileDevice::Permission
-        define_qenum_under<QFileDevice::Permission>("Permission", rb_cQFileDevice)
-            .define_value("ReadOwner", QFileDevice::Permission::ReadOwner)
-            .define_value("WriteOwner", QFileDevice::Permission::WriteOwner)
-            .define_value("ExeOwner", QFileDevice::Permission::ExeOwner)
-            .define_value("ReadUser", QFileDevice::Permission::ReadUser)
-            .define_value("WriteUser", QFileDevice::Permission::WriteUser)
-            .define_value("ExeUser", QFileDevice::Permission::ExeUser)
-            .define_value("ReadGroup", QFileDevice::Permission::ReadGroup)
-            .define_value("WriteGroup", QFileDevice::Permission::WriteGroup)
-            .define_value("ExeGroup", QFileDevice::Permission::ExeGroup)
-            .define_value("ReadOther", QFileDevice::Permission::ReadOther)
-            .define_value("WriteOther", QFileDevice::Permission::WriteOther)
-            .define_value("ExeOther", QFileDevice::Permission::ExeOther);
+        define_qenum_under<QFileDevice::Permission>(rb_cQFileDevice, "Permission");
+        define_qenum_value_under(rb_cQFileDevicePermission, "ReadOwner", QFileDevice::Permission::ReadOwner);
+        define_qenum_value_under(rb_cQFileDevicePermission, "WriteOwner", QFileDevice::Permission::WriteOwner);
+        define_qenum_value_under(rb_cQFileDevicePermission, "ExeOwner", QFileDevice::Permission::ExeOwner);
+        define_qenum_value_under(rb_cQFileDevicePermission, "ReadUser", QFileDevice::Permission::ReadUser);
+        define_qenum_value_under(rb_cQFileDevicePermission, "WriteUser", QFileDevice::Permission::WriteUser);
+        define_qenum_value_under(rb_cQFileDevicePermission, "ExeUser", QFileDevice::Permission::ExeUser);
+        define_qenum_value_under(rb_cQFileDevicePermission, "ReadGroup", QFileDevice::Permission::ReadGroup);
+        define_qenum_value_under(rb_cQFileDevicePermission, "WriteGroup", QFileDevice::Permission::WriteGroup);
+        define_qenum_value_under(rb_cQFileDevicePermission, "ExeGroup", QFileDevice::Permission::ExeGroup);
+        define_qenum_value_under(rb_cQFileDevicePermission, "ReadOther", QFileDevice::Permission::ReadOther);
+        define_qenum_value_under(rb_cQFileDevicePermission, "WriteOther", QFileDevice::Permission::WriteOther);
+        define_qenum_value_under(rb_cQFileDevicePermission, "ExeOther", QFileDevice::Permission::ExeOther);
 
     Data_Type<QFlags<QFileDevice::FileHandleFlag>> rb_cQFileDeviceFileHandleFlags =
         // RubyQt6::QtCore::QFileDevice::FileHandleFlags

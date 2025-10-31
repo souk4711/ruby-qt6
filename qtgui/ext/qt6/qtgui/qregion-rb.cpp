@@ -47,9 +47,9 @@ void Init_qregion(Rice::Module rb_mQt6QtGui)
             .define_method<QRegion (QRegion::*)(const QRegion &) const>("united", &QRegion::united, Arg("r"))
             .define_method("xored", &QRegion::xored, Arg("r"));
 
-    Enum<QRegion::RegionType> rb_cQRegionRegionType =
+    Data_Type<QRegion::RegionType> rb_cQRegionRegionType =
         // RubyQt6::QtGui::QRegion::RegionType
-        define_qenum_under<QRegion::RegionType>("RegionType", rb_cQRegion)
-            .define_value("Rectangle", QRegion::RegionType::Rectangle)
-            .define_value("Ellipse", QRegion::RegionType::Ellipse);
+        define_qenum_under<QRegion::RegionType>(rb_cQRegion, "RegionType");
+        define_qenum_value_under(rb_cQRegionRegionType, "Rectangle", QRegion::RegionType::Rectangle);
+        define_qenum_value_under(rb_cQRegionRegionType, "Ellipse", QRegion::RegionType::Ellipse);
 }

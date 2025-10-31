@@ -81,15 +81,15 @@ void Init_qmainwindow(Rice::Module rb_mQt6QtWidgets)
             .define_method("tabified_dock_widget_activated", &QMainWindow::tabifiedDockWidgetActivated, Arg("dock_widget"))
             .define_method("tool_button_style_changed", &QMainWindow::toolButtonStyleChanged, Arg("tool_button_style"));
 
-    Enum<QMainWindow::DockOption> rb_cQMainWindowDockOption =
+    Data_Type<QMainWindow::DockOption> rb_cQMainWindowDockOption =
         // RubyQt6::QtWidgets::QMainWindow::DockOption
-        define_qenum_under<QMainWindow::DockOption>("DockOption", rb_cQMainWindow)
-            .define_value("AnimatedDocks", QMainWindow::DockOption::AnimatedDocks)
-            .define_value("AllowNestedDocks", QMainWindow::DockOption::AllowNestedDocks)
-            .define_value("AllowTabbedDocks", QMainWindow::DockOption::AllowTabbedDocks)
-            .define_value("ForceTabbedDocks", QMainWindow::DockOption::ForceTabbedDocks)
-            .define_value("VerticalTabs", QMainWindow::DockOption::VerticalTabs)
-            .define_value("GroupedDragging", QMainWindow::DockOption::GroupedDragging);
+        define_qenum_under<QMainWindow::DockOption>(rb_cQMainWindow, "DockOption");
+        define_qenum_value_under(rb_cQMainWindowDockOption, "AnimatedDocks", QMainWindow::DockOption::AnimatedDocks);
+        define_qenum_value_under(rb_cQMainWindowDockOption, "AllowNestedDocks", QMainWindow::DockOption::AllowNestedDocks);
+        define_qenum_value_under(rb_cQMainWindowDockOption, "AllowTabbedDocks", QMainWindow::DockOption::AllowTabbedDocks);
+        define_qenum_value_under(rb_cQMainWindowDockOption, "ForceTabbedDocks", QMainWindow::DockOption::ForceTabbedDocks);
+        define_qenum_value_under(rb_cQMainWindowDockOption, "VerticalTabs", QMainWindow::DockOption::VerticalTabs);
+        define_qenum_value_under(rb_cQMainWindowDockOption, "GroupedDragging", QMainWindow::DockOption::GroupedDragging);
 
     Data_Type<QFlags<QMainWindow::DockOption>> rb_cQMainWindowDockOptions =
         // RubyQt6::QtWidgets::QMainWindow::DockOptions

@@ -24,12 +24,12 @@ void Init_qvalidator(Rice::Module rb_mQt6QtGui)
             // Signals
             .define_method("changed", &QValidator::changed);
 
-    Enum<QValidator::State> rb_cQValidatorState =
+    Data_Type<QValidator::State> rb_cQValidatorState =
         // RubyQt6::QtGui::QValidator::State
-        define_qenum_under<QValidator::State>("State", rb_cQValidator)
-            .define_value("Invalid", QValidator::State::Invalid)
-            .define_value("Intermediate", QValidator::State::Intermediate)
-            .define_value("Acceptable", QValidator::State::Acceptable);
+        define_qenum_under<QValidator::State>(rb_cQValidator, "State");
+        define_qenum_value_under(rb_cQValidatorState, "Invalid", QValidator::State::Invalid);
+        define_qenum_value_under(rb_cQValidatorState, "Intermediate", QValidator::State::Intermediate);
+        define_qenum_value_under(rb_cQValidatorState, "Acceptable", QValidator::State::Acceptable);
 
     rb_cQDoubleValidator =
         // RubyQt6::QtGui::QDoubleValidator
@@ -57,11 +57,11 @@ void Init_qvalidator(Rice::Module rb_mQt6QtGui)
             .define_method("notation_changed", &QDoubleValidator::notationChanged, Arg("notation"))
             .define_method("top_changed", &QDoubleValidator::topChanged, Arg("top"));
 
-    Enum<QDoubleValidator::Notation> rb_cQDoubleValidatorNotation =
+    Data_Type<QDoubleValidator::Notation> rb_cQDoubleValidatorNotation =
         // RubyQt6::QtGui::QDoubleValidator::Notation
-        define_qenum_under<QDoubleValidator::Notation>("Notation", rb_cQDoubleValidator)
-            .define_value("StandardNotation", QDoubleValidator::Notation::StandardNotation)
-            .define_value("ScientificNotation", QDoubleValidator::Notation::ScientificNotation);
+        define_qenum_under<QDoubleValidator::Notation>(rb_cQDoubleValidator, "Notation");
+        define_qenum_value_under(rb_cQDoubleValidatorNotation, "StandardNotation", QDoubleValidator::Notation::StandardNotation);
+        define_qenum_value_under(rb_cQDoubleValidatorNotation, "ScientificNotation", QDoubleValidator::Notation::ScientificNotation);
 
     rb_cQIntValidator =
         // RubyQt6::QtGui::QIntValidator

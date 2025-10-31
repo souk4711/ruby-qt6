@@ -44,45 +44,45 @@ void Init_qstyleoption(Rice::Module rb_mQt6QtWidgets)
             .define_attr("type", &QStyleOption::type)
             .define_attr("version", &QStyleOption::version);
 
-    Enum<QStyleOption::OptionType> rb_cQStyleOptionOptionType =
+    Data_Type<QStyleOption::OptionType> rb_cQStyleOptionOptionType =
         // RubyQt6::QtWidgets::QStyleOption::OptionType
-        define_qenum_under<QStyleOption::OptionType>("OptionType", rb_cQStyleOption)
-            .define_value("SO_Default", QStyleOption::OptionType::SO_Default)
-            .define_value("SO_FocusRect", QStyleOption::OptionType::SO_FocusRect)
-            .define_value("SO_Button", QStyleOption::OptionType::SO_Button)
-            .define_value("SO_Tab", QStyleOption::OptionType::SO_Tab)
-            .define_value("SO_MenuItem", QStyleOption::OptionType::SO_MenuItem)
-            .define_value("SO_Frame", QStyleOption::OptionType::SO_Frame)
-            .define_value("SO_ProgressBar", QStyleOption::OptionType::SO_ProgressBar)
-            .define_value("SO_ToolBox", QStyleOption::OptionType::SO_ToolBox)
-            .define_value("SO_Header", QStyleOption::OptionType::SO_Header)
-            .define_value("SO_DockWidget", QStyleOption::OptionType::SO_DockWidget)
-            .define_value("SO_ViewItem", QStyleOption::OptionType::SO_ViewItem)
-            .define_value("SO_TabWidgetFrame", QStyleOption::OptionType::SO_TabWidgetFrame)
-            .define_value("SO_TabBarBase", QStyleOption::OptionType::SO_TabBarBase)
-            .define_value("SO_RubberBand", QStyleOption::OptionType::SO_RubberBand)
-            .define_value("SO_ToolBar", QStyleOption::OptionType::SO_ToolBar)
-            .define_value("SO_GraphicsItem", QStyleOption::OptionType::SO_GraphicsItem)
-            .define_value("SO_Complex", QStyleOption::OptionType::SO_Complex)
-            .define_value("SO_Slider", QStyleOption::OptionType::SO_Slider)
-            .define_value("SO_SpinBox", QStyleOption::OptionType::SO_SpinBox)
-            .define_value("SO_ToolButton", QStyleOption::OptionType::SO_ToolButton)
-            .define_value("SO_ComboBox", QStyleOption::OptionType::SO_ComboBox)
-            .define_value("SO_TitleBar", QStyleOption::OptionType::SO_TitleBar)
-            .define_value("SO_GroupBox", QStyleOption::OptionType::SO_GroupBox)
-            .define_value("SO_SizeGrip", QStyleOption::OptionType::SO_SizeGrip)
-            .define_value("SO_CustomBase", QStyleOption::OptionType::SO_CustomBase)
-            .define_value("SO_ComplexCustomBase", QStyleOption::OptionType::SO_ComplexCustomBase);
+        define_qenum_under<QStyleOption::OptionType>(rb_cQStyleOption, "OptionType");
+        define_qenum_value_under(rb_cQStyleOptionOptionType, "SO_Default", QStyleOption::OptionType::SO_Default);
+        define_qenum_value_under(rb_cQStyleOptionOptionType, "SO_FocusRect", QStyleOption::OptionType::SO_FocusRect);
+        define_qenum_value_under(rb_cQStyleOptionOptionType, "SO_Button", QStyleOption::OptionType::SO_Button);
+        define_qenum_value_under(rb_cQStyleOptionOptionType, "SO_Tab", QStyleOption::OptionType::SO_Tab);
+        define_qenum_value_under(rb_cQStyleOptionOptionType, "SO_MenuItem", QStyleOption::OptionType::SO_MenuItem);
+        define_qenum_value_under(rb_cQStyleOptionOptionType, "SO_Frame", QStyleOption::OptionType::SO_Frame);
+        define_qenum_value_under(rb_cQStyleOptionOptionType, "SO_ProgressBar", QStyleOption::OptionType::SO_ProgressBar);
+        define_qenum_value_under(rb_cQStyleOptionOptionType, "SO_ToolBox", QStyleOption::OptionType::SO_ToolBox);
+        define_qenum_value_under(rb_cQStyleOptionOptionType, "SO_Header", QStyleOption::OptionType::SO_Header);
+        define_qenum_value_under(rb_cQStyleOptionOptionType, "SO_DockWidget", QStyleOption::OptionType::SO_DockWidget);
+        define_qenum_value_under(rb_cQStyleOptionOptionType, "SO_ViewItem", QStyleOption::OptionType::SO_ViewItem);
+        define_qenum_value_under(rb_cQStyleOptionOptionType, "SO_TabWidgetFrame", QStyleOption::OptionType::SO_TabWidgetFrame);
+        define_qenum_value_under(rb_cQStyleOptionOptionType, "SO_TabBarBase", QStyleOption::OptionType::SO_TabBarBase);
+        define_qenum_value_under(rb_cQStyleOptionOptionType, "SO_RubberBand", QStyleOption::OptionType::SO_RubberBand);
+        define_qenum_value_under(rb_cQStyleOptionOptionType, "SO_ToolBar", QStyleOption::OptionType::SO_ToolBar);
+        define_qenum_value_under(rb_cQStyleOptionOptionType, "SO_GraphicsItem", QStyleOption::OptionType::SO_GraphicsItem);
+        define_qenum_value_under(rb_cQStyleOptionOptionType, "SO_Complex", QStyleOption::OptionType::SO_Complex);
+        define_qenum_value_under(rb_cQStyleOptionOptionType, "SO_Slider", QStyleOption::OptionType::SO_Slider);
+        define_qenum_value_under(rb_cQStyleOptionOptionType, "SO_SpinBox", QStyleOption::OptionType::SO_SpinBox);
+        define_qenum_value_under(rb_cQStyleOptionOptionType, "SO_ToolButton", QStyleOption::OptionType::SO_ToolButton);
+        define_qenum_value_under(rb_cQStyleOptionOptionType, "SO_ComboBox", QStyleOption::OptionType::SO_ComboBox);
+        define_qenum_value_under(rb_cQStyleOptionOptionType, "SO_TitleBar", QStyleOption::OptionType::SO_TitleBar);
+        define_qenum_value_under(rb_cQStyleOptionOptionType, "SO_GroupBox", QStyleOption::OptionType::SO_GroupBox);
+        define_qenum_value_under(rb_cQStyleOptionOptionType, "SO_SizeGrip", QStyleOption::OptionType::SO_SizeGrip);
+        define_qenum_value_under(rb_cQStyleOptionOptionType, "SO_CustomBase", QStyleOption::OptionType::SO_CustomBase);
+        define_qenum_value_under(rb_cQStyleOptionOptionType, "SO_ComplexCustomBase", QStyleOption::OptionType::SO_ComplexCustomBase);
 
-    Enum<QStyleOption::StyleOptionType> rb_cQStyleOptionStyleOptionType =
+    Data_Type<QStyleOption::StyleOptionType> rb_cQStyleOptionStyleOptionType =
         // RubyQt6::QtWidgets::QStyleOption::StyleOptionType
-        define_qenum_under<QStyleOption::StyleOptionType>("StyleOptionType", rb_cQStyleOption)
-            .define_value("Type", QStyleOption::StyleOptionType::Type);
+        define_qenum_under<QStyleOption::StyleOptionType>(rb_cQStyleOption, "StyleOptionType");
+        define_qenum_value_under(rb_cQStyleOptionStyleOptionType, "Type", QStyleOption::StyleOptionType::Type);
 
-    Enum<QStyleOption::StyleOptionVersion> rb_cQStyleOptionStyleOptionVersion =
+    Data_Type<QStyleOption::StyleOptionVersion> rb_cQStyleOptionStyleOptionVersion =
         // RubyQt6::QtWidgets::QStyleOption::StyleOptionVersion
-        define_qenum_under<QStyleOption::StyleOptionVersion>("StyleOptionVersion", rb_cQStyleOption)
-            .define_value("Version", QStyleOption::StyleOptionVersion::Version);
+        define_qenum_under<QStyleOption::StyleOptionVersion>(rb_cQStyleOption, "StyleOptionVersion");
+        define_qenum_value_under(rb_cQStyleOptionStyleOptionVersion, "Version", QStyleOption::StyleOptionVersion::Version);
 
     rb_cQStyleOptionButton =
         // RubyQt6::QtWidgets::QStyleOptionButton
@@ -92,25 +92,25 @@ void Init_qstyleoption(Rice::Module rb_mQt6QtWidgets)
             .define_attr("icon_size", &QStyleOptionButton::iconSize)
             .define_attr("text", &QStyleOptionButton::text);
 
-    Enum<QStyleOptionButton::StyleOptionType> rb_cQStyleOptionButtonStyleOptionType =
+    Data_Type<QStyleOptionButton::StyleOptionType> rb_cQStyleOptionButtonStyleOptionType =
         // RubyQt6::QtWidgets::QStyleOptionButton::StyleOptionType
-        define_qenum_under<QStyleOptionButton::StyleOptionType>("StyleOptionType", rb_cQStyleOptionButton)
-            .define_value("Type", QStyleOptionButton::StyleOptionType::Type);
+        define_qenum_under<QStyleOptionButton::StyleOptionType>(rb_cQStyleOptionButton, "StyleOptionType");
+        define_qenum_value_under(rb_cQStyleOptionButtonStyleOptionType, "Type", QStyleOptionButton::StyleOptionType::Type);
 
-    Enum<QStyleOptionButton::StyleOptionVersion> rb_cQStyleOptionButtonStyleOptionVersion =
+    Data_Type<QStyleOptionButton::StyleOptionVersion> rb_cQStyleOptionButtonStyleOptionVersion =
         // RubyQt6::QtWidgets::QStyleOptionButton::StyleOptionVersion
-        define_qenum_under<QStyleOptionButton::StyleOptionVersion>("StyleOptionVersion", rb_cQStyleOptionButton)
-            .define_value("Version", QStyleOptionButton::StyleOptionVersion::Version);
+        define_qenum_under<QStyleOptionButton::StyleOptionVersion>(rb_cQStyleOptionButton, "StyleOptionVersion");
+        define_qenum_value_under(rb_cQStyleOptionButtonStyleOptionVersion, "Version", QStyleOptionButton::StyleOptionVersion::Version);
 
-    Enum<QStyleOptionButton::ButtonFeature> rb_cQStyleOptionButtonButtonFeature =
+    Data_Type<QStyleOptionButton::ButtonFeature> rb_cQStyleOptionButtonButtonFeature =
         // RubyQt6::QtWidgets::QStyleOptionButton::ButtonFeature
-        define_qenum_under<QStyleOptionButton::ButtonFeature>("ButtonFeature", rb_cQStyleOptionButton)
-            .define_value("None", QStyleOptionButton::ButtonFeature::None)
-            .define_value("Flat", QStyleOptionButton::ButtonFeature::Flat)
-            .define_value("HasMenu", QStyleOptionButton::ButtonFeature::HasMenu)
-            .define_value("DefaultButton", QStyleOptionButton::ButtonFeature::DefaultButton)
-            .define_value("AutoDefaultButton", QStyleOptionButton::ButtonFeature::AutoDefaultButton)
-            .define_value("CommandLinkButton", QStyleOptionButton::ButtonFeature::CommandLinkButton);
+        define_qenum_under<QStyleOptionButton::ButtonFeature>(rb_cQStyleOptionButton, "ButtonFeature");
+        define_qenum_value_under(rb_cQStyleOptionButtonButtonFeature, "None", QStyleOptionButton::ButtonFeature::None);
+        define_qenum_value_under(rb_cQStyleOptionButtonButtonFeature, "Flat", QStyleOptionButton::ButtonFeature::Flat);
+        define_qenum_value_under(rb_cQStyleOptionButtonButtonFeature, "HasMenu", QStyleOptionButton::ButtonFeature::HasMenu);
+        define_qenum_value_under(rb_cQStyleOptionButtonButtonFeature, "DefaultButton", QStyleOptionButton::ButtonFeature::DefaultButton);
+        define_qenum_value_under(rb_cQStyleOptionButtonButtonFeature, "AutoDefaultButton", QStyleOptionButton::ButtonFeature::AutoDefaultButton);
+        define_qenum_value_under(rb_cQStyleOptionButtonButtonFeature, "CommandLinkButton", QStyleOptionButton::ButtonFeature::CommandLinkButton);
 
     rb_cQStyleOptionComplex =
         // RubyQt6::QtWidgets::QStyleOptionComplex
@@ -118,15 +118,15 @@ void Init_qstyleoption(Rice::Module rb_mQt6QtWidgets)
             .define_attr("active_sub_controls", &QStyleOptionComplex::activeSubControls)
             .define_attr("sub_controls", &QStyleOptionComplex::subControls);
 
-    Enum<QStyleOptionComplex::StyleOptionType> rb_cQStyleOptionComplexStyleOptionType =
+    Data_Type<QStyleOptionComplex::StyleOptionType> rb_cQStyleOptionComplexStyleOptionType =
         // RubyQt6::QtWidgets::QStyleOptionComplex::StyleOptionType
-        define_qenum_under<QStyleOptionComplex::StyleOptionType>("StyleOptionType", rb_cQStyleOptionComplex)
-            .define_value("Type", QStyleOptionComplex::StyleOptionType::Type);
+        define_qenum_under<QStyleOptionComplex::StyleOptionType>(rb_cQStyleOptionComplex, "StyleOptionType");
+        define_qenum_value_under(rb_cQStyleOptionComplexStyleOptionType, "Type", QStyleOptionComplex::StyleOptionType::Type);
 
-    Enum<QStyleOptionComplex::StyleOptionVersion> rb_cQStyleOptionComplexStyleOptionVersion =
+    Data_Type<QStyleOptionComplex::StyleOptionVersion> rb_cQStyleOptionComplexStyleOptionVersion =
         // RubyQt6::QtWidgets::QStyleOptionComplex::StyleOptionVersion
-        define_qenum_under<QStyleOptionComplex::StyleOptionVersion>("StyleOptionVersion", rb_cQStyleOptionComplex)
-            .define_value("Version", QStyleOptionComplex::StyleOptionVersion::Version);
+        define_qenum_under<QStyleOptionComplex::StyleOptionVersion>(rb_cQStyleOptionComplex, "StyleOptionVersion");
+        define_qenum_value_under(rb_cQStyleOptionComplexStyleOptionVersion, "Version", QStyleOptionComplex::StyleOptionVersion::Version);
 
     rb_cQStyleOptionComboBox =
         // RubyQt6::QtWidgets::QStyleOptionComboBox
@@ -139,15 +139,15 @@ void Init_qstyleoption(Rice::Module rb_mQt6QtWidgets)
             .define_attr("popup_rect", &QStyleOptionComboBox::popupRect)
             .define_attr("text_alignment", &QStyleOptionComboBox::textAlignment);
 
-    Enum<QStyleOptionComboBox::StyleOptionType> rb_cQStyleOptionComboBoxStyleOptionType =
+    Data_Type<QStyleOptionComboBox::StyleOptionType> rb_cQStyleOptionComboBoxStyleOptionType =
         // RubyQt6::QtWidgets::QStyleOptionComboBox::StyleOptionType
-        define_qenum_under<QStyleOptionComboBox::StyleOptionType>("StyleOptionType", rb_cQStyleOptionComboBox)
-            .define_value("Type", QStyleOptionComboBox::StyleOptionType::Type);
+        define_qenum_under<QStyleOptionComboBox::StyleOptionType>(rb_cQStyleOptionComboBox, "StyleOptionType");
+        define_qenum_value_under(rb_cQStyleOptionComboBoxStyleOptionType, "Type", QStyleOptionComboBox::StyleOptionType::Type);
 
-    Enum<QStyleOptionComboBox::StyleOptionVersion> rb_cQStyleOptionComboBoxStyleOptionVersion =
+    Data_Type<QStyleOptionComboBox::StyleOptionVersion> rb_cQStyleOptionComboBoxStyleOptionVersion =
         // RubyQt6::QtWidgets::QStyleOptionComboBox::StyleOptionVersion
-        define_qenum_under<QStyleOptionComboBox::StyleOptionVersion>("StyleOptionVersion", rb_cQStyleOptionComboBox)
-            .define_value("Version", QStyleOptionComboBox::StyleOptionVersion::Version);
+        define_qenum_under<QStyleOptionComboBox::StyleOptionVersion>(rb_cQStyleOptionComboBox, "StyleOptionVersion");
+        define_qenum_value_under(rb_cQStyleOptionComboBoxStyleOptionVersion, "Version", QStyleOptionComboBox::StyleOptionVersion::Version);
 
     rb_cQStyleOptionGroupBox =
         // RubyQt6::QtWidgets::QStyleOptionGroupBox
@@ -159,30 +159,30 @@ void Init_qstyleoption(Rice::Module rb_mQt6QtWidgets)
             .define_attr("text_alignment", &QStyleOptionGroupBox::textAlignment)
             .define_attr("text_color", &QStyleOptionGroupBox::textColor);
 
-    Enum<QStyleOptionGroupBox::StyleOptionType> rb_cQStyleOptionGroupBoxStyleOptionType =
+    Data_Type<QStyleOptionGroupBox::StyleOptionType> rb_cQStyleOptionGroupBoxStyleOptionType =
         // RubyQt6::QtWidgets::QStyleOptionGroupBox::StyleOptionType
-        define_qenum_under<QStyleOptionGroupBox::StyleOptionType>("StyleOptionType", rb_cQStyleOptionGroupBox)
-            .define_value("Type", QStyleOptionGroupBox::StyleOptionType::Type);
+        define_qenum_under<QStyleOptionGroupBox::StyleOptionType>(rb_cQStyleOptionGroupBox, "StyleOptionType");
+        define_qenum_value_under(rb_cQStyleOptionGroupBoxStyleOptionType, "Type", QStyleOptionGroupBox::StyleOptionType::Type);
 
-    Enum<QStyleOptionGroupBox::StyleOptionVersion> rb_cQStyleOptionGroupBoxStyleOptionVersion =
+    Data_Type<QStyleOptionGroupBox::StyleOptionVersion> rb_cQStyleOptionGroupBoxStyleOptionVersion =
         // RubyQt6::QtWidgets::QStyleOptionGroupBox::StyleOptionVersion
-        define_qenum_under<QStyleOptionGroupBox::StyleOptionVersion>("StyleOptionVersion", rb_cQStyleOptionGroupBox)
-            .define_value("Version", QStyleOptionGroupBox::StyleOptionVersion::Version);
+        define_qenum_under<QStyleOptionGroupBox::StyleOptionVersion>(rb_cQStyleOptionGroupBox, "StyleOptionVersion");
+        define_qenum_value_under(rb_cQStyleOptionGroupBoxStyleOptionVersion, "Version", QStyleOptionGroupBox::StyleOptionVersion::Version);
 
     rb_cQStyleOptionSizeGrip =
         // RubyQt6::QtWidgets::QStyleOptionSizeGrip
         define_class_under<QStyleOptionSizeGrip, QStyleOptionComplex>(rb_mQt6QtWidgets, "QStyleOptionSizeGrip")
             .define_attr("corner", &QStyleOptionSizeGrip::corner, Rice::AttrAccess::Read);
 
-    Enum<QStyleOptionSizeGrip::StyleOptionType> rb_cQStyleOptionSizeGripStyleOptionType =
+    Data_Type<QStyleOptionSizeGrip::StyleOptionType> rb_cQStyleOptionSizeGripStyleOptionType =
         // RubyQt6::QtWidgets::QStyleOptionSizeGrip::StyleOptionType
-        define_qenum_under<QStyleOptionSizeGrip::StyleOptionType>("StyleOptionType", rb_cQStyleOptionSizeGrip)
-            .define_value("Type", QStyleOptionSizeGrip::StyleOptionType::Type);
+        define_qenum_under<QStyleOptionSizeGrip::StyleOptionType>(rb_cQStyleOptionSizeGrip, "StyleOptionType");
+        define_qenum_value_under(rb_cQStyleOptionSizeGripStyleOptionType, "Type", QStyleOptionSizeGrip::StyleOptionType::Type);
 
-    Enum<QStyleOptionSizeGrip::StyleOptionVersion> rb_cQStyleOptionSizeGripStyleOptionVersion =
+    Data_Type<QStyleOptionSizeGrip::StyleOptionVersion> rb_cQStyleOptionSizeGripStyleOptionVersion =
         // RubyQt6::QtWidgets::QStyleOptionSizeGrip::StyleOptionVersion
-        define_qenum_under<QStyleOptionSizeGrip::StyleOptionVersion>("StyleOptionVersion", rb_cQStyleOptionSizeGrip)
-            .define_value("Version", QStyleOptionSizeGrip::StyleOptionVersion::Version);
+        define_qenum_under<QStyleOptionSizeGrip::StyleOptionVersion>(rb_cQStyleOptionSizeGrip, "StyleOptionVersion");
+        define_qenum_value_under(rb_cQStyleOptionSizeGripStyleOptionVersion, "Version", QStyleOptionSizeGrip::StyleOptionVersion::Version);
 
     rb_cQStyleOptionSlider =
         // RubyQt6::QtWidgets::QStyleOptionSlider
@@ -201,15 +201,15 @@ void Init_qstyleoption(Rice::Module rb_mQt6QtWidgets)
             .define_attr("tick_position", &QStyleOptionSlider::tickPosition, Rice::AttrAccess::Read)
             .define_attr("upside_down", &QStyleOptionSlider::upsideDown);
 
-    Enum<QStyleOptionSlider::StyleOptionType> rb_cQStyleOptionSliderStyleOptionType =
+    Data_Type<QStyleOptionSlider::StyleOptionType> rb_cQStyleOptionSliderStyleOptionType =
         // RubyQt6::QtWidgets::QStyleOptionSlider::StyleOptionType
-        define_qenum_under<QStyleOptionSlider::StyleOptionType>("StyleOptionType", rb_cQStyleOptionSlider)
-            .define_value("Type", QStyleOptionSlider::StyleOptionType::Type);
+        define_qenum_under<QStyleOptionSlider::StyleOptionType>(rb_cQStyleOptionSlider, "StyleOptionType");
+        define_qenum_value_under(rb_cQStyleOptionSliderStyleOptionType, "Type", QStyleOptionSlider::StyleOptionType::Type);
 
-    Enum<QStyleOptionSlider::StyleOptionVersion> rb_cQStyleOptionSliderStyleOptionVersion =
+    Data_Type<QStyleOptionSlider::StyleOptionVersion> rb_cQStyleOptionSliderStyleOptionVersion =
         // RubyQt6::QtWidgets::QStyleOptionSlider::StyleOptionVersion
-        define_qenum_under<QStyleOptionSlider::StyleOptionVersion>("StyleOptionVersion", rb_cQStyleOptionSlider)
-            .define_value("Version", QStyleOptionSlider::StyleOptionVersion::Version);
+        define_qenum_under<QStyleOptionSlider::StyleOptionVersion>(rb_cQStyleOptionSlider, "StyleOptionVersion");
+        define_qenum_value_under(rb_cQStyleOptionSliderStyleOptionVersion, "Version", QStyleOptionSlider::StyleOptionVersion::Version);
 
     rb_cQStyleOptionSpinBox =
         // RubyQt6::QtWidgets::QStyleOptionSpinBox
@@ -218,15 +218,15 @@ void Init_qstyleoption(Rice::Module rb_mQt6QtWidgets)
             .define_attr("frame", &QStyleOptionSpinBox::frame)
             .define_attr("step_enabled", &QStyleOptionSpinBox::stepEnabled);
 
-    Enum<QStyleOptionSpinBox::StyleOptionType> rb_cQStyleOptionSpinBoxStyleOptionType =
+    Data_Type<QStyleOptionSpinBox::StyleOptionType> rb_cQStyleOptionSpinBoxStyleOptionType =
         // RubyQt6::QtWidgets::QStyleOptionSpinBox::StyleOptionType
-        define_qenum_under<QStyleOptionSpinBox::StyleOptionType>("StyleOptionType", rb_cQStyleOptionSpinBox)
-            .define_value("Type", QStyleOptionSpinBox::StyleOptionType::Type);
+        define_qenum_under<QStyleOptionSpinBox::StyleOptionType>(rb_cQStyleOptionSpinBox, "StyleOptionType");
+        define_qenum_value_under(rb_cQStyleOptionSpinBoxStyleOptionType, "Type", QStyleOptionSpinBox::StyleOptionType::Type);
 
-    Enum<QStyleOptionSpinBox::StyleOptionVersion> rb_cQStyleOptionSpinBoxStyleOptionVersion =
+    Data_Type<QStyleOptionSpinBox::StyleOptionVersion> rb_cQStyleOptionSpinBoxStyleOptionVersion =
         // RubyQt6::QtWidgets::QStyleOptionSpinBox::StyleOptionVersion
-        define_qenum_under<QStyleOptionSpinBox::StyleOptionVersion>("StyleOptionVersion", rb_cQStyleOptionSpinBox)
-            .define_value("Version", QStyleOptionSpinBox::StyleOptionVersion::Version);
+        define_qenum_under<QStyleOptionSpinBox::StyleOptionVersion>(rb_cQStyleOptionSpinBox, "StyleOptionVersion");
+        define_qenum_value_under(rb_cQStyleOptionSpinBoxStyleOptionVersion, "Version", QStyleOptionSpinBox::StyleOptionVersion::Version);
 
     rb_cQStyleOptionTitleBar =
         // RubyQt6::QtWidgets::QStyleOptionTitleBar
@@ -236,15 +236,15 @@ void Init_qstyleoption(Rice::Module rb_mQt6QtWidgets)
             .define_attr("title_bar_flags", &QStyleOptionTitleBar::titleBarFlags)
             .define_attr("title_bar_state", &QStyleOptionTitleBar::titleBarState);
 
-    Enum<QStyleOptionTitleBar::StyleOptionType> rb_cQStyleOptionTitleBarStyleOptionType =
+    Data_Type<QStyleOptionTitleBar::StyleOptionType> rb_cQStyleOptionTitleBarStyleOptionType =
         // RubyQt6::QtWidgets::QStyleOptionTitleBar::StyleOptionType
-        define_qenum_under<QStyleOptionTitleBar::StyleOptionType>("StyleOptionType", rb_cQStyleOptionTitleBar)
-            .define_value("Type", QStyleOptionTitleBar::StyleOptionType::Type);
+        define_qenum_under<QStyleOptionTitleBar::StyleOptionType>(rb_cQStyleOptionTitleBar, "StyleOptionType");
+        define_qenum_value_under(rb_cQStyleOptionTitleBarStyleOptionType, "Type", QStyleOptionTitleBar::StyleOptionType::Type);
 
-    Enum<QStyleOptionTitleBar::StyleOptionVersion> rb_cQStyleOptionTitleBarStyleOptionVersion =
+    Data_Type<QStyleOptionTitleBar::StyleOptionVersion> rb_cQStyleOptionTitleBarStyleOptionVersion =
         // RubyQt6::QtWidgets::QStyleOptionTitleBar::StyleOptionVersion
-        define_qenum_under<QStyleOptionTitleBar::StyleOptionVersion>("StyleOptionVersion", rb_cQStyleOptionTitleBar)
-            .define_value("Version", QStyleOptionTitleBar::StyleOptionVersion::Version);
+        define_qenum_under<QStyleOptionTitleBar::StyleOptionVersion>(rb_cQStyleOptionTitleBar, "StyleOptionVersion");
+        define_qenum_value_under(rb_cQStyleOptionTitleBarStyleOptionVersion, "Version", QStyleOptionTitleBar::StyleOptionVersion::Version);
 
     rb_cQStyleOptionToolButton =
         // RubyQt6::QtWidgets::QStyleOptionToolButton
@@ -258,25 +258,25 @@ void Init_qstyleoption(Rice::Module rb_mQt6QtWidgets)
             .define_attr("text", &QStyleOptionToolButton::text)
             .define_attr("tool_button_style", &QStyleOptionToolButton::toolButtonStyle, Rice::AttrAccess::Read);
 
-    Enum<QStyleOptionToolButton::StyleOptionType> rb_cQStyleOptionToolButtonStyleOptionType =
+    Data_Type<QStyleOptionToolButton::StyleOptionType> rb_cQStyleOptionToolButtonStyleOptionType =
         // RubyQt6::QtWidgets::QStyleOptionToolButton::StyleOptionType
-        define_qenum_under<QStyleOptionToolButton::StyleOptionType>("StyleOptionType", rb_cQStyleOptionToolButton)
-            .define_value("Type", QStyleOptionToolButton::StyleOptionType::Type);
+        define_qenum_under<QStyleOptionToolButton::StyleOptionType>(rb_cQStyleOptionToolButton, "StyleOptionType");
+        define_qenum_value_under(rb_cQStyleOptionToolButtonStyleOptionType, "Type", QStyleOptionToolButton::StyleOptionType::Type);
 
-    Enum<QStyleOptionToolButton::StyleOptionVersion> rb_cQStyleOptionToolButtonStyleOptionVersion =
+    Data_Type<QStyleOptionToolButton::StyleOptionVersion> rb_cQStyleOptionToolButtonStyleOptionVersion =
         // RubyQt6::QtWidgets::QStyleOptionToolButton::StyleOptionVersion
-        define_qenum_under<QStyleOptionToolButton::StyleOptionVersion>("StyleOptionVersion", rb_cQStyleOptionToolButton)
-            .define_value("Version", QStyleOptionToolButton::StyleOptionVersion::Version);
+        define_qenum_under<QStyleOptionToolButton::StyleOptionVersion>(rb_cQStyleOptionToolButton, "StyleOptionVersion");
+        define_qenum_value_under(rb_cQStyleOptionToolButtonStyleOptionVersion, "Version", QStyleOptionToolButton::StyleOptionVersion::Version);
 
-    Enum<QStyleOptionToolButton::ToolButtonFeature> rb_cQStyleOptionToolButtonToolButtonFeature =
+    Data_Type<QStyleOptionToolButton::ToolButtonFeature> rb_cQStyleOptionToolButtonToolButtonFeature =
         // RubyQt6::QtWidgets::QStyleOptionToolButton::ToolButtonFeature
-        define_qenum_under<QStyleOptionToolButton::ToolButtonFeature>("ToolButtonFeature", rb_cQStyleOptionToolButton)
-            .define_value("None", QStyleOptionToolButton::ToolButtonFeature::None)
-            .define_value("Arrow", QStyleOptionToolButton::ToolButtonFeature::Arrow)
-            .define_value("Menu", QStyleOptionToolButton::ToolButtonFeature::Menu)
-            .define_value("MenuButtonPopup", QStyleOptionToolButton::ToolButtonFeature::MenuButtonPopup)
-            .define_value("PopupDelay", QStyleOptionToolButton::ToolButtonFeature::PopupDelay)
-            .define_value("HasMenu", QStyleOptionToolButton::ToolButtonFeature::HasMenu);
+        define_qenum_under<QStyleOptionToolButton::ToolButtonFeature>(rb_cQStyleOptionToolButton, "ToolButtonFeature");
+        define_qenum_value_under(rb_cQStyleOptionToolButtonToolButtonFeature, "None", QStyleOptionToolButton::ToolButtonFeature::None);
+        define_qenum_value_under(rb_cQStyleOptionToolButtonToolButtonFeature, "Arrow", QStyleOptionToolButton::ToolButtonFeature::Arrow);
+        define_qenum_value_under(rb_cQStyleOptionToolButtonToolButtonFeature, "Menu", QStyleOptionToolButton::ToolButtonFeature::Menu);
+        define_qenum_value_under(rb_cQStyleOptionToolButtonToolButtonFeature, "MenuButtonPopup", QStyleOptionToolButton::ToolButtonFeature::MenuButtonPopup);
+        define_qenum_value_under(rb_cQStyleOptionToolButtonToolButtonFeature, "PopupDelay", QStyleOptionToolButton::ToolButtonFeature::PopupDelay);
+        define_qenum_value_under(rb_cQStyleOptionToolButtonToolButtonFeature, "HasMenu", QStyleOptionToolButton::ToolButtonFeature::HasMenu);
 
     rb_cQStyleOptionDockWidget =
         // RubyQt6::QtWidgets::QStyleOptionDockWidget
@@ -287,30 +287,30 @@ void Init_qstyleoption(Rice::Module rb_mQt6QtWidgets)
             .define_attr("title", &QStyleOptionDockWidget::title)
             .define_attr("vertical_title_bar", &QStyleOptionDockWidget::verticalTitleBar);
 
-    Enum<QStyleOptionDockWidget::StyleOptionType> rb_cQStyleOptionDockWidgetStyleOptionType =
+    Data_Type<QStyleOptionDockWidget::StyleOptionType> rb_cQStyleOptionDockWidgetStyleOptionType =
         // RubyQt6::QtWidgets::QStyleOptionDockWidget::StyleOptionType
-        define_qenum_under<QStyleOptionDockWidget::StyleOptionType>("StyleOptionType", rb_cQStyleOptionDockWidget)
-            .define_value("Type", QStyleOptionDockWidget::StyleOptionType::Type);
+        define_qenum_under<QStyleOptionDockWidget::StyleOptionType>(rb_cQStyleOptionDockWidget, "StyleOptionType");
+        define_qenum_value_under(rb_cQStyleOptionDockWidgetStyleOptionType, "Type", QStyleOptionDockWidget::StyleOptionType::Type);
 
-    Enum<QStyleOptionDockWidget::StyleOptionVersion> rb_cQStyleOptionDockWidgetStyleOptionVersion =
+    Data_Type<QStyleOptionDockWidget::StyleOptionVersion> rb_cQStyleOptionDockWidgetStyleOptionVersion =
         // RubyQt6::QtWidgets::QStyleOptionDockWidget::StyleOptionVersion
-        define_qenum_under<QStyleOptionDockWidget::StyleOptionVersion>("StyleOptionVersion", rb_cQStyleOptionDockWidget)
-            .define_value("Version", QStyleOptionDockWidget::StyleOptionVersion::Version);
+        define_qenum_under<QStyleOptionDockWidget::StyleOptionVersion>(rb_cQStyleOptionDockWidget, "StyleOptionVersion");
+        define_qenum_value_under(rb_cQStyleOptionDockWidgetStyleOptionVersion, "Version", QStyleOptionDockWidget::StyleOptionVersion::Version);
 
     rb_cQStyleOptionFocusRect =
         // RubyQt6::QtWidgets::QStyleOptionFocusRect
         define_class_under<QStyleOptionFocusRect, QStyleOption>(rb_mQt6QtWidgets, "QStyleOptionFocusRect")
             .define_attr("background_color", &QStyleOptionFocusRect::backgroundColor);
 
-    Enum<QStyleOptionFocusRect::StyleOptionType> rb_cQStyleOptionFocusRectStyleOptionType =
+    Data_Type<QStyleOptionFocusRect::StyleOptionType> rb_cQStyleOptionFocusRectStyleOptionType =
         // RubyQt6::QtWidgets::QStyleOptionFocusRect::StyleOptionType
-        define_qenum_under<QStyleOptionFocusRect::StyleOptionType>("StyleOptionType", rb_cQStyleOptionFocusRect)
-            .define_value("Type", QStyleOptionFocusRect::StyleOptionType::Type);
+        define_qenum_under<QStyleOptionFocusRect::StyleOptionType>(rb_cQStyleOptionFocusRect, "StyleOptionType");
+        define_qenum_value_under(rb_cQStyleOptionFocusRectStyleOptionType, "Type", QStyleOptionFocusRect::StyleOptionType::Type);
 
-    Enum<QStyleOptionFocusRect::StyleOptionVersion> rb_cQStyleOptionFocusRectStyleOptionVersion =
+    Data_Type<QStyleOptionFocusRect::StyleOptionVersion> rb_cQStyleOptionFocusRectStyleOptionVersion =
         // RubyQt6::QtWidgets::QStyleOptionFocusRect::StyleOptionVersion
-        define_qenum_under<QStyleOptionFocusRect::StyleOptionVersion>("StyleOptionVersion", rb_cQStyleOptionFocusRect)
-            .define_value("Version", QStyleOptionFocusRect::StyleOptionVersion::Version);
+        define_qenum_under<QStyleOptionFocusRect::StyleOptionVersion>(rb_cQStyleOptionFocusRect, "StyleOptionVersion");
+        define_qenum_value_under(rb_cQStyleOptionFocusRectStyleOptionVersion, "Version", QStyleOptionFocusRect::StyleOptionVersion::Version);
 
     rb_cQStyleOptionFrame =
         // RubyQt6::QtWidgets::QStyleOptionFrame
@@ -320,37 +320,37 @@ void Init_qstyleoption(Rice::Module rb_mQt6QtWidgets)
             .define_attr("line_width", &QStyleOptionFrame::lineWidth)
             .define_attr("mid_line_width", &QStyleOptionFrame::midLineWidth);
 
-    Enum<QStyleOptionFrame::StyleOptionType> rb_cQStyleOptionFrameStyleOptionType =
+    Data_Type<QStyleOptionFrame::StyleOptionType> rb_cQStyleOptionFrameStyleOptionType =
         // RubyQt6::QtWidgets::QStyleOptionFrame::StyleOptionType
-        define_qenum_under<QStyleOptionFrame::StyleOptionType>("StyleOptionType", rb_cQStyleOptionFrame)
-            .define_value("Type", QStyleOptionFrame::StyleOptionType::Type);
+        define_qenum_under<QStyleOptionFrame::StyleOptionType>(rb_cQStyleOptionFrame, "StyleOptionType");
+        define_qenum_value_under(rb_cQStyleOptionFrameStyleOptionType, "Type", QStyleOptionFrame::StyleOptionType::Type);
 
-    Enum<QStyleOptionFrame::StyleOptionVersion> rb_cQStyleOptionFrameStyleOptionVersion =
+    Data_Type<QStyleOptionFrame::StyleOptionVersion> rb_cQStyleOptionFrameStyleOptionVersion =
         // RubyQt6::QtWidgets::QStyleOptionFrame::StyleOptionVersion
-        define_qenum_under<QStyleOptionFrame::StyleOptionVersion>("StyleOptionVersion", rb_cQStyleOptionFrame)
-            .define_value("Version", QStyleOptionFrame::StyleOptionVersion::Version);
+        define_qenum_under<QStyleOptionFrame::StyleOptionVersion>(rb_cQStyleOptionFrame, "StyleOptionVersion");
+        define_qenum_value_under(rb_cQStyleOptionFrameStyleOptionVersion, "Version", QStyleOptionFrame::StyleOptionVersion::Version);
 
-    Enum<QStyleOptionFrame::FrameFeature> rb_cQStyleOptionFrameFrameFeature =
+    Data_Type<QStyleOptionFrame::FrameFeature> rb_cQStyleOptionFrameFrameFeature =
         // RubyQt6::QtWidgets::QStyleOptionFrame::FrameFeature
-        define_qenum_under<QStyleOptionFrame::FrameFeature>("FrameFeature", rb_cQStyleOptionFrame)
-            .define_value("None", QStyleOptionFrame::FrameFeature::None)
-            .define_value("Flat", QStyleOptionFrame::FrameFeature::Flat)
-            .define_value("Rounded", QStyleOptionFrame::FrameFeature::Rounded);
+        define_qenum_under<QStyleOptionFrame::FrameFeature>(rb_cQStyleOptionFrame, "FrameFeature");
+        define_qenum_value_under(rb_cQStyleOptionFrameFrameFeature, "None", QStyleOptionFrame::FrameFeature::None);
+        define_qenum_value_under(rb_cQStyleOptionFrameFrameFeature, "Flat", QStyleOptionFrame::FrameFeature::Flat);
+        define_qenum_value_under(rb_cQStyleOptionFrameFrameFeature, "Rounded", QStyleOptionFrame::FrameFeature::Rounded);
 
     rb_cQStyleOptionGraphicsItem =
         // RubyQt6::QtWidgets::QStyleOptionGraphicsItem
         define_class_under<QStyleOptionGraphicsItem, QStyleOption>(rb_mQt6QtWidgets, "QStyleOptionGraphicsItem")
             .define_attr("exposed_rect", &QStyleOptionGraphicsItem::exposedRect);
 
-    Enum<QStyleOptionGraphicsItem::StyleOptionType> rb_cQStyleOptionGraphicsItemStyleOptionType =
+    Data_Type<QStyleOptionGraphicsItem::StyleOptionType> rb_cQStyleOptionGraphicsItemStyleOptionType =
         // RubyQt6::QtWidgets::QStyleOptionGraphicsItem::StyleOptionType
-        define_qenum_under<QStyleOptionGraphicsItem::StyleOptionType>("StyleOptionType", rb_cQStyleOptionGraphicsItem)
-            .define_value("Type", QStyleOptionGraphicsItem::StyleOptionType::Type);
+        define_qenum_under<QStyleOptionGraphicsItem::StyleOptionType>(rb_cQStyleOptionGraphicsItem, "StyleOptionType");
+        define_qenum_value_under(rb_cQStyleOptionGraphicsItemStyleOptionType, "Type", QStyleOptionGraphicsItem::StyleOptionType::Type);
 
-    Enum<QStyleOptionGraphicsItem::StyleOptionVersion> rb_cQStyleOptionGraphicsItemStyleOptionVersion =
+    Data_Type<QStyleOptionGraphicsItem::StyleOptionVersion> rb_cQStyleOptionGraphicsItemStyleOptionVersion =
         // RubyQt6::QtWidgets::QStyleOptionGraphicsItem::StyleOptionVersion
-        define_qenum_under<QStyleOptionGraphicsItem::StyleOptionVersion>("StyleOptionVersion", rb_cQStyleOptionGraphicsItem)
-            .define_value("Version", QStyleOptionGraphicsItem::StyleOptionVersion::Version);
+        define_qenum_under<QStyleOptionGraphicsItem::StyleOptionVersion>(rb_cQStyleOptionGraphicsItem, "StyleOptionVersion");
+        define_qenum_value_under(rb_cQStyleOptionGraphicsItemStyleOptionVersion, "Version", QStyleOptionGraphicsItem::StyleOptionVersion::Version);
 
     rb_cQStyleOptionHeader =
         // RubyQt6::QtWidgets::QStyleOptionHeader
@@ -365,52 +365,52 @@ void Init_qstyleoption(Rice::Module rb_mQt6QtWidgets)
             .define_attr("text", &QStyleOptionHeader::text)
             .define_attr("text_alignment", &QStyleOptionHeader::textAlignment);
 
-    Enum<QStyleOptionHeader::StyleOptionType> rb_cQStyleOptionHeaderStyleOptionType =
+    Data_Type<QStyleOptionHeader::StyleOptionType> rb_cQStyleOptionHeaderStyleOptionType =
         // RubyQt6::QtWidgets::QStyleOptionHeader::StyleOptionType
-        define_qenum_under<QStyleOptionHeader::StyleOptionType>("StyleOptionType", rb_cQStyleOptionHeader)
-            .define_value("Type", QStyleOptionHeader::StyleOptionType::Type);
+        define_qenum_under<QStyleOptionHeader::StyleOptionType>(rb_cQStyleOptionHeader, "StyleOptionType");
+        define_qenum_value_under(rb_cQStyleOptionHeaderStyleOptionType, "Type", QStyleOptionHeader::StyleOptionType::Type);
 
-    Enum<QStyleOptionHeader::StyleOptionVersion> rb_cQStyleOptionHeaderStyleOptionVersion =
+    Data_Type<QStyleOptionHeader::StyleOptionVersion> rb_cQStyleOptionHeaderStyleOptionVersion =
         // RubyQt6::QtWidgets::QStyleOptionHeader::StyleOptionVersion
-        define_qenum_under<QStyleOptionHeader::StyleOptionVersion>("StyleOptionVersion", rb_cQStyleOptionHeader)
-            .define_value("Version", QStyleOptionHeader::StyleOptionVersion::Version);
+        define_qenum_under<QStyleOptionHeader::StyleOptionVersion>(rb_cQStyleOptionHeader, "StyleOptionVersion");
+        define_qenum_value_under(rb_cQStyleOptionHeaderStyleOptionVersion, "Version", QStyleOptionHeader::StyleOptionVersion::Version);
 
-    Enum<QStyleOptionHeader::SectionPosition> rb_cQStyleOptionHeaderSectionPosition =
+    Data_Type<QStyleOptionHeader::SectionPosition> rb_cQStyleOptionHeaderSectionPosition =
         // RubyQt6::QtWidgets::QStyleOptionHeader::SectionPosition
-        define_qenum_under<QStyleOptionHeader::SectionPosition>("SectionPosition", rb_cQStyleOptionHeader)
-            .define_value("Beginning", QStyleOptionHeader::SectionPosition::Beginning)
-            .define_value("Middle", QStyleOptionHeader::SectionPosition::Middle)
-            .define_value("End", QStyleOptionHeader::SectionPosition::End)
-            .define_value("OnlyOneSection", QStyleOptionHeader::SectionPosition::OnlyOneSection);
+        define_qenum_under<QStyleOptionHeader::SectionPosition>(rb_cQStyleOptionHeader, "SectionPosition");
+        define_qenum_value_under(rb_cQStyleOptionHeaderSectionPosition, "Beginning", QStyleOptionHeader::SectionPosition::Beginning);
+        define_qenum_value_under(rb_cQStyleOptionHeaderSectionPosition, "Middle", QStyleOptionHeader::SectionPosition::Middle);
+        define_qenum_value_under(rb_cQStyleOptionHeaderSectionPosition, "End", QStyleOptionHeader::SectionPosition::End);
+        define_qenum_value_under(rb_cQStyleOptionHeaderSectionPosition, "OnlyOneSection", QStyleOptionHeader::SectionPosition::OnlyOneSection);
 
-    Enum<QStyleOptionHeader::SelectedPosition> rb_cQStyleOptionHeaderSelectedPosition =
+    Data_Type<QStyleOptionHeader::SelectedPosition> rb_cQStyleOptionHeaderSelectedPosition =
         // RubyQt6::QtWidgets::QStyleOptionHeader::SelectedPosition
-        define_qenum_under<QStyleOptionHeader::SelectedPosition>("SelectedPosition", rb_cQStyleOptionHeader)
-            .define_value("NotAdjacent", QStyleOptionHeader::SelectedPosition::NotAdjacent)
-            .define_value("NextIsSelected", QStyleOptionHeader::SelectedPosition::NextIsSelected)
-            .define_value("PreviousIsSelected", QStyleOptionHeader::SelectedPosition::PreviousIsSelected)
-            .define_value("NextAndPreviousAreSelected", QStyleOptionHeader::SelectedPosition::NextAndPreviousAreSelected);
+        define_qenum_under<QStyleOptionHeader::SelectedPosition>(rb_cQStyleOptionHeader, "SelectedPosition");
+        define_qenum_value_under(rb_cQStyleOptionHeaderSelectedPosition, "NotAdjacent", QStyleOptionHeader::SelectedPosition::NotAdjacent);
+        define_qenum_value_under(rb_cQStyleOptionHeaderSelectedPosition, "NextIsSelected", QStyleOptionHeader::SelectedPosition::NextIsSelected);
+        define_qenum_value_under(rb_cQStyleOptionHeaderSelectedPosition, "PreviousIsSelected", QStyleOptionHeader::SelectedPosition::PreviousIsSelected);
+        define_qenum_value_under(rb_cQStyleOptionHeaderSelectedPosition, "NextAndPreviousAreSelected", QStyleOptionHeader::SelectedPosition::NextAndPreviousAreSelected);
 
-    Enum<QStyleOptionHeader::SortIndicator> rb_cQStyleOptionHeaderSortIndicator =
+    Data_Type<QStyleOptionHeader::SortIndicator> rb_cQStyleOptionHeaderSortIndicator =
         // RubyQt6::QtWidgets::QStyleOptionHeader::SortIndicator
-        define_qenum_under<QStyleOptionHeader::SortIndicator>("SortIndicator", rb_cQStyleOptionHeader)
-            .define_value("None", QStyleOptionHeader::SortIndicator::None)
-            .define_value("SortUp", QStyleOptionHeader::SortIndicator::SortUp)
-            .define_value("SortDown", QStyleOptionHeader::SortIndicator::SortDown);
+        define_qenum_under<QStyleOptionHeader::SortIndicator>(rb_cQStyleOptionHeader, "SortIndicator");
+        define_qenum_value_under(rb_cQStyleOptionHeaderSortIndicator, "None", QStyleOptionHeader::SortIndicator::None);
+        define_qenum_value_under(rb_cQStyleOptionHeaderSortIndicator, "SortUp", QStyleOptionHeader::SortIndicator::SortUp);
+        define_qenum_value_under(rb_cQStyleOptionHeaderSortIndicator, "SortDown", QStyleOptionHeader::SortIndicator::SortDown);
 
     rb_cQStyleOptionHeaderV2 =
         // RubyQt6::QtWidgets::QStyleOptionHeaderV2
         define_class_under<QStyleOptionHeaderV2, QStyleOptionHeader>(rb_mQt6QtWidgets, "QStyleOptionHeaderV2");
 
-    Enum<QStyleOptionHeaderV2::StyleOptionType> rb_cQStyleOptionHeaderV2StyleOptionType =
+    Data_Type<QStyleOptionHeaderV2::StyleOptionType> rb_cQStyleOptionHeaderV2StyleOptionType =
         // RubyQt6::QtWidgets::QStyleOptionHeaderV2::StyleOptionType
-        define_qenum_under<QStyleOptionHeaderV2::StyleOptionType>("StyleOptionType", rb_cQStyleOptionHeaderV2)
-            .define_value("Type", QStyleOptionHeaderV2::StyleOptionType::Type);
+        define_qenum_under<QStyleOptionHeaderV2::StyleOptionType>(rb_cQStyleOptionHeaderV2, "StyleOptionType");
+        define_qenum_value_under(rb_cQStyleOptionHeaderV2StyleOptionType, "Type", QStyleOptionHeaderV2::StyleOptionType::Type);
 
-    Enum<QStyleOptionHeaderV2::StyleOptionVersion> rb_cQStyleOptionHeaderV2StyleOptionVersion =
+    Data_Type<QStyleOptionHeaderV2::StyleOptionVersion> rb_cQStyleOptionHeaderV2StyleOptionVersion =
         // RubyQt6::QtWidgets::QStyleOptionHeaderV2::StyleOptionVersion
-        define_qenum_under<QStyleOptionHeaderV2::StyleOptionVersion>("StyleOptionVersion", rb_cQStyleOptionHeaderV2)
-            .define_value("Version", QStyleOptionHeaderV2::StyleOptionVersion::Version);
+        define_qenum_under<QStyleOptionHeaderV2::StyleOptionVersion>(rb_cQStyleOptionHeaderV2, "StyleOptionVersion");
+        define_qenum_value_under(rb_cQStyleOptionHeaderV2StyleOptionVersion, "Version", QStyleOptionHeaderV2::StyleOptionVersion::Version);
 
     rb_cQStyleOptionMenuItem =
         // RubyQt6::QtWidgets::QStyleOptionMenuItem
@@ -426,34 +426,34 @@ void Init_qstyleoption(Rice::Module rb_mQt6QtWidgets)
             .define_attr("reserved_shortcut_width", &QStyleOptionMenuItem::reservedShortcutWidth)
             .define_attr("text", &QStyleOptionMenuItem::text);
 
-    Enum<QStyleOptionMenuItem::StyleOptionType> rb_cQStyleOptionMenuItemStyleOptionType =
+    Data_Type<QStyleOptionMenuItem::StyleOptionType> rb_cQStyleOptionMenuItemStyleOptionType =
         // RubyQt6::QtWidgets::QStyleOptionMenuItem::StyleOptionType
-        define_qenum_under<QStyleOptionMenuItem::StyleOptionType>("StyleOptionType", rb_cQStyleOptionMenuItem)
-            .define_value("Type", QStyleOptionMenuItem::StyleOptionType::Type);
+        define_qenum_under<QStyleOptionMenuItem::StyleOptionType>(rb_cQStyleOptionMenuItem, "StyleOptionType");
+        define_qenum_value_under(rb_cQStyleOptionMenuItemStyleOptionType, "Type", QStyleOptionMenuItem::StyleOptionType::Type);
 
-    Enum<QStyleOptionMenuItem::StyleOptionVersion> rb_cQStyleOptionMenuItemStyleOptionVersion =
+    Data_Type<QStyleOptionMenuItem::StyleOptionVersion> rb_cQStyleOptionMenuItemStyleOptionVersion =
         // RubyQt6::QtWidgets::QStyleOptionMenuItem::StyleOptionVersion
-        define_qenum_under<QStyleOptionMenuItem::StyleOptionVersion>("StyleOptionVersion", rb_cQStyleOptionMenuItem)
-            .define_value("Version", QStyleOptionMenuItem::StyleOptionVersion::Version);
+        define_qenum_under<QStyleOptionMenuItem::StyleOptionVersion>(rb_cQStyleOptionMenuItem, "StyleOptionVersion");
+        define_qenum_value_under(rb_cQStyleOptionMenuItemStyleOptionVersion, "Version", QStyleOptionMenuItem::StyleOptionVersion::Version);
 
-    Enum<QStyleOptionMenuItem::MenuItemType> rb_cQStyleOptionMenuItemMenuItemType =
+    Data_Type<QStyleOptionMenuItem::MenuItemType> rb_cQStyleOptionMenuItemMenuItemType =
         // RubyQt6::QtWidgets::QStyleOptionMenuItem::MenuItemType
-        define_qenum_under<QStyleOptionMenuItem::MenuItemType>("MenuItemType", rb_cQStyleOptionMenuItem)
-            .define_value("Normal", QStyleOptionMenuItem::MenuItemType::Normal)
-            .define_value("DefaultItem", QStyleOptionMenuItem::MenuItemType::DefaultItem)
-            .define_value("Separator", QStyleOptionMenuItem::MenuItemType::Separator)
-            .define_value("SubMenu", QStyleOptionMenuItem::MenuItemType::SubMenu)
-            .define_value("Scroller", QStyleOptionMenuItem::MenuItemType::Scroller)
-            .define_value("TearOff", QStyleOptionMenuItem::MenuItemType::TearOff)
-            .define_value("Margin", QStyleOptionMenuItem::MenuItemType::Margin)
-            .define_value("EmptyArea", QStyleOptionMenuItem::MenuItemType::EmptyArea);
+        define_qenum_under<QStyleOptionMenuItem::MenuItemType>(rb_cQStyleOptionMenuItem, "MenuItemType");
+        define_qenum_value_under(rb_cQStyleOptionMenuItemMenuItemType, "Normal", QStyleOptionMenuItem::MenuItemType::Normal);
+        define_qenum_value_under(rb_cQStyleOptionMenuItemMenuItemType, "DefaultItem", QStyleOptionMenuItem::MenuItemType::DefaultItem);
+        define_qenum_value_under(rb_cQStyleOptionMenuItemMenuItemType, "Separator", QStyleOptionMenuItem::MenuItemType::Separator);
+        define_qenum_value_under(rb_cQStyleOptionMenuItemMenuItemType, "SubMenu", QStyleOptionMenuItem::MenuItemType::SubMenu);
+        define_qenum_value_under(rb_cQStyleOptionMenuItemMenuItemType, "Scroller", QStyleOptionMenuItem::MenuItemType::Scroller);
+        define_qenum_value_under(rb_cQStyleOptionMenuItemMenuItemType, "TearOff", QStyleOptionMenuItem::MenuItemType::TearOff);
+        define_qenum_value_under(rb_cQStyleOptionMenuItemMenuItemType, "Margin", QStyleOptionMenuItem::MenuItemType::Margin);
+        define_qenum_value_under(rb_cQStyleOptionMenuItemMenuItemType, "EmptyArea", QStyleOptionMenuItem::MenuItemType::EmptyArea);
 
-    Enum<QStyleOptionMenuItem::CheckType> rb_cQStyleOptionMenuItemCheckType =
+    Data_Type<QStyleOptionMenuItem::CheckType> rb_cQStyleOptionMenuItemCheckType =
         // RubyQt6::QtWidgets::QStyleOptionMenuItem::CheckType
-        define_qenum_under<QStyleOptionMenuItem::CheckType>("CheckType", rb_cQStyleOptionMenuItem)
-            .define_value("NotCheckable", QStyleOptionMenuItem::CheckType::NotCheckable)
-            .define_value("Exclusive", QStyleOptionMenuItem::CheckType::Exclusive)
-            .define_value("NonExclusive", QStyleOptionMenuItem::CheckType::NonExclusive);
+        define_qenum_under<QStyleOptionMenuItem::CheckType>(rb_cQStyleOptionMenuItem, "CheckType");
+        define_qenum_value_under(rb_cQStyleOptionMenuItemCheckType, "NotCheckable", QStyleOptionMenuItem::CheckType::NotCheckable);
+        define_qenum_value_under(rb_cQStyleOptionMenuItemCheckType, "Exclusive", QStyleOptionMenuItem::CheckType::Exclusive);
+        define_qenum_value_under(rb_cQStyleOptionMenuItemCheckType, "NonExclusive", QStyleOptionMenuItem::CheckType::NonExclusive);
 
     rb_cQStyleOptionProgressBar =
         // RubyQt6::QtWidgets::QStyleOptionProgressBar
@@ -467,15 +467,15 @@ void Init_qstyleoption(Rice::Module rb_mQt6QtWidgets)
             .define_attr("text_alignment", &QStyleOptionProgressBar::textAlignment)
             .define_attr("text_visible", &QStyleOptionProgressBar::textVisible);
 
-    Enum<QStyleOptionProgressBar::StyleOptionType> rb_cQStyleOptionProgressBarStyleOptionType =
+    Data_Type<QStyleOptionProgressBar::StyleOptionType> rb_cQStyleOptionProgressBarStyleOptionType =
         // RubyQt6::QtWidgets::QStyleOptionProgressBar::StyleOptionType
-        define_qenum_under<QStyleOptionProgressBar::StyleOptionType>("StyleOptionType", rb_cQStyleOptionProgressBar)
-            .define_value("Type", QStyleOptionProgressBar::StyleOptionType::Type);
+        define_qenum_under<QStyleOptionProgressBar::StyleOptionType>(rb_cQStyleOptionProgressBar, "StyleOptionType");
+        define_qenum_value_under(rb_cQStyleOptionProgressBarStyleOptionType, "Type", QStyleOptionProgressBar::StyleOptionType::Type);
 
-    Enum<QStyleOptionProgressBar::StyleOptionVersion> rb_cQStyleOptionProgressBarStyleOptionVersion =
+    Data_Type<QStyleOptionProgressBar::StyleOptionVersion> rb_cQStyleOptionProgressBarStyleOptionVersion =
         // RubyQt6::QtWidgets::QStyleOptionProgressBar::StyleOptionVersion
-        define_qenum_under<QStyleOptionProgressBar::StyleOptionVersion>("StyleOptionVersion", rb_cQStyleOptionProgressBar)
-            .define_value("Version", QStyleOptionProgressBar::StyleOptionVersion::Version);
+        define_qenum_under<QStyleOptionProgressBar::StyleOptionVersion>(rb_cQStyleOptionProgressBar, "StyleOptionVersion");
+        define_qenum_value_under(rb_cQStyleOptionProgressBarStyleOptionVersion, "Version", QStyleOptionProgressBar::StyleOptionVersion::Version);
 
     rb_cQStyleOptionRubberBand =
         // RubyQt6::QtWidgets::QStyleOptionRubberBand
@@ -483,15 +483,15 @@ void Init_qstyleoption(Rice::Module rb_mQt6QtWidgets)
             .define_attr("opaque", &QStyleOptionRubberBand::opaque)
             .define_attr("shape", &QStyleOptionRubberBand::shape, Rice::AttrAccess::Read);
 
-    Enum<QStyleOptionRubberBand::StyleOptionType> rb_cQStyleOptionRubberBandStyleOptionType =
+    Data_Type<QStyleOptionRubberBand::StyleOptionType> rb_cQStyleOptionRubberBandStyleOptionType =
         // RubyQt6::QtWidgets::QStyleOptionRubberBand::StyleOptionType
-        define_qenum_under<QStyleOptionRubberBand::StyleOptionType>("StyleOptionType", rb_cQStyleOptionRubberBand)
-            .define_value("Type", QStyleOptionRubberBand::StyleOptionType::Type);
+        define_qenum_under<QStyleOptionRubberBand::StyleOptionType>(rb_cQStyleOptionRubberBand, "StyleOptionType");
+        define_qenum_value_under(rb_cQStyleOptionRubberBandStyleOptionType, "Type", QStyleOptionRubberBand::StyleOptionType::Type);
 
-    Enum<QStyleOptionRubberBand::StyleOptionVersion> rb_cQStyleOptionRubberBandStyleOptionVersion =
+    Data_Type<QStyleOptionRubberBand::StyleOptionVersion> rb_cQStyleOptionRubberBandStyleOptionVersion =
         // RubyQt6::QtWidgets::QStyleOptionRubberBand::StyleOptionVersion
-        define_qenum_under<QStyleOptionRubberBand::StyleOptionVersion>("StyleOptionVersion", rb_cQStyleOptionRubberBand)
-            .define_value("Version", QStyleOptionRubberBand::StyleOptionVersion::Version);
+        define_qenum_under<QStyleOptionRubberBand::StyleOptionVersion>(rb_cQStyleOptionRubberBand, "StyleOptionVersion");
+        define_qenum_value_under(rb_cQStyleOptionRubberBandStyleOptionVersion, "Version", QStyleOptionRubberBand::StyleOptionVersion::Version);
 
     rb_cQStyleOptionTab =
         // RubyQt6::QtWidgets::QStyleOptionTab
@@ -510,45 +510,45 @@ void Init_qstyleoption(Rice::Module rb_mQt6QtWidgets)
             .define_attr("tab_index", &QStyleOptionTab::tabIndex)
             .define_attr("text", &QStyleOptionTab::text);
 
-    Enum<QStyleOptionTab::StyleOptionType> rb_cQStyleOptionTabStyleOptionType =
+    Data_Type<QStyleOptionTab::StyleOptionType> rb_cQStyleOptionTabStyleOptionType =
         // RubyQt6::QtWidgets::QStyleOptionTab::StyleOptionType
-        define_qenum_under<QStyleOptionTab::StyleOptionType>("StyleOptionType", rb_cQStyleOptionTab)
-            .define_value("Type", QStyleOptionTab::StyleOptionType::Type);
+        define_qenum_under<QStyleOptionTab::StyleOptionType>(rb_cQStyleOptionTab, "StyleOptionType");
+        define_qenum_value_under(rb_cQStyleOptionTabStyleOptionType, "Type", QStyleOptionTab::StyleOptionType::Type);
 
-    Enum<QStyleOptionTab::StyleOptionVersion> rb_cQStyleOptionTabStyleOptionVersion =
+    Data_Type<QStyleOptionTab::StyleOptionVersion> rb_cQStyleOptionTabStyleOptionVersion =
         // RubyQt6::QtWidgets::QStyleOptionTab::StyleOptionVersion
-        define_qenum_under<QStyleOptionTab::StyleOptionVersion>("StyleOptionVersion", rb_cQStyleOptionTab)
-            .define_value("Version", QStyleOptionTab::StyleOptionVersion::Version);
+        define_qenum_under<QStyleOptionTab::StyleOptionVersion>(rb_cQStyleOptionTab, "StyleOptionVersion");
+        define_qenum_value_under(rb_cQStyleOptionTabStyleOptionVersion, "Version", QStyleOptionTab::StyleOptionVersion::Version);
 
-    Enum<QStyleOptionTab::TabPosition> rb_cQStyleOptionTabTabPosition =
+    Data_Type<QStyleOptionTab::TabPosition> rb_cQStyleOptionTabTabPosition =
         // RubyQt6::QtWidgets::QStyleOptionTab::TabPosition
-        define_qenum_under<QStyleOptionTab::TabPosition>("TabPosition", rb_cQStyleOptionTab)
-            .define_value("Beginning", QStyleOptionTab::TabPosition::Beginning)
-            .define_value("Middle", QStyleOptionTab::TabPosition::Middle)
-            .define_value("End", QStyleOptionTab::TabPosition::End)
-            .define_value("OnlyOneTab", QStyleOptionTab::TabPosition::OnlyOneTab)
-            .define_value("Moving", QStyleOptionTab::TabPosition::Moving);
+        define_qenum_under<QStyleOptionTab::TabPosition>(rb_cQStyleOptionTab, "TabPosition");
+        define_qenum_value_under(rb_cQStyleOptionTabTabPosition, "Beginning", QStyleOptionTab::TabPosition::Beginning);
+        define_qenum_value_under(rb_cQStyleOptionTabTabPosition, "Middle", QStyleOptionTab::TabPosition::Middle);
+        define_qenum_value_under(rb_cQStyleOptionTabTabPosition, "End", QStyleOptionTab::TabPosition::End);
+        define_qenum_value_under(rb_cQStyleOptionTabTabPosition, "OnlyOneTab", QStyleOptionTab::TabPosition::OnlyOneTab);
+        define_qenum_value_under(rb_cQStyleOptionTabTabPosition, "Moving", QStyleOptionTab::TabPosition::Moving);
 
-    Enum<QStyleOptionTab::SelectedPosition> rb_cQStyleOptionTabSelectedPosition =
+    Data_Type<QStyleOptionTab::SelectedPosition> rb_cQStyleOptionTabSelectedPosition =
         // RubyQt6::QtWidgets::QStyleOptionTab::SelectedPosition
-        define_qenum_under<QStyleOptionTab::SelectedPosition>("SelectedPosition", rb_cQStyleOptionTab)
-            .define_value("NotAdjacent", QStyleOptionTab::SelectedPosition::NotAdjacent)
-            .define_value("NextIsSelected", QStyleOptionTab::SelectedPosition::NextIsSelected)
-            .define_value("PreviousIsSelected", QStyleOptionTab::SelectedPosition::PreviousIsSelected);
+        define_qenum_under<QStyleOptionTab::SelectedPosition>(rb_cQStyleOptionTab, "SelectedPosition");
+        define_qenum_value_under(rb_cQStyleOptionTabSelectedPosition, "NotAdjacent", QStyleOptionTab::SelectedPosition::NotAdjacent);
+        define_qenum_value_under(rb_cQStyleOptionTabSelectedPosition, "NextIsSelected", QStyleOptionTab::SelectedPosition::NextIsSelected);
+        define_qenum_value_under(rb_cQStyleOptionTabSelectedPosition, "PreviousIsSelected", QStyleOptionTab::SelectedPosition::PreviousIsSelected);
 
-    Enum<QStyleOptionTab::CornerWidget> rb_cQStyleOptionTabCornerWidget =
+    Data_Type<QStyleOptionTab::CornerWidget> rb_cQStyleOptionTabCornerWidget =
         // RubyQt6::QtWidgets::QStyleOptionTab::CornerWidget
-        define_qenum_under<QStyleOptionTab::CornerWidget>("CornerWidget", rb_cQStyleOptionTab)
-            .define_value("NoCornerWidgets", QStyleOptionTab::CornerWidget::NoCornerWidgets)
-            .define_value("LeftCornerWidget", QStyleOptionTab::CornerWidget::LeftCornerWidget)
-            .define_value("RightCornerWidget", QStyleOptionTab::CornerWidget::RightCornerWidget);
+        define_qenum_under<QStyleOptionTab::CornerWidget>(rb_cQStyleOptionTab, "CornerWidget");
+        define_qenum_value_under(rb_cQStyleOptionTabCornerWidget, "NoCornerWidgets", QStyleOptionTab::CornerWidget::NoCornerWidgets);
+        define_qenum_value_under(rb_cQStyleOptionTabCornerWidget, "LeftCornerWidget", QStyleOptionTab::CornerWidget::LeftCornerWidget);
+        define_qenum_value_under(rb_cQStyleOptionTabCornerWidget, "RightCornerWidget", QStyleOptionTab::CornerWidget::RightCornerWidget);
 
-    Enum<QStyleOptionTab::TabFeature> rb_cQStyleOptionTabTabFeature =
+    Data_Type<QStyleOptionTab::TabFeature> rb_cQStyleOptionTabTabFeature =
         // RubyQt6::QtWidgets::QStyleOptionTab::TabFeature
-        define_qenum_under<QStyleOptionTab::TabFeature>("TabFeature", rb_cQStyleOptionTab)
-            .define_value("None", QStyleOptionTab::TabFeature::None)
-            .define_value("HasFrame", QStyleOptionTab::TabFeature::HasFrame)
-            .define_value("MinimumSizeHint", QStyleOptionTab::TabFeature::MinimumSizeHint);
+        define_qenum_under<QStyleOptionTab::TabFeature>(rb_cQStyleOptionTab, "TabFeature");
+        define_qenum_value_under(rb_cQStyleOptionTabTabFeature, "None", QStyleOptionTab::TabFeature::None);
+        define_qenum_value_under(rb_cQStyleOptionTabTabFeature, "HasFrame", QStyleOptionTab::TabFeature::HasFrame);
+        define_qenum_value_under(rb_cQStyleOptionTabTabFeature, "MinimumSizeHint", QStyleOptionTab::TabFeature::MinimumSizeHint);
 
     rb_cQStyleOptionTabBarBase =
         // RubyQt6::QtWidgets::QStyleOptionTabBarBase
@@ -558,15 +558,15 @@ void Init_qstyleoption(Rice::Module rb_mQt6QtWidgets)
             .define_attr("shape", &QStyleOptionTabBarBase::shape, Rice::AttrAccess::Read)
             .define_attr("tab_bar_rect", &QStyleOptionTabBarBase::tabBarRect);
 
-    Enum<QStyleOptionTabBarBase::StyleOptionType> rb_cQStyleOptionTabBarBaseStyleOptionType =
+    Data_Type<QStyleOptionTabBarBase::StyleOptionType> rb_cQStyleOptionTabBarBaseStyleOptionType =
         // RubyQt6::QtWidgets::QStyleOptionTabBarBase::StyleOptionType
-        define_qenum_under<QStyleOptionTabBarBase::StyleOptionType>("StyleOptionType", rb_cQStyleOptionTabBarBase)
-            .define_value("Type", QStyleOptionTabBarBase::StyleOptionType::Type);
+        define_qenum_under<QStyleOptionTabBarBase::StyleOptionType>(rb_cQStyleOptionTabBarBase, "StyleOptionType");
+        define_qenum_value_under(rb_cQStyleOptionTabBarBaseStyleOptionType, "Type", QStyleOptionTabBarBase::StyleOptionType::Type);
 
-    Enum<QStyleOptionTabBarBase::StyleOptionVersion> rb_cQStyleOptionTabBarBaseStyleOptionVersion =
+    Data_Type<QStyleOptionTabBarBase::StyleOptionVersion> rb_cQStyleOptionTabBarBaseStyleOptionVersion =
         // RubyQt6::QtWidgets::QStyleOptionTabBarBase::StyleOptionVersion
-        define_qenum_under<QStyleOptionTabBarBase::StyleOptionVersion>("StyleOptionVersion", rb_cQStyleOptionTabBarBase)
-            .define_value("Version", QStyleOptionTabBarBase::StyleOptionVersion::Version);
+        define_qenum_under<QStyleOptionTabBarBase::StyleOptionVersion>(rb_cQStyleOptionTabBarBase, "StyleOptionVersion");
+        define_qenum_value_under(rb_cQStyleOptionTabBarBaseStyleOptionVersion, "Version", QStyleOptionTabBarBase::StyleOptionVersion::Version);
 
     rb_cQStyleOptionTabWidgetFrame =
         // RubyQt6::QtWidgets::QStyleOptionTabWidgetFrame
@@ -580,15 +580,15 @@ void Init_qstyleoption(Rice::Module rb_mQt6QtWidgets)
             .define_attr("tab_bar_rect", &QStyleOptionTabWidgetFrame::tabBarRect)
             .define_attr("tab_bar_size", &QStyleOptionTabWidgetFrame::tabBarSize);
 
-    Enum<QStyleOptionTabWidgetFrame::StyleOptionType> rb_cQStyleOptionTabWidgetFrameStyleOptionType =
+    Data_Type<QStyleOptionTabWidgetFrame::StyleOptionType> rb_cQStyleOptionTabWidgetFrameStyleOptionType =
         // RubyQt6::QtWidgets::QStyleOptionTabWidgetFrame::StyleOptionType
-        define_qenum_under<QStyleOptionTabWidgetFrame::StyleOptionType>("StyleOptionType", rb_cQStyleOptionTabWidgetFrame)
-            .define_value("Type", QStyleOptionTabWidgetFrame::StyleOptionType::Type);
+        define_qenum_under<QStyleOptionTabWidgetFrame::StyleOptionType>(rb_cQStyleOptionTabWidgetFrame, "StyleOptionType");
+        define_qenum_value_under(rb_cQStyleOptionTabWidgetFrameStyleOptionType, "Type", QStyleOptionTabWidgetFrame::StyleOptionType::Type);
 
-    Enum<QStyleOptionTabWidgetFrame::StyleOptionVersion> rb_cQStyleOptionTabWidgetFrameStyleOptionVersion =
+    Data_Type<QStyleOptionTabWidgetFrame::StyleOptionVersion> rb_cQStyleOptionTabWidgetFrameStyleOptionVersion =
         // RubyQt6::QtWidgets::QStyleOptionTabWidgetFrame::StyleOptionVersion
-        define_qenum_under<QStyleOptionTabWidgetFrame::StyleOptionVersion>("StyleOptionVersion", rb_cQStyleOptionTabWidgetFrame)
-            .define_value("Version", QStyleOptionTabWidgetFrame::StyleOptionVersion::Version);
+        define_qenum_under<QStyleOptionTabWidgetFrame::StyleOptionVersion>(rb_cQStyleOptionTabWidgetFrame, "StyleOptionVersion");
+        define_qenum_value_under(rb_cQStyleOptionTabWidgetFrameStyleOptionVersion, "Version", QStyleOptionTabWidgetFrame::StyleOptionVersion::Version);
 
     rb_cQStyleOptionToolBar =
         // RubyQt6::QtWidgets::QStyleOptionToolBar
@@ -600,28 +600,29 @@ void Init_qstyleoption(Rice::Module rb_mQt6QtWidgets)
             .define_attr("position_within_line", &QStyleOptionToolBar::positionWithinLine, Rice::AttrAccess::Read)
             .define_attr("tool_bar_area", &QStyleOptionToolBar::toolBarArea, Rice::AttrAccess::Read);
 
-    Enum<QStyleOptionToolBar::StyleOptionType> rb_cQStyleOptionToolBarStyleOptionType =
+    Data_Type<QStyleOptionToolBar::StyleOptionType> rb_cQStyleOptionToolBarStyleOptionType =
         // RubyQt6::QtWidgets::QStyleOptionToolBar::StyleOptionType
-        define_qenum_under<QStyleOptionToolBar::StyleOptionType>("StyleOptionType", rb_cQStyleOptionToolBar)
-            .define_value("Type", QStyleOptionToolBar::StyleOptionType::Type);
+        define_qenum_under<QStyleOptionToolBar::StyleOptionType>(rb_cQStyleOptionToolBar, "StyleOptionType");
+        define_qenum_value_under(rb_cQStyleOptionToolBarStyleOptionType, "Type", QStyleOptionToolBar::StyleOptionType::Type);
 
-    Enum<QStyleOptionToolBar::StyleOptionVersion> rb_cQStyleOptionToolBarStyleOptionVersion =
+    Data_Type<QStyleOptionToolBar::StyleOptionVersion> rb_cQStyleOptionToolBarStyleOptionVersion =
         // RubyQt6::QtWidgets::QStyleOptionToolBar::StyleOptionVersion
-        define_qenum_under<QStyleOptionToolBar::StyleOptionVersion>("StyleOptionVersion", rb_cQStyleOptionToolBar)
-            .define_value("Version", QStyleOptionToolBar::StyleOptionVersion::Version);
+        define_qenum_under<QStyleOptionToolBar::StyleOptionVersion>(rb_cQStyleOptionToolBar, "StyleOptionVersion");
+        define_qenum_value_under(rb_cQStyleOptionToolBarStyleOptionVersion, "Version", QStyleOptionToolBar::StyleOptionVersion::Version);
 
-    Enum<QStyleOptionToolBar::ToolBarPosition> rb_cQStyleOptionToolBarToolBarPosition =
+    Data_Type<QStyleOptionToolBar::ToolBarPosition> rb_cQStyleOptionToolBarToolBarPosition =
         // RubyQt6::QtWidgets::QStyleOptionToolBar::ToolBarPosition
-        define_qenum_under<QStyleOptionToolBar::ToolBarPosition>("ToolBarPosition", rb_cQStyleOptionToolBar)
-            .define_value("Beginning", QStyleOptionToolBar::ToolBarPosition::Beginning)
-            .define_value("Middle", QStyleOptionToolBar::ToolBarPosition::Middle)
-            .define_value("End", QStyleOptionToolBar::ToolBarPosition::End)
-            .define_value("OnlyOne", QStyleOptionToolBar::ToolBarPosition::OnlyOne);
+        define_qenum_under<QStyleOptionToolBar::ToolBarPosition>(rb_cQStyleOptionToolBar, "ToolBarPosition");
+        define_qenum_value_under(rb_cQStyleOptionToolBarToolBarPosition, "Beginning", QStyleOptionToolBar::ToolBarPosition::Beginning);
+        define_qenum_value_under(rb_cQStyleOptionToolBarToolBarPosition, "Middle", QStyleOptionToolBar::ToolBarPosition::Middle);
+        define_qenum_value_under(rb_cQStyleOptionToolBarToolBarPosition, "End", QStyleOptionToolBar::ToolBarPosition::End);
+        define_qenum_value_under(rb_cQStyleOptionToolBarToolBarPosition, "OnlyOne", QStyleOptionToolBar::ToolBarPosition::OnlyOne);
 
-    Enum<QStyleOptionToolBar::ToolBarFeature> rb_cQStyleOptionToolBarToolBarFeature =
+    Data_Type<QStyleOptionToolBar::ToolBarFeature> rb_cQStyleOptionToolBarToolBarFeature =
         // RubyQt6::QtWidgets::QStyleOptionToolBar::ToolBarFeature
-        define_qenum_under<QStyleOptionToolBar::ToolBarFeature>("ToolBarFeature", rb_cQStyleOptionToolBar)
-            .define_value("None", QStyleOptionToolBar::ToolBarFeature::None).define_value("Movable", QStyleOptionToolBar::ToolBarFeature::Movable);
+        define_qenum_under<QStyleOptionToolBar::ToolBarFeature>(rb_cQStyleOptionToolBar, "ToolBarFeature");
+        define_qenum_value_under(rb_cQStyleOptionToolBarToolBarFeature, "None", QStyleOptionToolBar::ToolBarFeature::None);
+        define_qenum_value_under(rb_cQStyleOptionToolBarToolBarFeature, "Movable", QStyleOptionToolBar::ToolBarFeature::Movable);
 
     rb_cQStyleOptionToolBox =
         // RubyQt6::QtWidgets::QStyleOptionToolBox
@@ -630,30 +631,30 @@ void Init_qstyleoption(Rice::Module rb_mQt6QtWidgets)
             .define_attr("position", &QStyleOptionToolBox::position, Rice::AttrAccess::Read)
             .define_attr("text", &QStyleOptionToolBox::text);
 
-    Enum<QStyleOptionToolBox::StyleOptionType> rb_cQStyleOptionToolBoxStyleOptionType =
+    Data_Type<QStyleOptionToolBox::StyleOptionType> rb_cQStyleOptionToolBoxStyleOptionType =
         // RubyQt6::QtWidgets::QStyleOptionToolBox::StyleOptionType
-        define_qenum_under<QStyleOptionToolBox::StyleOptionType>("StyleOptionType", rb_cQStyleOptionToolBox)
-            .define_value("Type", QStyleOptionToolBox::StyleOptionType::Type);
+        define_qenum_under<QStyleOptionToolBox::StyleOptionType>(rb_cQStyleOptionToolBox, "StyleOptionType");
+        define_qenum_value_under(rb_cQStyleOptionToolBoxStyleOptionType, "Type", QStyleOptionToolBox::StyleOptionType::Type);
 
-    Enum<QStyleOptionToolBox::StyleOptionVersion> rb_cQStyleOptionToolBoxStyleOptionVersion =
+    Data_Type<QStyleOptionToolBox::StyleOptionVersion> rb_cQStyleOptionToolBoxStyleOptionVersion =
         // RubyQt6::QtWidgets::QStyleOptionToolBox::StyleOptionVersion
-        define_qenum_under<QStyleOptionToolBox::StyleOptionVersion>("StyleOptionVersion", rb_cQStyleOptionToolBox)
-            .define_value("Version", QStyleOptionToolBox::StyleOptionVersion::Version);
+        define_qenum_under<QStyleOptionToolBox::StyleOptionVersion>(rb_cQStyleOptionToolBox, "StyleOptionVersion");
+        define_qenum_value_under(rb_cQStyleOptionToolBoxStyleOptionVersion, "Version", QStyleOptionToolBox::StyleOptionVersion::Version);
 
-    Enum<QStyleOptionToolBox::TabPosition> rb_cQStyleOptionToolBoxTabPosition =
+    Data_Type<QStyleOptionToolBox::TabPosition> rb_cQStyleOptionToolBoxTabPosition =
         // RubyQt6::QtWidgets::QStyleOptionToolBox::TabPosition
-        define_qenum_under<QStyleOptionToolBox::TabPosition>("TabPosition", rb_cQStyleOptionToolBox)
-            .define_value("Beginning", QStyleOptionToolBox::TabPosition::Beginning)
-            .define_value("Middle", QStyleOptionToolBox::TabPosition::Middle)
-            .define_value("End", QStyleOptionToolBox::TabPosition::End)
-            .define_value("OnlyOneTab", QStyleOptionToolBox::TabPosition::OnlyOneTab);
+        define_qenum_under<QStyleOptionToolBox::TabPosition>(rb_cQStyleOptionToolBox, "TabPosition");
+        define_qenum_value_under(rb_cQStyleOptionToolBoxTabPosition, "Beginning", QStyleOptionToolBox::TabPosition::Beginning);
+        define_qenum_value_under(rb_cQStyleOptionToolBoxTabPosition, "Middle", QStyleOptionToolBox::TabPosition::Middle);
+        define_qenum_value_under(rb_cQStyleOptionToolBoxTabPosition, "End", QStyleOptionToolBox::TabPosition::End);
+        define_qenum_value_under(rb_cQStyleOptionToolBoxTabPosition, "OnlyOneTab", QStyleOptionToolBox::TabPosition::OnlyOneTab);
 
-    Enum<QStyleOptionToolBox::SelectedPosition> rb_cQStyleOptionToolBoxSelectedPosition =
+    Data_Type<QStyleOptionToolBox::SelectedPosition> rb_cQStyleOptionToolBoxSelectedPosition =
         // RubyQt6::QtWidgets::QStyleOptionToolBox::SelectedPosition
-        define_qenum_under<QStyleOptionToolBox::SelectedPosition>("SelectedPosition", rb_cQStyleOptionToolBox)
-            .define_value("NotAdjacent", QStyleOptionToolBox::SelectedPosition::NotAdjacent)
-            .define_value("NextIsSelected", QStyleOptionToolBox::SelectedPosition::NextIsSelected)
-            .define_value("PreviousIsSelected", QStyleOptionToolBox::SelectedPosition::PreviousIsSelected);
+        define_qenum_under<QStyleOptionToolBox::SelectedPosition>(rb_cQStyleOptionToolBox, "SelectedPosition");
+        define_qenum_value_under(rb_cQStyleOptionToolBoxSelectedPosition, "NotAdjacent", QStyleOptionToolBox::SelectedPosition::NotAdjacent);
+        define_qenum_value_under(rb_cQStyleOptionToolBoxSelectedPosition, "NextIsSelected", QStyleOptionToolBox::SelectedPosition::NextIsSelected);
+        define_qenum_value_under(rb_cQStyleOptionToolBoxSelectedPosition, "PreviousIsSelected", QStyleOptionToolBox::SelectedPosition::PreviousIsSelected);
 
     rb_cQStyleOptionViewItem =
         // RubyQt6::QtWidgets::QStyleOptionViewItem
@@ -675,42 +676,42 @@ void Init_qstyleoption(Rice::Module rb_mQt6QtWidgets)
             .define_attr("view_item_position", &QStyleOptionViewItem::viewItemPosition, Rice::AttrAccess::Read)
             .define_attr("widget", &QStyleOptionViewItem::widget, Rice::AttrAccess::Read);
 
-    Enum<QStyleOptionViewItem::StyleOptionType> rb_cQStyleOptionViewItemStyleOptionType =
+    Data_Type<QStyleOptionViewItem::StyleOptionType> rb_cQStyleOptionViewItemStyleOptionType =
         // RubyQt6::QtWidgets::QStyleOptionViewItem::StyleOptionType
-        define_qenum_under<QStyleOptionViewItem::StyleOptionType>("StyleOptionType", rb_cQStyleOptionViewItem)
-            .define_value("Type", QStyleOptionViewItem::StyleOptionType::Type);
+        define_qenum_under<QStyleOptionViewItem::StyleOptionType>(rb_cQStyleOptionViewItem, "StyleOptionType");
+        define_qenum_value_under(rb_cQStyleOptionViewItemStyleOptionType, "Type", QStyleOptionViewItem::StyleOptionType::Type);
 
-    Enum<QStyleOptionViewItem::StyleOptionVersion> rb_cQStyleOptionViewItemStyleOptionVersion =
+    Data_Type<QStyleOptionViewItem::StyleOptionVersion> rb_cQStyleOptionViewItemStyleOptionVersion =
         // RubyQt6::QtWidgets::QStyleOptionViewItem::StyleOptionVersion
-        define_qenum_under<QStyleOptionViewItem::StyleOptionVersion>("StyleOptionVersion", rb_cQStyleOptionViewItem)
-            .define_value("Version", QStyleOptionViewItem::StyleOptionVersion::Version);
+        define_qenum_under<QStyleOptionViewItem::StyleOptionVersion>(rb_cQStyleOptionViewItem, "StyleOptionVersion");
+        define_qenum_value_under(rb_cQStyleOptionViewItemStyleOptionVersion, "Version", QStyleOptionViewItem::StyleOptionVersion::Version);
 
-    Enum<QStyleOptionViewItem::Position> rb_cQStyleOptionViewItemPosition =
+    Data_Type<QStyleOptionViewItem::Position> rb_cQStyleOptionViewItemPosition =
         // RubyQt6::QtWidgets::QStyleOptionViewItem::Position
-        define_qenum_under<QStyleOptionViewItem::Position>("Position", rb_cQStyleOptionViewItem)
-            .define_value("Left", QStyleOptionViewItem::Position::Left)
-            .define_value("Right", QStyleOptionViewItem::Position::Right)
-            .define_value("Top", QStyleOptionViewItem::Position::Top)
-            .define_value("Bottom", QStyleOptionViewItem::Position::Bottom);
+        define_qenum_under<QStyleOptionViewItem::Position>(rb_cQStyleOptionViewItem, "Position");
+        define_qenum_value_under(rb_cQStyleOptionViewItemPosition, "Left", QStyleOptionViewItem::Position::Left);
+        define_qenum_value_under(rb_cQStyleOptionViewItemPosition, "Right", QStyleOptionViewItem::Position::Right);
+        define_qenum_value_under(rb_cQStyleOptionViewItemPosition, "Top", QStyleOptionViewItem::Position::Top);
+        define_qenum_value_under(rb_cQStyleOptionViewItemPosition, "Bottom", QStyleOptionViewItem::Position::Bottom);
 
-    Enum<QStyleOptionViewItem::ViewItemFeature> rb_cQStyleOptionViewItemViewItemFeature =
+    Data_Type<QStyleOptionViewItem::ViewItemFeature> rb_cQStyleOptionViewItemViewItemFeature =
         // RubyQt6::QtWidgets::QStyleOptionViewItem::ViewItemFeature
-        define_qenum_under<QStyleOptionViewItem::ViewItemFeature>("ViewItemFeature", rb_cQStyleOptionViewItem)
-            .define_value("None", QStyleOptionViewItem::ViewItemFeature::None)
-            .define_value("WrapText", QStyleOptionViewItem::ViewItemFeature::WrapText)
-            .define_value("Alternate", QStyleOptionViewItem::ViewItemFeature::Alternate)
-            .define_value("HasCheckIndicator", QStyleOptionViewItem::ViewItemFeature::HasCheckIndicator)
-            .define_value("HasDisplay", QStyleOptionViewItem::ViewItemFeature::HasDisplay)
-            .define_value("HasDecoration", QStyleOptionViewItem::ViewItemFeature::HasDecoration)
-            .define_value("IsDecoratedRootColumn", QStyleOptionViewItem::ViewItemFeature::IsDecoratedRootColumn)
-            .define_value("IsDecorationForRootColumn", QStyleOptionViewItem::ViewItemFeature::IsDecorationForRootColumn);
+        define_qenum_under<QStyleOptionViewItem::ViewItemFeature>(rb_cQStyleOptionViewItem, "ViewItemFeature");
+        define_qenum_value_under(rb_cQStyleOptionViewItemViewItemFeature, "None", QStyleOptionViewItem::ViewItemFeature::None);
+        define_qenum_value_under(rb_cQStyleOptionViewItemViewItemFeature, "WrapText", QStyleOptionViewItem::ViewItemFeature::WrapText);
+        define_qenum_value_under(rb_cQStyleOptionViewItemViewItemFeature, "Alternate", QStyleOptionViewItem::ViewItemFeature::Alternate);
+        define_qenum_value_under(rb_cQStyleOptionViewItemViewItemFeature, "HasCheckIndicator", QStyleOptionViewItem::ViewItemFeature::HasCheckIndicator);
+        define_qenum_value_under(rb_cQStyleOptionViewItemViewItemFeature, "HasDisplay", QStyleOptionViewItem::ViewItemFeature::HasDisplay);
+        define_qenum_value_under(rb_cQStyleOptionViewItemViewItemFeature, "HasDecoration", QStyleOptionViewItem::ViewItemFeature::HasDecoration);
+        define_qenum_value_under(rb_cQStyleOptionViewItemViewItemFeature, "IsDecoratedRootColumn", QStyleOptionViewItem::ViewItemFeature::IsDecoratedRootColumn);
+        define_qenum_value_under(rb_cQStyleOptionViewItemViewItemFeature, "IsDecorationForRootColumn", QStyleOptionViewItem::ViewItemFeature::IsDecorationForRootColumn);
 
-    Enum<QStyleOptionViewItem::ViewItemPosition> rb_cQStyleOptionViewItemViewItemPosition =
+    Data_Type<QStyleOptionViewItem::ViewItemPosition> rb_cQStyleOptionViewItemViewItemPosition =
         // RubyQt6::QtWidgets::QStyleOptionViewItem::ViewItemPosition
-        define_qenum_under<QStyleOptionViewItem::ViewItemPosition>("ViewItemPosition", rb_cQStyleOptionViewItem)
-            .define_value("Invalid", QStyleOptionViewItem::ViewItemPosition::Invalid)
-            .define_value("Beginning", QStyleOptionViewItem::ViewItemPosition::Beginning)
-            .define_value("Middle", QStyleOptionViewItem::ViewItemPosition::Middle)
-            .define_value("End", QStyleOptionViewItem::ViewItemPosition::End)
-            .define_value("OnlyOne", QStyleOptionViewItem::ViewItemPosition::OnlyOne);
+        define_qenum_under<QStyleOptionViewItem::ViewItemPosition>(rb_cQStyleOptionViewItem, "ViewItemPosition");
+        define_qenum_value_under(rb_cQStyleOptionViewItemViewItemPosition, "Invalid", QStyleOptionViewItem::ViewItemPosition::Invalid);
+        define_qenum_value_under(rb_cQStyleOptionViewItemViewItemPosition, "Beginning", QStyleOptionViewItem::ViewItemPosition::Beginning);
+        define_qenum_value_under(rb_cQStyleOptionViewItemViewItemPosition, "Middle", QStyleOptionViewItem::ViewItemPosition::Middle);
+        define_qenum_value_under(rb_cQStyleOptionViewItemViewItemPosition, "End", QStyleOptionViewItem::ViewItemPosition::End);
+        define_qenum_value_under(rb_cQStyleOptionViewItemViewItemPosition, "OnlyOne", QStyleOptionViewItem::ViewItemPosition::OnlyOne);
 }

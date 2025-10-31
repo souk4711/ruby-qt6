@@ -46,11 +46,11 @@ void Init_qimagewriter(Rice::Module rb_mQt6QtGui)
             .define_singleton_function("supported_image_formats", &QImageWriter::supportedImageFormats)
             .define_singleton_function("supported_mime_types", &QImageWriter::supportedMimeTypes);
 
-    Enum<QImageWriter::ImageWriterError> rb_cQImageWriterImageWriterError =
+    Data_Type<QImageWriter::ImageWriterError> rb_cQImageWriterImageWriterError =
         // RubyQt6::QtGui::QImageWriter::ImageWriterError
-        define_qenum_under<QImageWriter::ImageWriterError>("ImageWriterError", rb_cQImageWriter)
-            .define_value("UnknownError", QImageWriter::ImageWriterError::UnknownError)
-            .define_value("DeviceError", QImageWriter::ImageWriterError::DeviceError)
-            .define_value("UnsupportedFormatError", QImageWriter::ImageWriterError::UnsupportedFormatError)
-            .define_value("InvalidImageError", QImageWriter::ImageWriterError::InvalidImageError);
+        define_qenum_under<QImageWriter::ImageWriterError>(rb_cQImageWriter, "ImageWriterError");
+        define_qenum_value_under(rb_cQImageWriterImageWriterError, "UnknownError", QImageWriter::ImageWriterError::UnknownError);
+        define_qenum_value_under(rb_cQImageWriterImageWriterError, "DeviceError", QImageWriter::ImageWriterError::DeviceError);
+        define_qenum_value_under(rb_cQImageWriterImageWriterError, "UnsupportedFormatError", QImageWriter::ImageWriterError::UnsupportedFormatError);
+        define_qenum_value_under(rb_cQImageWriterImageWriterError, "InvalidImageError", QImageWriter::ImageWriterError::InvalidImageError);
 }

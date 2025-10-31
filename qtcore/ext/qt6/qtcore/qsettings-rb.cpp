@@ -55,39 +55,39 @@ void Init_qsettings(Rice::Module rb_mQt6QtCore)
             .define_singleton_function("set_default_format", &QSettings::setDefaultFormat, Arg("format"))
             .define_singleton_function("set_path", &QSettings::setPath, Arg("format"), Arg("scope"), Arg("path"));
 
-    Enum<QSettings::Format> rb_cQSettingsFormat =
+    Data_Type<QSettings::Format> rb_cQSettingsFormat =
         // RubyQt6::QtCore::QSettings::Format
-        define_qenum_under<QSettings::Format>("Format", rb_cQSettings)
-            .define_value("NativeFormat", QSettings::Format::NativeFormat)
-            .define_value("IniFormat", QSettings::Format::IniFormat)
-            .define_value("InvalidFormat", QSettings::Format::InvalidFormat)
-            .define_value("CustomFormat1", QSettings::Format::CustomFormat1)
-            .define_value("CustomFormat2", QSettings::Format::CustomFormat2)
-            .define_value("CustomFormat3", QSettings::Format::CustomFormat3)
-            .define_value("CustomFormat4", QSettings::Format::CustomFormat4)
-            .define_value("CustomFormat5", QSettings::Format::CustomFormat5)
-            .define_value("CustomFormat6", QSettings::Format::CustomFormat6)
-            .define_value("CustomFormat7", QSettings::Format::CustomFormat7)
-            .define_value("CustomFormat8", QSettings::Format::CustomFormat8)
-            .define_value("CustomFormat9", QSettings::Format::CustomFormat9)
-            .define_value("CustomFormat10", QSettings::Format::CustomFormat10)
-            .define_value("CustomFormat11", QSettings::Format::CustomFormat11)
-            .define_value("CustomFormat12", QSettings::Format::CustomFormat12)
-            .define_value("CustomFormat13", QSettings::Format::CustomFormat13)
-            .define_value("CustomFormat14", QSettings::Format::CustomFormat14)
-            .define_value("CustomFormat15", QSettings::Format::CustomFormat15)
-            .define_value("CustomFormat16", QSettings::Format::CustomFormat16);
+        define_qenum_under<QSettings::Format>(rb_cQSettings, "Format");
+        define_qenum_value_under(rb_cQSettingsFormat, "NativeFormat", QSettings::Format::NativeFormat);
+        define_qenum_value_under(rb_cQSettingsFormat, "IniFormat", QSettings::Format::IniFormat);
+        define_qenum_value_under(rb_cQSettingsFormat, "InvalidFormat", QSettings::Format::InvalidFormat);
+        define_qenum_value_under(rb_cQSettingsFormat, "CustomFormat1", QSettings::Format::CustomFormat1);
+        define_qenum_value_under(rb_cQSettingsFormat, "CustomFormat2", QSettings::Format::CustomFormat2);
+        define_qenum_value_under(rb_cQSettingsFormat, "CustomFormat3", QSettings::Format::CustomFormat3);
+        define_qenum_value_under(rb_cQSettingsFormat, "CustomFormat4", QSettings::Format::CustomFormat4);
+        define_qenum_value_under(rb_cQSettingsFormat, "CustomFormat5", QSettings::Format::CustomFormat5);
+        define_qenum_value_under(rb_cQSettingsFormat, "CustomFormat6", QSettings::Format::CustomFormat6);
+        define_qenum_value_under(rb_cQSettingsFormat, "CustomFormat7", QSettings::Format::CustomFormat7);
+        define_qenum_value_under(rb_cQSettingsFormat, "CustomFormat8", QSettings::Format::CustomFormat8);
+        define_qenum_value_under(rb_cQSettingsFormat, "CustomFormat9", QSettings::Format::CustomFormat9);
+        define_qenum_value_under(rb_cQSettingsFormat, "CustomFormat10", QSettings::Format::CustomFormat10);
+        define_qenum_value_under(rb_cQSettingsFormat, "CustomFormat11", QSettings::Format::CustomFormat11);
+        define_qenum_value_under(rb_cQSettingsFormat, "CustomFormat12", QSettings::Format::CustomFormat12);
+        define_qenum_value_under(rb_cQSettingsFormat, "CustomFormat13", QSettings::Format::CustomFormat13);
+        define_qenum_value_under(rb_cQSettingsFormat, "CustomFormat14", QSettings::Format::CustomFormat14);
+        define_qenum_value_under(rb_cQSettingsFormat, "CustomFormat15", QSettings::Format::CustomFormat15);
+        define_qenum_value_under(rb_cQSettingsFormat, "CustomFormat16", QSettings::Format::CustomFormat16);
 
-    Enum<QSettings::Scope> rb_cQSettingsScope =
+    Data_Type<QSettings::Scope> rb_cQSettingsScope =
         // RubyQt6::QtCore::QSettings::Scope
-        define_qenum_under<QSettings::Scope>("Scope", rb_cQSettings)
-            .define_value("UserScope", QSettings::Scope::UserScope)
-            .define_value("SystemScope", QSettings::Scope::SystemScope);
+        define_qenum_under<QSettings::Scope>(rb_cQSettings, "Scope");
+        define_qenum_value_under(rb_cQSettingsScope, "UserScope", QSettings::Scope::UserScope);
+        define_qenum_value_under(rb_cQSettingsScope, "SystemScope", QSettings::Scope::SystemScope);
 
-    Enum<QSettings::Status> rb_cQSettingsStatus =
+    Data_Type<QSettings::Status> rb_cQSettingsStatus =
         // RubyQt6::QtCore::QSettings::Status
-        define_qenum_under<QSettings::Status>("Status", rb_cQSettings)
-            .define_value("NoError", QSettings::Status::NoError)
-            .define_value("AccessError", QSettings::Status::AccessError)
-            .define_value("FormatError", QSettings::Status::FormatError);
+        define_qenum_under<QSettings::Status>(rb_cQSettings, "Status");
+        define_qenum_value_under(rb_cQSettingsStatus, "NoError", QSettings::Status::NoError);
+        define_qenum_value_under(rb_cQSettingsStatus, "AccessError", QSettings::Status::AccessError);
+        define_qenum_value_under(rb_cQSettingsStatus, "FormatError", QSettings::Status::FormatError);
 }

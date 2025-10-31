@@ -76,65 +76,65 @@ void Init_qmessagebox(Rice::Module rb_mQt6QtWidgets)
             .define_singleton_function<QMessageBox::StandardButton (*)(QWidget *, const QString &, const QString &, QMessageBox::StandardButtons, QMessageBox::StandardButton)>("warning", &QMessageBox::warning, Arg("parent"), Arg("title"), Arg("text"), Arg("buttons") = static_cast<QMessageBox::StandardButtons>(QMessageBox::StandardButton::Ok), Arg("default_button") = static_cast<QMessageBox::StandardButton>(QMessageBox::StandardButton::NoButton))
             .define_singleton_function<int (*)(QWidget *, const QString &, const QString &, QMessageBox::StandardButton, QMessageBox::StandardButton)>("warning", &QMessageBox::warning, Arg("parent"), Arg("title"), Arg("text"), Arg("button0"), Arg("button1"));
 
-    Enum<QMessageBox::ButtonRole> rb_cQMessageBoxButtonRole =
+    Data_Type<QMessageBox::ButtonRole> rb_cQMessageBoxButtonRole =
         // RubyQt6::QtWidgets::QMessageBox::ButtonRole
-        define_qenum_under<QMessageBox::ButtonRole>("ButtonRole", rb_cQMessageBox)
-            .define_value("InvalidRole", QMessageBox::ButtonRole::InvalidRole)
-            .define_value("AcceptRole", QMessageBox::ButtonRole::AcceptRole)
-            .define_value("RejectRole", QMessageBox::ButtonRole::RejectRole)
-            .define_value("DestructiveRole", QMessageBox::ButtonRole::DestructiveRole)
-            .define_value("ActionRole", QMessageBox::ButtonRole::ActionRole)
-            .define_value("HelpRole", QMessageBox::ButtonRole::HelpRole)
-            .define_value("YesRole", QMessageBox::ButtonRole::YesRole)
-            .define_value("NoRole", QMessageBox::ButtonRole::NoRole)
-            .define_value("ResetRole", QMessageBox::ButtonRole::ResetRole)
-            .define_value("ApplyRole", QMessageBox::ButtonRole::ApplyRole)
-            .define_value("NRoles", QMessageBox::ButtonRole::NRoles);
+        define_qenum_under<QMessageBox::ButtonRole>(rb_cQMessageBox, "ButtonRole");
+        define_qenum_value_under(rb_cQMessageBoxButtonRole, "InvalidRole", QMessageBox::ButtonRole::InvalidRole);
+        define_qenum_value_under(rb_cQMessageBoxButtonRole, "AcceptRole", QMessageBox::ButtonRole::AcceptRole);
+        define_qenum_value_under(rb_cQMessageBoxButtonRole, "RejectRole", QMessageBox::ButtonRole::RejectRole);
+        define_qenum_value_under(rb_cQMessageBoxButtonRole, "DestructiveRole", QMessageBox::ButtonRole::DestructiveRole);
+        define_qenum_value_under(rb_cQMessageBoxButtonRole, "ActionRole", QMessageBox::ButtonRole::ActionRole);
+        define_qenum_value_under(rb_cQMessageBoxButtonRole, "HelpRole", QMessageBox::ButtonRole::HelpRole);
+        define_qenum_value_under(rb_cQMessageBoxButtonRole, "YesRole", QMessageBox::ButtonRole::YesRole);
+        define_qenum_value_under(rb_cQMessageBoxButtonRole, "NoRole", QMessageBox::ButtonRole::NoRole);
+        define_qenum_value_under(rb_cQMessageBoxButtonRole, "ResetRole", QMessageBox::ButtonRole::ResetRole);
+        define_qenum_value_under(rb_cQMessageBoxButtonRole, "ApplyRole", QMessageBox::ButtonRole::ApplyRole);
+        define_qenum_value_under(rb_cQMessageBoxButtonRole, "NRoles", QMessageBox::ButtonRole::NRoles);
 
-    Enum<QMessageBox::Icon> rb_cQMessageBoxIcon =
+    Data_Type<QMessageBox::Icon> rb_cQMessageBoxIcon =
         // RubyQt6::QtWidgets::QMessageBox::Icon
-        define_qenum_under<QMessageBox::Icon>("Icon", rb_cQMessageBox)
-            .define_value("NoIcon", QMessageBox::Icon::NoIcon)
-            .define_value("Information", QMessageBox::Icon::Information)
-            .define_value("Warning", QMessageBox::Icon::Warning)
-            .define_value("Critical", QMessageBox::Icon::Critical)
-            .define_value("Question", QMessageBox::Icon::Question);
+        define_qenum_under<QMessageBox::Icon>(rb_cQMessageBox, "Icon");
+        define_qenum_value_under(rb_cQMessageBoxIcon, "NoIcon", QMessageBox::Icon::NoIcon);
+        define_qenum_value_under(rb_cQMessageBoxIcon, "Information", QMessageBox::Icon::Information);
+        define_qenum_value_under(rb_cQMessageBoxIcon, "Warning", QMessageBox::Icon::Warning);
+        define_qenum_value_under(rb_cQMessageBoxIcon, "Critical", QMessageBox::Icon::Critical);
+        define_qenum_value_under(rb_cQMessageBoxIcon, "Question", QMessageBox::Icon::Question);
 
-    Enum<QMessageBox::Option> rb_cQMessageBoxOption =
+    Data_Type<QMessageBox::Option> rb_cQMessageBoxOption =
         // RubyQt6::QtWidgets::QMessageBox::Option
-        define_qenum_under<QMessageBox::Option>("Option", rb_cQMessageBox)
-            .define_value("DontUseNativeDialog", QMessageBox::Option::DontUseNativeDialog);
+        define_qenum_under<QMessageBox::Option>(rb_cQMessageBox, "Option");
+        define_qenum_value_under(rb_cQMessageBoxOption, "DontUseNativeDialog", QMessageBox::Option::DontUseNativeDialog);
 
-    Enum<QMessageBox::StandardButton> rb_cQMessageBoxStandardButton =
+    Data_Type<QMessageBox::StandardButton> rb_cQMessageBoxStandardButton =
         // RubyQt6::QtWidgets::QMessageBox::StandardButton
-        define_qenum_under<QMessageBox::StandardButton>("StandardButton", rb_cQMessageBox)
-            .define_value("NoButton", QMessageBox::StandardButton::NoButton)
-            .define_value("Ok", QMessageBox::StandardButton::Ok)
-            .define_value("Save", QMessageBox::StandardButton::Save)
-            .define_value("SaveAll", QMessageBox::StandardButton::SaveAll)
-            .define_value("Open", QMessageBox::StandardButton::Open)
-            .define_value("Yes", QMessageBox::StandardButton::Yes)
-            .define_value("YesToAll", QMessageBox::StandardButton::YesToAll)
-            .define_value("No", QMessageBox::StandardButton::No)
-            .define_value("NoToAll", QMessageBox::StandardButton::NoToAll)
-            .define_value("Abort", QMessageBox::StandardButton::Abort)
-            .define_value("Retry", QMessageBox::StandardButton::Retry)
-            .define_value("Ignore", QMessageBox::StandardButton::Ignore)
-            .define_value("Close", QMessageBox::StandardButton::Close)
-            .define_value("Cancel", QMessageBox::StandardButton::Cancel)
-            .define_value("Discard", QMessageBox::StandardButton::Discard)
-            .define_value("Help", QMessageBox::StandardButton::Help)
-            .define_value("Apply", QMessageBox::StandardButton::Apply)
-            .define_value("Reset", QMessageBox::StandardButton::Reset)
-            .define_value("RestoreDefaults", QMessageBox::StandardButton::RestoreDefaults)
-            .define_value("FirstButton", QMessageBox::StandardButton::FirstButton)
-            .define_value("LastButton", QMessageBox::StandardButton::LastButton)
-            .define_value("YesAll", QMessageBox::StandardButton::YesAll)
-            .define_value("NoAll", QMessageBox::StandardButton::NoAll)
-            .define_value("Default", QMessageBox::StandardButton::Default)
-            .define_value("Escape", QMessageBox::StandardButton::Escape)
-            .define_value("FlagMask", QMessageBox::StandardButton::FlagMask)
-            .define_value("ButtonMask", QMessageBox::StandardButton::ButtonMask);
+        define_qenum_under<QMessageBox::StandardButton>(rb_cQMessageBox, "StandardButton");
+        define_qenum_value_under(rb_cQMessageBoxStandardButton, "NoButton", QMessageBox::StandardButton::NoButton);
+        define_qenum_value_under(rb_cQMessageBoxStandardButton, "Ok", QMessageBox::StandardButton::Ok);
+        define_qenum_value_under(rb_cQMessageBoxStandardButton, "Save", QMessageBox::StandardButton::Save);
+        define_qenum_value_under(rb_cQMessageBoxStandardButton, "SaveAll", QMessageBox::StandardButton::SaveAll);
+        define_qenum_value_under(rb_cQMessageBoxStandardButton, "Open", QMessageBox::StandardButton::Open);
+        define_qenum_value_under(rb_cQMessageBoxStandardButton, "Yes", QMessageBox::StandardButton::Yes);
+        define_qenum_value_under(rb_cQMessageBoxStandardButton, "YesToAll", QMessageBox::StandardButton::YesToAll);
+        define_qenum_value_under(rb_cQMessageBoxStandardButton, "No", QMessageBox::StandardButton::No);
+        define_qenum_value_under(rb_cQMessageBoxStandardButton, "NoToAll", QMessageBox::StandardButton::NoToAll);
+        define_qenum_value_under(rb_cQMessageBoxStandardButton, "Abort", QMessageBox::StandardButton::Abort);
+        define_qenum_value_under(rb_cQMessageBoxStandardButton, "Retry", QMessageBox::StandardButton::Retry);
+        define_qenum_value_under(rb_cQMessageBoxStandardButton, "Ignore", QMessageBox::StandardButton::Ignore);
+        define_qenum_value_under(rb_cQMessageBoxStandardButton, "Close", QMessageBox::StandardButton::Close);
+        define_qenum_value_under(rb_cQMessageBoxStandardButton, "Cancel", QMessageBox::StandardButton::Cancel);
+        define_qenum_value_under(rb_cQMessageBoxStandardButton, "Discard", QMessageBox::StandardButton::Discard);
+        define_qenum_value_under(rb_cQMessageBoxStandardButton, "Help", QMessageBox::StandardButton::Help);
+        define_qenum_value_under(rb_cQMessageBoxStandardButton, "Apply", QMessageBox::StandardButton::Apply);
+        define_qenum_value_under(rb_cQMessageBoxStandardButton, "Reset", QMessageBox::StandardButton::Reset);
+        define_qenum_value_under(rb_cQMessageBoxStandardButton, "RestoreDefaults", QMessageBox::StandardButton::RestoreDefaults);
+        define_qenum_value_under(rb_cQMessageBoxStandardButton, "FirstButton", QMessageBox::StandardButton::FirstButton);
+        define_qenum_value_under(rb_cQMessageBoxStandardButton, "LastButton", QMessageBox::StandardButton::LastButton);
+        define_qenum_value_under(rb_cQMessageBoxStandardButton, "YesAll", QMessageBox::StandardButton::YesAll);
+        define_qenum_value_under(rb_cQMessageBoxStandardButton, "NoAll", QMessageBox::StandardButton::NoAll);
+        define_qenum_value_under(rb_cQMessageBoxStandardButton, "Default", QMessageBox::StandardButton::Default);
+        define_qenum_value_under(rb_cQMessageBoxStandardButton, "Escape", QMessageBox::StandardButton::Escape);
+        define_qenum_value_under(rb_cQMessageBoxStandardButton, "FlagMask", QMessageBox::StandardButton::FlagMask);
+        define_qenum_value_under(rb_cQMessageBoxStandardButton, "ButtonMask", QMessageBox::StandardButton::ButtonMask);
 
     Data_Type<QFlags<QMessageBox::StandardButton>> rb_cQMessageBoxStandardButtons =
         // RubyQt6::QtWidgets::QMessageBox::StandardButtons

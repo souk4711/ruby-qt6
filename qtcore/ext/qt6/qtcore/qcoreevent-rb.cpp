@@ -26,188 +26,188 @@ void Init_qcoreevent(Rice::Module rb_mQt6QtCore)
             .define_method("spontaneous", &QEvent::spontaneous)
             .define_method("type", &QEvent::type);
 
-    Enum<QEvent::Type> rb_cQEventType =
+    Data_Type<QEvent::Type> rb_cQEventType =
         // RubyQt6::QtCore::QEvent::Type
-        define_qenum_under<QEvent::Type>("Type", rb_cQEvent)
-            .define_value("None", QEvent::Type::None)
-            .define_value("Timer", QEvent::Type::Timer)
-            .define_value("MouseButtonPress", QEvent::Type::MouseButtonPress)
-            .define_value("MouseButtonRelease", QEvent::Type::MouseButtonRelease)
-            .define_value("MouseButtonDblClick", QEvent::Type::MouseButtonDblClick)
-            .define_value("MouseMove", QEvent::Type::MouseMove)
-            .define_value("KeyPress", QEvent::Type::KeyPress)
-            .define_value("KeyRelease", QEvent::Type::KeyRelease)
-            .define_value("FocusIn", QEvent::Type::FocusIn)
-            .define_value("FocusOut", QEvent::Type::FocusOut)
-            .define_value("FocusAboutToChange", QEvent::Type::FocusAboutToChange)
-            .define_value("Enter", QEvent::Type::Enter)
-            .define_value("Leave", QEvent::Type::Leave)
-            .define_value("Paint", QEvent::Type::Paint)
-            .define_value("Move", QEvent::Type::Move)
-            .define_value("Resize", QEvent::Type::Resize)
-            .define_value("Create", QEvent::Type::Create)
-            .define_value("Destroy", QEvent::Type::Destroy)
-            .define_value("Show", QEvent::Type::Show)
-            .define_value("Hide", QEvent::Type::Hide)
-            .define_value("Close", QEvent::Type::Close)
-            .define_value("Quit", QEvent::Type::Quit)
-            .define_value("ParentChange", QEvent::Type::ParentChange)
-            .define_value("ParentAboutToChange", QEvent::Type::ParentAboutToChange)
-            .define_value("ThreadChange", QEvent::Type::ThreadChange)
-            .define_value("WindowActivate", QEvent::Type::WindowActivate)
-            .define_value("WindowDeactivate", QEvent::Type::WindowDeactivate)
-            .define_value("ShowToParent", QEvent::Type::ShowToParent)
-            .define_value("HideToParent", QEvent::Type::HideToParent)
-            .define_value("Wheel", QEvent::Type::Wheel)
-            .define_value("WindowTitleChange", QEvent::Type::WindowTitleChange)
-            .define_value("WindowIconChange", QEvent::Type::WindowIconChange)
-            .define_value("ApplicationWindowIconChange", QEvent::Type::ApplicationWindowIconChange)
-            .define_value("ApplicationFontChange", QEvent::Type::ApplicationFontChange)
-            .define_value("ApplicationLayoutDirectionChange", QEvent::Type::ApplicationLayoutDirectionChange)
-            .define_value("ApplicationPaletteChange", QEvent::Type::ApplicationPaletteChange)
-            .define_value("PaletteChange", QEvent::Type::PaletteChange)
-            .define_value("Clipboard", QEvent::Type::Clipboard)
-            .define_value("Speech", QEvent::Type::Speech)
-            .define_value("MetaCall", QEvent::Type::MetaCall)
-            .define_value("SockAct", QEvent::Type::SockAct)
-            .define_value("WinEventAct", QEvent::Type::WinEventAct)
-            .define_value("DeferredDelete", QEvent::Type::DeferredDelete)
-            .define_value("DragEnter", QEvent::Type::DragEnter)
-            .define_value("DragMove", QEvent::Type::DragMove)
-            .define_value("DragLeave", QEvent::Type::DragLeave)
-            .define_value("Drop", QEvent::Type::Drop)
-            .define_value("DragResponse", QEvent::Type::DragResponse)
-            .define_value("ChildAdded", QEvent::Type::ChildAdded)
-            .define_value("ChildPolished", QEvent::Type::ChildPolished)
-            .define_value("ChildRemoved", QEvent::Type::ChildRemoved)
-            .define_value("ShowWindowRequest", QEvent::Type::ShowWindowRequest)
-            .define_value("PolishRequest", QEvent::Type::PolishRequest)
-            .define_value("Polish", QEvent::Type::Polish)
-            .define_value("LayoutRequest", QEvent::Type::LayoutRequest)
-            .define_value("UpdateRequest", QEvent::Type::UpdateRequest)
-            .define_value("UpdateLater", QEvent::Type::UpdateLater)
-            .define_value("EmbeddingControl", QEvent::Type::EmbeddingControl)
-            .define_value("ActivateControl", QEvent::Type::ActivateControl)
-            .define_value("DeactivateControl", QEvent::Type::DeactivateControl)
-            .define_value("ContextMenu", QEvent::Type::ContextMenu)
-            .define_value("InputMethod", QEvent::Type::InputMethod)
-            .define_value("TabletMove", QEvent::Type::TabletMove)
-            .define_value("LocaleChange", QEvent::Type::LocaleChange)
-            .define_value("LanguageChange", QEvent::Type::LanguageChange)
-            .define_value("LayoutDirectionChange", QEvent::Type::LayoutDirectionChange)
-            .define_value("Style", QEvent::Type::Style)
-            .define_value("TabletPress", QEvent::Type::TabletPress)
-            .define_value("TabletRelease", QEvent::Type::TabletRelease)
-            .define_value("OkRequest", QEvent::Type::OkRequest)
-            .define_value("HelpRequest", QEvent::Type::HelpRequest)
-            .define_value("IconDrag", QEvent::Type::IconDrag)
-            .define_value("FontChange", QEvent::Type::FontChange)
-            .define_value("EnabledChange", QEvent::Type::EnabledChange)
-            .define_value("ActivationChange", QEvent::Type::ActivationChange)
-            .define_value("StyleChange", QEvent::Type::StyleChange)
-            .define_value("IconTextChange", QEvent::Type::IconTextChange)
-            .define_value("ModifiedChange", QEvent::Type::ModifiedChange)
-            .define_value("MouseTrackingChange", QEvent::Type::MouseTrackingChange)
-            .define_value("WindowBlocked", QEvent::Type::WindowBlocked)
-            .define_value("WindowUnblocked", QEvent::Type::WindowUnblocked)
-            .define_value("WindowStateChange", QEvent::Type::WindowStateChange)
-            .define_value("ReadOnlyChange", QEvent::Type::ReadOnlyChange)
-            .define_value("ToolTip", QEvent::Type::ToolTip)
-            .define_value("WhatsThis", QEvent::Type::WhatsThis)
-            .define_value("StatusTip", QEvent::Type::StatusTip)
-            .define_value("ActionChanged", QEvent::Type::ActionChanged)
-            .define_value("ActionAdded", QEvent::Type::ActionAdded)
-            .define_value("ActionRemoved", QEvent::Type::ActionRemoved)
-            .define_value("FileOpen", QEvent::Type::FileOpen)
-            .define_value("Shortcut", QEvent::Type::Shortcut)
-            .define_value("ShortcutOverride", QEvent::Type::ShortcutOverride)
-            .define_value("WhatsThisClicked", QEvent::Type::WhatsThisClicked)
-            .define_value("ToolBarChange", QEvent::Type::ToolBarChange)
-            .define_value("ApplicationActivate", QEvent::Type::ApplicationActivate)
-            .define_value("ApplicationActivated", QEvent::Type::ApplicationActivated)
-            .define_value("ApplicationDeactivate", QEvent::Type::ApplicationDeactivate)
-            .define_value("ApplicationDeactivated", QEvent::Type::ApplicationDeactivated)
-            .define_value("QueryWhatsThis", QEvent::Type::QueryWhatsThis)
-            .define_value("EnterWhatsThisMode", QEvent::Type::EnterWhatsThisMode)
-            .define_value("LeaveWhatsThisMode", QEvent::Type::LeaveWhatsThisMode)
-            .define_value("ZOrderChange", QEvent::Type::ZOrderChange)
-            .define_value("HoverEnter", QEvent::Type::HoverEnter)
-            .define_value("HoverLeave", QEvent::Type::HoverLeave)
-            .define_value("HoverMove", QEvent::Type::HoverMove)
-            .define_value("AcceptDropsChange", QEvent::Type::AcceptDropsChange)
-            .define_value("ZeroTimerEvent", QEvent::Type::ZeroTimerEvent)
-            .define_value("GraphicsSceneMouseMove", QEvent::Type::GraphicsSceneMouseMove)
-            .define_value("GraphicsSceneMousePress", QEvent::Type::GraphicsSceneMousePress)
-            .define_value("GraphicsSceneMouseRelease", QEvent::Type::GraphicsSceneMouseRelease)
-            .define_value("GraphicsSceneMouseDoubleClick", QEvent::Type::GraphicsSceneMouseDoubleClick)
-            .define_value("GraphicsSceneContextMenu", QEvent::Type::GraphicsSceneContextMenu)
-            .define_value("GraphicsSceneHoverEnter", QEvent::Type::GraphicsSceneHoverEnter)
-            .define_value("GraphicsSceneHoverMove", QEvent::Type::GraphicsSceneHoverMove)
-            .define_value("GraphicsSceneHoverLeave", QEvent::Type::GraphicsSceneHoverLeave)
-            .define_value("GraphicsSceneHelp", QEvent::Type::GraphicsSceneHelp)
-            .define_value("GraphicsSceneDragEnter", QEvent::Type::GraphicsSceneDragEnter)
-            .define_value("GraphicsSceneDragMove", QEvent::Type::GraphicsSceneDragMove)
-            .define_value("GraphicsSceneDragLeave", QEvent::Type::GraphicsSceneDragLeave)
-            .define_value("GraphicsSceneDrop", QEvent::Type::GraphicsSceneDrop)
-            .define_value("GraphicsSceneWheel", QEvent::Type::GraphicsSceneWheel)
-            .define_value("GraphicsSceneLeave", QEvent::Type::GraphicsSceneLeave)
-            .define_value("KeyboardLayoutChange", QEvent::Type::KeyboardLayoutChange)
-            .define_value("DynamicPropertyChange", QEvent::Type::DynamicPropertyChange)
-            .define_value("TabletEnterProximity", QEvent::Type::TabletEnterProximity)
-            .define_value("TabletLeaveProximity", QEvent::Type::TabletLeaveProximity)
-            .define_value("NonClientAreaMouseMove", QEvent::Type::NonClientAreaMouseMove)
-            .define_value("NonClientAreaMouseButtonPress", QEvent::Type::NonClientAreaMouseButtonPress)
-            .define_value("NonClientAreaMouseButtonRelease", QEvent::Type::NonClientAreaMouseButtonRelease)
-            .define_value("NonClientAreaMouseButtonDblClick", QEvent::Type::NonClientAreaMouseButtonDblClick)
-            .define_value("MacSizeChange", QEvent::Type::MacSizeChange)
-            .define_value("ContentsRectChange", QEvent::Type::ContentsRectChange)
-            .define_value("MacGLWindowChange", QEvent::Type::MacGLWindowChange)
-            .define_value("FutureCallOut", QEvent::Type::FutureCallOut)
-            .define_value("GraphicsSceneResize", QEvent::Type::GraphicsSceneResize)
-            .define_value("GraphicsSceneMove", QEvent::Type::GraphicsSceneMove)
-            .define_value("CursorChange", QEvent::Type::CursorChange)
-            .define_value("ToolTipChange", QEvent::Type::ToolTipChange)
-            .define_value("NetworkReplyUpdated", QEvent::Type::NetworkReplyUpdated)
-            .define_value("GrabMouse", QEvent::Type::GrabMouse)
-            .define_value("UngrabMouse", QEvent::Type::UngrabMouse)
-            .define_value("GrabKeyboard", QEvent::Type::GrabKeyboard)
-            .define_value("UngrabKeyboard", QEvent::Type::UngrabKeyboard)
-            .define_value("StateMachineSignal", QEvent::Type::StateMachineSignal)
-            .define_value("StateMachineWrapped", QEvent::Type::StateMachineWrapped)
-            .define_value("TouchBegin", QEvent::Type::TouchBegin)
-            .define_value("TouchUpdate", QEvent::Type::TouchUpdate)
-            .define_value("TouchEnd", QEvent::Type::TouchEnd)
-            .define_value("NativeGesture", QEvent::Type::NativeGesture)
-            .define_value("RequestSoftwareInputPanel", QEvent::Type::RequestSoftwareInputPanel)
-            .define_value("CloseSoftwareInputPanel", QEvent::Type::CloseSoftwareInputPanel)
-            .define_value("WinIdChange", QEvent::Type::WinIdChange)
-            .define_value("Gesture", QEvent::Type::Gesture)
-            .define_value("GestureOverride", QEvent::Type::GestureOverride)
-            .define_value("ScrollPrepare", QEvent::Type::ScrollPrepare)
-            .define_value("Scroll", QEvent::Type::Scroll)
-            .define_value("Expose", QEvent::Type::Expose)
-            .define_value("InputMethodQuery", QEvent::Type::InputMethodQuery)
-            .define_value("OrientationChange", QEvent::Type::OrientationChange)
-            .define_value("TouchCancel", QEvent::Type::TouchCancel)
-            .define_value("ThemeChange", QEvent::Type::ThemeChange)
-            .define_value("SockClose", QEvent::Type::SockClose)
-            .define_value("PlatformPanel", QEvent::Type::PlatformPanel)
-            .define_value("StyleAnimationUpdate", QEvent::Type::StyleAnimationUpdate)
-            .define_value("ApplicationStateChange", QEvent::Type::ApplicationStateChange)
-            .define_value("WindowChangeInternal", QEvent::Type::WindowChangeInternal)
-            .define_value("ScreenChangeInternal", QEvent::Type::ScreenChangeInternal)
-            .define_value("PlatformSurface", QEvent::Type::PlatformSurface)
-            .define_value("Pointer", QEvent::Type::Pointer)
-            .define_value("TabletTrackingChange", QEvent::Type::TabletTrackingChange)
-            .define_value("WindowAboutToChangeInternal", QEvent::Type::WindowAboutToChangeInternal)
-            .define_value("DevicePixelRatioChange", QEvent::Type::DevicePixelRatioChange)
-            .define_value("ChildWindowAdded", QEvent::Type::ChildWindowAdded)
-            .define_value("ChildWindowRemoved", QEvent::Type::ChildWindowRemoved)
-            .define_value("ParentWindowAboutToChange", QEvent::Type::ParentWindowAboutToChange)
-            .define_value("ParentWindowChange", QEvent::Type::ParentWindowChange)
-            .define_value("SafeAreaMarginsChange", QEvent::Type::SafeAreaMarginsChange)
-            .define_value("User", QEvent::Type::User)
-            .define_value("MaxUser", QEvent::Type::MaxUser);
+        define_qenum_under<QEvent::Type>(rb_cQEvent, "Type");
+        define_qenum_value_under(rb_cQEventType, "None", QEvent::Type::None);
+        define_qenum_value_under(rb_cQEventType, "Timer", QEvent::Type::Timer);
+        define_qenum_value_under(rb_cQEventType, "MouseButtonPress", QEvent::Type::MouseButtonPress);
+        define_qenum_value_under(rb_cQEventType, "MouseButtonRelease", QEvent::Type::MouseButtonRelease);
+        define_qenum_value_under(rb_cQEventType, "MouseButtonDblClick", QEvent::Type::MouseButtonDblClick);
+        define_qenum_value_under(rb_cQEventType, "MouseMove", QEvent::Type::MouseMove);
+        define_qenum_value_under(rb_cQEventType, "KeyPress", QEvent::Type::KeyPress);
+        define_qenum_value_under(rb_cQEventType, "KeyRelease", QEvent::Type::KeyRelease);
+        define_qenum_value_under(rb_cQEventType, "FocusIn", QEvent::Type::FocusIn);
+        define_qenum_value_under(rb_cQEventType, "FocusOut", QEvent::Type::FocusOut);
+        define_qenum_value_under(rb_cQEventType, "FocusAboutToChange", QEvent::Type::FocusAboutToChange);
+        define_qenum_value_under(rb_cQEventType, "Enter", QEvent::Type::Enter);
+        define_qenum_value_under(rb_cQEventType, "Leave", QEvent::Type::Leave);
+        define_qenum_value_under(rb_cQEventType, "Paint", QEvent::Type::Paint);
+        define_qenum_value_under(rb_cQEventType, "Move", QEvent::Type::Move);
+        define_qenum_value_under(rb_cQEventType, "Resize", QEvent::Type::Resize);
+        define_qenum_value_under(rb_cQEventType, "Create", QEvent::Type::Create);
+        define_qenum_value_under(rb_cQEventType, "Destroy", QEvent::Type::Destroy);
+        define_qenum_value_under(rb_cQEventType, "Show", QEvent::Type::Show);
+        define_qenum_value_under(rb_cQEventType, "Hide", QEvent::Type::Hide);
+        define_qenum_value_under(rb_cQEventType, "Close", QEvent::Type::Close);
+        define_qenum_value_under(rb_cQEventType, "Quit", QEvent::Type::Quit);
+        define_qenum_value_under(rb_cQEventType, "ParentChange", QEvent::Type::ParentChange);
+        define_qenum_value_under(rb_cQEventType, "ParentAboutToChange", QEvent::Type::ParentAboutToChange);
+        define_qenum_value_under(rb_cQEventType, "ThreadChange", QEvent::Type::ThreadChange);
+        define_qenum_value_under(rb_cQEventType, "WindowActivate", QEvent::Type::WindowActivate);
+        define_qenum_value_under(rb_cQEventType, "WindowDeactivate", QEvent::Type::WindowDeactivate);
+        define_qenum_value_under(rb_cQEventType, "ShowToParent", QEvent::Type::ShowToParent);
+        define_qenum_value_under(rb_cQEventType, "HideToParent", QEvent::Type::HideToParent);
+        define_qenum_value_under(rb_cQEventType, "Wheel", QEvent::Type::Wheel);
+        define_qenum_value_under(rb_cQEventType, "WindowTitleChange", QEvent::Type::WindowTitleChange);
+        define_qenum_value_under(rb_cQEventType, "WindowIconChange", QEvent::Type::WindowIconChange);
+        define_qenum_value_under(rb_cQEventType, "ApplicationWindowIconChange", QEvent::Type::ApplicationWindowIconChange);
+        define_qenum_value_under(rb_cQEventType, "ApplicationFontChange", QEvent::Type::ApplicationFontChange);
+        define_qenum_value_under(rb_cQEventType, "ApplicationLayoutDirectionChange", QEvent::Type::ApplicationLayoutDirectionChange);
+        define_qenum_value_under(rb_cQEventType, "ApplicationPaletteChange", QEvent::Type::ApplicationPaletteChange);
+        define_qenum_value_under(rb_cQEventType, "PaletteChange", QEvent::Type::PaletteChange);
+        define_qenum_value_under(rb_cQEventType, "Clipboard", QEvent::Type::Clipboard);
+        define_qenum_value_under(rb_cQEventType, "Speech", QEvent::Type::Speech);
+        define_qenum_value_under(rb_cQEventType, "MetaCall", QEvent::Type::MetaCall);
+        define_qenum_value_under(rb_cQEventType, "SockAct", QEvent::Type::SockAct);
+        define_qenum_value_under(rb_cQEventType, "WinEventAct", QEvent::Type::WinEventAct);
+        define_qenum_value_under(rb_cQEventType, "DeferredDelete", QEvent::Type::DeferredDelete);
+        define_qenum_value_under(rb_cQEventType, "DragEnter", QEvent::Type::DragEnter);
+        define_qenum_value_under(rb_cQEventType, "DragMove", QEvent::Type::DragMove);
+        define_qenum_value_under(rb_cQEventType, "DragLeave", QEvent::Type::DragLeave);
+        define_qenum_value_under(rb_cQEventType, "Drop", QEvent::Type::Drop);
+        define_qenum_value_under(rb_cQEventType, "DragResponse", QEvent::Type::DragResponse);
+        define_qenum_value_under(rb_cQEventType, "ChildAdded", QEvent::Type::ChildAdded);
+        define_qenum_value_under(rb_cQEventType, "ChildPolished", QEvent::Type::ChildPolished);
+        define_qenum_value_under(rb_cQEventType, "ChildRemoved", QEvent::Type::ChildRemoved);
+        define_qenum_value_under(rb_cQEventType, "ShowWindowRequest", QEvent::Type::ShowWindowRequest);
+        define_qenum_value_under(rb_cQEventType, "PolishRequest", QEvent::Type::PolishRequest);
+        define_qenum_value_under(rb_cQEventType, "Polish", QEvent::Type::Polish);
+        define_qenum_value_under(rb_cQEventType, "LayoutRequest", QEvent::Type::LayoutRequest);
+        define_qenum_value_under(rb_cQEventType, "UpdateRequest", QEvent::Type::UpdateRequest);
+        define_qenum_value_under(rb_cQEventType, "UpdateLater", QEvent::Type::UpdateLater);
+        define_qenum_value_under(rb_cQEventType, "EmbeddingControl", QEvent::Type::EmbeddingControl);
+        define_qenum_value_under(rb_cQEventType, "ActivateControl", QEvent::Type::ActivateControl);
+        define_qenum_value_under(rb_cQEventType, "DeactivateControl", QEvent::Type::DeactivateControl);
+        define_qenum_value_under(rb_cQEventType, "ContextMenu", QEvent::Type::ContextMenu);
+        define_qenum_value_under(rb_cQEventType, "InputMethod", QEvent::Type::InputMethod);
+        define_qenum_value_under(rb_cQEventType, "TabletMove", QEvent::Type::TabletMove);
+        define_qenum_value_under(rb_cQEventType, "LocaleChange", QEvent::Type::LocaleChange);
+        define_qenum_value_under(rb_cQEventType, "LanguageChange", QEvent::Type::LanguageChange);
+        define_qenum_value_under(rb_cQEventType, "LayoutDirectionChange", QEvent::Type::LayoutDirectionChange);
+        define_qenum_value_under(rb_cQEventType, "Style", QEvent::Type::Style);
+        define_qenum_value_under(rb_cQEventType, "TabletPress", QEvent::Type::TabletPress);
+        define_qenum_value_under(rb_cQEventType, "TabletRelease", QEvent::Type::TabletRelease);
+        define_qenum_value_under(rb_cQEventType, "OkRequest", QEvent::Type::OkRequest);
+        define_qenum_value_under(rb_cQEventType, "HelpRequest", QEvent::Type::HelpRequest);
+        define_qenum_value_under(rb_cQEventType, "IconDrag", QEvent::Type::IconDrag);
+        define_qenum_value_under(rb_cQEventType, "FontChange", QEvent::Type::FontChange);
+        define_qenum_value_under(rb_cQEventType, "EnabledChange", QEvent::Type::EnabledChange);
+        define_qenum_value_under(rb_cQEventType, "ActivationChange", QEvent::Type::ActivationChange);
+        define_qenum_value_under(rb_cQEventType, "StyleChange", QEvent::Type::StyleChange);
+        define_qenum_value_under(rb_cQEventType, "IconTextChange", QEvent::Type::IconTextChange);
+        define_qenum_value_under(rb_cQEventType, "ModifiedChange", QEvent::Type::ModifiedChange);
+        define_qenum_value_under(rb_cQEventType, "MouseTrackingChange", QEvent::Type::MouseTrackingChange);
+        define_qenum_value_under(rb_cQEventType, "WindowBlocked", QEvent::Type::WindowBlocked);
+        define_qenum_value_under(rb_cQEventType, "WindowUnblocked", QEvent::Type::WindowUnblocked);
+        define_qenum_value_under(rb_cQEventType, "WindowStateChange", QEvent::Type::WindowStateChange);
+        define_qenum_value_under(rb_cQEventType, "ReadOnlyChange", QEvent::Type::ReadOnlyChange);
+        define_qenum_value_under(rb_cQEventType, "ToolTip", QEvent::Type::ToolTip);
+        define_qenum_value_under(rb_cQEventType, "WhatsThis", QEvent::Type::WhatsThis);
+        define_qenum_value_under(rb_cQEventType, "StatusTip", QEvent::Type::StatusTip);
+        define_qenum_value_under(rb_cQEventType, "ActionChanged", QEvent::Type::ActionChanged);
+        define_qenum_value_under(rb_cQEventType, "ActionAdded", QEvent::Type::ActionAdded);
+        define_qenum_value_under(rb_cQEventType, "ActionRemoved", QEvent::Type::ActionRemoved);
+        define_qenum_value_under(rb_cQEventType, "FileOpen", QEvent::Type::FileOpen);
+        define_qenum_value_under(rb_cQEventType, "Shortcut", QEvent::Type::Shortcut);
+        define_qenum_value_under(rb_cQEventType, "ShortcutOverride", QEvent::Type::ShortcutOverride);
+        define_qenum_value_under(rb_cQEventType, "WhatsThisClicked", QEvent::Type::WhatsThisClicked);
+        define_qenum_value_under(rb_cQEventType, "ToolBarChange", QEvent::Type::ToolBarChange);
+        define_qenum_value_under(rb_cQEventType, "ApplicationActivate", QEvent::Type::ApplicationActivate);
+        define_qenum_value_under(rb_cQEventType, "ApplicationActivated", QEvent::Type::ApplicationActivated);
+        define_qenum_value_under(rb_cQEventType, "ApplicationDeactivate", QEvent::Type::ApplicationDeactivate);
+        define_qenum_value_under(rb_cQEventType, "ApplicationDeactivated", QEvent::Type::ApplicationDeactivated);
+        define_qenum_value_under(rb_cQEventType, "QueryWhatsThis", QEvent::Type::QueryWhatsThis);
+        define_qenum_value_under(rb_cQEventType, "EnterWhatsThisMode", QEvent::Type::EnterWhatsThisMode);
+        define_qenum_value_under(rb_cQEventType, "LeaveWhatsThisMode", QEvent::Type::LeaveWhatsThisMode);
+        define_qenum_value_under(rb_cQEventType, "ZOrderChange", QEvent::Type::ZOrderChange);
+        define_qenum_value_under(rb_cQEventType, "HoverEnter", QEvent::Type::HoverEnter);
+        define_qenum_value_under(rb_cQEventType, "HoverLeave", QEvent::Type::HoverLeave);
+        define_qenum_value_under(rb_cQEventType, "HoverMove", QEvent::Type::HoverMove);
+        define_qenum_value_under(rb_cQEventType, "AcceptDropsChange", QEvent::Type::AcceptDropsChange);
+        define_qenum_value_under(rb_cQEventType, "ZeroTimerEvent", QEvent::Type::ZeroTimerEvent);
+        define_qenum_value_under(rb_cQEventType, "GraphicsSceneMouseMove", QEvent::Type::GraphicsSceneMouseMove);
+        define_qenum_value_under(rb_cQEventType, "GraphicsSceneMousePress", QEvent::Type::GraphicsSceneMousePress);
+        define_qenum_value_under(rb_cQEventType, "GraphicsSceneMouseRelease", QEvent::Type::GraphicsSceneMouseRelease);
+        define_qenum_value_under(rb_cQEventType, "GraphicsSceneMouseDoubleClick", QEvent::Type::GraphicsSceneMouseDoubleClick);
+        define_qenum_value_under(rb_cQEventType, "GraphicsSceneContextMenu", QEvent::Type::GraphicsSceneContextMenu);
+        define_qenum_value_under(rb_cQEventType, "GraphicsSceneHoverEnter", QEvent::Type::GraphicsSceneHoverEnter);
+        define_qenum_value_under(rb_cQEventType, "GraphicsSceneHoverMove", QEvent::Type::GraphicsSceneHoverMove);
+        define_qenum_value_under(rb_cQEventType, "GraphicsSceneHoverLeave", QEvent::Type::GraphicsSceneHoverLeave);
+        define_qenum_value_under(rb_cQEventType, "GraphicsSceneHelp", QEvent::Type::GraphicsSceneHelp);
+        define_qenum_value_under(rb_cQEventType, "GraphicsSceneDragEnter", QEvent::Type::GraphicsSceneDragEnter);
+        define_qenum_value_under(rb_cQEventType, "GraphicsSceneDragMove", QEvent::Type::GraphicsSceneDragMove);
+        define_qenum_value_under(rb_cQEventType, "GraphicsSceneDragLeave", QEvent::Type::GraphicsSceneDragLeave);
+        define_qenum_value_under(rb_cQEventType, "GraphicsSceneDrop", QEvent::Type::GraphicsSceneDrop);
+        define_qenum_value_under(rb_cQEventType, "GraphicsSceneWheel", QEvent::Type::GraphicsSceneWheel);
+        define_qenum_value_under(rb_cQEventType, "GraphicsSceneLeave", QEvent::Type::GraphicsSceneLeave);
+        define_qenum_value_under(rb_cQEventType, "KeyboardLayoutChange", QEvent::Type::KeyboardLayoutChange);
+        define_qenum_value_under(rb_cQEventType, "DynamicPropertyChange", QEvent::Type::DynamicPropertyChange);
+        define_qenum_value_under(rb_cQEventType, "TabletEnterProximity", QEvent::Type::TabletEnterProximity);
+        define_qenum_value_under(rb_cQEventType, "TabletLeaveProximity", QEvent::Type::TabletLeaveProximity);
+        define_qenum_value_under(rb_cQEventType, "NonClientAreaMouseMove", QEvent::Type::NonClientAreaMouseMove);
+        define_qenum_value_under(rb_cQEventType, "NonClientAreaMouseButtonPress", QEvent::Type::NonClientAreaMouseButtonPress);
+        define_qenum_value_under(rb_cQEventType, "NonClientAreaMouseButtonRelease", QEvent::Type::NonClientAreaMouseButtonRelease);
+        define_qenum_value_under(rb_cQEventType, "NonClientAreaMouseButtonDblClick", QEvent::Type::NonClientAreaMouseButtonDblClick);
+        define_qenum_value_under(rb_cQEventType, "MacSizeChange", QEvent::Type::MacSizeChange);
+        define_qenum_value_under(rb_cQEventType, "ContentsRectChange", QEvent::Type::ContentsRectChange);
+        define_qenum_value_under(rb_cQEventType, "MacGLWindowChange", QEvent::Type::MacGLWindowChange);
+        define_qenum_value_under(rb_cQEventType, "FutureCallOut", QEvent::Type::FutureCallOut);
+        define_qenum_value_under(rb_cQEventType, "GraphicsSceneResize", QEvent::Type::GraphicsSceneResize);
+        define_qenum_value_under(rb_cQEventType, "GraphicsSceneMove", QEvent::Type::GraphicsSceneMove);
+        define_qenum_value_under(rb_cQEventType, "CursorChange", QEvent::Type::CursorChange);
+        define_qenum_value_under(rb_cQEventType, "ToolTipChange", QEvent::Type::ToolTipChange);
+        define_qenum_value_under(rb_cQEventType, "NetworkReplyUpdated", QEvent::Type::NetworkReplyUpdated);
+        define_qenum_value_under(rb_cQEventType, "GrabMouse", QEvent::Type::GrabMouse);
+        define_qenum_value_under(rb_cQEventType, "UngrabMouse", QEvent::Type::UngrabMouse);
+        define_qenum_value_under(rb_cQEventType, "GrabKeyboard", QEvent::Type::GrabKeyboard);
+        define_qenum_value_under(rb_cQEventType, "UngrabKeyboard", QEvent::Type::UngrabKeyboard);
+        define_qenum_value_under(rb_cQEventType, "StateMachineSignal", QEvent::Type::StateMachineSignal);
+        define_qenum_value_under(rb_cQEventType, "StateMachineWrapped", QEvent::Type::StateMachineWrapped);
+        define_qenum_value_under(rb_cQEventType, "TouchBegin", QEvent::Type::TouchBegin);
+        define_qenum_value_under(rb_cQEventType, "TouchUpdate", QEvent::Type::TouchUpdate);
+        define_qenum_value_under(rb_cQEventType, "TouchEnd", QEvent::Type::TouchEnd);
+        define_qenum_value_under(rb_cQEventType, "NativeGesture", QEvent::Type::NativeGesture);
+        define_qenum_value_under(rb_cQEventType, "RequestSoftwareInputPanel", QEvent::Type::RequestSoftwareInputPanel);
+        define_qenum_value_under(rb_cQEventType, "CloseSoftwareInputPanel", QEvent::Type::CloseSoftwareInputPanel);
+        define_qenum_value_under(rb_cQEventType, "WinIdChange", QEvent::Type::WinIdChange);
+        define_qenum_value_under(rb_cQEventType, "Gesture", QEvent::Type::Gesture);
+        define_qenum_value_under(rb_cQEventType, "GestureOverride", QEvent::Type::GestureOverride);
+        define_qenum_value_under(rb_cQEventType, "ScrollPrepare", QEvent::Type::ScrollPrepare);
+        define_qenum_value_under(rb_cQEventType, "Scroll", QEvent::Type::Scroll);
+        define_qenum_value_under(rb_cQEventType, "Expose", QEvent::Type::Expose);
+        define_qenum_value_under(rb_cQEventType, "InputMethodQuery", QEvent::Type::InputMethodQuery);
+        define_qenum_value_under(rb_cQEventType, "OrientationChange", QEvent::Type::OrientationChange);
+        define_qenum_value_under(rb_cQEventType, "TouchCancel", QEvent::Type::TouchCancel);
+        define_qenum_value_under(rb_cQEventType, "ThemeChange", QEvent::Type::ThemeChange);
+        define_qenum_value_under(rb_cQEventType, "SockClose", QEvent::Type::SockClose);
+        define_qenum_value_under(rb_cQEventType, "PlatformPanel", QEvent::Type::PlatformPanel);
+        define_qenum_value_under(rb_cQEventType, "StyleAnimationUpdate", QEvent::Type::StyleAnimationUpdate);
+        define_qenum_value_under(rb_cQEventType, "ApplicationStateChange", QEvent::Type::ApplicationStateChange);
+        define_qenum_value_under(rb_cQEventType, "WindowChangeInternal", QEvent::Type::WindowChangeInternal);
+        define_qenum_value_under(rb_cQEventType, "ScreenChangeInternal", QEvent::Type::ScreenChangeInternal);
+        define_qenum_value_under(rb_cQEventType, "PlatformSurface", QEvent::Type::PlatformSurface);
+        define_qenum_value_under(rb_cQEventType, "Pointer", QEvent::Type::Pointer);
+        define_qenum_value_under(rb_cQEventType, "TabletTrackingChange", QEvent::Type::TabletTrackingChange);
+        define_qenum_value_under(rb_cQEventType, "WindowAboutToChangeInternal", QEvent::Type::WindowAboutToChangeInternal);
+        define_qenum_value_under(rb_cQEventType, "DevicePixelRatioChange", QEvent::Type::DevicePixelRatioChange);
+        define_qenum_value_under(rb_cQEventType, "ChildWindowAdded", QEvent::Type::ChildWindowAdded);
+        define_qenum_value_under(rb_cQEventType, "ChildWindowRemoved", QEvent::Type::ChildWindowRemoved);
+        define_qenum_value_under(rb_cQEventType, "ParentWindowAboutToChange", QEvent::Type::ParentWindowAboutToChange);
+        define_qenum_value_under(rb_cQEventType, "ParentWindowChange", QEvent::Type::ParentWindowChange);
+        define_qenum_value_under(rb_cQEventType, "SafeAreaMarginsChange", QEvent::Type::SafeAreaMarginsChange);
+        define_qenum_value_under(rb_cQEventType, "User", QEvent::Type::User);
+        define_qenum_value_under(rb_cQEventType, "MaxUser", QEvent::Type::MaxUser);
 
     rb_cQChildEvent =
         // RubyQt6::QtCore::QChildEvent

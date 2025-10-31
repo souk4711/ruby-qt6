@@ -58,45 +58,45 @@ void Init_qdbusconnection(Rice::Module rb_mQt6QtDBus)
             .define_singleton_function("session_bus", &QDBusConnection::sessionBus)
             .define_singleton_function("system_bus", &QDBusConnection::systemBus);
 
-    Enum<QDBusConnection::BusType> rb_cQDBusConnectionBusType =
+    Data_Type<QDBusConnection::BusType> rb_cQDBusConnectionBusType =
         // RubyQt6::QtDBus::QDBusConnection::BusType
-        define_qenum_under<QDBusConnection::BusType>("BusType", rb_cQDBusConnection)
-            .define_value("SessionBus", QDBusConnection::BusType::SessionBus)
-            .define_value("SystemBus", QDBusConnection::BusType::SystemBus)
-            .define_value("ActivationBus", QDBusConnection::BusType::ActivationBus);
+        define_qenum_under<QDBusConnection::BusType>(rb_cQDBusConnection, "BusType");
+        define_qenum_value_under(rb_cQDBusConnectionBusType, "SessionBus", QDBusConnection::BusType::SessionBus);
+        define_qenum_value_under(rb_cQDBusConnectionBusType, "SystemBus", QDBusConnection::BusType::SystemBus);
+        define_qenum_value_under(rb_cQDBusConnectionBusType, "ActivationBus", QDBusConnection::BusType::ActivationBus);
 
-    Enum<QDBusConnection::RegisterOption> rb_cQDBusConnectionRegisterOption =
+    Data_Type<QDBusConnection::RegisterOption> rb_cQDBusConnectionRegisterOption =
         // RubyQt6::QtDBus::QDBusConnection::RegisterOption
-        define_qenum_under<QDBusConnection::RegisterOption>("RegisterOption", rb_cQDBusConnection)
-            .define_value("ExportAdaptors", QDBusConnection::RegisterOption::ExportAdaptors)
-            .define_value("ExportScriptableSlots", QDBusConnection::RegisterOption::ExportScriptableSlots)
-            .define_value("ExportScriptableSignals", QDBusConnection::RegisterOption::ExportScriptableSignals)
-            .define_value("ExportScriptableProperties", QDBusConnection::RegisterOption::ExportScriptableProperties)
-            .define_value("ExportScriptableInvokables", QDBusConnection::RegisterOption::ExportScriptableInvokables)
-            .define_value("ExportScriptableContents", QDBusConnection::RegisterOption::ExportScriptableContents)
-            .define_value("ExportNonScriptableSlots", QDBusConnection::RegisterOption::ExportNonScriptableSlots)
-            .define_value("ExportNonScriptableSignals", QDBusConnection::RegisterOption::ExportNonScriptableSignals)
-            .define_value("ExportNonScriptableProperties", QDBusConnection::RegisterOption::ExportNonScriptableProperties)
-            .define_value("ExportNonScriptableInvokables", QDBusConnection::RegisterOption::ExportNonScriptableInvokables)
-            .define_value("ExportNonScriptableContents", QDBusConnection::RegisterOption::ExportNonScriptableContents)
-            .define_value("ExportAllSlots", QDBusConnection::RegisterOption::ExportAllSlots)
-            .define_value("ExportAllSignals", QDBusConnection::RegisterOption::ExportAllSignals)
-            .define_value("ExportAllProperties", QDBusConnection::RegisterOption::ExportAllProperties)
-            .define_value("ExportAllInvokables", QDBusConnection::RegisterOption::ExportAllInvokables)
-            .define_value("ExportAllContents", QDBusConnection::RegisterOption::ExportAllContents)
-            .define_value("ExportAllSignal", QDBusConnection::RegisterOption::ExportAllSignal)
-            .define_value("ExportChildObjects", QDBusConnection::RegisterOption::ExportChildObjects);
+        define_qenum_under<QDBusConnection::RegisterOption>(rb_cQDBusConnection, "RegisterOption");
+        define_qenum_value_under(rb_cQDBusConnectionRegisterOption, "ExportAdaptors", QDBusConnection::RegisterOption::ExportAdaptors);
+        define_qenum_value_under(rb_cQDBusConnectionRegisterOption, "ExportScriptableSlots", QDBusConnection::RegisterOption::ExportScriptableSlots);
+        define_qenum_value_under(rb_cQDBusConnectionRegisterOption, "ExportScriptableSignals", QDBusConnection::RegisterOption::ExportScriptableSignals);
+        define_qenum_value_under(rb_cQDBusConnectionRegisterOption, "ExportScriptableProperties", QDBusConnection::RegisterOption::ExportScriptableProperties);
+        define_qenum_value_under(rb_cQDBusConnectionRegisterOption, "ExportScriptableInvokables", QDBusConnection::RegisterOption::ExportScriptableInvokables);
+        define_qenum_value_under(rb_cQDBusConnectionRegisterOption, "ExportScriptableContents", QDBusConnection::RegisterOption::ExportScriptableContents);
+        define_qenum_value_under(rb_cQDBusConnectionRegisterOption, "ExportNonScriptableSlots", QDBusConnection::RegisterOption::ExportNonScriptableSlots);
+        define_qenum_value_under(rb_cQDBusConnectionRegisterOption, "ExportNonScriptableSignals", QDBusConnection::RegisterOption::ExportNonScriptableSignals);
+        define_qenum_value_under(rb_cQDBusConnectionRegisterOption, "ExportNonScriptableProperties", QDBusConnection::RegisterOption::ExportNonScriptableProperties);
+        define_qenum_value_under(rb_cQDBusConnectionRegisterOption, "ExportNonScriptableInvokables", QDBusConnection::RegisterOption::ExportNonScriptableInvokables);
+        define_qenum_value_under(rb_cQDBusConnectionRegisterOption, "ExportNonScriptableContents", QDBusConnection::RegisterOption::ExportNonScriptableContents);
+        define_qenum_value_under(rb_cQDBusConnectionRegisterOption, "ExportAllSlots", QDBusConnection::RegisterOption::ExportAllSlots);
+        define_qenum_value_under(rb_cQDBusConnectionRegisterOption, "ExportAllSignals", QDBusConnection::RegisterOption::ExportAllSignals);
+        define_qenum_value_under(rb_cQDBusConnectionRegisterOption, "ExportAllProperties", QDBusConnection::RegisterOption::ExportAllProperties);
+        define_qenum_value_under(rb_cQDBusConnectionRegisterOption, "ExportAllInvokables", QDBusConnection::RegisterOption::ExportAllInvokables);
+        define_qenum_value_under(rb_cQDBusConnectionRegisterOption, "ExportAllContents", QDBusConnection::RegisterOption::ExportAllContents);
+        define_qenum_value_under(rb_cQDBusConnectionRegisterOption, "ExportAllSignal", QDBusConnection::RegisterOption::ExportAllSignal);
+        define_qenum_value_under(rb_cQDBusConnectionRegisterOption, "ExportChildObjects", QDBusConnection::RegisterOption::ExportChildObjects);
 
-    Enum<QDBusConnection::UnregisterMode> rb_cQDBusConnectionUnregisterMode =
+    Data_Type<QDBusConnection::UnregisterMode> rb_cQDBusConnectionUnregisterMode =
         // RubyQt6::QtDBus::QDBusConnection::UnregisterMode
-        define_qenum_under<QDBusConnection::UnregisterMode>("UnregisterMode", rb_cQDBusConnection)
-            .define_value("UnregisterNode", QDBusConnection::UnregisterMode::UnregisterNode)
-            .define_value("UnregisterTree", QDBusConnection::UnregisterMode::UnregisterTree);
+        define_qenum_under<QDBusConnection::UnregisterMode>(rb_cQDBusConnection, "UnregisterMode");
+        define_qenum_value_under(rb_cQDBusConnectionUnregisterMode, "UnregisterNode", QDBusConnection::UnregisterMode::UnregisterNode);
+        define_qenum_value_under(rb_cQDBusConnectionUnregisterMode, "UnregisterTree", QDBusConnection::UnregisterMode::UnregisterTree);
 
-    Enum<QDBusConnection::ConnectionCapability> rb_cQDBusConnectionConnectionCapability =
+    Data_Type<QDBusConnection::ConnectionCapability> rb_cQDBusConnectionConnectionCapability =
         // RubyQt6::QtDBus::QDBusConnection::ConnectionCapability
-        define_qenum_under<QDBusConnection::ConnectionCapability>("ConnectionCapability", rb_cQDBusConnection)
-            .define_value("UnixFileDescriptorPassing", QDBusConnection::ConnectionCapability::UnixFileDescriptorPassing);
+        define_qenum_under<QDBusConnection::ConnectionCapability>(rb_cQDBusConnection, "ConnectionCapability");
+        define_qenum_value_under(rb_cQDBusConnectionConnectionCapability, "UnixFileDescriptorPassing", QDBusConnection::ConnectionCapability::UnixFileDescriptorPassing);
 
     Data_Type<QFlags<QDBusConnection::ConnectionCapability>> rb_cQDBusConnectionConnectionCapabilities =
         // RubyQt6::QtDBus::QDBusConnection::ConnectionCapabilities

@@ -99,12 +99,12 @@ void Init_qheaderview(Rice::Module rb_mQt6QtWidgets)
             .define_method("sort_indicator_changed", &QHeaderView::sortIndicatorChanged, Arg("logical_index"), Arg("order"))
             .define_method("sort_indicator_clearable_changed", &QHeaderView::sortIndicatorClearableChanged, Arg("clearable"));
 
-    Enum<QHeaderView::ResizeMode> rb_cQHeaderViewResizeMode =
+    Data_Type<QHeaderView::ResizeMode> rb_cQHeaderViewResizeMode =
         // RubyQt6::QtWidgets::QHeaderView::ResizeMode
-        define_qenum_under<QHeaderView::ResizeMode>("ResizeMode", rb_cQHeaderView)
-            .define_value("Interactive", QHeaderView::ResizeMode::Interactive)
-            .define_value("Stretch", QHeaderView::ResizeMode::Stretch)
-            .define_value("Fixed", QHeaderView::ResizeMode::Fixed)
-            .define_value("ResizeToContents", QHeaderView::ResizeMode::ResizeToContents)
-            .define_value("Custom", QHeaderView::ResizeMode::Custom);
+        define_qenum_under<QHeaderView::ResizeMode>(rb_cQHeaderView, "ResizeMode");
+        define_qenum_value_under(rb_cQHeaderViewResizeMode, "Interactive", QHeaderView::ResizeMode::Interactive);
+        define_qenum_value_under(rb_cQHeaderViewResizeMode, "Stretch", QHeaderView::ResizeMode::Stretch);
+        define_qenum_value_under(rb_cQHeaderViewResizeMode, "Fixed", QHeaderView::ResizeMode::Fixed);
+        define_qenum_value_under(rb_cQHeaderViewResizeMode, "ResizeToContents", QHeaderView::ResizeMode::ResizeToContents);
+        define_qenum_value_under(rb_cQHeaderViewResizeMode, "Custom", QHeaderView::ResizeMode::Custom);
 }

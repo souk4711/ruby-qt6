@@ -77,26 +77,26 @@ void Init_qformlayout(Rice::Module rb_mQt6QtWidgets)
             .define_method<QFormLayout::TakeRowResult (QFormLayout::*)(int)>("take_row", &QFormLayout::takeRow, Arg("row"))
             .define_method("vertical_spacing", &QFormLayout::verticalSpacing);
 
-    Enum<QFormLayout::FieldGrowthPolicy> rb_cQFormLayoutFieldGrowthPolicy =
+    Data_Type<QFormLayout::FieldGrowthPolicy> rb_cQFormLayoutFieldGrowthPolicy =
         // RubyQt6::QtWidgets::QFormLayout::FieldGrowthPolicy
-        define_qenum_under<QFormLayout::FieldGrowthPolicy>("FieldGrowthPolicy", rb_cQFormLayout)
-            .define_value("FieldsStayAtSizeHint", QFormLayout::FieldGrowthPolicy::FieldsStayAtSizeHint)
-            .define_value("ExpandingFieldsGrow", QFormLayout::FieldGrowthPolicy::ExpandingFieldsGrow)
-            .define_value("AllNonFixedFieldsGrow", QFormLayout::FieldGrowthPolicy::AllNonFixedFieldsGrow);
+        define_qenum_under<QFormLayout::FieldGrowthPolicy>(rb_cQFormLayout, "FieldGrowthPolicy");
+        define_qenum_value_under(rb_cQFormLayoutFieldGrowthPolicy, "FieldsStayAtSizeHint", QFormLayout::FieldGrowthPolicy::FieldsStayAtSizeHint);
+        define_qenum_value_under(rb_cQFormLayoutFieldGrowthPolicy, "ExpandingFieldsGrow", QFormLayout::FieldGrowthPolicy::ExpandingFieldsGrow);
+        define_qenum_value_under(rb_cQFormLayoutFieldGrowthPolicy, "AllNonFixedFieldsGrow", QFormLayout::FieldGrowthPolicy::AllNonFixedFieldsGrow);
 
-    Enum<QFormLayout::ItemRole> rb_cQFormLayoutItemRole =
+    Data_Type<QFormLayout::ItemRole> rb_cQFormLayoutItemRole =
         // RubyQt6::QtWidgets::QFormLayout::ItemRole
-        define_qenum_under<QFormLayout::ItemRole>("ItemRole", rb_cQFormLayout)
-            .define_value("LabelRole", QFormLayout::ItemRole::LabelRole)
-            .define_value("FieldRole", QFormLayout::ItemRole::FieldRole)
-            .define_value("SpanningRole", QFormLayout::ItemRole::SpanningRole);
+        define_qenum_under<QFormLayout::ItemRole>(rb_cQFormLayout, "ItemRole");
+        define_qenum_value_under(rb_cQFormLayoutItemRole, "LabelRole", QFormLayout::ItemRole::LabelRole);
+        define_qenum_value_under(rb_cQFormLayoutItemRole, "FieldRole", QFormLayout::ItemRole::FieldRole);
+        define_qenum_value_under(rb_cQFormLayoutItemRole, "SpanningRole", QFormLayout::ItemRole::SpanningRole);
 
-    Enum<QFormLayout::RowWrapPolicy> rb_cQFormLayoutRowWrapPolicy =
+    Data_Type<QFormLayout::RowWrapPolicy> rb_cQFormLayoutRowWrapPolicy =
         // RubyQt6::QtWidgets::QFormLayout::RowWrapPolicy
-        define_qenum_under<QFormLayout::RowWrapPolicy>("RowWrapPolicy", rb_cQFormLayout)
-            .define_value("DontWrapRows", QFormLayout::RowWrapPolicy::DontWrapRows)
-            .define_value("WrapLongRows", QFormLayout::RowWrapPolicy::WrapLongRows)
-            .define_value("WrapAllRows", QFormLayout::RowWrapPolicy::WrapAllRows);
+        define_qenum_under<QFormLayout::RowWrapPolicy>(rb_cQFormLayout, "RowWrapPolicy");
+        define_qenum_value_under(rb_cQFormLayoutRowWrapPolicy, "DontWrapRows", QFormLayout::RowWrapPolicy::DontWrapRows);
+        define_qenum_value_under(rb_cQFormLayoutRowWrapPolicy, "WrapLongRows", QFormLayout::RowWrapPolicy::WrapLongRows);
+        define_qenum_value_under(rb_cQFormLayoutRowWrapPolicy, "WrapAllRows", QFormLayout::RowWrapPolicy::WrapAllRows);
 
     rb_cQFormLayoutTakeRowResult =
         // RubyQt6::QtWidgets::QFormLayout::TakeRowResult

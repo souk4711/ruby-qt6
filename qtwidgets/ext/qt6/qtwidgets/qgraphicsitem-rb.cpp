@@ -210,80 +210,80 @@ void Init_qgraphicsitem(Rice::Module rb_mQt6QtWidgets)
             .define_method("y", &QGraphicsItem::y)
             .define_method("z_value", &QGraphicsItem::zValue);
 
-    Enum<QGraphicsItem::GraphicsItemFlag> rb_cQGraphicsItemGraphicsItemFlag =
+    Data_Type<QGraphicsItem::GraphicsItemFlag> rb_cQGraphicsItemGraphicsItemFlag =
         // RubyQt6::QtWidgets::QGraphicsItem::GraphicsItemFlag
-        define_qenum_under<QGraphicsItem::GraphicsItemFlag>("GraphicsItemFlag", rb_cQGraphicsItem)
-            .define_value("ItemIsMovable", QGraphicsItem::GraphicsItemFlag::ItemIsMovable)
-            .define_value("ItemIsSelectable", QGraphicsItem::GraphicsItemFlag::ItemIsSelectable)
-            .define_value("ItemIsFocusable", QGraphicsItem::GraphicsItemFlag::ItemIsFocusable)
-            .define_value("ItemClipsToShape", QGraphicsItem::GraphicsItemFlag::ItemClipsToShape)
-            .define_value("ItemClipsChildrenToShape", QGraphicsItem::GraphicsItemFlag::ItemClipsChildrenToShape)
-            .define_value("ItemIgnoresTransformations", QGraphicsItem::GraphicsItemFlag::ItemIgnoresTransformations)
-            .define_value("ItemIgnoresParentOpacity", QGraphicsItem::GraphicsItemFlag::ItemIgnoresParentOpacity)
-            .define_value("ItemDoesntPropagateOpacityToChildren", QGraphicsItem::GraphicsItemFlag::ItemDoesntPropagateOpacityToChildren)
-            .define_value("ItemStacksBehindParent", QGraphicsItem::GraphicsItemFlag::ItemStacksBehindParent)
-            .define_value("ItemUsesExtendedStyleOption", QGraphicsItem::GraphicsItemFlag::ItemUsesExtendedStyleOption)
-            .define_value("ItemHasNoContents", QGraphicsItem::GraphicsItemFlag::ItemHasNoContents)
-            .define_value("ItemSendsGeometryChanges", QGraphicsItem::GraphicsItemFlag::ItemSendsGeometryChanges)
-            .define_value("ItemAcceptsInputMethod", QGraphicsItem::GraphicsItemFlag::ItemAcceptsInputMethod)
-            .define_value("ItemNegativeZStacksBehindParent", QGraphicsItem::GraphicsItemFlag::ItemNegativeZStacksBehindParent)
-            .define_value("ItemIsPanel", QGraphicsItem::GraphicsItemFlag::ItemIsPanel)
-            .define_value("ItemIsFocusScope", QGraphicsItem::GraphicsItemFlag::ItemIsFocusScope)
-            .define_value("ItemSendsScenePositionChanges", QGraphicsItem::GraphicsItemFlag::ItemSendsScenePositionChanges)
-            .define_value("ItemStopsClickFocusPropagation", QGraphicsItem::GraphicsItemFlag::ItemStopsClickFocusPropagation)
-            .define_value("ItemStopsFocusHandling", QGraphicsItem::GraphicsItemFlag::ItemStopsFocusHandling)
-            .define_value("ItemContainsChildrenInShape", QGraphicsItem::GraphicsItemFlag::ItemContainsChildrenInShape);
+        define_qenum_under<QGraphicsItem::GraphicsItemFlag>(rb_cQGraphicsItem, "GraphicsItemFlag");
+        define_qenum_value_under(rb_cQGraphicsItemGraphicsItemFlag, "ItemIsMovable", QGraphicsItem::GraphicsItemFlag::ItemIsMovable);
+        define_qenum_value_under(rb_cQGraphicsItemGraphicsItemFlag, "ItemIsSelectable", QGraphicsItem::GraphicsItemFlag::ItemIsSelectable);
+        define_qenum_value_under(rb_cQGraphicsItemGraphicsItemFlag, "ItemIsFocusable", QGraphicsItem::GraphicsItemFlag::ItemIsFocusable);
+        define_qenum_value_under(rb_cQGraphicsItemGraphicsItemFlag, "ItemClipsToShape", QGraphicsItem::GraphicsItemFlag::ItemClipsToShape);
+        define_qenum_value_under(rb_cQGraphicsItemGraphicsItemFlag, "ItemClipsChildrenToShape", QGraphicsItem::GraphicsItemFlag::ItemClipsChildrenToShape);
+        define_qenum_value_under(rb_cQGraphicsItemGraphicsItemFlag, "ItemIgnoresTransformations", QGraphicsItem::GraphicsItemFlag::ItemIgnoresTransformations);
+        define_qenum_value_under(rb_cQGraphicsItemGraphicsItemFlag, "ItemIgnoresParentOpacity", QGraphicsItem::GraphicsItemFlag::ItemIgnoresParentOpacity);
+        define_qenum_value_under(rb_cQGraphicsItemGraphicsItemFlag, "ItemDoesntPropagateOpacityToChildren", QGraphicsItem::GraphicsItemFlag::ItemDoesntPropagateOpacityToChildren);
+        define_qenum_value_under(rb_cQGraphicsItemGraphicsItemFlag, "ItemStacksBehindParent", QGraphicsItem::GraphicsItemFlag::ItemStacksBehindParent);
+        define_qenum_value_under(rb_cQGraphicsItemGraphicsItemFlag, "ItemUsesExtendedStyleOption", QGraphicsItem::GraphicsItemFlag::ItemUsesExtendedStyleOption);
+        define_qenum_value_under(rb_cQGraphicsItemGraphicsItemFlag, "ItemHasNoContents", QGraphicsItem::GraphicsItemFlag::ItemHasNoContents);
+        define_qenum_value_under(rb_cQGraphicsItemGraphicsItemFlag, "ItemSendsGeometryChanges", QGraphicsItem::GraphicsItemFlag::ItemSendsGeometryChanges);
+        define_qenum_value_under(rb_cQGraphicsItemGraphicsItemFlag, "ItemAcceptsInputMethod", QGraphicsItem::GraphicsItemFlag::ItemAcceptsInputMethod);
+        define_qenum_value_under(rb_cQGraphicsItemGraphicsItemFlag, "ItemNegativeZStacksBehindParent", QGraphicsItem::GraphicsItemFlag::ItemNegativeZStacksBehindParent);
+        define_qenum_value_under(rb_cQGraphicsItemGraphicsItemFlag, "ItemIsPanel", QGraphicsItem::GraphicsItemFlag::ItemIsPanel);
+        define_qenum_value_under(rb_cQGraphicsItemGraphicsItemFlag, "ItemIsFocusScope", QGraphicsItem::GraphicsItemFlag::ItemIsFocusScope);
+        define_qenum_value_under(rb_cQGraphicsItemGraphicsItemFlag, "ItemSendsScenePositionChanges", QGraphicsItem::GraphicsItemFlag::ItemSendsScenePositionChanges);
+        define_qenum_value_under(rb_cQGraphicsItemGraphicsItemFlag, "ItemStopsClickFocusPropagation", QGraphicsItem::GraphicsItemFlag::ItemStopsClickFocusPropagation);
+        define_qenum_value_under(rb_cQGraphicsItemGraphicsItemFlag, "ItemStopsFocusHandling", QGraphicsItem::GraphicsItemFlag::ItemStopsFocusHandling);
+        define_qenum_value_under(rb_cQGraphicsItemGraphicsItemFlag, "ItemContainsChildrenInShape", QGraphicsItem::GraphicsItemFlag::ItemContainsChildrenInShape);
 
-    Enum<QGraphicsItem::GraphicsItemChange> rb_cQGraphicsItemGraphicsItemChange =
+    Data_Type<QGraphicsItem::GraphicsItemChange> rb_cQGraphicsItemGraphicsItemChange =
         // RubyQt6::QtWidgets::QGraphicsItem::GraphicsItemChange
-        define_qenum_under<QGraphicsItem::GraphicsItemChange>("GraphicsItemChange", rb_cQGraphicsItem)
-            .define_value("ItemPositionChange", QGraphicsItem::GraphicsItemChange::ItemPositionChange)
-            .define_value("ItemVisibleChange", QGraphicsItem::GraphicsItemChange::ItemVisibleChange)
-            .define_value("ItemEnabledChange", QGraphicsItem::GraphicsItemChange::ItemEnabledChange)
-            .define_value("ItemSelectedChange", QGraphicsItem::GraphicsItemChange::ItemSelectedChange)
-            .define_value("ItemParentChange", QGraphicsItem::GraphicsItemChange::ItemParentChange)
-            .define_value("ItemChildAddedChange", QGraphicsItem::GraphicsItemChange::ItemChildAddedChange)
-            .define_value("ItemChildRemovedChange", QGraphicsItem::GraphicsItemChange::ItemChildRemovedChange)
-            .define_value("ItemTransformChange", QGraphicsItem::GraphicsItemChange::ItemTransformChange)
-            .define_value("ItemPositionHasChanged", QGraphicsItem::GraphicsItemChange::ItemPositionHasChanged)
-            .define_value("ItemTransformHasChanged", QGraphicsItem::GraphicsItemChange::ItemTransformHasChanged)
-            .define_value("ItemSceneChange", QGraphicsItem::GraphicsItemChange::ItemSceneChange)
-            .define_value("ItemVisibleHasChanged", QGraphicsItem::GraphicsItemChange::ItemVisibleHasChanged)
-            .define_value("ItemEnabledHasChanged", QGraphicsItem::GraphicsItemChange::ItemEnabledHasChanged)
-            .define_value("ItemSelectedHasChanged", QGraphicsItem::GraphicsItemChange::ItemSelectedHasChanged)
-            .define_value("ItemParentHasChanged", QGraphicsItem::GraphicsItemChange::ItemParentHasChanged)
-            .define_value("ItemSceneHasChanged", QGraphicsItem::GraphicsItemChange::ItemSceneHasChanged)
-            .define_value("ItemCursorChange", QGraphicsItem::GraphicsItemChange::ItemCursorChange)
-            .define_value("ItemCursorHasChanged", QGraphicsItem::GraphicsItemChange::ItemCursorHasChanged)
-            .define_value("ItemToolTipChange", QGraphicsItem::GraphicsItemChange::ItemToolTipChange)
-            .define_value("ItemToolTipHasChanged", QGraphicsItem::GraphicsItemChange::ItemToolTipHasChanged)
-            .define_value("ItemFlagsChange", QGraphicsItem::GraphicsItemChange::ItemFlagsChange)
-            .define_value("ItemFlagsHaveChanged", QGraphicsItem::GraphicsItemChange::ItemFlagsHaveChanged)
-            .define_value("ItemZValueChange", QGraphicsItem::GraphicsItemChange::ItemZValueChange)
-            .define_value("ItemZValueHasChanged", QGraphicsItem::GraphicsItemChange::ItemZValueHasChanged)
-            .define_value("ItemOpacityChange", QGraphicsItem::GraphicsItemChange::ItemOpacityChange)
-            .define_value("ItemOpacityHasChanged", QGraphicsItem::GraphicsItemChange::ItemOpacityHasChanged)
-            .define_value("ItemScenePositionHasChanged", QGraphicsItem::GraphicsItemChange::ItemScenePositionHasChanged)
-            .define_value("ItemRotationChange", QGraphicsItem::GraphicsItemChange::ItemRotationChange)
-            .define_value("ItemRotationHasChanged", QGraphicsItem::GraphicsItemChange::ItemRotationHasChanged)
-            .define_value("ItemScaleChange", QGraphicsItem::GraphicsItemChange::ItemScaleChange)
-            .define_value("ItemScaleHasChanged", QGraphicsItem::GraphicsItemChange::ItemScaleHasChanged)
-            .define_value("ItemTransformOriginPointChange", QGraphicsItem::GraphicsItemChange::ItemTransformOriginPointChange)
-            .define_value("ItemTransformOriginPointHasChanged", QGraphicsItem::GraphicsItemChange::ItemTransformOriginPointHasChanged);
+        define_qenum_under<QGraphicsItem::GraphicsItemChange>(rb_cQGraphicsItem, "GraphicsItemChange");
+        define_qenum_value_under(rb_cQGraphicsItemGraphicsItemChange, "ItemPositionChange", QGraphicsItem::GraphicsItemChange::ItemPositionChange);
+        define_qenum_value_under(rb_cQGraphicsItemGraphicsItemChange, "ItemVisibleChange", QGraphicsItem::GraphicsItemChange::ItemVisibleChange);
+        define_qenum_value_under(rb_cQGraphicsItemGraphicsItemChange, "ItemEnabledChange", QGraphicsItem::GraphicsItemChange::ItemEnabledChange);
+        define_qenum_value_under(rb_cQGraphicsItemGraphicsItemChange, "ItemSelectedChange", QGraphicsItem::GraphicsItemChange::ItemSelectedChange);
+        define_qenum_value_under(rb_cQGraphicsItemGraphicsItemChange, "ItemParentChange", QGraphicsItem::GraphicsItemChange::ItemParentChange);
+        define_qenum_value_under(rb_cQGraphicsItemGraphicsItemChange, "ItemChildAddedChange", QGraphicsItem::GraphicsItemChange::ItemChildAddedChange);
+        define_qenum_value_under(rb_cQGraphicsItemGraphicsItemChange, "ItemChildRemovedChange", QGraphicsItem::GraphicsItemChange::ItemChildRemovedChange);
+        define_qenum_value_under(rb_cQGraphicsItemGraphicsItemChange, "ItemTransformChange", QGraphicsItem::GraphicsItemChange::ItemTransformChange);
+        define_qenum_value_under(rb_cQGraphicsItemGraphicsItemChange, "ItemPositionHasChanged", QGraphicsItem::GraphicsItemChange::ItemPositionHasChanged);
+        define_qenum_value_under(rb_cQGraphicsItemGraphicsItemChange, "ItemTransformHasChanged", QGraphicsItem::GraphicsItemChange::ItemTransformHasChanged);
+        define_qenum_value_under(rb_cQGraphicsItemGraphicsItemChange, "ItemSceneChange", QGraphicsItem::GraphicsItemChange::ItemSceneChange);
+        define_qenum_value_under(rb_cQGraphicsItemGraphicsItemChange, "ItemVisibleHasChanged", QGraphicsItem::GraphicsItemChange::ItemVisibleHasChanged);
+        define_qenum_value_under(rb_cQGraphicsItemGraphicsItemChange, "ItemEnabledHasChanged", QGraphicsItem::GraphicsItemChange::ItemEnabledHasChanged);
+        define_qenum_value_under(rb_cQGraphicsItemGraphicsItemChange, "ItemSelectedHasChanged", QGraphicsItem::GraphicsItemChange::ItemSelectedHasChanged);
+        define_qenum_value_under(rb_cQGraphicsItemGraphicsItemChange, "ItemParentHasChanged", QGraphicsItem::GraphicsItemChange::ItemParentHasChanged);
+        define_qenum_value_under(rb_cQGraphicsItemGraphicsItemChange, "ItemSceneHasChanged", QGraphicsItem::GraphicsItemChange::ItemSceneHasChanged);
+        define_qenum_value_under(rb_cQGraphicsItemGraphicsItemChange, "ItemCursorChange", QGraphicsItem::GraphicsItemChange::ItemCursorChange);
+        define_qenum_value_under(rb_cQGraphicsItemGraphicsItemChange, "ItemCursorHasChanged", QGraphicsItem::GraphicsItemChange::ItemCursorHasChanged);
+        define_qenum_value_under(rb_cQGraphicsItemGraphicsItemChange, "ItemToolTipChange", QGraphicsItem::GraphicsItemChange::ItemToolTipChange);
+        define_qenum_value_under(rb_cQGraphicsItemGraphicsItemChange, "ItemToolTipHasChanged", QGraphicsItem::GraphicsItemChange::ItemToolTipHasChanged);
+        define_qenum_value_under(rb_cQGraphicsItemGraphicsItemChange, "ItemFlagsChange", QGraphicsItem::GraphicsItemChange::ItemFlagsChange);
+        define_qenum_value_under(rb_cQGraphicsItemGraphicsItemChange, "ItemFlagsHaveChanged", QGraphicsItem::GraphicsItemChange::ItemFlagsHaveChanged);
+        define_qenum_value_under(rb_cQGraphicsItemGraphicsItemChange, "ItemZValueChange", QGraphicsItem::GraphicsItemChange::ItemZValueChange);
+        define_qenum_value_under(rb_cQGraphicsItemGraphicsItemChange, "ItemZValueHasChanged", QGraphicsItem::GraphicsItemChange::ItemZValueHasChanged);
+        define_qenum_value_under(rb_cQGraphicsItemGraphicsItemChange, "ItemOpacityChange", QGraphicsItem::GraphicsItemChange::ItemOpacityChange);
+        define_qenum_value_under(rb_cQGraphicsItemGraphicsItemChange, "ItemOpacityHasChanged", QGraphicsItem::GraphicsItemChange::ItemOpacityHasChanged);
+        define_qenum_value_under(rb_cQGraphicsItemGraphicsItemChange, "ItemScenePositionHasChanged", QGraphicsItem::GraphicsItemChange::ItemScenePositionHasChanged);
+        define_qenum_value_under(rb_cQGraphicsItemGraphicsItemChange, "ItemRotationChange", QGraphicsItem::GraphicsItemChange::ItemRotationChange);
+        define_qenum_value_under(rb_cQGraphicsItemGraphicsItemChange, "ItemRotationHasChanged", QGraphicsItem::GraphicsItemChange::ItemRotationHasChanged);
+        define_qenum_value_under(rb_cQGraphicsItemGraphicsItemChange, "ItemScaleChange", QGraphicsItem::GraphicsItemChange::ItemScaleChange);
+        define_qenum_value_under(rb_cQGraphicsItemGraphicsItemChange, "ItemScaleHasChanged", QGraphicsItem::GraphicsItemChange::ItemScaleHasChanged);
+        define_qenum_value_under(rb_cQGraphicsItemGraphicsItemChange, "ItemTransformOriginPointChange", QGraphicsItem::GraphicsItemChange::ItemTransformOriginPointChange);
+        define_qenum_value_under(rb_cQGraphicsItemGraphicsItemChange, "ItemTransformOriginPointHasChanged", QGraphicsItem::GraphicsItemChange::ItemTransformOriginPointHasChanged);
 
-    Enum<QGraphicsItem::CacheMode> rb_cQGraphicsItemCacheMode =
+    Data_Type<QGraphicsItem::CacheMode> rb_cQGraphicsItemCacheMode =
         // RubyQt6::QtWidgets::QGraphicsItem::CacheMode
-        define_qenum_under<QGraphicsItem::CacheMode>("CacheMode", rb_cQGraphicsItem)
-            .define_value("NoCache", QGraphicsItem::CacheMode::NoCache)
-            .define_value("ItemCoordinateCache", QGraphicsItem::CacheMode::ItemCoordinateCache)
-            .define_value("DeviceCoordinateCache", QGraphicsItem::CacheMode::DeviceCoordinateCache);
+        define_qenum_under<QGraphicsItem::CacheMode>(rb_cQGraphicsItem, "CacheMode");
+        define_qenum_value_under(rb_cQGraphicsItemCacheMode, "NoCache", QGraphicsItem::CacheMode::NoCache);
+        define_qenum_value_under(rb_cQGraphicsItemCacheMode, "ItemCoordinateCache", QGraphicsItem::CacheMode::ItemCoordinateCache);
+        define_qenum_value_under(rb_cQGraphicsItemCacheMode, "DeviceCoordinateCache", QGraphicsItem::CacheMode::DeviceCoordinateCache);
 
-    Enum<QGraphicsItem::PanelModality> rb_cQGraphicsItemPanelModality =
+    Data_Type<QGraphicsItem::PanelModality> rb_cQGraphicsItemPanelModality =
         // RubyQt6::QtWidgets::QGraphicsItem::PanelModality
-        define_qenum_under<QGraphicsItem::PanelModality>("PanelModality", rb_cQGraphicsItem)
-            .define_value("NonModal", QGraphicsItem::PanelModality::NonModal)
-            .define_value("PanelModal", QGraphicsItem::PanelModality::PanelModal)
-            .define_value("SceneModal", QGraphicsItem::PanelModality::SceneModal);
+        define_qenum_under<QGraphicsItem::PanelModality>(rb_cQGraphicsItem, "PanelModality");
+        define_qenum_value_under(rb_cQGraphicsItemPanelModality, "NonModal", QGraphicsItem::PanelModality::NonModal);
+        define_qenum_value_under(rb_cQGraphicsItemPanelModality, "PanelModal", QGraphicsItem::PanelModality::PanelModal);
+        define_qenum_value_under(rb_cQGraphicsItemPanelModality, "SceneModal", QGraphicsItem::PanelModality::SceneModal);
 
     rb_cQAbstractGraphicsShapeItem =
         // RubyQt6::QtWidgets::QAbstractGraphicsShapeItem
@@ -386,10 +386,10 @@ void Init_qgraphicsitem(Rice::Module rb_mQt6QtWidgets)
             .define_method("shape_mode", &QGraphicsPixmapItem::shapeMode)
             .define_method("transformation_mode", &QGraphicsPixmapItem::transformationMode);
 
-    Enum<QGraphicsPixmapItem::ShapeMode> rb_cQGraphicsPixmapItemShapeMode =
+    Data_Type<QGraphicsPixmapItem::ShapeMode> rb_cQGraphicsPixmapItemShapeMode =
         // RubyQt6::QtWidgets::QGraphicsPixmapItem::ShapeMode
-        define_qenum_under<QGraphicsPixmapItem::ShapeMode>("ShapeMode", rb_cQGraphicsPixmapItem)
-            .define_value("MaskShape", QGraphicsPixmapItem::ShapeMode::MaskShape)
-            .define_value("BoundingRectShape", QGraphicsPixmapItem::ShapeMode::BoundingRectShape)
-            .define_value("HeuristicMaskShape", QGraphicsPixmapItem::ShapeMode::HeuristicMaskShape);
+        define_qenum_under<QGraphicsPixmapItem::ShapeMode>(rb_cQGraphicsPixmapItem, "ShapeMode");
+        define_qenum_value_under(rb_cQGraphicsPixmapItemShapeMode, "MaskShape", QGraphicsPixmapItem::ShapeMode::MaskShape);
+        define_qenum_value_under(rb_cQGraphicsPixmapItemShapeMode, "BoundingRectShape", QGraphicsPixmapItem::ShapeMode::BoundingRectShape);
+        define_qenum_value_under(rb_cQGraphicsPixmapItemShapeMode, "HeuristicMaskShape", QGraphicsPixmapItem::ShapeMode::HeuristicMaskShape);
 }

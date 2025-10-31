@@ -51,15 +51,15 @@ void Init_qboxlayout(Rice::Module rb_mQt6QtWidgets)
             .define_method("stretch", &QBoxLayout::stretch, Arg("index"))
             .define_method("take_at", &QBoxLayout::takeAt, Arg("index"), Return().takeOwnership());
 
-    Enum<QBoxLayout::Direction> rb_cQBoxLayoutDirection =
+    Data_Type<QBoxLayout::Direction> rb_cQBoxLayoutDirection =
         // RubyQt6::QtWidgets::QBoxLayout::Direction
-        define_qenum_under<QBoxLayout::Direction>("Direction", rb_cQBoxLayout)
-            .define_value("LeftToRight", QBoxLayout::Direction::LeftToRight)
-            .define_value("RightToLeft", QBoxLayout::Direction::RightToLeft)
-            .define_value("TopToBottom", QBoxLayout::Direction::TopToBottom)
-            .define_value("BottomToTop", QBoxLayout::Direction::BottomToTop)
-            .define_value("Down", QBoxLayout::Direction::Down)
-            .define_value("Up", QBoxLayout::Direction::Up);
+        define_qenum_under<QBoxLayout::Direction>(rb_cQBoxLayout, "Direction");
+        define_qenum_value_under(rb_cQBoxLayoutDirection, "LeftToRight", QBoxLayout::Direction::LeftToRight);
+        define_qenum_value_under(rb_cQBoxLayoutDirection, "RightToLeft", QBoxLayout::Direction::RightToLeft);
+        define_qenum_value_under(rb_cQBoxLayoutDirection, "TopToBottom", QBoxLayout::Direction::TopToBottom);
+        define_qenum_value_under(rb_cQBoxLayoutDirection, "BottomToTop", QBoxLayout::Direction::BottomToTop);
+        define_qenum_value_under(rb_cQBoxLayoutDirection, "Down", QBoxLayout::Direction::Down);
+        define_qenum_value_under(rb_cQBoxLayoutDirection, "Up", QBoxLayout::Direction::Up);
 
     rb_cQHBoxLayout =
         // RubyQt6::QtWidgets::QHBoxLayout

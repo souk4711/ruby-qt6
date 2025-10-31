@@ -30,21 +30,21 @@ void Init_qframe(Rice::Module rb_mQt6QtWidgets)
             .define_method("set_line_width", &QFrame::setLineWidth, Arg("w"))
             .define_method("set_mid_line_width", &QFrame::setMidLineWidth, Arg("w"));
 
-    Enum<QFrame::Shape> rb_cQFrameShape =
+    Data_Type<QFrame::Shape> rb_cQFrameShape =
         // RubyQt6::QtWidgets::QFrame::Shape
-        define_qenum_under<QFrame::Shape>("Shape", rb_cQFrame)
-            .define_value("NoFrame", QFrame::Shape::NoFrame)
-            .define_value("Box", QFrame::Shape::Box)
-            .define_value("Panel", QFrame::Shape::Panel)
-            .define_value("WinPanel", QFrame::Shape::WinPanel)
-            .define_value("HLine", QFrame::Shape::HLine)
-            .define_value("VLine", QFrame::Shape::VLine)
-            .define_value("StyledPanel", QFrame::Shape::StyledPanel);
+        define_qenum_under<QFrame::Shape>(rb_cQFrame, "Shape");
+        define_qenum_value_under(rb_cQFrameShape, "NoFrame", QFrame::Shape::NoFrame);
+        define_qenum_value_under(rb_cQFrameShape, "Box", QFrame::Shape::Box);
+        define_qenum_value_under(rb_cQFrameShape, "Panel", QFrame::Shape::Panel);
+        define_qenum_value_under(rb_cQFrameShape, "WinPanel", QFrame::Shape::WinPanel);
+        define_qenum_value_under(rb_cQFrameShape, "HLine", QFrame::Shape::HLine);
+        define_qenum_value_under(rb_cQFrameShape, "VLine", QFrame::Shape::VLine);
+        define_qenum_value_under(rb_cQFrameShape, "StyledPanel", QFrame::Shape::StyledPanel);
 
-    Enum<QFrame::Shadow> rb_cQFrameShadow =
+    Data_Type<QFrame::Shadow> rb_cQFrameShadow =
         // RubyQt6::QtWidgets::QFrame::Shadow
-        define_qenum_under<QFrame::Shadow>("Shadow", rb_cQFrame)
-            .define_value("Plain", QFrame::Shadow::Plain)
-            .define_value("Raised", QFrame::Shadow::Raised)
-            .define_value("Sunken", QFrame::Shadow::Sunken);
+        define_qenum_under<QFrame::Shadow>(rb_cQFrame, "Shadow");
+        define_qenum_value_under(rb_cQFrameShadow, "Plain", QFrame::Shadow::Plain);
+        define_qenum_value_under(rb_cQFrameShadow, "Raised", QFrame::Shadow::Raised);
+        define_qenum_value_under(rb_cQFrameShadow, "Sunken", QFrame::Shadow::Sunken);
 }

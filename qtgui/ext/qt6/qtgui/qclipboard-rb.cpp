@@ -39,11 +39,11 @@ void Init_qclipboard(Rice::Module rb_mQt6QtGui)
             .define_method("find_buffer_changed", &QClipboard::findBufferChanged)
             .define_method("selection_changed", &QClipboard::selectionChanged);
 
-    Enum<QClipboard::Mode> rb_cQClipboardMode =
+    Data_Type<QClipboard::Mode> rb_cQClipboardMode =
         // RubyQt6::QtGui::QClipboard::Mode
-        define_qenum_under<QClipboard::Mode>("Mode", rb_cQClipboard)
-            .define_value("Clipboard", QClipboard::Mode::Clipboard)
-            .define_value("Selection", QClipboard::Mode::Selection)
-            .define_value("FindBuffer", QClipboard::Mode::FindBuffer)
-            .define_value("LastMode", QClipboard::Mode::LastMode);
+        define_qenum_under<QClipboard::Mode>(rb_cQClipboard, "Mode");
+        define_qenum_value_under(rb_cQClipboardMode, "Clipboard", QClipboard::Mode::Clipboard);
+        define_qenum_value_under(rb_cQClipboardMode, "Selection", QClipboard::Mode::Selection);
+        define_qenum_value_under(rb_cQClipboardMode, "FindBuffer", QClipboard::Mode::FindBuffer);
+        define_qenum_value_under(rb_cQClipboardMode, "LastMode", QClipboard::Mode::LastMode);
 }

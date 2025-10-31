@@ -37,10 +37,10 @@ void Init_qabstractscrollarea(Rice::Module rb_mQt6QtWidgets)
             .define_method("vertical_scroll_bar_policy", &QAbstractScrollArea::verticalScrollBarPolicy)
             .define_method("viewport", &QAbstractScrollArea::viewport);
 
-    Enum<QAbstractScrollArea::SizeAdjustPolicy> rb_cQAbstractScrollAreaSizeAdjustPolicy =
+    Data_Type<QAbstractScrollArea::SizeAdjustPolicy> rb_cQAbstractScrollAreaSizeAdjustPolicy =
         // RubyQt6::QtWidgets::QAbstractScrollArea::SizeAdjustPolicy
-        define_qenum_under<QAbstractScrollArea::SizeAdjustPolicy>("SizeAdjustPolicy", rb_cQAbstractScrollArea)
-            .define_value("AdjustIgnored", QAbstractScrollArea::SizeAdjustPolicy::AdjustIgnored)
-            .define_value("AdjustToContentsOnFirstShow", QAbstractScrollArea::SizeAdjustPolicy::AdjustToContentsOnFirstShow)
-            .define_value("AdjustToContents", QAbstractScrollArea::SizeAdjustPolicy::AdjustToContents);
+        define_qenum_under<QAbstractScrollArea::SizeAdjustPolicy>(rb_cQAbstractScrollArea, "SizeAdjustPolicy");
+        define_qenum_value_under(rb_cQAbstractScrollAreaSizeAdjustPolicy, "AdjustIgnored", QAbstractScrollArea::SizeAdjustPolicy::AdjustIgnored);
+        define_qenum_value_under(rb_cQAbstractScrollAreaSizeAdjustPolicy, "AdjustToContentsOnFirstShow", QAbstractScrollArea::SizeAdjustPolicy::AdjustToContentsOnFirstShow);
+        define_qenum_value_under(rb_cQAbstractScrollAreaSizeAdjustPolicy, "AdjustToContents", QAbstractScrollArea::SizeAdjustPolicy::AdjustToContents);
 }

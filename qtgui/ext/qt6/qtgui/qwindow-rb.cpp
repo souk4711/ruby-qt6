@@ -161,19 +161,19 @@ void Init_qwindow(Rice::Module rb_mQt6QtGui)
             // Static Public Members
             .define_singleton_function("from_win_id", &QWindow::fromWinId, Arg("id"));
 
-    Enum<QWindow::AncestorMode> rb_cQWindowAncestorMode =
+    Data_Type<QWindow::AncestorMode> rb_cQWindowAncestorMode =
         // RubyQt6::QtGui::QWindow::AncestorMode
-        define_qenum_under<QWindow::AncestorMode>("AncestorMode", rb_cQWindow)
-            .define_value("ExcludeTransients", QWindow::AncestorMode::ExcludeTransients)
-            .define_value("IncludeTransients", QWindow::AncestorMode::IncludeTransients);
+        define_qenum_under<QWindow::AncestorMode>(rb_cQWindow, "AncestorMode");
+        define_qenum_value_under(rb_cQWindowAncestorMode, "ExcludeTransients", QWindow::AncestorMode::ExcludeTransients);
+        define_qenum_value_under(rb_cQWindowAncestorMode, "IncludeTransients", QWindow::AncestorMode::IncludeTransients);
 
-    Enum<QWindow::Visibility> rb_cQWindowVisibility =
+    Data_Type<QWindow::Visibility> rb_cQWindowVisibility =
         // RubyQt6::QtGui::QWindow::Visibility
-        define_qenum_under<QWindow::Visibility>("Visibility", rb_cQWindow)
-            .define_value("Hidden", QWindow::Visibility::Hidden)
-            .define_value("AutomaticVisibility", QWindow::Visibility::AutomaticVisibility)
-            .define_value("Windowed", QWindow::Visibility::Windowed)
-            .define_value("Minimized", QWindow::Visibility::Minimized)
-            .define_value("Maximized", QWindow::Visibility::Maximized)
-            .define_value("FullScreen", QWindow::Visibility::FullScreen);
+        define_qenum_under<QWindow::Visibility>(rb_cQWindow, "Visibility");
+        define_qenum_value_under(rb_cQWindowVisibility, "Hidden", QWindow::Visibility::Hidden);
+        define_qenum_value_under(rb_cQWindowVisibility, "AutomaticVisibility", QWindow::Visibility::AutomaticVisibility);
+        define_qenum_value_under(rb_cQWindowVisibility, "Windowed", QWindow::Visibility::Windowed);
+        define_qenum_value_under(rb_cQWindowVisibility, "Minimized", QWindow::Visibility::Minimized);
+        define_qenum_value_under(rb_cQWindowVisibility, "Maximized", QWindow::Visibility::Maximized);
+        define_qenum_value_under(rb_cQWindowVisibility, "FullScreen", QWindow::Visibility::FullScreen);
 }

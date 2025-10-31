@@ -56,34 +56,34 @@ void Init_qlistview(Rice::Module rb_mQt6QtWidgets)
             // Signals
             .define_method("indexes_moved", &QListView::indexesMoved, Arg("indexes"));
 
-    Enum<QListView::Flow> rb_cQListViewFlow =
+    Data_Type<QListView::Flow> rb_cQListViewFlow =
         // RubyQt6::QtWidgets::QListView::Flow
-        define_qenum_under<QListView::Flow>("Flow", rb_cQListView)
-            .define_value("LeftToRight", QListView::Flow::LeftToRight)
-            .define_value("TopToBottom", QListView::Flow::TopToBottom);
+        define_qenum_under<QListView::Flow>(rb_cQListView, "Flow");
+        define_qenum_value_under(rb_cQListViewFlow, "LeftToRight", QListView::Flow::LeftToRight);
+        define_qenum_value_under(rb_cQListViewFlow, "TopToBottom", QListView::Flow::TopToBottom);
 
-    Enum<QListView::LayoutMode> rb_cQListViewLayoutMode =
+    Data_Type<QListView::LayoutMode> rb_cQListViewLayoutMode =
         // RubyQt6::QtWidgets::QListView::LayoutMode
-        define_qenum_under<QListView::LayoutMode>("LayoutMode", rb_cQListView)
-            .define_value("SinglePass", QListView::LayoutMode::SinglePass)
-            .define_value("Batched", QListView::LayoutMode::Batched);
+        define_qenum_under<QListView::LayoutMode>(rb_cQListView, "LayoutMode");
+        define_qenum_value_under(rb_cQListViewLayoutMode, "SinglePass", QListView::LayoutMode::SinglePass);
+        define_qenum_value_under(rb_cQListViewLayoutMode, "Batched", QListView::LayoutMode::Batched);
 
-    Enum<QListView::Movement> rb_cQListViewMovement =
+    Data_Type<QListView::Movement> rb_cQListViewMovement =
         // RubyQt6::QtWidgets::QListView::Movement
-        define_qenum_under<QListView::Movement>("Movement", rb_cQListView)
-            .define_value("Static", QListView::Movement::Static)
-            .define_value("Free", QListView::Movement::Free)
-            .define_value("Snap", QListView::Movement::Snap);
+        define_qenum_under<QListView::Movement>(rb_cQListView, "Movement");
+        define_qenum_value_under(rb_cQListViewMovement, "Static", QListView::Movement::Static);
+        define_qenum_value_under(rb_cQListViewMovement, "Free", QListView::Movement::Free);
+        define_qenum_value_under(rb_cQListViewMovement, "Snap", QListView::Movement::Snap);
 
-    Enum<QListView::ResizeMode> rb_cQListViewResizeMode =
+    Data_Type<QListView::ResizeMode> rb_cQListViewResizeMode =
         // RubyQt6::QtWidgets::QListView::ResizeMode
-        define_qenum_under<QListView::ResizeMode>("ResizeMode", rb_cQListView)
-            .define_value("Fixed", QListView::ResizeMode::Fixed)
-            .define_value("Adjust", QListView::ResizeMode::Adjust);
+        define_qenum_under<QListView::ResizeMode>(rb_cQListView, "ResizeMode");
+        define_qenum_value_under(rb_cQListViewResizeMode, "Fixed", QListView::ResizeMode::Fixed);
+        define_qenum_value_under(rb_cQListViewResizeMode, "Adjust", QListView::ResizeMode::Adjust);
 
-    Enum<QListView::ViewMode> rb_cQListViewViewMode =
+    Data_Type<QListView::ViewMode> rb_cQListViewViewMode =
         // RubyQt6::QtWidgets::QListView::ViewMode
-        define_qenum_under<QListView::ViewMode>("ViewMode", rb_cQListView)
-            .define_value("ListMode", QListView::ViewMode::ListMode)
-            .define_value("IconMode", QListView::ViewMode::IconMode);
+        define_qenum_under<QListView::ViewMode>(rb_cQListView, "ViewMode");
+        define_qenum_value_under(rb_cQListViewViewMode, "ListMode", QListView::ViewMode::ListMode);
+        define_qenum_value_under(rb_cQListViewViewMode, "IconMode", QListView::ViewMode::IconMode);
 }

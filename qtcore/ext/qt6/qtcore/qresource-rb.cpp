@@ -39,10 +39,10 @@ void Init_qresource(Rice::Module rb_mQt6QtCore)
             .define_singleton_function<bool (*)(const QString &, const QString &)>("unregister_resource", &QResource::unregisterResource, Arg("rcc_filename"), Arg("resource_root") = static_cast<const QString &>(QString()))
             .define_singleton_function<bool (*)(const uchar *, const QString &)>("unregister_resource", &QResource::unregisterResource, Arg("rcc_data"), Arg("resource_root") = static_cast<const QString &>(QString()));
 
-    Enum<QResource::Compression> rb_cQResourceCompression =
+    Data_Type<QResource::Compression> rb_cQResourceCompression =
         // RubyQt6::QtCore::QResource::Compression
-        define_qenum_under<QResource::Compression>("Compression", rb_cQResource)
-            .define_value("NoCompression", QResource::Compression::NoCompression)
-            .define_value("ZlibCompression", QResource::Compression::ZlibCompression)
-            .define_value("ZstdCompression", QResource::Compression::ZstdCompression);
+        define_qenum_under<QResource::Compression>(rb_cQResource, "Compression");
+        define_qenum_value_under(rb_cQResourceCompression, "NoCompression", QResource::Compression::NoCompression);
+        define_qenum_value_under(rb_cQResourceCompression, "ZlibCompression", QResource::Compression::ZlibCompression);
+        define_qenum_value_under(rb_cQResourceCompression, "ZstdCompression", QResource::Compression::ZstdCompression);
 }
