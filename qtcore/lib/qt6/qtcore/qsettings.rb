@@ -30,6 +30,31 @@ module RubyQt6
       end
 
       # @!visibility private
+      def begin_group(prefix)
+        _begin_group(T.to_qanystringview(prefix))
+      end
+
+      # @!visibility private
+      def begin_read_array(prefix)
+        _begin_read_array(T.to_qanystringview(prefix))
+      end
+
+      # @!visibility private
+      def begin_write_array(prefix, size = -1)
+        _begin_write_array(T.to_qanystringview(prefix), size)
+      end
+
+      # @!visibility private
+      def contains(key)
+        _contains(T.to_qanystringview(key))
+      end
+
+      # @!visibility private
+      def remove(key)
+        _remove(T.to_qanystringview(key))
+      end
+
+      # @!visibility private
       def set_value(key, value)
         qvariant = QtCore::QVariant.new(value)
         _set_value(T.to_qanystringview(key), qvariant)

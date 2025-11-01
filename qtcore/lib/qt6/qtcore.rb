@@ -21,6 +21,7 @@ require_relative "qtcore/qt"
 
 require_relative "qtcore/qmetaclassinfo"
 require_relative "qtcore/qmetamethod"
+require_relative "qtcore/qmetamethodbuilder"
 require_relative "qtcore/qmetaobject"
 require_relative "qtcore/qmetaobjectbuilder"
 require_relative "qtcore/qmetatype"

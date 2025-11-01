@@ -24,8 +24,14 @@ module RubyQt6
       end
 
       # @!visibility private
+      def to_string(*args)
+        T.args_nth_to_qstr(args, 0)
+        _to_string(*args)
+      end
+
+      # @!visibility private
       def to_s
-        to_string(QtCore::Qt::RFC2822Date).to_s
+        _to_string(QtCore::Qt::RFC2822Date).to_s
       end
 
       # @!visibility private

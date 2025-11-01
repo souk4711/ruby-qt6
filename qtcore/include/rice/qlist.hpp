@@ -200,14 +200,13 @@ private:
 
     void define_enumerable()
     {
+        klass_.include_module(rb_mEnumerable);
         klass_.define_method("each", [](QList_T *self) -> QList_T* {
             for (qsizetype i = 0; i < self->size(); i++) {
                 Rice::detail::protect(rb_yield, Rice::detail::to_ruby(self->at(i)));
             }
             return self;
         });
-
-        klass_.include_module(rb_mEnumerable);
     }
 
     void define_to_array()

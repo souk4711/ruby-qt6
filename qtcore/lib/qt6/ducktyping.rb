@@ -33,6 +33,11 @@ module RubyQt6
       QtCore::QAnyStringView.new(str)
     end
 
+    def self.to_qbytearray(str)
+      return str unless str.is_a?(String)
+      QtCore::QByteArray.new(str)
+    end
+
     def self.to_qstr(str)
       return str unless str.is_a?(String)
       QtCore::QString.new(str)
