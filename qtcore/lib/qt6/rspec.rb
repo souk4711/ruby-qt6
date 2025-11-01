@@ -20,6 +20,7 @@ module RubyQt6
     ]
 
     NO_VERIFY_QLASS_DOCS = [
+      "QMetaMethodBuilder",
       "QMetaObjectBuilder"
     ]
     NO_VERIFY_QLASS_INITIALIZE = QlassFileParser::NESTED_QLASSES + [
