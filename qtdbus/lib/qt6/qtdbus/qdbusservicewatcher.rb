@@ -25,6 +25,11 @@ module RubyQt6
         _initialize(parent)
         _take_ownership_from_ruby(self) if parent
       end
+
+      # @!visibility private
+      def add_watched_service(new_service)
+        _add_watched_service(T.to_qstr(new_service))
+      end
     end
   end
 end

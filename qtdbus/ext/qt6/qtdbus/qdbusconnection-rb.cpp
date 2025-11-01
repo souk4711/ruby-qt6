@@ -17,8 +17,6 @@ void Init_qdbusconnection(Rice::Module rb_mQt6QtDBus)
     rb_cQDBusConnection =
         // RubyQt6::QtDBus::QDBusConnection
         define_class_under<QDBusConnection>(rb_mQt6QtDBus, "QDBusConnection")
-            // RubyQt6-Defined Functions
-            .define_method("register_service", [](QDBusConnection *self, const char *service_name) -> bool { return self->registerService(service_name); })
             // Constructor
             .define_constructor(Constructor<QDBusConnection, const QString &>(), Arg("name"))
             // Public Functions
@@ -42,7 +40,7 @@ void Init_qdbusconnection(Rice::Module rb_mQt6QtDBus)
             .define_method("object_registered_at", &QDBusConnection::objectRegisteredAt, Arg("path"))
             .define_method<bool (QDBusConnection::*)(const QString &, QObject *, QDBusConnection::RegisterOptions)>("_register_object", &QDBusConnection::registerObject, Arg("path"), Arg("object"), Arg("options") = static_cast<QDBusConnection::RegisterOptions>(QDBusConnection::RegisterOption::ExportAdaptors))
             .define_method<bool (QDBusConnection::*)(const QString &, const QString &, QObject *, QDBusConnection::RegisterOptions)>("_register_object", &QDBusConnection::registerObject, Arg("path"), Arg("interface"), Arg("object"), Arg("options") = static_cast<QDBusConnection::RegisterOptions>(QDBusConnection::RegisterOption::ExportAdaptors))
-            .define_method("register_service", &QDBusConnection::registerService, Arg("service_name"))
+            .define_method("_register_service", &QDBusConnection::registerService, Arg("service_name"))
             .define_method("register_virtual_object", &QDBusConnection::registerVirtualObject, Arg("path"), Arg("object"), Arg("options") = static_cast<QDBusConnection::VirtualObjectRegisterOption>(QDBusConnection::VirtualObjectRegisterOption::SingleNode))
             .define_method("send", &QDBusConnection::send, Arg("message"))
             .define_method("unregister_object", &QDBusConnection::unregisterObject, Arg("path"), Arg("mode") = static_cast<QDBusConnection::UnregisterMode>(QDBusConnection::UnregisterMode::UnregisterNode))

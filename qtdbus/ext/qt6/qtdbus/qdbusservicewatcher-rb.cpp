@@ -16,12 +16,11 @@ void Init_qdbusservicewatcher(Rice::Module rb_mQt6QtDBus)
         // RubyQt6::QtDBus::QDBusServiceWatcher
         define_class_under<QDBusServiceWatcher, QObject>(rb_mQt6QtDBus, "QDBusServiceWatcher")
             // RubyQt6-Defined Functions
-            .define_method("add_watched_service", [](QDBusServiceWatcher *self, const char *new_service) -> void { return self->addWatchedService(new_service); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QDBusServiceWatcher::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QDBusServiceWatcher, QObject *>(), Arg("parent"))
             // Public Functions
-            .define_method("add_watched_service", &QDBusServiceWatcher::addWatchedService, Arg("new_service"))
+            .define_method("_add_watched_service", &QDBusServiceWatcher::addWatchedService, Arg("new_service"))
             .define_method("bindable_watch_mode", &QDBusServiceWatcher::bindableWatchMode)
             .define_method("bindable_watched_services", &QDBusServiceWatcher::bindableWatchedServices)
             .define_method("connection", &QDBusServiceWatcher::connection)

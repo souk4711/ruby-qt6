@@ -42,6 +42,11 @@ module RubyQt6
         end
       end
 
+      # @!visibility private
+      def register_service(service_name)
+        _register_service(T.to_qstr(service_name))
+      end
+
       private
 
       def args_nth_delete_registeroptions(args, index)
