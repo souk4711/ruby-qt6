@@ -22,6 +22,11 @@ module RubyQt6
         _initialize(parent)
         _take_ownership_from_ruby(self) if parent
       end
+
+      # @!visibility private
+      def add_import_path(dir)
+        _add_import_path(T.to_qstr(dir))
+      end
     end
   end
 end
