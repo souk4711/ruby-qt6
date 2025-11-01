@@ -54,6 +54,11 @@ module RubyQt6
       end
 
       # @!visibility private
+      def add_action(*args)
+        _add_action(*args.map { |arg| T.to_qstr(arg) })
+      end
+
+      # @!visibility private
       def raise(*args)
         Kernel.raise(*args) if args.size.nonzero?
         _raise
@@ -69,6 +74,11 @@ module RubyQt6
       def set_parent(parent, f = nil)
         f.nil? ? _set_parent(parent) : _set_parent(parent, f)
         _take_ownership_from_ruby(self) if parent
+      end
+
+      # @!visibility private
+      def set_window_title(title)
+        _set_window_title(T.to_qstr(title))
       end
     end
   end

@@ -20,6 +20,12 @@ module RubyQt6
         _initialize(parent)
         _take_ownership_from_ruby(self) if parent
       end
+
+      # @!visibility private
+      def add_menu(*args)
+        T.args_nth_to_qstr(args, -1)
+        _add_menu(*args)
+      end
     end
   end
 end

@@ -17,6 +17,11 @@ module RubyQt6
         slot "setIconSize(QSize)"
         slot "toggle()"
       end
+
+      # @!visibility private
+      def set_text(text)
+        _set_text(T.to_qstr(text))
+      end
     end
   end
 end

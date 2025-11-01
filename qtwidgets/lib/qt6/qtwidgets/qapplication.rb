@@ -39,6 +39,11 @@ module RubyQt6
         self.class.close_all_windows
         raise
       end
+
+      # @!visibility private
+      def set_style_sheet(sheet)
+        _set_style_sheet(T.to_qstr(sheet))
+      end
     end
   end
 end

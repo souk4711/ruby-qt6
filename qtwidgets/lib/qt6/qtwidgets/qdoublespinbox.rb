@@ -20,6 +20,16 @@ module RubyQt6
         _initialize(parent)
         _take_ownership_from_ruby(self) if parent
       end
+
+      # @!visibility private
+      def set_prefix(prefix)
+        _set_prefix(T.to_qstr(prefix))
+      end
+
+      # @!visibility private
+      def set_suffix(suffix)
+        _set_suffix(T.to_qstr(suffix))
+      end
     end
   end
 end

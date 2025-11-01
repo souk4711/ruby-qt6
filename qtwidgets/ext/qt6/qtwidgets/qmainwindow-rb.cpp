@@ -18,16 +18,15 @@ void Init_qmainwindow(Rice::Module rb_mQt6QtWidgets)
         // RubyQt6::QtWidgets::QMainWindow
         define_class_under<QMainWindow, QWidget>(rb_mQt6QtWidgets, "QMainWindow")
             // RubyQt6-Defined Functions
-            .define_method("add_tool_bar", [](QMainWindow *self, const char *title) -> QToolBar * { return self->addToolBar(QString(title)); }, Arg("menu"))
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QMainWindow::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QMainWindow, QWidget *>(), Arg("parent"))
             // Public Functions
             .define_method<void (QMainWindow::*)(Qt::DockWidgetArea, QDockWidget *)>("add_dock_widget", &QMainWindow::addDockWidget, Arg("area"), Arg("dockwidget").takeOwnership())
             .define_method<void (QMainWindow::*)(Qt::DockWidgetArea, QDockWidget *, Qt::Orientation)>("add_dock_widget", &QMainWindow::addDockWidget, Arg("area"), Arg("dockwidget").takeOwnership(), Arg("orientation"))
-            .define_method<QToolBar *(QMainWindow::*)(const QString &)>("add_tool_bar", &QMainWindow::addToolBar, Arg("title"))
-            .define_method<void (QMainWindow::*)(QToolBar *)>("add_tool_bar", &QMainWindow::addToolBar, Arg("toolbar").takeOwnership())
-            .define_method<void (QMainWindow::*)(Qt::ToolBarArea, QToolBar *)>("add_tool_bar", &QMainWindow::addToolBar, Arg("area"), Arg("toolbar").takeOwnership())
+            .define_method<QToolBar *(QMainWindow::*)(const QString &)>("_add_tool_bar", &QMainWindow::addToolBar, Arg("title"))
+            .define_method<void (QMainWindow::*)(QToolBar *)>("_add_tool_bar", &QMainWindow::addToolBar, Arg("toolbar").takeOwnership())
+            .define_method<void (QMainWindow::*)(Qt::ToolBarArea, QToolBar *)>("_add_tool_bar", &QMainWindow::addToolBar, Arg("area"), Arg("toolbar").takeOwnership())
             .define_method("add_tool_bar_break", &QMainWindow::addToolBarBreak, Arg("area") = static_cast<Qt::ToolBarArea>(Qt::TopToolBarArea))
             .define_method("central_widget", &QMainWindow::centralWidget)
             .define_method("corner", &QMainWindow::corner, Arg("corner"))

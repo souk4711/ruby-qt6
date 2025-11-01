@@ -32,6 +32,11 @@ module RubyQt6
         _initialize(num, parent)
         _take_ownership_from_ruby(self) if parent
       end
+
+      # @!visibility private
+      def display(value)
+        _display(T.to_qstr(value))
+      end
     end
   end
 end

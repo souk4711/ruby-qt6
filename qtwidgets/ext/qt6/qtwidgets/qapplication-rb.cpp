@@ -16,7 +16,6 @@ void Init_qapplication(Rice::Module rb_mQt6QtWidgets)
         // RubyQt6::QtWidgets::QApplication
         define_class_under<QApplication, QGuiApplication>(rb_mQt6QtWidgets, "QApplication")
             // RubyQt6-Defined Functions
-            .define_method("set_style_sheet", [](QApplication *self, const char *sheet) -> void { return self->setStyleSheet(QString(sheet)); }, Arg("sheet"))
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QApplication::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QApplication, int &, char **>(), Arg("argc"), Arg("argv").setBuffer())
@@ -28,7 +27,7 @@ void Init_qapplication(Rice::Module rb_mQt6QtWidgets)
             .define_singleton_function("about_qt", &QApplication::aboutQt)
             .define_singleton_function("close_all_windows", &QApplication::closeAllWindows)
             .define_method("set_auto_sip_enabled", &QApplication::setAutoSipEnabled, Arg("enabled"))
-            .define_method("set_style_sheet", &QApplication::setStyleSheet, Arg("sheet"))
+            .define_method("_set_style_sheet", &QApplication::setStyleSheet, Arg("sheet"))
             // Signals
             .define_method("focus_changed", &QApplication::focusChanged, Arg("old"), Arg("now"))
             // Static Public Members

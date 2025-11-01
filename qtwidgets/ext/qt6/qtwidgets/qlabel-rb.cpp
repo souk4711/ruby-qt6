@@ -13,8 +13,6 @@ void Init_qlabel(Rice::Module rb_mQt6QtWidgets)
         // RubyQt6::QtWidgets::QLabel
         define_class_under<QLabel, QFrame>(rb_mQt6QtWidgets, "QLabel")
             // RubyQt6-Defined Functions
-            .define_method("set_alignment", [](QLabel *self, int alignment) -> void { return self->setAlignment(Qt::Alignment(alignment)); }, Arg("alignment"))
-            .define_method("set_text", [](QLabel *self, const char *text) -> void { return self->setText(text); }, Arg("text"))
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QLabel::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QLabel, const QString &, QWidget *>(), Arg("text"), Arg("parent"))
@@ -32,7 +30,7 @@ void Init_qlabel(Rice::Module rb_mQt6QtWidgets)
             .define_method("resource_provider", &QLabel::resourceProvider)
             .define_method("selected_text", &QLabel::selectedText)
             .define_method("selection_start", &QLabel::selectionStart)
-            .define_method("set_alignment", &QLabel::setAlignment, Arg("alignment"))
+            .define_method("_set_alignment", &QLabel::setAlignment, Arg("alignment"))
             .define_method("set_buddy", &QLabel::setBuddy, Arg("buddy").takeOwnership())
             .define_method("set_indent", &QLabel::setIndent, Arg("indent"))
             .define_method("set_margin", &QLabel::setMargin, Arg("margin"))
@@ -54,7 +52,7 @@ void Init_qlabel(Rice::Module rb_mQt6QtWidgets)
             .define_method<void (QLabel::*)(double)>("set_num", &QLabel::setNum, Arg("num"))
             .define_method("set_picture", &QLabel::setPicture, Arg("picture"))
             .define_method("set_pixmap", &QLabel::setPixmap, Arg("pixmap"))
-            .define_method("set_text", &QLabel::setText, Arg("text"))
+            .define_method("_set_text", &QLabel::setText, Arg("text"))
             // Signals
             .define_method("link_activated", &QLabel::linkActivated, Arg("link"))
             .define_method("link_hovered", &QLabel::linkHovered, Arg("link"));

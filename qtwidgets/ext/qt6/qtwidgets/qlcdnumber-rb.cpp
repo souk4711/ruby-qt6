@@ -12,7 +12,6 @@ void Init_qlcdnumber(Rice::Module rb_mQt6QtWidgets)
         // RubyQt6::QtWidgets::QLCDNumber
         define_class_under<QLCDNumber, QFrame>(rb_mQt6QtWidgets, "QLCDNumber")
             // RubyQt6-Defined Functions
-            .define_method("display", [](QLCDNumber *self, const char *str) -> void { return self->display(str); }, Arg("str"))
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QLCDNumber::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QLCDNumber, uint, QWidget *>(), Arg("num"), Arg("parent"))
@@ -29,9 +28,9 @@ void Init_qlcdnumber(Rice::Module rb_mQt6QtWidgets)
             .define_method("small_decimal_point", &QLCDNumber::smallDecimalPoint)
             .define_method("value", &QLCDNumber::value)
             // Public Slots
-            .define_method<void (QLCDNumber::*)(const QString &)>("display", &QLCDNumber::display, Arg("str"))
-            .define_method<void (QLCDNumber::*)(double)>("display", &QLCDNumber::display, Arg("num"))
-            .define_method<void (QLCDNumber::*)(int)>("display", &QLCDNumber::display, Arg("num"))
+            .define_method<void (QLCDNumber::*)(const QString &)>("_display", &QLCDNumber::display, Arg("str"))
+            .define_method<void (QLCDNumber::*)(double)>("_display", &QLCDNumber::display, Arg("num"))
+            .define_method<void (QLCDNumber::*)(int)>("_display", &QLCDNumber::display, Arg("num"))
             .define_method("set_bin_mode", &QLCDNumber::setBinMode)
             .define_method("set_dec_mode", &QLCDNumber::setDecMode)
             .define_method("set_hex_mode", &QLCDNumber::setHexMode)

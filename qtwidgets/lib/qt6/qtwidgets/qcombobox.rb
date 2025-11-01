@@ -36,6 +36,15 @@ module RubyQt6
         _initialize(parent)
         _take_ownership_from_ruby(self) if parent
       end
+
+      # @!visibility private
+      def add_item(*args)
+        case args.size
+        when 2 then _add_item(T.to_qstr(args[-2]), args[-1])
+        when 3 then _add_item(args[-3], T.to_qstr(args[-2]), args[-1])
+        else _add_item(*args)
+        end
+      end
     end
   end
 end

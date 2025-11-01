@@ -15,13 +15,12 @@ void Init_qlistwidget(Rice::Module rb_mQt6QtWidgets)
         // RubyQt6::QtWidgets::QListWidget
         define_class_under<QListWidget, QListView>(rb_mQt6QtWidgets, "QListWidget")
             // RubyQt6-Defined Functions
-            .define_method("add_item", [](QListWidget *self, const char *label) -> void { return self->addItem(QString(label)); }, Arg("label"))
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QListWidget::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QListWidget, QWidget *>(), Arg("parent"))
             // Public Functions
-            .define_method<void (QListWidget::*)(QListWidgetItem *)>("add_item", &QListWidget::addItem, Arg("item").takeOwnership())
-            .define_method<void (QListWidget::*)(const QString &)>("add_item", &QListWidget::addItem, Arg("label"))
+            .define_method<void (QListWidget::*)(QListWidgetItem *)>("_add_item", &QListWidget::addItem, Arg("item").takeOwnership())
+            .define_method<void (QListWidget::*)(const QString &)>("_add_item", &QListWidget::addItem, Arg("label"))
             .define_method("add_items", &QListWidget::addItems, Arg("labels"))
             .define_method("close_persistent_editor", &QListWidget::closePersistentEditor, Arg("item"))
             .define_method("count", &QListWidget::count)

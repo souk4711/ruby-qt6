@@ -43,6 +43,16 @@ module RubyQt6
         end
         _take_ownership_from_ruby(self) if parent
       end
+
+      # @!visibility private
+      def set_alignment(alignment)
+        _set_alignment(T.to_qflags(alignment))
+      end
+
+      # @!visibility private
+      def set_text(text)
+        _set_text(T.to_qstr(text))
+      end
     end
   end
 end

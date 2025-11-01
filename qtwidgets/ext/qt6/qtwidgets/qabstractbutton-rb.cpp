@@ -13,7 +13,6 @@ void Init_qabstractbutton(Rice::Module rb_mQt6QtWidgets)
         // RubyQt6::QtWidgets::QAbstractButton
         define_class_under<QAbstractButton, QWidget>(rb_mQt6QtWidgets, "QAbstractButton")
             // RubyQt6-Defined Functions
-            .define_method("set_text", [](QAbstractButton *self, const char *text) -> void { return self->setText(text); }, Arg("text"))
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QAbstractButton::staticMetaObject; })
             // Public Functions
             .define_method("auto_exclusive", &QAbstractButton::autoExclusive)
@@ -34,7 +33,7 @@ void Init_qabstractbutton(Rice::Module rb_mQt6QtWidgets)
             .define_method("set_down", &QAbstractButton::setDown, Arg("down"))
             .define_method("set_icon", &QAbstractButton::setIcon, Arg("icon"))
             .define_method("set_shortcut", &QAbstractButton::setShortcut, Arg("key"))
-            .define_method("set_text", &QAbstractButton::setText, Arg("text"))
+            .define_method("_set_text", &QAbstractButton::setText, Arg("text"))
             .define_method("shortcut", &QAbstractButton::shortcut)
             .define_method("text", &QAbstractButton::text)
             // Public Slots
