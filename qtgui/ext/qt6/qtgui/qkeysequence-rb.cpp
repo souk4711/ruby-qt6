@@ -23,7 +23,6 @@ void Init_qkeysequence(Rice::Module rb_mQt6QtGui)
             .define_method("detached?", &QKeySequence::isDetached)
             .define_method("empty?", &QKeySequence::isEmpty)
             .define_method("matches", &QKeySequence::matches, Arg("seq"))
-            .define_method("swap", &QKeySequence::swap, Arg("other"))
             .define_method("to_string", &QKeySequence::toString, Arg("format") = static_cast<QKeySequence::SequenceFormat>(QKeySequence::SequenceFormat::PortableText))
             // Static Public Members
             .define_singleton_function("from_string", &QKeySequence::fromString, Arg("str"), Arg("format") = static_cast<QKeySequence::SequenceFormat>(QKeySequence::SequenceFormat::PortableText))

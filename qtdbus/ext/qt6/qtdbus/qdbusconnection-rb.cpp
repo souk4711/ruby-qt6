@@ -45,7 +45,6 @@ void Init_qdbusconnection(Rice::Module rb_mQt6QtDBus)
             .define_method("register_service", &QDBusConnection::registerService, Arg("service_name"))
             .define_method("register_virtual_object", &QDBusConnection::registerVirtualObject, Arg("path"), Arg("object"), Arg("options") = static_cast<QDBusConnection::VirtualObjectRegisterOption>(QDBusConnection::VirtualObjectRegisterOption::SingleNode))
             .define_method("send", &QDBusConnection::send, Arg("message"))
-            .define_method("swap", &QDBusConnection::swap, Arg("other"))
             .define_method("unregister_object", &QDBusConnection::unregisterObject, Arg("path"), Arg("mode") = static_cast<QDBusConnection::UnregisterMode>(QDBusConnection::UnregisterMode::UnregisterNode))
             .define_method("unregister_service", &QDBusConnection::unregisterService, Arg("service_name"))
             // Static Public Members

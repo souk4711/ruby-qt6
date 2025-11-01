@@ -28,7 +28,6 @@ void Init_qfontinfo(Rice::Module rb_mQt6QtGui)
             .define_method("style", &QFontInfo::style)
             .define_method("style_hint", &QFontInfo::styleHint)
             .define_method("style_name", &QFontInfo::styleName)
-            .define_method("swap", &QFontInfo::swap, Arg("other"))
             .define_method("underline", &QFontInfo::underline)
             .define_method("variable_axes", &QFontInfo::variableAxes)
             .define_method("weight", &QFontInfo::weight);

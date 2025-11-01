@@ -20,7 +20,6 @@ void Init_qdbuserror(Rice::Module rb_mQt6QtDBus)
             .define_method("valid?", &QDBusError::isValid)
             .define_method("message", &QDBusError::message)
             .define_method("name", &QDBusError::name)
-            .define_method("swap", &QDBusError::swap, Arg("other"))
             .define_method("type", &QDBusError::type)
             // Static Public Members
             .define_singleton_function("error_string", &QDBusError::errorString, Arg("error"));

@@ -58,7 +58,6 @@ void Init_qdir(Rice::Module rb_mQt6QtCore)
             .define_method<void (QDir::*)(const QString &path)>("set_path", &QDir::setPath, Arg("path"))
             .define_method("set_sorting", &QDir::setSorting, Arg("sort"))
             .define_method("sorting", &QDir::sorting)
-            .define_method("swap", &QDir::swap, Arg("other"))
             // Static Public Members
             .define_singleton_function<void (*)(const QString &, const QString &)>("add_search_path", &QDir::addSearchPath, Arg("prefix"), Arg("path"))
             .define_singleton_function("clean_path", &QDir::cleanPath, Arg("path"))

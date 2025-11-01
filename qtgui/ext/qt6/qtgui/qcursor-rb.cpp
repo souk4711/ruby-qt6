@@ -22,7 +22,6 @@ void Init_qcursor(Rice::Module rb_mQt6QtGui)
             .define_method("pixmap", &QCursor::pixmap)
             .define_method("set_shape", &QCursor::setShape, Arg("new_shape"))
             .define_method("shape", &QCursor::shape)
-            .define_method("swap", &QCursor::swap, Arg("other"))
             // Static Public Members
             .define_singleton_function<QPoint (*)()>("pos", &QCursor::pos)
             .define_singleton_function<QPoint (*)(const QScreen *)>("pos", &QCursor::pos, Arg("screen"))

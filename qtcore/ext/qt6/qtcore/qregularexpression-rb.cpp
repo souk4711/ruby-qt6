@@ -30,7 +30,6 @@ void Init_qregularexpression(Rice::Module rb_mQt6QtCore)
             .define_method("pattern_options", &QRegularExpression::patternOptions)
             .define_method("set_pattern", &QRegularExpression::setPattern, Arg("pattern"))
             .define_method("set_pattern_options", &QRegularExpression::setPatternOptions, Arg("options"))
-            .define_method("swap", &QRegularExpression::swap, Arg("other"))
             // Static Public Members
             .define_singleton_function<QString (*)(QStringView)>("anchored_pattern", &QRegularExpression::anchoredPattern, Arg("expression"))
             .define_singleton_function<QString (*)(const QString &)>("anchored_pattern", &QRegularExpression::anchoredPattern, Arg("expression"))
@@ -111,6 +110,5 @@ void Init_qregularexpression(Rice::Module rb_mQt6QtCore)
             .define_method("last_captured_index", &QRegularExpressionMatch::lastCapturedIndex)
             .define_method("match_options", &QRegularExpressionMatch::matchOptions)
             .define_method("match_type", &QRegularExpressionMatch::matchType)
-            .define_method("regular_expression", &QRegularExpressionMatch::regularExpression)
-            .define_method("swap", &QRegularExpressionMatch::swap, Arg("other"));
+            .define_method("regular_expression", &QRegularExpressionMatch::regularExpression);
 }

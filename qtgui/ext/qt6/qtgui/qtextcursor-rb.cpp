@@ -96,7 +96,6 @@ void Init_qtextcursor(Rice::Module rb_mQt6QtGui)
             .define_method("set_position", &QTextCursor::setPosition, Arg("pos"), Arg("mode") = static_cast<QTextCursor::MoveMode>(QTextCursor::MoveMode::MoveAnchor))
             .define_method("set_vertical_movement_x", &QTextCursor::setVerticalMovementX, Arg("x"))
             .define_method("set_visual_navigation", &QTextCursor::setVisualNavigation, Arg("b"))
-            .define_method("swap", &QTextCursor::swap, Arg("other"))
             .define_method("vertical_movement_x", &QTextCursor::verticalMovementX)
             .define_method("visual_navigation", &QTextCursor::visualNavigation);
 

@@ -35,7 +35,6 @@ void Init_qdbusmessage(Rice::Module rb_mQt6QtDBus)
             .define_method("set_delayed_reply", &QDBusMessage::setDelayedReply, Arg("enable"))
             .define_method("set_interactive_authorization_allowed", &QDBusMessage::setInteractiveAuthorizationAllowed, Arg("enable"))
             .define_method("signature", &QDBusMessage::signature)
-            .define_method("swap", &QDBusMessage::swap, Arg("other"))
             .define_method("type", &QDBusMessage::type)
             // Static Public Members
             .define_singleton_function<QDBusMessage (*)(QDBusError::ErrorType, const QString &)>("create_error", &QDBusMessage::createError, Arg("type"), Arg("msg"))

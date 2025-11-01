@@ -20,6 +20,5 @@ void Init_qbasictimer(Rice::Module rb_mQt6QtCore)
             .define_method<void (QBasicTimer::*)(int, QObject *)>("start", &QBasicTimer::start, Arg("msec"), Arg("obj"))
             .define_method<void (QBasicTimer::*)(int, Qt::TimerType, QObject *)>("start", &QBasicTimer::start, Arg("msec"), Arg("timer_type"), Arg("obj"))
             .define_method("stop", &QBasicTimer::stop)
-            .define_method("swap", &QBasicTimer::swap, Arg("other"))
             .define_method("timer_id", &QBasicTimer::timerId);
 }

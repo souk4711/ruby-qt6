@@ -86,7 +86,6 @@ void Init_qfileinfo(Rice::Module rb_mQt6QtCore)
             .define_method("size", &QFileInfo::size)
             .define_method("stat", &QFileInfo::stat)
             .define_method("suffix", &QFileInfo::suffix)
-            .define_method("swap", &QFileInfo::swap, Arg("other"))
             .define_method("sym_link_target", &QFileInfo::symLinkTarget)
             // Static Public Members
             .define_singleton_function<bool (*)(const QString &)>("exists", &QFileInfo::exists, Arg("file"));

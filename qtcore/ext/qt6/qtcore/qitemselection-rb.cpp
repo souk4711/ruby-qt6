@@ -30,7 +30,6 @@ void Init_qitemselection(Rice::Module rb_mQt6QtCore)
             .define_method("model", &QItemSelectionRange::model)
             .define_method("parent", &QItemSelectionRange::parent)
             .define_method("right", &QItemSelectionRange::right)
-            .define_method("swap", &QItemSelectionRange::swap, Arg("other"))
             .define_method("top", &QItemSelectionRange::top)
             .define_method("top_left", &QItemSelectionRange::topLeft)
             .define_method("width", &QItemSelectionRange::width);

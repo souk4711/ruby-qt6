@@ -29,6 +29,5 @@ void Init_qpicture(Rice::Module rb_mQt6QtGui)
             .define_method<bool (QPicture::*)(const QString &)>("save", &QPicture::save, Arg("file_name"))
             .define_method("set_bounding_rect", &QPicture::setBoundingRect, Arg("r"))
             .define_method("set_data", &QPicture::setData, Arg("data"), Arg("size"))
-            .define_method("size", &QPicture::size)
-            .define_method("swap", &QPicture::swap, Arg("other"));
+            .define_method("size", &QPicture::size);
 }
