@@ -35,6 +35,11 @@ module RubyQt6
         return device._ioc_painter_begin(self) if device.respond_to?(:_ioc_painter_begin)
         _begin(device)
       end
+
+      # @!visibility private
+      def draw_text(*args)
+        _draw_text(*args.map { |arg| T.to_qstr(arg) })
+      end
     end
   end
 end

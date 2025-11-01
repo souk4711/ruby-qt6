@@ -47,6 +47,12 @@ module RubyQt6
         _initialize(T.to_qstr(text), parent)
         _take_ownership_from_ruby(self) if parent
       end
+
+      # @!visibility private
+      def find(*args)
+        T.args_nth_to_qstr(args, 0)
+        _find(*args)
+      end
     end
   end
 end
