@@ -22,6 +22,18 @@ module RubyQt6
       end
 
       # @!visibility private
+      def contains(*args)
+        T.args_nth_to_qstr(args, 0)
+        _contains(*args)
+      end
+
+      # @!visibility private
+      def split(*args)
+        T.args_nth_to_qstr(args, 0)
+        _split(*args)
+      end
+
+      # @!visibility private
       def to_s
         to_std_string
       end
