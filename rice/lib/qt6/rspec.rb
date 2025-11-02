@@ -5,7 +5,6 @@ require_relative "rspec/bando_file_parser"
 require_relative "rspec/qlass_file_parser"
 
 module RubyQt6
-  # @!visibility private
   module RSpec
     VERIFY_QLASS_VIRTUAL_METHODS = [
       "event", "event_filter",                      # QObject

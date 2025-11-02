@@ -2,87 +2,93 @@ PATH
   remote: ../qtcore
   specs:
     ruby-qt6-qtcore (0.1.0)
-      dry-inflector (~> 1.2)
       logger
-      rice (~> 4.7)
-      semantic_logger (~> 4.17)
+      ruby-qt6-rice (~> 1.0.0)
+      semantic_logger (~> 4.17.0)
 
 PATH
   remote: ../qtdbus
   specs:
     ruby-qt6-qtdbus (0.1.0)
-      rice (~> 4.7)
       ruby-qt6-qtcore
+      ruby-qt6-rice (~> 1.0.0)
 
 PATH
   remote: ../qtgui
   specs:
     ruby-qt6-qtgui (0.1.0)
-      rice (~> 4.7)
       ruby-qt6-qtcore
+      ruby-qt6-rice (~> 1.0.0)
 
 PATH
   remote: ../qtprintsupport
   specs:
     ruby-qt6-qtprintsupport (0.1.0)
-      rice (~> 4.7)
       ruby-qt6-qtcore
       ruby-qt6-qtgui
       ruby-qt6-qtwidgets
+      ruby-qt6-rice (~> 1.0.0)
 
 PATH
   remote: ../qtqml
   specs:
     ruby-qt6-qtqml (0.1.0)
-      rice (~> 4.7)
       ruby-qt6-qtcore
+      ruby-qt6-rice (~> 1.0.0)
 
 PATH
   remote: ../qtquick
   specs:
     ruby-qt6-qtquick (0.1.0)
-      rice (~> 4.7)
       ruby-qt6-qtcore
       ruby-qt6-qtgui
       ruby-qt6-qtqml
+      ruby-qt6-rice (~> 1.0.0)
 
 PATH
   remote: ../qtquickcontrols2
   specs:
     ruby-qt6-qtquickcontrols2 (0.1.0)
-      rice (~> 4.7)
       ruby-qt6-qtcore
       ruby-qt6-qtgui
       ruby-qt6-qtqml
       ruby-qt6-qtquick
+      ruby-qt6-rice (~> 1.0.0)
 
 PATH
   remote: ../qtquickwidgets
   specs:
     ruby-qt6-qtquickwidgets (0.1.0)
-      rice (~> 4.7)
       ruby-qt6-qtcore
       ruby-qt6-qtgui
       ruby-qt6-qtqml
       ruby-qt6-qtquick
       ruby-qt6-qtwidgets
+      ruby-qt6-rice (~> 1.0.0)
 
 PATH
   remote: ../qtuitools
   specs:
     ruby-qt6-qtuitools (0.1.0)
-      rice (~> 4.7)
       ruby-qt6-qtcore
       ruby-qt6-qtgui
       ruby-qt6-qtwidgets
+      ruby-qt6-rice (~> 1.0.0)
 
 PATH
   remote: ../qtwidgets
   specs:
     ruby-qt6-qtwidgets (0.1.0)
-      rice (~> 4.7)
       ruby-qt6-qtcore
       ruby-qt6-qtgui
+      ruby-qt6-rice (~> 1.0.0)
+
+PATH
+  remote: ../rice
+  specs:
+    ruby-qt6-rice (1.0.0)
+      dry-inflector (~> 1.2.0)
+      rice (~> 4.7.1)
 
 PATH
   remote: .
@@ -98,6 +104,7 @@ PATH
       ruby-qt6-qtquickwidgets
       ruby-qt6-qtuitools
       ruby-qt6-qtwidgets
+      ruby-qt6-rice (~> 1.0.0)
 
 GEM
   remote: https://rubygems.org/
@@ -256,6 +263,7 @@ DEPENDENCIES
   ruby-qt6-qtquickwidgets!
   ruby-qt6-qtuitools!
   ruby-qt6-qtwidgets!
+  ruby-qt6-rice!
   solargraph
   standard
   yard

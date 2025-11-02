@@ -11,8 +11,7 @@ bundle_install() {
 }
 
 
-for lib in qt[a-z]*; do
-  bundle_install "$lib"
-done
-bundle_install "qt"
 bundle_install "."
+bundle_install "rice"
+for lib in qt[a-z]*; do bundle_install "$lib"; done
+bundle_install "qt"

@@ -2,25 +2,31 @@ PATH
   remote: ../qtcore
   specs:
     ruby-qt6-qtcore (0.1.0)
-      dry-inflector (~> 1.2)
       logger
-      rice (~> 4.7)
-      semantic_logger (~> 4.17)
+      ruby-qt6-rice (~> 1.0.0)
+      semantic_logger (~> 4.17.0)
 
 PATH
   remote: ../qtgui
   specs:
     ruby-qt6-qtgui (0.1.0)
-      rice (~> 4.7)
       ruby-qt6-qtcore
+      ruby-qt6-rice (~> 1.0.0)
+
+PATH
+  remote: ../rice
+  specs:
+    ruby-qt6-rice (1.0.0)
+      dry-inflector (~> 1.2.0)
+      rice (~> 4.7.1)
 
 PATH
   remote: .
   specs:
     ruby-qt6-qtwidgets (0.1.0)
-      rice (~> 4.7)
       ruby-qt6-qtcore
       ruby-qt6-qtgui
+      ruby-qt6-rice (~> 1.0.0)
 
 GEM
   remote: https://rubygems.org/
@@ -174,6 +180,7 @@ DEPENDENCIES
   ruby-qt6-qtcore!
   ruby-qt6-qtgui!
   ruby-qt6-qtwidgets!
+  ruby-qt6-rice!
   solargraph
   standard
   yard

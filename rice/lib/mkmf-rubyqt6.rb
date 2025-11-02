@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "mkmf-rice"
+
 def qmake
   return @qmake if @qmake
 
@@ -22,8 +24,8 @@ def qt_install_headers
   raise "Could not determine QT_INSTALL_HEADERS folder"
 end
 
-BANDO_INCLUDEDIR = File.expand_path(File.join(__dir__, "../include"))
-raise "Could not find bando/_.hpp header" unless find_header("bando/_.hpp", BANDO_INCLUDEDIR)
+RUBYQT6_RICE_INCLUDE_PATH = File.expand_path(File.join(__dir__, "../include"))
+raise "Could not find bando/_.hpp header" unless find_header("bando/_.hpp", RUBYQT6_RICE_INCLUDE_PATH)
 
 RUBYQT6_CXX_FLAGS = ENV["RUBYQT6_CXX_FLAGS"] || "-Os -fno-fast-math"
 append_cppflags(RUBYQT6_CXX_FLAGS) unless RUBYQT6_CXX_FLAGS.strip == ""

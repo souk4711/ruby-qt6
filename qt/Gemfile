@@ -7,6 +7,7 @@ gemspec
 
 # ruby-qt6
 %w[
+  rice
   qtcore qtgui qtwidgets
   qtqml qtquick qtquickcontrols2 qtquickwidgets
   qtprintsupport qtuitools

@@ -5,6 +5,11 @@ source "https://rubygems.org"
 # Specify your gem's dependencies in qtcore.gemspec
 gemspec
 
+# ruby-qt6
+%w[rice].each do |lib|
+  gem "ruby-qt6-#{lib}", path: "../#{lib}"
+end
+
 # rake
 gem "irb"
 gem "rake", "~> 13.0"
