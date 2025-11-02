@@ -11,7 +11,3 @@ require_relative "qtquick/qtquickversion"
 require_relative "qtquick/qquickitem"
 require_relative "qtquick/qquickwindow"
 require_relative "qtquick/qquickview"
-
-require_relative "bando/qquickitem"
-require_relative "bando/qquickwindow"
-require_relative "bando/qquickview"

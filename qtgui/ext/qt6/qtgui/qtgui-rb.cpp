@@ -45,8 +45,6 @@
 #include "t-qtgui-rb.hpp"
 #include "qpolygon-rb.hpp"
 
-#include "bando-qwindow-rb.hpp"
-
 extern "C" void Init_qtgui()
 {
     return Rice::detail::cpp_protect([] {
@@ -99,8 +97,5 @@ extern "C" void Init_qtgui()
         Rice::Module rb_mQt6T = define_module_under(rb_mQt6, "T");
         Init_t_qtgui(rb_mQt6T);
         Init_qpolygon(rb_mQt6QtGui);
-
-        Rice::Module rb_mQt6Bando = define_module_under(rb_mQt6, "Bando");
-        Init_bando_qwindow(rb_mQt6Bando);
     });
 }

@@ -37,9 +37,7 @@ RSpec.describe RubyQt6 do
 
     ::Object.constants.grep(/^Q/).each do |klass|
       required = (::Object.const_get(klass).ancestors & [
-        RubyQt6::QtGui::QWindow,
-        RubyQt6::QtWidgets::QWidget,
-        RubyQt6::QtQuick::QQuickItem
+        RubyQt6::QtWidgets::QWidget
       ]).count.nonzero?
 
       if required
