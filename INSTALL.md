@@ -36,6 +36,7 @@ Create `Gemfile` like the following:
 source "https://rubygems.org/"
 
 %w[
+  rice
   qtcore qtgui qtwidgets
 ].each do |lib|
   gem_name = "ruby-qt6-#{lib}"
