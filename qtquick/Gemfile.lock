@@ -25,6 +25,7 @@ PATH
   specs:
     ruby-qt6-rice (1.0.0)
       dry-inflector (~> 1.2.0)
+      ostruct
       rice (~> 4.7.1)
 
 PATH
