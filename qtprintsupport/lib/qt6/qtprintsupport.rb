@@ -13,3 +13,6 @@ require_relative "qtprintsupport/qprinterinfo"
 
 require_relative "qtprintsupport/qabstractprintdialog"
 require_relative "qtprintsupport/qprintdialog"
+
+require_relative "bando/qabstractprintdialog"
+require_relative "bando/qprintdialog"

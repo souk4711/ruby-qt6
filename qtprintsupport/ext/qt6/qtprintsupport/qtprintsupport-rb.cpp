@@ -7,6 +7,9 @@
 #include "qabstractprintdialog-rb.hpp"
 #include "qprintdialog-rb.hpp"
 
+#include "bando-qabstractprintdialog-rb.hpp"
+#include "bando-qprintdialog-rb.hpp"
+
 extern "C" void Init_qtprintsupport()
 {
     return Rice::detail::cpp_protect([] {
@@ -20,5 +23,9 @@ extern "C" void Init_qtprintsupport()
 
         Init_qabstractprintdialog(rb_mQt6QtPrintSupport);
         Init_qprintdialog(rb_mQt6QtPrintSupport);
+
+        Rice::Module rb_mQt6Bando = define_module_under(rb_mQt6, "Bando");
+        Init_bando_qabstractprintdialog(rb_mQt6Bando);
+        Init_bando_qprintdialog(rb_mQt6Bando);
     });
 }

@@ -61,3 +61,5 @@ require_relative "qtgui/qdoublevalidator"
 require_relative "qtgui/qintvalidator"
 require_relative "qtgui/qregularexpressionvalidator"
 require_relative "qtgui/qwindow"
+
+require_relative "bando/qwindow"
