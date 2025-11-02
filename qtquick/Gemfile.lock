@@ -1,24 +1,24 @@
 PATH
   remote: ../qtcore
   specs:
-    ruby-qt6-qtcore (0.1.0)
+    ruby-qt6-qtcore (1.0.0)
       logger
-      ruby-qt6-rice (~> 1.0.0)
+      ruby-qt6-rice (= 1.0.0)
       semantic_logger (~> 4.17.0)
 
 PATH
   remote: ../qtgui
   specs:
-    ruby-qt6-qtgui (0.1.0)
-      ruby-qt6-qtcore
-      ruby-qt6-rice (~> 1.0.0)
+    ruby-qt6-qtgui (1.0.0)
+      ruby-qt6-qtcore (~> 1.0.0)
+      ruby-qt6-rice (= 1.0.0)
 
 PATH
   remote: ../qtqml
   specs:
-    ruby-qt6-qtqml (0.1.0)
-      ruby-qt6-qtcore
-      ruby-qt6-rice (~> 1.0.0)
+    ruby-qt6-qtqml (1.0.0)
+      ruby-qt6-qtcore (~> 1.0.0)
+      ruby-qt6-rice (= 1.0.0)
 
 PATH
   remote: ../rice
@@ -31,11 +31,11 @@ PATH
 PATH
   remote: .
   specs:
-    ruby-qt6-qtquick (0.1.0)
-      ruby-qt6-qtcore
-      ruby-qt6-qtgui
-      ruby-qt6-qtqml
-      ruby-qt6-rice (~> 1.0.0)
+    ruby-qt6-qtquick (1.0.0)
+      ruby-qt6-qtcore (~> 1.0.0)
+      ruby-qt6-qtgui (~> 1.0.0)
+      ruby-qt6-qtqml (~> 1.0.0)
+      ruby-qt6-rice (= 1.0.0)
 
 GEM
   remote: https://rubygems.org/

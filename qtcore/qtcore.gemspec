@@ -31,8 +31,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
   spec.extensions = ["ext/qt6/qtcore/extconf.rb"]
 
-  spec.add_runtime_dependency("ruby-qt6-rice", "~> 1.0.0")
-
+  spec.add_runtime_dependency("ruby-qt6-rice", "= 1.0.0")
   spec.add_runtime_dependency("semantic_logger", "~> 4.17.0")
   spec.add_runtime_dependency("logger")
 

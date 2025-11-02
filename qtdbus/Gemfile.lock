@@ -1,9 +1,9 @@
 PATH
   remote: ../qtcore
   specs:
-    ruby-qt6-qtcore (0.1.0)
+    ruby-qt6-qtcore (1.0.0)
       logger
-      ruby-qt6-rice (~> 1.0.0)
+      ruby-qt6-rice (= 1.0.0)
       semantic_logger (~> 4.17.0)
 
 PATH
@@ -17,9 +17,9 @@ PATH
 PATH
   remote: .
   specs:
-    ruby-qt6-qtdbus (0.1.0)
-      ruby-qt6-qtcore
-      ruby-qt6-rice (~> 1.0.0)
+    ruby-qt6-qtdbus (1.0.0)
+      ruby-qt6-qtcore (~> 1.0.0)
+      ruby-qt6-rice (= 1.0.0)
 
 GEM
   remote: https://rubygems.org/

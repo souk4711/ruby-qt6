@@ -2,6 +2,6 @@
 
 module RubyQt6
   module QtQuickWidgets
-    QTQUICKWIDGETS_RUBYGEM_VERSION = "0.1.0"
+    QTQUICKWIDGETS_RUBYGEM_VERSION = "1.0.0"
   end
 end

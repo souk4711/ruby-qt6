@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "ostruct"
+require "dry/inflector"
 require_relative "rspec/bando_file_parser"
 require_relative "rspec/qlass_file_parser"
 
