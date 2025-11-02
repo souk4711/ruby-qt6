@@ -121,7 +121,6 @@
 #include "bando-qprogressdialog-rb.hpp"
 #include "bando-qwizard-rb.hpp"
 #include "bando-qframe-rb.hpp"
-#include "bando-qabstractscrollarea-rb.hpp"
 #include "bando-qcolumnview-rb.hpp"
 #include "bando-qheaderview-rb.hpp"
 #include "bando-qlistview-rb.hpp"
@@ -291,7 +290,6 @@ extern "C" void Init_qtwidgets()
         Init_bando_qprogressdialog(rb_mQt6Bando);
         Init_bando_qwizard(rb_mQt6Bando);
         Init_bando_qframe(rb_mQt6Bando);
-        Init_bando_qabstractscrollarea(rb_mQt6Bando);
         Init_bando_qcolumnview(rb_mQt6Bando);
         Init_bando_qheaderview(rb_mQt6Bando);
         Init_bando_qlistview(rb_mQt6Bando);
