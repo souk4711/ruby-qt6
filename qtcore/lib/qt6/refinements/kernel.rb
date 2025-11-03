@@ -14,7 +14,8 @@ module Kernel
     enum.define_method(:inspect) { RubyQt6::T.inspect_struct_enum(self, int: to_i, str: to_s) }
 
     enum.include(Comparable)
-    enum.define_method(:<=>) { |other| other.respond_to?(:to_i) ? to_i <=> other.to_i : nil }
+    enum.define_method(:to_int) { to_i }
+    enum.define_method(:<=>) { |other| other.respond_to?(:to_int) ? to_int <=> other.to_int : nil }
 
     qmetatype = enum._qvariant_register_metatype
     RubyQt6::QtCore::QVariant.register(qmetatype, enum.method(:_qvariant_from_value), enum.method(:_qvariant_to_value), from: enum)
@@ -31,6 +32,7 @@ module Kernel
     flags.define_method(:inspect) { RubyQt6::T.inspect_struct_enum(self, int: to_i) }
 
     flags.include(Comparable)
-    flags.define_method(:<=>) { |other| other.respond_to?(:to_i) ? to_i <=> other.to_i : nil }
+    flags.define_method(:to_int) { to_i }
+    flags.define_method(:<=>) { |other| other.respond_to?(:to_int) ? to_int <=> other.to_int : nil }
   end
 end
