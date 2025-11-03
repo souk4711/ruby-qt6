@@ -3,7 +3,7 @@
 module RubyQt6
   module Bando
     class QProgressDialog < RubyQt6::QtWidgets::QProgressDialog
-      Bando.define_bando_qlass Bando::QProgressDialog
+      Bando.define_bando_qwidget Bando::QProgressDialog
     end
   end
 end

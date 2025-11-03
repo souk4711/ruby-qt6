@@ -172,43 +172,12 @@ Rice::Data_Type<BC_T> define_bando_qwidget_under(Rice::Module module, char const
         Rice::define_class_under<BC_T, C_T>(module, name)
             .define_method("_initialize_ruby_value", &BC_T::initializeValue, Rice::Arg("value"), Rice::Arg("mo"))
             .define_method("_ruby_value", &BC_T::value)
-            .define_method("_event", [](BC_T *self, QEvent *event) -> bool { return self->Class_T_handleQObjectEvent(event); })
-            .define_method("_event_filter", [](BC_T *self, QObject *watched, QEvent *event) -> bool { return self->Class_T_handleQObjectEventFilter(watched, event); })
-            .define_method("_child_event", [](BC_T *self, QChildEvent *event) -> void { return self->Class_T_handleEvent(bando_FunctionName::childEvent, event); })
-            .define_method("_timer_event", [](BC_T *self, QTimerEvent *event) -> void { return self->Class_T_handleEvent(bando_FunctionName::timerEvent, event); })
+            .define_method("_ruby_value_handle_event", &BC_T::Class_T_handleEvent, Rice::Arg("name"), Rice::Arg("event"))
+            .define_method("_event", &BC_T::Class_T_handleQObjectEvent, Rice::Arg("event"))
+            .define_method("_event_filter", &BC_T::Class_T_handleQObjectEventFilter, Rice::Arg("watched"), Rice::Arg("event"))
             .define_method("sender", &BC_T::sender);
 
     bando_qlass
-        .define_method("_action_event", [](BC_T *self, QActionEvent *event) -> void { return self->Class_T_handleEvent(bando_FunctionName::actionEvent, event); })
-        .define_method("_change_event", [](BC_T *self, QEvent *event) -> void { return self->Class_T_handleEvent(bando_FunctionName::changeEvent, event); })
-        .define_method("_close_event", [](BC_T *self, QCloseEvent *event) -> void { return self->Class_T_handleEvent(bando_FunctionName::closeEvent, event); })
-        .define_method("_context_menu_event", [](BC_T *self, QContextMenuEvent *event) -> void { return self->Class_T_handleEvent(bando_FunctionName::contextMenuEvent, event); })
-        .define_method("_drag_enter_event", [](BC_T *self, QDragEnterEvent *event) -> void { return self->Class_T_handleEvent(bando_FunctionName::dragEnterEvent, event); })
-        .define_method("_drag_leave_event", [](BC_T *self, QDragLeaveEvent *event) -> void { return self->Class_T_handleEvent(bando_FunctionName::dragLeaveEvent, event); })
-        .define_method("_drag_move_event", [](BC_T *self, QDragMoveEvent *event) -> void { return self->Class_T_handleEvent(bando_FunctionName::dragMoveEvent, event); })
-        .define_method("_drop_event", [](BC_T *self, QDropEvent *event) -> void { return self->Class_T_handleEvent(bando_FunctionName::dropEvent, event); })
-        .define_method("_enter_event", [](BC_T *self, QEnterEvent *event) -> void { return self->Class_T_handleEvent(bando_FunctionName::enterEvent, event); })
-        .define_method("_focus_in_event", [](BC_T *self, QFocusEvent *event) -> void { return self->Class_T_handleEvent(bando_FunctionName::focusInEvent, event); })
-        .define_method("_focus_out_event", [](BC_T *self, QFocusEvent *event) -> void { return self->Class_T_handleEvent(bando_FunctionName::focusOutEvent, event); })
-        .define_method("_hide_event", [](BC_T *self, QHideEvent *event) -> void { return self->Class_T_handleEvent(bando_FunctionName::hideEvent, event); })
-        .define_method("_input_method_event", [](BC_T *self, QInputMethodEvent *event) -> void { return self->Class_T_handleEvent(bando_FunctionName::inputMethodEvent, event); })
-        .define_method("_key_press_event", [](BC_T *self, QKeyEvent *event) -> void { return self->Class_T_handleEvent(bando_FunctionName::keyPressEvent, event); })
-        .define_method("_key_release_event", [](BC_T *self, QKeyEvent *event) -> void { return self->Class_T_handleEvent(bando_FunctionName::keyReleaseEvent, event); })
-        .define_method("_leave_event", [](BC_T *self, QEvent *event) -> void { return self->Class_T_handleEvent(bando_FunctionName::leaveEvent, event); })
-        .define_method("_mouse_double_click_event", [](BC_T *self, QMouseEvent *event) -> void { return self->Class_T_handleEvent(bando_FunctionName::mouseDoubleClickEvent, event); })
-        .define_method("_mouse_move_event", [](BC_T *self, QMouseEvent *event) -> void { return self->Class_T_handleEvent(bando_FunctionName::mouseMoveEvent, event); })
-        .define_method("_mouse_press_event", [](BC_T *self, QMouseEvent *event) -> void { return self->Class_T_handleEvent(bando_FunctionName::mousePressEvent, event); })
-        .define_method("_mouse_release_event", [](BC_T *self, QMouseEvent *event) -> void { return self->Class_T_handleEvent(bando_FunctionName::mouseReleaseEvent, event); })
-        .define_method("_move_event", [](BC_T *self, QMoveEvent *event) -> void { return self->Class_T_handleEvent(bando_FunctionName::moveEvent, event); })
-        .define_method("_paint_event", [](BC_T *self, QPaintEvent *event) -> void { return self->Class_T_handleEvent(bando_FunctionName::paintEvent, event); })
-        .define_method("_resize_event", [](BC_T *self, QResizeEvent *event) -> void { return self->Class_T_handleEvent(bando_FunctionName::resizeEvent, event); })
-        .define_method("_show_event", [](BC_T *self, QShowEvent *event) -> void { return self->Class_T_handleEvent(bando_FunctionName::showEvent, event); })
-        .define_method("_tablet_event", [](BC_T *self, QTabletEvent *event) -> void { return self->Class_T_handleEvent(bando_FunctionName::tabletEvent, event); })
-        .define_method("_wheel_event", [](BC_T *self, QWheelEvent *event) -> void { return self->Class_T_handleEvent(bando_FunctionName::wheelEvent, event); });
-
-    bando_qlass
-        .define_method("_minimum_size_hint", [](BC_T *self) -> QSize { return self->C_T::minimumSizeHint(); })
-        .define_method("_size_hint", [](BC_T *self) -> QSize { return self->C_T::sizeHint(); })
         .define_method("minimum_size_hint", [](BC_T *self) -> QSize { return self->C_T::minimumSizeHint(); })
         .define_method("size_hint", [](BC_T *self) -> QSize { return self->C_T::sizeHint(); });
 

@@ -3,7 +3,7 @@
 module RubyQt6
   module Bando
     class QFontComboBox < RubyQt6::QtWidgets::QFontComboBox
-      Bando.define_bando_qlass Bando::QFontComboBox
+      Bando.define_bando_qwidget Bando::QFontComboBox
     end
   end
 end

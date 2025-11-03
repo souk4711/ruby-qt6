@@ -79,10 +79,9 @@ Rice::Data_Type<BC_T> define_bando_qobject_under(Rice::Module module, char const
         Rice::define_class_under<BC_T, C_T>(module, name)
             .define_method("_initialize_ruby_value", &BC_T::initializeValue, Rice::Arg("value"), Rice::Arg("mo"))
             .define_method("_ruby_value", &BC_T::value)
-            .define_method("_event", [](BC_T *self, QEvent *event) -> bool { return self->Class_T_handleQObjectEvent(event); })
-            .define_method("_event_filter", [](BC_T *self, QObject *watched, QEvent *event) -> bool { return self->Class_T_handleQObjectEventFilter(watched, event); })
-            .define_method("_child_event", [](BC_T *self, QChildEvent *event) -> void { return self->Class_T_handleEvent(bando_FunctionName::childEvent, event); })
-            .define_method("_timer_event", [](BC_T *self, QTimerEvent *event) -> void { return self->Class_T_handleEvent(bando_FunctionName::timerEvent, event); })
+            .define_method("_ruby_value_handle_event", &BC_T::Class_T_handleEvent, Rice::Arg("name"), Rice::Arg("event"))
+            .define_method("_event", &BC_T::Class_T_handleQObjectEvent, Rice::Arg("event"))
+            .define_method("_event_filter", &BC_T::Class_T_handleQObjectEventFilter, Rice::Arg("watched"), Rice::Arg("event"))
             .define_method("sender", &BC_T::sender);
     return bando_qlass;
 }

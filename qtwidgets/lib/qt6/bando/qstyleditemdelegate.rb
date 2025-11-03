@@ -3,7 +3,7 @@
 module RubyQt6
   module Bando
     class QStyledItemDelegate < RubyQt6::QtWidgets::QStyledItemDelegate
-      Bando.define_bando_qlass Bando::QStyledItemDelegate
+      Bando.define_bando_qobject Bando::QStyledItemDelegate
     end
   end
 end

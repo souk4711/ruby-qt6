@@ -3,7 +3,7 @@
 module RubyQt6
   module Bando
     class QDial < RubyQt6::QtWidgets::QDial
-      Bando.define_bando_qlass Bando::QDial
+      Bando.define_bando_qwidget Bando::QDial
     end
   end
 end

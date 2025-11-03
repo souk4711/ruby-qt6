@@ -3,7 +3,7 @@
 module RubyQt6
   module Bando
     class QDoubleSpinBox < RubyQt6::QtWidgets::QDoubleSpinBox
-      Bando.define_bando_qlass Bando::QDoubleSpinBox
+      Bando.define_bando_qwidget Bando::QDoubleSpinBox
     end
   end
 end

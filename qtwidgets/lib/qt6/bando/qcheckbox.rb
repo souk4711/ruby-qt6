@@ -3,7 +3,7 @@
 module RubyQt6
   module Bando
     class QCheckBox < RubyQt6::QtWidgets::QCheckBox
-      Bando.define_bando_qlass Bando::QCheckBox
+      Bando.define_bando_qwidget Bando::QCheckBox
     end
   end
 end

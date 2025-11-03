@@ -3,7 +3,7 @@
 module RubyQt6
   module Bando
     class QTextEdit < RubyQt6::QtWidgets::QTextEdit
-      Bando.define_bando_qlass Bando::QTextEdit
+      Bando.define_bando_qwidget Bando::QTextEdit
     end
   end
 end

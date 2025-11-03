@@ -3,7 +3,7 @@
 module RubyQt6
   module Bando
     class QMenuBar < RubyQt6::QtWidgets::QMenuBar
-      Bando.define_bando_qlass Bando::QMenuBar
+      Bando.define_bando_qwidget Bando::QMenuBar
     end
   end
 end

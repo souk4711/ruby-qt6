@@ -3,7 +3,7 @@
 module RubyQt6
   module Bando
     class QObject < RubyQt6::QtCore::QObject
-      Bando.define_bando_qlass Bando::QObject
+      Bando.define_bando_qobject Bando::QObject
     end
   end
 end

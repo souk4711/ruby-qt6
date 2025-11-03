@@ -3,7 +3,7 @@
 module RubyQt6
   module Bando
     class QFileDialog < RubyQt6::QtWidgets::QFileDialog
-      Bando.define_bando_qlass Bando::QFileDialog
+      Bando.define_bando_qwidget Bando::QFileDialog
     end
   end
 end

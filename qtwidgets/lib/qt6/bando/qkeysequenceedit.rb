@@ -3,7 +3,7 @@
 module RubyQt6
   module Bando
     class QKeySequenceEdit < RubyQt6::QtWidgets::QKeySequenceEdit
-      Bando.define_bando_qlass Bando::QKeySequenceEdit
+      Bando.define_bando_qwidget Bando::QKeySequenceEdit
     end
   end
 end

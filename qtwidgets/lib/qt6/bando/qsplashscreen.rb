@@ -3,7 +3,7 @@
 module RubyQt6
   module Bando
     class QSplashScreen < RubyQt6::QtWidgets::QSplashScreen
-      Bando.define_bando_qlass Bando::QSplashScreen
+      Bando.define_bando_qwidget Bando::QSplashScreen
     end
   end
 end

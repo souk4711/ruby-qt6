@@ -62,7 +62,7 @@ module RubyQt6
     ]
 
     def self.inflector
-      @inflector ||= Dry::Inflector.new do |inflections|
+      @inflector ||= ::Dry::Inflector.new do |inflections|
         inflections.acronym "LongLong"
         inflections.acronym "UInt"
         inflections.acronym "ULongLong"
@@ -88,7 +88,7 @@ module RubyQt6
         rbfile_contents = File.read(rbfile) if File.exist?(rbfile)
 
         raise rbfile unless rbfile_contents.include?("class #{bando.name} < RubyQt6::#{qmod.name}::#{bando.name}")
-        raise rbfile unless rbfile_contents.include?("Bando.define_bando_qlass Bando::#{bando.name}")
+        raise rbfile unless rbfile_contents.match?(/Bando.define_bando_q\w+ Bando::#{bando.name}/)
       end
       rs
     end

@@ -55,6 +55,7 @@
 #include "qitemselection-rb.hpp"
 #include "qstringlist-rb.hpp"
 
+#include "bando-rb.hpp"
 #include "bando-qobject-rb.hpp"
 
 extern "C" void Init_qtcore()
@@ -123,6 +124,7 @@ extern "C" void Init_qtcore()
         Init_qstringlist(rb_mQt6QtCore);
 
         Rice::Module rb_mQt6Bando = define_module_under(rb_mQt6, "Bando");
+        Init_bando(rb_mQt6Bando);
         Init_bando_qobject(rb_mQt6Bando);
     });
 }

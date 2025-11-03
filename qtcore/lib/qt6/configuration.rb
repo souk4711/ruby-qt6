@@ -13,12 +13,12 @@ module RubyQt6
       end
     end
 
-    SemanticLogger.add_appender(io: $stdout, formatter: :color)
+    ::SemanticLogger.add_appender(io: $stdout, formatter: :color)
     true
   end
 
   # @!visibility private
   def self.logger
-    @logger ||= SemanticLogger["RubyQt6"]
+    @logger ||= ::SemanticLogger["RubyQt6"]
   end
 end

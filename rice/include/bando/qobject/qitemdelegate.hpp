@@ -119,19 +119,12 @@ Rice::Data_Type<BC_T> define_bando_qitemdelegate_under(Rice::Module module, char
         Rice::define_class_under<BC_T, C_T>(module, name)
             .define_method("_initialize_ruby_value", &BC_T::initializeValue, Rice::Arg("value"), Rice::Arg("mo"))
             .define_method("_ruby_value", &BC_T::value)
-            .define_method("_event", [](BC_T *self, QEvent *event) -> bool { return self->Class_T_handleQObjectEvent(event); })
-            .define_method("_event_filter", [](BC_T *self, QObject *watched, QEvent *event) -> bool { return self->Class_T_handleQObjectEventFilter(watched, event); })
-            .define_method("_child_event", [](BC_T *self, QChildEvent *event) -> void { return self->Class_T_handleEvent(bando_FunctionName::childEvent, event); })
-            .define_method("_timer_event", [](BC_T *self, QTimerEvent *event) -> void { return self->Class_T_handleEvent(bando_FunctionName::timerEvent, event); })
+            .define_method("_ruby_value_handle_event", &BC_T::Class_T_handleEvent, Rice::Arg("name"), Rice::Arg("event"))
+            .define_method("_event", &BC_T::Class_T_handleQObjectEvent, Rice::Arg("event"))
+            .define_method("_event_filter", &BC_T::Class_T_handleQObjectEventFilter, Rice::Arg("watched"), Rice::Arg("event"))
             .define_method("sender", &BC_T::sender);
 
     bando_qlass
-        .define_method("_create_editor", [](BC_T *self, QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) -> QWidget * { return self->C_T::createEditor(parent, option, index); })
-        .define_method("_paint", [](BC_T *self, QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) -> void { return self->C_T::paint(painter, option, index); })
-        .define_method("_set_editor_data", [](BC_T *self, QWidget *editor, const QModelIndex &index) -> void { return self->C_T::setEditorData(editor, index); })
-        .define_method("_set_model_data", [](BC_T *self, QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) -> void { return self->C_T::setModelData(editor, model, index); })
-        .define_method("_size_hint", [](BC_T *self, const QStyleOptionViewItem &option, const QModelIndex &index) -> QSize { return self->C_T::sizeHint(option, index); })
-        .define_method("_update_editor_geometry", [](BC_T *self, QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &index) -> void { return self->C_T::updateEditorGeometry(editor, option, index); })
         .define_method("create_editor", [](BC_T *self, QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) -> QWidget * { return self->C_T::createEditor(parent, option, index); })
         .define_method("paint", [](BC_T *self, QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) -> void { return self->C_T::paint(painter, option, index); })
         .define_method("set_editor_data", [](BC_T *self, QWidget *editor, const QModelIndex &index) -> void { return self->C_T::setEditorData(editor, index); })

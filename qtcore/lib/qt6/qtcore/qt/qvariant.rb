@@ -19,8 +19,6 @@ module RubyQt6
         end
       end
 
-      private
-
       def self.from_object_methods
         @from_object_methods ||= {}
       end
