@@ -46,8 +46,8 @@ template <typename Class_T, typename... Arg_Ts> class BandoQDBusAbstractAdaptor 
     bool event(QEvent *event) override { return bando_handleQObjectEvent<BandoQDBusAbstractAdaptor>(this, event); };
     bool eventFilter(QObject *watched, QEvent *event) override { return bando_handleQObjectEventFilter<BandoQDBusAbstractAdaptor>(this, watched, event); };
 
-    void childEvent(QChildEvent *event) override { bando_handleEvent<BandoQDBusAbstractAdaptor, QChildEvent>(this, event, bando_FunctionName::childEvent); };
-    void timerEvent(QTimerEvent *event) override { bando_handleEvent<BandoQDBusAbstractAdaptor, QTimerEvent>(this, event, bando_FunctionName::timerEvent); };
+    void childEvent(QChildEvent *event) override { bando_handleEvent<BandoQDBusAbstractAdaptor>(this, event, bando_FunctionName::childEvent); };
+    void timerEvent(QTimerEvent *event) override { bando_handleEvent<BandoQDBusAbstractAdaptor>(this, event, bando_FunctionName::timerEvent); };
     QObject *sender() const { return this->Class_T::sender(); }
 
     bool autoRelaySignals() const {

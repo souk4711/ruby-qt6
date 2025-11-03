@@ -46,8 +46,8 @@ template <typename Class_T, typename... Arg_Ts> class BandoQObject : public Clas
     bool event(QEvent *event) override { return bando_handleQObjectEvent<BandoQObject>(this, event); };
     bool eventFilter(QObject *watched, QEvent *event) override { return bando_handleQObjectEventFilter<BandoQObject>(this, watched, event); };
 
-    void childEvent(QChildEvent *event) override { bando_handleEvent<BandoQObject, QChildEvent>(this, event, bando_FunctionName::childEvent); };
-    void timerEvent(QTimerEvent *event) override { bando_handleEvent<BandoQObject, QTimerEvent>(this, event, bando_FunctionName::timerEvent); };
+    void childEvent(QChildEvent *event) override { bando_handleEvent<BandoQObject>(this, event, bando_FunctionName::childEvent); };
+    void timerEvent(QTimerEvent *event) override { bando_handleEvent<BandoQObject>(this, event, bando_FunctionName::timerEvent); };
     QObject *sender() const { return this->Class_T::sender(); }
 
   public:

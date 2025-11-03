@@ -48,8 +48,8 @@ template <typename Class_T, typename... Arg_Ts> class BandoQItemDelegate : publi
     bool event(QEvent *event) override { return bando_handleQObjectEvent<BandoQItemDelegate>(this, event); };
     bool eventFilter(QObject *watched, QEvent *event) override { return bando_handleQObjectEventFilter<BandoQItemDelegate>(this, watched, event); };
 
-    void childEvent(QChildEvent *event) override { bando_handleEvent<BandoQItemDelegate, QChildEvent>(this, event, bando_FunctionName::childEvent); };
-    void timerEvent(QTimerEvent *event) override { bando_handleEvent<BandoQItemDelegate, QTimerEvent>(this, event, bando_FunctionName::timerEvent); };
+    void childEvent(QChildEvent *event) override { bando_handleEvent<BandoQItemDelegate>(this, event, bando_FunctionName::childEvent); };
+    void timerEvent(QTimerEvent *event) override { bando_handleEvent<BandoQItemDelegate>(this, event, bando_FunctionName::timerEvent); };
     QObject *sender() const { return this->Class_T::sender(); }
 
     QWidget *createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const override {

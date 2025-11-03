@@ -46,8 +46,8 @@ template <typename Class_T, typename... Arg_Ts> class BandoQDBusAbstractInterfac
     bool event(QEvent *event) override { return bando_handleQObjectEvent<BandoQDBusAbstractInterface>(this, event); };
     bool eventFilter(QObject *watched, QEvent *event) override { return bando_handleQObjectEventFilter<BandoQDBusAbstractInterface>(this, watched, event); };
 
-    void childEvent(QChildEvent *event) override { bando_handleEvent<BandoQDBusAbstractInterface, QChildEvent>(this, event, bando_FunctionName::childEvent); };
-    void timerEvent(QTimerEvent *event) override { bando_handleEvent<BandoQDBusAbstractInterface, QTimerEvent>(this, event, bando_FunctionName::timerEvent); };
+    void childEvent(QChildEvent *event) override { bando_handleEvent<BandoQDBusAbstractInterface>(this, event, bando_FunctionName::childEvent); };
+    void timerEvent(QTimerEvent *event) override { bando_handleEvent<BandoQDBusAbstractInterface>(this, event, bando_FunctionName::timerEvent); };
     QObject *sender() const { return this->Class_T::sender(); }
 
   public:

@@ -71,36 +71,36 @@ template <typename Class_T, typename... Arg_Ts> class BandoQWidget : public Clas
     bool event(QEvent *event) override { return bando_handleQObjectEvent<BandoQWidget>(this, event); };
     bool eventFilter(QObject *watched, QEvent *event) override { return bando_handleQObjectEventFilter<BandoQWidget>(this, watched, event); };
 
-    void childEvent(QChildEvent *event) override { bando_handleEvent<BandoQWidget, QChildEvent>(this, event, bando_FunctionName::childEvent); };
-    void timerEvent(QTimerEvent *event) override { bando_handleEvent<BandoQWidget, QTimerEvent>(this, event, bando_FunctionName::timerEvent); };
+    void childEvent(QChildEvent *event) override { bando_handleEvent<BandoQWidget>(this, event, bando_FunctionName::childEvent); };
+    void timerEvent(QTimerEvent *event) override { bando_handleEvent<BandoQWidget>(this, event, bando_FunctionName::timerEvent); };
     QObject *sender() const { return this->Class_T::sender(); }
 
-    void actionEvent(QActionEvent *event) override { bando_handleEvent<BandoQWidget, QActionEvent>(this, event, bando_FunctionName::actionEvent); };
-    void changeEvent(QEvent *event) override { bando_handleEvent<BandoQWidget, QEvent>(this, event, bando_FunctionName::changeEvent); };
-    void closeEvent(QCloseEvent *event) override { bando_handleEvent<BandoQWidget, QCloseEvent>(this, event, bando_FunctionName::closeEvent); };
-    void contextMenuEvent(QContextMenuEvent *event) override { bando_handleEvent<BandoQWidget, QContextMenuEvent>(this, event, bando_FunctionName::contextMenuEvent); };
-    void dragEnterEvent(QDragEnterEvent *event) override { bando_handleEvent<BandoQWidget, QDragEnterEvent>(this, event, bando_FunctionName::dragEnterEvent); };
-    void dragLeaveEvent(QDragLeaveEvent *event) override { bando_handleEvent<BandoQWidget, QDragLeaveEvent>(this, event, bando_FunctionName::dragLeaveEvent); };
-    void dragMoveEvent(QDragMoveEvent *event) override { bando_handleEvent<BandoQWidget, QDragMoveEvent>(this, event, bando_FunctionName::dragMoveEvent); };
-    void dropEvent(QDropEvent *event) override { bando_handleEvent<BandoQWidget, QDropEvent>(this, event, bando_FunctionName::dropEvent); };
-    void enterEvent(QEnterEvent *event) override { bando_handleEvent<BandoQWidget, QEnterEvent>(this, event, bando_FunctionName::enterEvent); };
-    void focusInEvent(QFocusEvent *event) override { bando_handleEvent<BandoQWidget, QFocusEvent>(this, event, bando_FunctionName::focusInEvent); };
-    void focusOutEvent(QFocusEvent *event) override { bando_handleEvent<BandoQWidget, QFocusEvent>(this, event, bando_FunctionName::focusOutEvent); };
-    void hideEvent(QHideEvent *event) override { bando_handleEvent<BandoQWidget, QHideEvent>(this, event, bando_FunctionName::hideEvent); };
-    void inputMethodEvent(QInputMethodEvent *event) override { bando_handleEvent<BandoQWidget, QInputMethodEvent>(this, event, bando_FunctionName::inputMethodEvent); };
-    void keyPressEvent(QKeyEvent *event) override { bando_handleEvent<BandoQWidget, QKeyEvent>(this, event, bando_FunctionName::keyPressEvent); };
-    void keyReleaseEvent(QKeyEvent *event) override { bando_handleEvent<BandoQWidget, QKeyEvent>(this, event, bando_FunctionName::keyReleaseEvent); };
-    void leaveEvent(QEvent *event) override { bando_handleEvent<BandoQWidget, QEvent>(this, event, bando_FunctionName::leaveEvent); };
-    void mouseDoubleClickEvent(QMouseEvent *event) override { bando_handleEvent<BandoQWidget, QMouseEvent>(this, event, bando_FunctionName::mouseDoubleClickEvent); };
-    void mouseMoveEvent(QMouseEvent *event) override { bando_handleEvent<BandoQWidget, QMouseEvent>(this, event, bando_FunctionName::mouseMoveEvent); };
-    void mousePressEvent(QMouseEvent *event) override { bando_handleEvent<BandoQWidget, QMouseEvent>(this, event, bando_FunctionName::mousePressEvent); };
-    void mouseReleaseEvent(QMouseEvent *event) override { bando_handleEvent<BandoQWidget, QMouseEvent>(this, event, bando_FunctionName::mouseReleaseEvent); };
-    void moveEvent(QMoveEvent *event) override { bando_handleEvent<BandoQWidget, QMoveEvent>(this, event, bando_FunctionName::moveEvent); };
-    void paintEvent(QPaintEvent *event) override { bando_handleEvent<BandoQWidget, QPaintEvent>(this, event, bando_FunctionName::paintEvent); };
-    void resizeEvent(QResizeEvent *event) override { bando_handleEvent<BandoQWidget, QResizeEvent>(this, event, bando_FunctionName::resizeEvent); };
-    void showEvent(QShowEvent *event) override { bando_handleEvent<BandoQWidget, QShowEvent>(this, event, bando_FunctionName::showEvent); };
-    void tabletEvent(QTabletEvent *event) override { bando_handleEvent<BandoQWidget, QTabletEvent>(this, event, bando_FunctionName::tabletEvent); };
-    void wheelEvent(QWheelEvent *event) override { bando_handleEvent<BandoQWidget, QWheelEvent>(this, event, bando_FunctionName::wheelEvent); };
+    void actionEvent(QActionEvent *event) override { bando_handleEvent<BandoQWidget>(this, event, bando_FunctionName::actionEvent); };
+    void changeEvent(QEvent *event) override { bando_handleEvent<BandoQWidget>(this, event, bando_FunctionName::changeEvent); };
+    void closeEvent(QCloseEvent *event) override { bando_handleEvent<BandoQWidget>(this, event, bando_FunctionName::closeEvent); };
+    void contextMenuEvent(QContextMenuEvent *event) override { bando_handleEvent<BandoQWidget>(this, event, bando_FunctionName::contextMenuEvent); };
+    void dragEnterEvent(QDragEnterEvent *event) override { bando_handleEvent<BandoQWidget>(this, event, bando_FunctionName::dragEnterEvent); };
+    void dragLeaveEvent(QDragLeaveEvent *event) override { bando_handleEvent<BandoQWidget>(this, event, bando_FunctionName::dragLeaveEvent); };
+    void dragMoveEvent(QDragMoveEvent *event) override { bando_handleEvent<BandoQWidget>(this, event, bando_FunctionName::dragMoveEvent); };
+    void dropEvent(QDropEvent *event) override { bando_handleEvent<BandoQWidget>(this, event, bando_FunctionName::dropEvent); };
+    void enterEvent(QEnterEvent *event) override { bando_handleEvent<BandoQWidget>(this, event, bando_FunctionName::enterEvent); };
+    void focusInEvent(QFocusEvent *event) override { bando_handleEvent<BandoQWidget>(this, event, bando_FunctionName::focusInEvent); };
+    void focusOutEvent(QFocusEvent *event) override { bando_handleEvent<BandoQWidget>(this, event, bando_FunctionName::focusOutEvent); };
+    void hideEvent(QHideEvent *event) override { bando_handleEvent<BandoQWidget>(this, event, bando_FunctionName::hideEvent); };
+    void inputMethodEvent(QInputMethodEvent *event) override { bando_handleEvent<BandoQWidget>(this, event, bando_FunctionName::inputMethodEvent); };
+    void keyPressEvent(QKeyEvent *event) override { bando_handleEvent<BandoQWidget>(this, event, bando_FunctionName::keyPressEvent); };
+    void keyReleaseEvent(QKeyEvent *event) override { bando_handleEvent<BandoQWidget>(this, event, bando_FunctionName::keyReleaseEvent); };
+    void leaveEvent(QEvent *event) override { bando_handleEvent<BandoQWidget>(this, event, bando_FunctionName::leaveEvent); };
+    void mouseDoubleClickEvent(QMouseEvent *event) override { bando_handleEvent<BandoQWidget>(this, event, bando_FunctionName::mouseDoubleClickEvent); };
+    void mouseMoveEvent(QMouseEvent *event) override { bando_handleEvent<BandoQWidget>(this, event, bando_FunctionName::mouseMoveEvent); };
+    void mousePressEvent(QMouseEvent *event) override { bando_handleEvent<BandoQWidget>(this, event, bando_FunctionName::mousePressEvent); };
+    void mouseReleaseEvent(QMouseEvent *event) override { bando_handleEvent<BandoQWidget>(this, event, bando_FunctionName::mouseReleaseEvent); };
+    void moveEvent(QMoveEvent *event) override { bando_handleEvent<BandoQWidget>(this, event, bando_FunctionName::moveEvent); };
+    void paintEvent(QPaintEvent *event) override { bando_handleEvent<BandoQWidget>(this, event, bando_FunctionName::paintEvent); };
+    void resizeEvent(QResizeEvent *event) override { bando_handleEvent<BandoQWidget>(this, event, bando_FunctionName::resizeEvent); };
+    void showEvent(QShowEvent *event) override { bando_handleEvent<BandoQWidget>(this, event, bando_FunctionName::showEvent); };
+    void tabletEvent(QTabletEvent *event) override { bando_handleEvent<BandoQWidget>(this, event, bando_FunctionName::tabletEvent); };
+    void wheelEvent(QWheelEvent *event) override { bando_handleEvent<BandoQWidget>(this, event, bando_FunctionName::wheelEvent); };
 
     QSize minimumSizeHint() const override {
         Q_ASSERT(this->value_.rb_type() != RUBY_T_NONE);
