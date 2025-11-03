@@ -5,7 +5,7 @@
 void Init_bando(Rice::Module rb_mQt6Bando)
 {
     Data_Type<bando_FunctionName> rb_cBandoFunctionName =
-        define_qenum_under<bando_FunctionName>(rb_mQt6Bando, "FunctionName");
+        define_class_under<bando_FunctionName>(rb_mQt6Bando, "FunctionName");
         define_qenum_value_under(rb_cBandoFunctionName, "ActionEvent", bando_FunctionName::actionEvent);
         define_qenum_value_under(rb_cBandoFunctionName, "ChangeEvent", bando_FunctionName::changeEvent);
         define_qenum_value_under(rb_cBandoFunctionName, "ChildEvent", bando_FunctionName::childEvent);
