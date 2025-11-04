@@ -20,8 +20,8 @@ void Init_qcombobox(Rice::Module rb_mQt6QtWidgets)
             // Constructor
             .define_constructor(Constructor<QComboBox, QWidget *>(), Arg("parent"))
             // Public Functions
-            .define_method<void (QComboBox::*)(const QIcon &, const QString &, const QVariant &)>("_add_item", &QComboBox::addItem, Arg("icon"), Arg("text"), Arg("user_data") = static_cast<const QVariant &>(QVariant()))
             .define_method<void (QComboBox::*)(const QString &, const QVariant &)>("_add_item", &QComboBox::addItem, Arg("text"), Arg("user_data") = static_cast<const QVariant &>(QVariant()))
+            .define_method<void (QComboBox::*)(const QIcon &, const QString &, const QVariant &)>("_add_item", &QComboBox::addItem, Arg("icon"), Arg("text"), Arg("user_data") = static_cast<const QVariant &>(QVariant()))
             .define_method("add_items", &QComboBox::addItems, Arg("texts"))
             .define_method("completer", &QComboBox::completer)
             .define_method("count", &QComboBox::count)

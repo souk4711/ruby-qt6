@@ -44,7 +44,8 @@ module RubyQt6
 
       # @!visibility private
       def insert_markdown(markdown, features = nil)
-        _insert_markdown(T.to_qstr(markdown), T.to_qflags(features || QtGui::QTextDocument::MarkdownDialectGitHub))
+        features ||= QtGui::QTextDocument::MarkdownDialectGitHub
+        _insert_markdown(T.to_qstr(markdown), T.to_qflags(features))
       end
 
       # @!visibility private

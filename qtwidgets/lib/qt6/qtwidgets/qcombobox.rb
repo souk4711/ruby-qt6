@@ -39,11 +39,7 @@ module RubyQt6
 
       # @!visibility private
       def add_item(*args)
-        case args.size
-        when 2 then _add_item(T.to_qstr(args[-2]), args[-1])
-        when 3 then _add_item(args[-3], T.to_qstr(args[-2]), args[-1])
-        else _add_item(*args)
-        end
+        _add_item(*args.map { |arg| T.to_qstr(arg) })
       end
     end
   end
