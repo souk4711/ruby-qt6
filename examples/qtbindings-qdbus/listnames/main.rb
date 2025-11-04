@@ -3,7 +3,7 @@
 require 'qt6/all'
 
 def method1
-  puts("Method 1:")
+  puts('Method 1:')
 
   reply = QDBusConnection.session_bus.interface.registered_service_names
   unless reply.valid?
@@ -11,20 +11,20 @@ def method1
     exit 1
   end
   puts(reply.value)
-  puts()
+  puts
 end
 
 def method2
-  puts("Method 2:")
+  puts('Method 2:')
 
   bus = QDBusConnection.session_bus
   dbus_iface = QDBusInterface.new('org.freedesktop.DBus', '/org/freedesktop/DBus', 'org.freedesktop.DBus', bus)
   puts(dbus_iface.call('ListNames').arguments[0].value)
-  puts()
+  puts
 end
 
 def method3
-  puts("Method 3:")
+  puts('Method 3:')
   puts(QDBusConnection.session_bus.interface.registered_service_names.value)
 end
 

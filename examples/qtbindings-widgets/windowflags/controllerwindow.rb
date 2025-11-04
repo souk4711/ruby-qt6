@@ -33,7 +33,7 @@ class ControllerWindow < RubyQt6::Bando::QWidget
   end
 
   def update_preview
-    flags = Qt::WindowType.new
+    flags = Qt::WindowFlags.new
 
     if @window_radio_button.checked?
       flags = Qt::Window

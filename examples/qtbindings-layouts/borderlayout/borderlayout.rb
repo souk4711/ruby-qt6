@@ -53,13 +53,13 @@ class BorderLayout < RubyQt6::Bando::QLayout
   end
 
   def set_geometry(rect)
+    super
+
     center = 0
     east_width = 0
     west_width = 0
     north_height = 0
     south_height = 0
-
-    _set_geometry(rect)
 
     (0...@list.length).each do |i|
       wrapper = @list[i]

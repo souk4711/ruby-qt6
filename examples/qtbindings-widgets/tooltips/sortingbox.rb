@@ -93,7 +93,7 @@ class SortingBox < RubyQt6::Bando::QWidget
   end
 
   def mouse_move_event(event)
-    return if (event.buttons & Qt::LeftButton).zero?
+    return if (event.buttons & Qt::LeftButton) == 0
     return if @item_in_motion.nil?
 
     move_item_to(event.position.to_point)

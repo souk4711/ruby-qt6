@@ -9,7 +9,7 @@ class TetrixWindow < RubyQt6::Bando::QWidget
     @board = TetrixBoard.new(self)
 
     @next_piece_label = QLabel.new
-    @next_piece_label.set_frame_style QFrame::Box.to_i | QFrame::Raised
+    @next_piece_label.set_frame_style QFrame::Box.to_i | QFrame::Raised.to_i
     @next_piece_label.set_alignment Qt::AlignCenter
     @board.next_piece_label = @next_piece_label
 

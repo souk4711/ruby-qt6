@@ -23,7 +23,7 @@ class Window < RubyQt6::Bando::QWidget
 
   def create_label(text)
     label = QLabel.new(text)
-    label.set_frame_style QFrame::Box.to_i | QFrame::Raised
+    label.set_frame_style QFrame::Box.to_i | QFrame::Raised.to_i
     label
   end
 end

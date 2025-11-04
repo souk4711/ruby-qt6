@@ -17,7 +17,7 @@ class TetrixBoard < RubyQt6::Bando::QFrame
   def initialize(parent = nil)
     super(parent)
 
-    set_frame_style(QFrame::Panel.to_i | QFrame::Sunken)
+    set_frame_style(QFrame::Panel.to_i | QFrame::Sunken.to_i)
     set_focus_policy(Qt::StrongFocus)
     @is_starting = false
     @is_pasued = false

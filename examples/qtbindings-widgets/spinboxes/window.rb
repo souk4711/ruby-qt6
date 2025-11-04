@@ -98,7 +98,7 @@ class Window < RubyQt6::Bando::QWidget
 
   def set_format_string(format_string)
     @meeting_edit.set_display_format format_string
-    if (@meeting_edit.displayed_sections & QDateTimeEdit::DateSections_Mask).nonzero?
+    if (@meeting_edit.displayed_sections & QDateTimeEdit::DateSections_Mask) != 0
       @meeting_edit.set_date_range(QDate.new(2004, 11, 1), QDate.new(2005, 11, 30))
       @metting_label.set_text tr(format('Meeting date (between %s and %s:',
                                         @meeting_edit.minimum_date.to_string(Qt::ISODate), @meeting_edit.maximum_date.to_string(Qt::ISODate)))

@@ -41,7 +41,7 @@ class FlowLayout < RubyQt6::Bando::QLayout
   end
 
   def set_geometry(rect)
-    _set_geometry(rect)
+    super
     do_layout(rect, false)
   end
 

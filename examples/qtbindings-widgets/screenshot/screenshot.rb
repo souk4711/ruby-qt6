@@ -13,7 +13,7 @@ class Screenshot < RubyQt6::Bando::QWidget
 
     @screenshot_label = QLabel.new
     @screenshot_label.set_size_policy(QSizePolicy::Expanding, QSizePolicy::Expanding)
-    @screenshot_label.set_alignment Qt::AlignCenter.to_i
+    @screenshot_label.set_alignment Qt::AlignCenter
     @screenshot_label.set_minimum_size(240, 160)
 
     create_options_groupbox

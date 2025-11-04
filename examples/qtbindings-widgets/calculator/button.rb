@@ -13,7 +13,7 @@ class CalcButton < RubyQt6::Bando::QToolButton
   end
 
   def size_hint
-    _size_hint.tap do |size|
+    super.tap do |size|
       size.set_height size.height + 20
       size.set_width size.width > size.height ? size.width : size.height
     end

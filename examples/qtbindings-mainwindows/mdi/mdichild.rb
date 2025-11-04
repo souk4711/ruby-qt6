@@ -12,8 +12,8 @@ class MdiChild < RubyQt6::Bando::QTextEdit
     @is_untitled = true
   end
 
+  @@sequence_number = 0
   def new_file
-    @@sequence_number = 1
     @is_untitled = true
     @current_file = tr(format('document%s.txt', @@sequence_number += 1))
     set_window_title("#{@current_file}[*]")
@@ -23,7 +23,7 @@ class MdiChild < RubyQt6::Bando::QTextEdit
   def load_file(file_name)
     file = QFile.new(file_name)
     unless file.open(QFile::ReadOnly | QFile::Text)
-      QMessageBox.warning(self, tr('MDI'), tr(format("Cannot read file %s:\n%s.", file_name, file.errorString)))
+      QMessageBox.warning(self, tr('MDI'), tr(format("Cannot read file %s:\n%s.", file_name, file.error_string)))
       return false
     end
 
@@ -89,8 +89,7 @@ class MdiChild < RubyQt6::Bando::QTextEdit
         tr('MDI'),
         tr("'%s' has been modified.\n Do you want to save your changes?" % user_friendly_current_file),
         QMessageBox::Yes | QMessageBox::Default,
-        QMessageBox::No,
-        QMessageBox::Cancel | QMessageBox::Escape
+        QMessageBox::No
       )
       if ret == QMessageBox::Yes
         return save

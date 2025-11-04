@@ -25,7 +25,7 @@ class GameBoard < RubyQt6::Bando::QWidget
     @cannon_field = CannonField.new(self)
     angle.set_range(5, 70)
     force.set_range(10, 50)
-    cannon_box.set_frame_style(QFrame::WinPanel.to_i | QFrame::Sunken)
+    cannon_box.set_frame_style(QFrame::WinPanel.to_i | QFrame::Sunken.to_i)
     angle.value_changed.connect(@cannon_field, :set_angle)
     force.value_changed.connect(@cannon_field, :set_force)
     @cannon_field.angle_changed.connect(angle, :set_value)

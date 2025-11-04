@@ -33,7 +33,7 @@ class MainWindow < RubyQt6::Bando::QMainWindow
     top_filler.set_size_policy(QSizePolicy::Expanding, QSizePolicy::Expanding)
 
     @info_label = QLabel.new(tr('<i>Choose a menu option, or right-click to invoke a context menu</i>'))
-    @info_label.set_frame_style QFrame::StyledPanel.to_i | QFrame::Sunken
+    @info_label.set_frame_style QFrame::StyledPanel.to_i | QFrame::Sunken.to_i
     @info_label.set_alignment Qt::AlignCenter
 
     bottom_filler = QWidget.new
