@@ -245,11 +245,11 @@ module RubyQt6
         raise "#{rbfile}: initialize: Missing `#{line}`" unless rbfile_contents.include?(line)
 
         args = rawargs.map { |arg| "#{arg}( = .*)?" }
-        line = /def initialize\(#{args.join(", ")}\)/
+        line = args.size.zero? ? /def initialize/ : /def initialize\(#{args.join(", ")}\)/
         raise "#{rbfile}: initialize: Mismatch `#{line}`" unless rbfile_contents.match?(line)
 
         args = rawargs.map { |arg| ".*#{arg}.*" }
-        line = /_initialize\(#{args.join(", ")}\)/
+        line = args.size.zero? ? /_initialize/ : /_initialize\(#{args.join(", ")}\)/
         raise "#{rbfile}: initialize: Mismatch `#{line}`" unless rbfile_contents.match?(line)
       end
     end
