@@ -12,11 +12,9 @@ module RubyQt6
       alias_method :_initialize, :initialize
 
       # @param name [String, QString]
-      # @param parent [QObject]
       # @return [QFile]
-      def initialize(name, parent = nil)
-        _initialize(T.to_qstr(name), parent)
-        _take_ownership_from_ruby(self)
+      def initialize(name)
+        _initialize(T.to_qstr(name))
       end
     end
   end
