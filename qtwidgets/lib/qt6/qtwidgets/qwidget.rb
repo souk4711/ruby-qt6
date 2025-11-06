@@ -50,7 +50,7 @@ module RubyQt6
       # @return [QWidget]
       def initialize(parent = nil)
         _initialize(parent)
-        _take_ownership_from_ruby(self) if parent
+        _take_ownership_from_ruby(self)
       end
 
       # @!visibility private
@@ -62,18 +62,6 @@ module RubyQt6
       def raise(*args)
         Kernel.raise(*args) if args.size.nonzero?
         _raise
-      end
-
-      # @!visibility private
-      def set_attribute(attribute, on = true)
-        _set_attribute(attribute, on)
-        _take_ownership_from_ruby(self) if attribute == QtCore::Qt::WA_DeleteOnClose && on
-      end
-
-      # @!visibility private
-      def set_parent(parent, f = nil)
-        f.nil? ? _set_parent(parent) : _set_parent(parent, f)
-        _take_ownership_from_ruby(self) if parent
       end
 
       # @!visibility private

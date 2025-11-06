@@ -33,7 +33,7 @@ module RubyQt6
       # @return [QItemSelectionModel]
       def initialize(model = nil, parent = nil)
         _initialize(model, parent)
-        _take_ownership_from_ruby(self) if parent
+        _take_ownership_from_ruby(self)
       end
     end
   end

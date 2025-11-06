@@ -17,7 +17,7 @@ module RubyQt6
       # @return [QTimeEdit]
       def initialize(time, parent = nil)
         _initialize(time, parent)
-        _take_ownership_from_ruby(self) if parent
+        _take_ownership_from_ruby(self)
       end
     end
   end

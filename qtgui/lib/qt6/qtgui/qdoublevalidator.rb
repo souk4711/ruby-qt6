@@ -41,7 +41,7 @@ module RubyQt6
         when 3 then _initialize_p(args[-3], args[-2], args[-1], parent)
         else raise ArgumentError, INITIALIZE_ARG_ERROR_MESSAGE
         end
-        _take_ownership_from_ruby(self) if parent
+        _take_ownership_from_ruby(self)
       end
 
       private

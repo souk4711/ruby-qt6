@@ -63,7 +63,7 @@ module RubyQt6
       # @return [QObject]
       def initialize(parent = nil)
         _initialize(parent)
-        _take_ownership_from_ruby(self) if parent
+        _take_ownership_from_ruby(self)
       end
 
       # @!visibility private
@@ -71,12 +71,6 @@ module RubyQt6
         options ||= QtCore::Qt::FindChildrenRecursively
         child = _find_child(T.to_qanystringview(name), T.to_qflags(options))
         T.bando_qobject_cast(child)
-      end
-
-      # @!visibility private
-      def set_parent(parent)
-        _set_parent(parent)
-        _take_ownership_from_ruby(self) if parent
       end
 
       # @!visibility private

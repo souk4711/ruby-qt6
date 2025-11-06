@@ -23,7 +23,7 @@ module RubyQt6
       # @return [QColorDialog]
       def initialize(initial, parent = nil)
         _initialize(initial, parent)
-        _take_ownership_from_ruby(self) if parent
+        _take_ownership_from_ruby(self)
       end
     end
   end

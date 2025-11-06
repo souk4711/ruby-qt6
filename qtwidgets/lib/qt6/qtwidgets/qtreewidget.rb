@@ -30,7 +30,7 @@ module RubyQt6
       # @return [QTreeWidget]
       def initialize(parent = nil)
         _initialize(parent)
-        _take_ownership_from_ruby(self) if parent
+        _take_ownership_from_ruby(self)
       end
     end
   end

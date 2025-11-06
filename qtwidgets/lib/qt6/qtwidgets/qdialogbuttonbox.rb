@@ -30,7 +30,7 @@ module RubyQt6
       # @return [QDialogButtonBox]
       def initialize(buttons, orientation, parent = nil)
         _initialize(buttons, orientation, parent)
-        _take_ownership_from_ruby(self) if parent
+        _take_ownership_from_ruby(self)
       end
     end
   end

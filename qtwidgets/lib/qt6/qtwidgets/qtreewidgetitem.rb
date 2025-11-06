@@ -42,9 +42,6 @@ module RubyQt6
       #   @param strings [QStringList]
       def initialize(*args)
         _initialize(*args)
-
-        parent = args.find { |arg| [QtWidgets::QTreeWidget, QtWidgets::QTreeWidgetItem].include?(arg.class) }
-        _take_ownership_from_ruby(self) if parent
       end
     end
   end

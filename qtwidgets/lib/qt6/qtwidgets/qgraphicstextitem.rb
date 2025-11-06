@@ -34,7 +34,7 @@ module RubyQt6
         when 1 then _initialize(T.to_qstr(args[-1]), parent)
         else raise ArgumentError, INITIALIZE_ARG_ERROR_MESSAGE
         end
-        _take_ownership_from_ruby(self) if parent
+        _take_ownership_from_ruby(self)
       end
     end
   end

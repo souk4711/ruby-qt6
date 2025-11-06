@@ -16,7 +16,7 @@ module RubyQt6
       # @return [QFile]
       def initialize(name, parent = nil)
         _initialize(T.to_qstr(name), parent)
-        _take_ownership_from_ruby(self) if parent
+        _take_ownership_from_ruby(self)
       end
     end
   end

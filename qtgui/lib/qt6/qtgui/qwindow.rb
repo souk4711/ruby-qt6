@@ -66,19 +66,13 @@ module RubyQt6
       # @return [QWindow]
       def initialize(parent = nil)
         _initialize(parent)
-        _take_ownership_from_ruby(self) if parent
+        _take_ownership_from_ruby(self)
       end
 
       # @!visibility private
       def raise(*args)
         Kernel.raise(*args) if args.size.nonzero?
         _raise
-      end
-
-      # @!visibility private
-      def set_parent(parent)
-        _set_parent(parent)
-        _take_ownership_from_ruby(self) if parent
       end
     end
   end

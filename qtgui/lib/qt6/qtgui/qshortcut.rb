@@ -18,7 +18,7 @@ module RubyQt6
       # @return [QShortcut]
       def initialize(key, parent)
         _initialize(key, parent)
-        _take_ownership_from_ruby(self) if parent
+        _take_ownership_from_ruby(self)
       end
     end
   end

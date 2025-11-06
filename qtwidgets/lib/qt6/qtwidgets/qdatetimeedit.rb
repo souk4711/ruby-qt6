@@ -27,7 +27,7 @@ module RubyQt6
       # @return [QDateTimeEdit]
       def initialize(datetime, parent = nil)
         _initialize(datetime, parent)
-        _take_ownership_from_ruby(self) if parent
+        _take_ownership_from_ruby(self)
       end
     end
   end

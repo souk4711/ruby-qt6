@@ -26,7 +26,7 @@ module RubyQt6
       # @return [QToolBar]
       def initialize(title, parent = nil)
         _initialize(T.to_qstr(title), parent)
-        _take_ownership_from_ruby(self) if parent
+        _take_ownership_from_ruby(self)
       end
     end
   end

@@ -26,7 +26,7 @@ module RubyQt6
         format = QtCore::QSettings.default_format
         scope = QtCore::QSettings::Scope::UserScope
         _initialize(format, scope, T.to_qstr(organization), T.to_qstr(application), parent)
-        _take_ownership_from_ruby(self) if parent
+        _take_ownership_from_ruby(self)
       end
 
       # @!visibility private

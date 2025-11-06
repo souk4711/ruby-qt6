@@ -19,7 +19,7 @@ module RubyQt6
       # @return [QDBusInterface]
       def initialize(service, path, interface = "", connection = nil, parent = nil)
         _initialize(T.to_qstr(service), T.to_qstr(path), T.to_qstr(interface), connection || QtDBus::QDBusConnection.session_bus, parent)
-        _take_ownership_from_ruby(self) if parent
+        _take_ownership_from_ruby(self)
       end
     end
   end

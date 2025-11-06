@@ -15,19 +15,7 @@ module RubyQt6
       # @return [QLayout]
       def initialize(parent = nil)
         _initialize(parent)
-        _take_ownership_from_ruby(self) if parent
-      end
-
-      # @!visibility private
-      def remove_item(item)
-        _remove_item(item)
-        # TODO: transfer ownership to the caller
-      end
-
-      # @!visibility private
-      def remove_widget(widget)
-        _remove_widget(widget)
-        # TODO: transfer ownership to the caller
+        _take_ownership_from_ruby(self)
       end
     end
   end

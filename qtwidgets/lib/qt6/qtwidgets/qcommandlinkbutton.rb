@@ -17,7 +17,7 @@ module RubyQt6
       # @return [QCommandLinkButton]
       def initialize(text, description, parent = nil)
         _initialize(T.to_qstr(text), T.to_qstr(description), parent)
-        _take_ownership_from_ruby(self) if parent
+        _take_ownership_from_ruby(self)
       end
     end
   end

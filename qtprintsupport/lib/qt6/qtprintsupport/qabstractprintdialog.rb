@@ -23,7 +23,7 @@ module RubyQt6
       # @return [QAbstractPrintDialog]
       def initialize(printer, parent = nil)
         _initialize(printer, parent)
-        _take_ownership_from_ruby(self) if parent
+        _take_ownership_from_ruby(self)
       end
     end
   end

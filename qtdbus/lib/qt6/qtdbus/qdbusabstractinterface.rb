@@ -16,7 +16,7 @@ module RubyQt6
       # @return [QDBusAbstractInterface]
       def initialize(service, path, interface, connection, parent = nil)
         _initialize(T.to_qstr(service), T.to_qstr(path), interface, connection, parent)
-        _take_ownership_from_ruby(self) if parent
+        _take_ownership_from_ruby(self)
       end
 
       # @!visibility private

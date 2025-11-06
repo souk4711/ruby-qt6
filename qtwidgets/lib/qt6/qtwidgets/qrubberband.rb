@@ -19,7 +19,7 @@ module RubyQt6
       # @return [QRubberBand]
       def initialize(shape, parent = nil)
         _initialize(shape, parent)
-        _take_ownership_from_ruby(self) if parent
+        _take_ownership_from_ruby(self)
       end
     end
   end

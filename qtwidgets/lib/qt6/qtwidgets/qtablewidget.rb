@@ -40,7 +40,7 @@ module RubyQt6
       # @return [QTableWidget]
       def initialize(rows, columns, parent = nil)
         _initialize(rows, columns, parent)
-        _take_ownership_from_ruby(self) if parent
+        _take_ownership_from_ruby(self)
       end
     end
   end

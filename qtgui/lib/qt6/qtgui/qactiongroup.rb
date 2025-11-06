@@ -25,7 +25,7 @@ module RubyQt6
       # @return [QActionGroup]
       def initialize(parent)
         _initialize(parent)
-        _take_ownership_from_ruby(self) if parent
+        _take_ownership_from_ruby(self)
       end
     end
   end

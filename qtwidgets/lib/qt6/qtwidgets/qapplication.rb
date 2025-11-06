@@ -33,14 +33,6 @@ module RubyQt6
       end
 
       # @!visibility private
-      def exec
-        self.class.exec
-      rescue
-        self.class.close_all_windows
-        raise
-      end
-
-      # @!visibility private
       def set_style_sheet(sheet)
         _set_style_sheet(T.to_qstr(sheet))
       end

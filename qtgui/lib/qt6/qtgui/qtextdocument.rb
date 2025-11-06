@@ -45,7 +45,7 @@ module RubyQt6
       # @return [QTextDocument]
       def initialize(text, parent = nil)
         _initialize(T.to_qstr(text), parent)
-        _take_ownership_from_ruby(self) if parent
+        _take_ownership_from_ruby(self)
       end
 
       # @!visibility private

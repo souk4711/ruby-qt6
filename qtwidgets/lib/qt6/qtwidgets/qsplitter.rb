@@ -17,7 +17,7 @@ module RubyQt6
       # @return [QSplitter]
       def initialize(orientation, parent = nil)
         _initialize(orientation, parent)
-        _take_ownership_from_ruby(self) if parent
+        _take_ownership_from_ruby(self)
       end
     end
   end
