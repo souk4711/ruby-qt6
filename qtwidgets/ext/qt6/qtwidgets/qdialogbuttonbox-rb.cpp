@@ -22,7 +22,7 @@ void Init_qdialogbuttonbox(Rice::Module rb_mQt6QtWidgets)
             // Public Functions
             .define_method<QPushButton *(QDialogButtonBox::*)(QDialogButtonBox::StandardButton)>("add_button", &QDialogButtonBox::addButton, Arg("button"))
             .define_method<QPushButton *(QDialogButtonBox::*)(const QString &, QDialogButtonBox::ButtonRole)>("add_button", &QDialogButtonBox::addButton, Arg("text"), Arg("role"))
-            .define_method<void (QDialogButtonBox::*)(QAbstractButton *, QDialogButtonBox::ButtonRole)>("add_button", &QDialogButtonBox::addButton, Arg("button").takeOwnership(), Arg("role"))
+            .define_method<void (QDialogButtonBox::*)(QAbstractButton *, QDialogButtonBox::ButtonRole)>("add_button", &QDialogButtonBox::addButton, Arg("button"), Arg("role"))
             .define_method("button", &QDialogButtonBox::button, Arg("which"))
             .define_method("button_role", &QDialogButtonBox::buttonRole, Arg("button"))
             .define_method("buttons", &QDialogButtonBox::buttons)

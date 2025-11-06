@@ -21,7 +21,7 @@ void Init_qmdiarea(Rice::Module rb_mQt6QtWidgets)
             // Public Functions
             .define_method("activation_order", &QMdiArea::activationOrder)
             .define_method("active_sub_window", &QMdiArea::activeSubWindow)
-            .define_method("add_sub_window", &QMdiArea::addSubWindow, Arg("widget").takeOwnership(), Arg("flags") = static_cast<Qt::WindowFlags>(Qt::WindowFlags()))
+            .define_method("add_sub_window", &QMdiArea::addSubWindow, Arg("widget"), Arg("flags") = static_cast<Qt::WindowFlags>(Qt::WindowFlags()))
             .define_method("background", &QMdiArea::background)
             .define_method("current_sub_window", &QMdiArea::currentSubWindow)
             .define_method("document_mode", &QMdiArea::documentMode)

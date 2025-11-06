@@ -15,12 +15,12 @@ void Init_qstackedwidget(Rice::Module rb_mQt6QtWidgets)
             // Constructor
             .define_constructor(Constructor<QStackedWidget, QWidget *>(), Arg("parent"))
             // Public Functions
-            .define_method("add_widget", &QStackedWidget::addWidget, Arg("widget").takeOwnership())
+            .define_method("add_widget", &QStackedWidget::addWidget, Arg("widget"))
             .define_method("count", &QStackedWidget::count)
             .define_method("current_index", &QStackedWidget::currentIndex)
             .define_method("current_widget", &QStackedWidget::currentWidget)
             .define_method("index_of", &QStackedWidget::indexOf, Arg("widget"))
-            .define_method("insert_widget", &QStackedWidget::insertWidget, Arg("index"), Arg("widget").takeOwnership())
+            .define_method("insert_widget", &QStackedWidget::insertWidget, Arg("index"), Arg("widget"))
             .define_method("remove_widget", &QStackedWidget::removeWidget, Arg("w"))
             .define_method("widget", &QStackedWidget::widget, Arg("index"))
             // Public Slots

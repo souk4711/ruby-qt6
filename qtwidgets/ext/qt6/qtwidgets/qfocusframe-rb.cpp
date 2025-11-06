@@ -15,6 +15,6 @@ void Init_qfocusframe(Rice::Module rb_mQt6QtWidgets)
             // Constructor
             .define_constructor(Constructor<QFocusFrame, QWidget *>(), Arg("parent"))
             // Public Functions
-            .define_method("set_widget", &QFocusFrame::setWidget, Arg("widget").takeOwnership())
+            .define_method("set_widget", &QFocusFrame::setWidget, Arg("widget"))
             .define_method("widget", &QFocusFrame::widget);
 }
