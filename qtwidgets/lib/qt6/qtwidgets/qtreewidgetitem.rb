@@ -42,6 +42,13 @@ module RubyQt6
       #   @param strings [QStringList]
       def initialize(*args)
         _initialize(*args)
+        _take_ownership_from_ruby(self)
+      end
+
+      private
+
+      def _take_ownership_from_ruby(item)
+        self.class._take_ownership_from_ruby(item)
       end
     end
   end

@@ -12,6 +12,12 @@ module RubyQt6
       rubyqt6_declare_enum_under QGraphicsItem, QGraphicsItem::GraphicsItemChange
       rubyqt6_declare_enum_under QGraphicsItem, QGraphicsItem::CacheMode
       rubyqt6_declare_enum_under QGraphicsItem, QGraphicsItem::PanelModality
+
+      private
+
+      def _take_ownership_from_ruby(item)
+        self.class._take_ownership_from_ruby(item)
+      end
     end
   end
 end

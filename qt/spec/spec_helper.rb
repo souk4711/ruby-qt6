@@ -1,4 +1,5 @@
 require "qt6/all"
+require_relative "support"
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|

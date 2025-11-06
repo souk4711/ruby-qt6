@@ -76,6 +76,8 @@ void Init_qtreewidget(Rice::Module rb_mQt6QtWidgets)
     rb_cQTreeWidgetItem =
         // RubyQt6::QtWidgets::QTreeWidgetItem
         define_class_under<QTreeWidgetItem>(rb_mQt6QtWidgets, "QTreeWidgetItem")
+            // RubyQt6-Defined Functions
+            .define_singleton_function("_take_ownership_from_ruby", [](QTreeWidgetItem *) -> void {}, Arg("item").takeOwnership())
             // Constructor
             .define_constructor(Constructor<QTreeWidgetItem>())
             .define_constructor(Constructor<QTreeWidgetItem, QTreeWidget *>(), Arg("treeview"))

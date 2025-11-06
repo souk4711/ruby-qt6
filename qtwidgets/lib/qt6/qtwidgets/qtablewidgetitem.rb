@@ -24,6 +24,13 @@ module RubyQt6
         T.args_nth_to_qstr(args, 0)
         T.args_nth_to_qstr(args, 1)
         _initialize(*args)
+        _take_ownership_from_ruby(self)
+      end
+
+      private
+
+      def _take_ownership_from_ruby(item)
+        self.class._take_ownership_from_ruby(item)
       end
     end
   end

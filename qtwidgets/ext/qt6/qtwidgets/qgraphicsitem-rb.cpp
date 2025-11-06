@@ -29,6 +29,8 @@ void Init_qgraphicsitem(Rice::Module rb_mQt6QtWidgets)
     rb_cQGraphicsItem =
         // RubyQt6::QtWidgets::QGraphicsItem
         define_class_under<QGraphicsItem>(rb_mQt6QtWidgets, "QGraphicsItem")
+            // RubyQt6-Defined Functions
+            .define_singleton_function("_take_ownership_from_ruby", [](QGraphicsItem *) -> void {}, Arg("item").takeOwnership())
             // Public Functions
             .define_method("accept_drops", &QGraphicsItem::acceptDrops)
             .define_method("accept_hover_events", &QGraphicsItem::acceptHoverEvents)

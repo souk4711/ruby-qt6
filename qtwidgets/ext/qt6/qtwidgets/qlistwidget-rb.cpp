@@ -72,6 +72,8 @@ void Init_qlistwidget(Rice::Module rb_mQt6QtWidgets)
     rb_cQListWidgetItem =
         // RubyQt6::QtWidgets::QListWidgetItem
         define_class_under<QListWidgetItem>(rb_mQt6QtWidgets, "QListWidgetItem")
+            // RubyQt6-Defined Functions
+            .define_singleton_function("_take_ownership_from_ruby", [](QListWidgetItem *) -> void {}, Arg("item").takeOwnership())
             // Constructor
             .define_constructor(Constructor<QListWidgetItem>())
             .define_constructor(Constructor<QListWidgetItem, const QString &>(), Arg("text"))
