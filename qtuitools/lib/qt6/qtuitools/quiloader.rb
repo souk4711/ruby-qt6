@@ -11,11 +11,9 @@ module RubyQt6
       # @!visibility private
       alias_method :_initialize, :initialize
 
-      # @param parent [QObject]
       # @return [QUiLoader]
-      def initialize(parent = nil)
-        _initialize(parent)
-        _take_ownership_from_ruby(self)
+      def initialize
+        _initialize
       end
     end
   end

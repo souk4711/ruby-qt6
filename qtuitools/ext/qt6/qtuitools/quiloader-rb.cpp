@@ -17,7 +17,7 @@ void Init_quiloader(Rice::Module rb_mQt6QtUiTools)
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QUiLoader::staticMetaObject; })
             // Constructor
-            .define_constructor(Constructor<QUiLoader, QObject *>(), Arg("parent"))
+            .define_constructor(Constructor<QUiLoader>())
             // Public Functions
             .define_method("add_plugin_path", &QUiLoader::addPluginPath, Arg("path"))
             .define_method("available_layouts", &QUiLoader::availableLayouts)
