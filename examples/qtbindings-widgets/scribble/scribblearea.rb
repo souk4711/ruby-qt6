@@ -73,7 +73,7 @@ class ScribbleArea < RubyQt6::Bando::QWidget
   end
 
   def mouse_move_event(event)
-    return unless (event.buttons & Qt::LeftButton).nonzero? && @scribbling
+    return unless (event.buttons & Qt::LeftButton).to_i.nonzero? && @scribbling
 
     draw_line_to(event.position.to_point)
   end
