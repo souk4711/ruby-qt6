@@ -46,5 +46,8 @@ void Init_qstringlist(Rice::Module rb_mQt6QtCore)
                 Data_Object<QStringList> self_(self);
                 auto r = self_.call("[]=", index, QString(str));
                 return detail::From_Ruby<QString>().convert(r);
+            })
+            .define_method("_join", [](QStringList *self, QString &separator) -> QString {
+                return self->join(separator);
             });
 }
