@@ -34,20 +34,26 @@ module RubyQt6
       alias_method :_initialize, :initialize
 
       # @!visibility private
+      def self.get_existing_directory(parent, caption = "", dir = "", options = nil)
+        options ||= QtWidgets::QFileDialog::Option::ShowDirsOnly
+        _get_existing_directory(parent, T.to_qstr(caption), T.to_qstr(dir), T.to_qflags(options))
+      end
+
+      # @!visibility private
       def self.get_open_file_name(parent, caption = "", dir = "", filter = "", selected_filter = "", options = nil)
-        options ||= QFileDialog::Options.new
+        options ||= QtWidgets::QFileDialog::Options.new
         _get_open_file_name(parent, T.to_qstr(caption), T.to_qstr(dir), T.to_qstr(filter), T.to_qstr(selected_filter), T.to_qflags(options))
       end
 
       # @!visibility private
       def self.get_open_file_names(parent, caption = "", dir = "", filter = "", selected_filter = "", options = nil)
-        options ||= QFileDialog::Options.new
+        options ||= QtWidgets::QFileDialog::Options.new
         _get_open_file_names(parent, T.to_qstr(caption), T.to_qstr(dir), T.to_qstr(filter), T.to_qstr(selected_filter), T.to_qflags(options))
       end
 
       # @!visibility private
       def self.get_save_file_name(parent, caption = "", dir = "", filter = "", selected_filter = "", options = nil)
-        options ||= QFileDialog::Options.new
+        options ||= QtWidgets::QFileDialog::Options.new
         _get_save_file_name(parent, T.to_qstr(caption), T.to_qstr(dir), T.to_qstr(filter), T.to_qstr(selected_filter), T.to_qflags(options))
       end
 
