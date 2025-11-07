@@ -7,12 +7,30 @@ using namespace Rice;
 
 Rice::Class rb_cQFontDialog;
 
+QFont QFontDialog_get_font_2(Object boolean, QWidget *parent)
+{
+    bool ok {};
+    QFont v = QFontDialog::getFont(&ok, parent);
+    if (!boolean.is_nil()) boolean.call("value=", ok);
+    return v;
+}
+
+QFont QFontDialog_get_font_5(Object boolean, const QFont &initial, QWidget *parent, const QString &title, QFontDialog::FontDialogOptions options)
+{
+    bool ok {};
+    QFont v = QFontDialog::getFont(&ok, initial, parent, title, options);
+    if (!boolean.is_nil()) boolean.call("value=", ok);
+    return v;
+}
+
 void Init_qfontdialog(Rice::Module rb_mQt6QtWidgets)
 {
     rb_cQFontDialog =
         // RubyQt6::QtWidgets::QFontDialog
         define_class_under<QFontDialog, QDialog>(rb_mQt6QtWidgets, "QFontDialog")
             // RubyQt6-Defined Functions
+            .define_singleton_function("get_font", &QFontDialog_get_font_2, Arg("ok"), Arg("parent") = static_cast<QWidget *>(nullptr))
+            .define_singleton_function("get_font", &QFontDialog_get_font_5, Arg("ok"), Arg("initial"), Arg("parent") = static_cast<QWidget *>(nullptr), Arg("title") = static_cast<const QString &>(QString()), Arg("options") = static_cast<QFontDialog::FontDialogOptions>(QFontDialog::FontDialogOptions()))
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QFontDialog::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QFontDialog, const QFont &, QWidget *>(), Arg("initial"), Arg("parent"))
@@ -28,10 +46,7 @@ void Init_qfontdialog(Rice::Module rb_mQt6QtWidgets)
             .define_method("test_option", &QFontDialog::testOption, Arg("option"))
             // Signals
             .define_method("current_font_changed", &QFontDialog::currentFontChanged, Arg("font"))
-            .define_method("font_selected", &QFontDialog::fontSelected, Arg("font"))
-            // Static Public Members
-            .define_singleton_function<QFont (*)(bool *, QWidget *)>("get_font", &QFontDialog::getFont, Arg("ok"), Arg("parent") = static_cast<QWidget *>(nullptr))
-            .define_singleton_function<QFont (*)(bool *, const QFont &, QWidget *, const QString &, QFontDialog::FontDialogOptions)>("get_font", &QFontDialog::getFont, Arg("ok"), Arg("initial"), Arg("parent") = static_cast<QWidget *>(nullptr), Arg("title") = static_cast<const QString &>(QString()), Arg("options") = static_cast<QFontDialog::FontDialogOptions>(QFontDialog::FontDialogOptions()));
+            .define_method("font_selected", &QFontDialog::fontSelected, Arg("font"));
 
     Data_Type<QFontDialog::FontDialogOption> rb_cQFontDialogFontDialogOption =
         // RubyQt6::QtWidgets::QFontDialog::FontDialogOption
