@@ -23,7 +23,7 @@ void Init_qwidget(Rice::Module rb_mQt6QtWidgets)
         // RubyQt6::QtWidgets::QWidget
         define_class_under<QWidget, QObject>(rb_mQt6QtWidgets, "QWidget")
             // RubyQt6-Defined Functions
-            .define_method("_ioc_painter_new", [](QWidget *self) -> QPainter * { return new QPainter(self); }, Return().takeOwnerShip())
+            .define_method("_ioc_painter_new", [](QWidget *self) -> QPainter * { return new QPainter(self); }, Return().takeOwnership())
             .define_method("_ioc_painter_begin", [](QWidget *self, QPainter *painter) -> bool { return painter->begin(self); })
             .define_singleton_function("_qvariant_register_metatype", []() -> int { return qRegisterMetaType<QWidget *>(); })
             .define_singleton_function("_qvariant_from_value", [](QWidget *value) -> QVariant { return QVariant::fromValue(value); })

@@ -14,7 +14,7 @@ void Init_qsettings(Rice::Module rb_mQt6QtCore)
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QSettings::staticMetaObject; })
             // Constructor
-            .define_constructor(Constructor<QSettings, QSettings::Format, QSettings::Scope, const QString &, const QString &, QObject *>(), Arg("format"), Arg("scope"), Arg("organization"), Arg("application"), Arg("parent"))
+            .define_constructor(Constructor<QSettings, QSettings::Format, QSettings::Scope, const QString &, const QString &>(), Arg("format"), Arg("scope"), Arg("organization"), Arg("application"))
             // Public Functions
             .define_method("all_keys", &QSettings::allKeys)
             .define_method("application_name", &QSettings::applicationName)

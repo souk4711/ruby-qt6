@@ -20,13 +20,11 @@ module RubyQt6
 
       # @param organization [QString]
       # @param application [QString]
-      # @param parent [QObject]
       # @return [QSettings]
-      def initialize(organization, application, parent = nil)
+      def initialize(organization, application)
         format = QtCore::QSettings.default_format
         scope = QtCore::QSettings::Scope::UserScope
-        _initialize(format, scope, T.to_qstr(organization), T.to_qstr(application), parent)
-        _take_ownership_from_ruby(self)
+        _initialize(format, scope, T.to_qstr(organization), T.to_qstr(application))
       end
 
       # @!visibility private
