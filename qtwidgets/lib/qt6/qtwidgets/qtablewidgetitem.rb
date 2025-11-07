@@ -27,6 +27,11 @@ module RubyQt6
         _take_ownership_from_ruby(self)
       end
 
+      # @!visibility private
+      def set_flags(flags)
+        _set_flags(T.to_qflags(flags))
+      end
+
       private
 
       def _take_ownership_from_ruby(item)
