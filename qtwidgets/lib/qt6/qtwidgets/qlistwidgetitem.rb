@@ -7,6 +7,14 @@ module RubyQt6
       # @!parse class ItemType; end
       rubyqt6_declare_enum_under QListWidgetItem, QListWidgetItem::ItemType
 
+      # @!parse
+      QtCore::QVariant.register(
+        _qvariant_register_metatype,
+        method(:_qvariant_from_value),
+        method(:_qvariant_to_value),
+        from: self
+      )
+
       # @!visibility private
       alias_method :_initialize, :initialize
 
