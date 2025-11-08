@@ -17,7 +17,7 @@ RSpec.describe RubyQt6 do
   end
 
   describe "ownership" do
-    ownership_all = [QObject, QGraphicsItem, QListWidgetItem, QTableWidgetItem, QTreeWidgetItem].flat_map { |klass| Support.self_and_descendants(klass) }
+    ownership_all = [QObject, QGraphicsItem, QStandardItem, QListWidgetItem, QTableWidgetItem, QTreeWidgetItem].flat_map { |klass| Support.self_and_descendants(klass) }
     ownership_rb_ = [QCoreApplication, QGuiApplication, QApplication, QFile, QSettings, QSplashScreen, QUiLoader]
     ownership_cpp = ownership_all - ownership_rb_
 

@@ -43,6 +43,8 @@ require_relative "qtgui/qpolygon"
 require_relative "qtgui/qpolygonf"
 
 require_relative "qtgui/qfilesystemmodel"
+require_relative "qtgui/qstandarditemmodel"
+require_relative "qtgui/qstandarditem"
 require_relative "qtgui/qaction"
 require_relative "qtgui/qactiongroup"
 require_relative "qtgui/qclipboard"

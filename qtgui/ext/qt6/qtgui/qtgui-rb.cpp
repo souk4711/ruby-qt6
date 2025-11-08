@@ -29,6 +29,7 @@
 #include "qtransform-rb.hpp"
 
 #include "qfilesystemmodel-rb.hpp"
+#include "qstandarditemmodel-rb.hpp"
 #include "qaction-rb.hpp"
 #include "qactiongroup-rb.hpp"
 #include "qclipboard-rb.hpp"
@@ -82,6 +83,7 @@ extern "C" void Init_qtgui()
         Init_qtransform(rb_mQt6QtGui);
 
         Init_qfilesystemmodel(rb_mQt6QtGui);
+        Init_qstandarditemmodel(rb_mQt6QtGui);
         Init_qaction(rb_mQt6QtGui);
         Init_qactiongroup(rb_mQt6QtGui);
         Init_qclipboard(rb_mQt6QtGui);
