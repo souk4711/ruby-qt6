@@ -67,10 +67,20 @@ module RubyQt6
       end
 
       # @!visibility private
+      def children
+        _children.map { |child| T.bando_qobject_cast(child) }
+      end
+
+      # @!visibility private
       def find_child(name, options = nil)
         options ||= QtCore::Qt::FindChildrenRecursively
         child = _find_child(T.to_qanystringview(name), T.to_qflags(options))
         T.bando_qobject_cast(child)
+      end
+
+      # @!visibility private
+      def parent
+        T.bando_qobject_cast(_parent)
       end
 
       # @!visibility private
