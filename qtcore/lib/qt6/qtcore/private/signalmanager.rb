@@ -9,8 +9,9 @@ module RubyQt6
           QtCore::QObject._connect(sender, signal.qsignature, receiver, metamethod.qsignature)
         end
 
-        def self.disconnect(conn)
-          QtCore::QObject._disconnect(conn)
+        def self.disconnect(sender, signal, receiver, metamethod)
+          metamethod = QtCore::Private::MetaObject.find_receiver_metamethod!(receiver, metamethod, signal)
+          QtCore::QObject._disconnect(sender, signal.qsignature, receiver, metamethod.qsignature)
         end
 
         def self.emit(sender, signal, *args)

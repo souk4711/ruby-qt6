@@ -13,6 +13,10 @@ module RubyQt6
           QtCore::Private::SignalManager.connect(@sender, @metamethod, receiver, metamethod)
         end
 
+        def disconnect(receiver, metamethod)
+          QtCore::Private::SignalManager.disconnect(@sender, @metamethod, receiver, metamethod)
+        end
+
         def emit(*args)
           QtCore::Private::SignalManager.emit(@sender, @metamethod, *args)
         end
