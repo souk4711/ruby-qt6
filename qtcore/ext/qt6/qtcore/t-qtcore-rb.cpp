@@ -3,6 +3,7 @@
 
 #include <QItemSelectionRange>
 #include <QModelIndex>
+#include <QObject>
 #include <QString>
 #include <QVariant>
 
@@ -18,6 +19,9 @@ void Init_t_qtcore(Rice::Module rb_mQt6T)
 
     // QList<QModelIndex> -> QModelIndexList
     define_qlist_under<QModelIndex>(rb_mQt6T);
+
+    // QList<QObject *>
+    define_qlist_under<QObject *>(rb_mQt6T);
 
     // QList<QString> -> QStringList
     define_qlist_under<QString>(rb_mQt6T);
