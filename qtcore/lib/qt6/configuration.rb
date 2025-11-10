@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "semantic_logger/sync"
-
 module RubyQt6
   # @!visibility private
   def self.load_defaults
@@ -13,12 +11,6 @@ module RubyQt6
       end
     end
 
-    ::SemanticLogger.add_appender(io: $stdout, formatter: :color)
     true
-  end
-
-  # @!visibility private
-  def self.logger
-    @logger ||= ::SemanticLogger["RubyQt6"]
   end
 end

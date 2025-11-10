@@ -32,8 +32,6 @@ Gem::Specification.new do |spec|
   spec.extensions = ["ext/qt6/qtcore/extconf.rb"]
 
   spec.add_runtime_dependency("ruby-qt6-rice", "= 1.0.0")
-  spec.add_runtime_dependency("semantic_logger", "~> 4.17.0")
-  spec.add_runtime_dependency("logger")
 
   # For more information and examples about making a new gem, check out our
   # guide at: https://bundler.io/guides/creating_gem.html

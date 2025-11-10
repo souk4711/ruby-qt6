@@ -28,9 +28,6 @@ module RubyQt6
 
               qmetatype = QtCore::QMetaType.from_name(meth.return_type)
               QtCore::QVariant.new(r, qmetatype)
-            rescue => e
-              RubyQt6.logger.error(e)
-              nil
             end
           end
         end
