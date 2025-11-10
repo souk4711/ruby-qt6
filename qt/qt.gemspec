@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.authors = ["John Doe"]
   spec.email = ["johndoe@example.com"]
 
-  spec.summary = "Ruby Bindings for libQt6"
-  spec.description = "Ruby Bindings for libQt6"
+  spec.summary = "Ruby Bindings for Qt."
+  spec.description = "Ruby Bindings for Qt."
   spec.homepage = "https://github.com/souk4711/ruby-qt6/qt"
   spec.required_ruby_version = ">= 3.1.0"
 

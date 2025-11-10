@@ -8,8 +8,9 @@ Gem::Specification.new do |spec|
   spec.authors = ["John Doe"]
   spec.email = ["johndoe@example.com"]
 
-  spec.summary = "Rice with libQt6 support"
-  spec.description = "Rice with libQt6 support"
+  spec.summary = "Extend the Rice library with support for the Qt framework."
+  spec.description = "Extend the Rice library with support for the Qt framework."
+
   spec.homepage = "https://github.com/souk4711/ruby-qt6/rice"
   spec.required_ruby_version = ">= 3.1.0"
 
