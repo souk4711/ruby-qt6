@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require "dry/inflector"
 require_relative "rspec/bando_file_parser"
 require_relative "rspec/qlass_file_parser"
 
@@ -60,18 +59,25 @@ module RubyQt6
       "QSystemTrayIcon"
     ]
 
-    def self.inflector
-      @inflector ||= ::Dry::Inflector.new do |inflections|
-        inflections.acronym "LongLong"
-        inflections.acronym "UInt"
-        inflections.acronym "ULongLong"
-        inflections.acronym "ULong"
-        inflections.acronym "UShort"
-        inflections.acronym "MSecs"
-        inflections.acronym "QBitmap"
-        inflections.acronym "QMetaObject"
-        inflections.acronym "QObject"
-      end
+    ACRONYM = [
+      "UInt",
+      "ULongLong",
+      "ULong",
+      "UShort",
+      "LongLong",
+      "MSecs",
+      "QBitmap",
+      "QMetaObject",
+      "QObject"
+    ]
+
+    def self.inflector_underscore(str)
+      str = str.dup
+      ACRONYM.each { |acronym| str.gsub!(acronym, "_" + acronym.downcase) }
+      str.gsub!(/([A-Z\d]+)([A-Z][a-z])/, '\1_\2')
+      str.gsub!(/([a-z\d])([A-Z])/, '\1_\2')
+      str.downcase!
+      str
     end
 
     def self.verify_bando_cppfile(cppfile, qmod)
@@ -171,8 +177,8 @@ module RubyQt6
         if method.cppname
           expected =
             case method.cppname
-            when /^is[A-Z]/ then "#{inflector.underscore(method.cppname)}?".sub(/^is_/, "")
-            else inflector.underscore(method.cppname)
+            when /^is[A-Z]/ then "#{inflector_underscore(method.cppname)}?".sub(/^is_/, "")
+            else inflector_underscore(method.cppname)
             end
           if expected != method.rbname.sub(/^_/, "")
             raise method.inspect

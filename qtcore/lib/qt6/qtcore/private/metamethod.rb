@@ -56,7 +56,7 @@ module RubyQt6
 
         def qsignature_name
           case @underlying
-          when :libQt6 then QtCore::Private.inflector.camelize_lower(@name)
+          when :libQt6 then QtCore::Private.inflector.camelize(@name)
           when :ruby then "_rubyqt6_#{QtCore::Private.inflector.underscore(@name)}"
           else raise "Unknown underlying type: #{@underlying}"
           end
