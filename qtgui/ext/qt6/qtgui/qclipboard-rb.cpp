@@ -1,6 +1,6 @@
 #include "qclipboard-rb.hpp"
 #include <qclipboard.h>
-#include <rice/qenum.hpp>
+#include <rice/qt6/qenum.hpp>
 
 #include <QImage>
 #include <QPixmap>

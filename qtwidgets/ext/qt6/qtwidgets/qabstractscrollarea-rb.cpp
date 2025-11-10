@@ -1,6 +1,6 @@
 #include "qabstractscrollarea-rb.hpp"
 #include <qabstractscrollarea.h>
-#include <rice/qenum.hpp>
+#include <rice/qt6/qenum.hpp>
 
 #include <QScrollBar>
 

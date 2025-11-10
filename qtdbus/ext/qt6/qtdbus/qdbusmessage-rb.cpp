@@ -1,6 +1,6 @@
 #include "qdbusmessage-rb.hpp"
 #include <qdbusmessage.h>
-#include <rice/qenum.hpp>
+#include <rice/qt6/qenum.hpp>
 
 using namespace Rice;
 

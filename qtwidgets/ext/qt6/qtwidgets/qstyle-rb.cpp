@@ -1,7 +1,7 @@
 #include "qstyle-rb.hpp"
 #include <qstyle.h>
-#include <rice/qenum.hpp>
-#include <rice/qflags.hpp>
+#include <rice/qt6/qenum.hpp>
+#include <rice/qt6/qflags.hpp>
 
 #include <QApplication>
 #include <QFontMetrics>

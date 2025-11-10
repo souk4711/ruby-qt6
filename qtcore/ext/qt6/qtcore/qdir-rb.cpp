@@ -1,7 +1,7 @@
 #include "qdir-rb.hpp"
 #include <qdir.h>
-#include <rice/qenum.hpp>
-#include <rice/qflags.hpp>
+#include <rice/qt6/qenum.hpp>
+#include <rice/qt6/qflags.hpp>
 
 using namespace Rice;
 

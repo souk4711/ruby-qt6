@@ -1,6 +1,6 @@
 #include "qcombobox-rb.hpp"
 #include <qcombobox.h>
-#include <rice/qenum.hpp>
+#include <rice/qt6/qenum.hpp>
 
 #include <QAbstractItemView>
 #include <QCompleter>

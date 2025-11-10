@@ -1,6 +1,6 @@
 #include "qlayout-rb.hpp"
 #include <qlayout.h>
-#include <rice/qenum.hpp>
+#include <rice/qt6/qenum.hpp>
 
 #include <QWidget>
 

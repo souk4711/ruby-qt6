@@ -1,6 +1,6 @@
 #include "qtextcursor-rb.hpp"
 #include <qtextcursor.h>
-#include <rice/qenum.hpp>
+#include <rice/qt6/qenum.hpp>
 
 #include <QTextBlock>
 #include <QTextDocument>

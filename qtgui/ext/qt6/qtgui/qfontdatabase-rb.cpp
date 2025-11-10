@@ -1,6 +1,6 @@
 #include "qfontdatabase-rb.hpp"
 #include <qfontdatabase.h>
-#include <rice/qenum.hpp>
+#include <rice/qt6/qenum.hpp>
 
 #include <QFontInfo>
 #include <QList>

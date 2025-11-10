@@ -1,6 +1,6 @@
 #include "qpainterpath-rb.hpp"
 #include <qpainterpath.h>
-#include <rice/qenum.hpp>
+#include <rice/qt6/qenum.hpp>
 
 #include <QFont>
 

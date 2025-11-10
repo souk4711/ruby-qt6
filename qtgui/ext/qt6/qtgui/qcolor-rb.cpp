@@ -1,6 +1,6 @@
 #include "qcolor-rb.hpp"
 #include <qcolor.h>
-#include <rice/qenum.hpp>
+#include <rice/qt6/qenum.hpp>
 
 using namespace Rice;
 

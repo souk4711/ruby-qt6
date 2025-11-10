@@ -1,6 +1,6 @@
 #include "qtabbar-rb.hpp"
 #include <qtabbar.h>
-#include <rice/qenum.hpp>
+#include <rice/qt6/qenum.hpp>
 
 using namespace Rice;
 

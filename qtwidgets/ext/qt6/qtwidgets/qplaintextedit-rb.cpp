@@ -1,6 +1,6 @@
 #include "qplaintextedit-rb.hpp"
 #include <qplaintextedit.h>
-#include <rice/qenum.hpp>
+#include <rice/qt6/qenum.hpp>
 
 #include <QMenu>
 #include <QPagedPaintDevice>

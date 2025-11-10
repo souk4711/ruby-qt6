@@ -1,6 +1,6 @@
 #include "qcoreevent-rb.hpp"
 #include <qcoreevent.h>
-#include <rice/qenum.hpp>
+#include <rice/qt6/qenum.hpp>
 
 using namespace Rice;
 

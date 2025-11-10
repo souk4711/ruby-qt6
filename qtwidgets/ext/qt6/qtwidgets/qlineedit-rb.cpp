@@ -1,6 +1,6 @@
 #include "qlineedit-rb.hpp"
 #include <qlineedit.h>
-#include <rice/qenum.hpp>
+#include <rice/qt6/qenum.hpp>
 
 #include <QCompleter>
 #include <QMenu>

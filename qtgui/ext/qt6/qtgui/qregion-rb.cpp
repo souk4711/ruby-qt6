@@ -1,6 +1,6 @@
 #include "qregion-rb.hpp"
 #include <qregion.h>
-#include <rice/qenum.hpp>
+#include <rice/qt6/qenum.hpp>
 
 #include <QBitmap>
 #include <QPolygon>

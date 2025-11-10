@@ -1,6 +1,6 @@
 #include "qimage-rb.hpp"
 #include <qimage.h>
-#include <rice/qenum.hpp>
+#include <rice/qt6/qenum.hpp>
 
 #include <QColorTransform>
 #include <QColorSpace>

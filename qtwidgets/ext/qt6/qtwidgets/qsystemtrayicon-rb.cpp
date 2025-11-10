@@ -1,6 +1,6 @@
 #include "qsystemtrayicon-rb.hpp"
 #include <qsystemtrayicon.h>
-#include <rice/qenum.hpp>
+#include <rice/qt6/qenum.hpp>
 
 #include <QMenu>
 

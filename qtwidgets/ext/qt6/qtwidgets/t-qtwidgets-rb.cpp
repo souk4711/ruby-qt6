@@ -1,5 +1,5 @@
 #include "t-qtwidgets-rb.hpp"
-#include <rice/qlist.hpp>
+#include <rice/qt6/qlist.hpp>
 
 #include <QAbstractButton>
 #include <QAction>

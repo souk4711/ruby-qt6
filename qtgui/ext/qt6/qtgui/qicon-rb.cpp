@@ -1,6 +1,6 @@
 #include "qicon-rb.hpp"
 #include <qicon.h>
-#include <rice/qenum.hpp>
+#include <rice/qt6/qenum.hpp>
 
 #include <QPainter>
 #include <QWindow>

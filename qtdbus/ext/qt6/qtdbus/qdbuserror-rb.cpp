@@ -1,6 +1,6 @@
 #include "qdbuserror-rb.hpp"
 #include <qdbuserror.h>
-#include <rice/qenum.hpp>
+#include <rice/qt6/qenum.hpp>
 
 #include <QDBusMessage>
 

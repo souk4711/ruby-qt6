@@ -1,7 +1,7 @@
 #include "qwidget-rb.hpp"
 #include <qwidget.h>
-#include <rice/qenum.hpp>
-#include <rice/qflags.hpp>
+#include <rice/qt6/qenum.hpp>
+#include <rice/qt6/qflags.hpp>
 
 #include <QBackingStore>
 #include <QGraphicsEffect>

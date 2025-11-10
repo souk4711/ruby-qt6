@@ -1,7 +1,7 @@
 #include "qpainter-rb.hpp"
 #include <qpainter.h>
-#include <rice/qflags.hpp>
-#include <rice/qenum.hpp>
+#include <rice/qt6/qflags.hpp>
+#include <rice/qt6/qenum.hpp>
 
 #include <QGlyphRun>
 #include <QPainterPath>

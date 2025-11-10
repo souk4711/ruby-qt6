@@ -1,6 +1,6 @@
 #include "qabstractitemmodel-rb.hpp"
 #include <qabstractitemmodel.h>
-#include <rice/qenum.hpp>
+#include <rice/qt6/qenum.hpp>
 
 #include <QMimeData>
 #include <QSize>

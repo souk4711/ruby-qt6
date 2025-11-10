@@ -1,6 +1,6 @@
 #include "qkeysequence-rb.hpp"
 #include <qkeysequence.h>
-#include <rice/qenum.hpp>
+#include <rice/qt6/qenum.hpp>
 
 #include <QList>
 

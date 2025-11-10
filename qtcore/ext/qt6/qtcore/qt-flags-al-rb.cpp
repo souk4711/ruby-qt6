@@ -1,7 +1,7 @@
 #include "qt-flags-al-rb.hpp"
 #include <qnamespace.h>
 
-#include <rice/qflags.hpp>
+#include <rice/qt6/qflags.hpp>
 
 using namespace Rice;
 

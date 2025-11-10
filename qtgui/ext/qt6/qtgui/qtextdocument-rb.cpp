@@ -1,7 +1,7 @@
 #include "qtextdocument-rb.hpp"
 #include <qtextdocument.h>
-#include <rice/qenum.hpp>
-#include <rice/qflags.hpp>
+#include <rice/qt6/qenum.hpp>
+#include <rice/qt6/qflags.hpp>
 
 #include <QAbstractTextDocumentLayout>
 #include <QPagedPaintDevice>

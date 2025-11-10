@@ -1,6 +1,6 @@
 #include "qmetatype-rb.hpp"
 #include <qmetatype.h>
-#include <rice/qenum.hpp>
+#include <rice/qt6/qenum.hpp>
 
 using namespace Rice;
 

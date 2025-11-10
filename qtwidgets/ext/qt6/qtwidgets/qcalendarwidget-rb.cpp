@@ -1,6 +1,6 @@
 #include "qcalendarwidget-rb.hpp"
 #include <qcalendarwidget.h>
-#include <rice/qenum.hpp>
+#include <rice/qt6/qenum.hpp>
 
 #include <QTextCharFormat>
 

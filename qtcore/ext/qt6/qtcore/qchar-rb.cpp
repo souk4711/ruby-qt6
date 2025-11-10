@@ -1,6 +1,6 @@
 #include "qchar-rb.hpp"
 #include <qchar.h>
-#include <rice/qenum.hpp>
+#include <rice/qt6/qenum.hpp>
 
 #include <QString>
 

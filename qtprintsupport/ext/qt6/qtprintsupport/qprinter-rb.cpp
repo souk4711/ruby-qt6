@@ -1,6 +1,6 @@
 #include "qprinter-rb.hpp"
 #include <qprinter.h>
-#include <rice/qenum.hpp>
+#include <rice/qt6/qenum.hpp>
 
 #include <QPaintEngine>
 #include <QPrintEngine>

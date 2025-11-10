@@ -1,6 +1,6 @@
 #include "qstandarditemmodel-rb.hpp"
 #include <qstandarditemmodel.h>
-#include <rice/qenum.hpp>
+#include <rice/qt6/qenum.hpp>
 
 #include <QBindable>
 #include <QMimeData>

@@ -1,6 +1,6 @@
 #include "qlcdnumber-rb.hpp"
 #include <qlcdnumber.h>
-#include <rice/qenum.hpp>
+#include <rice/qt6/qenum.hpp>
 
 using namespace Rice;
 

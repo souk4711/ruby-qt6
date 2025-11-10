@@ -1,7 +1,7 @@
 #include "qtextedit-rb.hpp"
 #include <qtextedit.h>
-#include <rice/qenum.hpp>
-#include <rice/qflags.hpp>
+#include <rice/qt6/qenum.hpp>
+#include <rice/qt6/qflags.hpp>
 
 #include <QMenu>
 #include <QPagedPaintDevice>

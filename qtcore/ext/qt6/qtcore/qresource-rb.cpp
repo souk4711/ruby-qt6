@@ -1,6 +1,6 @@
 #include "qresource-rb.hpp"
 #include <qresource.h>
-#include <rice/qenum.hpp>
+#include <rice/qt6/qenum.hpp>
 
 #include <QDateTime>
 

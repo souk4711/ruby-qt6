@@ -1,5 +1,5 @@
 #include "t-qtcore-rb.hpp"
-#include <rice/qlist.hpp>
+#include <rice/qt6/qlist.hpp>
 
 #include <QItemSelectionRange>
 #include <QModelIndex>

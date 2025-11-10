@@ -1,6 +1,6 @@
 #include "bando-rb.hpp"
 #include <bando/common.hpp>
-#include <rice/qenum.hpp>
+#include <rice/qt6/qenum.hpp>
 
 void Init_bando(Rice::Module rb_mQt6Bando)
 {

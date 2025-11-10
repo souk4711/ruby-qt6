@@ -1,6 +1,6 @@
 #include "qprogressbar-rb.hpp"
 #include <qprogressbar.h>
-#include <rice/qenum.hpp>
+#include <rice/qt6/qenum.hpp>
 
 using namespace Rice;
 

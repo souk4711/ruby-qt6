@@ -1,5 +1,5 @@
 #include "t-qtgui-rb.hpp"
-#include <rice/qlist.hpp>
+#include <rice/qt6/qlist.hpp>
 
 #include <QPoint>
 #include <QPointF>

@@ -1,7 +1,7 @@
 #include "qtextstream-rb.hpp"
 #include <qtextstream.h>
-#include <rice/qenum.hpp>
-#include <rice/qflags.hpp>
+#include <rice/qt6/qenum.hpp>
+#include <rice/qt6/qflags.hpp>
 
 #include <QIODevice>
 #include <QLocale>

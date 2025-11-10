@@ -1,6 +1,6 @@
 #include "qsettings-rb.hpp"
 #include <qsettings.h>
-#include <rice/qenum.hpp>
+#include <rice/qt6/qenum.hpp>
 
 using namespace Rice;
 
