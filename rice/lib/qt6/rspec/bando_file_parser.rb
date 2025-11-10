@@ -37,11 +37,7 @@ module RubyQt6
             take_next_line
           end
 
-          @bandoes << OpenStruct.new(
-            name: matched[1],
-            template: matched[2],
-            constructor_args: matched[4]
-          )
+          @bandoes << Struct.new(:name, :template, :constructor_args).new(matched[1], matched[2], matched[4])
         end
 
         @bandoes.each do |bando|

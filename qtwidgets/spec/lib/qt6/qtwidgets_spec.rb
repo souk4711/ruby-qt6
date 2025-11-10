@@ -1,6 +1,6 @@
 RSpec.describe RubyQt6::QtWidgets do
   describe "Bindings" do
-    qmod = OpenStruct.new(name: "QtWidgets")
+    qmod = Struct.new(:name).new("QtWidgets")
 
     Dir.glob("ext/**/bando-q*.cpp").each do |cppfile|
       it cppfile do

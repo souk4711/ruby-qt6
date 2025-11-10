@@ -1,6 +1,6 @@
 RSpec.describe RubyQt6::QtPrintSupport do
   describe "Bindings" do
-    qmod = OpenStruct.new(name: "QtPrintSupport")
+    qmod = Struct.new(:name).new("QtPrintSupport")
 
     Dir.glob("ext/**/bando-q*.cpp").each do |cppfile|
       it cppfile do

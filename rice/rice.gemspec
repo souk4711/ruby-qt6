@@ -32,7 +32,6 @@ Gem::Specification.new do |spec|
 
   spec.add_runtime_dependency("dry-inflector", "~> 1.2.0")
   spec.add_runtime_dependency("rice", "~> 4.7.1")
-  spec.add_runtime_dependency("ostruct")
 
   # For more information and examples about making a new gem, check out our
   # guide at: https://bundler.io/guides/creating_gem.html

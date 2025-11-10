@@ -2,7 +2,7 @@ RSpec.describe RubyQt6::RSpec do
   describe ".verify_bando_cppfile" do
     it "ext/qt6/qtcore/bando-qobject-rb.cpp" do
       cppfile = "ext/qt6/qtcore/bando-qobject-rb.cpp"
-      qmod = OpenStruct.new(name: "QtCore")
+      qmod = Struct.new(:name).new("QtCore")
       rs = RubyQt6::RSpec.verify_bando_cppfile cppfile, qmod
 
       r = rs["QObject"]
@@ -13,13 +13,13 @@ RSpec.describe RubyQt6::RSpec do
   describe ".verify_qlass_cppfile" do
     it "ext/qt6/qtcore/qobject-rb.cpp" do
       cppfile = "ext/qt6/qtcore/qobject-rb.cpp"
-      qmod = OpenStruct.new(name: "QtCore")
+      qmod = Struct.new(:name).new("QtCore")
       rs = RubyQt6::RSpec.verify_qlass_cppfile cppfile, qmod
 
       r = rs["QObject"]
       expect(r.verified_initialize).to eq(1)
       expect(r.verified_methods_count).to eq(41)
-      expect(r.verified_enums_count).to eq(nil)
+      expect(r.verified_enums_count).to eq(0)
 
       qlass = r.qlass
       qlass_methods = qlass.methods.group_by(&:type)
@@ -37,11 +37,11 @@ RSpec.describe RubyQt6::RSpec do
 
     it "ext/qt6/qtcore/qmetamethod-rb.cpp" do
       cppfile = "ext/qt6/qtcore/qmetamethod-rb.cpp"
-      qmod = OpenStruct.new(name: "QtCore")
+      qmod = Struct.new(:name).new("QtCore")
       rs = RubyQt6::RSpec.verify_qlass_cppfile cppfile, qmod
 
       r = rs["QMetaMethod"]
-      expect(r.verified_initialize).to eq(nil)
+      expect(r.verified_initialize).to eq(0)
       expect(r.verified_methods_count).to eq(29)
       expect(r.verified_enums_count).to eq(3)
 

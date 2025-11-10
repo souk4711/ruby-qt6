@@ -1,6 +1,6 @@
 RSpec.describe RubyQt6::QtQuick do
   describe "Bindings" do
-    qmod = OpenStruct.new(name: "QtQuick")
+    qmod = Struct.new(:name).new("QtQuick")
 
     Dir.glob("ext/**/bando-q*.cpp").each do |cppfile|
       it cppfile do

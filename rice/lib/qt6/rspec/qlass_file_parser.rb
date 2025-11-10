@@ -35,7 +35,7 @@ module RubyQt6
         end
 
         while (matched = line.match(/^Rice::Class rb_c(\w+)/))
-          @qlasses << OpenStruct.new(name: matched[1], methods: [], enums: [], flags: [])
+          @qlasses << Struct.new(:name, :methods, :enums, :flags).new(matched[1], [], [], [])
           take_next_line
         end
 
@@ -119,7 +119,7 @@ module RubyQt6
 
         while (matched = line.match(/^Data_Type<(.*)rb_c#{name}(.*) =/))
           break if matched[1].start_with?("QFlags")
-          enum = OpenStruct.new(name: matched[2])
+          enum = Struct.new(:name).new(matched[2])
           qlass.enums << enum
           parse_qlass_definition_enum(qlass, enum)
         end
@@ -130,7 +130,7 @@ module RubyQt6
         end
 
         while (matched = line.match(/^Data_Type<QFlags.*rb_c#{name}(.*) =/))
-          flag = OpenStruct.new(name: matched[1])
+          flag = Struct.new(:name, :enum_name).new(matched[1], "")
           qlass.flags << flag
           parse_qlass_definition_flag(qlass, flag)
         end
@@ -177,7 +177,7 @@ module RubyQt6
         else
           raise "Invalid method line: #{line}"
         end
-        OpenStruct.new(type:, rbname:, cppname:, rawline:)
+        Struct.new(:type, :rbname, :cppname, :rawline).new(type, rbname, cppname, rawline)
       end
 
       def parse_qlass_definition_enum(qlass, enum)

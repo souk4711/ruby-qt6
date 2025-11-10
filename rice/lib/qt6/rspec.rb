@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require "ostruct"
 require "dry/inflector"
 require_relative "rspec/bando_file_parser"
 require_relative "rspec/qlass_file_parser"
@@ -81,7 +80,7 @@ module RubyQt6
 
       rs = {}
       bandoes.each do |bando|
-        r = OpenStruct.new(bando:)
+        r = Struct.new(:bando).new(bando)
         rs[bando.name] = r
 
         rbfile = "lib/qt6/bando/#{bando.name.downcase}.rb"
@@ -99,7 +98,7 @@ module RubyQt6
 
       rs = {}
       qlasses.each do |qlass|
-        r = OpenStruct.new(qlass:)
+        r = Struct.new(:qlass, :verified_initialize, :verified_methods_count, :verified_enums_count, :verified_flags_count).new(qlass, 0, 0, 0, 0)
         rs[qlass.name] = r
 
         rbfile = "lib/qt6/#{qmod.name.downcase}/#{qlass.name.downcase}.rb"
