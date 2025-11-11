@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
 module RubyQt6
-  RUBYGEM_VERSION = "1.0.0"
+  RUBYGEM_VERSION = "1.0.1"
 end

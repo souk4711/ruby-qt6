@@ -1,95 +1,95 @@
 PATH
   remote: ../qtcore
   specs:
-    ruby-qt6-qtcore (1.0.0)
-      ruby-qt6-rice (= 1.0.0)
+    ruby-qt6-qtcore (1.0.1)
+      ruby-qt6-rice (= 1.0.1)
 
 PATH
   remote: ../qtdbus
   specs:
-    ruby-qt6-qtdbus (1.0.0)
+    ruby-qt6-qtdbus (1.0.1)
       ruby-qt6-qtcore (~> 1.0.0)
-      ruby-qt6-rice (= 1.0.0)
+      ruby-qt6-rice (= 1.0.1)
 
 PATH
   remote: ../qtgui
   specs:
-    ruby-qt6-qtgui (1.0.0)
+    ruby-qt6-qtgui (1.0.1)
       ruby-qt6-qtcore (~> 1.0.0)
-      ruby-qt6-rice (= 1.0.0)
+      ruby-qt6-rice (= 1.0.1)
 
 PATH
   remote: ../qtprintsupport
   specs:
-    ruby-qt6-qtprintsupport (1.0.0)
+    ruby-qt6-qtprintsupport (1.0.1)
       ruby-qt6-qtcore (~> 1.0.0)
       ruby-qt6-qtgui (~> 1.0.0)
       ruby-qt6-qtwidgets (~> 1.0.0)
-      ruby-qt6-rice (= 1.0.0)
+      ruby-qt6-rice (= 1.0.1)
 
 PATH
   remote: ../qtqml
   specs:
-    ruby-qt6-qtqml (1.0.0)
+    ruby-qt6-qtqml (1.0.1)
       ruby-qt6-qtcore (~> 1.0.0)
-      ruby-qt6-rice (= 1.0.0)
+      ruby-qt6-rice (= 1.0.1)
 
 PATH
   remote: ../qtquick
   specs:
-    ruby-qt6-qtquick (1.0.0)
+    ruby-qt6-qtquick (1.0.1)
       ruby-qt6-qtcore (~> 1.0.0)
       ruby-qt6-qtgui (~> 1.0.0)
       ruby-qt6-qtqml (~> 1.0.0)
-      ruby-qt6-rice (= 1.0.0)
+      ruby-qt6-rice (= 1.0.1)
 
 PATH
   remote: ../qtquickcontrols2
   specs:
-    ruby-qt6-qtquickcontrols2 (1.0.0)
+    ruby-qt6-qtquickcontrols2 (1.0.1)
       ruby-qt6-qtcore (~> 1.0.0)
       ruby-qt6-qtgui (~> 1.0.0)
       ruby-qt6-qtqml (~> 1.0.0)
       ruby-qt6-qtquick (~> 1.0.0)
-      ruby-qt6-rice (= 1.0.0)
+      ruby-qt6-rice (= 1.0.1)
 
 PATH
   remote: ../qtquickwidgets
   specs:
-    ruby-qt6-qtquickwidgets (1.0.0)
+    ruby-qt6-qtquickwidgets (1.0.1)
       ruby-qt6-qtcore (~> 1.0.0)
       ruby-qt6-qtgui (~> 1.0.0)
       ruby-qt6-qtqml (~> 1.0.0)
       ruby-qt6-qtquick (~> 1.0.0)
       ruby-qt6-qtwidgets (~> 1.0.0)
-      ruby-qt6-rice (= 1.0.0)
+      ruby-qt6-rice (= 1.0.1)
 
 PATH
   remote: ../qtuitools
   specs:
-    ruby-qt6-qtuitools (1.0.0)
+    ruby-qt6-qtuitools (1.0.1)
       ruby-qt6-qtcore (~> 1.0.0)
       ruby-qt6-qtgui (~> 1.0.0)
       ruby-qt6-qtwidgets (~> 1.0.0)
-      ruby-qt6-rice (= 1.0.0)
+      ruby-qt6-rice (= 1.0.1)
 
 PATH
   remote: ../qtwidgets
   specs:
-    ruby-qt6-qtwidgets (1.0.0)
+    ruby-qt6-qtwidgets (1.0.1)
       ruby-qt6-qtcore (~> 1.0.0)
       ruby-qt6-qtgui (~> 1.0.0)
-      ruby-qt6-rice (= 1.0.0)
+      ruby-qt6-rice (= 1.0.1)
 
 PATH
   remote: ../rice
   specs:
-    ruby-qt6-rice (1.0.0)
+    ruby-qt6-rice (1.0.1)
 
 PATH
   remote: .
   specs:
-    ruby-qt6 (1.0.0)
+    ruby-qt6 (1.0.1)
       ruby-qt6-qtcore (~> 1.0.0)
       ruby-qt6-qtdbus (~> 1.0.0)
       ruby-qt6-qtgui (~> 1.0.0)
@@ -100,7 +100,7 @@ PATH
       ruby-qt6-qtquickwidgets (~> 1.0.0)
       ruby-qt6-qtuitools (~> 1.0.0)
       ruby-qt6-qtwidgets (~> 1.0.0)
-      ruby-qt6-rice (= 1.0.0)
+      ruby-qt6-rice (= 1.0.1)
 
 GEM
   remote: https://rubygems.org/

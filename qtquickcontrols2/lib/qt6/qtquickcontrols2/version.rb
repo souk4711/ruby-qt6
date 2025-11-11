@@ -2,6 +2,6 @@
 
 module RubyQt6
   module QtQuickControls2
-    QTQUICKCONTROLS2_RUBYGEM_VERSION = "1.0.0"
+    QTQUICKCONTROLS2_RUBYGEM_VERSION = "1.0.1"
   end
 end
