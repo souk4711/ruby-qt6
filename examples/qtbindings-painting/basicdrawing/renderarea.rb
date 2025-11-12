@@ -31,7 +31,7 @@ class RenderArea < RubyQt6::Bando::QWidget
     @pen = QPen.new
     @brush = QBrush.new
     @pixmap = QPixmap.new
-    @pixmap.load('images/qt-logo.png'.to_qstr)
+    @pixmap.load('images/qt-logo.png')
 
     set_background_role(QPalette::Base)
   end
