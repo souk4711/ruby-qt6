@@ -11,6 +11,10 @@ void Init_qcolor(Rice::Module rb_mQt6QtGui)
     rb_cQColor =
         // RubyQt6::QtGui::QColor
         define_class_under<QColor>(rb_mQt6QtGui, "QColor")
+            // RubyQt6-Defined Functions
+            .define_singleton_function("_qvariant_register_metatype", []() -> int { return qRegisterMetaType<QColor>(); })
+            .define_singleton_function("_qvariant_from_value", [](const QColor &value) -> QVariant { return QVariant::fromValue(value); })
+            .define_singleton_function("_qvariant_to_value", [](const QVariant &qvariant) -> QColor { return qvariant.value<QColor>(); })
             // Constructor
             .define_constructor(Constructor<QColor>())
             .define_constructor(Constructor<QColor, int, int, int>(), Arg("r"), Arg("g"), Arg("b"))
