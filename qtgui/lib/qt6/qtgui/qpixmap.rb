@@ -24,6 +24,12 @@ module RubyQt6
         T.args_nth_to_qstr(args, 0)
         _initialize(*args)
       end
+
+      # @!visibility private
+      def load(file_name, format = "", flags = nil)
+        flags ||= QtCore::Qt::AutoColor
+        _load(T.to_qstr(file_name), format, T.to_qflags(flags))
+      end
     end
   end
 end
