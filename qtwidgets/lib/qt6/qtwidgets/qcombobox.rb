@@ -41,6 +41,12 @@ module RubyQt6
       def add_item(*args)
         _add_item(*args.map { |arg| T.to_qstr(arg) })
       end
+
+      # @!visibility private
+      def find_text(text, flags = nil)
+        flags ||= QtCore::Qt::MatchExactly | QtCore::Qt::MatchCaseSensitive
+        _find_text(T.to_qstr(text), T.to_qflags(flags))
+      end
     end
   end
 end
