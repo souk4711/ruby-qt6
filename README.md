@@ -59,10 +59,6 @@ def main
   widget.quit_clicked.connect(app, :quit)
   widget.show
   exit(app.exec)
-rescue => ex
-  puts ex.message
-  puts ex.backtrace.join("\n")
-  exit(1)
 end
 
 main
