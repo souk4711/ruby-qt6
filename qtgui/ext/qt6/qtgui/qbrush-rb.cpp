@@ -19,7 +19,7 @@ void Init_qbrush(Rice::Module rb_mQt6QtGui)
             .define_constructor(Constructor<QBrush, const QColor &>(), Arg("color"))
             .define_constructor(Constructor<QBrush, const QColor &, Qt::BrushStyle>(), Arg("color"), Arg("bs"))
             .define_constructor(Constructor<QBrush, const QColor &, const QPixmap &>(), Arg("color"), Arg("pixmap"))
-            // .define_constructor(Constructor<QBrush, const QGradient &>(), Arg("gradient"))
+            .define_constructor(Constructor<QBrush, const QGradient &>(), Arg("gradient"))
             .define_constructor(Constructor<QBrush, const QImage &>(), Arg("image"))
             .define_constructor(Constructor<QBrush, const QPixmap &>(), Arg("pixmap"))
             // Public Functions

@@ -9,6 +9,7 @@
 #include "qfontdatabase-rb.hpp"
 #include "qfontinfo-rb.hpp"
 #include "qfontmetrics-rb.hpp"
+#include "qgradient-rb.hpp"
 #include "qicon-rb.hpp"
 #include "qkeysequence-rb.hpp"
 #include "qpaintdevice-rb.hpp"
@@ -63,6 +64,7 @@ extern "C" void Init_qtgui()
         Init_qfontdatabase(rb_mQt6QtGui);
         Init_qfontinfo(rb_mQt6QtGui);
         Init_qfontmetrics(rb_mQt6QtGui);
+        Init_qgradient(rb_mQt6QtGui);
         Init_qicon(rb_mQt6QtGui);
         Init_qkeysequence(rb_mQt6QtGui);
         Init_qpaintdevice(rb_mQt6QtGui);

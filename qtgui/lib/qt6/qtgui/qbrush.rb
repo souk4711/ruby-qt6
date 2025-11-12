@@ -36,6 +36,9 @@ module RubyQt6
       #   @param color [QColor]
       #   @param pixmap [QPixmap]
       #
+      # @overload initialize(gradient)
+      #   @param gradient [QGradient]
+      #
       # @overload initialize(image)
       #   @param image [QImage]
       #
