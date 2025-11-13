@@ -30,6 +30,19 @@ module RubyQt6
         T.args_nth_to_qstr(args, 0)
         _initialize(*args)
       end
+
+      # @!visibility private
+      def set_formats(*formats)
+        _set_formats(to_qtextlayoutformatrangelist(formats))
+      end
+
+      private
+
+      def to_qtextlayoutformatrangelist(array)
+        array.each_with_object(T::QList≺QTextLayout꞉꞉FormatRange≻.new) do |o, memo|
+          memo << o
+        end
+      end
     end
   end
 end

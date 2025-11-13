@@ -42,6 +42,7 @@ require_relative "qtgui/qtexttablecellformat"
 require_relative "qtgui/qtextframeformat"
 require_relative "qtgui/qtexttableformat"
 require_relative "qtgui/qtextlistformat"
+require_relative "qtgui/qtextlayout"
 require_relative "qtgui/qtextlength"
 require_relative "qtgui/qtransform"
 

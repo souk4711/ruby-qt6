@@ -3,6 +3,7 @@
 
 #include <QPoint>
 #include <QPointF>
+#include <QTextLayout>
 #include <QTextLength>
 #include <QScreen>
 
@@ -15,6 +16,9 @@ void Init_t_qtgui(Rice::Module rb_mQt6T)
 
     // QList<QPointF> -> QPolygonF
     define_qlist_under<QPointF>(rb_mQt6T);
+
+    // QList<QTextLayout::FormatRange>
+    define_qlist_under<QTextLayout::FormatRange>(rb_mQt6T);
 
     // QList<QTextLength>
     define_qlist_under<QTextLength>(rb_mQt6T);

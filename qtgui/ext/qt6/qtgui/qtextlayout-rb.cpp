@@ -8,6 +8,7 @@
 using namespace Rice;
 
 Rice::Class rb_cQTextLayout;
+Rice::Class rb_cQTextLayoutFormatRange;
 
 void Init_qtextlayout(Rice::Module rb_mQt6QtGui)
 {
@@ -52,7 +53,7 @@ void Init_qtextlayout(Rice::Module rb_mQt6QtGui)
             .define_method("set_cursor_move_style", &QTextLayout::setCursorMoveStyle, Arg("style"))
             .define_method("set_flags", &QTextLayout::setFlags, Arg("flags"))
             .define_method("set_font", &QTextLayout::setFont, Arg("f"))
-            .define_method("set_formats", &QTextLayout::setFormats, Arg("overrides"))
+            .define_method("_set_formats", &QTextLayout::setFormats, Arg("overrides"))
             .define_method("set_position", &QTextLayout::setPosition, Arg("p"))
             .define_method("set_preedit_area", &QTextLayout::setPreeditArea, Arg("position"), Arg("text"))
             .define_method("set_raw_font", &QTextLayout::setRawFont, Arg("raw_font"))
@@ -76,4 +77,12 @@ void Init_qtextlayout(Rice::Module rb_mQt6QtGui)
         define_qenum_value_under(rb_cQTextLayoutGlyphRunRetrievalFlag, "RetrieveString", QTextLayout::GlyphRunRetrievalFlag::RetrieveString);
         define_qenum_value_under(rb_cQTextLayoutGlyphRunRetrievalFlag, "DefaultRetrievalFlags", QTextLayout::GlyphRunRetrievalFlag::DefaultRetrievalFlags);
         define_qenum_value_under(rb_cQTextLayoutGlyphRunRetrievalFlag, "RetrieveAll", QTextLayout::GlyphRunRetrievalFlag::RetrieveAll);
+
+    rb_cQTextLayoutFormatRange =
+        // RubyQt6::QtGui::QTextLayout::FormatRange
+        define_class_under<QTextLayout::FormatRange>(rb_cQTextLayout, "FormatRange")
+            .define_constructor(Constructor<QTextLayout::FormatRange>())
+            .define_attr("start", &QTextLayout::FormatRange::start)
+            .define_attr("length", &QTextLayout::FormatRange::length)
+            .define_attr("format", &QTextLayout::FormatRange::format);
 }
