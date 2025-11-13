@@ -29,6 +29,11 @@ module RubyQt6
         _initialize(datetime, parent)
         _take_ownership_from_ruby(self)
       end
+
+      # @!visibility private
+      def set_display_format(format)
+        _set_display_format(T.to_qstr(format))
+      end
     end
   end
 end
