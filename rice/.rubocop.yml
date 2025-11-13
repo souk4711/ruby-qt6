@@ -9,7 +9,3 @@ AllCops:
     - "bin/**/*"
     - "tmp/**/*"
     - "lib/mkmf-rice.rb"
-
-Style/GlobalVars:
-  AllowedVariables:
-    - '$qApp'
