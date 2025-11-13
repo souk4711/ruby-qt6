@@ -15,4 +15,4 @@ mkmf.log
 .rspec_status
 
 /examples/**/Gemfile.lock
-/vendor/qt6rice/
+/vendor/

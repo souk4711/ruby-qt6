@@ -74,9 +74,14 @@ namespace :bindgen do
     end
 
     FileUtils.rm_rf("vendor/qt6include")
-    upinc(pkg: "qt6-base-6.9.2-1")
-    upinc(pkg: "qt6-declarative-6.9.2-1")
-    upinc(pkg: "qt6-tools-6.9.2-1")
+    FileUtils.mkdir_p("vendor/qt6include")
+    upinc(pkg: "qt6-base-6.10.0-3")
+    upinc(pkg: "qt6-declarative-6.10.0-2")
+    upinc(pkg: "qt6-multimedia-6.10.0-2")
+    upinc(pkg: "qt6-speech-6.10.0-1")
+    upinc(pkg: "qt6-tools-6.10.0-2")
+    upinc(pkg: "qt6-webengine-6.10.0-3")
+    upinc(pkg: "qt6-webview-6.10.0-1")
   end
 end
 

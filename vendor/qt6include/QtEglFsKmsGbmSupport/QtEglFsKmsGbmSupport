@@ -1,5 +1,0 @@
-#ifndef QT_QTEGLFSKMSGBMSUPPORT_MODULE_H
-#define QT_QTEGLFSKMSGBMSUPPORT_MODULE_H
-#include <QtEglFsKmsGbmSupport/QtEglFsKmsGbmSupportDepends>
-#include "qteglfskmsgbmsupportversion.h"
-#endif
