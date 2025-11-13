@@ -26,6 +26,7 @@
 #include "qregion-rb.hpp"
 #include "qtextcursor-rb.hpp"
 #include "qtextformat-rb.hpp"
+#include "qtextlayout-rb.hpp"
 #include "qtextoption-rb.hpp"
 #include "qtransform-rb.hpp"
 
@@ -81,6 +82,7 @@ extern "C" void Init_qtgui()
         Init_qregion(rb_mQt6QtGui);
         Init_qtextcursor(rb_mQt6QtGui);
         Init_qtextformat(rb_mQt6QtGui);
+        Init_qtextlayout(rb_mQt6QtGui);
         Init_qtextoption(rb_mQt6QtGui);
         Init_qtransform(rb_mQt6QtGui);
 
