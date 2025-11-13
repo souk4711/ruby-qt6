@@ -2,6 +2,7 @@
 
 require_relative "rspec/bando_file_parser"
 require_relative "rspec/qlass_file_parser"
+require_relative "rspec/version"
 
 module RubyQt6
   module RSpec
