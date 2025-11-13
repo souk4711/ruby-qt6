@@ -7,6 +7,7 @@ using namespace Rice;
 
 Rice::Class rb_cQRegularExpression;
 Rice::Class rb_cQRegularExpressionMatch;
+Rice::Class rb_cQRegularExpressionMatchIterator;
 
 void Init_qregularexpression(Rice::Module rb_mQt6QtCore)
 {
@@ -111,4 +112,15 @@ void Init_qregularexpression(Rice::Module rb_mQt6QtCore)
             .define_method("match_options", &QRegularExpressionMatch::matchOptions)
             .define_method("match_type", &QRegularExpressionMatch::matchType)
             .define_method("regular_expression", &QRegularExpressionMatch::regularExpression);
+
+    rb_cQRegularExpressionMatchIterator =
+        // RubyQt6::QtCore::QRegularExpressionMatchIterator
+        define_class_under<QRegularExpressionMatchIterator>(rb_mQt6QtCore, "QRegularExpressionMatchIterator")
+            // Public Functions
+            .define_method("has_next", &QRegularExpressionMatchIterator::hasNext)
+            .define_method("match_options", &QRegularExpressionMatchIterator::matchOptions)
+            .define_method("match_type", &QRegularExpressionMatchIterator::matchType)
+            .define_method("next", &QRegularExpressionMatchIterator::next)
+            .define_method("peek_next", &QRegularExpressionMatchIterator::peekNext)
+            .define_method("regular_expression", &QRegularExpressionMatchIterator::regularExpression);
 }
