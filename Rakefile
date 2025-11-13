@@ -135,7 +135,7 @@ task :yard, [:server] do |_, args|
   Dir.chdir(src) do
     yardopts = []
     yardopts << "-n"
-    yardopts << "--exclude lib/mkmf-rubyqt6.rb"
+    yardopts << "--exclude lib/mkmf-*.rb"
     sh "yard #{yardopts.join(" ")}"
     sh "yard server" if args.server
   end
