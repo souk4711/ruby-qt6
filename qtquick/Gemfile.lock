@@ -24,6 +24,11 @@ PATH
     ruby-qt6-rice (1.0.1)
 
 PATH
+  remote: ../rspec
+  specs:
+    ruby-qt6-rspec (1.0.0)
+
+PATH
   remote: .
   specs:
     ruby-qt6-qtquick (1.0.1)
@@ -181,6 +186,7 @@ DEPENDENCIES
   ruby-qt6-qtqml!
   ruby-qt6-qtquick!
   ruby-qt6-rice!
+  ruby-qt6-rspec!
   solargraph
   standard
   yard

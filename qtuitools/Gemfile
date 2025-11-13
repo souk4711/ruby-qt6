@@ -6,7 +6,7 @@ source "https://rubygems.org"
 gemspec
 
 # ruby-qt6
-%w[rice qtcore qtgui qtwidgets].each do |lib|
+%w[rspec rice qtcore qtgui qtwidgets].each do |lib|
   gem "ruby-qt6-#{lib}", path: "../#{lib}"
 end
 
