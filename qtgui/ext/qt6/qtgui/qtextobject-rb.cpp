@@ -1,14 +1,63 @@
 #include "qtextobject-rb.hpp"
 #include <qtextobject.h>
 
+#include <QTextList>
+
 using namespace Rice;
 
+Rice::Class rb_cQTextBlock;
 Rice::Class rb_cQTextObject;
 Rice::Class rb_cQTextBlockGroup;
 Rice::Class rb_cQTextFrame;
 
+int QTextBlock_operator_compare(QTextBlock *lhs, QTextBlock *rhs)
+{
+    if (*lhs < *rhs) return -1;
+    if (*rhs < *lhs) return  1;
+    return 0;
+}
+
 void Init_qtextobject(Rice::Module rb_mQt6QtGui)
 {
+    rb_cQTextBlock =
+        // RubyQt6::QtGui::QTextBlock
+        define_class_under<QTextBlock>(rb_mQt6QtGui, "QTextBlock")
+            // RubyQt6-Defined Functions
+            .define_singleton_function("_operator_compare", QTextBlock_operator_compare, Arg("lhs"), Arg("rhs"))
+            // Constructor
+            .define_constructor(Constructor<QTextBlock>())
+            // Public Functions
+            .define_method("block_format", &QTextBlock::blockFormat)
+            .define_method("block_format_index", &QTextBlock::blockFormatIndex)
+            .define_method("block_number", &QTextBlock::blockNumber)
+            .define_method("char_format", &QTextBlock::charFormat)
+            .define_method("char_format_index", &QTextBlock::charFormatIndex)
+            .define_method("clear_layout", &QTextBlock::clearLayout)
+            .define_method("contains", &QTextBlock::contains, Arg("position"))
+            .define_method("document", &QTextBlock::document)
+            .define_method("first_line_number", &QTextBlock::firstLineNumber)
+            .define_method("fragment_index", &QTextBlock::fragmentIndex)
+            .define_method("valid?", &QTextBlock::isValid)
+            .define_method("visible?", &QTextBlock::isVisible)
+            .define_method("layout", &QTextBlock::layout)
+            .define_method("length", &QTextBlock::length)
+            .define_method("line_count", &QTextBlock::lineCount)
+            .define_method("next", &QTextBlock::next)
+            .define_method("position", &QTextBlock::position)
+            .define_method("previous", &QTextBlock::previous)
+            .define_method("revision", &QTextBlock::revision)
+            .define_method("set_line_count", &QTextBlock::setLineCount, Arg("count"))
+            .define_method("set_revision", &QTextBlock::setRevision, Arg("rev"))
+            .define_method("set_user_data", &QTextBlock::setUserData, Arg("data"))
+            .define_method("set_user_state", &QTextBlock::setUserState, Arg("state"))
+            .define_method("set_visible", &QTextBlock::setVisible, Arg("visible"))
+            .define_method("text", &QTextBlock::text)
+            .define_method("text_direction", &QTextBlock::textDirection)
+            .define_method("text_formats", &QTextBlock::textFormats)
+            .define_method("text_list", &QTextBlock::textList)
+            .define_method("user_data", &QTextBlock::userData)
+            .define_method("user_state", &QTextBlock::userState);
+
     rb_cQTextObject =
         // RubyQt6::QtGui::QTextObject
         define_class_under<QTextObject, QObject>(rb_mQt6QtGui, "QTextObject")
