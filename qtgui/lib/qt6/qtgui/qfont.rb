@@ -57,6 +57,11 @@ module RubyQt6
       end
 
       # @!visibility private
+      def set_family(family)
+        _set_family(T.to_qstr(family))
+      end
+
+      # @!visibility private
       def to_s
         to_string.to_s
       end
