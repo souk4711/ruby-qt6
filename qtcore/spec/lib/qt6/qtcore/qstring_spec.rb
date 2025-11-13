@@ -90,4 +90,25 @@ RSpec.describe RubyQt6::QtCore::QString do
       expect { o[-1] = "xyz" }.to raise_error("index -1 out of string")
     end
   end
+
+  it "#index" do
+    [String, described_class].each do |klass|
+      o = klass.new("foo")
+      expect(o.index("f")).to eq(0)
+      expect(o.index("o")).to eq(1)
+      expect(o.index("oo")).to eq(1)
+      expect(o.index("ooo")).to eq(nil)
+
+      o = klass.new("foo")
+      expect(o.index("o", 1)).to eq(1)
+      expect(o.index("o", 2)).to eq(2)
+      expect(o.index("o", 3)).to eq(nil)
+
+      o = klass.new("foo")
+      expect(o.index("o", -1)).to eq(2)
+      expect(o.index("o", -2)).to eq(1)
+      expect(o.index("o", -3)).to eq(1)
+      expect(o.index("o", -4)).to eq(nil)
+    end
+  end
 end

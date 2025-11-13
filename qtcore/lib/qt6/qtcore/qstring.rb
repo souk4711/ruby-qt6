@@ -30,7 +30,7 @@ module RubyQt6
       # @!visibility private
       def index_of(*args)
         T.args_nth_to_qstr(args, 0)
-        _index_of(*args)
+        _index_of(*args).tap { |r| return nil if r == -1 }
       end
       alias_method :index, :index_of
 
