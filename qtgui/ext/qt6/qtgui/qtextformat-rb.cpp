@@ -13,6 +13,7 @@ Rice::Class rb_cQTextTableCellFormat;
 Rice::Class rb_cQTextFrameFormat;
 Rice::Class rb_cQTextTableFormat;
 Rice::Class rb_cQTextListFormat;
+Rice::Class rb_cQTextLength;
 
 void Init_qtextformat(Rice::Module rb_mQt6QtGui)
 {
@@ -548,4 +549,22 @@ void Init_qtextformat(Rice::Module rb_mQt6QtGui)
         define_qenum_value_under(rb_cQTextListFormatStyle, "ListLowerRoman", QTextListFormat::Style::ListLowerRoman);
         define_qenum_value_under(rb_cQTextListFormatStyle, "ListUpperRoman", QTextListFormat::Style::ListUpperRoman);
         define_qenum_value_under(rb_cQTextListFormatStyle, "ListStyleUndefined", QTextListFormat::Style::ListStyleUndefined);
+
+    rb_cQTextLength =
+        // RubyQt6::QtGui::QTextLength
+        define_class_under<QTextLength>(rb_mQt6QtGui, "QTextLength")
+            // Constructor
+            .define_constructor(Constructor<QTextLength>())
+            .define_constructor(Constructor<QTextLength, QTextLength::Type, qreal>(), Arg("type"), Arg("value"))
+            // Public Functions
+            .define_method("raw_value", &QTextLength::rawValue)
+            .define_method("type", &QTextLength::type)
+            .define_method("value", &QTextLength::value, Arg("maximum_length"));
+
+    Data_Type<QTextLength::Type> rb_cQTextLengthType =
+        // RubyQt6::QtGui::QTextLength::Type
+        define_qenum_under<QTextLength::Type>(rb_cQTextLength, "Type");
+        define_qenum_value_under(rb_cQTextLengthType, "VariableLength", QTextLength::Type::VariableLength);
+        define_qenum_value_under(rb_cQTextLengthType, "FixedLength", QTextLength::Type::FixedLength);
+        define_qenum_value_under(rb_cQTextLengthType, "PercentageLength", QTextLength::Type::PercentageLength);
 }
