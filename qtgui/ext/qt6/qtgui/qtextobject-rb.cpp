@@ -10,20 +10,11 @@ Rice::Class rb_cQTextObject;
 Rice::Class rb_cQTextBlockGroup;
 Rice::Class rb_cQTextFrame;
 
-int QTextBlock_operator_compare(QTextBlock *lhs, QTextBlock *rhs)
-{
-    if (*lhs < *rhs) return -1;
-    if (*rhs < *lhs) return  1;
-    return 0;
-}
-
 void Init_qtextobject(Rice::Module rb_mQt6QtGui)
 {
     rb_cQTextBlock =
         // RubyQt6::QtGui::QTextBlock
         define_class_under<QTextBlock>(rb_mQt6QtGui, "QTextBlock")
-            // RubyQt6-Defined Functions
-            .define_singleton_function("_operator_compare", QTextBlock_operator_compare, Arg("lhs"), Arg("rhs"))
             // Constructor
             .define_constructor(Constructor<QTextBlock>())
             // Public Functions
@@ -56,7 +47,10 @@ void Init_qtextobject(Rice::Module rb_mQt6QtGui)
             .define_method("text_formats", &QTextBlock::textFormats)
             .define_method("text_list", &QTextBlock::textList)
             .define_method("user_data", &QTextBlock::userData)
-            .define_method("user_state", &QTextBlock::userState);
+            .define_method("user_state", &QTextBlock::userState)
+            .define_method("==", &QTextBlock::operator==, Arg("o"))
+            .define_method("!=", &QTextBlock::operator!=, Arg("o"))
+            .define_method("<", &QTextBlock::operator<, Arg("o"));
 
     rb_cQTextObject =
         // RubyQt6::QtGui::QTextObject

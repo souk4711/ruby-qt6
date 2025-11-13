@@ -35,12 +35,13 @@ module RubyQt6
       "QApplication" => ["_all_widgets", "_top_level_widgets"]
     }
     NO_VERIFY_QLASS_OPERATOR_METHODS = {
-      "QTextStream" => ["<<"],
       "QString" => ["[]", "[]="],
       "QPoint" => ["*", "+", "-", "/", "+@", "-@"],
       "QPointF" => ["*", "+", "-", "/", "+@", "-@"],
       "QSize" => ["*", "+", "-", "/"],
-      "QSizeF" => ["*", "+", "-", "/"]
+      "QSizeF" => ["*", "+", "-", "/"],
+      "QTextBlock" => ["==", "!=", "<"],
+      "QTextStream" => ["<<"]
     }
     NO_VERIFY_QLASS_QOBJECT_INITIALIZE = [
       "QCoreApplication",
