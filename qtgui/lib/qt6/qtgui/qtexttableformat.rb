@@ -11,6 +11,19 @@ module RubyQt6
       def initialize
         _initialize
       end
+
+      # @!visibility private
+      def set_column_width_constraints(*args)
+        _set_column_width_constraints(to_qtextlengthlist(args))
+      end
+
+      private
+
+      def to_qtextlengthlist(array)
+        array.each_with_object(T::QList≺QTextLength≻.new) do |o, memo|
+          memo << o
+        end
+      end
     end
   end
 end

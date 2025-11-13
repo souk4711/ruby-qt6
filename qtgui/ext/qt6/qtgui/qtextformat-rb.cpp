@@ -515,7 +515,7 @@ void Init_qtextformat(Rice::Module rb_mQt6QtGui)
             .define_method("set_border_collapse", &QTextTableFormat::setBorderCollapse, Arg("border_collapse"))
             .define_method("set_cell_padding", &QTextTableFormat::setCellPadding, Arg("padding"))
             .define_method("set_cell_spacing", &QTextTableFormat::setCellSpacing, Arg("spacing"))
-            .define_method("set_column_width_constraints", &QTextTableFormat::setColumnWidthConstraints, Arg("constraints"))
+            .define_method("_set_column_width_constraints", &QTextTableFormat::setColumnWidthConstraints, Arg("constraints"))
             .define_method("set_columns", &QTextTableFormat::setColumns, Arg("columns"))
             .define_method("set_header_row_count", &QTextTableFormat::setHeaderRowCount, Arg("count"));
 
