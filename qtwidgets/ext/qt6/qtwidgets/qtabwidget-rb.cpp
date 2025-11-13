@@ -18,8 +18,8 @@ void Init_qtabwidget(Rice::Module rb_mQt6QtWidgets)
             // Constructor
             .define_constructor(Constructor<QTabWidget, QWidget *>(), Arg("parent"))
             // Public Functions
-            .define_method<int (QTabWidget::*)(QWidget *, const QIcon &, const QString &)>("add_tab", &QTabWidget::addTab, Arg("widget"), Arg("icon"), Arg("label"))
-            .define_method<int (QTabWidget::*)(QWidget *, const QString &)>("add_tab", &QTabWidget::addTab, Arg("widget"), Arg("label"))
+            .define_method<int (QTabWidget::*)(QWidget *, const QIcon &, const QString &)>("_add_tab", &QTabWidget::addTab, Arg("widget"), Arg("icon"), Arg("label"))
+            .define_method<int (QTabWidget::*)(QWidget *, const QString &)>("_add_tab", &QTabWidget::addTab, Arg("widget"), Arg("label"))
             .define_method("clear", &QTabWidget::clear)
             .define_method("corner_widget", &QTabWidget::cornerWidget, Arg("corner") = static_cast<Qt::Corner>(Qt::TopRightCorner))
             .define_method("count", &QTabWidget::count)

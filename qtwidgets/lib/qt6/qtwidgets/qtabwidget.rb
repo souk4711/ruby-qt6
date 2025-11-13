@@ -28,6 +28,12 @@ module RubyQt6
         _initialize(parent)
         _take_ownership_from_ruby(self)
       end
+
+      # @!visibility private
+      def add_tab(*args)
+        T.args_nth_to_qstr(args, -1)
+        _add_tab(*args)
+      end
     end
   end
 end
