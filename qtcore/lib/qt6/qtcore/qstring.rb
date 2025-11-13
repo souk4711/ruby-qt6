@@ -28,6 +28,13 @@ module RubyQt6
       end
 
       # @!visibility private
+      def index_of(*args)
+        T.args_nth_to_qstr(args, 0)
+        _index_of(*args)
+      end
+      alias_method :index, :index_of
+
+      # @!visibility private
       def split(*args)
         T.args_nth_to_qstr(args, 0)
         _split(*args)
