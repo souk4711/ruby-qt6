@@ -3,7 +3,9 @@
 QT6_LIBS = %w[
   QtCore QtGui QtWidgets
   QtQml QtQuick QtQuickControls2 QtQuickWidgets
-  QtPrintSupport QtUiTools
+  QtMultimedia QtMultimediaWidgets
+  QtWebEngineCore QtWebEngineWidgets QtWebView
+  QtPrintSupport QtTextToSpeech QtUiTools
   QtDBus
 ].freeze
 
@@ -15,7 +17,7 @@ namespace :bindgen do
     require "ruby-bindgen"
 
     clang_args = []
-    clang_args << "-I/usr/lib/clang/20/include"
+    clang_args << "-I/usr/lib/clang/21/include"
     clang_args << "-I./vendor/qt6include"
     clang_args << "-I./vendor/qt6include/#{extension}"
     clang_args << "-xc++"
@@ -38,7 +40,7 @@ namespace :bindgen do
 
   desc "Generate Rice bindings for libQt6"
   task :all do
-    qt6libs.each { |lib| system("rake bindgen:#{lib.downcase}") }
+    QT6_LIBS.each { |lib| system("rake bindgen:#{lib.downcase}") }
   end
 
   desc "Generate Rice bindings for qlass"
