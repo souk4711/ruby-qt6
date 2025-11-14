@@ -4,6 +4,7 @@
 #include "qjsengine-rb.hpp"
 #include "qqmlengine-rb.hpp"
 #include "qqmlapplicationengine-rb.hpp"
+#include "qqmlcontext-rb.hpp"
 
 extern "C" void Init_qtqml()
 {
@@ -16,5 +17,6 @@ extern "C" void Init_qtqml()
         Init_qjsengine(rb_mQt6QtQml);
         Init_qqmlengine(rb_mQt6QtQml);
         Init_qqmlapplicationengine(rb_mQt6QtQml);
+        Init_qqmlcontext(rb_mQt6QtQml);
     });
 }

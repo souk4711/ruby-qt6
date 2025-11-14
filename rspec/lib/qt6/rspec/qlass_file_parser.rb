@@ -8,7 +8,8 @@ module RubyQt6
         "QPainterPathElement",
         "QFormLayoutTakeRowResult",
         "QTextEditExtraSelection",
-        "QTextLayoutFormatRange"
+        "QTextLayoutFormatRange",
+        "QQmlContextPropertyPair"
       ]
 
       class MissingLine < StandardError
