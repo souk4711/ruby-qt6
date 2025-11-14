@@ -10,6 +10,7 @@ gemspec
   rice
   qtcore qtgui qtwidgets
   qtqml qtquick qtquickcontrols2 qtquickwidgets
+  qtwebenginecore
   qtprintsupport qtuitools
 ].each do |lib|
   gem "ruby-qt6-#{lib}", path: "../#{lib}"

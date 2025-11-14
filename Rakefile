@@ -3,9 +3,8 @@
 QT6_LIBS = %w[
   QtCore QtGui QtWidgets
   QtQml QtQuick QtQuickControls2 QtQuickWidgets
-  QtMultimedia QtMultimediaWidgets
-  QtWebEngineCore QtWebEngineWidgets QtWebView
-  QtPrintSupport QtTextToSpeech QtUiTools
+  QtWebEngineCore
+  QtPrintSupport QtUiTools
   QtDBus
 ].freeze
 
