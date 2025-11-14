@@ -44,10 +44,8 @@ public:
         this->define_comparable_methods();
         this->define_insert_methods();
         this->define_remove_methods();
-        this->define_replace_methods();
         this->define_enumerable();
         this->define_to_array();
-        this->define_to_s();
     }
 
 private:
@@ -98,6 +96,7 @@ private:
         klass_.define_method("count", [](QList_T *self) -> qsizetype {
             return self->size();
         });
+
         klass_.define_method("count", [](QList_T *self, Parameter_T element) -> qsizetype {
             return self->count(element);
         });
@@ -138,6 +137,21 @@ private:
             return std::nullopt;
         });
 
+        klass_.define_method("[]=", [](QList_T*self, qsizetype index, Parameter_T element) -> Parameter_T {
+            if (index < 0) {
+                index = index + self->size();
+                if (index < 0) throw std::out_of_range("index " + std::to_string(index - self->size()) + " too small for array; minimum: -" + std::to_string(self->size()));
+            } else if (index > self->size()) {
+                throw std::out_of_range("index " + std::to_string(index) + " too big");
+            }
+            if (index == self->size()) {
+                self->push_back(element);
+            } else {
+                self->replace(index, element);
+            }
+            return element;
+        });
+
         rb_define_alias(klass_, "<<", "push");
     }
 
@@ -169,24 +183,6 @@ private:
         });
     }
 
-    void define_replace_methods()
-    {
-        klass_.define_method("[]=", [](QList_T*self, qsizetype index, Parameter_T element) -> Parameter_T {
-            if (index < 0) {
-                index = index + self->size();
-                if (index < 0) throw std::out_of_range("index " + std::to_string(index - self->size()) + " too small for array; minimum: -" + std::to_string(self->size()));
-            } else if (index > self->size()) {
-                throw std::out_of_range("index " + std::to_string(index) + " too big");
-            }
-            if (index == self->size()) {
-                self->push_back(element);
-            } else {
-                self->replace(index, element);
-            }
-            return element;
-        });
-    }
-
     void define_enumerable()
     {
         klass_.include_module(rb_mEnumerable);
@@ -201,10 +197,6 @@ private:
     void define_to_array()
     {
         rb_define_alias(klass_, "to_ary", "to_a");
-    }
-
-    void define_to_s()
-    {
     }
 
 private:
