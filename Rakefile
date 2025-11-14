@@ -3,7 +3,7 @@
 QT6_LIBS = %w[
   QtCore QtGui QtWidgets
   QtQml QtQuick QtQuickControls2 QtQuickWidgets
-  QtMultimedia
+  QtMultimedia QtMultimediaWidgets
   QtWebEngineCore QtWebEngineWidgets QtWebView
   QtPrintSupport QtUiTools
   QtDBus
