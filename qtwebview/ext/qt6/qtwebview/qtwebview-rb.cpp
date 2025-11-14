@@ -1,5 +1,6 @@
 #include "qtwebview-rb.hpp"
 #include "qtwebviewversion-rb.hpp"
+#include "qtwebviewfunctions-rb.hpp"
 
 extern "C" void Init_qtwebview()
 {
@@ -8,5 +9,6 @@ extern "C" void Init_qtwebview()
         Rice::Module rb_mQt6QtWebView = define_module_under(rb_mQt6, "QtWebView");
 
         Init_qtwebviewversion(rb_mQt6QtWebView);
+        Init_qtwebviewfunctions(rb_mQt6QtWebView);
     });
 }
