@@ -1,11 +1,11 @@
 #include "t-qtcore-rb.hpp"
 #include <rice/qt6/qlist.hpp>
+#include <rice/qt6/qmap.hpp>
 
 #include <QItemSelectionRange>
 #include <QModelIndex>
 #include <QString>
 #include <QVariant>
-
 #include <QObject>
 
 using namespace Rice;
@@ -27,7 +27,9 @@ void Init_t_qtcore(Rice::Module rb_mQt6T)
     // QList<QVariant>
     define_qlist_under<QVariant>(rb_mQt6T);
 
-
     // QList<QObject *>
     define_qlist_under<QObject *>(rb_mQt6T);
+
+    // QMap<QString, QVariant>
+    define_qmap_under<QString, QVariant>(rb_mQt6T);
 }
