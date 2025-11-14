@@ -26,6 +26,11 @@ module RubyQt6
       # @!visibility private
       alias_method :_initialize, :initialize
 
+      # @!visibility private
+      def self.from_local_file(local_file)
+        _from_local_file(T.to_qstr(local_file))
+      end
+
       # @return [QUrl]
       #
       # @overload initialize

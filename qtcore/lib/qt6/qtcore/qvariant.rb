@@ -19,6 +19,8 @@ module RubyQt6
         T.inspect_struct(self, type: type_name)
       end
 
+      private
+
       # @!visibility private
       def self.to_qobject(qvariant)
         T.bando_qobject_cast(_to_qobject(qvariant))

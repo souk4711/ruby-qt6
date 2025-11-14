@@ -64,7 +64,7 @@ void Init_qurl(Rice::Module rb_mQt6QtCore)
             // Static Public Members
             .define_singleton_function("from_ace", &QUrl::fromAce, Arg("domain"), Arg("options") = static_cast<QUrl::AceProcessingOptions>(QUrl::AceProcessingOptions {}))
             .define_singleton_function("from_encoded", &QUrl::fromEncoded, Arg("input"), Arg("mode") = static_cast<QUrl::ParsingMode>(QUrl::ParsingMode::TolerantMode))
-            .define_singleton_function("from_local_file", &QUrl::fromLocalFile, Arg("localfile"))
+            .define_singleton_function("_from_local_file", &QUrl::fromLocalFile, Arg("localfile"))
             .define_singleton_function("from_percent_encoding", &QUrl::fromPercentEncoding, Arg("input"))
             .define_singleton_function("from_string_list", &QUrl::fromStringList, Arg("uris"), Arg("mode") = static_cast<QUrl::ParsingMode>(QUrl::ParsingMode::TolerantMode))
             .define_singleton_function("from_user_input", &QUrl::fromUserInput, Arg("user_input"), Arg("working_directory") = static_cast<const QString &>(QString()), Arg("options") = static_cast<QUrl::UserInputResolutionOptions>(QUrl::UserInputResolutionOption::DefaultResolution))
