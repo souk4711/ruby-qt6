@@ -39,6 +39,7 @@
 #include "qmovie-rb.hpp"
 #include "qscreen-rb.hpp"
 #include "qshortcut-rb.hpp"
+#include "qstylehints-rb.hpp"
 #include "qtextdocument-rb.hpp"
 #include "qtextobject-rb.hpp"
 #include "qtextlist-rb.hpp"
@@ -95,6 +96,7 @@ extern "C" void Init_qtgui()
         Init_qmovie(rb_mQt6QtGui);
         Init_qscreen(rb_mQt6QtGui);
         Init_qshortcut(rb_mQt6QtGui);
+        Init_qstylehints(rb_mQt6QtGui);
         Init_qtextdocument(rb_mQt6QtGui);
         Init_qtextobject(rb_mQt6QtGui);
         Init_qtextlist(rb_mQt6QtGui);
