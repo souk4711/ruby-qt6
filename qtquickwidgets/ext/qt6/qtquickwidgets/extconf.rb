@@ -11,6 +11,7 @@ includedir = qt_install_headers
 append_cppflags("-I#{includedir}")
 append_cppflags("-I#{includedir}/QtCore")
 append_cppflags("-I#{includedir}/QtGui")
+append_cppflags("-I#{includedir}/QtWidgets")
 append_cppflags("-I#{includedir}/QtQml")
 append_cppflags("-I#{includedir}/QtQuick")
 append_cppflags("-I#{includedir}/QtQuickWidgets")
