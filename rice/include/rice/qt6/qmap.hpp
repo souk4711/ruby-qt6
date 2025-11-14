@@ -44,10 +44,8 @@ public:
         this->define_comparable_methods();
         this->define_insert_methods();
         this->define_remove_methods();
-        this->define_replace_methods();
         this->define_enumerable();
         this->define_to_hash();
-        this->define_to_s();
     }
 
 private:
@@ -66,34 +64,81 @@ private:
 
     void define_access_methods()
     {
+        klass_.define_method("[]", [](QMap_T *self, Key_T &key) -> std::optional<Mapped_T> {
+            auto iter = self->find(key);
+            if (iter != self->end())
+                return iter.value();
+            return std::nullopt;
+        });
+
+        klass_.define_method("keys", [](QMap_T *self) -> QList<Key_T> {
+            return self->keys();
+        });
+
+        klass_.define_method("values", [](QMap_T *self) -> QList<Mapped_T> {
+            return self->values();
+        });
     }
 
     void define_comparable_methods()
     {
+        klass_.define_method("has_key?", [](QMap_T *self, Key_T &key) -> bool {
+            return self->contains(key);
+        });
+
+        klass_.define_method("has_value?", [](QMap_T *self, Mapped_T &value) -> bool {
+            for (auto i = self->cbegin(), end = self->cend(); i != end; ++i)
+                if (i.value() == value)
+                    return true;
+            return false;
+        });
+
+        rb_define_alias(klass_, "key?", "has_key?");
+        rb_define_alias(klass_, "value?", "has_value?");
     }
 
     void define_insert_methods()
     {
+        klass_.define_method("insert", [](QMap_T *self, Key_T &key, Mapped_T &value) -> Mapped_T {
+            self->insert(key, value);
+            return value;
+        });
+
+        rb_define_alias(klass_, "[]=", "insert");
     }
 
     void define_remove_methods()
     {
-    }
+        klass_.define_method("clear", [](QMap_T *self) -> QMap_T* {
+            self->clear();
+            return self;
+        });
 
-    void define_replace_methods()
-    {
+        klass_.define_method("delete", [](QMap_T *self, Key_T &key) -> std::optional<Mapped_T> {
+            auto iter = self->find(key);
+            if (iter != self->cend()) {
+                Mapped_T result = iter.value();
+                self->erase(iter);
+                return result;
+            }
+            return std::nullopt;
+        });
     }
 
     void define_enumerable()
     {
+        klass_.include_module(rb_mEnumerable);
+        klass_.define_method("each", [](QMap_T *self) -> QMap_T* {
+            for (auto i = self->cbegin(), end = self->cend(); i != end; ++i) {
+                Rice::detail::protect(rb_yield_values, 2, Rice::detail::to_ruby(i.key()), Rice::detail::to_ruby(i.value()));
+            }
+            return self;
+        });
     }
 
     void define_to_hash()
     {
-    }
-
-    void define_to_s()
-    {
+        rb_define_alias(klass_, "to_hash", "to_h");
     }
 
 private:
