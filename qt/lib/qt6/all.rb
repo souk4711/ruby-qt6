@@ -7,6 +7,8 @@ require "qt6/qtqml"
 require "qt6/qtquick"
 require "qt6/qtquickcontrols2"
 require "qt6/qtquickwidgets"
+require "qt6/qtwebenginecore"
+require "qt6/qtwebenginewidgets"
 require "qt6/qtprintsupport"
 require "qt6/qtuitools"
 require "qt6/qtdbus" if RUBY_PLATFORM.downcase.include?("linux")

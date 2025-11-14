@@ -81,6 +81,16 @@ PATH
       ruby-qt6-rice (= 1.0.1)
 
 PATH
+  remote: ../qtwebenginewidgets
+  specs:
+    ruby-qt6-qtwebenginewidgets (1.0.1)
+      ruby-qt6-qtcore (~> 1.0.0)
+      ruby-qt6-qtgui (~> 1.0.0)
+      ruby-qt6-qtwebenginecore (~> 1.0.0)
+      ruby-qt6-qtwidgets (~> 1.0.0)
+      ruby-qt6-rice (= 1.0.1)
+
+PATH
   remote: ../qtwidgets
   specs:
     ruby-qt6-qtwidgets (1.0.1)
@@ -107,6 +117,7 @@ PATH
       ruby-qt6-qtquickwidgets (~> 1.0.0)
       ruby-qt6-qtuitools (~> 1.0.0)
       ruby-qt6-qtwebenginecore (~> 1.0.0)
+      ruby-qt6-qtwebenginewidgets (~> 1.0.0)
       ruby-qt6-qtwidgets (~> 1.0.0)
       ruby-qt6-rice (= 1.0.1)
 
@@ -262,6 +273,7 @@ DEPENDENCIES
   ruby-qt6-qtquickwidgets!
   ruby-qt6-qtuitools!
   ruby-qt6-qtwebenginecore!
+  ruby-qt6-qtwebenginewidgets!
   ruby-qt6-qtwidgets!
   ruby-qt6-rice!
   solargraph
