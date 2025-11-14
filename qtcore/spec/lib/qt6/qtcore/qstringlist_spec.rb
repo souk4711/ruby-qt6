@@ -16,25 +16,6 @@ RSpec.describe RubyQt6::QtCore::QStringList do
     expect(o[-1]).to eq("initial")
   end
 
-  it "#resize" do
-    o = described_class.new(4, "initial".to_qstr)
-    expect(o.size).to eq(4)
-    expect(o[0]).to eq("initial")
-    expect(o[3]).to eq("initial")
-
-    o.resize(8)
-    expect(o.size).to eq(8)
-    expect(o[3]).to eq("initial")
-    expect(o[4]).to eq("")
-    expect(o[7]).to eq("")
-
-    o.resize(12, "resized".to_qstr)
-    expect(o.size).to eq(12)
-    expect(o[7]).to eq("")
-    expect(o[8]).to eq("resized")
-    expect(o[11]).to eq("resized")
-  end
-
   it "#to_a" do
     o = described_class.new << "1" << "2" << "3" << "2" << "5"
     a = o.to_a

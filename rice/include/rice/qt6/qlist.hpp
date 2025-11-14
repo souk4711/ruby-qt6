@@ -39,7 +39,6 @@ public:
     DefineQListMethods(Data_Type<QList_T> klass) : klass_(klass)
     {
         this->define_constructors();
-        this->define_constructable_methods();
         this->define_capacity_methods();
         this->define_access_methods();
         this->define_comparable_methods();
@@ -60,20 +59,10 @@ private:
         klass_.define_constructor(Constructor<QList_T, const QList_T&>(), Arg("other"));
     }
 
-    void define_constructable_methods()
-    {
-        klass_.template define_method<void (QList_T::*)(qsizetype)>("resize", &QList_T::resize, Arg("size"));
-        klass_.template define_method<void (QList_T::*)(qsizetype, Parameter_T)>("resize", &QList_T::resize, Arg("size"), Arg("value"));
-    }
-
     void define_capacity_methods()
     {
-        klass_.define_method("capacity", &QList_T::capacity);
         klass_.define_method("empty?", &QList_T::isEmpty);
-        klass_.define_method("length", &QList_T::length);
-        klass_.define_method("max_size", &QList_T::max_size);
-        klass_.define_method("reserve", &QList_T::reserve);
-        klass_.define_method("shrink_to_fit", &QList_T::shrink_to_fit);
+        klass_.define_method("length", &QList_T::size);
         klass_.define_method("size", &QList_T::size);
     }
 

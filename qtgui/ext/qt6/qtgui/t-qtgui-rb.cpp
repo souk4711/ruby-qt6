@@ -5,6 +5,7 @@
 #include <QPointF>
 #include <QTextLayout>
 #include <QTextLength>
+
 #include <QScreen>
 
 using namespace Rice;
@@ -22,6 +23,7 @@ void Init_t_qtgui(Rice::Module rb_mQt6T)
 
     // QList<QTextLength>
     define_qlist_under<QTextLength>(rb_mQt6T);
+
 
     // QList<QScreen *>
     define_qlist_under<QScreen *>(rb_mQt6T);
