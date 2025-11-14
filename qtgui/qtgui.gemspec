@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
   spec.summary = "Ruby Bindings for Qt GUI."
   spec.description = "Ruby Bindings for Qt GUI."
   spec.homepage = "https://github.com/souk4711/ruby-qt6"
-  spec.required_ruby_version = ">= 3.1.0"
+  spec.required_ruby_version = ">= 3.3.0"
 
   spec.metadata["homepage_uri"] = spec.homepage
   spec.metadata["source_code_uri"] = "https://github.com/souk4711/ruby-qt6"
