@@ -3,7 +3,7 @@
 QT6_LIBS = %w[
   QtCore QtGui QtWidgets
   QtQml QtQuick QtQuickControls2 QtQuickWidgets
-  QtWebEngineCore QtWebEngineWidgets
+  QtWebEngineCore QtWebEngineWidgets QtWebView
   QtPrintSupport QtUiTools
   QtDBus
 ].freeze

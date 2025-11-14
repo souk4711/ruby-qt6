@@ -6,7 +6,7 @@ source "https://rubygems.org"
   rice
   qtcore qtgui qtwidgets
   qtqml qtquick qtquickcontrols2 qtquickwidgets
-  qtwebenginecore qtwebenginewidgets
+  qtwebenginecore qtwebenginewidgets qtwebview
   qtprintsupport qtuitools
   qt
 ].each do |lib|

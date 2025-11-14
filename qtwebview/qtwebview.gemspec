@@ -1,15 +1,15 @@
 # frozen_string_literal: true
 
-require_relative "lib/qt6/version"
+require_relative "lib/qt6/qtwebview/version"
 
 Gem::Specification.new do |spec|
-  spec.name = "ruby-qt6"
-  spec.version = RubyQt6::RUBYGEM_VERSION
+  spec.name = "ruby-qt6-qtwebview"
+  spec.version = RubyQt6::QtWebView::QTWEBVIEW_RUBYGEM_VERSION
   spec.authors = ["John Doe"]
   spec.email = ["johndoe@example.com"]
 
-  spec.summary = "Ruby Bindings for Qt."
-  spec.description = "Ruby Bindings for Qt."
+  spec.summary = "Ruby Bindings for Qt WebView."
+  spec.description = "Ruby Bindings for Qt WebView."
   spec.homepage = "https://github.com/souk4711/ruby-qt6"
   spec.required_ruby_version = ">= 3.1.0"
 
@@ -29,21 +29,14 @@ Gem::Specification.new do |spec|
   spec.bindir = "exe"
   spec.executables = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
+  spec.extensions = ["ext/qt6/qtwebview/extconf.rb"]
 
   spec.add_runtime_dependency("ruby-qt6-rice", "= 1.0.1")
   spec.add_runtime_dependency("ruby-qt6-qtcore", "~> 1.0.0")
   spec.add_runtime_dependency("ruby-qt6-qtgui", "~> 1.0.0")
   spec.add_runtime_dependency("ruby-qt6-qtwidgets", "~> 1.0.0")
-  spec.add_runtime_dependency("ruby-qt6-qtqml", "~> 1.0.0")
-  spec.add_runtime_dependency("ruby-qt6-qtquick", "~> 1.0.0")
-  spec.add_runtime_dependency("ruby-qt6-qtquickcontrols2", "~> 1.0.0")
-  spec.add_runtime_dependency("ruby-qt6-qtquickwidgets", "~> 1.0.0")
   spec.add_runtime_dependency("ruby-qt6-qtwebenginecore", "~> 1.0.0")
   spec.add_runtime_dependency("ruby-qt6-qtwebenginewidgets", "~> 1.0.0")
-  spec.add_runtime_dependency("ruby-qt6-qtwebview", "~> 1.0.0")
-  spec.add_runtime_dependency("ruby-qt6-qtprintsupport", "~> 1.0.0")
-  spec.add_runtime_dependency("ruby-qt6-qtuitools", "~> 1.0.0")
-  spec.add_runtime_dependency("ruby-qt6-qtdbus", "~> 1.0.0") if RUBY_PLATFORM.downcase.include?("linux")
 
   # For more information and examples about making a new gem, check out our
   # guide at: https://bundler.io/guides/creating_gem.html
