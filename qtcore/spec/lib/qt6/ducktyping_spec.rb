@@ -6,9 +6,6 @@ RSpec.describe RubyQt6::T do
     expect(RubyQt6::T.args_nth_delete_qobject(args, -1)).to be_nil
   end
 
-  it ".args_nth_delete_qwidget" do
-  end
-
   it ".args_nth_to_qanystringview" do
     args = ["abc", "def".to_qstr, RubyQt6::QtCore::QAnyStringView.new("xyz"), 12]
     expect(RubyQt6::T.args_nth_to_qanystringview(args, 0)).to be_a(RubyQt6::QtCore::QAnyStringView)
@@ -65,8 +62,5 @@ RSpec.describe RubyQt6::T do
     expect(RubyQt6::T.to_qflags(o1)).to be_a(RubyQt6::QtCore::Qt::Alignment)
     expect(RubyQt6::T.to_qflags(o2)).to be_a(RubyQt6::QtCore::Qt::Alignment)
     expect(RubyQt6::T.to_qflags(12)).to eq(12)
-  end
-
-  it ".bando_qobject_cast" do
   end
 end

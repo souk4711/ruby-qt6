@@ -170,9 +170,7 @@ template <typename BandoClass_T> int bando_qt_metacall(BandoClass_T *self, QMeta
         }
         if (method.methodType() == QMetaMethod::Slot)
         {
-            auto name = method.name().toStdString();
-            Q_ASSERT(name.rfind("_rubyqt6_", 0) == 0);
-
+            auto name = "_rubyqt6_" + method.name().toStdString();
             auto arguments = Rice::Array();
             for (int i = 0; i < method.parameterCount(); ++i)
             {
