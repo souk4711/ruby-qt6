@@ -39,9 +39,7 @@ module RubyQt6
       private
 
       def to_qtextlayoutformatrangelist(array)
-        array.each_with_object(T::QList≺QTextLayout꞉꞉FormatRange≻.new) do |o, memo|
-          memo << o
-        end
+        array.each_with_object(T::QList≺QTextLayout꞉꞉FormatRange≻.new) { |o, memo| memo << o }
       end
     end
   end

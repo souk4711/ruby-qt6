@@ -20,9 +20,7 @@ module RubyQt6
       private
 
       def to_qtextlengthlist(array)
-        array.each_with_object(T::QList≺QTextLength≻.new) do |o, memo|
-          memo << o
-        end
+        array.each_with_object(T::QList≺QTextLength≻.new) { |o, memo| memo << o }
       end
     end
   end

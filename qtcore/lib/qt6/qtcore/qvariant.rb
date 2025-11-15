@@ -6,6 +6,7 @@ module RubyQt6
     class QVariant
       # @!visibility private
       def self.new(object, qmetatype = nil)
+        return object if object.is_a?(self)
         from_object(object, qmetatype)
       end
 
@@ -16,7 +17,10 @@ module RubyQt6
 
       # @!visibility private
       def inspect
-        T.inspect_struct(self, type: type_name)
+        str = value.to_s
+        T.inspect_struct(self, type: type_name, str:)
+      rescue => e
+        T.inspect_struct(self, type: type_name, str: e)
       end
 
       private
