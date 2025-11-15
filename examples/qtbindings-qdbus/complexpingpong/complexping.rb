@@ -22,17 +22,17 @@ class Ping < RubyQt6::Bando::QObject
 
       line = gets.strip
       if line.empty? || line == 'quit'
-        iface_call(:quit)
+        iface_call('quit')
         QCoreApplication.quit
         return
       elsif line == 'value'
-        reply = iface_call(:value)
+        reply = iface_call('value')
         puts("#{__FILE__}: Value was: %s" % reply.value) if reply.valid?
       elsif line =~ /^value=/
-        reply = iface_call(:set_value, line[6, line.length])
+        reply = iface_call('set_value', line[6, line.length])
         puts("#{__FILE__}: Value updated") if reply.valid?
       else
-        reply = iface_call(:query, line)
+        reply = iface_call('query', line)
         puts("#{__FILE__}: Reply was: %s" % reply.value.variant.value) if reply.valid?
       end
 
@@ -43,7 +43,7 @@ class Ping < RubyQt6::Bando::QObject
   private
 
   def iface_call(method, *args)
-    QDBusReply.new(@iface.call("_rubyqt6_#{method}", *args))
+    QDBusReply.new(@iface.call(method, *args))
   end
 end
 
