@@ -5,8 +5,51 @@ module RubyQt6
     # @see https://doc.qt.io/qt-6/qstringlist.html
     class QStringList
       # @!visibility private
-      def join(separator = "")
-        _join(T.to_qstr(separator))
+      alias_method :_count, :count
+      alias_method :_include?, :include?
+      alias_method :_index, :index
+      alias_method :_insert, :insert
+      alias_method :_push, :push
+      alias_method :_delete, :delete
+      alias_method "_[]=", :[]=
+
+      # @!visibility private
+      def count(*args)
+        case args.size
+        when 1 then _count(T.to_qstr(args[0]))
+        else _count(*args)
+        end
+      end
+
+      # @!visibility private
+      def include?(element)
+        _include?(T.to_qstr(element))
+      end
+
+      # @!visibility private
+      def index(element)
+        _index(T.to_qstr(element))
+      end
+
+      # @!visibility private
+      def insert(index, element)
+        _insert(index, T.to_qstr(element))
+      end
+
+      # @!visibility private
+      def push(element)
+        _push(T.to_qstr(element))
+      end
+      alias_method :<<, :push
+
+      # @!visibility private
+      def delete(element)
+        _delete(T.to_qstr(element))
+      end
+
+      # @!visibility private
+      def []=(index, element)
+        __send__("_[]=", index, T.to_qstr(element))
       end
 
       # @!visibility private
