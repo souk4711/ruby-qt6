@@ -14,6 +14,8 @@ RSpec.describe RubyQt6::QtCore do
       next if cppfile.start_with?("ext/qt6/qtcore/qt-enum-")
       next if cppfile.start_with?("ext/qt6/qtcore/qt-flags-")
       next if cppfile.start_with?("ext/qt6/qtcore/qstringlist-")
+      next if cppfile.start_with?("ext/qt6/qtcore/qvariantlist-")
+      next if cppfile.start_with?("ext/qt6/qtcore/qvariantmap-")
 
       it cppfile do
         RubyQt6::RSpec.verify_qlass_cppfile cppfile, qmod

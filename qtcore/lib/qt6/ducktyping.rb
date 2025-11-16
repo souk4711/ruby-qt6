@@ -44,7 +44,11 @@ module RubyQt6
     end
 
     def self.to_qvariantlist(array)
-      array.each_with_object(T::QList≺QVariant≻.new) { |o, memo| memo << QtCore::QVariant.new(o) }
+      array.each_with_object(QtCore::QVariantList.new) { |e, memo| memo << QtCore::QVariant.new(e) }
+    end
+
+    def self.to_qvariantmap(hash)
+      hash.each_with_object(QtCore::QVariantMap.new) { |(k, v), memo| memo[k] = QtCore::QVariant.new(v) }
     end
 
     def self.to_qflags(enum_or_flags)

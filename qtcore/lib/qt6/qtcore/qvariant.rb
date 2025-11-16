@@ -17,10 +17,7 @@ module RubyQt6
 
       # @!visibility private
       def inspect
-        str = value.to_s
-        T.inspect_struct(self, type: type_name, str:)
-      rescue => e
-        T.inspect_struct(self, type: type_name, str: e)
+        T.inspect_struct(self, type: type_name, value:)
       end
 
       private

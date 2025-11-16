@@ -82,6 +82,8 @@ require_relative "qtcore/qtranslator"
 
 require_relative "qtcore/qitemselection"
 require_relative "qtcore/qstringlist"
+require_relative "qtcore/qvariantlist"
+require_relative "qtcore/qvariantmap"
 
 require_relative "bando/dsl"
 require_relative "bando/qobject"
