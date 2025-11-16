@@ -26,7 +26,7 @@ module RubyQt6
       # @param options [QRegularExpression::PatternOptions]
       # @return [QRegularExpression]
       def initialize(pattern = "", options = nil)
-        options ||= QRegularExpression::PatternOption::NoPatternOption
+        options ||= QtCore::QRegularExpression::PatternOption::NoPatternOption
         _initialize(T.to_qstr(pattern), T.to_qflags(options))
       end
     end

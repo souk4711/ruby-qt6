@@ -14,6 +14,10 @@ void Init_qurl(Rice::Module rb_mQt6QtCore)
     rb_cQUrl =
         // RubyQt6::QtCore::QUrl
         define_class_under<QUrl>(rb_mQt6QtCore, "QUrl")
+            // RubyQt6-Defined Functions
+            .define_singleton_function("_qvariant_register_metatype", []() -> int { return qRegisterMetaType<QUrl>(); })
+            .define_singleton_function("_qvariant_from_value", [](const QUrl &value) -> QVariant { return QVariant::fromValue(value); })
+            .define_singleton_function("_qvariant_to_value", [](const QVariant &qvariant) -> QUrl { return qvariant.value<QUrl>(); })
             // Constructor
             .define_constructor(Constructor<QUrl>())
             .define_constructor(Constructor<QUrl, const QString &>(), Arg("url"))
@@ -67,7 +71,7 @@ void Init_qurl(Rice::Module rb_mQt6QtCore)
             .define_singleton_function("_from_local_file", &QUrl::fromLocalFile, Arg("localfile"))
             .define_singleton_function("from_percent_encoding", &QUrl::fromPercentEncoding, Arg("input"))
             .define_singleton_function("from_string_list", &QUrl::fromStringList, Arg("uris"), Arg("mode") = static_cast<QUrl::ParsingMode>(QUrl::ParsingMode::TolerantMode))
-            .define_singleton_function("from_user_input", &QUrl::fromUserInput, Arg("user_input"), Arg("working_directory") = static_cast<const QString &>(QString()), Arg("options") = static_cast<QUrl::UserInputResolutionOptions>(QUrl::UserInputResolutionOption::DefaultResolution))
+            .define_singleton_function("_from_user_input", &QUrl::fromUserInput, Arg("user_input"), Arg("working_directory") = static_cast<const QString &>(QString()), Arg("options") = static_cast<QUrl::UserInputResolutionOptions>(QUrl::UserInputResolutionOption::DefaultResolution))
             .define_singleton_function("idn_whitelist", &QUrl::idnWhitelist)
             .define_singleton_function("set_idn_whitelist", &QUrl::setIdnWhitelist, Arg("list"))
             .define_singleton_function("to_ace", &QUrl::toAce, Arg("domain"), Arg("options") = static_cast<QUrl::AceProcessingOptions>(QUrl::AceProcessingOptions {}))

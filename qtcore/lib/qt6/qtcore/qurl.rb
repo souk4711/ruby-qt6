@@ -23,12 +23,26 @@ module RubyQt6
       rubyqt6_declare_qflags QUrl::FormattingOptions, QUrl::UrlFormattingOption
       rubyqt6_declare_qflags QUrl::UserInputResolutionOptions, QUrl::UserInputResolutionOption
 
+      # @!parse
+      QtCore::QVariant.register(
+        _qvariant_register_metatype,
+        method(:_qvariant_from_value),
+        method(:_qvariant_to_value),
+        from: self
+      )
+
       # @!visibility private
       alias_method :_initialize, :initialize
 
       # @!visibility private
       def self.from_local_file(local_file)
         _from_local_file(T.to_qstr(local_file))
+      end
+
+      # @!visibility private
+      def self.from_user_input(user_input, working_directory = "", options = nil)
+        options ||= QtCore::QUrl::UserInputResolutionOption::DefaultResolution
+        _from_user_input(T.to_qstr(user_input), T.to_qstr(working_directory), T.to_qflags(options))
       end
 
       # @return [QUrl]
