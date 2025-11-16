@@ -31,8 +31,8 @@ void Init_qqmlcontext(Rice::Module rb_mQt6QtQml)
             .define_method("set_base_url", &QQmlContext::setBaseUrl, Arg("base_url"))
             .define_method("set_context_object", &QQmlContext::setContextObject, Arg("object"))
             .define_method("set_context_properties", &QQmlContext::setContextProperties, Arg("properties"))
-            .define_method<void (QQmlContext::*)(const QString &, QObject *)>("set_context_property", &QQmlContext::setContextProperty, Arg("name"), Arg("value"))
-            .define_method<void (QQmlContext::*)(const QString &, const QVariant &)>("set_context_property", &QQmlContext::setContextProperty, Arg("name"), Arg("value"));
+            .define_method<void (QQmlContext::*)(const QString &, QObject *)>("_set_context_property", &QQmlContext::setContextProperty, Arg("name"), Arg("value"))
+            .define_method<void (QQmlContext::*)(const QString &, const QVariant &)>("_set_context_property", &QQmlContext::setContextProperty, Arg("name"), Arg("value"));
 
     rb_cQQmlContextPropertyPair =
         // RubyQt6::QtQml::QQmlContext::PropertyPair

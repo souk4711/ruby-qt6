@@ -18,6 +18,11 @@ module RubyQt6
         _initialize(engine, parent)
         _take_ownership_from_ruby(self)
       end
+
+      # @!visibility private
+      def set_context_property(name, value)
+        _set_context_property(T.to_qstr(name), value)
+      end
     end
   end
 end

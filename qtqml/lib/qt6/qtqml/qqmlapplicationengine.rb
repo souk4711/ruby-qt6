@@ -25,6 +25,11 @@ module RubyQt6
         _initialize(parent)
         _take_ownership_from_ruby(self)
       end
+
+      # @!visibility private
+      def set_initial_properties(**properties)
+        _set_initial_properties(T.to_qvariantmap(properties))
+      end
     end
   end
 end
