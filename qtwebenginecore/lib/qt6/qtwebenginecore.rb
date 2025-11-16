@@ -8,3 +8,4 @@ require_relative "qtwebenginecore/qtwebenginecore"
 require_relative "qtwebenginecore/qtwebenginecoreversion"
 
 require_relative "qtwebenginecore/qwebenginenotification"
+require_relative "qtwebenginecore/qwebenginepage"

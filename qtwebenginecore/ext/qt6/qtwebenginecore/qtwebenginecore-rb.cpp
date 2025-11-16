@@ -2,6 +2,7 @@
 #include "qtwebenginecoreversion-rb.hpp"
 
 #include "qwebenginenotification-rb.hpp"
+#include "qwebenginepage-rb.hpp"
 
 extern "C" void Init_qtwebenginecore()
 {
@@ -12,5 +13,6 @@ extern "C" void Init_qtwebenginecore()
         Init_qtwebenginecoreversion(rb_mQt6QtWebEngineCore);
 
         Init_qwebenginenotification(rb_mQt6QtWebEngineCore);
+        Init_qwebenginepage(rb_mQt6QtWebEngineCore);
     });
 }
