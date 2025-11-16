@@ -1,6 +1,8 @@
 #include "qtwebenginecore-rb.hpp"
 #include "qtwebenginecoreversion-rb.hpp"
 
+#include "qwebenginenotification-rb.hpp"
+
 extern "C" void Init_qtwebenginecore()
 {
     return Rice::detail::cpp_protect([] {
@@ -8,5 +10,7 @@ extern "C" void Init_qtwebenginecore()
         Rice::Module rb_mQt6QtWebEngineCore = define_module_under(rb_mQt6, "QtWebEngineCore");
 
         Init_qtwebenginecoreversion(rb_mQt6QtWebEngineCore);
+
+        Init_qwebenginenotification(rb_mQt6QtWebEngineCore);
     });
 }

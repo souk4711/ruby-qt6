@@ -10,6 +10,7 @@ end
 includedir = qt_install_headers
 append_cppflags("-I#{includedir}")
 append_cppflags("-I#{includedir}/QtCore")
+append_cppflags("-I#{includedir}/QtGui")
 append_cppflags("-I#{includedir}/QtWebEngineCore")
 abort "libQt6WebEngineCore is missing, please install qt6-webengine" unless have_library("Qt6WebEngineCore")
 

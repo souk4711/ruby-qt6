@@ -1,0 +1,30 @@
+#include "qwebenginenotification-rb.hpp"
+#include <qwebenginenotification.h>
+
+#include <QImage>
+
+using namespace Rice;
+
+Rice::Class rb_cQWebEngineNotification;
+
+void Init_qwebenginenotification(Rice::Module rb_mQt6QtWebEngineCore)
+{
+    rb_cQWebEngineNotification =
+        // RubyQt6::QtWebEngineCore::QWebEngineNotification
+        define_class_under<QWebEngineNotification, QObject>(rb_mQt6QtWebEngineCore, "QWebEngineNotification")
+            // Public Functions
+            .define_method("direction", &QWebEngineNotification::direction)
+            .define_method("icon", &QWebEngineNotification::icon)
+            .define_method("language", &QWebEngineNotification::language)
+            .define_method("matches", &QWebEngineNotification::matches, Arg("other"))
+            .define_method("message", &QWebEngineNotification::message)
+            .define_method("origin", &QWebEngineNotification::origin)
+            .define_method("tag", &QWebEngineNotification::tag)
+            .define_method("title", &QWebEngineNotification::title)
+            // Public Slots
+            .define_method("click", &QWebEngineNotification::click)
+            .define_method("close", &QWebEngineNotification::close)
+            .define_method("show", &QWebEngineNotification::show)
+            // Signals
+            .define_method("closed", &QWebEngineNotification::closed);
+}
