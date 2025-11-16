@@ -5,6 +5,7 @@ require_relative "ducktyping"
 
 require_relative "refinements/kernel"
 require_relative "refinements/string"
+require_relative "refinements/symbol"
 
 require_relative "qtcore/private/_nodoc"
 require_relative "qtcore/private/inflector"
