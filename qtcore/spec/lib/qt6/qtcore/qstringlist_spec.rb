@@ -180,19 +180,19 @@ RSpec.describe RubyQt6::QtCore::QStringList do
     [Array, described_class].each do |klass|
       o = klass.new << "1" << "2" << "3" << "2" << "5"
 
-      expect(o[0] = "<<<").to eq("<<<")
+      o[0] = "<<<"
       expect(o[0]).to eq("<<<")
       expect(o.size).to eq(5)
 
-      expect(o[o.size] = ">>>").to eq(">>>")
+      o[o.size] = ">>>"
       expect(o[-1]).to eq(">>>")
       expect(o.size).to eq(6)
 
-      expect(o[-1] = "+++").to eq("+++")
+      o[-1] = "+++"
       expect(o[-1]).to eq("+++")
       expect(o.size).to eq(6)
 
-      expect(o[-o.size] = "---").to eq("---")
+      o[-o.size] = "---"
       expect(o[0]).to eq("---")
       expect(o.size).to eq(6)
 
