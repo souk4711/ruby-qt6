@@ -2,14 +2,15 @@
 #include "qtwebenginecoreversion-rb.hpp"
 
 #include "qwebenginecertificateerror-rb.hpp"
+#include "qwebenginefullscreenrequest-rb.hpp"
 #include "qwebenginesettings-rb.hpp"
 
 #include "qwebengineclienthints-rb.hpp"
 #include "qwebenginecookiestore-rb.hpp"
+#include "qwebenginedownloadrequest-rb.hpp"
 #include "qwebenginenotification-rb.hpp"
 #include "qwebenginepage-rb.hpp"
 #include "qwebengineprofile-rb.hpp"
-#include "qwebenginedownloadrequest-rb.hpp"
 
 extern "C" void Init_qtwebenginecore()
 {
@@ -20,13 +21,14 @@ extern "C" void Init_qtwebenginecore()
         Init_qtwebenginecoreversion(rb_mQt6QtWebEngineCore);
 
         Init_qwebenginecertificateerror(rb_mQt6QtWebEngineCore);
+        Init_qwebenginefullscreenrequest(rb_mQt6QtWebEngineCore);
         Init_qwebenginesettings(rb_mQt6QtWebEngineCore);
 
         Init_qwebengineclienthints(rb_mQt6QtWebEngineCore);
         Init_qwebenginecookiestore(rb_mQt6QtWebEngineCore);
+        Init_qwebenginedownloadrequest(rb_mQt6QtWebEngineCore);
         Init_qwebenginenotification(rb_mQt6QtWebEngineCore);
         Init_qwebenginepage(rb_mQt6QtWebEngineCore);
         Init_qwebengineprofile(rb_mQt6QtWebEngineCore);
-        Init_qwebenginedownloadrequest(rb_mQt6QtWebEngineCore);
     });
 }

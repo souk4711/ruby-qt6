@@ -6,21 +6,21 @@
 #include <QAction>
 #include <QEvent>
 #include <QWebEngineCertificateError>
-#include <QWebEngineFindTextResult>
-#include <QWebEngineLoadingInfo>
-#include <QWebEngineHistory>
-#include <QWebEngineHttpRequest>
-#include <QWebEngineProfile>
 #include <QWebEngineDesktopMediaRequest>
 #include <QWebEngineFileSystemAccessRequest>
+#include <QWebEngineFindTextResult>
 #include <QWebEngineFullScreenRequest>
+#include <QWebEngineHistory>
+#include <QWebEngineHttpRequest>
+#include <QWebEngineLoadingInfo>
 #include <QWebEngineNavigationRequest>
 #include <QWebEngineNewWindowRequest>
+#include <QWebEngineProfile>
 #include <QWebEngineRegisterProtocolHandlerRequest>
-#include <QWebEngineWebAuthUxRequest>
 #include <QWebEngineScriptCollection>
 #include <QWebEngineSettings>
 #include <QWebEngineUrlRequestInterceptor>
+#include <QWebEngineWebAuthUxRequest>
 
 using namespace Rice;
 

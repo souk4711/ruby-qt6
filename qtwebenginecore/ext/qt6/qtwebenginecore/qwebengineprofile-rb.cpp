@@ -5,8 +5,8 @@
 #include <QWebEngineClientCertificateStore>
 #include <QWebEngineClientHints>
 #include <QWebEngineCookieStore>
-#include <QWebEngineExtensionManager>
 #include <QWebEngineDownloadRequest>
+#include <QWebEngineExtensionManager>
 #include <QWebEngineSettings>
 #include <QWebEngineScriptCollection>
 #include <QWebEngineUrlRequestInterceptor>
