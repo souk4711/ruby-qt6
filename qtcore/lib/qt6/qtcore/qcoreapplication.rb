@@ -17,6 +17,16 @@ module RubyQt6
       end
 
       # @!visibility private
+      def self.set_organization_domain(org_domain)
+        _set_organization_domain(T.to_qstr(org_domain))
+      end
+
+      # @!visibility private
+      def self.set_organization_name(org_name)
+        _set_organization_name(T.to_qstr(org_name))
+      end
+
+      # @!visibility private
       alias_method :_initialize, :initialize
 
       # @param argv [Array<String>]
