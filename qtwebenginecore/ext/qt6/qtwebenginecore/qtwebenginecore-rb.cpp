@@ -3,6 +3,7 @@
 
 #include "qwebenginecertificateerror-rb.hpp"
 #include "qwebenginefullscreenrequest-rb.hpp"
+#include "qwebenginepermission-rb.hpp"
 #include "qwebenginesettings-rb.hpp"
 
 #include "qwebengineclienthints-rb.hpp"
@@ -24,6 +25,7 @@ extern "C" void Init_qtwebenginecore()
 
         Init_qwebenginecertificateerror(rb_mQt6QtWebEngineCore);
         Init_qwebenginefullscreenrequest(rb_mQt6QtWebEngineCore);
+        Init_qwebenginepermission(rb_mQt6QtWebEngineCore);
         Init_qwebenginesettings(rb_mQt6QtWebEngineCore);
 
         Init_qwebengineclienthints(rb_mQt6QtWebEngineCore);

@@ -9,6 +9,7 @@ require_relative "qtwebenginecore/qtwebenginecoreversion"
 
 require_relative "qtwebenginecore/qwebenginecertificateerror"
 require_relative "qtwebenginecore/qwebenginefullscreenrequest"
+require_relative "qtwebenginecore/qwebenginepermission"
 require_relative "qtwebenginecore/qwebenginesettings"
 
 require_relative "qtwebenginecore/qwebengineclienthints"
