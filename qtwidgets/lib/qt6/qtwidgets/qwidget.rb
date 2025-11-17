@@ -68,6 +68,11 @@ module RubyQt6
       def set_window_title(title)
         _set_window_title(T.to_qstr(title))
       end
+
+      # @!visibility private
+      def set_window_flags(type)
+        _set_window_flags(T.to_qflags(type))
+      end
     end
   end
 end
