@@ -7,6 +7,7 @@ require_relative "qtwebenginecore/version"
 require_relative "qtwebenginecore/qtwebenginecore"
 require_relative "qtwebenginecore/qtwebenginecoreversion"
 
+require_relative "qtwebenginecore/qwebengineclienthints"
 require_relative "qtwebenginecore/qwebenginecertificateerror"
 require_relative "qtwebenginecore/qwebenginesettings"
 
