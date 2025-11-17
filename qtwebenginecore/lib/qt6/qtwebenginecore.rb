@@ -9,3 +9,4 @@ require_relative "qtwebenginecore/qtwebenginecoreversion"
 
 require_relative "qtwebenginecore/qwebenginenotification"
 require_relative "qtwebenginecore/qwebenginepage"
+require_relative "qtwebenginecore/qwebengineprofile"

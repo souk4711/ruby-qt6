@@ -12,6 +12,8 @@ void Init_qwebenginenotification(Rice::Module rb_mQt6QtWebEngineCore)
     rb_cQWebEngineNotification =
         // RubyQt6::QtWebEngineCore::QWebEngineNotification
         define_class_under<QWebEngineNotification, QObject>(rb_mQt6QtWebEngineCore, "QWebEngineNotification")
+            // RubyQt6-Defined Functions
+            .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QWebEngineNotification::staticMetaObject; })
             // Public Functions
             .define_method("direction", &QWebEngineNotification::direction)
             .define_method("icon", &QWebEngineNotification::icon)

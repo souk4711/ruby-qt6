@@ -31,6 +31,8 @@ void Init_qwebenginepage(Rice::Module rb_mQt6QtWebEngineCore)
     rb_cQWebEnginePage =
         // RubyQt6::QtWebEngineCore::QWebEnginePage
         define_class_under<QWebEnginePage, QObject>(rb_mQt6QtWebEngineCore, "QWebEnginePage")
+            // RubyQt6-Defined Functions
+            .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QWebEnginePage::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QWebEnginePage, QWebEngineProfile *, QObject *>(), Arg("profile"), Arg("parent"))
             // Public Functions

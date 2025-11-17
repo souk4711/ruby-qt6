@@ -23,6 +23,7 @@ module RubyQt6
       rubyqt6_declare_enum_under QWebEnginePage, QWebEnginePage::WebWindowType
       rubyqt6_declare_qflags QWebEnginePage::FindFlags, QWebEnginePage::FindFlag
 
+      # @!parse
       q_object do
         signal "audioMutedChanged(bool)"
         signal "certificateError(QWebEngineCertificateError)"
