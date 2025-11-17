@@ -1,10 +1,12 @@
 #include "qtwebenginecore-rb.hpp"
 #include "qtwebenginecoreversion-rb.hpp"
 
+#include "qwebenginecertificateerror-rb.hpp"
+#include "qwebenginesettings-rb.hpp"
+
 #include "qwebenginenotification-rb.hpp"
 #include "qwebenginepage-rb.hpp"
 #include "qwebengineprofile-rb.hpp"
-#include "qwebenginesettings-rb.hpp"
 
 extern "C" void Init_qtwebenginecore()
 {
@@ -14,9 +16,11 @@ extern "C" void Init_qtwebenginecore()
 
         Init_qtwebenginecoreversion(rb_mQt6QtWebEngineCore);
 
+        Init_qwebenginecertificateerror(rb_mQt6QtWebEngineCore);
+        Init_qwebenginesettings(rb_mQt6QtWebEngineCore);
+
         Init_qwebenginenotification(rb_mQt6QtWebEngineCore);
         Init_qwebenginepage(rb_mQt6QtWebEngineCore);
         Init_qwebengineprofile(rb_mQt6QtWebEngineCore);
-        Init_qwebenginesettings(rb_mQt6QtWebEngineCore);
     });
 }
