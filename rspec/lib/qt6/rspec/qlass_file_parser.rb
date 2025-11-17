@@ -4,12 +4,13 @@ module RubyQt6
   module RSpec
     class QlassFileParser
       NESTED_QLASSES = [
-        "QMetaObjectConnection",
-        "QPainterPathElement",
-        "QFormLayoutTakeRowResult",
-        "QTextEditExtraSelection",
-        "QTextLayoutFormatRange",
-        "QQmlContextPropertyPair"
+        "QMetaObjectConnection",              # QtCore::QMetaObject::Connection
+        "QPainterPathElement",                # QtGui::QPainterPath::Element
+        "QTextLayoutFormatRange",             # QtGui::QTextLayout::FormatRange
+        "QFormLayoutTakeRowResult",           # QtWidgets::QFormLayout::TakeRowResult
+        "QTextEditExtraSelection",            # QtWidgets::QTextEdit::ExtraSelection
+        "QQmlContextPropertyPair",            # QtQml::QQmlContext::PropertyPair
+        "QWebEngineCookieStoreFilterRequest"  # QtWebEngineCore::QWebEngineCookieStore::FilterRequest
       ]
 
       class MissingLine < StandardError
