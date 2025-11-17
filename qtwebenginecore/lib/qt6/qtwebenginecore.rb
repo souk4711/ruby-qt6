@@ -20,3 +20,5 @@ require_relative "qtwebenginecore/qwebenginenewwindowrequest"
 require_relative "qtwebenginecore/qwebenginenotification"
 require_relative "qtwebenginecore/qwebenginepage"
 require_relative "qtwebenginecore/qwebengineprofile"
+
+require_relative "bando/qwebenginepage"

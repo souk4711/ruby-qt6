@@ -52,11 +52,11 @@ template <typename Class_T, typename... Arg_Ts> class BandoQDBusAbstractAdaptor 
 
     bool autoRelaySignals() const {
         return this->Class_T::autoRelaySignals();
-    }
+    };
 
     void setAutoRelaySignals(bool enable) {
         this->Class_T::setAutoRelaySignals(enable);
-    }
+    };
 
   public:
     bool Class_T_handleQObjectEvent(QEvent *event) { return this->Class_T::event(event); };

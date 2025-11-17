@@ -15,6 +15,8 @@
 #include "qwebenginepage-rb.hpp"
 #include "qwebengineprofile-rb.hpp"
 
+#include "bando-qwebenginepage-rb.hpp"
+
 extern "C" void Init_qtwebenginecore()
 {
     return Rice::detail::cpp_protect([] {
@@ -36,5 +38,8 @@ extern "C" void Init_qtwebenginecore()
         Init_qwebenginenotification(rb_mQt6QtWebEngineCore);
         Init_qwebenginepage(rb_mQt6QtWebEngineCore);
         Init_qwebengineprofile(rb_mQt6QtWebEngineCore);
+
+        Rice::Module rb_mQt6Bando = define_module_under(rb_mQt6, "Bando");
+        Init_bando_qwebenginepage(rb_mQt6Bando);
     });
 }

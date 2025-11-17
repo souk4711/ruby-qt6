@@ -125,7 +125,7 @@ template <typename Class_T, typename... Arg_Ts> class BandoQLayout : public Clas
         Q_ASSERT(this->value_.rb_type() != RUBY_T_NONE);
         auto rb_name = Rice::Identifier("set_geometry");
         this->value_.call(rb_name, Rice::Object(Rice::detail::to_ruby(r)));
-    }
+    };
 
   public:
     bool Class_T_handleQObjectEvent(QEvent *event) { return this->Class_T::event(event); };
@@ -164,10 +164,10 @@ Rice::Data_Type<BC_T> define_bando_qlayout_under(Rice::Module module, char const
     bando_qlass
         .define_method("expanding_directions", [](BC_T *self) -> Qt::Orientations { return self->C_T::expandingDirections(); })
         .define_method("has_height_for_width", [](BC_T *self) -> bool { return self->C_T::hasHeightForWidth(); })
-        .define_method("height_for_width", [](BC_T *self, int width) -> int { return self->C_T::heightForWidth(width); })
+        .define_method("height_for_width", [](BC_T *self, int width) -> int { return self->C_T::heightForWidth(width); }, Rice::Arg("width"))
         .define_method("maximum_size", [](BC_T *self) -> QSize { return self->C_T::maximumSize(); })
         .define_method("minimum_size", [](BC_T *self) -> QSize { return self->C_T::minimumSize(); })
-        .define_method("set_geometry", [](BC_T *self, const QRect &r) -> void { return self->C_T::setGeometry(r); });
+        .define_method("set_geometry", [](BC_T *self, const QRect &r) -> void { return self->C_T::setGeometry(r); }, Rice::Arg("r"));
 
     return bando_qlass;
 }
