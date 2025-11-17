@@ -11,6 +11,8 @@ void Init_qwebenginecookiestore(Rice::Module rb_mQt6QtWebEngineCore)
     rb_cQWebEngineCookieStore =
         // RubyQt6::QtWebEngineCore::QWebEngineCookieStore
         define_class_under<QWebEngineCookieStore, QObject>(rb_mQt6QtWebEngineCore, "QWebEngineCookieStore")
+            // RubyQt6-Defined Functions
+            .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QWebEngineCookieStore::staticMetaObject; })
             // Public Functions
             .define_method("delete_all_cookies", &QWebEngineCookieStore::deleteAllCookies)
             .define_method("delete_cookie", &QWebEngineCookieStore::deleteCookie, Arg("cookie"), Arg("origin") = static_cast<const QUrl &>(QUrl()))

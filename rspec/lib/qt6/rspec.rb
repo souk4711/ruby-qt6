@@ -178,9 +178,10 @@ module RubyQt6
         # Expected 'user_type', but got 'userType'
         if method.cppname
           expected =
-            case method.cppname
-            when /^is[A-Z]/ then "#{inflector_underscore(method.cppname)}?".sub(/^is_/, "")
-            else inflector_underscore(method.cppname)
+            if method.cppname.match?(/^is[A-Z]/) && method.type != :signals
+              "#{inflector_underscore(method.cppname)}?".sub(/^is_/, "")
+            else
+              inflector_underscore(method.cppname)
             end
           if expected != method.rbname.sub(/^_/, "")
             raise method.inspect
