@@ -18,7 +18,8 @@ module RubyQt6
       # @param parent [QObject]
       # @return [QDBusInterface]
       def initialize(service, path, interface = "", connection = nil, parent = nil)
-        _initialize(T.to_qstr(service), T.to_qstr(path), T.to_qstr(interface), connection || QtDBus::QDBusConnection.session_bus, parent)
+        connection ||= QtDBus::QDBusConnection.session_bus
+        _initialize(T.to_qstr(service), T.to_qstr(path), T.to_qstr(interface), connection, parent)
         _take_ownership_from_ruby(self)
       end
     end

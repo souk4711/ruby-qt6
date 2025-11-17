@@ -7,6 +7,7 @@
 using namespace Rice;
 
 Rice::Class rb_cQLayoutItem;
+Rice::Class rb_cQSpacerItem;
 Rice::Class rb_cQWidgetItem;
 
 void Init_qlayoutitem(Rice::Module rb_mQt6QtWidgets)
@@ -32,6 +33,24 @@ void Init_qlayoutitem(Rice::Module rb_mQt6QtWidgets)
             .define_method("size_hint", &QLayoutItem::sizeHint)
             .define_method("spacer_item", &QLayoutItem::spacerItem)
             .define_method("widget", &QLayoutItem::widget);
+
+
+    rb_cQSpacerItem =
+        // RubyQt6::QtWidgets::QSpacerItem
+        define_class_under<QSpacerItem, QLayoutItem>(rb_mQt6QtWidgets, "QSpacerItem")
+            // Constructor
+            .define_constructor(Constructor<QSpacerItem, int, int, QSizePolicy::Policy, QSizePolicy::Policy>(), Arg("w"), Arg("h"), Arg("h_policy"), Arg("v_policy"))
+            // Public Functions
+            .define_method("change_size", &QSpacerItem::changeSize, Arg("w"), Arg("h"), Arg("h_policy") = static_cast<QSizePolicy::Policy>(QSizePolicy::Minimum), Arg("v_policy") = static_cast<QSizePolicy::Policy>(QSizePolicy::Minimum))
+            .define_method("expanding_directions", &QSpacerItem::expandingDirections)
+            .define_method("geometry", &QSpacerItem::geometry)
+            .define_method("empty?", &QSpacerItem::isEmpty)
+            .define_method("maximum_size", &QSpacerItem::maximumSize)
+            .define_method("minimum_size", &QSpacerItem::minimumSize)
+            .define_method("set_geometry", &QSpacerItem::setGeometry, Arg("geometry"))
+            .define_method("size_hint", &QSpacerItem::sizeHint)
+            .define_method("size_policy", &QSpacerItem::sizePolicy)
+            .define_method("spacer_item", &QSpacerItem::spacerItem);
 
     rb_cQWidgetItem =
         // RubyQt6::QtWidgets::QWidgetItem

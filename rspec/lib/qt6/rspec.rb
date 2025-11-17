@@ -28,6 +28,7 @@ module RubyQt6
     NO_VERIFY_QLASS_VIRTUAL_METHODS = {
       "QCoreApplication" => ["post_event", "send_event"],
       "QLayoutItem" => ["size_hint"],
+      "QSpacerItem" => ["size_hint"],
       "QWidgetItem" => ["has_height_for_width", "height_for_width", "size_hint"],
       "QWidget" => ["minimum_size_hint", "size_hint"]
     }
