@@ -59,7 +59,9 @@ module RubyQt6
       "QRadioButton",
       "QLineEdit",
       "QTextEdit",
-      "QSystemTrayIcon"
+      "QSystemTrayIcon",
+      "QWebEnginePage",
+      "QWebEngineView"
     ]
 
     ACRONYM = [
