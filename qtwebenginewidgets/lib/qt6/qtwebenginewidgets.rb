@@ -8,3 +8,5 @@ require "qt6/qtwebenginecore"
 require_relative "qtwebenginewidgets/version"
 require_relative "qtwebenginewidgets/qtwebenginewidgets"
 require_relative "qtwebenginewidgets/qtwebenginewidgetsversion"
+
+require_relative "qtwebenginewidgets/qwebengineview"

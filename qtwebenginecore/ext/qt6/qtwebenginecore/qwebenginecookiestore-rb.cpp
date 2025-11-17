@@ -19,8 +19,6 @@ void Init_qwebenginecookiestore(Rice::Module rb_mQt6QtWebEngineCore)
             .define_method("delete_session_cookies", &QWebEngineCookieStore::deleteSessionCookies)
             .define_method("load_all_cookies", &QWebEngineCookieStore::loadAllCookies)
             .define_method("set_cookie", &QWebEngineCookieStore::setCookie, Arg("cookie"), Arg("origin") = static_cast<const QUrl &>(QUrl()))
-            .define_method<void (QWebEngineCookieStore::*)(const std::function<bool(const QWebEngineCookieStore::FilterRequest &)> &)>("set_cookie_filter", &QWebEngineCookieStore::setCookieFilter, Arg("filter_callback"))
-            .define_method<void (QWebEngineCookieStore::*)(std::function<bool(const QWebEngineCookieStore::FilterRequest &)> &&)>("set_cookie_filter", &QWebEngineCookieStore::setCookieFilter, Arg("filter_callback"))
             // Signals
             .define_method("cookie_added", &QWebEngineCookieStore::cookieAdded, Arg("cookie"))
             .define_method("cookie_removed", &QWebEngineCookieStore::cookieRemoved, Arg("cookie"));
