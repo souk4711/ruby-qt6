@@ -28,6 +28,8 @@
 #include <QTimerEvent>
 #include <QWebEnginePage>
 
+using namespace Rice;
+
 template <typename Class_T, typename... Arg_Ts> class BandoQWebEnginePage : public Class_T
 {
   public:
@@ -38,8 +40,8 @@ template <typename Class_T, typename... Arg_Ts> class BandoQWebEnginePage : publ
     BandoQWebEnginePage &operator=(BandoQWebEnginePage &&) = delete;
     ~BandoQWebEnginePage() override { bando_finalizer<BandoQWebEnginePage>(this); };
 
-    void initializeValue(Rice::Object value, QMetaObject *mo) { bando_initializeValue<BandoQWebEnginePage>(this, value, mo); };
-    Rice::Object value() { return this->value_; };
+    void initializeValue(Object value, QMetaObject *mo) { bando_initializeValue<BandoQWebEnginePage>(this, value, mo); };
+    Object value() { return this->value_; };
 
     const QMetaObject *metaObject() const override { return bando_metaObject<BandoQWebEnginePage, Class_T>(this); };
     int qt_metacall(QMetaObject::Call call, int id, void **args) override { return bando_qt_metacall<BandoQWebEnginePage>(this, call, id, args); };
@@ -53,76 +55,76 @@ template <typename Class_T, typename... Arg_Ts> class BandoQWebEnginePage : publ
 
     void triggerAction(QWebEnginePage::WebAction action, bool checked = false) override {
         Q_ASSERT(this->value_.rb_type() != RUBY_T_NONE);
-        auto rb_name = Rice::Identifier("trigger_action");
-        this->value_.call(rb_name, Rice::Object(Rice::detail::to_ruby(action)), Rice::Object(Rice::detail::to_ruby(checked)));
+        auto rb_name = Identifier("trigger_action");
+        this->value_.call(rb_name, Object(detail::to_ruby(action)), Object(detail::to_ruby(checked)));
     };
 
     bool acceptNavigationRequest(const QUrl &url, QWebEnginePage::NavigationType type, bool isMainFrame) override {
-        auto rb_name = Rice::Identifier("accept_navigation_request");
+        auto rb_name = Identifier("accept_navigation_request");
         if (!this->value_.respond_to(rb_name))
             return this->Class_T::acceptNavigationRequest(url, type, isMainFrame);
 
         Q_ASSERT(this->value_.rb_type() != RUBY_T_NONE);
-        auto rb_return = this->value_.call(rb_name, Rice::Object(Rice::detail::to_ruby(url)), Rice::Object(Rice::detail::to_ruby(type)), Rice::Object(Rice::detail::to_ruby(isMainFrame)));
-        return Rice::detail::From_Ruby<bool>().convert(rb_return);
+        auto rb_return = this->value_.call(rb_name, Object(detail::to_ruby(url)), Object(detail::to_ruby(type)), Object(detail::to_ruby(isMainFrame)));
+        return detail::From_Ruby<bool>().convert(rb_return);
     };
 
     QStringList chooseFiles(QWebEnginePage::FileSelectionMode mode, const QStringList &oldFiles, const QStringList &acceptedMimeTypes) override {
-        auto rb_name = Rice::Identifier("choose_files");
+        auto rb_name = Identifier("choose_files");
         if (!this->value_.respond_to(rb_name))
             return this->Class_T::chooseFiles(mode, oldFiles, acceptedMimeTypes);
 
         Q_ASSERT(this->value_.rb_type() != RUBY_T_NONE);
-        auto rb_return = this->value_.call(rb_name, Rice::Object(Rice::detail::to_ruby(mode)), Rice::Object(Rice::detail::to_ruby(oldFiles)), Rice::Object(Rice::detail::to_ruby(acceptedMimeTypes)));
-        return Rice::detail::From_Ruby<QStringList>().convert(rb_return);
+        auto rb_return = this->value_.call(rb_name, Object(detail::to_ruby(mode)), Object(detail::to_ruby(oldFiles)), Object(detail::to_ruby(acceptedMimeTypes)));
+        return detail::From_Ruby<QStringList>().convert(rb_return);
     };
 
     QWebEnginePage *createWindow(QWebEnginePage::WebWindowType type) override {
-        auto rb_name = Rice::Identifier("create_window");
+        auto rb_name = Identifier("create_window");
         if (!this->value_.respond_to(rb_name))
             return this->Class_T::createWindow(type);
 
         Q_ASSERT(this->value_.rb_type() != RUBY_T_NONE);
-        auto rb_return = this->value_.call(rb_name, Rice::Object(Rice::detail::to_ruby(type)));
-        return Rice::detail::From_Ruby<QWebEnginePage *>().convert(rb_return);
+        auto rb_return = this->value_.call(rb_name, Object(detail::to_ruby(type)));
+        return detail::From_Ruby<QWebEnginePage *>().convert(rb_return);
     };
 
     void javaScriptAlert(const QUrl &securityOrigin, const QString &msg) override {
-        auto rb_name = Rice::Identifier("java_script_alert");
+        auto rb_name = Identifier("java_script_alert");
         if (!this->value_.respond_to(rb_name))
             return this->Class_T::javaScriptAlert(securityOrigin, msg);
 
         Q_ASSERT(this->value_.rb_type() != RUBY_T_NONE);
-        this->value_.call(rb_name, Rice::Object(Rice::detail::to_ruby(securityOrigin)), Rice::Object(Rice::detail::to_ruby(msg)));
+        this->value_.call(rb_name, Object(detail::to_ruby(securityOrigin)), Object(detail::to_ruby(msg)));
     };
 
     bool javaScriptConfirm(const QUrl &securityOrigin, const QString &msg) override {
-        auto rb_name = Rice::Identifier("java_script_confirm");
+        auto rb_name = Identifier("java_script_confirm");
         if (!this->value_.respond_to(rb_name))
             return this->Class_T::javaScriptConfirm(securityOrigin, msg);
 
         Q_ASSERT(this->value_.rb_type() != RUBY_T_NONE);
-        auto rb_return = this->value_.call(rb_name, Rice::Object(Rice::detail::to_ruby(securityOrigin)), Rice::Object(Rice::detail::to_ruby(msg)));
-        return Rice::detail::From_Ruby<bool>().convert(rb_return);
+        auto rb_return = this->value_.call(rb_name, Object(detail::to_ruby(securityOrigin)), Object(detail::to_ruby(msg)));
+        return detail::From_Ruby<bool>().convert(rb_return);
     };
 
     void javaScriptConsoleMessage(QWebEnginePage::JavaScriptConsoleMessageLevel level, const QString &message, int lineNumber, const QString &sourceID) override {
-        auto rb_name = Rice::Identifier("java_script_console_message");
+        auto rb_name = Identifier("java_script_console_message");
         if (!this->value_.respond_to(rb_name))
             return this->Class_T::javaScriptConsoleMessage(level, message, lineNumber, sourceID);
 
         Q_ASSERT(this->value_.rb_type() != RUBY_T_NONE);
-        this->value_.call(rb_name, Rice::Object(Rice::detail::to_ruby(level)), Rice::Object(Rice::detail::to_ruby(message)), Rice::Object(Rice::detail::to_ruby(lineNumber)), Rice::Object(Rice::detail::to_ruby(sourceID)));
+        this->value_.call(rb_name, Object(detail::to_ruby(level)), Object(detail::to_ruby(message)), Object(detail::to_ruby(lineNumber)), Object(detail::to_ruby(sourceID)));
     };
 
     bool javaScriptPrompt(const QUrl &securityOrigin, const QString &msg, const QString &defaultValue, QString *result) override {
-        auto rb_name = Rice::Identifier("java_script_prompt");
+        auto rb_name = Identifier("java_script_prompt");
         if (!this->value_.respond_to(rb_name))
             return this->Class_T::javaScriptPrompt(securityOrigin, msg, defaultValue, result);
 
         Q_ASSERT(this->value_.rb_type() != RUBY_T_NONE);
-        auto rb_return = this->value_.call(rb_name, Rice::Object(Rice::detail::to_ruby(securityOrigin)), Rice::Object(Rice::detail::to_ruby(msg)), Rice::Object(Rice::detail::to_ruby(defaultValue)), Rice::Object(Rice::detail::to_ruby(result)));
-        return Rice::detail::From_Ruby<bool>().convert(rb_return);
+        auto rb_return = this->value_.call(rb_name, Object(detail::to_ruby(securityOrigin)), Object(detail::to_ruby(msg)), Object(detail::to_ruby(defaultValue)), Object(detail::to_ruby(result)));
+        return detail::From_Ruby<bool>().convert(rb_return);
     };
 
   public:
@@ -141,26 +143,26 @@ template <typename Class_T, typename... Arg_Ts> class BandoQWebEnginePage : publ
   public:
     template <typename BC_T, typename C_T> friend const QMetaObject *bando_metaObject(const BC_T *self);
 
-    Rice::Object value_;
+    Object value_;
     VALUE *value_address_;
 
     QMetaObject *mo_;
 };
 
 template <typename BC_T, typename C_T>
-Rice::Data_Type<BC_T> define_bando_qwebenginepage_under(Rice::Module module, char const *name)
+Data_Type<BC_T> define_bando_qwebenginepage_under(Module module, char const *name)
 {
-    Rice::Data_Type<BC_T> bando_qlass =
-        Rice::define_class_under<BC_T, C_T>(module, name)
-            .define_method("_initialize_ruby_value", &BC_T::initializeValue, Rice::Arg("value"), Rice::Arg("mo"))
+    Data_Type<BC_T> bando_qlass =
+        define_class_under<BC_T, C_T>(module, name)
+            .define_method("_initialize_ruby_value", &BC_T::initializeValue, Arg("value"), Arg("mo"))
             .define_method("_ruby_value", &BC_T::value)
-            .define_method("_ruby_value_handle_event", &BC_T::Class_T_handleEvent, Rice::Arg("name"), Rice::Arg("event"))
-            .define_method("_event", &BC_T::Class_T_handleQObjectEvent, Rice::Arg("event"))
-            .define_method("_event_filter", &BC_T::Class_T_handleQObjectEventFilter, Rice::Arg("watched"), Rice::Arg("event"))
+            .define_method("_ruby_value_handle_event", &BC_T::Class_T_handleEvent, Arg("name"), Arg("event"))
+            .define_method("_event", &BC_T::Class_T_handleQObjectEvent, Arg("event"))
+            .define_method("_event_filter", &BC_T::Class_T_handleQObjectEventFilter, Arg("watched"), Arg("event"))
             .define_method("sender", &BC_T::sender);
 
     bando_qlass
-        .define_method("trigger_action", [](BC_T *self, QWebEnginePage::WebAction action, bool checked) -> void { return self->C_T::triggerAction(action, checked); }, Rice::Arg("action"), Rice::Arg("checked") = static_cast<bool>(false));
+        .define_method("trigger_action", [](BC_T *self, QWebEnginePage::WebAction action, bool checked) -> void { return self->C_T::triggerAction(action, checked); }, Arg("action"), Arg("checked") = static_cast<bool>(false));
 
     return bando_qlass;
 }

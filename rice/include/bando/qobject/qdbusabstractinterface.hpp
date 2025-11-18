@@ -27,6 +27,8 @@
 #include <QEvent>
 #include <QTimerEvent>
 
+using namespace Rice;
+
 template <typename Class_T, typename... Arg_Ts> class BandoQDBusAbstractInterface : public Class_T
 {
   public:
@@ -37,8 +39,8 @@ template <typename Class_T, typename... Arg_Ts> class BandoQDBusAbstractInterfac
     BandoQDBusAbstractInterface &operator=(BandoQDBusAbstractInterface &&) = delete;
     ~BandoQDBusAbstractInterface() override { bando_finalizer<BandoQDBusAbstractInterface>(this); };
 
-    void initializeValue(Rice::Object value, QMetaObject *mo) { bando_initializeValue<BandoQDBusAbstractInterface>(this, value, mo); };
-    Rice::Object value() { return this->value_; };
+    void initializeValue(Object value, QMetaObject *mo) { bando_initializeValue<BandoQDBusAbstractInterface>(this, value, mo); };
+    Object value() { return this->value_; };
 
     const QMetaObject *metaObject() const override { return bando_metaObject<BandoQDBusAbstractInterface, Class_T>(this); };
     int qt_metacall(QMetaObject::Call call, int id, void **args) override { return bando_qt_metacall<BandoQDBusAbstractInterface>(this, call, id, args); };
@@ -66,22 +68,22 @@ template <typename Class_T, typename... Arg_Ts> class BandoQDBusAbstractInterfac
   public:
     template <typename BC_T, typename C_T> friend const QMetaObject *bando_metaObject(const BC_T *self);
 
-    Rice::Object value_;
+    Object value_;
     VALUE *value_address_;
 
     QMetaObject *mo_;
 };
 
 template <typename BC_T, typename C_T>
-Rice::Data_Type<BC_T> define_bando_qdbusabstractinterface_under(Rice::Module module, char const *name)
+Data_Type<BC_T> define_bando_qdbusabstractinterface_under(Module module, char const *name)
 {
-    Rice::Data_Type<BC_T> bando_qlass =
-        Rice::define_class_under<BC_T, C_T>(module, name)
-            .define_method("_initialize_ruby_value", &BC_T::initializeValue, Rice::Arg("value"), Rice::Arg("mo"))
+    Data_Type<BC_T> bando_qlass =
+        define_class_under<BC_T, C_T>(module, name)
+            .define_method("_initialize_ruby_value", &BC_T::initializeValue, Arg("value"), Arg("mo"))
             .define_method("_ruby_value", &BC_T::value)
-            .define_method("_ruby_value_handle_event", &BC_T::Class_T_handleEvent, Rice::Arg("name"), Rice::Arg("event"))
-            .define_method("_event", &BC_T::Class_T_handleQObjectEvent, Rice::Arg("event"))
-            .define_method("_event_filter", &BC_T::Class_T_handleQObjectEventFilter, Rice::Arg("watched"), Rice::Arg("event"))
+            .define_method("_ruby_value_handle_event", &BC_T::Class_T_handleEvent, Arg("name"), Arg("event"))
+            .define_method("_event", &BC_T::Class_T_handleQObjectEvent, Arg("event"))
+            .define_method("_event_filter", &BC_T::Class_T_handleQObjectEventFilter, Arg("watched"), Arg("event"))
             .define_method("sender", &BC_T::sender);
     return bando_qlass;
 }

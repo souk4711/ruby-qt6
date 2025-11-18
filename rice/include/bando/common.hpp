@@ -30,6 +30,8 @@
 #include <QMetaObject>
 #include <QObject>
 
+using namespace Rice;
+
 enum bando_FunctionName
 {
     actionEvent,
@@ -128,19 +130,19 @@ constexpr std::string_view bando_FunctionName_underscore(bando_FunctionName name
     }
 }
 
-template <typename BandoClass_T> void bando_initializeValue(BandoClass_T *self, Rice::Object value, QMetaObject *mo)
+template <typename BandoClass_T> void bando_initializeValue(BandoClass_T *self, Object value, QMetaObject *mo)
 {
     self->value_ = value;
     self->mo_ = mo;
 
     self->value_address_ = const_cast<VALUE*>(&self->value_.value());
-    Rice::detail::protect(rb_gc_register_address, self->value_address_);
+    detail::protect(rb_gc_register_address, self->value_address_);
 }
 
 template <typename BandoClass_T> void bando_finalizer(BandoClass_T *self)
 {
     if (self->value_address_ != nullptr)
-        Rice::detail::protect(rb_gc_unregister_address, self->value_address_);
+        detail::protect(rb_gc_unregister_address, self->value_address_);
 }
 
 template <typename BandoClass_T, typename Class_T> const QMetaObject *bando_metaObject(const BandoClass_T *self)
@@ -171,7 +173,7 @@ template <typename BandoClass_T> int bando_qt_metacall(BandoClass_T *self, QMeta
         if (method.methodType() == QMetaMethod::Slot)
         {
             auto name = "_rubyqt6_" + method.name().toStdString();
-            auto arguments = Rice::Array();
+            auto arguments = Array();
             for (int i = 0; i < method.parameterCount(); ++i)
             {
                 QVariant argument(method.parameterMetaType(i), args[i + 1]);
@@ -183,7 +185,7 @@ template <typename BandoClass_T> int bando_qt_metacall(BandoClass_T *self, QMeta
 
             if (method.returnType() != QMetaType::Void) {
                 if (!rb_return.is_nil()) {
-                    const QVariant result = Rice::detail::From_Ruby<QVariant>().convert(rb_return);
+                    const QVariant result = detail::From_Ruby<QVariant>().convert(rb_return);
                     method.returnMetaType().construct(args[0], result.constData());
                 }
             }
@@ -197,34 +199,34 @@ template <typename BandoClass_T> int bando_qt_metacall(BandoClass_T *self, QMeta
 
 template <typename BandoClass_T> bool bando_handleQObjectEvent(BandoClass_T *self, QEvent *event)
 {
-    auto rb_name = Rice::Identifier("event");
+    auto rb_name = Identifier("event");
     if (!self->value_.respond_to(rb_name))
         return self->Class_T_handleQObjectEvent(event);
 
     Q_ASSERT(self->value_.rb_type() != RUBY_T_NONE);
-    auto rb_return = self->value_.call(rb_name, Rice::Object(Rice::detail::to_ruby(event)));
-    return Rice::detail::From_Ruby<bool>().convert(rb_return);
+    auto rb_return = self->value_.call(rb_name, Object(detail::to_ruby(event)));
+    return detail::From_Ruby<bool>().convert(rb_return);
 }
 
 template <typename BandoClass_T> bool bando_handleQObjectEventFilter(BandoClass_T *self, QObject *watched, QEvent *event)
 {
-    auto rb_name = Rice::Identifier("event_filter");
+    auto rb_name = Identifier("event_filter");
     if (!self->value_.respond_to(rb_name))
         return self->Class_T_handleQObjectEventFilter(watched, event);
 
     Q_ASSERT(self->value_.rb_type() != RUBY_T_NONE);
-    auto rb_return = self->value_.call(rb_name, Rice::Object(Rice::detail::to_ruby(watched)), Rice::Object(Rice::detail::to_ruby(event)));
-    return Rice::detail::From_Ruby<bool>().convert(rb_return);
+    auto rb_return = self->value_.call(rb_name, Object(detail::to_ruby(watched)), Object(detail::to_ruby(event)));
+    return detail::From_Ruby<bool>().convert(rb_return);
 }
 
 template <typename BandoClass_T> void bando_handleEvent(BandoClass_T *self, QEvent *event, bando_FunctionName name)
 {
-    auto rb_name = Rice::Identifier(bando_FunctionName_underscore(name));
+    auto rb_name = Identifier(bando_FunctionName_underscore(name));
     if (!self->value_.respond_to(rb_name))
         return self->Class_T_handleEvent(name, event);
 
     Q_ASSERT(self->value_.rb_type() != RUBY_T_NONE);
-    self->value_.call(rb_name, Rice::Object(Rice::detail::to_ruby(event)));
+    self->value_.call(rb_name, Object(detail::to_ruby(event)));
 }
 
 #endif

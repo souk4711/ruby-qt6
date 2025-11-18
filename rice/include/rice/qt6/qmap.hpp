@@ -130,7 +130,7 @@ private:
         klass_.include_module(rb_mEnumerable);
         klass_.define_method("each", [](QMap_T *self) -> QMap_T* {
             for (auto i = self->cbegin(), end = self->cend(); i != end; ++i) {
-                Rice::detail::protect(rb_yield_values, 2, Rice::detail::to_ruby(i.key()), Rice::detail::to_ruby(i.value()));
+                detail::protect(rb_yield_values, 2, detail::to_ruby(i.key()), detail::to_ruby(i.value()));
             }
             return self;
         });
