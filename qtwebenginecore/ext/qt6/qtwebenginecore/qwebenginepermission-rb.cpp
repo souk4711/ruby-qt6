@@ -11,6 +11,10 @@ void Init_qwebenginepermission(Rice::Module rb_mQt6QtWebEngineCore)
     rb_cQWebEnginePermission =
         // RubyQt6::QtWebEngineCore::QWebEnginePermission
         define_class_under<QWebEnginePermission>(rb_mQt6QtWebEngineCore, "QWebEnginePermission")
+            // RubyQt6-Defined Functions
+            .define_singleton_function("_qvariant_register_metatype", []() -> int { return qRegisterMetaType<QWebEnginePermission>(); })
+            .define_singleton_function("_qvariant_from_value", [](const QWebEnginePermission &value) -> QVariant { return QVariant::fromValue(value); })
+            .define_singleton_function("_qvariant_to_value", [](const QVariant &qvariant) -> QWebEnginePermission { return qvariant.value<QWebEnginePermission>(); })
             // Public Functions
             .define_method("deny", &QWebEnginePermission::deny)
             .define_method("grant", &QWebEnginePermission::grant)

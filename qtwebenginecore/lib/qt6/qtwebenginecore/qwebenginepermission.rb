@@ -8,6 +8,14 @@ module RubyQt6
       # @!parse class State         ; end
       rubyqt6_declare_enum_under QWebEnginePermission, QWebEnginePermission::PermissionType
       rubyqt6_declare_enum_under QWebEnginePermission, QWebEnginePermission::State
+
+      # @!parse
+      QtCore::QVariant.register(
+        _qvariant_register_metatype,
+        method(:_qvariant_from_value),
+        method(:_qvariant_to_value),
+        from: self
+      )
     end
   end
 end
