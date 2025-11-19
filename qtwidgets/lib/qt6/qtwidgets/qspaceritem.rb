@@ -16,6 +16,7 @@ module RubyQt6
         h_policy ||= QtWidgets::QSizePolicy::Policy::Minimum
         v_policy ||= QtWidgets::QSizePolicy::Policy::Minimum
         _initialize(w, h, h_policy, v_policy)
+        _take_ownership_from_ruby(self)
       end
     end
   end

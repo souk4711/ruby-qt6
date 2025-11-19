@@ -11,6 +11,7 @@ module RubyQt6
       # @return [QWidgetItem]
       def initialize(widget)
         _initialize(widget)
+        _take_ownership_from_ruby(self)
       end
     end
   end
