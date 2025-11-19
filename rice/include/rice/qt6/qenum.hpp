@@ -35,6 +35,7 @@ Data_Type<Enum_T> define_qenum_under(Module module, char const* name)
     Data_Type<Enum_T> qenum =
         define_class_under<Enum_T>(module, name)
             .template define_method("to_i", [](Enum_T *self) -> int { return (int)(*self); })
+            .template define_singleton_function("from_int", [](int i) -> Enum_T { return static_cast<Enum_T>(i); }, Arg("i"))
             .define_singleton_function("_qvariant_register_metatype", []() -> int { return qRegisterMetaType<Enum_T>(); })
             .define_singleton_function("_qvariant_from_value", [](const Enum_T &value) -> QVariant { return QVariant::fromValue(value); })
             .define_singleton_function("_qvariant_to_value", [](const QVariant &qvariant) -> Enum_T { return qvariant.value<Enum_T>(); });
