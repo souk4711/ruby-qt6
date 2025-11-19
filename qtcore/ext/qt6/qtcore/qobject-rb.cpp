@@ -31,6 +31,7 @@ void Init_qobject(Rice::Module rb_mQt6QtCore)
         // RubyQt6::QtCore::QObject
         define_class_under<QObject>(rb_mQt6QtCore, "QObject")
             // RubyQt6-Defined Functions
+            .define_method("delete_now", [](QObject *self) -> void { delete self; })
             .define_singleton_function("_emit", QObject_emit, Arg("sender"), Arg("signal"), Arg("args"))
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QObject::staticMetaObject; })
             .define_singleton_function("_take_ownership_from_ruby", [](QObject *) -> void {}, Arg("object").takeOwnership())
