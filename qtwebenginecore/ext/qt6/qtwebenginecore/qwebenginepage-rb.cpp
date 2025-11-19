@@ -34,7 +34,7 @@ void Init_qwebenginepage(Rice::Module rb_mQt6QtWebEngineCore)
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QWebEnginePage::staticMetaObject; })
             // Constructor
-            .define_constructor(Constructor<QWebEnginePage, QWebEngineProfile *, QObject *>(), Arg("profile"), Arg("parent"))
+            .define_constructor(Constructor<QWebEnginePage, QObject *>(), Arg("parent"))
             // Public Functions
             .define_method("accept_as_new_window", &QWebEnginePage::acceptAsNewWindow, Arg("request"))
             .define_method("action", &QWebEnginePage::action, Arg("action"))

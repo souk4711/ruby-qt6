@@ -6,7 +6,7 @@
 
 using namespace Rice;
 
-using Bando_QWebEnginePage = BandoQWebEnginePage<QWebEnginePage, QWebEngineProfile *, QObject *>;
+using Bando_QWebEnginePage = BandoQWebEnginePage<QWebEnginePage, QObject *>;
 
 Rice::Class rb_mBando_cQWebEnginePage;
 
@@ -14,5 +14,5 @@ void Init_bando_qwebenginepage(Rice::Module rb_mQt6Bando)
 {
     rb_mBando_cQWebEnginePage =
         define_bando_qwebenginepage_under<Bando_QWebEnginePage, QWebEnginePage>(rb_mQt6Bando, "QWebEnginePage")
-            .define_constructor(Constructor<Bando_QWebEnginePage, QWebEngineProfile *, QObject *>(), Arg("profile"), Arg("parent"));
+            .define_constructor(Constructor<Bando_QWebEnginePage, QObject *>(), Arg("parent"));
 }
