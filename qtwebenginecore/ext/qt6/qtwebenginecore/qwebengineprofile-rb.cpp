@@ -17,13 +17,19 @@ using namespace Rice;
 
 Rice::Class rb_cQWebEngineProfile;
 
+struct QWebEngineNotificationFunctor {
+    QWebEngineNotificationFunctor(Object value) : value_(value) {}
+    void operator()(std::unique_ptr<QWebEngineNotification> notification) { this->value_.call("call", Object(detail::to_ruby(notification))); };
+    Object value_;
+};
+
 void Init_qwebengineprofile(Rice::Module rb_mQt6QtWebEngineCore)
 {
     rb_cQWebEngineProfile =
         // RubyQt6::QtWebEngineCore::QWebEngineProfile
         define_class_under<QWebEngineProfile, QObject>(rb_mQt6QtWebEngineCore, "QWebEngineProfile")
             // RubyQt6-Defined Functions
-            .define_method("set_notification_presenter", [](QWebEngineProfile *self, Object blk) -> void { return self->setNotificationPresenter([&](std::unique_ptr<QWebEngineNotification> notification) { blk.call("call", Object(detail::to_ruby(*notification))); }); })
+            .define_method("set_notification_presenter", [](QWebEngineProfile *self, Object callback) -> void { return self->setNotificationPresenter(QWebEngineNotificationFunctor(callback)); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QWebEngineProfile::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QWebEngineProfile, const QString &, QObject *>(), Arg("name"), Arg("parent"))
