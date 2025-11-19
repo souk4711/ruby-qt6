@@ -20,7 +20,7 @@ void Init_qwebengineview(Rice::Module rb_mQt6QtWebEngineWidgets)
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QWebEngineView::staticMetaObject; })
             // Constructor
-            .define_constructor(Constructor<QWebEngineView, QWebEngineProfile*, QWidget*>(), Arg("profile"), Arg("parent"))
+            .define_constructor(Constructor<QWebEngineView, QWidget*>(), Arg("parent"))
             // Public Functions
             .define_method("create_standard_context_menu", &QWebEngineView::createStandardContextMenu)
             .define_method("has_selection", &QWebEngineView::hasSelection)
