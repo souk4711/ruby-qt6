@@ -29,7 +29,7 @@ void Init_qwebengineprofile(Rice::Module rb_mQt6QtWebEngineCore)
         // RubyQt6::QtWebEngineCore::QWebEngineProfile
         define_class_under<QWebEngineProfile, QObject>(rb_mQt6QtWebEngineCore, "QWebEngineProfile")
             // RubyQt6-Defined Functions
-            .define_method("set_notification_presenter", [](QWebEngineProfile *self, Object callback) -> void { return self->setNotificationPresenter(QWebEngineNotificationFunctor(callback)); })
+            .define_method("set_notification_presenter", [](QWebEngineProfile *self, Object presenter) -> void { return self->setNotificationPresenter(QWebEngineNotificationFunctor(presenter)); }, Arg("presenter"))
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QWebEngineProfile::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QWebEngineProfile, const QString &, QObject *>(), Arg("name"), Arg("parent"))
