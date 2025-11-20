@@ -24,10 +24,9 @@ module RubyQt6
       # @!visibility private
       alias_method :_initialize, :initialize
 
-      # @param argv [Array<String>]
       # @return [QGuiApplication]
-      def initialize(argv)
-        argv = _initialize_qApp_argv(argv)
+      def initialize
+        argv = _initialize_qApp_argv
         _initialize(argv.size, argv.data)
         _initialize_qApp
       end

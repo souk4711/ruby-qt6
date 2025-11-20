@@ -29,10 +29,9 @@ module RubyQt6
       # @!visibility private
       alias_method :_initialize, :initialize
 
-      # @param argv [Array<String>]
       # @return [QCoreApplication]
-      def initialize(argv)
-        argv = _initialize_qApp_argv(argv)
+      def initialize
+        argv = _initialize_qApp_argv
         _initialize(argv.size, argv.data)
         _initialize_qApp
       end
@@ -50,8 +49,8 @@ module RubyQt6
       # entire lifetime of the QCoreApplication object. In addition,
       # argc must be greater than zero and argv must contain at least
       # one valid character string.
-      def _initialize_qApp_argv(argv)
-        argv = [$PROGRAM_NAME] + ARGV if argv == ARGV
+      def _initialize_qApp_argv
+        argv = [$PROGRAM_NAME] + ARGV
         $qApp_argv = ::Rice::Buffer≺char∗≻.new(argv.map(&:bytes))
       end
 

@@ -24,10 +24,9 @@ module RubyQt6
         end
       end
 
-      # @param argv [Array<String>]
       # @return [QApplication]
-      def initialize(argv)
-        argv = _initialize_qApp_argv(argv)
+      def initialize
+        argv = _initialize_qApp_argv
         _initialize(argv.size, argv.data)
         _initialize_qApp
       end
