@@ -69,6 +69,11 @@ module RubyQt6
       end
 
       # @!visibility private
+      def delete_now
+        self.class._delete_now(self)
+      end
+
+      # @!visibility private
       def find_child(name, options = nil)
         options ||= QtCore::Qt::FindChildrenRecursively
         child = _find_child(T.to_qanystringview(name), T.to_qflags(options))
