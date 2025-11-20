@@ -27,6 +27,12 @@ module RubyQt6
         _initialize(T.to_qstr(name), parent)
         _take_ownership_from_ruby(self)
       end
+
+      # @!visibility private
+      def set_notification_presenter(presenter)
+        _gc_incref(presenter)
+        _set_notification_presenter(presenter)
+      end
     end
   end
 end

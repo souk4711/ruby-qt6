@@ -4,6 +4,7 @@ require_relative "configuration"
 require_relative "ducktyping"
 
 require_relative "refinements/kernel"
+require_relative "refinements/object"
 require_relative "refinements/string"
 require_relative "refinements/symbol"
 
