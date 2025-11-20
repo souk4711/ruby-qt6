@@ -39,7 +39,7 @@ class MainWindow < RubyQt6::Bando::QMainWindow
   end
 end
 
-app = QApplication.new(ARGV)
+app = QApplication.new
 window = MainWindow.new
 window.show
 app.exec

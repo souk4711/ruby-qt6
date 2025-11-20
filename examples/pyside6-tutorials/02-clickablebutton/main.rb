@@ -12,7 +12,7 @@ class Greetings < RubyQt6::Bando::QObject
   end
 end
 
-app = QApplication.new(ARGV)
+app = QApplication.new
 button = QPushButton.new('Click me')
 button.clicked.connect(Greetings.new, :say_hello)
 button.show

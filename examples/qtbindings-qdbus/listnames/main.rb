@@ -28,7 +28,7 @@ def method3
   puts(QDBusConnection.session_bus.interface.registered_service_names.value)
 end
 
-QCoreApplication.new(ARGV)
+QCoreApplication.new
 
 unless QDBusConnection.session_bus.connected?
   warn("Cannot connect to the D-BUS session bus. To start it, run:\n\teval `dbus-launch --auto-syntax`\n")

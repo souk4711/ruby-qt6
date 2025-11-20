@@ -3,6 +3,6 @@
 require 'qt6/all'
 require_relative 'classwizard'
 
-QApplication.new(ARGV)
+QApplication.new
 wizard = ClassWizard.new
 wizard.exec

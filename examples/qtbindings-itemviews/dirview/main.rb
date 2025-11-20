@@ -2,7 +2,7 @@
 
 require 'qt6/all'
 
-app = QApplication.new(ARGV)
+app = QApplication.new
 
 model = QFileSystemModel.new
 model.set_root_path(QDir.current_path)

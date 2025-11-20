@@ -13,7 +13,7 @@ COLORS = [
   ['Yellow', '#F9E56d']
 ].freeze
 
-app = QApplication.new(ARGV)
+app = QApplication.new
 table = QTableWidget.new(COLORS.length, COLORS[0].length + 1)
 table.set_horizontal_header_labels(QStringList.new << 'Name' << 'Hex Code' << 'Color')
 COLORS.each_with_index do |(name, code), i|

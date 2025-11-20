@@ -25,7 +25,7 @@ class Form < RubyQt6::Bando::QDialog
   end
 end
 
-app = QApplication.new(ARGV)
+app = QApplication.new
 form = Form.new
 form.show
 app.exec

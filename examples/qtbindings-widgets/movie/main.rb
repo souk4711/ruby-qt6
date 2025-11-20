@@ -3,7 +3,7 @@
 require 'qt6/all'
 require_relative 'movieplayer'
 
-app = QApplication.new(ARGV)
+app = QApplication.new
 player = MoviePlayer.new
 player.show
 app.exec

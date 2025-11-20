@@ -34,7 +34,7 @@ class KillerFilter < RubyQt6::Bando::QWidget
   end
 end
 
-app = QApplication.new(ARGV)
+app = QApplication.new
 widget = KillerFilter.new
 widget.show
 app.exec

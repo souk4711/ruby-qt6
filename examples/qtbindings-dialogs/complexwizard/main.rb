@@ -3,6 +3,6 @@
 require 'qt6/all'
 require_relative 'licensewizard'
 
-QApplication.new(ARGV)
+QApplication.new
 wizard = LicenseWizard.new
 wizard.exec

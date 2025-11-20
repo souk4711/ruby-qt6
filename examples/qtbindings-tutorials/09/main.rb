@@ -30,7 +30,7 @@ class MyWidget < RubyQt6::Bando::QWidget
   end
 end
 
-a = QApplication.new(ARGV)
+a = QApplication.new
 w = MyWidget.new
 w.set_geometry(100, 100, 500, 355)
 w.show

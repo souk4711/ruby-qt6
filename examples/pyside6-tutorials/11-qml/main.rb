@@ -2,7 +2,7 @@
 
 require 'qt6/all'
 
-app = QGuiApplication.new(ARGV)
+app = QGuiApplication.new
 view = QQuickView.new
 view.engine.add_import_path('.')
 view.load_from_module('App', 'Main')

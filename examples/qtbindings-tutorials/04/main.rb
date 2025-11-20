@@ -14,7 +14,7 @@ class MyWidget < RubyQt6::Bando::QWidget
   end
 end
 
-app = QApplication.new(ARGV)
+app = QApplication.new
 widget = MyWidget.new
 widget.show
 app.exec

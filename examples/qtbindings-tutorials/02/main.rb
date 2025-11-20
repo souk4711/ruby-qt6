@@ -2,7 +2,7 @@
 
 require 'qt6/all'
 
-a = QApplication.new(ARGV)
+a = QApplication.new
 quit = QPushButton.new('Quit')
 quit.resize(75, 30)
 quit.set_font(QFont.new('Times', 18, QFont::Bold))

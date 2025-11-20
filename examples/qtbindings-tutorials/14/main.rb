@@ -3,7 +3,7 @@
 require 'qt6/all'
 require_relative 'gamebrd'
 
-app = QApplication.new(ARGV)
+app = QApplication.new
 gb = GameBoard.new
 gb.set_geometry(100, 100, 500, 355)
 gb.show

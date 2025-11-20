@@ -2,7 +2,7 @@
 
 require 'qt6/all'
 
-app = QApplication.new(ARGV)
+app = QApplication.new
 window = QWidget.new
 window.resize(200, 120)
 

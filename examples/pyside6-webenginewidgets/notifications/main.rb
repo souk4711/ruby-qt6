@@ -6,7 +6,7 @@ require_relative 'webenginepage'
 
 QApplication.set_organization_name('QtProject')
 
-app = QApplication.new(ARGV)
+app = QApplication.new
 view = QWebEngineView.new
 
 page = WebEnginePage.new(view)

@@ -3,6 +3,6 @@
 require 'qt6/all'
 require_relative 'dialog'
 
-QApplication.new(ARGV)
+QApplication.new
 dialog = Dialog.new
 dialog.exec

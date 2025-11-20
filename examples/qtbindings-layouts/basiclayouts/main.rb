@@ -3,7 +3,7 @@
 require 'qt6/all'
 require_relative 'dialog'
 
-app = QApplication.new(ARGV)
+app = QApplication.new
 dialog = Dialog.new
 dialog.show
 app.exec

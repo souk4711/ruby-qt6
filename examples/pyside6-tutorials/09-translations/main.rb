@@ -36,7 +36,7 @@ class Window < RubyQt6::Bando::QMainWindow
   end
 end
 
-app = QApplication.new(ARGV)
+app = QApplication.new
 
 translator_qt = QTranslator.new(app)
 translator_custom = QTranslator.new(app)

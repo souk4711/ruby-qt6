@@ -3,7 +3,7 @@
 require 'qt6/all'
 require_relative 'digitalclock'
 
-app = QApplication.new(ARGV)
+app = QApplication.new
 clock = DigitalClock.new
 clock.show
 app.exec

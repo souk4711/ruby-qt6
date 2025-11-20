@@ -28,7 +28,7 @@ class Widget < RubyQt6::Bando::QWidget
   end
 end
 
-app = QApplication.new(ARGV)
+app = QApplication.new
 app.set_style_sheet(File.read(File.join(__dir__, 'style.qss')))
 widget = Widget.new
 widget.show

@@ -4,7 +4,7 @@ require 'qt6/all'
 require_relative 'window'
 require_relative 'rc_systray'
 
-app = QApplication.new(ARGV)
+app = QApplication.new
 
 unless QSystemTrayIcon.system_tray_available?
   QMessageBox.critical(nil, QObject.tr('Systray'), QObject.tr("I couldn't detect any system tray on this system."))

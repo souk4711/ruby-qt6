@@ -15,7 +15,7 @@ end
 
 QtWebView.initialize
 
-app = QGuiApplication.new(ARGV)
+app = QGuiApplication.new
 QGuiApplication.set_application_display_name(QGuiApplication.translate('main', 'QtWebView Example'))
 
 engine = QQmlApplicationEngine.new

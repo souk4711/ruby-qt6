@@ -41,7 +41,7 @@ class Pong < RubyQt6::Bando::QDBusAbstractAdaptor
   end
 end
 
-app = QCoreApplication.new(ARGV)
+app = QCoreApplication.new
 
 obj = QObject.new
 pong = Pong.new(obj)

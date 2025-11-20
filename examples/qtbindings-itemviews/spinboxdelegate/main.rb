@@ -3,7 +3,7 @@
 require 'qt6/all'
 require_relative 'spinboxdelegate'
 
-app = QApplication.new(ARGV)
+app = QApplication.new
 
 delegate = SpinBoxDelegate.new
 model = QStandardItemModel.new

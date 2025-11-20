@@ -2,7 +2,7 @@
 
 require 'qt6/all'
 
-a = QApplication.new(ARGV)
+a = QApplication.new
 hello = QPushButton.new('Hello World!')
 hello.resize(100, 30)
 hello.show

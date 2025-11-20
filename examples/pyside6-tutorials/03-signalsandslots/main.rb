@@ -26,7 +26,7 @@ class Communicate < RubyQt6::Bando::QObject
   end
 end
 
-QApplication.new(ARGV)
+QApplication.new
 someone = Communicate.new
 someone.speak_int.emit(10)
 someone.speak_str.emit('Hello everybody!')

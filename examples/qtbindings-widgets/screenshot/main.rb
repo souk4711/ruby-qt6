@@ -3,7 +3,7 @@
 require 'qt6/all'
 require_relative 'screenshot'
 
-app = QApplication.new(ARGV)
+app = QApplication.new
 screenshot = Screenshot.new
 screenshot.show
 app.exec

@@ -8,7 +8,7 @@ TREE_DATA = {
   'Project C' => []
 }.freeze
 
-app = QApplication.new(ARGV)
+app = QApplication.new
 tree = QTreeWidget.new
 tree.set_column_count(2)
 tree.set_header_labels(QStringList.new << 'Name' << 'Type')

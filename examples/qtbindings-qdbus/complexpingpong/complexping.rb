@@ -47,7 +47,7 @@ class Ping < RubyQt6::Bando::QObject
   end
 end
 
-app = QCoreApplication.new(ARGV)
+app = QCoreApplication.new
 
 unless QDBusConnection.session_bus.connected?
   warn("#{__FILE__}: Cannot connect to the D-BUS session bus. To start it, run:\n\teval `dbus-launch --auto-syntax`\n")

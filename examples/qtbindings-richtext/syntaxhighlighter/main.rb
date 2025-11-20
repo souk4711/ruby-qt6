@@ -3,7 +3,7 @@
 require 'qt6/all'
 require_relative 'mainwindow'
 
-app = QApplication.new(ARGV)
+app = QApplication.new
 window = MainWindow.new
 window.resize(640, 512)
 window.show
