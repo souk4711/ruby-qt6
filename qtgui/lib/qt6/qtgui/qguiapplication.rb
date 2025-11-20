@@ -27,7 +27,7 @@ module RubyQt6
       # @param argv [Array<String>]
       # @return [QGuiApplication]
       def initialize(argv)
-        argv = ::Rice::Buffer≺char∗≻.new(argv.map(&:bytes))
+        argv = _initialize_qApp_argv(argv)
         _initialize(argv.size, argv.data)
         _initialize_qApp
       end

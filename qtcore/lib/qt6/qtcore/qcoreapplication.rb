@@ -32,7 +32,7 @@ module RubyQt6
       # @param argv [Array<String>]
       # @return [QCoreApplication]
       def initialize(argv)
-        argv = ::Rice::Buffer≺char∗≻.new(argv.map(&:bytes))
+        argv = _initialize_qApp_argv(argv)
         _initialize(argv.size, argv.data)
         _initialize_qApp
       end
@@ -45,6 +45,15 @@ module RubyQt6
       end
 
       private
+
+      # The data referred to by argc and argv must stay valid for the
+      # entire lifetime of the QCoreApplication object. In addition,
+      # argc must be greater than zero and argv must contain at least
+      # one valid character string.
+      def _initialize_qApp_argv(argv)
+        argv = [$PROGRAM_NAME] + ARGV if argv == ARGV
+        $qApp_argv = ::Rice::Buffer≺char∗≻.new(argv.map(&:bytes))
+      end
 
       def _initialize_qApp
         $qApp = self

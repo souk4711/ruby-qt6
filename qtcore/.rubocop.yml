@@ -11,4 +11,5 @@ AllCops:
 
 Style/GlobalVars:
   AllowedVariables:
+    - '$qApp_argv'
     - '$qApp'
