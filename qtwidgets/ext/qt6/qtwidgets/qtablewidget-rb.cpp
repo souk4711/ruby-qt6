@@ -97,6 +97,7 @@ void Init_qtablewidget(Rice::Module rb_mQt6QtWidgets)
         // RubyQt6::QtWidgets::QTableWidgetItem
         define_class_under<QTableWidgetItem>(rb_mQt6QtWidgets, "QTableWidgetItem")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_delete_now", [](QTableWidgetItem *self) -> void { delete self; }, Arg("item").takeOwnership())
             .define_singleton_function("_take_ownership_from_ruby", [](QTableWidgetItem *) -> void {}, Arg("item").takeOwnership())
             // Constructor
             .define_constructor(Constructor<QTableWidgetItem>())

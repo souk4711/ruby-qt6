@@ -28,6 +28,11 @@ module RubyQt6
       end
 
       # @!visibility private
+      def delete_now
+        self.class._delete_now(self)
+      end
+
+      # @!visibility private
       def set_flags(flags)
         _set_flags(T.to_qflags(flags))
       end

@@ -13,6 +13,11 @@ module RubyQt6
       rubyqt6_declare_enum_under QGraphicsItem, QGraphicsItem::CacheMode
       rubyqt6_declare_enum_under QGraphicsItem, QGraphicsItem::PanelModality
 
+      # @!visibility private
+      def delete_now
+        self.class._delete_now(self)
+      end
+
       private
 
       def _take_ownership_from_ruby(item)

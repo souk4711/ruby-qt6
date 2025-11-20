@@ -38,6 +38,17 @@ module RubyQt6
         _initialize(*args)
         _take_ownership_from_ruby(self)
       end
+
+      # @!visibility private
+      def delete_now
+        self.class._delete_now(self)
+      end
+
+      private
+
+      def _take_ownership_from_ruby(item)
+        self.class._take_ownership_from_ruby(item)
+      end
     end
   end
 end
