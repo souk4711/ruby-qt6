@@ -53,15 +53,12 @@ class MyWidget < RubyQt6::Bando::QWidget
   end
 end
 
-def main
-  app = QApplication.new(ARGV)
+if __FILE__ == $PROGRAM_NAME
+  app = QApplication.new
   widget = MyWidget.new
   widget.quit_clicked.connect(app, :quit)
   widget.show
-  exit(app.exec)
-end
-
-main
+  app.exec
 ```
 
 More examples can be found in [examples](https://github.com/souk4711/ruby-qt6/tree/main/examples).
