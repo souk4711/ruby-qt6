@@ -11,7 +11,7 @@ end
 
 iface = QDBusInterface.new('com.trolltech.QtDBus.PingExample', '/', '', QDBusConnection.session_bus)
 if iface.valid?
-  message = iface.call('ping', ARGV.length.positive? ? ARGV[0] : '')
+  message = iface.call('ping', ARGV[0] || '')
   reply = QDBusReply.new(message)
   if reply.value
     puts("#{__FILE__}: Reply was: %s\n" % reply.value)

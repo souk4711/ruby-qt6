@@ -15,7 +15,7 @@ end
 
 QtWebView.initialize
 
-app = QGuiApplication.new(ARGV.empty? ? ['minibrowser'] : ARGV)
+app = QGuiApplication.new(ARGV)
 QGuiApplication.set_application_display_name(QGuiApplication.translate('main', 'QtWebView Example'))
 
 engine = QQmlApplicationEngine.new
