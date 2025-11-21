@@ -21,6 +21,3 @@ view.resize(640, 480)
 view.show
 view.set_url(QUrl.from_local_file(File.join(__dir__, 'resources/index.html')))
 app.exec
-
-# resolve `Release of profile requested but WebEnginePage still not deleted. Expect troubles !`
-view.delete_now
