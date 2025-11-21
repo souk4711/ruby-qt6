@@ -17,6 +17,16 @@ module RubyQt6
       end
 
       # @!visibility private
+      def self.set_application_name(name)
+        _set_application_name(T.to_qstr(name))
+      end
+
+      # @!visibility private
+      def self.set_application_version(version)
+        _set_application_version(T.to_qstr(version))
+      end
+
+      # @!visibility private
       def self.set_organization_domain(org_domain)
         _set_organization_domain(T.to_qstr(org_domain))
       end
