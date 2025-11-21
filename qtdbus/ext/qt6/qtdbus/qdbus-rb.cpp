@@ -1,10 +1,10 @@
-#include "qdbus-enum-rb.hpp"
+#include "qdbus-rb.hpp"
 #include <qdbusconnection.h>
 #include <rice/qt6/qenum.hpp>
 
 using namespace Rice;
 
-void Init_qdbus_enum(Rice::Module rb_mQt6QtDBus)
+void Init_qdbus(Rice::Module rb_mQt6QtDBus)
 {
     Module rb_mQDBus =
         // RubyQt6::QtDBus::QDBus
