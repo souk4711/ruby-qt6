@@ -33,7 +33,7 @@ void Init_qobject(Rice::Module rb_mQt6QtCore)
             // RubyQt6-Defined Functions
             .define_singleton_function("_emit", QObject_emit, Arg("sender"), Arg("signal"), Arg("args"))
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QObject::staticMetaObject; })
-            .define_singleton_function("_delete_now", [](QObject *self) -> void { delete self; }, Arg("object").takeOwnership())
+            .define_singleton_function("_delete_now", [](QObject *object) -> void { delete object; }, Arg("object").takeOwnership())
             .define_singleton_function("_take_ownership_from_ruby", [](QObject *) -> void {}, Arg("object").takeOwnership())
             // Constructor
             .define_constructor(Constructor<QObject, QObject *>(), Arg("parent"))
