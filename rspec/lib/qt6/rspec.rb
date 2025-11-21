@@ -56,9 +56,11 @@ module RubyQt6
       "QRegularExpressionValidator",
       "QGraphicsTextItem",
       "QLabel",
+      "QPushButton",
       "QRadioButton",
       "QLineEdit",
       "QTextEdit",
+      "QToolBar",
       "QSystemTrayIcon",
       "QWebEnginePage",
       "QWebEngineView"
