@@ -13,7 +13,7 @@ void Init_qtoolbar(Rice::Module rb_mQt6QtWidgets)
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QToolBar::staticMetaObject; })
             // Constructor
-            .define_constructor(Constructor<QToolBar, const QString &, QWidget *>(), Arg("title"), Arg("parent"))
+            .define_constructor(Constructor<QToolBar, QWidget *>(), Arg("parent"))
             // Public Functions
             .define_method<QAction *(QToolBar::*)(const QPoint &) const>("action_at", &QToolBar::actionAt, Arg("p"))
             .define_method<QAction *(QToolBar::*)(int, int) const>("action_at", &QToolBar::actionAt, Arg("x"), Arg("y"))
