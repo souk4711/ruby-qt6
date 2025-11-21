@@ -4,11 +4,11 @@ source "https://rubygems.org"
 
 %w[
   rice
-  qtcore qtgui qtwidgets
+  qtcore qtgui qtwidgets qtnetwork qtprintsupport
   qtqml qtquick qtquickcontrols2 qtquickwidgets
   qtmultimedia qtmultimediawidgets
   qtwebenginecore qtwebenginewidgets qtwebview
-  qtprintsupport qtuitools
+  qtuitools
   qt
 ].each do |lib|
   gem_name = (lib != "qt" ? "ruby-qt6-#{lib}" : "ruby-qt6")

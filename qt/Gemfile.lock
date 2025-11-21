@@ -36,6 +36,13 @@ PATH
       ruby-qt6-rice (= 1.0.1)
 
 PATH
+  remote: ../qtnetwork
+  specs:
+    ruby-qt6-qtnetwork (1.0.1)
+      ruby-qt6-qtcore (~> 1.0.0)
+      ruby-qt6-rice (= 1.0.1)
+
+PATH
   remote: ../qtprintsupport
   specs:
     ruby-qt6-qtprintsupport (1.0.1)
@@ -141,6 +148,7 @@ PATH
       ruby-qt6-qtgui (~> 1.0.0)
       ruby-qt6-qtmultimedia (~> 1.0.0)
       ruby-qt6-qtmultimediawidgets (~> 1.0.0)
+      ruby-qt6-qtnetwork (~> 1.0.0)
       ruby-qt6-qtprintsupport (~> 1.0.0)
       ruby-qt6-qtqml (~> 1.0.0)
       ruby-qt6-qtquick (~> 1.0.0)
@@ -300,6 +308,7 @@ DEPENDENCIES
   ruby-qt6-qtgui!
   ruby-qt6-qtmultimedia!
   ruby-qt6-qtmultimediawidgets!
+  ruby-qt6-qtnetwork!
   ruby-qt6-qtprintsupport!
   ruby-qt6-qtqml!
   ruby-qt6-qtquick!

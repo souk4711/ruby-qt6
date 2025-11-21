@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
 QT6_LIBS = %w[
-  QtCore QtGui QtWidgets
+  QtCore QtGui QtWidgets QtNetwork QtPrintSupport
   QtQml QtQuick QtQuickControls2 QtQuickWidgets
   QtMultimedia QtMultimediaWidgets
   QtWebEngineCore QtWebEngineWidgets QtWebView
-  QtPrintSupport QtUiTools
+  QtUiTools
   QtDBus
 ].freeze
 
