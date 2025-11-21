@@ -59,6 +59,7 @@ if __FILE__ == $PROGRAM_NAME
   widget.quit_clicked.connect(app, :quit)
   widget.show
   app.exec
+end
 ```
 
 More examples can be found in [examples](https://github.com/souk4711/ruby-qt6/tree/main/examples).
