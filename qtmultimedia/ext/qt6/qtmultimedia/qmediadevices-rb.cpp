@@ -14,6 +14,8 @@ void Init_qmediadevices(Rice::Module rb_mQt6QtMultimedia)
     rb_cQMediaDevices =
         // RubyQt6::QtMultimedia::QMediaDevices
         define_class_under<QMediaDevices, QObject>(rb_mQt6QtMultimedia, "QMediaDevices")
+            // RubyQt6-Defined Functions
+            .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QMediaDevices::staticMetaObject; })
             // Signals
             .define_method("audio_inputs_changed", &QMediaDevices::audioInputsChanged)
             .define_method("audio_outputs_changed", &QMediaDevices::audioOutputsChanged)
