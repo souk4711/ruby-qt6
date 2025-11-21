@@ -38,6 +38,7 @@ module RubyQt6
       "QApplication" => ["_all_widgets", "_top_level_widgets"]
     }
     NO_VERIFY_QLASS_OPERATOR_METHODS = {
+      "QByteArray" => ["[]"],
       "QString" => ["[]", "[]="],
       "QPoint" => ["*", "+", "-", "/", "+@", "-@"],
       "QPointF" => ["*", "+", "-", "/", "+@", "-@"],

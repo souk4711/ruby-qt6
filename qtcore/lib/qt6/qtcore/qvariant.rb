@@ -33,6 +33,7 @@ module RubyQt6
       register(QtCore::QMetaType::Type::Int, method(:from_int), method(:to_int), from: Integer)
       register(QtCore::QMetaType::Type::Double, method(:from_double), method(:to_double), from: Float)
       register(QtCore::QMetaType::Type::QString, method(:from_qstring), method(:to_qstring), from: [String, QtCore::QString])
+      register(QtCore::QMetaType::Type::QByteArray, method(:from_qbytearray), method(:to_qbytearray), from: QtCore::QByteArray)
       register(QtCore::QMetaType::Type::QDateTime, method(:from_qdatetime), method(:to_qdatetime), from: QtCore::QDateTime)
       register(QtCore::QMetaType::Type::QDate, method(:from_qdate), method(:to_qdate), from: QtCore::QDate)
       register(QtCore::QMetaType::Type::QTime, method(:from_qtime), method(:to_qtime), from: QtCore::QTime)
