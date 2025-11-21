@@ -13,4 +13,5 @@ require_relative "qtmultimedia/qaudioformat"
 require_relative "qtmultimedia/qcameradevice"
 require_relative "qtmultimedia/qcameraformat"
 
+require_relative "qtmultimedia/qaudiosource"
 require_relative "qtmultimedia/qmediadevices"
