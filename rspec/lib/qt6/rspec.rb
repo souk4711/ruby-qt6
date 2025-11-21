@@ -15,7 +15,8 @@ module RubyQt6
       "has_height_for_width", "height_for_width",   # QWidget
       "input_method_query",                         # QWidget
       "minimum_size_hint", "size_hint",             # QWidget
-      "init_painter"                                # QWidget
+      "init_painter",                               # QWidget
+      "swap"                                        # Extra operator methods
     ]
 
     NO_VERIFY_QLASS_DOCS = [
