@@ -76,7 +76,7 @@ void Init_qlistwidget(Rice::Module rb_mQt6QtWidgets)
             .define_singleton_function("_qvariant_register_metatype", []() -> int { return qRegisterMetaType<QListWidgetItem *>(); })
             .define_singleton_function("_qvariant_from_value", [](QListWidgetItem *value) -> QVariant { return QVariant::fromValue(value); })
             .define_singleton_function("_qvariant_to_value", [](const QVariant &qvariant) -> QListWidgetItem * { return qvariant.value<QListWidgetItem *>(); })
-            .define_singleton_function("_delete_now", [](QListWidgetItem *self) -> void { delete self; }, Arg("item").takeOwnership())
+            .define_singleton_function("_delete_now", [](QListWidgetItem *item) -> void { delete item; }, Arg("item").takeOwnership())
             .define_singleton_function("_take_ownership_from_ruby", [](QListWidgetItem *) -> void {}, Arg("item").takeOwnership())
             // Constructor
             .define_constructor(Constructor<QListWidgetItem>())

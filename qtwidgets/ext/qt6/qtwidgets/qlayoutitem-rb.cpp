@@ -16,7 +16,7 @@ void Init_qlayoutitem(Rice::Module rb_mQt6QtWidgets)
         // RubyQt6::QtWidgets::QLayoutItem
         define_class_under<QLayoutItem>(rb_mQt6QtWidgets, "QLayoutItem")
             // RubyQt6-Defined Functions
-            .define_singleton_function("_delete_now", [](QLayoutItem *self) -> void { delete self; }, Arg("item").takeOwnership())
+            .define_singleton_function("_delete_now", [](QLayoutItem *item) -> void { delete item; }, Arg("item").takeOwnership())
             .define_singleton_function("_take_ownership_from_ruby", [](QLayoutItem *) -> void {}, Arg("item").takeOwnership())
             .define_method("set_alignment", [](QLayoutItem *self, Qt::AlignmentFlag alignment) -> void { return self->setAlignment(alignment); }, Arg("alignment"))
             // Public Functions

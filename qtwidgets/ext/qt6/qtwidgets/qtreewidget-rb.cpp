@@ -77,7 +77,7 @@ void Init_qtreewidget(Rice::Module rb_mQt6QtWidgets)
         // RubyQt6::QtWidgets::QTreeWidgetItem
         define_class_under<QTreeWidgetItem>(rb_mQt6QtWidgets, "QTreeWidgetItem")
             // RubyQt6-Defined Functions
-            .define_singleton_function("_delete_now", [](QTreeWidgetItem *self) -> void { delete self; }, Arg("item").takeOwnership())
+            .define_singleton_function("_delete_now", [](QTreeWidgetItem *item) -> void { delete item; }, Arg("item").takeOwnership())
             .define_singleton_function("_take_ownership_from_ruby", [](QTreeWidgetItem *) -> void {}, Arg("item").takeOwnership())
             // Constructor
             .define_constructor(Constructor<QTreeWidgetItem>())

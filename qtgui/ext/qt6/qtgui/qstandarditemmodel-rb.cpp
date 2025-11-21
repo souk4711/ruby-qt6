@@ -89,7 +89,7 @@ void Init_qstandarditemmodel(Rice::Module rb_mQt6QtGui)
             .define_singleton_function("_qvariant_register_metatype", []() -> int { return qRegisterMetaType<QStandardItem *>(); })
             .define_singleton_function("_qvariant_from_value", [](QStandardItem *value) -> QVariant { return QVariant::fromValue(value); })
             .define_singleton_function("_qvariant_to_value", [](const QVariant &qvariant) -> QStandardItem * { return qvariant.value<QStandardItem *>(); })
-            .define_singleton_function("_delete_now", [](QStandardItem *self) -> void { delete self; }, Arg("item").takeOwnership())
+            .define_singleton_function("_delete_now", [](QStandardItem *item) -> void { delete item; }, Arg("item").takeOwnership())
             .define_singleton_function("_take_ownership_from_ruby", [](QStandardItem *) -> void {}, Arg("item").takeOwnership())
             // Constructor
             .define_constructor(Constructor<QStandardItem>())
