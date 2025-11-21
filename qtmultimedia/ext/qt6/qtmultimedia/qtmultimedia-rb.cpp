@@ -1,6 +1,7 @@
 #include "qtmultimedia-rb.hpp"
 #include "qtmultimediaversion-rb.hpp"
 #include "qtaudio-rb.hpp"
+#include "qtvideo-rb.hpp"
 
 #include "qaudiodevice-rb.hpp"
 #include "qaudioformat-rb.hpp"
@@ -19,6 +20,7 @@ extern "C" void Init_qtmultimedia()
 
         Init_qtmultimediaversion(rb_mQt6QtMultimedia);
         Init_qtaudio(rb_mQt6QtMultimedia);
+        Init_qtvideo(rb_mQt6QtMultimedia);
 
         Init_qaudiodevice(rb_mQt6QtMultimedia);
         Init_qaudioformat(rb_mQt6QtMultimedia);

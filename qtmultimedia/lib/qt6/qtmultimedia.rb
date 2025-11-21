@@ -6,6 +6,7 @@ require_relative "qtmultimedia/version"
 require_relative "qtmultimedia/qtmultimedia"
 require_relative "qtmultimedia/qtmultimediaversion"
 require_relative "qtmultimedia/qtaudio"
+require_relative "qtmultimedia/qtvideo"
 
 require_relative "qtmultimedia/qaudiodevice"
 require_relative "qtmultimedia/qaudioformat"
