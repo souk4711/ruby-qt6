@@ -1,4 +1,4 @@
-#include "t-qtwidgets-rb.hpp"
+#include "t-qtmultimedia-rb.hpp"
 #include <rice/qt6/qlist.hpp>
 
 #include <QAudioDevice>
