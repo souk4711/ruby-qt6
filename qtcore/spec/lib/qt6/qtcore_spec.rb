@@ -11,11 +11,11 @@ RSpec.describe RubyQt6::QtCore do
     Dir.glob("ext/**/q*.cpp").each do |cppfile|
       next if cppfile == "ext/qt6/qtcore/qtcore-rb.cpp"
       next if cppfile == "ext/qt6/qtcore/qtcoreversion-rb.cpp"
+      next if cppfile == "ext/qt6/qtcore/qstringlist-rb.cpp"
+      next if cppfile == "ext/qt6/qtcore/qvariantlist-rb.cpp"
+      next if cppfile == "ext/qt6/qtcore/qvariantmap-rb.cpp"
       next if cppfile.start_with?("ext/qt6/qtcore/qt-enum-")
       next if cppfile.start_with?("ext/qt6/qtcore/qt-flags-")
-      next if cppfile.start_with?("ext/qt6/qtcore/qstringlist-")
-      next if cppfile.start_with?("ext/qt6/qtcore/qvariantlist-")
-      next if cppfile.start_with?("ext/qt6/qtcore/qvariantmap-")
 
       it cppfile do
         RubyQt6::RSpec.verify_qlass_cppfile cppfile, qmod
