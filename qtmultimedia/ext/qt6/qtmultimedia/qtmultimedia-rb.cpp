@@ -1,5 +1,8 @@
 #include "qtmultimedia-rb.hpp"
 #include "qtmultimediaversion-rb.hpp"
+#include "qtaudio-rb.hpp"
+
+#include "t-qtmultimedia-rb.hpp"
 
 extern "C" void Init_qtmultimedia()
 {
@@ -8,5 +11,9 @@ extern "C" void Init_qtmultimedia()
         Rice::Module rb_mQt6QtMultimedia = define_module_under(rb_mQt6, "QtMultimedia");
 
         Init_qtmultimediaversion(rb_mQt6QtMultimedia);
+        Init_qtaudio(rb_mQt6QtMultimedia);
+
+        Rice::Module rb_mQt6T = define_module_under(rb_mQt6, "T");
+        Init_t_qtmultimedia(rb_mQt6T);
     });
 }
