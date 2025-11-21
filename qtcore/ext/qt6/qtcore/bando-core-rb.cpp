@@ -1,8 +1,8 @@
-#include "bando-rb.hpp"
+#include "bando-core-rb.hpp"
 #include <bando/common.hpp>
 #include <rice/qt6/qenum.hpp>
 
-void Init_bando(Rice::Module rb_mQt6Bando)
+void Init_bando_core(Rice::Module rb_mQt6Bando)
 {
     Data_Type<bando_FunctionName> rb_cBandoFunctionName =
         define_class_under<bando_FunctionName>(rb_mQt6Bando, "FunctionName");
