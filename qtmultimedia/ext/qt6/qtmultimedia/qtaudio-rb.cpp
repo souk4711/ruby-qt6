@@ -8,7 +8,8 @@ void Init_qtaudio(Rice::Module rb_mQt6QtMultimedia)
 {
     Module rb_mQtAudio =
         // RubyQt6::QtMultimedia::QtAudio
-        define_module_under(rb_mQt6QtMultimedia, "QtAudio");
+        define_module_under(rb_mQt6QtMultimedia, "QtAudio")
+            .define_module_function("convert_volume", &QtAudio::convertVolume, Arg("volume"), Arg("from"), Arg("to"));
 
     Data_Type<QtAudio::Error> rb_cQtAudioError =
         // RubyQt6::QtMultimedia::QtAudio::Error
