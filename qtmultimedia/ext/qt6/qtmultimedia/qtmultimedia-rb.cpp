@@ -7,6 +7,7 @@
 #include "qaudioformat-rb.hpp"
 #include "qcameradevice-rb.hpp"
 #include "qcameraformat-rb.hpp"
+#include "qmediaformat-rb.hpp"
 
 #include "qaudiosource-rb.hpp"
 #include "qmediadevices-rb.hpp"
@@ -27,6 +28,7 @@ extern "C" void Init_qtmultimedia()
         Init_qaudioformat(rb_mQt6QtMultimedia);
         Init_qcameradevice(rb_mQt6QtMultimedia);
         Init_qcameraformat(rb_mQt6QtMultimedia);
+        Init_qmediaformat(rb_mQt6QtMultimedia);
 
         Init_qaudiosource(rb_mQt6QtMultimedia);
         Init_qmediadevices(rb_mQt6QtMultimedia);

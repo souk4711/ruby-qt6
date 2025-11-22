@@ -2,12 +2,12 @@
 
 # @!visibility private
 module Kernel
-  def rubyqt6_declare_enum_under(mod, enum)
+  def rubyqt6_declare_enum_under(mod, enum, **options)
     int2str = {}
     enum.constants.each do |name|
       const = enum.const_get(name)
       int2str[const.to_i] = name.to_s
-      mod.const_set(name, const)
+      mod.const_set(name, const) if options.fetch(:alias, true)
     end
 
     enum.define_method(:to_s) { int2str[to_i] || "" }
