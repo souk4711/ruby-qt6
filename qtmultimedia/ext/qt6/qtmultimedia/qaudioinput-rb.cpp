@@ -14,8 +14,6 @@ void Init_qaudioinput(Rice::Module rb_mQt6QtMultimedia)
         define_class_under<QAudioInput, QObject>(rb_mQt6QtMultimedia, "QAudioInput")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QAudioInput::staticMetaObject; })
-            // Constructor
-            .define_constructor(Constructor<QAudioInput, QObject *>(), Arg("parent"))
             // Public Functions
             .define_method("device", &QAudioInput::device)
             .define_method("muted?", &QAudioInput::isMuted)

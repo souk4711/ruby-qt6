@@ -7,13 +7,15 @@
 #include "qaudioformat-rb.hpp"
 #include "qcameradevice-rb.hpp"
 #include "qcameraformat-rb.hpp"
+#include "qcapturablewindow-rb.hpp"
 #include "qmediaformat-rb.hpp"
 
 #include "qaudioinput-rb.hpp"
 #include "qaudiooutput-rb.hpp"
 #include "qaudiosink-rb.hpp"
 #include "qaudiosource-rb.hpp"
-
+#include "qcamera-rb.hpp"
+#include "qimagecapture-rb.hpp"
 #include "qmediadevices-rb.hpp"
 #include "qmediaplayer-rb.hpp"
 
@@ -33,12 +35,15 @@ extern "C" void Init_qtmultimedia()
         Init_qaudioformat(rb_mQt6QtMultimedia);
         Init_qcameradevice(rb_mQt6QtMultimedia);
         Init_qcameraformat(rb_mQt6QtMultimedia);
+        Init_qcapturablewindow(rb_mQt6QtMultimedia);
         Init_qmediaformat(rb_mQt6QtMultimedia);
 
         Init_qaudioinput(rb_mQt6QtMultimedia);
         Init_qaudiooutput(rb_mQt6QtMultimedia);
         Init_qaudiosink(rb_mQt6QtMultimedia);
         Init_qaudiosource(rb_mQt6QtMultimedia);
+        Init_qcamera(rb_mQt6QtMultimedia);
+        Init_qimagecapture(rb_mQt6QtMultimedia);
         Init_qmediadevices(rb_mQt6QtMultimedia);
         Init_qmediaplayer(rb_mQt6QtMultimedia);
 
