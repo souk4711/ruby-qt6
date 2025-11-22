@@ -11,6 +11,11 @@ void Init_qaudiodevice(Rice::Module rb_mQt6QtMultimedia)
     rb_cQAudioDevice =
         // RubyQt6::QtMultimedia::QAudioDevice
         define_class_under<QAudioDevice>(rb_mQt6QtMultimedia, "QAudioDevice")
+            // RubyQt6-Defined Functions
+            .define_singleton_function("_operator_equal", [](QAudioDevice *lhs, QAudioDevice *rhs) -> bool { return *lhs == *rhs; }, Arg("lhs"), Arg("rhs"))
+            .define_singleton_function("_qvariant_register_metatype", []() -> int { return qRegisterMetaType<QAudioDevice>(); })
+            .define_singleton_function("_qvariant_from_value", [](const QAudioDevice &value) -> QVariant { return QVariant::fromValue(value); })
+            .define_singleton_function("_qvariant_to_value", [](const QVariant &qvariant) -> QAudioDevice { return qvariant.value<QAudioDevice>(); })
             // Constructor
             .define_constructor(Constructor<QAudioDevice>())
             // Public Functions
