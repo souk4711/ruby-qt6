@@ -7,7 +7,6 @@
 #include <QAudioOutput>
 #include <QMediaMetaData>
 #include <QMediaTimeRange>
-#include <QPlaybackOptions>
 #include <QVideoSink>
 
 using namespace Rice;
@@ -43,9 +42,6 @@ void Init_qmediaplayer(Rice::Module rb_mQt6QtMultimedia)
             .define_method("loops", &QMediaPlayer::loops)
             .define_method("media_status", &QMediaPlayer::mediaStatus)
             .define_method("meta_data", &QMediaPlayer::metaData)
-            .define_method("pitch_compensation", &QMediaPlayer::pitchCompensation)
-            .define_method("pitch_compensation_availability", &QMediaPlayer::pitchCompensationAvailability)
-            .define_method("playback_options", &QMediaPlayer::playbackOptions)
             .define_method("playback_rate", &QMediaPlayer::playbackRate)
             .define_method("playback_state", &QMediaPlayer::playbackState)
             .define_method("position", &QMediaPlayer::position)
@@ -66,9 +62,6 @@ void Init_qmediaplayer(Rice::Module rb_mQt6QtMultimedia)
             // Public Slots
             .define_method("pause", &QMediaPlayer::pause)
             .define_method("play", &QMediaPlayer::play)
-            .define_method("reset_playback_options", &QMediaPlayer::resetPlaybackOptions)
-            .define_method("set_pitch_compensation", &QMediaPlayer::setPitchCompensation, Arg("enabled"))
-            .define_method("set_playback_options", &QMediaPlayer::setPlaybackOptions, Arg("options"))
             .define_method("set_playback_rate", &QMediaPlayer::setPlaybackRate, Arg("rate"))
             .define_method("set_position", &QMediaPlayer::setPosition, Arg("position"))
             .define_method("set_source", &QMediaPlayer::setSource, Arg("source"))
@@ -87,8 +80,6 @@ void Init_qmediaplayer(Rice::Module rb_mQt6QtMultimedia)
             .define_method("loops_changed", &QMediaPlayer::loopsChanged)
             .define_method("media_status_changed", &QMediaPlayer::mediaStatusChanged, Arg("status"))
             .define_method("meta_data_changed", &QMediaPlayer::metaDataChanged)
-            .define_method("pitch_compensation_changed", &QMediaPlayer::pitchCompensationChanged, Arg("enabled"))
-            .define_method("playback_options_changed", &QMediaPlayer::playbackOptionsChanged)
             .define_method("playback_rate_changed", &QMediaPlayer::playbackRateChanged, Arg("rate"))
             .define_method("playback_state_changed", &QMediaPlayer::playbackStateChanged, Arg("new_state"))
             .define_method("playing_changed", &QMediaPlayer::playingChanged, Arg("playing"))
@@ -125,19 +116,10 @@ void Init_qmediaplayer(Rice::Module rb_mQt6QtMultimedia)
         define_qenum_value_under(rb_cQMediaPlayerMediaStatus, "EndOfMedia", QMediaPlayer::MediaStatus::EndOfMedia);
         define_qenum_value_under(rb_cQMediaPlayerMediaStatus, "InvalidMedia", QMediaPlayer::MediaStatus::InvalidMedia);
 
-    Data_Type<QMediaPlayer::PitchCompensationAvailability> rb_cQMediaPlayerPitchCompensationAvailability =
-        // RubyQt6::QtMultimedia::QMediaPlayer::PitchCompensationAvailability
-        define_qenum_under<QMediaPlayer::PitchCompensationAvailability>(rb_cQMediaPlayer, "PitchCompensationAvailability");
-        define_qenum_value_under(rb_cQMediaPlayerPitchCompensationAvailability, "AlwaysOn", QMediaPlayer::PitchCompensationAvailability::AlwaysOn);
-        define_qenum_value_under(rb_cQMediaPlayerPitchCompensationAvailability, "Available", QMediaPlayer::PitchCompensationAvailability::Available);
-        define_qenum_value_under(rb_cQMediaPlayerPitchCompensationAvailability, "Unavailable", QMediaPlayer::PitchCompensationAvailability::Unavailable);
-
     Data_Type<QMediaPlayer::PlaybackState> rb_cQMediaPlayerPlaybackState =
         // RubyQt6::QtMultimedia::QMediaPlayer::PlaybackState
         define_qenum_under<QMediaPlayer::PlaybackState>(rb_cQMediaPlayer, "PlaybackState");
         define_qenum_value_under(rb_cQMediaPlayerPlaybackState, "StoppedState", QMediaPlayer::PlaybackState::StoppedState);
         define_qenum_value_under(rb_cQMediaPlayerPlaybackState, "PlayingState", QMediaPlayer::PlaybackState::PlayingState);
         define_qenum_value_under(rb_cQMediaPlayerPlaybackState, "PausedState", QMediaPlayer::PlaybackState::PausedState);
-
-
 }

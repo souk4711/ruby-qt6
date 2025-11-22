@@ -7,12 +7,10 @@ module RubyQt6
       # @!parse class Error                        ; end
       # @!parse class Loops                        ; end
       # @!parse class MediaStatus                  ; end
-      # @!parse class PitchCompensationAvailability; end
       # @!parse class PlaybackState                ; end
       rubyqt6_declare_enum_under QMediaPlayer, QMediaPlayer::Error
       rubyqt6_declare_enum_under QMediaPlayer, QMediaPlayer::Loops
       rubyqt6_declare_enum_under QMediaPlayer, QMediaPlayer::MediaStatus
-      rubyqt6_declare_enum_under QMediaPlayer, QMediaPlayer::PitchCompensationAvailability, alias: false
       rubyqt6_declare_enum_under QMediaPlayer, QMediaPlayer::PlaybackState
 
       # @!parse
@@ -29,8 +27,6 @@ module RubyQt6
         signal "loopsChanged()"
         signal "mediaStatusChanged(QMediaPlayer::MediaStatus)"
         signal "metaDataChanged()"
-        signal "pitchCompensationChanged(bool)"
-        signal "playbackOptionsChanged()"
         signal "playbackRateChanged(double)"
         signal "playbackStateChanged(QMediaPlayer::PlaybackState)"
         signal "playingChanged(bool)"
@@ -41,9 +37,6 @@ module RubyQt6
         signal "videoOutputChanged()"
         slot "pause()"
         slot "play()"
-        slot "resetPlaybackOptions()"
-        slot "setPitchCompensation(bool)"
-        slot "setPlaybackOptions(QPlaybackOptions)"
         slot "setPlaybackRate(double)"
         slot "setPosition(qlonglong)"
         slot "setSource(QUrl)"
