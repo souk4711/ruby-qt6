@@ -28,11 +28,11 @@ class InputTest < RubyQt6::Bando::QWidget
 
     default_device_info = QMediaDevices.default_audio_input
     @m_device_box = QComboBox.new(self)
-    @m_device_box.add_item(default_device_info.description, QVariant.new(default_device_info.id))
+    @m_device_box.add_item(default_device_info.description, QVariant.new(default_device_info))
 
     QMediaDevices.audio_inputs.each do |device_info|
       if device_info != default_device_info
-        @m_device_box.add_item(device_info.description, QVariant.new(device_info.id))
+        @m_device_box.add_item(device_info.description, QVariant.new(device_info))
       end
     end
 
@@ -102,8 +102,7 @@ class InputTest < RubyQt6::Bando::QWidget
   def device_changed(index)
     @m_audio_input.stop
 
-    id = @m_device_box.item_data(index).value
-    device = QMediaDevices.audio_inputs.find { |device_info| device_info.id == id }
+    device = @m_device_box.item_data(index).value
     initialize_audio(device)
   end
 
