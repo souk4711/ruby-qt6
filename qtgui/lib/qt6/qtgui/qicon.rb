@@ -9,7 +9,7 @@ module RubyQt6
       # @!parse class ThemeIcon; end
       rubyqt6_declare_enum_under QIcon, QIcon::Mode
       rubyqt6_declare_enum_under QIcon, QIcon::State
-      rubyqt6_declare_enum_under QIcon, QIcon::ThemeIcon
+      rubyqt6_declare_enum_under QIcon, QIcon::ThemeIcon, alias: false
 
       # @!visibility private
       alias_method :_initialize, :initialize

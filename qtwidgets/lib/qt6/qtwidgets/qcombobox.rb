@@ -8,7 +8,7 @@ module RubyQt6
       # @!parse class LabelDrawingMode; end
       # @!parse class SizeAdjustPolicy; end
       rubyqt6_declare_enum_under QComboBox, QComboBox::InsertPolicy
-      rubyqt6_declare_enum_under QComboBox, QComboBox::LabelDrawingMode
+      rubyqt6_declare_enum_under QComboBox, QComboBox::LabelDrawingMode, alias: false
       rubyqt6_declare_enum_under QComboBox, QComboBox::SizeAdjustPolicy
 
       # @!parse

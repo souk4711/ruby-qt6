@@ -6,8 +6,8 @@ module RubyQt6
     class QWebEnginePermission
       # @!parse class PermissionType; end
       # @!parse class State         ; end
-      rubyqt6_declare_enum_under QWebEnginePermission, QWebEnginePermission::PermissionType
-      rubyqt6_declare_enum_under QWebEnginePermission, QWebEnginePermission::State
+      rubyqt6_declare_enum_under QWebEnginePermission, QWebEnginePermission::PermissionType, alias: false
+      rubyqt6_declare_enum_under QWebEnginePermission, QWebEnginePermission::State, alias: false
 
       # @!parse
       QtCore::QVariant.register(

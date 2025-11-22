@@ -5,7 +5,7 @@ module RubyQt6
     # @see https://doc.qt.io/qt-6/qactiongroup.html
     class QActionGroup < RubyQt6::QtCore::QObject
       # @!parse class ExclusionPolicy; end
-      rubyqt6_declare_enum_under QActionGroup, QActionGroup::ExclusionPolicy
+      rubyqt6_declare_enum_under QActionGroup, QActionGroup::ExclusionPolicy, alias: false
 
       # @!parse
       q_object do

@@ -16,7 +16,7 @@ module RubyQt6
       rubyqt6_declare_enum_under QWebEnginePage, QWebEnginePage::FileSelectionMode
       rubyqt6_declare_enum_under QWebEnginePage, QWebEnginePage::FindFlag
       rubyqt6_declare_enum_under QWebEnginePage, QWebEnginePage::JavaScriptConsoleMessageLevel
-      rubyqt6_declare_enum_under QWebEnginePage, QWebEnginePage::LifecycleState
+      rubyqt6_declare_enum_under QWebEnginePage, QWebEnginePage::LifecycleState, alias: false
       rubyqt6_declare_enum_under QWebEnginePage, QWebEnginePage::NavigationType
       rubyqt6_declare_enum_under QWebEnginePage, QWebEnginePage::RenderProcessTerminationStatus
       rubyqt6_declare_enum_under QWebEnginePage, QWebEnginePage::WebAction

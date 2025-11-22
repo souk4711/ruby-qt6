@@ -4,10 +4,10 @@ module RubyQt6
   module QtCore
     # @see https://doc.qt.io/qt-6/qabstractitemmodel.html
     class QAbstractItemModel < RubyQt6::QtCore::QObject
-      # @!parse class LayoutChangeHint; end
       # @!parse class CheckIndexOption; end
+      # @!parse class LayoutChangeHint; end
+      rubyqt6_declare_enum_under QAbstractItemModel, QAbstractItemModel::CheckIndexOption, alias: false
       rubyqt6_declare_enum_under QAbstractItemModel, QAbstractItemModel::LayoutChangeHint
-      rubyqt6_declare_enum_under QAbstractItemModel, QAbstractItemModel::CheckIndexOption
 
       # @!parse
       q_object do

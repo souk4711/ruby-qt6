@@ -84,13 +84,6 @@ void Init_qabstractitemmodel(Rice::Module rb_mQt6QtCore)
             .define_method("rows_moved", &QAbstractItemModel::rowsMoved, Arg("source_parent"), Arg("source_start"), Arg("source_end"), Arg("destination_parent"), Arg("destination_row"), Arg("_"))
             .define_method("rows_removed", &QAbstractItemModel::rowsRemoved, Arg("parent"), Arg("first"), Arg("last"), Arg("_"));
 
-    Data_Type<QAbstractItemModel::LayoutChangeHint> rb_cQAbstractItemModelLayoutChangeHint =
-        // RubyQt6::QtCore::QAbstractItemModel::LayoutChangeHint
-        define_qenum_under<QAbstractItemModel::LayoutChangeHint>(rb_cQAbstractItemModel, "LayoutChangeHint");
-        define_qenum_value_under(rb_cQAbstractItemModelLayoutChangeHint, "NoLayoutChangeHint", QAbstractItemModel::LayoutChangeHint::NoLayoutChangeHint);
-        define_qenum_value_under(rb_cQAbstractItemModelLayoutChangeHint, "VerticalSortHint", QAbstractItemModel::LayoutChangeHint::VerticalSortHint);
-        define_qenum_value_under(rb_cQAbstractItemModelLayoutChangeHint, "HorizontalSortHint", QAbstractItemModel::LayoutChangeHint::HorizontalSortHint);
-
     Data_Type<QAbstractItemModel::CheckIndexOption> rb_cQAbstractItemModelCheckIndexOption =
         // RubyQt6::QtCore::QAbstractItemModel::CheckIndexOption
         define_qenum_under<QAbstractItemModel::CheckIndexOption>(rb_cQAbstractItemModel, "CheckIndexOption");
@@ -98,6 +91,13 @@ void Init_qabstractitemmodel(Rice::Module rb_mQt6QtCore)
         define_qenum_value_under(rb_cQAbstractItemModelCheckIndexOption, "IndexIsValid", QAbstractItemModel::CheckIndexOption::IndexIsValid);
         define_qenum_value_under(rb_cQAbstractItemModelCheckIndexOption, "DoNotUseParent", QAbstractItemModel::CheckIndexOption::DoNotUseParent);
         define_qenum_value_under(rb_cQAbstractItemModelCheckIndexOption, "ParentIsInvalid", QAbstractItemModel::CheckIndexOption::ParentIsInvalid);
+
+    Data_Type<QAbstractItemModel::LayoutChangeHint> rb_cQAbstractItemModelLayoutChangeHint =
+        // RubyQt6::QtCore::QAbstractItemModel::LayoutChangeHint
+        define_qenum_under<QAbstractItemModel::LayoutChangeHint>(rb_cQAbstractItemModel, "LayoutChangeHint");
+        define_qenum_value_under(rb_cQAbstractItemModelLayoutChangeHint, "NoLayoutChangeHint", QAbstractItemModel::LayoutChangeHint::NoLayoutChangeHint);
+        define_qenum_value_under(rb_cQAbstractItemModelLayoutChangeHint, "VerticalSortHint", QAbstractItemModel::LayoutChangeHint::VerticalSortHint);
+        define_qenum_value_under(rb_cQAbstractItemModelLayoutChangeHint, "HorizontalSortHint", QAbstractItemModel::LayoutChangeHint::HorizontalSortHint);
 
     rb_cQAbstractTableModel =
         // RubyQt6::QtCore::QAbstractTableModel

@@ -26,7 +26,7 @@ module RubyQt6
       rubyqt6_declare_enum_under QLocale, QLocale::FormatType
       rubyqt6_declare_enum_under QLocale, QLocale::NumberOption
       rubyqt6_declare_enum_under QLocale, QLocale::FloatingPointPrecisionOption
-      rubyqt6_declare_enum_under QLocale, QLocale::TagSeparator
+      rubyqt6_declare_enum_under QLocale, QLocale::TagSeparator, alias: false
       rubyqt6_declare_enum_under QLocale, QLocale::CurrencySymbolFormat
       rubyqt6_declare_enum_under QLocale, QLocale::DataSizeFormat
       rubyqt6_declare_enum_under QLocale, QLocale::LanguageCodeType

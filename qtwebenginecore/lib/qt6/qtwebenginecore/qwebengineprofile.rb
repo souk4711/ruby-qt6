@@ -9,7 +9,7 @@ module RubyQt6
       # @!parse class PersistentPermissionsPolicy; end
       rubyqt6_declare_enum_under QWebEngineProfile, QWebEngineProfile::HttpCacheType
       rubyqt6_declare_enum_under QWebEngineProfile, QWebEngineProfile::PersistentCookiesPolicy
-      rubyqt6_declare_enum_under QWebEngineProfile, QWebEngineProfile::PersistentPermissionsPolicy
+      rubyqt6_declare_enum_under QWebEngineProfile, QWebEngineProfile::PersistentPermissionsPolicy, alias: false
 
       # @!parse
       q_object do
