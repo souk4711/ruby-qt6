@@ -12,7 +12,7 @@ module RubyQt6
       rubyqt6_declare_enum_under QMediaPlayer, QMediaPlayer::Error
       rubyqt6_declare_enum_under QMediaPlayer, QMediaPlayer::Loops
       rubyqt6_declare_enum_under QMediaPlayer, QMediaPlayer::MediaStatus
-      rubyqt6_declare_enum_under QMediaPlayer, QMediaPlayer::PitchCompensationAvailability
+      rubyqt6_declare_enum_under QMediaPlayer, QMediaPlayer::PitchCompensationAvailability, alias: false
       rubyqt6_declare_enum_under QMediaPlayer, QMediaPlayer::PlaybackState
 
       # @!parse
