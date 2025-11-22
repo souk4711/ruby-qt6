@@ -9,6 +9,7 @@
 #include "qcameraformat-rb.hpp"
 #include "qcapturablewindow-rb.hpp"
 #include "qmediaformat-rb.hpp"
+#include "qmediametadata-rb.hpp"
 
 #include "qaudioinput-rb.hpp"
 #include "qaudiooutput-rb.hpp"
@@ -16,8 +17,10 @@
 #include "qaudiosource-rb.hpp"
 #include "qcamera-rb.hpp"
 #include "qimagecapture-rb.hpp"
+#include "qmediacapturesession-rb.hpp"
 #include "qmediadevices-rb.hpp"
 #include "qmediaplayer-rb.hpp"
+#include "qmediarecorder-rb.hpp"
 
 #include "t-qtmultimedia-rb.hpp"
 
@@ -37,6 +40,7 @@ extern "C" void Init_qtmultimedia()
         Init_qcameraformat(rb_mQt6QtMultimedia);
         Init_qcapturablewindow(rb_mQt6QtMultimedia);
         Init_qmediaformat(rb_mQt6QtMultimedia);
+        Init_qmediametadata(rb_mQt6QtMultimedia);
 
         Init_qaudioinput(rb_mQt6QtMultimedia);
         Init_qaudiooutput(rb_mQt6QtMultimedia);
@@ -44,8 +48,10 @@ extern "C" void Init_qtmultimedia()
         Init_qaudiosource(rb_mQt6QtMultimedia);
         Init_qcamera(rb_mQt6QtMultimedia);
         Init_qimagecapture(rb_mQt6QtMultimedia);
+        Init_qmediacapturesession(rb_mQt6QtMultimedia);
         Init_qmediadevices(rb_mQt6QtMultimedia);
         Init_qmediaplayer(rb_mQt6QtMultimedia);
+        Init_qmediarecorder(rb_mQt6QtMultimedia);
 
         Rice::Module rb_mQt6T = define_module_under(rb_mQt6, "T");
         Init_t_qtmultimedia(rb_mQt6T);
