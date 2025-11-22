@@ -19,6 +19,8 @@ void Init_qmediaplayer(Rice::Module rb_mQt6QtMultimedia)
     rb_cQMediaPlayer =
         // RubyQt6::QtMultimedia::QMediaPlayer
         define_class_under<QMediaPlayer, QObject>(rb_mQt6QtMultimedia, "QMediaPlayer")
+            // RubyQt6-Defined Functions
+            .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QMediaPlayer::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QMediaPlayer, QObject *>(), Arg("parent"))
             // Public Functions
