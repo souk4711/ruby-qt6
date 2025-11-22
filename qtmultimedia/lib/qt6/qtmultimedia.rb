@@ -16,3 +16,4 @@ require_relative "qtmultimedia/qmediaformat"
 
 require_relative "qtmultimedia/qaudiosource"
 require_relative "qtmultimedia/qmediadevices"
+require_relative "qtmultimedia/qmediaplayer"
