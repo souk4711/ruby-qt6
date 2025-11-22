@@ -41,7 +41,7 @@ module RubyQt6
 
       # @!visibility private
       def self.from_user_input(user_input, working_directory = "", options = nil)
-        options ||= QtCore::QUrl::UserInputResolutionOption::DefaultResolution
+        options ||= QtCore::QUrl::DefaultResolution
         _from_user_input(T.to_qstr(user_input), T.to_qstr(working_directory), T.to_qflags(options))
       end
 

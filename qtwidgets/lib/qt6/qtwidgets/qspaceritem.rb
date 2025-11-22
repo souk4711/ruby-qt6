@@ -13,8 +13,8 @@ module RubyQt6
       # @param v_policy [QSizePolicy::Policy]
       # @return [QSpacerItem]
       def initialize(w, h, h_policy = nil, v_policy = nil)
-        h_policy ||= QtWidgets::QSizePolicy::Policy::Minimum
-        v_policy ||= QtWidgets::QSizePolicy::Policy::Minimum
+        h_policy ||= QtWidgets::QSizePolicy::Minimum
+        v_policy ||= QtWidgets::QSizePolicy::Minimum
         _initialize(w, h, h_policy, v_policy)
         _take_ownership_from_ruby(self)
       end

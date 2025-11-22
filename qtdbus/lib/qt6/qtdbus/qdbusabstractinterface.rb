@@ -26,7 +26,7 @@ module RubyQt6
 
       # @!visibility private
       def call(*args)
-        mode = args_nth_delete_callmode(args, 0) || QtDBus::QDBus::CallMode::AutoDetect
+        mode = args_nth_delete_callmode(args, 0) || QtDBus::QDBus::AutoDetect
         method = args.delete_at(0)
         call_with_argument_list(mode, T.to_qstr(method), T.to_qvariantlist(args))
       end
