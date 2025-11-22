@@ -8,3 +8,5 @@ require "qt6/qtmultimedia"
 require_relative "qtmultimediawidgets/version"
 require_relative "qtmultimediawidgets/qtmultimediawidgets"
 require_relative "qtmultimediawidgets/qtmultimediawidgetsversion"
+
+require_relative "qtmultimediawidgets/qvideowidget"

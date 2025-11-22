@@ -1,6 +1,8 @@
 #include "qtmultimediawidgets-rb.hpp"
 #include "qtmultimediawidgetsversion-rb.hpp"
 
+#include "qvideowidget-rb.hpp"
+
 extern "C" void Init_qtmultimediawidgets()
 {
     return Rice::detail::cpp_protect([] {
@@ -8,5 +10,7 @@ extern "C" void Init_qtmultimediawidgets()
         Rice::Module rb_mQt6QtMultimediaWidgets = define_module_under(rb_mQt6, "QtMultimediaWidgets");
 
         Init_qtmultimediawidgetsversion(rb_mQt6QtMultimediaWidgets);
+
+        Init_qvideowidget(rb_mQt6QtMultimediaWidgets);
     });
 }
