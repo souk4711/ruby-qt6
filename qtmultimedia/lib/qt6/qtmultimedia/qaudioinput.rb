@@ -13,6 +13,16 @@ module RubyQt6
         slot "setMuted(bool)"
         slot "setVolume(float)"
       end
+
+      # @!visibility private
+      alias_method :_initialize, :initialize
+
+      # @param parent [QObject]
+      # @return [QAudioInput]
+      def initialize(parent = nil)
+        _initialize(parent)
+        _take_ownership_from_ruby(self)
+      end
     end
   end
 end
