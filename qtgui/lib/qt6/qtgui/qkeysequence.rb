@@ -16,8 +16,6 @@ module RubyQt6
 
       # @return [QKeySequence]
       #
-      # @overload initialize
-      #
       # @overload initialize(key)
       #   @param key [Integer]
       #

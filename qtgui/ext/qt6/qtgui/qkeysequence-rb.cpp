@@ -14,7 +14,6 @@ void Init_qkeysequence(Rice::Module rb_mQt6QtGui)
         // RubyQt6::QtGui::QKeySequence
         define_class_under<QKeySequence>(rb_mQt6QtGui, "QKeySequence")
             // Constructor
-            .define_constructor(Constructor<QKeySequence>())
             .define_constructor(Constructor<QKeySequence, int>(), Arg("key"))
             .define_constructor(Constructor<QKeySequence, QKeySequence::StandardKey>(), Arg("key"))
             .define_constructor(Constructor<QKeySequence, const QString &>(), Arg("key"))

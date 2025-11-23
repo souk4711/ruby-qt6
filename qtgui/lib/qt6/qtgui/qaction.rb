@@ -64,6 +64,11 @@ module RubyQt6
         end
         _take_ownership_from_ruby(self)
       end
+
+      # @!visibility private
+      def set_shortcut(shortcut)
+        _set_shortcut(QtGui::QKeySequence.new(shortcut))
+      end
     end
   end
 end

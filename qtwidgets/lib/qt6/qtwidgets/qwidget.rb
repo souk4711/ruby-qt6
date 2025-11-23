@@ -65,6 +65,21 @@ module RubyQt6
       end
 
       # @!visibility private
+      def set_tool_tip(tool_tip)
+        _set_tool_tip(T.to_qstr(tool_tip))
+      end
+
+      # @!visibility private
+      def set_whats_this(whats_this)
+        _set_whats_this(T.to_qstr(whats_this))
+      end
+
+      # @!visibility private
+      def set_window_file_path(file_path)
+        _set_window_file_path(T.to_qstr(file_path))
+      end
+
+      # @!visibility private
       def set_window_title(title)
         _set_window_title(T.to_qstr(title))
       end

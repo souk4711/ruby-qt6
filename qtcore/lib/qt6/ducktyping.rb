@@ -43,6 +43,11 @@ module RubyQt6
       QtCore::QString.new(str)
     end
 
+    def self.to_qkeysequence(key)
+      return key unless key.is_a?(String) || key.is_a?(QtCore::QString) || key.is_a?(Integer) || key_is_a?(QtGui::QKeySequence::StandardKey)
+      QtGui::QKeySequence.new(key)
+    end
+
     def self.to_qvariantlist(array)
       array.each_with_object(QtCore::QVariantList.new) { |e, memo| memo << QtCore::QVariant.new(e) }
     end
