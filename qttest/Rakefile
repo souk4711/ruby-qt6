@@ -1,0 +1,19 @@
+# frozen_string_literal: true
+
+require "bundler/gem_tasks"
+GEMSPEC = Gem::Specification.load("qttest.gemspec")
+
+require "rake/extensiontask"
+Rake::ExtensionTask.new("qttest", GEMSPEC) do |ext|
+  ext.ext_dir = "ext/qt6/qttest"
+  ext.lib_dir = "lib/qt6/qttest"
+end
+
+require "rubocop/rake_task"
+RuboCop::RakeTask.new
+
+require "rspec/core/rake_task"
+RSpec::Core::RakeTask.new(:spec)
+
+task build: :compile
+task default: %i[compile spec]
