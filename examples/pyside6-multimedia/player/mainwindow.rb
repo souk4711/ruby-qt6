@@ -142,11 +142,12 @@ class MainWindow < RubyQt6::Bando::QMainWindow
   def previous_clicked
     if @player.position <= 5000 && @playlist_index.positive?
       @playlist_index -= 1
-      @playlist.previous
       @player.set_source(@playlist[@playlist_index])
     else
       @player.set_position(0)
     end
+
+    @player.play
   end
 
   def next_clicked
@@ -154,6 +155,7 @@ class MainWindow < RubyQt6::Bando::QMainWindow
 
     @playlist_index += 1
     @player.set_source(@playlist[@playlist_index])
+    @player.play
   end
 
   def update_buttons(state)
@@ -165,13 +167,8 @@ class MainWindow < RubyQt6::Bando::QMainWindow
     @next_action.set_enabled(media_count > 1)
   end
 
-  def show_status_message(message)
-    status_bar.show_message(message, 5000)
-  end
-
-  def player_error(error)
-    warn error
-    show_status_message(error)
+  def player_error(_error)
+    status_bar.show_message(@player.error_string, 5000)
   end
 
   def set_volume
