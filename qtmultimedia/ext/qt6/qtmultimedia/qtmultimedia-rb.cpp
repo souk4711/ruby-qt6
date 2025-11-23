@@ -21,6 +21,10 @@
 #include "qmediadevices-rb.hpp"
 #include "qmediaplayer-rb.hpp"
 #include "qmediarecorder-rb.hpp"
+#include "qscreencapture-rb.hpp"
+#include "qsoundeffect-rb.hpp"
+#include "qwindowcapture-rb.hpp"
+
 
 #include "t-qtmultimedia-rb.hpp"
 
@@ -52,6 +56,9 @@ extern "C" void Init_qtmultimedia()
         Init_qmediadevices(rb_mQt6QtMultimedia);
         Init_qmediaplayer(rb_mQt6QtMultimedia);
         Init_qmediarecorder(rb_mQt6QtMultimedia);
+        Init_qsoundeffect(rb_mQt6QtMultimedia);
+        Init_qscreencapture(rb_mQt6QtMultimedia);
+        Init_qwindowcapture(rb_mQt6QtMultimedia);
 
         Rice::Module rb_mQt6T = define_module_under(rb_mQt6, "T");
         Init_t_qtmultimedia(rb_mQt6T);
