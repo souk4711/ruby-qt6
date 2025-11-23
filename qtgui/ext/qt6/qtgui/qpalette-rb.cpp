@@ -11,6 +11,8 @@ void Init_qpalette(Rice::Module rb_mQt6QtGui)
     rb_cQPalette =
         // RubyQt6::QtGui::QPalette
         define_class_under<QPalette>(rb_mQt6QtGui, "QPalette")
+            // RubyQt6-Defined Functions
+            .define_singleton_function("_operator_equal", [](QPalette *lhs, QPalette *rhs) -> bool { return *lhs == *rhs; }, Arg("lhs"), Arg("rhs"))
             // Constructor
             .define_constructor(Constructor<QPalette>())
             .define_constructor(Constructor<QPalette, const QColor &>(), Arg("button"))

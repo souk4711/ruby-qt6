@@ -62,6 +62,12 @@ module RubyQt6
       end
 
       # @!visibility private
+      def ==(other)
+        return false unless other.is_a?(self.class)
+        self.class._operator_equal(self, other)
+      end
+
+      # @!visibility private
       def to_s
         to_string.to_s
       end

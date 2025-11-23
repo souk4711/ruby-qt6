@@ -10,6 +10,8 @@ void Init_qpen(Rice::Module rb_mQt6QtGui)
     rb_cQPen =
         // RubyQt6::QtGui::QPen
         define_class_under<QPen>(rb_mQt6QtGui, "QPen")
+            // RubyQt6-Defined Functions
+            .define_singleton_function("_operator_equal", [](QPen *lhs, QPen *rhs) -> bool { return *lhs == *rhs; }, Arg("lhs"), Arg("rhs"))
             // Constructor
             .define_constructor(Constructor<QPen>())
             .define_constructor(Constructor<QPen, Qt::PenStyle>(), Arg("style"))

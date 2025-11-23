@@ -48,6 +48,12 @@ module RubyQt6
       end
 
       # @!visibility private
+      def ==(other)
+        return false unless other.is_a?(self.class)
+        self.class._operator_equal(self, other)
+      end
+
+      # @!visibility private
       def inspect
         rgb = name(QtGui::QColor::NameFormat::HexRgb).to_s
         T.inspect_struct(self, rgb:)

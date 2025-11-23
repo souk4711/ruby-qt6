@@ -16,6 +16,12 @@ module RubyQt6
       def initialize(*args)
         _initialize(*args)
       end
+
+      # @!visibility private
+      def ==(other)
+        return false unless other.is_a?(self.class)
+        self.class._operator_equal(self, other)
+      end
     end
   end
 end

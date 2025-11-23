@@ -12,6 +12,8 @@ void Init_qsizepolicy(Rice::Module rb_mQt6QtWidgets)
     rb_cQSizePolicy =
         // RubyQt6::QtWidgets::QSizePolicy
         define_class_under<QSizePolicy>(rb_mQt6QtWidgets, "QSizePolicy")
+            // RubyQt6-Defined Functions
+            .define_singleton_function("_operator_equal", [](QSizePolicy *lhs, QSizePolicy *rhs) -> bool { return *lhs == *rhs; }, Arg("lhs"), Arg("rhs"))
             // Constructor
             .define_constructor(Constructor<QSizePolicy>())
             .define_constructor(Constructor<QSizePolicy, QSizePolicy::Policy, QSizePolicy::Policy>(), Arg("horizontal"), Arg("vertical"))

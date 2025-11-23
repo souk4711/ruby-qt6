@@ -25,7 +25,7 @@ module RubyQt6
 
       # @!visibility private
       def ==(other)
-        return false unless other.is_a?(QtMultimedia::QCameraDevice)
+        return false unless other.is_a?(self.class)
         self.class._operator_equal(self, other)
       end
 

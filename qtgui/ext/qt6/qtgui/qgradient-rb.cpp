@@ -13,6 +13,8 @@ void Init_qgradient(Rice::Module rb_mQt6QtGui)
     rb_cQGradient =
         // RubyQt6::QtGui::QGradient
         define_class_under<QGradient>(rb_mQt6QtGui, "QGradient")
+            // RubyQt6-Defined Functions
+            .define_singleton_function("_operator_equal", [](QGradient *lhs, QGradient *rhs) -> bool { return *lhs == *rhs; }, Arg("lhs"), Arg("rhs"))
             // Constructor
             .define_constructor(Constructor<QGradient>())
             .define_constructor(Constructor<QGradient, QGradient::Preset>(), Arg("preset"))
