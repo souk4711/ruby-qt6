@@ -63,6 +63,36 @@ module RubyQt6
         _initialize(parent)
         _take_ownership_from_ruby(self)
       end
+
+      # @!visibility private
+      def select_file(filename)
+        _select_file(T.to_qstr(filename))
+      end
+
+      # @!visibility private
+      def select_mime_type_filter(filter)
+        _select_mime_type_filter(T.to_qstr(filter))
+      end
+
+      # @!visibility private
+      def select_name_filter(filter)
+        _select_name_filter(T.to_qstr(filter))
+      end
+
+      # @!visibility private
+      def set_default_suffix(suffix)
+        _set_default_suffix(T.to_qstr(suffix))
+      end
+
+      # @!visibility private
+      def set_directory(directory)
+        _set_directory(T.to_qstr(directory))
+      end
+
+      # @!visibility private
+      def set_name_filter(filter)
+        _set_name_filter(T.to_qstr(filter))
+      end
     end
   end
 end
