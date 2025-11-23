@@ -35,6 +35,7 @@
 #include "qregularexpression-rb.hpp"
 #include "qresource-rb.hpp"
 #include "qsize-rb.hpp"
+#include "qstandardpaths-rb.hpp"
 #include "qtextstream-rb.hpp"
 #include "qurl-rb.hpp"
 #include "quuid-rb.hpp"
@@ -105,6 +106,7 @@ extern "C" void Init_qtcore()
         Init_qregularexpression(rb_mQt6QtCore);
         Init_qresource(rb_mQt6QtCore);
         Init_qsize(rb_mQt6QtCore);
+        Init_qstandardpaths(rb_mQt6QtCore);
         Init_qtextstream(rb_mQt6QtCore);
         Init_qurl(rb_mQt6QtCore);
         Init_quuid(rb_mQt6QtCore);
