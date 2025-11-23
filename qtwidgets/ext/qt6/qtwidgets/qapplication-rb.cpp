@@ -18,7 +18,7 @@ void Init_qapplication(Rice::Module rb_mQt6QtWidgets)
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QApplication::staticMetaObject; })
             // Constructor
-            .define_constructor(Constructor<QApplication, int &, char **>(), Arg("argc"), Arg("argv").setBuffer())
+            .define_constructor(Constructor<QApplication, int &, char **>(), Arg("argc"), ArgBuffer("argv"))
             // Public Functions
             .define_method("auto_sip_enabled", &QApplication::autoSipEnabled)
             .define_method("notify", &QApplication::notify, Arg("receiver"), Arg("event"))
