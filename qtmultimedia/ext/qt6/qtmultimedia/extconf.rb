@@ -10,6 +10,7 @@ end
 includedir = qt_install_headers
 append_cppflags("-I#{includedir}")
 append_cppflags("-I#{includedir}/QtCore")
+append_cppflags("-I#{includedir}/QtGui")
 append_cppflags("-I#{includedir}/QtMultimedia")
 abort "libQt6Multimedia is missing, please install qt6-multimedia" unless have_library("Qt6Multimedia")
 

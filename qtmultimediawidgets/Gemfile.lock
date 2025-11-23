@@ -16,6 +16,7 @@ PATH
   specs:
     ruby-qt6-qtmultimedia (1.0.1)
       ruby-qt6-qtcore (~> 1.0.0)
+      ruby-qt6-qtgui (~> 1.0.0)
       ruby-qt6-rice (= 1.0.1)
 
 PATH

@@ -21,7 +21,6 @@ module RubyQt6
         signal "audioSampleRateChanged()"
         signal "autoStopChanged()"
         signal "durationChanged(qlonglong)"
-        signal "encoderSettingsChanged()"
         signal "encodingModeChanged()"
         signal "errorChanged()"
         signal "errorOccurred(Error,QString)"

@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "qt6/qtcore"
+require "qt6/qtgui"
 
 require_relative "qtmultimedia/version"
 require_relative "qtmultimedia/qtmultimedia"
@@ -15,6 +16,8 @@ require_relative "qtmultimedia/qcameraformat"
 require_relative "qtmultimedia/qcapturablewindow"
 require_relative "qtmultimedia/qmediaformat"
 require_relative "qtmultimedia/qmediametadata"
+require_relative "qtmultimedia/qvideoframe"
+require_relative "qtmultimedia/qvideoframeformat"
 
 require_relative "qtmultimedia/qaudioinput"
 require_relative "qtmultimedia/qaudiooutput"
@@ -28,4 +31,6 @@ require_relative "qtmultimedia/qmediaplayer"
 require_relative "qtmultimedia/qmediarecorder"
 require_relative "qtmultimedia/qscreencapture"
 require_relative "qtmultimedia/qsoundeffect"
+require_relative "qtmultimedia/qvideoframeinput"
+require_relative "qtmultimedia/qvideosink"
 require_relative "qtmultimedia/qwindowcapture"
