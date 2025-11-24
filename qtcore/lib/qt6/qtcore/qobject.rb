@@ -22,7 +22,7 @@ module RubyQt6
               QtCore::Private::Signal.new(self, meth)
             end
           elsif meth.slot? && mo.ruby?
-            define_method("_rubyqt6_" + meth.qsignature_name) do |*args|
+            define_method("_rubyqt6_slot_" + meth.qsignature_name) do |*args|
               r = __send__(meth.name, *args.map(&:value))
               next if meth.return_type.nil?
 

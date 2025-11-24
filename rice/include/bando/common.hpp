@@ -172,7 +172,7 @@ template <typename BandoClass_T> int bando_qt_metacall(BandoClass_T *self, QMeta
         }
         if (method.methodType() == QMetaMethod::Slot)
         {
-            auto name = "_rubyqt6_" + method.name().toStdString();
+            auto name = "_rubyqt6_slot_" + method.name().toStdString();
             auto arguments = Array();
             for (int i = 0; i < method.parameterCount(); ++i)
             {

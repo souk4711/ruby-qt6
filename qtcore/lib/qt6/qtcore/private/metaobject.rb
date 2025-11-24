@@ -6,7 +6,7 @@ module RubyQt6
       class MetaObject
         attr_reader :metamethods
 
-        def self.find_receiver_metamethod!(receiver, method, signal = nil)
+        def self.find_receiver_metamethod!(receiver, method, signal)
           if signal.nil?
             signature = "anonymous()"
             signal = QtCore::Private::MetaMethod.new(signature, :signal, :ruby)

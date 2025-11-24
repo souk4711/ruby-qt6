@@ -44,7 +44,7 @@ module RubyQt6
     end
 
     def self.to_qkeysequence(key)
-      return key unless key.is_a?(String) || key.is_a?(QtCore::QString) || key.is_a?(Integer) || key_is_a?(QtGui::QKeySequence::StandardKey)
+      return key unless key.is_a?(String) || key.is_a?(QtCore::QString) || key.is_a?(Integer) || key.is_a?(QtGui::QKeySequence::StandardKey)
       QtGui::QKeySequence.new(key)
     end
 
