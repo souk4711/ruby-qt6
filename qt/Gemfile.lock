@@ -90,6 +90,13 @@ PATH
       ruby-qt6-rice (= 1.0.1)
 
 PATH
+  remote: ../qttest
+  specs:
+    ruby-qt6-qttest (1.0.1)
+      ruby-qt6-qtcore (~> 1.0.0)
+      ruby-qt6-rice (= 1.0.1)
+
+PATH
   remote: ../qtuitools
   specs:
     ruby-qt6-qtuitools (1.0.1)
@@ -155,6 +162,7 @@ PATH
       ruby-qt6-qtquick (~> 1.0.0)
       ruby-qt6-qtquickcontrols2 (~> 1.0.0)
       ruby-qt6-qtquickwidgets (~> 1.0.0)
+      ruby-qt6-qttest (~> 1.0.0)
       ruby-qt6-qtuitools (~> 1.0.0)
       ruby-qt6-qtwebenginecore (~> 1.0.0)
       ruby-qt6-qtwebenginewidgets (~> 1.0.0)
@@ -315,6 +323,7 @@ DEPENDENCIES
   ruby-qt6-qtquick!
   ruby-qt6-qtquickcontrols2!
   ruby-qt6-qtquickwidgets!
+  ruby-qt6-qttest!
   ruby-qt6-qtuitools!
   ruby-qt6-qtwebenginecore!
   ruby-qt6-qtwebenginewidgets!

@@ -36,6 +36,7 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency("ruby-qt6-qtwidgets", "~> 1.0.0")
   spec.add_runtime_dependency("ruby-qt6-qtnetwork", "~> 1.0.0")
   spec.add_runtime_dependency("ruby-qt6-qtprintsupport", "~> 1.0.0")
+  spec.add_runtime_dependency("ruby-qt6-qttest", "~> 1.0.0")
   spec.add_runtime_dependency("ruby-qt6-qtqml", "~> 1.0.0")
   spec.add_runtime_dependency("ruby-qt6-qtquick", "~> 1.0.0")
   spec.add_runtime_dependency("ruby-qt6-qtquickcontrols2", "~> 1.0.0")
