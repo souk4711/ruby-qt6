@@ -15,6 +15,8 @@ void Init_qtextobject(Rice::Module rb_mQt6QtGui)
     rb_cQTextBlock =
         // RubyQt6::QtGui::QTextBlock
         define_class_under<QTextBlock>(rb_mQt6QtGui, "QTextBlock")
+            // RubyQt6-Defined Functions
+            .define_singleton_function("_operator_equal", [](QTextBlock *lhs, QTextBlock *rhs) -> bool { return *lhs == *rhs; }, Arg("lhs"), Arg("rhs"))
             // Constructor
             .define_constructor(Constructor<QTextBlock>())
             // Public Functions
@@ -47,10 +49,7 @@ void Init_qtextobject(Rice::Module rb_mQt6QtGui)
             .define_method("text_formats", &QTextBlock::textFormats)
             .define_method("text_list", &QTextBlock::textList)
             .define_method("user_data", &QTextBlock::userData)
-            .define_method("user_state", &QTextBlock::userState)
-            .define_method("==", &QTextBlock::operator==, Arg("o"))
-            .define_method("!=", &QTextBlock::operator!=, Arg("o"))
-            .define_method("<", &QTextBlock::operator<, Arg("o"));
+            .define_method("user_state", &QTextBlock::userState);
 
     rb_cQTextObject =
         // RubyQt6::QtGui::QTextObject

@@ -67,7 +67,7 @@ module RubyQt6
 
       # @!visibility private
       def set_shortcut(shortcut)
-        _set_shortcut(QtGui::QKeySequence.new(shortcut))
+        _set_shortcut(T.to_qkeysequence(shortcut))
       end
     end
   end
