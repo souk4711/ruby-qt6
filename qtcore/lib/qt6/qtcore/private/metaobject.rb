@@ -6,7 +6,7 @@ module RubyQt6
       class MetaObject
         attr_reader :metamethods
 
-        def self.find_receiver_metamethod!(receiver, method, signal)
+        def self.find_receiver_metamethod!(receiver_class, method, signal)
           if signal.nil?
             signature = "anonymous()"
             signal = QtCore::Private::MetaMethod.new(signature, :signal, :ruby)
@@ -17,14 +17,14 @@ module RubyQt6
             QtCore::Private::MetaMethod.normalized_signature(name, signal.parameters[0...n])
           end
 
-          mo = receiver.class._rubyqt6_metaobject
+          mo = receiver_class._rubyqt6_metaobject
           until mo.nil?
             mo.metamethods.each { |meth| return meth if compatible_methods.include?(meth.signature) }
             mo.metamethods.each { |meth| return meth if name == meth.name } if mo.ruby?
             mo = mo.super_class
           end
 
-          qlass = receiver.class.name.split("::").last
+          qlass = receiver_class.name.split("::").last
           raise "No compatible metamethod: #{qlass}##{name}"
         end
 
