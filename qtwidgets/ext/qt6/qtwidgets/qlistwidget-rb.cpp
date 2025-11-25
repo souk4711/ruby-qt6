@@ -85,7 +85,6 @@ void Init_qlistwidget(Rice::Module rb_mQt6QtWidgets)
             // Public Functions
             .define_method("background", &QListWidgetItem::background)
             .define_method("check_state", &QListWidgetItem::checkState)
-            .define_method("clone", &QListWidgetItem::clone)
             .define_method("data", &QListWidgetItem::data, Arg("role"))
             .define_method("flags", &QListWidgetItem::flags)
             .define_method("font", &QListWidgetItem::font)

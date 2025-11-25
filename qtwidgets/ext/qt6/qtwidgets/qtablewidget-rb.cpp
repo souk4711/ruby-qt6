@@ -106,7 +106,6 @@ void Init_qtablewidget(Rice::Module rb_mQt6QtWidgets)
             // Public Functions
             .define_method("background", &QTableWidgetItem::background)
             .define_method("check_state", &QTableWidgetItem::checkState)
-            .define_method("clone", &QTableWidgetItem::clone)
             .define_method("column", &QTableWidgetItem::column)
             .define_method("data", &QTableWidgetItem::data, Arg("role"))
             .define_method("flags", &QTableWidgetItem::flags)

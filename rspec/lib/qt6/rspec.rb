@@ -16,7 +16,7 @@ module RubyQt6
       "input_method_query",                         # QWidget
       "minimum_size_hint", "size_hint",             # QWidget
       "init_painter",                               # QWidget
-      "swap"                                        # Extra operator methods
+      "clone", "swap"                               #
     ]
 
     NO_VERIFY_QLASS_DOCS = [

@@ -16,7 +16,6 @@ void Init_qcoreevent(Rice::Module rb_mQt6QtCore)
         define_class_under<QEvent>(rb_mQt6QtCore, "QEvent")
             // Public Functions
             .define_method("accept", &QEvent::accept)
-            .define_method("clone", &QEvent::clone)
             .define_method("ignore", &QEvent::ignore)
             .define_method("accepted?", &QEvent::isAccepted)
             .define_method("input_event?", &QEvent::isInputEvent)
