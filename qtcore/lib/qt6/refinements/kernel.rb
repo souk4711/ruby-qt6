@@ -17,8 +17,13 @@ module Kernel
     enum.define_method(:to_int) { to_i }
     enum.define_method(:<=>) { |other| other.respond_to?(:to_int) ? to_int <=> other.to_int : nil }
 
-    qmetatype = enum._qvariant_register_metatype
-    RubyQt6::QtCore::QVariant.register(qmetatype, enum.method(:_qvariant_from_value), enum.method(:_qvariant_to_value), from: enum)
+    qmetatype_id = enum._qvariant_register_metatype
+    RubyQt6::QtCore::QVariant.register(
+      qmetatype_id,
+      ->(value) { RubyQt6::QtCore::QVariant.from_int(value.to_int).tap { |qvariant| qvariant.convert(qmetatype_id) } },
+      ->(qvariant) { enum.from_int(RubyQt6::QtCore::QVariant.to_int(qvariant)) },
+      from: enum
+    )
   end
 
   def rubyqt6_declare_qflags(flags, enum)

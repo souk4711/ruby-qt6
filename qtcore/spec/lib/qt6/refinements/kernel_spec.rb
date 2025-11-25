@@ -37,6 +37,18 @@ RSpec.describe Kernel do
       expect(RubyQt6::QtCore::Qt::AlignHCenter | RubyQt6::QtCore::Qt::AlignVCenter).to eq(0x0004 | 0x0080)
     end
 
+    it "QVariant#initialize" do
+      qvariant = RubyQt6::QtCore::QVariant.new(RubyQt6::QtCore::Qt::AlignHCenter)
+      expect(qvariant.type_id).to eq(RubyQt6::QtCore::Qt::AlignmentFlag.default_qmetatype.id)
+      expect(qvariant.type_name).to eq("Qt::AlignmentFlag")
+    end
+
+    it "QVariant#value" do
+      qvariant = RubyQt6::QtCore::QVariant.new(RubyQt6::QtCore::Qt::AlignHCenter)
+      expect(qvariant.value).to eq(RubyQt6::QtCore::Qt::AlignHCenter)
+      expect(qvariant.value).to be_a(RubyQt6::QtCore::Qt::AlignmentFlag)
+    end
+
     it "option - :alias" do
       expect(RubyQt6::QtCore::QLocale::Language.const_defined?(:C)).to eq(true)
       expect(RubyQt6::QtCore::QLocale.const_defined?(:C)).to eq(true)
