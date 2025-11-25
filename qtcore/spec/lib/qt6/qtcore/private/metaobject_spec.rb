@@ -17,6 +17,16 @@ RSpec.describe RubyQt6::QtCore::Private::MetaObject do
       expect(metamethod.qsignature).to eq("1deleteLater()")
     end
 
+    it "receiver - class" do
+      metamethod = described_class.find_receiver_metamethod!(RubyQt6::QtCore::QObject, :destroyed, signal)
+      expect(metamethod.qsignature).to eq("2destroyed()")
+    end
+
+    it "receiver - instance" do
+      metamethod = described_class.find_receiver_metamethod!(RubyQt6::QtCore::QObject.new, :destroyed, signal)
+      expect(metamethod.qsignature).to eq("2destroyed()")
+    end
+
     it "match - ignore upcase/downcase" do
       [:deleteLater, :delete_later, "deleteLater", "delete_later"].each do |method|
         metamethod = described_class.find_receiver_metamethod!(receiver, method, signal)

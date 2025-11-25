@@ -5,12 +5,12 @@ module RubyQt6
     module Private
       class SignalManager
         def self.connect(sender, signal, receiver, metamethod)
-          metamethod = QtCore::Private::MetaObject.find_receiver_metamethod!(receiver.class, metamethod, signal)
+          metamethod = QtCore::Private::MetaObject.find_receiver_metamethod!(receiver, metamethod, signal)
           QtCore::QObject._connect(sender, signal.qsignature, receiver, metamethod.qsignature)
         end
 
         def self.disconnect(sender, signal, receiver, metamethod)
-          metamethod = QtCore::Private::MetaObject.find_receiver_metamethod!(receiver.class, metamethod, signal)
+          metamethod = QtCore::Private::MetaObject.find_receiver_metamethod!(receiver, metamethod, signal)
           QtCore::QObject._disconnect(sender, signal.qsignature, receiver, metamethod.qsignature)
         end
 

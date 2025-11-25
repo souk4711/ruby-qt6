@@ -17,7 +17,7 @@ module RubyQt6
 
       # @!visibility private
       def self.single_shot(nsec, receiver, member)
-        metamethod = QtCore::Private::MetaObject.find_receiver_metamethod!(receiver.class, member, nil)
+        metamethod = QtCore::Private::MetaObject.find_receiver_metamethod!(receiver, member, nil)
         _single_shot(nsec, receiver, metamethod.qsignature)
       end
 
