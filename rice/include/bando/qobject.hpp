@@ -74,17 +74,64 @@ template <typename Class_T, typename... Arg_Ts> class BandoQObject : public Clas
     QMetaObject *mo_;
 };
 
+template <typename BC_T>
+VALUE bando_qobject_initialize_ruby_value(VALUE self, VALUE value, VALUE mo)
+{
+    auto bando_qobject = detail::From_Ruby<BC_T *>().convert(self);
+    bando_qobject->initializeValue(Object(value), detail::From_Ruby<QMetaObject *>().convert(mo));
+    return Qnil;
+}
+
+template <typename BC_T>
+VALUE bando_qobject_ruby_value(VALUE self)
+{
+    auto bando_qobject = detail::From_Ruby<BC_T *>().convert(self);
+    auto rb_return = bando_qobject->value();
+    return rb_return;
+}
+
+template <typename BC_T>
+VALUE bando_qobject_ruby_value_handle_event(VALUE self, VALUE name, VALUE event)
+{
+    auto bando_qobject = detail::From_Ruby<BC_T *>().convert(self);
+    bando_qobject->Class_T_handleEvent(detail::From_Ruby<bando_FunctionName>().convert(name), detail::From_Ruby<QEvent *>().convert(event));
+    return Qnil;
+}
+
+template <typename BC_T>
+VALUE bando_qobject_event(VALUE self, VALUE event)
+{
+    auto bando_qobject = detail::From_Ruby<BC_T *>().convert(self);
+    auto rb_return = bando_qobject->Class_T_handleQObjectEvent(detail::From_Ruby<QEvent *>().convert(event));
+    return detail::To_Ruby<bool>().convert(rb_return);
+}
+
+template <typename BC_T>
+VALUE bando_qobject_event_filter(VALUE self, VALUE watched, VALUE event)
+{
+    auto bando_qobject = detail::From_Ruby<BC_T *>().convert(self);
+    auto rb_return = bando_qobject->Class_T_handleQObjectEventFilter(detail::From_Ruby<QObject *>().convert(watched), detail::From_Ruby<QEvent *>().convert(event));
+    return detail::To_Ruby<bool>().convert(rb_return);
+}
+
+template <typename BC_T>
+VALUE bando_qobject_sender(VALUE self)
+{
+    auto bando_qobject = detail::From_Ruby<BC_T *>().convert(self);
+    auto rb_return = bando_qobject->sender();
+    return detail::To_Ruby<QObject *>().convert(rb_return);
+}
+
 template <typename BC_T, typename C_T>
 Data_Type<BC_T> define_bando_qobject_under(Module module, char const *name)
 {
-    Data_Type<BC_T> bando_qlass =
-        define_class_under<BC_T, C_T>(module, name)
-            .define_method("_initialize_ruby_value", &BC_T::initializeValue, Arg("value"), Arg("mo"))
-            .define_method("_ruby_value", &BC_T::value)
-            .define_method("_ruby_value_handle_event", &BC_T::Class_T_handleEvent, Arg("name"), Arg("event"))
-            .define_method("_event", &BC_T::Class_T_handleQObjectEvent, Arg("event"))
-            .define_method("_event_filter", &BC_T::Class_T_handleQObjectEventFilter, Arg("watched"), Arg("event"))
-            .define_method("sender", &BC_T::sender);
+    Data_Type<BC_T> bando_qlass = define_class_under<BC_T, C_T>(module, name);
+    detail::protect(rb_define_method, bando_qlass, "_initialize_ruby_value", (RUBY_METHOD_FUNC)bando_qobject_initialize_ruby_value<BC_T>, 2);
+    detail::protect(rb_define_method, bando_qlass, "_ruby_value", (RUBY_METHOD_FUNC)bando_qobject_ruby_value<BC_T>, 0);
+    detail::protect(rb_define_method, bando_qlass, "_ruby_value_handle_event", (RUBY_METHOD_FUNC)bando_qobject_ruby_value_handle_event<BC_T>, 2);
+    detail::protect(rb_define_method, bando_qlass, "_event", (RUBY_METHOD_FUNC)bando_qobject_event<BC_T>, 1);
+    detail::protect(rb_define_method, bando_qlass, "_event_filter", (RUBY_METHOD_FUNC)bando_qobject_event_filter<BC_T>, 2);
+    detail::protect(rb_define_method, bando_qlass, "sender", (RUBY_METHOD_FUNC)bando_qobject_sender<BC_T>, 0);
     return bando_qlass;
 }
 
