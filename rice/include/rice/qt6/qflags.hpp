@@ -29,14 +29,28 @@
 
 using namespace Rice;
 
+template<typename QFlags_T>
+VALUE qflags_to_i(VALUE self)
+{
+    auto rb_return = (int)detail::From_Ruby<QFlags_T>().convert(self);
+    return detail::To_Ruby<int>().convert(rb_return);
+}
+
+template<typename QFlags_T>
+VALUE qflags_from_int(VALUE self, VALUE i)
+{
+    auto rb_return = static_cast<QFlags_T>(detail::From_Ruby<int>().convert(i));
+    return detail::To_Ruby<QFlags_T>().convert(rb_return);
+}
+
 template<typename Enum_T>
 Data_Type<QFlags<Enum_T>> define_qflags_under(Module module, char const* name)
 {
     using QFlags_T = QFlags<Enum_T>;
 
-    Data_Type<QFlags_T> qflags = define_class_under<QFlags_T>(module, name)
-        .template define_method("to_i", [](QFlags_T *self) -> int { return (int)(*self); })
-        .template define_singleton_function("from_int", [](int i) -> QFlags_T { return QFlags_T::fromInt(i); }, Arg("i"));
+    Data_Type<QFlags_T> qflags = define_class_under<QFlags_T>(module, name);
+    detail::protect(rb_define_method, qflags, "to_i", (RUBY_METHOD_FUNC)qflags_to_i<QFlags_T>, 0);
+    detail::protect(rb_define_singleton_method, qflags, "from_int", (RUBY_METHOD_FUNC)qflags_from_int<QFlags_T>, 1);
     return qflags;
 }
 
