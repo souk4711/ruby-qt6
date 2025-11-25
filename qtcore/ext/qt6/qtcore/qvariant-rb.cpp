@@ -66,7 +66,7 @@ void Init_qvariant(Rice::Module rb_mQt6QtCore)
             .define_singleton_function("to_qstringlist", [](const QVariant &qvariant) -> QStringList { return qvariant.toStringList(); })
             .define_singleton_function("_to_qobject", [](const QVariant &qvariant) -> QObject * { return qvariant.value<QObject *>(); })
             // Public Functions
-            .define_method<bool (QVariant::*)(int)>("convert", &QVariant::convert, Arg("target_type_id"))
+            .define_method<bool (QVariant::*)(QMetaType)>("convert", &QVariant::convert, Arg("target_type"))
             .define_method("valid?", &QVariant::isValid)
             .define_method("type_id", &QVariant::typeId)
             .define_method("type_name", &QVariant::typeName);
