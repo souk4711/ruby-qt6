@@ -58,9 +58,10 @@ RSpec.describe RubyQt6::T do
 
   it ".to_qflags" do
     o1 = RubyQt6::QtCore::Qt::AlignCenter
-    o2 = RubyQt6::QtCore::Qt::Alignment.new
+    o2 = RubyQt6::QtCore::Qt::Alignment.new(0)
     expect(RubyQt6::T.to_qflags(o1)).to be_a(RubyQt6::QtCore::Qt::Alignment)
     expect(RubyQt6::T.to_qflags(o2)).to be_a(RubyQt6::QtCore::Qt::Alignment)
     expect(RubyQt6::T.to_qflags(12)).to eq(12)
+    expect(RubyQt6::T.to_qflags(:s)).to eq(:s)
   end
 end

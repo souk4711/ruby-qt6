@@ -35,22 +35,7 @@ Data_Type<QFlags<Enum_T>> define_qflags_under(Module module, char const* name)
     using QFlags_T = QFlags<Enum_T>;
 
     Data_Type<QFlags_T> qflags = define_class_under<QFlags_T>(module, name)
-        .define_constructor(Constructor<QFlags_T>())
-        .define_constructor(Constructor<QFlags_T, Enum_T>(), Arg("flags"))
         .template define_method("to_i", [](QFlags_T *self) -> int { return (int)(*self); })
-        .template define_method("~", &QFlags_T::operator~)
-        .template define_method<QFlags_T (QFlags_T::*)(Enum_T) const noexcept>("&", &QFlags_T::operator&, Arg("mask"))
-        .template define_method<QFlags_T (QFlags_T::*)(QFlags_T) const noexcept>("&", &QFlags_T::operator&, Arg("mask"))
-        .template define_method<QFlags_T &(QFlags_T::*)(Enum_T) noexcept>("&=", &QFlags_T::operator&=, Arg("mask"))
-        .template define_method<QFlags_T &(QFlags_T::*)(QFlags_T) noexcept>("&=", &QFlags_T::operator&=, Arg("mask"))
-        .template define_method<QFlags_T (QFlags_T::*)(Enum_T) const noexcept>("^", &QFlags_T::operator^, Arg("other"))
-        .template define_method<QFlags_T (QFlags_T::*)(QFlags_T) const noexcept>("^", &QFlags_T::operator^, Arg("other"))
-        .template define_method<QFlags_T &(QFlags_T::*)(Enum_T) noexcept>("^=", &QFlags_T::operator^=, Arg("other"))
-        .template define_method<QFlags_T &(QFlags_T::*)(QFlags_T) noexcept>("^=", &QFlags_T::operator^=, Arg("other"))
-        .template define_method<QFlags_T (QFlags_T::*)(Enum_T) const noexcept>("|", &QFlags_T::operator|, Arg("other"))
-        .template define_method<QFlags_T (QFlags_T::*)(QFlags_T) const noexcept>("|", &QFlags_T::operator|, Arg("other"))
-        .template define_method<QFlags_T &(QFlags_T::*)(Enum_T) noexcept>("|=", &QFlags_T::operator|=, Arg("other"))
-        .template define_method<QFlags_T &(QFlags_T::*)(QFlags_T) noexcept>("|=", &QFlags_T::operator|=, Arg("other"))
         .template define_singleton_function("from_int", [](int i) -> QFlags_T { return QFlags_T::fromInt(i); }, Arg("i"));
     return qflags;
 }
