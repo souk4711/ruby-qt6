@@ -33,7 +33,7 @@ module Kernel
     enum.define_method(:^) { |other| flags.new(self) ^ other }
     enum.define_method(:|) { |other| flags.new(self) | other }
 
-    flags.define_singleton_method(:new) { |value| flags.from_int(value.to_i) }
+    flags.define_singleton_method(:new) { |value = 0| flags.from_int(value.to_i) }
     flags.define_method(:inspect) { RubyQt6::T.inspect_struct_enum(self, int: to_i) }
 
     flags.include(Comparable)
