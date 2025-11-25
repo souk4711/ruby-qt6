@@ -970,7 +970,7 @@ namespace Rice::detail
     {
       return std::move(this->result_.value());
     }
-    // std::is_copy_constructible_v<std::vector<std::unique_ptr<T>>>> return true. Sigh.
+    // std::is_copy_constructible_v<std::vector<std::unique_ptr<T>>>> returns true. Sigh.
     else if constexpr (detail::is_std_vector_v<Return_T> && std::is_copy_constructible_v<Return_T>)
     {
       if constexpr (!std::is_copy_constructible_v<typename Return_T::value_type>)
@@ -2831,6 +2831,9 @@ namespace Rice::detail
     template<typename... Arg_Ts>
     static std::unique_ptr<Return> create_return(Arg_Ts& ...args);
 
+    // Do we need to keep alive any arguments?
+    void checkKeepAlive(VALUE self, VALUE returnValue, std::vector<std::optional<VALUE>>& rubyValues);
+
   private:
     template<typename Parameter_Tuple, typename Arg_Tuple, std::size_t ...Indices>
     static inline void create_parameters_impl(std::vector<std::unique_ptr<ParameterAbstract>>& parameters, std::index_sequence<Indices...> indices, std::vector<std::unique_ptr<Arg>>&& args);
@@ -3962,7 +3965,19 @@ namespace Rice::detail
     {
       return this->fromRuby_.convert(valueOpt.value());
     }
-    else if constexpr (std::is_constructible_v<std::remove_cv_t<T>, std::remove_cv_t<std::remove_reference_t<T>>&>)
+    // Remember std::is_copy_constructible_v<std::vector<std::unique_ptr<T>>>> returns true. Sigh.
+    // So special case vector handling
+    else if constexpr (detail::is_std_vector_v<detail::intrinsic_type<T>>)
+    {
+      if constexpr (std::is_copy_constructible_v<typename detail::intrinsic_type<T>::value_type>)
+      {
+        if (this->arg()->hasDefaultValue())
+        {
+          return this->arg()->template defaultValue<T>();
+        }
+      }
+    }
+    else if constexpr (std::is_copy_constructible_v<T>)
     {
       if (this->arg()->hasDefaultValue())
       {
@@ -3970,7 +3985,7 @@ namespace Rice::detail
       }
     }
 
-    throw std::invalid_argument("Could not convert Rubyy value");
+    throw std::invalid_argument("Could not convert Ruby value");
   }
 
   template<typename T>
@@ -4366,7 +4381,7 @@ namespace Rice
         {
           detail::TypeMapper<T> typeMapper;
           std::string typeName = typeMapper.name();
-          throw Exception(rb_eTypeError, "wrong argument type %s (expected % s*)",
+          throw Exception(rb_eTypeError, "wrong argument type %s (expected %s*)",
             detail::protect(rb_obj_classname, value), typeName.c_str());
         }
       }
@@ -4447,7 +4462,7 @@ namespace Rice
       {
         detail::TypeMapper<T> typeMapper;
         std::string typeName = typeMapper.name();
-        throw Exception(rb_eTypeError, "wrong argument type %s (expected % s*)",
+        throw Exception(rb_eTypeError, "wrong argument type %s (expected %s*)",
           detail::protect(rb_obj_classname, value), typeName.c_str());
       }
     }
@@ -4660,7 +4675,7 @@ namespace Rice
       {
         detail::TypeMapper<T> typeMapper;
         std::string typeName = typeMapper.name();
-        throw Exception(rb_eTypeError, "wrong argument type %s (expected % s*)",
+        throw Exception(rb_eTypeError, "wrong argument type %s (expected %s*)",
           detail::protect(rb_obj_classname, value), typeName.c_str());
       }
     }
@@ -4853,7 +4868,7 @@ namespace Rice
       {
         detail::TypeMapper<T> typeMapper;
         std::string typeName = typeMapper.name();
-        throw Exception(rb_eTypeError, "wrong argument type %s (expected % s*)",
+        throw Exception(rb_eTypeError, "wrong argument type %s (expected %s*)",
           detail::protect(rb_obj_classname, value), typeName.c_str());
       }
     }
@@ -5018,7 +5033,7 @@ namespace Rice
       {
         detail::TypeMapper<void> typeMapper;
         std::string typeName = typeMapper.name();
-        throw Exception(rb_eTypeError, "wrong argument type %s (expected % s*)",
+        throw Exception(rb_eTypeError, "wrong argument type %s (expected %s*)",
           detail::protect(rb_obj_classname, value), typeName.c_str());
       }
     }
@@ -6805,7 +6820,7 @@ namespace Rice::detail
         {
           detail::TypeMapper<Pointer<T>> typeMapper;
           std::string expected = typeMapper.rubyName();
-          throw Exception(rb_eTypeError, "wrong argument type %s (expected % s)",
+          throw Exception(rb_eTypeError, "wrong argument type %s (expected %s)",
             detail::protect(rb_obj_classname, value), expected.c_str());
         }
       }
@@ -6864,7 +6879,7 @@ namespace Rice::detail
         {
           detail::TypeMapper<Pointer<T*>> typeMapper;
           std::string expected = typeMapper.rubyName();
-          throw Exception(rb_eTypeError, "wrong argument type %s (expected % s)",
+          throw Exception(rb_eTypeError, "wrong argument type %s (expected %s)",
             detail::protect(rb_obj_classname, value), expected.c_str());
         }
       }
@@ -8142,7 +8157,7 @@ namespace Rice::detail
         }
         default:
         {
-          throw Exception(rb_eTypeError, "wrong argument type %s (expected % s)",
+          throw Exception(rb_eTypeError, "wrong argument type %s (expected %s)",
             detail::protect(rb_obj_classname, value), "nil");
         }
       }
@@ -8286,7 +8301,7 @@ namespace Rice::detail
         }
         default:
         {
-          throw Exception(rb_eTypeError, "wrong argument type %s (expected % s)",
+          throw Exception(rb_eTypeError, "wrong argument type %s (expected %s)",
             detail::protect(rb_obj_classname, value), "pointer");
         }
       }
@@ -9347,7 +9362,7 @@ namespace Rice::detail
       result = TypedData_Wrap_Struct(klass, rb_data_type, wrapper);
     }
 
-    // std::is_copy_constructible_v<std::vector<std::unique_ptr<T>>>> return true. Sigh.
+    // std::is_copy_constructible_v<std::vector<std::unique_ptr<T>>>> returns true. Sigh.
     else if constexpr (detail::is_std_vector_v<T>)
     {
       if constexpr (std::is_copy_constructible_v<typename T::value_type>)
@@ -9441,12 +9456,18 @@ namespace Rice::detail
   inline WrapperBase* getWrapper(VALUE value)
   {
     // Turn off spurious warning on g++ 12
-    #if defined(__GNUC__) || defined(__clang__)
-    #pragma GCC diagnostic push
-    #pragma GCC diagnostic ignored "-Warray-bounds"
-    #endif
+#if defined(__GNUC__) || defined(__clang__)
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Warray-bounds"
+#endif
 
-    return RTYPEDDATA_P(value) ? static_cast<WrapperBase*>(RTYPEDDATA_DATA(value)) : nullptr;
+    if (!RTYPEDDATA_P(value))
+    {
+      throw Exception(rb_eTypeError, "wrong argument type %s (expected %s)",
+        detail::protect(rb_obj_classname, value), "wrapped C++ object");
+    }
+
+    return static_cast<WrapperBase*>(RTYPEDDATA_DATA(value));
     
     #if defined(__GNUC__) || defined(__clang__)
     #pragma GCC diagnostic pop
@@ -9539,7 +9560,7 @@ namespace Rice::detail
     }
 
     // Execute the function but make sure to catch any C++ exceptions!
-    return cpp_protect([&]
+    return cpp_protect([&]()
     {
       const std::vector<std::unique_ptr<Native>>& natives = Registries::instance.natives.lookup(klass, methodId);
 
@@ -9648,7 +9669,28 @@ namespace Rice::detail
     return nullptr;
   }
 
-  // -----------  Helpers ----------------
+  inline void Native::checkKeepAlive(VALUE self, VALUE returnValue, std::vector<std::optional<VALUE>>& rubyValues)
+  {
+    // Check function arguments
+    for (size_t i = 0; i < this->parameters_.size(); i++)
+    {
+      Arg* arg = parameters_[i]->arg();
+      if (arg->isKeepAlive())
+      {
+        static WrapperBase* selfWrapper = getWrapper(self);
+        selfWrapper->addKeepAlive(rubyValues[i].value());
+      }
+    }
+
+    // Check return value
+    if (this->returnInfo_->isKeepAlive())
+    {
+      WrapperBase* returnWrapper = getWrapper(returnValue);
+      returnWrapper->addKeepAlive(self);
+    }
+  }
+
+  // -----------  Type Checking ----------------
   template<typename T, bool isBuffer>
   inline void Native::verify_type()
   {
@@ -10197,12 +10239,6 @@ namespace Rice::detail
     template<typename std::size_t...I>
     Parameter_Ts getNativeValues(std::vector<std::optional<VALUE>>& values, std::index_sequence<I...>& indices);
 
-    // Throw an exception when wrapper cannot be extracted
-    [[noreturn]] void noWrapper(const VALUE klass, const std::string& wrapper);
-
-    // Do we need to keep alive any arguments?
-    void checkKeepAlive(VALUE self, VALUE returnValue, std::vector<std::optional<VALUE>>& rubyValues);
-
     // Call the underlying C++ function
     VALUE invoke(Parameter_Ts&& nativeArgs);
     VALUE invokeNoGVL(Parameter_Ts&& nativeArgs);
@@ -10348,65 +10384,6 @@ namespace Rice::detail
 
       // Return the result
       return this->toRuby_.convert(nativeResult);
-    }
-  }
-
-  template<typename Function_T, bool NoGVL>
-  void NativeFunction<Function_T, NoGVL>::noWrapper(const VALUE klass, const std::string& wrapper)
-  {
-    std::stringstream message;
-
-    message << "When calling the method `";
-    message << this->method_name_;
-    message << "' we could not find the wrapper for the '";
-    message << rb_obj_classname(klass);
-    message << "' ";
-    message << wrapper;
-    message << " type. You should not use keepAlive() on a Return or Arg that is a builtin Rice type.";
-
-    throw std::runtime_error(message.str());
-  }
-
-  template<typename Function_T, bool NoGVL>
-  void NativeFunction<Function_T, NoGVL>::checkKeepAlive(VALUE self, VALUE returnValue, std::vector<std::optional<VALUE>>& rubyValues)
-  {
-    // Self will be Qnil for wrapped procs
-    if (self == Qnil)
-      return;
-
-    // selfWrapper will be nullptr if this(self) is a builtin type and not an external(wrapped) type
-    // it is highly unlikely that keepAlive is used in this case but we check anyway
-    WrapperBase* selfWrapper = getWrapper(self);
-
-    // Check function arguments
-    for (size_t i = 0; i < this->parameters_.size(); i++)
-    {
-      Arg* arg = parameters_[i]->arg();
-      if (arg->isKeepAlive())
-      {
-        if (selfWrapper == nullptr)
-        {
-          noWrapper(self, "self");
-        }
-        selfWrapper->addKeepAlive(rubyValues[i].value());
-      }
-    }
-
-    // Check return value
-    if (this->returnInfo_->isKeepAlive())
-    {
-      if (selfWrapper == nullptr)
-      {
-        noWrapper(self, "self");
-      }
-
-      // returnWrapper will be nullptr if returnValue is a built-in type and not an external(wrapped) type
-      WrapperBase* returnWrapper = getWrapper(returnValue);
-      if (returnWrapper == nullptr)
-      {
-        noWrapper(returnValue, "return");
-      }
-      returnWrapper->addKeepAlive(self);
     }
   }
 
@@ -10718,12 +10695,6 @@ namespace Rice::detail
     // Figure out what self is
     Receiver_T getReceiver(VALUE self);
 
-    // Throw an exception when wrapper cannot be extracted
-    [[noreturn]] void noWrapper(const VALUE klass, const std::string& wrapper);
-
-    // Do we need to keep alive any arguments?
-    void checkKeepAlive(VALUE self, VALUE returnValue, std::vector<std::optional<VALUE>>& rubyValues);
-
     // Call the underlying C++ method
     VALUE invoke(VALUE self, Apply_Args_T&& nativeArgs);
     VALUE invokeNoGVL(VALUE self, Apply_Args_T&& nativeArgs);
@@ -10961,65 +10932,6 @@ namespace Rice::detail
       }
 
       return this->toRuby_.convert(nativeResult);
-    }
-  }
-
-  template<typename Class_T, typename Method_T, bool NoGVL>
-  inline void NativeMethod<Class_T, Method_T, NoGVL>::noWrapper(const VALUE klass, const std::string& wrapper)
-  {
-    std::stringstream message;
-
-    message << "When calling the method `";
-    message << this->method_name_;
-    message << "' we could not find the wrapper for the '";
-    message << rb_obj_classname(klass);
-    message << "' ";
-    message << wrapper;
-    message << " type. You should not use keepAlive() on a Return or Arg that is a builtin Rice type.";
-
-    throw std::runtime_error(message.str());
-  }
-
-  template<typename Class_T, typename Method_T, bool NoGVL>
-  void NativeMethod<Class_T, Method_T, NoGVL>::checkKeepAlive(VALUE self, VALUE returnValue, std::vector<std::optional<VALUE>>& rubyValues)
-  {
-    // Self will be Qnil for wrapped procs
-    if (self == Qnil)
-      return;
-
-    // selfWrapper will be nullptr if this(self) is a builtin type and not an external(wrapped) type
-    // it is highly unlikely that keepAlive is used in this case but we check anyway
-    WrapperBase* selfWrapper = getWrapper(self);
-
-    // Check method arguments
-    for (size_t i=0; i<this->parameters_.size(); i++)
-    {
-      Arg* arg = parameters_[i]->arg();
-      if (arg->isKeepAlive())
-      {
-        if (selfWrapper == nullptr)
-        {
-          noWrapper(self, "self");
-        }
-        selfWrapper->addKeepAlive(rubyValues[i].value());
-      }
-    }
-
-    // Check return value
-    if (this->returnInfo_->isKeepAlive())
-    {
-      if (selfWrapper == nullptr)
-      {
-        noWrapper(self, "self");
-      }
-
-      // returnWrapper will be nullptr if returnValue is a built-in type and not an external(wrapped) type
-      WrapperBase* returnWrapper = getWrapper(returnValue);
-      if (returnWrapper == nullptr)
-      {
-        noWrapper(returnValue, "return");
-      }
-      returnWrapper->addKeepAlive(self);
     }
   }
 
