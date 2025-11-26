@@ -24,6 +24,8 @@ void Init_qlayoutitem(Rice::Module rb_mQt6QtWidgets)
             .define_method("control_types", &QLayoutItem::controlTypes)
             .define_method("expanding_directions", &QLayoutItem::expandingDirections)
             .define_method("geometry", &QLayoutItem::geometry)
+            .define_method("has_height_for_width", &QLayoutItem::hasHeightForWidth)
+            .define_method("height_for_width", &QLayoutItem::heightForWidth, Arg("w"))
             .define_method("invalidate", &QLayoutItem::invalidate)
             .define_method("empty?", &QLayoutItem::isEmpty)
             .define_method("layout", &QLayoutItem::layout)
@@ -44,32 +46,11 @@ void Init_qlayoutitem(Rice::Module rb_mQt6QtWidgets)
             .define_constructor(Constructor<QSpacerItem, int, int, QSizePolicy::Policy, QSizePolicy::Policy>(), Arg("w"), Arg("h"), Arg("h_policy"), Arg("v_policy"))
             // Public Functions
             .define_method("change_size", &QSpacerItem::changeSize, Arg("w"), Arg("h"), Arg("h_policy") = static_cast<QSizePolicy::Policy>(QSizePolicy::Minimum), Arg("v_policy") = static_cast<QSizePolicy::Policy>(QSizePolicy::Minimum))
-            .define_method("expanding_directions", &QSpacerItem::expandingDirections)
-            .define_method("geometry", &QSpacerItem::geometry)
-            .define_method("empty?", &QSpacerItem::isEmpty)
-            .define_method("maximum_size", &QSpacerItem::maximumSize)
-            .define_method("minimum_size", &QSpacerItem::minimumSize)
-            .define_method("set_geometry", &QSpacerItem::setGeometry, Arg("geometry"))
-            .define_method("size_hint", &QSpacerItem::sizeHint)
-            .define_method("size_policy", &QSpacerItem::sizePolicy)
-            .define_method("spacer_item", &QSpacerItem::spacerItem);
+            .define_method("size_policy", &QSpacerItem::sizePolicy);
 
     rb_cQWidgetItem =
         // RubyQt6::QtWidgets::QWidgetItem
         define_class_under<QWidgetItem, QLayoutItem>(rb_mQt6QtWidgets, "QWidgetItem")
             // Constructor
-            .define_constructor(Constructor<QWidgetItem, QWidget *>(), Arg("widget"))
-            // Public Functions
-            .define_method("control_types", &QWidgetItem::controlTypes)
-            .define_method("expanding_directions", &QWidgetItem::expandingDirections)
-            .define_method("geometry", &QWidgetItem::geometry)
-            .define_method("has_height_for_width", &QWidgetItem::hasHeightForWidth)
-            .define_method("height_for_width", &QWidgetItem::heightForWidth, Arg("w"))
-            .define_method("empty?", &QWidgetItem::isEmpty)
-            .define_method("maximum_size", &QWidgetItem::maximumSize)
-            .define_method("minimum_height_for_width", &QWidgetItem::minimumHeightForWidth, Arg("w"))
-            .define_method("minimum_size", &QWidgetItem::minimumSize)
-            .define_method("set_geometry", &QWidgetItem::setGeometry, Arg("r"))
-            .define_method("size_hint", &QWidgetItem::sizeHint)
-            .define_method("widget", &QWidgetItem::widget);
+            .define_constructor(Constructor<QWidgetItem, QWidget *>(), Arg("widget"));
 }

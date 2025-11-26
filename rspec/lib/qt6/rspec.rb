@@ -16,6 +16,7 @@ module RubyQt6
       "input_method_query",                         # QWidget
       "minimum_size_hint", "size_hint",             # QWidget
       "init_painter",                               # QWidget
+      "maximum_size", "minimum_size",               # QLayoutItem
       "clone", "swap"                               #
     ]
 
@@ -28,10 +29,9 @@ module RubyQt6
     ]
     NO_VERIFY_QLASS_VIRTUAL_METHODS = {
       "QCoreApplication" => ["post_event", "send_event"],
-      "QLayoutItem" => ["size_hint"],
-      "QSpacerItem" => ["size_hint"],
-      "QWidgetItem" => ["has_height_for_width", "height_for_width", "size_hint"],
-      "QWidget" => ["minimum_size_hint", "size_hint"]
+      "QLayoutItem" => ["has_height_for_width", "height_for_width", "maximum_size", "minimum_size", "size_hint"],
+      "QLayout" => ["maximum_size", "minimum_size"],
+      "QWidget" => ["maximum_size", "minimum_size", "minimum_size_hint", "size_hint"]
     }
     NO_VERIFY_QLASS_LEADING_UNDERSCORE_METHODS = {
       "QObject" => ["_connect", "_disconnect"],
