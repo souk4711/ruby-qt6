@@ -31,9 +31,9 @@ void Init_qtoolbutton(Rice::Module rb_mQt6QtWidgets)
             // Public Slots
             .define_method("set_default_action", &QToolButton::setDefaultAction, Arg("action"))
             .define_method("set_tool_button_style", &QToolButton::setToolButtonStyle, Arg("style"))
-            .define_method("show_menu", &QToolButton::showMenu)
+            .define_method("show_menu", &QToolButton::showMenu);
             // Signals
-            .define_method("triggered", &QToolButton::triggered, Arg("action"));
+            // .define_method("triggered", &QToolButton::triggered, Arg("action"));
 
     Data_Type<QToolButton::ToolButtonPopupMode> rb_cQToolButtonToolButtonPopupMode =
         // RubyQt6::QtWidgets::QToolButton::ToolButtonPopupMode

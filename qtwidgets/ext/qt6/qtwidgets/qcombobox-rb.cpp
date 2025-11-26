@@ -85,15 +85,15 @@ void Init_qcombobox(Rice::Module rb_mQt6QtWidgets)
             .define_method("clear_edit_text", &QComboBox::clearEditText)
             .define_method("set_current_index", &QComboBox::setCurrentIndex, Arg("index"))
             .define_method("set_current_text", &QComboBox::setCurrentText, Arg("text"))
-            .define_method("set_edit_text", &QComboBox::setEditText, Arg("text"))
+            .define_method("set_edit_text", &QComboBox::setEditText, Arg("text"));
             // Signals
-            .define_method("activated", &QComboBox::activated, Arg("index"))
-            .define_method("current_index_changed", &QComboBox::currentIndexChanged, Arg("index"))
-            .define_method("current_text_changed", &QComboBox::currentTextChanged, Arg("text"))
-            .define_method("edit_text_changed", &QComboBox::editTextChanged, Arg("text"))
-            .define_method("highlighted", &QComboBox::highlighted, Arg("index"))
-            .define_method("text_activated", &QComboBox::textActivated, Arg("text"))
-            .define_method("text_highlighted", &QComboBox::textHighlighted, Arg("text"));
+            // .define_method("activated", &QComboBox::activated, Arg("index"))
+            // .define_method("current_index_changed", &QComboBox::currentIndexChanged, Arg("index"))
+            // .define_method("current_text_changed", &QComboBox::currentTextChanged, Arg("text"))
+            // .define_method("edit_text_changed", &QComboBox::editTextChanged, Arg("text"))
+            // .define_method("highlighted", &QComboBox::highlighted, Arg("index"))
+            // .define_method("text_activated", &QComboBox::textActivated, Arg("text"))
+            // .define_method("text_highlighted", &QComboBox::textHighlighted, Arg("text"));
 
     Data_Type<QComboBox::InsertPolicy> rb_cQComboBoxInsertPolicy =
         // RubyQt6::QtWidgets::QComboBox::InsertPolicy

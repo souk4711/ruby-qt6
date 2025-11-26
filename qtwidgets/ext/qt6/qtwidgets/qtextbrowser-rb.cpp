@@ -36,12 +36,12 @@ void Init_qtextbrowser(Rice::Module rb_mQt6QtWidgets)
             .define_method("forward", &QTextBrowser::forward)
             .define_method("home", &QTextBrowser::home)
             .define_method("reload", &QTextBrowser::reload)
-            .define_method("set_source", &QTextBrowser::setSource, Arg("name"), Arg("type") = static_cast<QTextDocument::ResourceType>(QTextDocument::UnknownResource))
+            .define_method("set_source", &QTextBrowser::setSource, Arg("name"), Arg("type") = static_cast<QTextDocument::ResourceType>(QTextDocument::UnknownResource));
             // Signals
-            .define_method("anchor_clicked", &QTextBrowser::anchorClicked, Arg("link"))
-            .define_method("backward_available", &QTextBrowser::backwardAvailable, Arg("available"))
-            .define_method("forward_available", &QTextBrowser::forwardAvailable, Arg("available"))
-            .define_method("highlighted", &QTextBrowser::highlighted, Arg("link"))
-            .define_method("history_changed", &QTextBrowser::historyChanged)
-            .define_method("source_changed", &QTextBrowser::sourceChanged, Arg("src"));
+            // .define_method("anchor_clicked", &QTextBrowser::anchorClicked, Arg("link"))
+            // .define_method("backward_available", &QTextBrowser::backwardAvailable, Arg("available"))
+            // .define_method("forward_available", &QTextBrowser::forwardAvailable, Arg("available"))
+            // .define_method("highlighted", &QTextBrowser::highlighted, Arg("link"))
+            // .define_method("history_changed", &QTextBrowser::historyChanged)
+            // .define_method("source_changed", &QTextBrowser::sourceChanged, Arg("src"));
 }

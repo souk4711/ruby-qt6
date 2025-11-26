@@ -41,10 +41,10 @@ void Init_qabstractbutton(Rice::Module rb_mQt6QtWidgets)
             .define_method("click", &QAbstractButton::click)
             .define_method("set_checked", &QAbstractButton::setChecked, Arg("checked"))
             .define_method("set_icon_size", &QAbstractButton::setIconSize, Arg("size"))
-            .define_method("toggle", &QAbstractButton::toggle)
+            .define_method("toggle", &QAbstractButton::toggle);
             // Signals
-            .define_method("clicked", &QAbstractButton::clicked, Arg("checked") = static_cast<bool>(false))
-            .define_method("pressed", &QAbstractButton::pressed)
-            .define_method("released", &QAbstractButton::released)
-            .define_method("toggled", &QAbstractButton::toggled, Arg("checked"));
+            // .define_method("clicked", &QAbstractButton::clicked, Arg("checked") = static_cast<bool>(false))
+            // .define_method("pressed", &QAbstractButton::pressed)
+            // .define_method("released", &QAbstractButton::released)
+            // .define_method("toggled", &QAbstractButton::toggled, Arg("checked"));
 }

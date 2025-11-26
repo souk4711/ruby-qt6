@@ -21,9 +21,9 @@ void Init_qvideosink(Rice::Module rb_mQt6QtMultimedia)
             .define_method("set_video_frame", &QVideoSink::setVideoFrame, Arg("frame"))
             .define_method("subtitle_text", &QVideoSink::subtitleText)
             .define_method("video_frame", &QVideoSink::videoFrame)
-            .define_method("video_size", &QVideoSink::videoSize)
+            .define_method("video_size", &QVideoSink::videoSize);
             // Signals
-            .define_method("subtitle_text_changed", &QVideoSink::subtitleTextChanged, Arg("subtitle_text"))
-            .define_method("video_frame_changed", &QVideoSink::videoFrameChanged, Arg("frame"))
-            .define_method("video_size_changed", &QVideoSink::videoSizeChanged);
+            // .define_method("subtitle_text_changed", &QVideoSink::subtitleTextChanged, Arg("subtitle_text"))
+            // .define_method("video_frame_changed", &QVideoSink::videoFrameChanged, Arg("frame"))
+            // .define_method("video_size_changed", &QVideoSink::videoSizeChanged);
 }

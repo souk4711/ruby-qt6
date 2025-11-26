@@ -69,11 +69,11 @@ void Init_qdatetimeedit(Rice::Module rb_mQt6QtWidgets)
             // Public Slots
             .define_method("set_date", &QDateTimeEdit::setDate, Arg("date"))
             .define_method("set_date_time", &QDateTimeEdit::setDateTime, Arg("date_time"))
-            .define_method("set_time", &QDateTimeEdit::setTime, Arg("time"))
+            .define_method("set_time", &QDateTimeEdit::setTime, Arg("time"));
             // Signals
-            .define_method("date_changed", &QDateTimeEdit::dateChanged, Arg("date"))
-            .define_method("date_time_changed", &QDateTimeEdit::dateTimeChanged, Arg("date_time"))
-            .define_method("time_changed", &QDateTimeEdit::timeChanged, Arg("time"));
+            // .define_method("date_changed", &QDateTimeEdit::dateChanged, Arg("date"))
+            // .define_method("date_time_changed", &QDateTimeEdit::dateTimeChanged, Arg("date_time"))
+            // .define_method("time_changed", &QDateTimeEdit::timeChanged, Arg("time"));
 
     Data_Type<QDateTimeEdit::Section> rb_cQDateTimeEditSection =
         // RubyQt6::QtWidgets::QDateTimeEdit::Section
@@ -100,9 +100,9 @@ void Init_qdatetimeedit(Rice::Module rb_mQt6QtWidgets)
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QDateEdit::staticMetaObject; })
             // Constructor
-            .define_constructor(Constructor<QDateEdit, QDate, QWidget *>(), Arg("date"), Arg("parent"))
+            .define_constructor(Constructor<QDateEdit, QDate, QWidget *>(), Arg("date"), Arg("parent"));
             // Signals
-            .define_method("user_date_changed", &QDateEdit::userDateChanged, Arg("date"));
+            // .define_method("user_date_changed", &QDateEdit::userDateChanged, Arg("date"));
 
     rb_cQTimeEdit =
         // RubyQt6::QtWidgets::QTimeEdit
@@ -110,7 +110,7 @@ void Init_qdatetimeedit(Rice::Module rb_mQt6QtWidgets)
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QTimeEdit::staticMetaObject; })
             // Constructor
-            .define_constructor(Constructor<QTimeEdit, QTime, QWidget *>(), Arg("time"), Arg("parent"))
+            .define_constructor(Constructor<QTimeEdit, QTime, QWidget *>(), Arg("time"), Arg("parent"));
             // Signals
-            .define_method("user_time_changed", &QTimeEdit::userTimeChanged, Arg("time"));
+            // .define_method("user_time_changed", &QTimeEdit::userTimeChanged, Arg("time"));
 }

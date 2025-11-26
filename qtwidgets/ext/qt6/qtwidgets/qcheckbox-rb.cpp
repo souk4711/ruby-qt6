@@ -18,7 +18,7 @@ void Init_qcheckbox(Rice::Module rb_mQt6QtWidgets)
             .define_method("check_state", &QCheckBox::checkState)
             .define_method("tristate?", &QCheckBox::isTristate)
             .define_method("set_check_state", &QCheckBox::setCheckState, Arg("state"))
-            .define_method("set_tristate", &QCheckBox::setTristate, Arg("y") = static_cast<bool>(true))
+            .define_method("set_tristate", &QCheckBox::setTristate, Arg("y") = static_cast<bool>(true));
             // Signals
-            .define_method("check_state_changed", &QCheckBox::checkStateChanged, Arg("state"));
+            // .define_method("check_state_changed", &QCheckBox::checkStateChanged, Arg("state"));
 }

@@ -61,9 +61,8 @@ void Init_qmessagebox(Rice::Module rb_mQt6QtWidgets)
             .define_method("text", &QMessageBox::text)
             .define_method("text_format", &QMessageBox::textFormat)
             .define_method("text_interaction_flags", &QMessageBox::textInteractionFlags)
-            // Public Slots
             // Signals
-            .define_method("button_clicked", &QMessageBox::buttonClicked, Arg("button"))
+            // .define_method("button_clicked", &QMessageBox::buttonClicked, Arg("button"))
             // Static Public Members
             .define_singleton_function("_about", &QMessageBox::about, Arg("parent"), Arg("title"), Arg("text"))
             .define_singleton_function("_about_qt", &QMessageBox::aboutQt, Arg("parent"), Arg("title") = static_cast<const QString &>(QString()))

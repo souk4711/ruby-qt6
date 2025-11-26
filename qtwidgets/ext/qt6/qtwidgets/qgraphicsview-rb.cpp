@@ -96,9 +96,9 @@ void Init_qgraphicsview(Rice::Module rb_mQt6QtWidgets)
             // Public Slots
             .define_method("invalidate_scene", &QGraphicsView::invalidateScene, Arg("rect") = static_cast<const QRectF &>(QRectF()), Arg("layers") = static_cast<QGraphicsScene::SceneLayers>(QGraphicsScene::AllLayers))
             .define_method("update_scene", &QGraphicsView::updateScene, Arg("rects"))
-            .define_method("update_scene_rect", &QGraphicsView::updateSceneRect, Arg("rect"))
+            .define_method("update_scene_rect", &QGraphicsView::updateSceneRect, Arg("rect"));
             // Signals
-            .define_method("rubber_band_changed", &QGraphicsView::rubberBandChanged, Arg("viewport_rect"), Arg("from_scene_point"), Arg("to_scene_point"));
+            // .define_method("rubber_band_changed", &QGraphicsView::rubberBandChanged, Arg("viewport_rect"), Arg("from_scene_point"), Arg("to_scene_point"));
 
     Data_Type<QGraphicsView::CacheModeFlag> rb_cQGraphicsViewCacheModeFlag =
         // RubyQt6::QtWidgets::QGraphicsView::CacheModeFlag

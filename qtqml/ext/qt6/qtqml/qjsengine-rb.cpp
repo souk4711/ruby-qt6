@@ -19,7 +19,6 @@ void Init_qjsengine(Rice::Module rb_mQt6QtQml)
             .define_method("collect_garbage", &QJSEngine::collectGarbage)
             .define_method("evaluate", &QJSEngine::evaluate, Arg("program"), Arg("file_name") = static_cast<const QString &>(QString()), Arg("line_number") = static_cast<int>(1), Arg("exception_stack_trace") = static_cast<QStringList *>(nullptr))
             .define_method("global_object", &QJSEngine::globalObject)
-            // .define_method("handle", &QJSEngine::handle)
             .define_method("has_error", &QJSEngine::hasError)
             .define_method("import_module", &QJSEngine::importModule, Arg("file_name"))
             .define_method("install_extensions", &QJSEngine::installExtensions, Arg("extensions"), Arg("object") = static_cast<const QJSValue &>(QJSValue()))
@@ -38,7 +37,7 @@ void Init_qjsengine(Rice::Module rb_mQt6QtQml)
             .define_method<void (QJSEngine::*)(const QString &)>("throw_error", &QJSEngine::throwError, Arg("message"))
             .define_method("ui_language", &QJSEngine::uiLanguage)
             // Signals
-            .define_method("ui_language_changed", &QJSEngine::uiLanguageChanged)
+            // .define_method("ui_language_changed", &QJSEngine::uiLanguageChanged)
             // Static Public Members
             .define_singleton_function("object_ownership", &QJSEngine::objectOwnership, Arg("obj"))
             .define_singleton_function("set_object_ownership", &QJSEngine::setObjectOwnership, Arg("obj"), Arg("ownership"));

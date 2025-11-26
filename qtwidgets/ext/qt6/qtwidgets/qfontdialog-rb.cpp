@@ -43,10 +43,10 @@ void Init_qfontdialog(Rice::Module rb_mQt6QtWidgets)
             .define_method("set_option", &QFontDialog::setOption, Arg("option"), Arg("on") = static_cast<bool>(true))
             .define_method("set_options", &QFontDialog::setOptions, Arg("options"))
             .define_method("set_visible", &QFontDialog::setVisible, Arg("visible"))
-            .define_method("test_option", &QFontDialog::testOption, Arg("option"))
+            .define_method("test_option", &QFontDialog::testOption, Arg("option"));
             // Signals
-            .define_method("current_font_changed", &QFontDialog::currentFontChanged, Arg("font"))
-            .define_method("font_selected", &QFontDialog::fontSelected, Arg("font"));
+            // .define_method("current_font_changed", &QFontDialog::currentFontChanged, Arg("font"))
+            // .define_method("font_selected", &QFontDialog::fontSelected, Arg("font"));
 
     Data_Type<QFontDialog::FontDialogOption> rb_cQFontDialogFontDialogOption =
         // RubyQt6::QtWidgets::QFontDialog::FontDialogOption

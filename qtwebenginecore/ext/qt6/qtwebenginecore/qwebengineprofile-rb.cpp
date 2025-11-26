@@ -88,8 +88,8 @@ void Init_qwebengineprofile(Rice::Module rb_mQt6QtWebEngineCore)
             .define_method("url_scheme_handler", &QWebEngineProfile::urlSchemeHandler, Arg("scheme"))
             .define_method("visited_links_contains_url", &QWebEngineProfile::visitedLinksContainsUrl, Arg("url"))
             // Signals
-            .define_method("clear_http_cache_completed", &QWebEngineProfile::clearHttpCacheCompleted)
-            .define_method("download_requested", &QWebEngineProfile::downloadRequested, Arg("download"))
+            // .define_method("clear_http_cache_completed", &QWebEngineProfile::clearHttpCacheCompleted)
+            // .define_method("download_requested", &QWebEngineProfile::downloadRequested, Arg("download"))
             // Static Public Members
             .define_singleton_function("default_profile", &QWebEngineProfile::defaultProfile);
 

@@ -38,10 +38,10 @@ void Init_qspinbox(Rice::Module rb_mQt6QtWidgets)
             .define_method("value", &QDoubleSpinBox::value)
             .define_method("value_from_text", &QDoubleSpinBox::valueFromText, Arg("text"))
             // Public Slots
-            .define_method("set_value", &QDoubleSpinBox::setValue, Arg("val"))
+            .define_method("set_value", &QDoubleSpinBox::setValue, Arg("val"));
             // Signals
-            .define_method("text_changed", &QDoubleSpinBox::textChanged, Arg("text"))
-            .define_method("value_changed", &QDoubleSpinBox::valueChanged, Arg("val"));
+            // .define_method("text_changed", &QDoubleSpinBox::textChanged, Arg("text"))
+            // .define_method("value_changed", &QDoubleSpinBox::valueChanged, Arg("val"));
 
     rb_cQSpinBox =
         // RubyQt6::QtWidgets::QSpinBox
@@ -69,8 +69,8 @@ void Init_qspinbox(Rice::Module rb_mQt6QtWidgets)
             .define_method("suffix", &QSpinBox::suffix)
             .define_method("value", &QSpinBox::value)
             // Public Slots
-            .define_method("set_value", &QSpinBox::setValue, Arg("val"))
+            .define_method("set_value", &QSpinBox::setValue, Arg("val"));
             // Signals
-            .define_method("text_changed", &QSpinBox::textChanged, Arg("text"))
-            .define_method("value_changed", &QSpinBox::valueChanged, Arg("val"));
+            // .define_method("text_changed", &QSpinBox::textChanged, Arg("text"))
+            // .define_method("value_changed", &QSpinBox::valueChanged, Arg("val"));
 }

@@ -60,18 +60,18 @@ void Init_qtreewidget(Rice::Module rb_mQt6QtWidgets)
             .define_method("clear", &QTreeWidget::clear)
             .define_method("collapse_item", &QTreeWidget::collapseItem, Arg("item"))
             .define_method("expand_item", &QTreeWidget::expandItem, Arg("item"))
-            .define_method("scroll_to_item", &QTreeWidget::scrollToItem, Arg("item"), Arg("hint") = static_cast<QAbstractItemView::ScrollHint>(QAbstractItemView::ScrollHint::EnsureVisible))
+            .define_method("scroll_to_item", &QTreeWidget::scrollToItem, Arg("item"), Arg("hint") = static_cast<QAbstractItemView::ScrollHint>(QAbstractItemView::ScrollHint::EnsureVisible));
             // Signals
-            .define_method("current_item_changed", &QTreeWidget::currentItemChanged, Arg("current"), Arg("previous"))
-            .define_method("item_activated", &QTreeWidget::itemActivated, Arg("item"), Arg("column"))
-            .define_method("item_changed", &QTreeWidget::itemChanged, Arg("item"), Arg("column"))
-            .define_method("item_clicked", &QTreeWidget::itemClicked, Arg("item"), Arg("column"))
-            .define_method("item_collapsed", &QTreeWidget::itemCollapsed, Arg("item"))
-            .define_method("item_double_clicked", &QTreeWidget::itemDoubleClicked, Arg("item"), Arg("column"))
-            .define_method("item_entered", &QTreeWidget::itemEntered, Arg("item"), Arg("column"))
-            .define_method("item_expanded", &QTreeWidget::itemExpanded, Arg("item"))
-            .define_method("item_pressed", &QTreeWidget::itemPressed, Arg("item"), Arg("column"))
-            .define_method("item_selection_changed", &QTreeWidget::itemSelectionChanged);
+            // .define_method("current_item_changed", &QTreeWidget::currentItemChanged, Arg("current"), Arg("previous"))
+            // .define_method("item_activated", &QTreeWidget::itemActivated, Arg("item"), Arg("column"))
+            // .define_method("item_changed", &QTreeWidget::itemChanged, Arg("item"), Arg("column"))
+            // .define_method("item_clicked", &QTreeWidget::itemClicked, Arg("item"), Arg("column"))
+            // .define_method("item_collapsed", &QTreeWidget::itemCollapsed, Arg("item"))
+            // .define_method("item_double_clicked", &QTreeWidget::itemDoubleClicked, Arg("item"), Arg("column"))
+            // .define_method("item_entered", &QTreeWidget::itemEntered, Arg("item"), Arg("column"))
+            // .define_method("item_expanded", &QTreeWidget::itemExpanded, Arg("item"))
+            // .define_method("item_pressed", &QTreeWidget::itemPressed, Arg("item"), Arg("column"))
+            // .define_method("item_selection_changed", &QTreeWidget::itemSelectionChanged);
 
     rb_cQTreeWidgetItem =
         // RubyQt6::QtWidgets::QTreeWidgetItem

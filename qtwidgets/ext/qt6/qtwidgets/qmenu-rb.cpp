@@ -53,10 +53,10 @@ void Init_qmenu(Rice::Module rb_mQt6QtWidgets)
             .define_method("title", &QMenu::title)
             .define_method("tool_tips_visible", &QMenu::toolTipsVisible)
             // Signals
-            .define_method("about_to_hide", &QMenu::aboutToHide)
-            .define_method("about_to_show", &QMenu::aboutToShow)
-            .define_method("hovered", &QMenu::hovered, Arg("action"))
-            .define_method("triggered", &QMenu::triggered, Arg("action"))
+            // .define_method("about_to_hide", &QMenu::aboutToHide)
+            // .define_method("about_to_show", &QMenu::aboutToShow)
+            // .define_method("hovered", &QMenu::hovered, Arg("action"))
+            // .define_method("triggered", &QMenu::triggered, Arg("action"))
             // Static Public Members
             .define_singleton_function<QAction *(*)(const QList<QAction *> &, const QPoint &, QAction *, QWidget *)>("exec", &QMenu::exec, Arg("actions"), Arg("pos"), Arg("at") = static_cast<QAction *>(nullptr), Arg("parent") = static_cast<QWidget *>(nullptr))
             .define_singleton_function("menu_in_action", &QMenu::menuInAction, Arg("action"));

@@ -36,10 +36,10 @@ void Init_qmdisubwindow(Rice::Module rb_mQt6QtWidgets)
             .define_method("_widget", &QMdiSubWindow::widget)
             // Public Slots
             .define_method("show_shaded", &QMdiSubWindow::showShaded)
-            .define_method("show_system_menu", &QMdiSubWindow::showSystemMenu)
+            .define_method("show_system_menu", &QMdiSubWindow::showSystemMenu);
             // Signals
-            .define_method("about_to_activate", &QMdiSubWindow::aboutToActivate)
-            .define_method("window_state_changed", &QMdiSubWindow::windowStateChanged, Arg("old_state"), Arg("new_state"));
+            // .define_method("about_to_activate", &QMdiSubWindow::aboutToActivate)
+            // .define_method("window_state_changed", &QMdiSubWindow::windowStateChanged, Arg("old_state"), Arg("new_state"));
 
     Data_Type<QMdiSubWindow::SubWindowOption> rb_cQMdiSubWindowSubWindowOption =
         // RubyQt6::QtWidgets::QMdiSubWindow::SubWindowOption

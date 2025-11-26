@@ -72,15 +72,15 @@ void Init_qaction(Rice::Module rb_mQt6QtGui)
             .define_method("set_enabled", &QAction::setEnabled, Arg("b"))
             .define_method("set_visible", &QAction::setVisible, Arg("b"))
             .define_method("toggle", &QAction::toggle)
-            .define_method("trigger", &QAction::trigger)
+            .define_method("trigger", &QAction::trigger);
             // Signals
-            .define_method("changed", &QAction::changed)
-            .define_method("checkable_changed", &QAction::checkableChanged, Arg("checkable"))
-            .define_method("enabled_changed", &QAction::enabledChanged, Arg("enabled"))
-            .define_method("hovered", &QAction::hovered)
-            .define_method("toggled", &QAction::toggled, Arg("checked"))
-            .define_method("triggered", &QAction::triggered, Arg("checked") = static_cast<bool>(false))
-            .define_method("visible_changed", &QAction::visibleChanged);
+            // .define_method("changed", &QAction::changed)
+            // .define_method("checkable_changed", &QAction::checkableChanged, Arg("checkable"))
+            // .define_method("enabled_changed", &QAction::enabledChanged, Arg("enabled"))
+            // .define_method("hovered", &QAction::hovered)
+            // .define_method("toggled", &QAction::toggled, Arg("checked"))
+            // .define_method("triggered", &QAction::triggered, Arg("checked") = static_cast<bool>(false))
+            // .define_method("visible_changed", &QAction::visibleChanged);
 
     Data_Type<QAction::MenuRole> rb_cQActionMenuRole =
         // RubyQt6::QtGui::QAction::MenuRole

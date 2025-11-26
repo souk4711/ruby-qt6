@@ -47,15 +47,15 @@ void Init_qscreen(Rice::Module rb_mQt6QtGui)
             .define_method("virtual_geometry", &QScreen::virtualGeometry)
             .define_method("virtual_sibling_at", &QScreen::virtualSiblingAt, Arg("point"))
             .define_method("virtual_siblings", &QScreen::virtualSiblings)
-            .define_method("virtual_size", &QScreen::virtualSize)
+            .define_method("virtual_size", &QScreen::virtualSize);
             // Signals
-            .define_method("available_geometry_changed", &QScreen::availableGeometryChanged, Arg("geometry"))
-            .define_method("geometry_changed", &QScreen::geometryChanged, Arg("geometry"))
-            .define_method("logical_dots_per_inch_changed", &QScreen::logicalDotsPerInchChanged, Arg("dpi"))
-            .define_method("orientation_changed", &QScreen::orientationChanged, Arg("orientation"))
-            .define_method("physical_dots_per_inch_changed", &QScreen::physicalDotsPerInchChanged, Arg("dpi"))
-            .define_method("physical_size_changed", &QScreen::physicalSizeChanged, Arg("size"))
-            .define_method("primary_orientation_changed", &QScreen::primaryOrientationChanged, Arg("orientation"))
-            .define_method("refresh_rate_changed", &QScreen::refreshRateChanged, Arg("refresh_rate"))
-            .define_method("virtual_geometry_changed", &QScreen::virtualGeometryChanged, Arg("rect"));
+            // .define_method("available_geometry_changed", &QScreen::availableGeometryChanged, Arg("geometry"))
+            // .define_method("geometry_changed", &QScreen::geometryChanged, Arg("geometry"))
+            // .define_method("logical_dots_per_inch_changed", &QScreen::logicalDotsPerInchChanged, Arg("dpi"))
+            // .define_method("orientation_changed", &QScreen::orientationChanged, Arg("orientation"))
+            // .define_method("physical_dots_per_inch_changed", &QScreen::physicalDotsPerInchChanged, Arg("dpi"))
+            // .define_method("physical_size_changed", &QScreen::physicalSizeChanged, Arg("size"))
+            // .define_method("primary_orientation_changed", &QScreen::primaryOrientationChanged, Arg("orientation"))
+            // .define_method("refresh_rate_changed", &QScreen::refreshRateChanged, Arg("refresh_rate"))
+            // .define_method("virtual_geometry_changed", &QScreen::virtualGeometryChanged, Arg("rect"));
 }

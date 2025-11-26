@@ -32,7 +32,7 @@ void Init_qquickview(Rice::Module rb_mQt6QtQuick)
             // Public Slots
             .define_method("_load_from_module", &QQuickView::loadFromModule, Arg("uri"), Arg("type_name"))
             .define_method("set_initial_properties", &QQuickView::setInitialProperties, Arg("initial_properties"))
-            .define_method("set_source", &QQuickView::setSource, Arg("source"))
+            .define_method("set_source", &QQuickView::setSource, Arg("source"));
             // Signals
-            .define_method("status_changed", &QQuickView::statusChanged, Arg("status"));
+            // .define_method("status_changed", &QQuickView::statusChanged, Arg("status"));
 }

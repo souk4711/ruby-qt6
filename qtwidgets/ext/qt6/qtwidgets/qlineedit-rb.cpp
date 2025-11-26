@@ -83,15 +83,15 @@ void Init_qlineedit(Rice::Module rb_mQt6QtWidgets)
             .define_method("redo", &QLineEdit::redo)
             .define_method("select_all", &QLineEdit::selectAll)
             .define_method("_set_text", &QLineEdit::setText, Arg("text"))
-            .define_method("undo", &QLineEdit::undo)
+            .define_method("undo", &QLineEdit::undo);
             // Signals
-            .define_method("cursor_position_changed", &QLineEdit::cursorPositionChanged, Arg("old"), Arg("new"))
-            .define_method("editing_finished", &QLineEdit::editingFinished)
-            .define_method("input_rejected", &QLineEdit::inputRejected)
-            .define_method("return_pressed", &QLineEdit::returnPressed)
-            .define_method("selection_changed", &QLineEdit::selectionChanged)
-            .define_method("text_changed", &QLineEdit::textChanged, Arg("text"))
-            .define_method("text_edited", &QLineEdit::textEdited, Arg("text"));
+            // .define_method("cursor_position_changed", &QLineEdit::cursorPositionChanged, Arg("old"), Arg("new"))
+            // .define_method("editing_finished", &QLineEdit::editingFinished)
+            // .define_method("input_rejected", &QLineEdit::inputRejected)
+            // .define_method("return_pressed", &QLineEdit::returnPressed)
+            // .define_method("selection_changed", &QLineEdit::selectionChanged)
+            // .define_method("text_changed", &QLineEdit::textChanged, Arg("text"))
+            // .define_method("text_edited", &QLineEdit::textEdited, Arg("text"));
 
     Data_Type<QLineEdit::ActionPosition> rb_cQLineEditActionPosition =
         // RubyQt6::QtWidgets::QLineEdit::ActionPosition

@@ -27,8 +27,8 @@ void Init_qshortcut(Rice::Module rb_mQt6QtGui)
             .define_method<void (QShortcut::*)(QKeySequence::StandardKey)>("set_keys", &QShortcut::setKeys, Arg("key"))
             .define_method<void (QShortcut::*)(const QList<QKeySequence> &)>("set_keys", &QShortcut::setKeys, Arg("keys"))
             .define_method("set_whats_this", &QShortcut::setWhatsThis, Arg("text"))
-            .define_method("whats_this", &QShortcut::whatsThis)
+            .define_method("whats_this", &QShortcut::whatsThis);
             // Signals
-            .define_method("activated", &QShortcut::activated)
-            .define_method("activated_ambiguously", &QShortcut::activatedAmbiguously);
+            // .define_method("activated", &QShortcut::activated)
+            // .define_method("activated_ambiguously", &QShortcut::activatedAmbiguously);
 }

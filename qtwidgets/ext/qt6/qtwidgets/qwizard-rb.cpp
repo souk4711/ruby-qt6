@@ -60,13 +60,13 @@ void Init_qwizard(Rice::Module rb_mQt6QtWidgets)
             .define_method("back", &QWizard::back)
             .define_method("next", &QWizard::next)
             .define_method("restart", &QWizard::restart)
-            .define_method("set_current_id", &QWizard::setCurrentId, Arg("id"))
+            .define_method("set_current_id", &QWizard::setCurrentId, Arg("id"));
             // Signals
-            .define_method("current_id_changed", &QWizard::currentIdChanged, Arg("id"))
-            .define_method("custom_button_clicked", &QWizard::customButtonClicked, Arg("which"))
-            .define_method("help_requested", &QWizard::helpRequested)
-            .define_method("page_added", &QWizard::pageAdded, Arg("id"))
-            .define_method("page_removed", &QWizard::pageRemoved, Arg("id"));
+            // .define_method("current_id_changed", &QWizard::currentIdChanged, Arg("id"))
+            // .define_method("custom_button_clicked", &QWizard::customButtonClicked, Arg("which"))
+            // .define_method("help_requested", &QWizard::helpRequested)
+            // .define_method("page_added", &QWizard::pageAdded, Arg("id"))
+            // .define_method("page_removed", &QWizard::pageRemoved, Arg("id"));
 
     Data_Type<QWizard::WizardButton> rb_cQWizardWizardButton =
         // RubyQt6::QtWidgets::QWizard::WizardButton
@@ -152,7 +152,7 @@ void Init_qwizard(Rice::Module rb_mQt6QtWidgets)
             .define_method("set_title", &QWizardPage::setTitle, Arg("title"))
             .define_method("sub_title", &QWizardPage::subTitle)
             .define_method("title", &QWizardPage::title)
-            .define_method("validate_page", &QWizardPage::validatePage)
+            .define_method("validate_page", &QWizardPage::validatePage);
             // Signals
-            .define_method("complete_changed", &QWizardPage::completeChanged);
+            // .define_method("complete_changed", &QWizardPage::completeChanged);
 }

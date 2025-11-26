@@ -29,9 +29,9 @@ void Init_qfontcombobox(Rice::Module rb_mQt6QtWidgets)
             .define_method("set_writing_system", &QFontComboBox::setWritingSystem, Arg("system"))
             .define_method("writing_system", &QFontComboBox::writingSystem)
             // Public Slots
-            .define_method("set_current_font", &QFontComboBox::setCurrentFont, Arg("f"))
+            .define_method("set_current_font", &QFontComboBox::setCurrentFont, Arg("f"));
             // Signals
-            .define_method("current_font_changed", &QFontComboBox::currentFontChanged, Arg("f"));
+            // .define_method("current_font_changed", &QFontComboBox::currentFontChanged, Arg("f"));
 
     Data_Type<QFontComboBox::FontFilter> rb_cQFontComboBoxFontFilter =
         // RubyQt6::QtWidgets::QFontComboBox::FontFilter

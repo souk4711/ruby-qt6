@@ -25,7 +25,7 @@ void Init_qstatusbar(Rice::Module rb_mQt6QtWidgets)
             .define_method("set_size_grip_enabled", &QStatusBar::setSizeGripEnabled, Arg("enabled"))
             // Public Slots
             .define_method("clear_message", &QStatusBar::clearMessage)
-            .define_method("show_message", &QStatusBar::showMessage, Arg("text"), Arg("timeout") = static_cast<int>(0))
+            .define_method("show_message", &QStatusBar::showMessage, Arg("text"), Arg("timeout") = static_cast<int>(0));
             // Signals
-            .define_method("message_changed", &QStatusBar::messageChanged, Arg("text"));
+            // .define_method("message_changed", &QStatusBar::messageChanged, Arg("text"));
 }

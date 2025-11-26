@@ -71,8 +71,8 @@ void Init_qobject(Rice::Module rb_mQt6QtCore)
             // Public Slots
             .define_method("delete_later", &QObject::deleteLater)
             // Signals
-            .define_method("destroyed", &QObject::destroyed, Arg("obj") = static_cast<QObject *>(nullptr))
-            .define_method("object_name_changed", &QObject::objectNameChanged, Arg("object_name"))
+            // .define_method("destroyed", &QObject::destroyed, Arg("obj") = static_cast<QObject *>(nullptr))
+            // .define_method("object_name_changed", &QObject::objectNameChanged, Arg("object_name"))
             // Static Public Members
             .define_singleton_function<QMetaObject::Connection (*)(const QObject *, const char *, const QObject *, const char *, Qt::ConnectionType)>("_connect", &QObject::connect, Arg("sender"), Arg("signal"), Arg("receiver"), Arg("member"), Arg("type") = static_cast<Qt::ConnectionType>(Qt::AutoConnection))
             .define_singleton_function<bool (*)(const QObject *, const char *, const QObject *, const char *)>("_disconnect", &QObject::disconnect, Arg("sender"), Arg("signal"), Arg("receiver"), Arg("member"))

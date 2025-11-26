@@ -86,15 +86,15 @@ void Init_qabstractitemview(Rice::Module rb_mQt6QtWidgets)
             .define_method("select_all", &QAbstractItemView::selectAll)
             .define_method("set_current_index", &QAbstractItemView::setCurrentIndex, Arg("index"))
             .define_method("set_root_index", &QAbstractItemView::setRootIndex, Arg("index"))
-            .define_method<void (QAbstractItemView::*)(const QModelIndex &)>("update", &QAbstractItemView::update, Arg("index"))
+            .define_method<void (QAbstractItemView::*)(const QModelIndex &)>("update", &QAbstractItemView::update, Arg("index"));
             // Signals
-            .define_method("activated", &QAbstractItemView::activated, Arg("index"))
-            .define_method("clicked", &QAbstractItemView::clicked, Arg("index"))
-            .define_method("double_clicked", &QAbstractItemView::doubleClicked, Arg("index"))
-            .define_method("entered", &QAbstractItemView::entered, Arg("index"))
-            .define_method("icon_size_changed", &QAbstractItemView::iconSizeChanged, Arg("size"))
-            .define_method("pressed", &QAbstractItemView::pressed, Arg("index"))
-            .define_method("viewport_entered", &QAbstractItemView::viewportEntered);
+            // .define_method("activated", &QAbstractItemView::activated, Arg("index"))
+            // .define_method("clicked", &QAbstractItemView::clicked, Arg("index"))
+            // .define_method("double_clicked", &QAbstractItemView::doubleClicked, Arg("index"))
+            // .define_method("entered", &QAbstractItemView::entered, Arg("index"))
+            // .define_method("icon_size_changed", &QAbstractItemView::iconSizeChanged, Arg("size"))
+            // .define_method("pressed", &QAbstractItemView::pressed, Arg("index"))
+            // .define_method("viewport_entered", &QAbstractItemView::viewportEntered);
 
     Data_Type<QAbstractItemView::DragDropMode> rb_cQAbstractItemViewDragDropMode =
         // RubyQt6::QtWidgets::QAbstractItemView::DragDropMode

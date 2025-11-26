@@ -52,10 +52,10 @@ void Init_qqmlengine(Rice::Module rb_mQt6QtQml)
             // Public Slots
             .define_method("retranslate", &QQmlEngine::retranslate)
             // Signals
-            .define_method("exit", &QQmlEngine::exit, Arg("ret_code"))
-            .define_method("offline_storage_path_changed", &QQmlEngine::offlineStoragePathChanged)
-            .define_method("quit", &QQmlEngine::quit)
-            .define_method("warnings", &QQmlEngine::warnings, Arg("warnings"))
+            // .define_method("exit", &QQmlEngine::exit, Arg("ret_code"))
+            // .define_method("offline_storage_path_changed", &QQmlEngine::offlineStoragePathChanged)
+            // .define_method("quit", &QQmlEngine::quit)
+            // .define_method("warnings", &QQmlEngine::warnings, Arg("warnings"))
             // Static Public Members
             .define_singleton_function("context_for_object", &QQmlEngine::contextForObject, Arg("obj"))
             .define_singleton_function("set_context_for_object", &QQmlEngine::setContextForObject, Arg("obj"), Arg("context"));

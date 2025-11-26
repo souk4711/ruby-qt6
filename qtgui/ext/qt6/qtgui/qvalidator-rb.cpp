@@ -20,9 +20,9 @@ void Init_qvalidator(Rice::Module rb_mQt6QtGui)
             .define_method("fixup", &QValidator::fixup, Arg("input"))
             .define_method("locale", &QValidator::locale)
             .define_method("set_locale", &QValidator::setLocale, Arg("locale"))
-            .define_method("validate", &QValidator::validate, Arg("input"), Arg("pos"))
+            .define_method("validate", &QValidator::validate, Arg("input"), Arg("pos"));
             // Signals
-            .define_method("changed", &QValidator::changed);
+            // .define_method("changed", &QValidator::changed);
 
     Data_Type<QValidator::State> rb_cQValidatorState =
         // RubyQt6::QtGui::QValidator::State
@@ -50,12 +50,12 @@ void Init_qvalidator(Rice::Module rb_mQt6QtGui)
             .define_method<void (QDoubleValidator::*)(double, double, int)>("set_range", &QDoubleValidator::setRange, Arg("bottom"), Arg("top"), Arg("decimals"))
             .define_method("set_top", &QDoubleValidator::setTop, Arg("top"))
             .define_method("top", &QDoubleValidator::top)
-            .define_method("validate", &QDoubleValidator::validate, Arg("input"), Arg("pos"))
+            .define_method("validate", &QDoubleValidator::validate, Arg("input"), Arg("pos"));
             // Signals
-            .define_method("bottom_changed", &QDoubleValidator::bottomChanged, Arg("bottom"))
-            .define_method("decimals_changed", &QDoubleValidator::decimalsChanged, Arg("decimals"))
-            .define_method("notation_changed", &QDoubleValidator::notationChanged, Arg("notation"))
-            .define_method("top_changed", &QDoubleValidator::topChanged, Arg("top"));
+            // .define_method("bottom_changed", &QDoubleValidator::bottomChanged, Arg("bottom"))
+            // .define_method("decimals_changed", &QDoubleValidator::decimalsChanged, Arg("decimals"))
+            // .define_method("notation_changed", &QDoubleValidator::notationChanged, Arg("notation"))
+            // .define_method("top_changed", &QDoubleValidator::topChanged, Arg("top"));
 
     Data_Type<QDoubleValidator::Notation> rb_cQDoubleValidatorNotation =
         // RubyQt6::QtGui::QDoubleValidator::Notation
@@ -77,10 +77,10 @@ void Init_qvalidator(Rice::Module rb_mQt6QtGui)
             .define_method("set_range", &QIntValidator::setRange, Arg("bottom"), Arg("top"))
             .define_method("set_top", &QIntValidator::setTop, Arg("top"))
             .define_method("top", &QIntValidator::top)
-            .define_method("validate", &QIntValidator::validate, Arg("input"), Arg("pos"))
+            .define_method("validate", &QIntValidator::validate, Arg("input"), Arg("pos"));
             // Signals
-            .define_method("bottom_changed", &QIntValidator::bottomChanged, Arg("bottom"))
-            .define_method("top_changed", &QIntValidator::topChanged, Arg("top"));
+            // .define_method("bottom_changed", &QIntValidator::bottomChanged, Arg("bottom"))
+            // .define_method("top_changed", &QIntValidator::topChanged, Arg("top"));
 
     rb_cQRegularExpressionValidator =
         // RubyQt6::QtGui::QRegularExpressionValidator
@@ -92,7 +92,7 @@ void Init_qvalidator(Rice::Module rb_mQt6QtGui)
             // Public Functions
             .define_method("regular_expression", &QRegularExpressionValidator::regularExpression)
             // Public Slots
-            .define_method("set_regular_expression", &QRegularExpressionValidator::setRegularExpression, Arg("re"))
+            .define_method("set_regular_expression", &QRegularExpressionValidator::setRegularExpression, Arg("re"));
             // Signals
-            .define_method("regular_expression_changed", &QRegularExpressionValidator::regularExpressionChanged, Arg("re"));
+            // .define_method("regular_expression_changed", &QRegularExpressionValidator::regularExpressionChanged, Arg("re"));
 }

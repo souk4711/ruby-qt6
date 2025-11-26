@@ -25,9 +25,9 @@ void Init_qstackedwidget(Rice::Module rb_mQt6QtWidgets)
             .define_method("widget", &QStackedWidget::widget, Arg("index"))
             // Public Slots
             .define_method("set_current_index", &QStackedWidget::setCurrentIndex, Arg("index"))
-            .define_method("set_current_widget", &QStackedWidget::setCurrentWidget, Arg("w"))
+            .define_method("set_current_widget", &QStackedWidget::setCurrentWidget, Arg("w"));
             // Signals
-            .define_method("current_changed", &QStackedWidget::currentChanged, Arg("index"))
-            .define_method("widget_added", &QStackedWidget::widgetAdded, Arg("index"))
-            .define_method("widget_removed", &QStackedWidget::widgetRemoved, Arg("index"));
+            // .define_method("current_changed", &QStackedWidget::currentChanged, Arg("index"))
+            // .define_method("widget_added", &QStackedWidget::widgetAdded, Arg("index"))
+            // .define_method("widget_removed", &QStackedWidget::widgetRemoved, Arg("index"));
 }

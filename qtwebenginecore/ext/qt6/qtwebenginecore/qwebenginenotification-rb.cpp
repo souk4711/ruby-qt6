@@ -26,7 +26,7 @@ void Init_qwebenginenotification(Rice::Module rb_mQt6QtWebEngineCore)
             // Public Slots
             .define_method("click", &QWebEngineNotification::click)
             .define_method("close", &QWebEngineNotification::close)
-            .define_method("show", &QWebEngineNotification::show)
+            .define_method("show", &QWebEngineNotification::show);
             // Signals
-            .define_method("closed", &QWebEngineNotification::closed);
+            // .define_method("closed", &QWebEngineNotification::closed);
 }

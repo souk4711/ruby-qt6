@@ -40,7 +40,7 @@ void Init_qtimer(Rice::Module rb_mQt6QtCore)
             .define_method<void (QTimer::*)()>("start", &QTimer::start)
             .define_method("stop", &QTimer::stop)
             // Signals
-            .define_method("timeout", &QTimer::timeout)
+            // .define_method("timeout", &QTimer::timeout)
             // Static Public Members
             .define_singleton_function<void (*)(int, Qt::TimerType, const QObject *, const char *)>("_single_shot", &QTimer::singleShot, Arg("msec"), Arg("timer_type"), Arg("receiver"), Arg("member"))
             .define_singleton_function<void (*)(int, const QObject *, const char *)>("_single_shot", &QTimer::singleShot, Arg("msec"), Arg("receiver"), Arg("member"));

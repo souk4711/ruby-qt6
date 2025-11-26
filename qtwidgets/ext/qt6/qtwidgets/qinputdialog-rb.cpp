@@ -104,14 +104,14 @@ void Init_qinputdialog(Rice::Module rb_mQt6QtWidgets)
             .define_method("set_visible", &QInputDialog::setVisible, Arg("visible"))
             .define_method("test_option", &QInputDialog::testOption, Arg("option"))
             .define_method("text_echo_mode", &QInputDialog::textEchoMode)
-            .define_method("text_value", &QInputDialog::textValue)
+            .define_method("text_value", &QInputDialog::textValue);
             // Signals
-            .define_method("double_value_changed", &QInputDialog::doubleValueChanged, Arg("value"))
-            .define_method("double_value_selected", &QInputDialog::doubleValueSelected, Arg("value"))
-            .define_method("int_value_changed", &QInputDialog::intValueChanged, Arg("value"))
-            .define_method("int_value_selected", &QInputDialog::intValueSelected, Arg("value"))
-            .define_method("text_value_changed", &QInputDialog::textValueChanged, Arg("text"))
-            .define_method("text_value_selected", &QInputDialog::textValueSelected, Arg("text"));
+            // .define_method("double_value_changed", &QInputDialog::doubleValueChanged, Arg("value"))
+            // .define_method("double_value_selected", &QInputDialog::doubleValueSelected, Arg("value"))
+            // .define_method("int_value_changed", &QInputDialog::intValueChanged, Arg("value"))
+            // .define_method("int_value_selected", &QInputDialog::intValueSelected, Arg("value"))
+            // .define_method("text_value_changed", &QInputDialog::textValueChanged, Arg("text"))
+            // .define_method("text_value_selected", &QInputDialog::textValueSelected, Arg("text"));
 
     Data_Type<QInputDialog::InputDialogOption> rb_cQInputDialogInputDialogOption =
         // RubyQt6::QtWidgets::QInputDialog::InputDialogOption

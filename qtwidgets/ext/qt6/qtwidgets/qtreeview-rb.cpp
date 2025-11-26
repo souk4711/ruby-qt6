@@ -79,8 +79,8 @@ void Init_qtreeview(Rice::Module rb_mQt6QtWidgets)
             .define_method("hide_column", &QTreeView::hideColumn, Arg("column"))
             .define_method("resize_column_to_contents", &QTreeView::resizeColumnToContents, Arg("column"))
             .define_method("show_column", &QTreeView::showColumn, Arg("column"))
-            .define_method("sort_by_column", &QTreeView::sortByColumn, Arg("column"), Arg("order"))
+            .define_method("sort_by_column", &QTreeView::sortByColumn, Arg("column"), Arg("order"));
             // Signals
-            .define_method("collapsed", &QTreeView::collapsed, Arg("index"))
-            .define_method("expanded", &QTreeView::expanded, Arg("index"));
+            // .define_method("collapsed", &QTreeView::collapsed, Arg("index"))
+            // .define_method("expanded", &QTreeView::expanded, Arg("index"));
 }

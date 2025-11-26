@@ -23,9 +23,9 @@ void Init_qaudioinput(Rice::Module rb_mQt6QtMultimedia)
             // Public Slots
             .define_method("set_device", &QAudioInput::setDevice, Arg("device"))
             .define_method("set_muted", &QAudioInput::setMuted, Arg("muted"))
-            .define_method("set_volume", &QAudioInput::setVolume, Arg("volume"))
+            .define_method("set_volume", &QAudioInput::setVolume, Arg("volume"));
             // Signals
-            .define_method("device_changed", &QAudioInput::deviceChanged)
-            .define_method("muted_changed", &QAudioInput::mutedChanged, Arg("muted"))
-            .define_method("volume_changed", &QAudioInput::volumeChanged, Arg("volume"));
+            // .define_method("device_changed", &QAudioInput::deviceChanged)
+            // .define_method("muted_changed", &QAudioInput::mutedChanged, Arg("muted"))
+            // .define_method("volume_changed", &QAudioInput::volumeChanged, Arg("volume"));
 }

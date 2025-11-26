@@ -33,8 +33,8 @@ void Init_qsystemtrayicon(Rice::Module rb_mQt6QtWidgets)
             .define_method<void (QSystemTrayIcon::*)(const QString &, const QString &, QSystemTrayIcon::MessageIcon, int)>("show_message", &QSystemTrayIcon::showMessage, Arg("title"), Arg("msg"), Arg("icon") = static_cast<QSystemTrayIcon::MessageIcon>(QSystemTrayIcon::Information), Arg("msecs") = static_cast<int>(10000))
             .define_method<void (QSystemTrayIcon::*)(const QString &, const QString &, const QIcon &, int)>("show_message", &QSystemTrayIcon::showMessage, Arg("title"), Arg("msg"), Arg("icon"), Arg("msecs") = static_cast<int>(10000))
             // Signals
-            .define_method("activated", &QSystemTrayIcon::activated, Arg("reason"))
-            .define_method("message_clicked", &QSystemTrayIcon::messageClicked)
+            // .define_method("activated", &QSystemTrayIcon::activated, Arg("reason"))
+            // .define_method("message_clicked", &QSystemTrayIcon::messageClicked)
             // Static Public Members
             .define_singleton_function("system_tray_available?", &QSystemTrayIcon::isSystemTrayAvailable)
             .define_singleton_function("supports_messages", &QSystemTrayIcon::supportsMessages);

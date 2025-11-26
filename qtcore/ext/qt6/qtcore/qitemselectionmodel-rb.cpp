@@ -41,13 +41,13 @@ void Init_qitemselectionmodel(Rice::Module rb_mQt6QtCore)
             .define_method("reset", &QItemSelectionModel::reset)
             .define_method<void (QItemSelectionModel::*)(const QItemSelection &, QItemSelectionModel::SelectionFlags)>("select", &QItemSelectionModel::select, Arg("selection"), Arg("command"))
             .define_method<void (QItemSelectionModel::*)(const QModelIndex &, QItemSelectionModel::SelectionFlags)>("select", &QItemSelectionModel::select, Arg("index"), Arg("command"))
-            .define_method("set_current_index", &QItemSelectionModel::setCurrentIndex, Arg("index"), Arg("command"))
+            .define_method("set_current_index", &QItemSelectionModel::setCurrentIndex, Arg("index"), Arg("command"));
             // Signals
-            .define_method("current_changed", &QItemSelectionModel::currentChanged, Arg("current"), Arg("previous"))
-            .define_method("current_column_changed", &QItemSelectionModel::currentColumnChanged, Arg("current"), Arg("previous"))
-            .define_method("current_row_changed", &QItemSelectionModel::currentRowChanged, Arg("current"), Arg("previous"))
-            .define_method("model_changed", &QItemSelectionModel::modelChanged, Arg("model"))
-            .define_method("selection_changed", &QItemSelectionModel::selectionChanged, Arg("selected"), Arg("deselected"));
+            // .define_method("current_changed", &QItemSelectionModel::currentChanged, Arg("current"), Arg("previous"))
+            // .define_method("current_column_changed", &QItemSelectionModel::currentColumnChanged, Arg("current"), Arg("previous"))
+            // .define_method("current_row_changed", &QItemSelectionModel::currentRowChanged, Arg("current"), Arg("previous"))
+            // .define_method("model_changed", &QItemSelectionModel::modelChanged, Arg("model"))
+            // .define_method("selection_changed", &QItemSelectionModel::selectionChanged, Arg("selected"), Arg("deselected"));
 
     Data_Type<QItemSelectionModel::SelectionFlag> rb_cQItemSelectionModelSelectionFlag =
         // RubyQt6::QtCore::QItemSelectionModel::SelectionFlag

@@ -27,8 +27,8 @@ void Init_qcolordialog(Rice::Module rb_mQt6QtWidgets)
             .define_method("set_visible", &QColorDialog::setVisible, Arg("visible"))
             .define_method("test_option", &QColorDialog::testOption, Arg("option"))
             // Signals
-            .define_method("color_selected", &QColorDialog::colorSelected, Arg("color"))
-            .define_method("current_color_changed", &QColorDialog::currentColorChanged, Arg("color"))
+            // .define_method("color_selected", &QColorDialog::colorSelected, Arg("color"))
+            // .define_method("current_color_changed", &QColorDialog::currentColorChanged, Arg("color"))
             // Static Public Members
             .define_singleton_function("custom_color", &QColorDialog::customColor, Arg("index"))
             .define_singleton_function("custom_count", &QColorDialog::customCount)

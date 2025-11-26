@@ -46,9 +46,9 @@ void Init_qabstractspinbox(Rice::Module rb_mQt6QtWidgets)
             .define_method("clear", &QAbstractSpinBox::clear)
             .define_method("select_all", &QAbstractSpinBox::selectAll)
             .define_method("step_down", &QAbstractSpinBox::stepDown)
-            .define_method("step_up", &QAbstractSpinBox::stepUp)
+            .define_method("step_up", &QAbstractSpinBox::stepUp);
             // Signals
-            .define_method("editing_finished", &QAbstractSpinBox::editingFinished);
+            // .define_method("editing_finished", &QAbstractSpinBox::editingFinished);
 
     Data_Type<QAbstractSpinBox::ButtonSymbols> rb_cQAbstractSpinBoxButtonSymbols =
         // RubyQt6::QtWidgets::QAbstractSpinBox::ButtonSymbols

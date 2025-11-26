@@ -53,13 +53,13 @@ void Init_qmovie(Rice::Module rb_mQt6QtGui)
             .define_method("start", &QMovie::start)
             .define_method("stop", &QMovie::stop)
             // Signals
-            .define_method("error", &QMovie::error, Arg("error"))
-            .define_method("finished", &QMovie::finished)
-            .define_method("frame_changed", &QMovie::frameChanged, Arg("frame_number"))
-            .define_method("resized", &QMovie::resized, Arg("size"))
-            .define_method("started", &QMovie::started)
-            .define_method("state_changed", &QMovie::stateChanged, Arg("state"))
-            .define_method("updated", &QMovie::updated, Arg("rect"))
+            // .define_method("error", &QMovie::error, Arg("error"))
+            // .define_method("finished", &QMovie::finished)
+            // .define_method("frame_changed", &QMovie::frameChanged, Arg("frame_number"))
+            // .define_method("resized", &QMovie::resized, Arg("size"))
+            // .define_method("started", &QMovie::started)
+            // .define_method("state_changed", &QMovie::stateChanged, Arg("state"))
+            // .define_method("updated", &QMovie::updated, Arg("rect"))
             // Static Public Members
             .define_singleton_function("supported_formats", &QMovie::supportedFormats);
 

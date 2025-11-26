@@ -31,11 +31,11 @@ void Init_qstackedlayout(Rice::Module rb_mQt6QtWidgets)
             .define_method<QWidget* (QStackedLayout::*)(int) const>("widget", &QStackedLayout::widget, Arg("index"))
             // Public Slots
             .define_method("set_current_index", &QStackedLayout::setCurrentIndex, Arg("index"))
-            .define_method("set_current_widget", &QStackedLayout::setCurrentWidget, Arg("w"))
+            .define_method("set_current_widget", &QStackedLayout::setCurrentWidget, Arg("w"));
             // Signals
-            .define_method("current_changed", &QStackedLayout::currentChanged, Arg("index"))
-            .define_method("widget_added", &QStackedLayout::widgetAdded, Arg("index"))
-            .define_method("widget_removed", &QStackedLayout::widgetRemoved, Arg("index"));
+            // .define_method("current_changed", &QStackedLayout::currentChanged, Arg("index"))
+            // .define_method("widget_added", &QStackedLayout::widgetAdded, Arg("index"))
+            // .define_method("widget_removed", &QStackedLayout::widgetRemoved, Arg("index"));
 
     Data_Type<QStackedLayout::StackingMode> rb_cQStackedLayoutStackingMode =
         // RubyQt6::QtWidgets::QStackedLayout::StackingMode

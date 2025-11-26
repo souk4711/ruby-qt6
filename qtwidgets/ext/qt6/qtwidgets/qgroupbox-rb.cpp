@@ -26,8 +26,8 @@ void Init_qgroupbox(Rice::Module rb_mQt6QtWidgets)
             .define_method("set_title", &QGroupBox::setTitle, Arg("title"))
             .define_method("title", &QGroupBox::title)
             // Public Slots
-            .define_method("set_checked", &QGroupBox::setChecked, Arg("checked"))
+            .define_method("set_checked", &QGroupBox::setChecked, Arg("checked"));
             // Signals
-            .define_method("clicked", &QGroupBox::clicked, Arg("checked") = static_cast<bool>(false))
-            .define_method("toggled", &QGroupBox::toggled, Arg("on"));
+            // .define_method("clicked", &QGroupBox::clicked, Arg("checked") = static_cast<bool>(false))
+            // .define_method("toggled", &QGroupBox::toggled, Arg("on"));
 }

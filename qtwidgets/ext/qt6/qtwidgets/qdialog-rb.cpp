@@ -27,11 +27,11 @@ void Init_qdialog(Rice::Module rb_mQt6QtWidgets)
             .define_method("done", &QDialog::done, Arg("r"))
             .define_method("exec", &QDialog::exec)
             .define_method("open", &QDialog::open)
-            .define_method("reject", &QDialog::reject)
+            .define_method("reject", &QDialog::reject);
             // Signals
-            .define_method("accepted", &QDialog::accepted)
-            .define_method("finished", &QDialog::finished, Arg("result"))
-            .define_method("rejected", &QDialog::rejected);
+            // .define_method("accepted", &QDialog::accepted)
+            // .define_method("finished", &QDialog::finished, Arg("result"))
+            // .define_method("rejected", &QDialog::rejected);
 
     Data_Type<QDialog::DialogCode> rb_cQDialogDialogCode =
         // RubyQt6::QtWidgets::QDialog::DialogCode

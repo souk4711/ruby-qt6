@@ -64,12 +64,12 @@ void Init_qtabwidget(Rice::Module rb_mQt6QtWidgets)
             .define_method("widget", &QTabWidget::widget, Arg("index"))
             // Public Slots
             .define_method("set_current_index", &QTabWidget::setCurrentIndex, Arg("index"))
-            .define_method("set_current_widget", &QTabWidget::setCurrentWidget, Arg("widget"))
+            .define_method("set_current_widget", &QTabWidget::setCurrentWidget, Arg("widget"));
             // Signals
-            .define_method("current_changed", &QTabWidget::currentChanged, Arg("index"))
-            .define_method("tab_bar_clicked", &QTabWidget::tabBarClicked, Arg("index"))
-            .define_method("tab_bar_double_clicked", &QTabWidget::tabBarDoubleClicked, Arg("index"))
-            .define_method("tab_close_requested", &QTabWidget::tabCloseRequested, Arg("index"));
+            // .define_method("current_changed", &QTabWidget::currentChanged, Arg("index"))
+            // .define_method("tab_bar_clicked", &QTabWidget::tabBarClicked, Arg("index"))
+            // .define_method("tab_bar_double_clicked", &QTabWidget::tabBarDoubleClicked, Arg("index"))
+            // .define_method("tab_close_requested", &QTabWidget::tabCloseRequested, Arg("index"));
 
     Data_Type<QTabWidget::TabPosition> rb_cQTabWidgetTabPosition =
         // RubyQt6::QtWidgets::QTabWidget::TabPosition

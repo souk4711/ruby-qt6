@@ -59,24 +59,24 @@ void Init_qmediarecorder(Rice::Module rb_mQt6QtMultimedia)
             // Public Slots
             .define_method("pause", &QMediaRecorder::pause)
             .define_method("record", &QMediaRecorder::record)
-            .define_method("stop", &QMediaRecorder::stop)
+            .define_method("stop", &QMediaRecorder::stop);
             // Signals
-            .define_method("actual_location_changed", &QMediaRecorder::actualLocationChanged, Arg("location"))
-            .define_method("audio_bit_rate_changed", &QMediaRecorder::audioBitRateChanged)
-            .define_method("audio_channel_count_changed", &QMediaRecorder::audioChannelCountChanged)
-            .define_method("audio_sample_rate_changed", &QMediaRecorder::audioSampleRateChanged)
-            .define_method("auto_stop_changed", &QMediaRecorder::autoStopChanged)
-            .define_method("duration_changed", &QMediaRecorder::durationChanged, Arg("duration"))
-            .define_method("encoding_mode_changed", &QMediaRecorder::encodingModeChanged)
-            .define_method("error_changed", &QMediaRecorder::errorChanged)
-            .define_method("error_occurred", &QMediaRecorder::errorOccurred, Arg("error"), Arg("error_string"))
-            .define_method("media_format_changed", &QMediaRecorder::mediaFormatChanged)
-            .define_method("meta_data_changed", &QMediaRecorder::metaDataChanged)
-            .define_method("quality_changed", &QMediaRecorder::qualityChanged)
-            .define_method("recorder_state_changed", &QMediaRecorder::recorderStateChanged, Arg("state"))
-            .define_method("video_bit_rate_changed", &QMediaRecorder::videoBitRateChanged)
-            .define_method("video_frame_rate_changed", &QMediaRecorder::videoFrameRateChanged)
-            .define_method("video_resolution_changed", &QMediaRecorder::videoResolutionChanged);
+            // .define_method("actual_location_changed", &QMediaRecorder::actualLocationChanged, Arg("location"))
+            // .define_method("audio_bit_rate_changed", &QMediaRecorder::audioBitRateChanged)
+            // .define_method("audio_channel_count_changed", &QMediaRecorder::audioChannelCountChanged)
+            // .define_method("audio_sample_rate_changed", &QMediaRecorder::audioSampleRateChanged)
+            // .define_method("auto_stop_changed", &QMediaRecorder::autoStopChanged)
+            // .define_method("duration_changed", &QMediaRecorder::durationChanged, Arg("duration"))
+            // .define_method("encoding_mode_changed", &QMediaRecorder::encodingModeChanged)
+            // .define_method("error_changed", &QMediaRecorder::errorChanged)
+            // .define_method("error_occurred", &QMediaRecorder::errorOccurred, Arg("error"), Arg("error_string"))
+            // .define_method("media_format_changed", &QMediaRecorder::mediaFormatChanged)
+            // .define_method("meta_data_changed", &QMediaRecorder::metaDataChanged)
+            // .define_method("quality_changed", &QMediaRecorder::qualityChanged)
+            // .define_method("recorder_state_changed", &QMediaRecorder::recorderStateChanged, Arg("state"))
+            // .define_method("video_bit_rate_changed", &QMediaRecorder::videoBitRateChanged)
+            // .define_method("video_frame_rate_changed", &QMediaRecorder::videoFrameRateChanged)
+            // .define_method("video_resolution_changed", &QMediaRecorder::videoResolutionChanged);
 
     Data_Type<QMediaRecorder::EncodingMode> rb_cQMediaRecorderEncodingMode =
         // RubyQt6::QtMultimedia::QMediaRecorder::EncodingMode

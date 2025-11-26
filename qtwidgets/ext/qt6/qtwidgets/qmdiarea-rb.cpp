@@ -49,9 +49,9 @@ void Init_qmdiarea(Rice::Module rb_mQt6QtWidgets)
             .define_method("close_active_sub_window", &QMdiArea::closeActiveSubWindow)
             .define_method("close_all_sub_windows", &QMdiArea::closeAllSubWindows)
             .define_method("set_active_sub_window", &QMdiArea::setActiveSubWindow, Arg("window"))
-            .define_method("tile_sub_windows", &QMdiArea::tileSubWindows)
+            .define_method("tile_sub_windows", &QMdiArea::tileSubWindows);
             // Signals
-            .define_method("sub_window_activated", &QMdiArea::subWindowActivated, Arg("window"));
+            // .define_method("sub_window_activated", &QMdiArea::subWindowActivated, Arg("window"));
 
     Data_Type<QMdiArea::AreaOption> rb_cQMdiAreaAreaOption =
         // RubyQt6::QtWidgets::QMdiArea::AreaOption

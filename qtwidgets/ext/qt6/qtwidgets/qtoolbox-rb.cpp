@@ -35,7 +35,7 @@ void Init_qtoolbox(Rice::Module rb_mQt6QtWidgets)
             .define_method("widget", &QToolBox::widget, Arg("index"))
             // Public Slots
             .define_method("set_current_index", &QToolBox::setCurrentIndex, Arg("index"))
-            .define_method("set_current_widget", &QToolBox::setCurrentWidget, Arg("widget"))
+            .define_method("set_current_widget", &QToolBox::setCurrentWidget, Arg("widget"));
             // Signals
-            .define_method("current_changed", &QToolBox::currentChanged, Arg("index"));
+            // .define_method("current_changed", &QToolBox::currentChanged, Arg("index"));
 }

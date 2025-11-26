@@ -39,9 +39,9 @@ void Init_qprogressbar(Rice::Module rb_mQt6QtWidgets)
             .define_method("set_minimum", &QProgressBar::setMinimum, Arg("minimum"))
             .define_method("set_orientation", &QProgressBar::setOrientation, Arg("orientation"))
             .define_method("set_range", &QProgressBar::setRange, Arg("minimum"), Arg("maximum"))
-            .define_method("set_value", &QProgressBar::setValue, Arg("value"))
+            .define_method("set_value", &QProgressBar::setValue, Arg("value"));
             // Signals
-            .define_method("value_changed", &QProgressBar::valueChanged, Arg("value"));
+            // .define_method("value_changed", &QProgressBar::valueChanged, Arg("value"));
 
     Data_Type<QProgressBar::Direction> rb_cQProgressBarDirection =
         // RubyQt6::QtWidgets::QProgressBar::Direction

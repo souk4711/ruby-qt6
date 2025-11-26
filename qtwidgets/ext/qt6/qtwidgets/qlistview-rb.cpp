@@ -52,9 +52,9 @@ void Init_qlistview(Rice::Module rb_mQt6QtWidgets)
             .define_method("uniform_item_sizes", &QListView::uniformItemSizes)
             .define_method("view_mode", &QListView::viewMode)
             .define_method("visual_rect", &QListView::visualRect, Arg("index"))
-            .define_method("word_wrap", &QListView::wordWrap)
+            .define_method("word_wrap", &QListView::wordWrap);
             // Signals
-            .define_method("indexes_moved", &QListView::indexesMoved, Arg("indexes"));
+            // .define_method("indexes_moved", &QListView::indexesMoved, Arg("indexes"));
 
     Data_Type<QListView::Flow> rb_cQListViewFlow =
         // RubyQt6::QtWidgets::QListView::Flow

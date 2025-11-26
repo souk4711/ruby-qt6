@@ -39,14 +39,14 @@ void Init_qtoolbar(Rice::Module rb_mQt6QtWidgets)
             .define_method("widget_for_action", &QToolBar::widgetForAction, Arg("action"))
             // Public Slots
             .define_method("set_icon_size", &QToolBar::setIconSize, Arg("icon_size"))
-            .define_method("set_tool_button_style", &QToolBar::setToolButtonStyle, Arg("tool_button_style"))
+            .define_method("set_tool_button_style", &QToolBar::setToolButtonStyle, Arg("tool_button_style"));
             // Signals
-            .define_method("action_triggered", &QToolBar::actionTriggered, Arg("action"))
-            .define_method("allowed_areas_changed", &QToolBar::allowedAreasChanged, Arg("allowed_areas"))
-            .define_method("icon_size_changed", &QToolBar::iconSizeChanged, Arg("icon_size"))
-            .define_method("movable_changed", &QToolBar::movableChanged, Arg("movable"))
-            .define_method("orientation_changed", &QToolBar::orientationChanged, Arg("orientation"))
-            .define_method("tool_button_style_changed", &QToolBar::toolButtonStyleChanged, Arg("tool_button_style"))
-            .define_method("top_level_changed", &QToolBar::topLevelChanged, Arg("top_level"))
-            .define_method("visibility_changed", &QToolBar::visibilityChanged, Arg("visible"));
+            // .define_method("action_triggered", &QToolBar::actionTriggered, Arg("action"))
+            // .define_method("allowed_areas_changed", &QToolBar::allowedAreasChanged, Arg("allowed_areas"))
+            // .define_method("icon_size_changed", &QToolBar::iconSizeChanged, Arg("icon_size"))
+            // .define_method("movable_changed", &QToolBar::movableChanged, Arg("movable"))
+            // .define_method("orientation_changed", &QToolBar::orientationChanged, Arg("orientation"))
+            // .define_method("tool_button_style_changed", &QToolBar::toolButtonStyleChanged, Arg("tool_button_style"))
+            // .define_method("top_level_changed", &QToolBar::topLevelChanged, Arg("top_level"))
+            // .define_method("visibility_changed", &QToolBar::visibilityChanged, Arg("visible"));
 }

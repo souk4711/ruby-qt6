@@ -110,15 +110,15 @@ void Init_qtextedit(Rice::Module rb_mQt6QtWidgets)
             .define_method("_set_text", &QTextEdit::setText, Arg("text"))
             .define_method("undo", &QTextEdit::undo)
             .define_method("zoom_in", &QTextEdit::zoomIn, Arg("range") = static_cast<int>(1))
-            .define_method("zoom_out", &QTextEdit::zoomOut, Arg("range") = static_cast<int>(1))
+            .define_method("zoom_out", &QTextEdit::zoomOut, Arg("range") = static_cast<int>(1));
             // Signals
-            .define_method("copy_available", &QTextEdit::copyAvailable, Arg("b"))
-            .define_method("current_char_format_changed", &QTextEdit::currentCharFormatChanged, Arg("format"))
-            .define_method("cursor_position_changed", &QTextEdit::cursorPositionChanged)
-            .define_method("redo_available", &QTextEdit::redoAvailable, Arg("b"))
-            .define_method("selection_changed", &QTextEdit::selectionChanged)
-            .define_method("text_changed", &QTextEdit::textChanged)
-            .define_method("undo_available", &QTextEdit::undoAvailable, Arg("b"));
+            // .define_method("copy_available", &QTextEdit::copyAvailable, Arg("b"))
+            // .define_method("current_char_format_changed", &QTextEdit::currentCharFormatChanged, Arg("format"))
+            // .define_method("cursor_position_changed", &QTextEdit::cursorPositionChanged)
+            // .define_method("redo_available", &QTextEdit::redoAvailable, Arg("b"))
+            // .define_method("selection_changed", &QTextEdit::selectionChanged)
+            // .define_method("text_changed", &QTextEdit::textChanged)
+            // .define_method("undo_available", &QTextEdit::undoAvailable, Arg("b"));
 
     Data_Type<QTextEdit::AutoFormattingFlag> rb_cQTextEditAutoFormattingFlag =
         // RubyQt6::QtWidgets::QTextEdit::AutoFormattingFlag

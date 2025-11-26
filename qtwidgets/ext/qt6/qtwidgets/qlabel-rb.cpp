@@ -52,8 +52,8 @@ void Init_qlabel(Rice::Module rb_mQt6QtWidgets)
             .define_method<void (QLabel::*)(double)>("set_num", &QLabel::setNum, Arg("num"))
             .define_method("set_picture", &QLabel::setPicture, Arg("picture"))
             .define_method("set_pixmap", &QLabel::setPixmap, Arg("pixmap"))
-            .define_method("_set_text", &QLabel::setText, Arg("text"))
+            .define_method("_set_text", &QLabel::setText, Arg("text"));
             // Signals
-            .define_method("link_activated", &QLabel::linkActivated, Arg("link"))
-            .define_method("link_hovered", &QLabel::linkHovered, Arg("link"));
+            // .define_method("link_activated", &QLabel::linkActivated, Arg("link"))
+            // .define_method("link_hovered", &QLabel::linkHovered, Arg("link"));
 }

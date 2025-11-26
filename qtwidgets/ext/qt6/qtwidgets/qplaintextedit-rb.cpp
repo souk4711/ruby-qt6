@@ -89,17 +89,17 @@ void Init_qplaintextedit(Rice::Module rb_mQt6QtWidgets)
             .define_method("set_plain_text", &QPlainTextEdit::setPlainText, Arg("text"))
             .define_method("undo", &QPlainTextEdit::undo)
             .define_method("zoom_in", &QPlainTextEdit::zoomIn, Arg("range") = static_cast<int>(1))
-            .define_method("zoom_out", &QPlainTextEdit::zoomOut, Arg("range") = static_cast<int>(1))
+            .define_method("zoom_out", &QPlainTextEdit::zoomOut, Arg("range") = static_cast<int>(1));
             // Signals
-            .define_method("block_count_changed", &QPlainTextEdit::blockCountChanged, Arg("new_block_count"))
-            .define_method("copy_available", &QPlainTextEdit::copyAvailable, Arg("b"))
-            .define_method("cursor_position_changed", &QPlainTextEdit::cursorPositionChanged)
-            .define_method("modification_changed", &QPlainTextEdit::modificationChanged, Arg("b"))
-            .define_method("redo_available", &QPlainTextEdit::redoAvailable, Arg("b"))
-            .define_method("selection_changed", &QPlainTextEdit::selectionChanged)
-            .define_method("text_changed", &QPlainTextEdit::textChanged)
-            .define_method("undo_available", &QPlainTextEdit::undoAvailable, Arg("b"))
-            .define_method("update_request", &QPlainTextEdit::updateRequest, Arg("rect"), Arg("dy"));
+            // .define_method("block_count_changed", &QPlainTextEdit::blockCountChanged, Arg("new_block_count"))
+            // .define_method("copy_available", &QPlainTextEdit::copyAvailable, Arg("b"))
+            // .define_method("cursor_position_changed", &QPlainTextEdit::cursorPositionChanged)
+            // .define_method("modification_changed", &QPlainTextEdit::modificationChanged, Arg("b"))
+            // .define_method("redo_available", &QPlainTextEdit::redoAvailable, Arg("b"))
+            // .define_method("selection_changed", &QPlainTextEdit::selectionChanged)
+            // .define_method("text_changed", &QPlainTextEdit::textChanged)
+            // .define_method("undo_available", &QPlainTextEdit::undoAvailable, Arg("b"))
+            // .define_method("update_request", &QPlainTextEdit::updateRequest, Arg("rect"), Arg("dy"));
 
     Data_Type<QPlainTextEdit::LineWrapMode> rb_cQPlainTextEditLineWrapMode =
         // RubyQt6::QtWidgets::QPlainTextEdit::LineWrapMode

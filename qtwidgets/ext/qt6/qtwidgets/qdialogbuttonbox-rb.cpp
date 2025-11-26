@@ -34,12 +34,12 @@ void Init_qdialogbuttonbox(Rice::Module rb_mQt6QtWidgets)
             .define_method("set_orientation", &QDialogButtonBox::setOrientation, Arg("orientation"))
             .define_method("set_standard_buttons", &QDialogButtonBox::setStandardButtons, Arg("buttons"))
             .define_method("standard_button", &QDialogButtonBox::standardButton, Arg("button"))
-            .define_method("standard_buttons", &QDialogButtonBox::standardButtons)
+            .define_method("standard_buttons", &QDialogButtonBox::standardButtons);
             // Signals
-            .define_method("accepted", &QDialogButtonBox::accepted)
-            .define_method("clicked", &QDialogButtonBox::clicked, Arg("button"))
-            .define_method("help_requested", &QDialogButtonBox::helpRequested)
-            .define_method("rejected", &QDialogButtonBox::rejected);
+            // .define_method("accepted", &QDialogButtonBox::accepted)
+            // .define_method("clicked", &QDialogButtonBox::clicked, Arg("button"))
+            // .define_method("help_requested", &QDialogButtonBox::helpRequested)
+            // .define_method("rejected", &QDialogButtonBox::rejected);
 
     Data_Type<QDialogButtonBox::ButtonLayout> rb_cQDialogButtonBoxButtonLayout =
         // RubyQt6::QtWidgets::QDialogButtonBox::ButtonLayout

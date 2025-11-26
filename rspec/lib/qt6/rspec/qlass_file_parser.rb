@@ -145,6 +145,12 @@ module RubyQt6
             take_next_line
             break if line.start_with?(/\/\/ (RubyQt6|Constructor|Inherits|Public|Signals|Static)/) || line == "" || line == "}"
 
+            if type == :signals
+              raise MissingLine.new("// .define_...", line) unless line.start_with?("// .define_")
+              methods << parse_qlass_definition_method(line[3..], qlass, type)
+              next
+            end
+
             if line.start_with?("// .define_")
               next
             elsif line.start_with?(".define_")

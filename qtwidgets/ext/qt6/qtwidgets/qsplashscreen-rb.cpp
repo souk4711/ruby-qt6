@@ -24,7 +24,7 @@ void Init_qsplashscreen(Rice::Module rb_mQt6QtWidgets)
             .define_method("set_pixmap", &QSplashScreen::setPixmap, Arg("pixmap"))
             // Public Slots
             .define_method("clear_message", &QSplashScreen::clearMessage)
-            .define_method("show_message", &QSplashScreen::showMessage, Arg("message"), Arg("alignment") = static_cast<int>(Qt::AlignLeft), Arg("color") = static_cast<const QColor &>(Qt::black))
+            .define_method("show_message", &QSplashScreen::showMessage, Arg("message"), Arg("alignment") = static_cast<int>(Qt::AlignLeft), Arg("color") = static_cast<const QColor &>(Qt::black));
             // Signals
-            .define_method("message_changed", &QSplashScreen::messageChanged, Arg("message"));
+            // .define_method("message_changed", &QSplashScreen::messageChanged, Arg("message"));
 }

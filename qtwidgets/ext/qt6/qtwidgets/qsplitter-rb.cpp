@@ -39,9 +39,9 @@ void Init_qsplitter(Rice::Module rb_mQt6QtWidgets)
             .define_method("set_sizes", &QSplitter::setSizes, Arg("list"))
             .define_method("set_stretch_factor", &QSplitter::setStretchFactor, Arg("index"), Arg("stretch"))
             .define_method("sizes", &QSplitter::sizes)
-            .define_method("widget", &QSplitter::widget, Arg("index"))
+            .define_method("widget", &QSplitter::widget, Arg("index"));
             // Signals
-            .define_method("splitter_moved", &QSplitter::splitterMoved, Arg("pos"), Arg("index"));
+            // .define_method("splitter_moved", &QSplitter::splitterMoved, Arg("pos"), Arg("index"));
 
     rb_cQSplitterHandle =
         // RubyQt6::QtWidgets::QSplitterHandle

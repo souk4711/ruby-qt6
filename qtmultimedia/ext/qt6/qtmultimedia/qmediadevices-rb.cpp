@@ -19,9 +19,9 @@ void Init_qmediadevices(Rice::Module rb_mQt6QtMultimedia)
             // Constructor
             .define_constructor(Constructor<QMediaDevices, QObject *>(), Arg("parent"))
             // Signals
-            .define_method("audio_inputs_changed", &QMediaDevices::audioInputsChanged)
-            .define_method("audio_outputs_changed", &QMediaDevices::audioOutputsChanged)
-            .define_method("video_inputs_changed", &QMediaDevices::videoInputsChanged)
+            // .define_method("audio_inputs_changed", &QMediaDevices::audioInputsChanged)
+            // .define_method("audio_outputs_changed", &QMediaDevices::audioOutputsChanged)
+            // .define_method("video_inputs_changed", &QMediaDevices::videoInputsChanged)
             // Static Public Members
             .define_singleton_function("audio_inputs", &QMediaDevices::audioInputs)
             .define_singleton_function("audio_outputs", &QMediaDevices::audioOutputs)

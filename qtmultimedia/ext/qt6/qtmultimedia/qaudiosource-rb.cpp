@@ -34,7 +34,7 @@ void Init_qaudiosource(Rice::Module rb_mQt6QtMultimedia)
             .define_method("state", &QAudioSource::state)
             .define_method("stop", &QAudioSource::stop)
             .define_method("suspend", &QAudioSource::suspend)
-            .define_method("volume", &QAudioSource::volume)
+            .define_method("volume", &QAudioSource::volume);
             // Signals
-            .define_method("state_changed", &QAudioSource::stateChanged, Arg("state"));
+            // .define_method("state_changed", &QAudioSource::stateChanged, Arg("state"));
 }

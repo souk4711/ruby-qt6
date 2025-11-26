@@ -24,8 +24,8 @@ void Init_qkeysequenceedit(Rice::Module rb_mQt6QtWidgets)
             // Public Slots
             .define_method("clear", &QKeySequenceEdit::clear)
             .define_method("set_key_sequence", &QKeySequenceEdit::setKeySequence, Arg("key_sequence"))
-            .define_method("set_maximum_sequence_length", &QKeySequenceEdit::setMaximumSequenceLength, Arg("count"))
+            .define_method("set_maximum_sequence_length", &QKeySequenceEdit::setMaximumSequenceLength, Arg("count"));
             // Signals
-            .define_method("editing_finished", &QKeySequenceEdit::editingFinished)
-            .define_method("key_sequence_changed", &QKeySequenceEdit::keySequenceChanged, Arg("key_sequence"));
+            // .define_method("editing_finished", &QKeySequenceEdit::editingFinished)
+            // .define_method("key_sequence_changed", &QKeySequenceEdit::keySequenceChanged, Arg("key_sequence"));
 }

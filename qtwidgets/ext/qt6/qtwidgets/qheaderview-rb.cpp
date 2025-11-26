@@ -85,19 +85,19 @@ void Init_qheaderview(Rice::Module rb_mQt6QtWidgets)
             .define_method("header_data_changed", &QHeaderView::headerDataChanged, Arg("orientation"), Arg("logical_first"), Arg("logical_last"))
             .define_method("set_offset", &QHeaderView::setOffset, Arg("offset"))
             .define_method("set_offset_to_last_section", &QHeaderView::setOffsetToLastSection)
-            .define_method("set_offset_to_section_position", &QHeaderView::setOffsetToSectionPosition, Arg("visual_index"))
+            .define_method("set_offset_to_section_position", &QHeaderView::setOffsetToSectionPosition, Arg("visual_index"));
             // Signals
-            .define_method("geometries_changed", &QHeaderView::geometriesChanged)
-            .define_method("section_clicked", &QHeaderView::sectionClicked, Arg("logical_index"))
-            .define_method("section_count_changed", &QHeaderView::sectionCountChanged, Arg("old_count"), Arg("new_count"))
-            .define_method("section_double_clicked", &QHeaderView::sectionDoubleClicked, Arg("logical_index"))
-            .define_method("section_entered", &QHeaderView::sectionEntered, Arg("logical_index"))
-            .define_method("section_handle_double_clicked", &QHeaderView::sectionHandleDoubleClicked, Arg("logical_index"))
-            .define_method("section_moved", &QHeaderView::sectionMoved, Arg("logical_index"), Arg("old_visual_index"), Arg("new_visual_index"))
-            .define_method("section_pressed", &QHeaderView::sectionPressed, Arg("logical_index"))
-            .define_method("section_resized", &QHeaderView::sectionResized, Arg("logical_index"), Arg("old_size"), Arg("new_size"))
-            .define_method("sort_indicator_changed", &QHeaderView::sortIndicatorChanged, Arg("logical_index"), Arg("order"))
-            .define_method("sort_indicator_clearable_changed", &QHeaderView::sortIndicatorClearableChanged, Arg("clearable"));
+            // .define_method("geometries_changed", &QHeaderView::geometriesChanged)
+            // .define_method("section_clicked", &QHeaderView::sectionClicked, Arg("logical_index"))
+            // .define_method("section_count_changed", &QHeaderView::sectionCountChanged, Arg("old_count"), Arg("new_count"))
+            // .define_method("section_double_clicked", &QHeaderView::sectionDoubleClicked, Arg("logical_index"))
+            // .define_method("section_entered", &QHeaderView::sectionEntered, Arg("logical_index"))
+            // .define_method("section_handle_double_clicked", &QHeaderView::sectionHandleDoubleClicked, Arg("logical_index"))
+            // .define_method("section_moved", &QHeaderView::sectionMoved, Arg("logical_index"), Arg("old_visual_index"), Arg("new_visual_index"))
+            // .define_method("section_pressed", &QHeaderView::sectionPressed, Arg("logical_index"))
+            // .define_method("section_resized", &QHeaderView::sectionResized, Arg("logical_index"), Arg("old_size"), Arg("new_size"))
+            // .define_method("sort_indicator_changed", &QHeaderView::sortIndicatorChanged, Arg("logical_index"), Arg("order"))
+            // .define_method("sort_indicator_clearable_changed", &QHeaderView::sortIndicatorClearableChanged, Arg("clearable"));
 
     Data_Type<QHeaderView::ResizeMode> rb_cQHeaderViewResizeMode =
         // RubyQt6::QtWidgets::QHeaderView::ResizeMode

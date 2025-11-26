@@ -71,13 +71,13 @@ void Init_qtabbar(Rice::Module rb_mQt6QtWidgets)
             .define_method("tabs_closable", &QTabBar::tabsClosable)
             .define_method("uses_scroll_buttons", &QTabBar::usesScrollButtons)
             // Public Slots
-            .define_method("set_current_index", &QTabBar::setCurrentIndex, Arg("index"))
+            .define_method("set_current_index", &QTabBar::setCurrentIndex, Arg("index"));
             // Signals
-            .define_method("current_changed", &QTabBar::currentChanged, Arg("index"))
-            .define_method("tab_bar_clicked", &QTabBar::tabBarClicked, Arg("index"))
-            .define_method("tab_bar_double_clicked", &QTabBar::tabBarDoubleClicked, Arg("index"))
-            .define_method("tab_close_requested", &QTabBar::tabCloseRequested, Arg("index"))
-            .define_method("tab_moved", &QTabBar::tabMoved, Arg("from"), Arg("to"));
+            // .define_method("current_changed", &QTabBar::currentChanged, Arg("index"))
+            // .define_method("tab_bar_clicked", &QTabBar::tabBarClicked, Arg("index"))
+            // .define_method("tab_bar_double_clicked", &QTabBar::tabBarDoubleClicked, Arg("index"))
+            // .define_method("tab_close_requested", &QTabBar::tabCloseRequested, Arg("index"))
+            // .define_method("tab_moved", &QTabBar::tabMoved, Arg("from"), Arg("to"));
 
     Data_Type<QTabBar::ButtonPosition> rb_cQTabBarButtonPosition =
         // RubyQt6::QtWidgets::QTabBar::ButtonPosition

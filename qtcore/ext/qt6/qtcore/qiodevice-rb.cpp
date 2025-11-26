@@ -60,12 +60,12 @@ void Init_qiodevice(Rice::Module rb_mQt6QtCore)
             .define_method<qint64 (QIODevice::*)(const QByteArray &)>("write", &QIODevice::write, Arg("data"))
             .define_method<qint64 (QIODevice::*)(const char *)>("write", &QIODevice::write, Arg("data"))
             .define_method<qint64 (QIODevice::*)(const char *, qint64)>("write", &QIODevice::write, Arg("data"), Arg("len"))
-            .define_method("write_channel_count", &QIODevice::writeChannelCount)
+            .define_method("write_channel_count", &QIODevice::writeChannelCount);
             // Signals
-            .define_method("about_to_close", &QIODevice::aboutToClose)
-            .define_method("bytes_written", &QIODevice::bytesWritten, Arg("bytes"))
-            .define_method("channel_bytes_written", &QIODevice::channelBytesWritten, Arg("channel"), Arg("bytes"))
-            .define_method("channel_ready_read", &QIODevice::channelReadyRead, Arg("channel"))
-            .define_method("read_channel_finished", &QIODevice::readChannelFinished)
-            .define_method("ready_read", &QIODevice::readyRead);
+            // .define_method("about_to_close", &QIODevice::aboutToClose)
+            // .define_method("bytes_written", &QIODevice::bytesWritten, Arg("bytes"))
+            // .define_method("channel_bytes_written", &QIODevice::channelBytesWritten, Arg("channel"), Arg("bytes"))
+            // .define_method("channel_ready_read", &QIODevice::channelReadyRead, Arg("channel"))
+            // .define_method("read_channel_finished", &QIODevice::readChannelFinished)
+            // .define_method("ready_read", &QIODevice::readyRead);
 }

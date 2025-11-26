@@ -74,11 +74,11 @@ void Init_qmainwindow(Rice::Module rb_mQt6QtWidgets)
             // Public Slots
             .define_method("set_animated", &QMainWindow::setAnimated, Arg("enabled"))
             .define_method("set_dock_nesting_enabled", &QMainWindow::setDockNestingEnabled, Arg("enabled"))
-            .define_method("set_unified_title_and_tool_bar_on_mac", &QMainWindow::setUnifiedTitleAndToolBarOnMac, Arg("set"))
+            .define_method("set_unified_title_and_tool_bar_on_mac", &QMainWindow::setUnifiedTitleAndToolBarOnMac, Arg("set"));
             // Signals
-            .define_method("icon_size_changed", &QMainWindow::iconSizeChanged, Arg("icon_size"))
-            .define_method("tabified_dock_widget_activated", &QMainWindow::tabifiedDockWidgetActivated, Arg("dock_widget"))
-            .define_method("tool_button_style_changed", &QMainWindow::toolButtonStyleChanged, Arg("tool_button_style"));
+            // .define_method("icon_size_changed", &QMainWindow::iconSizeChanged, Arg("icon_size"))
+            // .define_method("tabified_dock_widget_activated", &QMainWindow::tabifiedDockWidgetActivated, Arg("dock_widget"))
+            // .define_method("tool_button_style_changed", &QMainWindow::toolButtonStyleChanged, Arg("tool_button_style"));
 
     Data_Type<QMainWindow::DockOption> rb_cQMainWindowDockOption =
         // RubyQt6::QtWidgets::QMainWindow::DockOption

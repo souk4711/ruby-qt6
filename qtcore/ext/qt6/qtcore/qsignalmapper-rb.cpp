@@ -24,9 +24,9 @@ void Init_qsignalmapper(Rice::Module rb_mQt6QtCore)
             .define_method<void (QSignalMapper::*)(QObject *, int)>("_set_mapping", &QSignalMapper::setMapping, Arg("sender"), Arg("id"))
             // Public Slots
             .define_method<void (QSignalMapper::*)()>("map", &QSignalMapper::map)
-            .define_method<void (QSignalMapper::*)(QObject *)>("map", &QSignalMapper::map, Arg("sender"))
+            .define_method<void (QSignalMapper::*)(QObject *)>("map", &QSignalMapper::map, Arg("sender"));
             // Signals
-            .define_method("mapped_int", &QSignalMapper::mappedInt, Arg("id"))
-            .define_method("mapped_object", &QSignalMapper::mappedObject, Arg("object"))
-            .define_method("mapped_string", &QSignalMapper::mappedString, Arg("text"));
+            // .define_method("mapped_int", &QSignalMapper::mappedInt, Arg("id"))
+            // .define_method("mapped_object", &QSignalMapper::mappedObject, Arg("object"))
+            // .define_method("mapped_string", &QSignalMapper::mappedString, Arg("text"));
 }

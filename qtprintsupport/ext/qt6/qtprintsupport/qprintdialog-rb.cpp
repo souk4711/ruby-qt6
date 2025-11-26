@@ -25,7 +25,7 @@ void Init_qprintdialog(Rice::Module rb_mQt6QtPrintSupport)
             .define_method("set_option", &QPrintDialog::setOption, Arg("option"), Arg("on") = static_cast<bool>(true))
             .define_method("set_options", &QPrintDialog::setOptions, Arg("options"))
             .define_method("set_visible", &QPrintDialog::setVisible, Arg("visible"))
-            .define_method("test_option", &QPrintDialog::testOption, Arg("option"))
+            .define_method("test_option", &QPrintDialog::testOption, Arg("option"));
             // Signals
-            .define_method<void (QPrintDialog::*)(QPrinter *)>("accepted", &QPrintDialog::accepted, Arg("printer"));
+            // .define_method<void (QPrintDialog::*)(QPrinter *)>("accepted", &QPrintDialog::accepted, Arg("printer"));
 }

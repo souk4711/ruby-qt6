@@ -298,9 +298,9 @@ void Init_qwidget(Rice::Module rb_mQt6QtWidgets)
             .define_method("show_normal", &QWidget::showNormal)
             .define_method<void (QWidget::*)()>("update", &QWidget::update)
             // Signals
-            .define_method("custom_context_menu_requested", &QWidget::customContextMenuRequested, Arg("pos"))
-            .define_method("window_icon_changed", &QWidget::windowIconChanged, Arg("icon"))
-            .define_method("window_title_changed", &QWidget::windowTitleChanged, Arg("title"))
+            // .define_method("custom_context_menu_requested", &QWidget::customContextMenuRequested, Arg("pos"))
+            // .define_method("window_icon_changed", &QWidget::windowIconChanged, Arg("icon"))
+            // .define_method("window_title_changed", &QWidget::windowTitleChanged, Arg("title"))
             // Static Public Members
             .define_singleton_function("create_window_container", &QWidget::createWindowContainer, Arg("window"), Arg("parent") = static_cast<QWidget *>(nullptr), Arg("flags") = static_cast<Qt::WindowFlags>(Qt::WindowFlags()))
             .define_singleton_function("find", &QWidget::find, Arg("id"))

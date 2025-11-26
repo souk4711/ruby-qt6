@@ -61,12 +61,12 @@ void Init_qcalendarwidget(Rice::Module rb_mQt6QtWidgets)
             .define_method("show_previous_month", &QCalendarWidget::showPreviousMonth)
             .define_method("show_previous_year", &QCalendarWidget::showPreviousYear)
             .define_method("show_selected_date", &QCalendarWidget::showSelectedDate)
-            .define_method("show_today", &QCalendarWidget::showToday)
+            .define_method("show_today", &QCalendarWidget::showToday);
             // Signals
-            .define_method("activated", &QCalendarWidget::activated, Arg("date"))
-            .define_method("clicked", &QCalendarWidget::clicked, Arg("date"))
-            .define_method("current_page_changed", &QCalendarWidget::currentPageChanged, Arg("year"), Arg("month"))
-            .define_method("selection_changed", &QCalendarWidget::selectionChanged);
+            // .define_method("activated", &QCalendarWidget::activated, Arg("date"))
+            // .define_method("clicked", &QCalendarWidget::clicked, Arg("date"))
+            // .define_method("current_page_changed", &QCalendarWidget::currentPageChanged, Arg("year"), Arg("month"))
+            // .define_method("selection_changed", &QCalendarWidget::selectionChanged);
 
     Data_Type<QCalendarWidget::HorizontalHeaderFormat> rb_cQCalendarWidgetHorizontalHeaderFormat =
         // RubyQt6::QtWidgets::QCalendarWidget::HorizontalHeaderFormat

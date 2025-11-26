@@ -100,12 +100,12 @@ void Init_qgraphicsscene(Rice::Module rb_mQt6QtWidgets)
             .define_method("clear", &QGraphicsScene::clear)
             .define_method("clear_selection", &QGraphicsScene::clearSelection)
             .define_method<void (QGraphicsScene::*)(const QRectF &, QGraphicsScene::SceneLayers)>("invalidate", &QGraphicsScene::invalidate, Arg("rect") = static_cast<const QRectF &>(QRectF()), Arg("layers") = static_cast<QGraphicsScene::SceneLayers>(QGraphicsScene::SceneLayer::AllLayers))
-            .define_method<void (QGraphicsScene::*)(const QRectF &)>("update", &QGraphicsScene::update, Arg("rect") = static_cast<const QRectF &>(QRectF()))
+            .define_method<void (QGraphicsScene::*)(const QRectF &)>("update", &QGraphicsScene::update, Arg("rect") = static_cast<const QRectF &>(QRectF()));
             // Signals
-            .define_method("changed", &QGraphicsScene::changed, Arg("region"))
-            .define_method("focus_item_changed", &QGraphicsScene::focusItemChanged, Arg("new_focus"), Arg("old_focus"), Arg("reason"))
-            .define_method("scene_rect_changed", &QGraphicsScene::sceneRectChanged, Arg("rect"))
-            .define_method("selection_changed", &QGraphicsScene::selectionChanged);
+            // .define_method("changed", &QGraphicsScene::changed, Arg("region"))
+            // .define_method("focus_item_changed", &QGraphicsScene::focusItemChanged, Arg("new_focus"), Arg("old_focus"), Arg("reason"))
+            // .define_method("scene_rect_changed", &QGraphicsScene::sceneRectChanged, Arg("rect"))
+            // .define_method("selection_changed", &QGraphicsScene::selectionChanged);
 
     Data_Type<QGraphicsScene::ItemIndexMethod> rb_cQGraphicsSceneItemIndexMethod =
         // RubyQt6::QtWidgets::QGraphicsScene::ItemIndexMethod

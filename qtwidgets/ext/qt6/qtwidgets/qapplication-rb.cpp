@@ -29,7 +29,7 @@ void Init_qapplication(Rice::Module rb_mQt6QtWidgets)
             .define_method("set_auto_sip_enabled", &QApplication::setAutoSipEnabled, Arg("enabled"))
             .define_method("_set_style_sheet", &QApplication::setStyleSheet, Arg("sheet"))
             // Signals
-            .define_method("focus_changed", &QApplication::focusChanged, Arg("old"), Arg("now"))
+            // .define_method("focus_changed", &QApplication::focusChanged, Arg("old"), Arg("now"))
             // Static Public Members
             .define_singleton_function("active_modal_widget", &QApplication::activeModalWidget)
             .define_singleton_function("active_popup_widget", &QApplication::activePopupWidget)

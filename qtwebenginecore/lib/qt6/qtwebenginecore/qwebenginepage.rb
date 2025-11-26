@@ -26,6 +26,7 @@ module RubyQt6
       # @!parse
       q_object do
         signal "audioMutedChanged(bool)"
+        signal "authenticationRequired(QUrl,QAuthenticator*)"
         signal "certificateError(QWebEngineCertificateError)"
         signal "contentsSizeChanged(QSizeF)"
         signal "desktopMediaRequested(QWebEngineDesktopMediaRequest)"
@@ -47,6 +48,7 @@ module RubyQt6
         signal "permissionRequested(QWebEnginePermission)"
         signal "printRequested()"
         signal "printRequestedByFrame(QWebEngineFrame)"
+        signal "proxyAuthenticationRequired(QUrl,QAuthenticator*,QString)"
         signal "recentlyAudibleChanged(bool)"
         signal "recommendedStateChanged(LifecycleState)"
         signal "registerProtocolHandlerRequested(QWebEngineRegisterProtocolHandlerRequest)"

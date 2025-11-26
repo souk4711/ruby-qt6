@@ -30,13 +30,13 @@ void Init_qdockwidget(Rice::Module rb_mQt6QtWidgets)
             .define_method("set_widget", &QDockWidget::setWidget, Arg("widget"))
             .define_method("title_bar_widget", &QDockWidget::titleBarWidget)
             .define_method("toggle_view_action", &QDockWidget::toggleViewAction)
-            .define_method("widget", &QDockWidget::widget)
+            .define_method("widget", &QDockWidget::widget);
             // Signals
-            .define_method("allowed_areas_changed", &QDockWidget::allowedAreasChanged, Arg("allowed_areas"))
-            .define_method("dock_location_changed", &QDockWidget::dockLocationChanged, Arg("area"))
-            .define_method("features_changed", &QDockWidget::featuresChanged, Arg("features"))
-            .define_method("top_level_changed", &QDockWidget::topLevelChanged, Arg("top_level"))
-            .define_method("visibility_changed", &QDockWidget::visibilityChanged, Arg("visible"));
+            // .define_method("allowed_areas_changed", &QDockWidget::allowedAreasChanged, Arg("allowed_areas"))
+            // .define_method("dock_location_changed", &QDockWidget::dockLocationChanged, Arg("area"))
+            // .define_method("features_changed", &QDockWidget::featuresChanged, Arg("features"))
+            // .define_method("top_level_changed", &QDockWidget::topLevelChanged, Arg("top_level"))
+            // .define_method("visibility_changed", &QDockWidget::visibilityChanged, Arg("visible"));
 
     Data_Type<QDockWidget::DockWidgetFeature> rb_cQDockWidgetDockWidgetFeature =
         // RubyQt6::QtWidgets::QDockWidget::DockWidgetFeature

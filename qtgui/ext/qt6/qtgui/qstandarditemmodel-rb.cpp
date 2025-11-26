@@ -78,9 +78,9 @@ void Init_qstandarditemmodel(Rice::Module rb_mQt6QtGui)
             .define_method("take_item", &QStandardItemModel::takeItem, Arg("row"), Arg("column") = static_cast<int>(0))
             .define_method("take_row", &QStandardItemModel::takeRow, Arg("row"))
             .define_method("take_vertical_header_item", &QStandardItemModel::takeVerticalHeaderItem, Arg("row"))
-            .define_method("vertical_header_item", &QStandardItemModel::verticalHeaderItem, Arg("row"))
+            .define_method("vertical_header_item", &QStandardItemModel::verticalHeaderItem, Arg("row"));
             // Signals
-            .define_method("item_changed", &QStandardItemModel::itemChanged, Arg("item"));
+            // .define_method("item_changed", &QStandardItemModel::itemChanged, Arg("item"));
 
     rb_cQStandardItem =
         // RubyQt6::QtGui::QStandardItem

@@ -22,11 +22,11 @@ void Init_qdbusconnectioninterface(Rice::Module rb_mQt6QtDBus)
             .define_method("service_pid", &QDBusConnectionInterface::servicePid, Arg("service_name"))
             .define_method("service_uid", &QDBusConnectionInterface::serviceUid, Arg("service_name"))
             .define_method("start_service", &QDBusConnectionInterface::startService, Arg("name"))
-            .define_method("unregister_service", &QDBusConnectionInterface::unregisterService, Arg("service_name"))
+            .define_method("unregister_service", &QDBusConnectionInterface::unregisterService, Arg("service_name"));
             // Signals
-            .define_method("call_with_callback_failed", &QDBusConnectionInterface::callWithCallbackFailed, Arg("error"), Arg("call"))
-            .define_method("service_registered", &QDBusConnectionInterface::serviceRegistered, Arg("service"))
-            .define_method("service_unregistered", &QDBusConnectionInterface::serviceUnregistered, Arg("service"));
+            // .define_method("call_with_callback_failed", &QDBusConnectionInterface::callWithCallbackFailed, Arg("error"), Arg("call"))
+            // .define_method("service_registered", &QDBusConnectionInterface::serviceRegistered, Arg("service"))
+            // .define_method("service_unregistered", &QDBusConnectionInterface::serviceUnregistered, Arg("service"));
 
     Data_Type<QDBusConnectionInterface::ServiceQueueOptions> rb_cQDBusConnectionInterfaceServiceQueueOptions =
         // RubyQt6::QtDBus::QDBusConnectionInterface::ServiceQueueOptions

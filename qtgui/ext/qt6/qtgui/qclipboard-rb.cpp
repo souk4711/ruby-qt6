@@ -32,12 +32,12 @@ void Init_qclipboard(Rice::Module rb_mQt6QtGui)
             .define_method("supports_find_buffer", &QClipboard::supportsFindBuffer)
             .define_method("supports_selection", &QClipboard::supportsSelection)
             .define_method<QString (QClipboard::*)(QClipboard::Mode) const>("text", &QClipboard::text, Arg("mode") = static_cast<QClipboard::Mode>(QClipboard::Mode::Clipboard))
-            .define_method<QString (QClipboard::*)(QString &, QClipboard::Mode) const>("text", &QClipboard::text, Arg("subtype"), Arg("mode") = static_cast<QClipboard::Mode>(QClipboard::Mode::Clipboard))
+            .define_method<QString (QClipboard::*)(QString &, QClipboard::Mode) const>("text", &QClipboard::text, Arg("subtype"), Arg("mode") = static_cast<QClipboard::Mode>(QClipboard::Mode::Clipboard));
             // Signals
-            .define_method("changed", &QClipboard::changed, Arg("mode"))
-            .define_method("data_changed", &QClipboard::dataChanged)
-            .define_method("find_buffer_changed", &QClipboard::findBufferChanged)
-            .define_method("selection_changed", &QClipboard::selectionChanged);
+            // .define_method("changed", &QClipboard::changed, Arg("mode"))
+            // .define_method("data_changed", &QClipboard::dataChanged)
+            // .define_method("find_buffer_changed", &QClipboard::findBufferChanged)
+            // .define_method("selection_changed", &QClipboard::selectionChanged);
 
     Data_Type<QClipboard::Mode> rb_cQClipboardMode =
         // RubyQt6::QtGui::QClipboard::Mode

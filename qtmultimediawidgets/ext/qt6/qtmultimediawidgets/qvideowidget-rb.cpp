@@ -21,8 +21,8 @@ void Init_qvideowidget(Rice::Module rb_mQt6QtMultimediaWidgets)
             .define_method("video_sink", &QVideoWidget::videoSink)
             // Public Slots
             .define_method("set_aspect_ratio_mode", &QVideoWidget::setAspectRatioMode, Arg("mode"))
-            .define_method("set_full_screen", &QVideoWidget::setFullScreen, Arg("full_screen"))
+            .define_method("set_full_screen", &QVideoWidget::setFullScreen, Arg("full_screen"));
             // Signals
-            .define_method("aspect_ratio_mode_changed", &QVideoWidget::aspectRatioModeChanged, Arg("mode"))
-            .define_method("full_screen_changed", &QVideoWidget::fullScreenChanged, Arg("full_screen"));
+            // .define_method("aspect_ratio_mode_changed", &QVideoWidget::aspectRatioModeChanged, Arg("mode"))
+            // .define_method("full_screen_changed", &QVideoWidget::fullScreenChanged, Arg("full_screen"));
 }

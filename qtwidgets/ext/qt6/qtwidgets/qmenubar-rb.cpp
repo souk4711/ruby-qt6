@@ -33,8 +33,8 @@ void Init_qmenubar(Rice::Module rb_mQt6QtWidgets)
             .define_method("set_default_up", &QMenuBar::setDefaultUp, Arg("enable"))
             .define_method("set_native_menu_bar", &QMenuBar::setNativeMenuBar, Arg("native_menu_bar"))
             // Public Slots
-            .define_method("set_visible", &QMenuBar::setVisible, Arg("visible"))
+            .define_method("set_visible", &QMenuBar::setVisible, Arg("visible"));
             // Signals
-            .define_method("hovered", &QMenuBar::hovered, Arg("action"))
-            .define_method("triggered", &QMenuBar::triggered, Arg("action"));
+            // .define_method("hovered", &QMenuBar::hovered, Arg("action"))
+            // .define_method("triggered", &QMenuBar::triggered, Arg("action"));
 }

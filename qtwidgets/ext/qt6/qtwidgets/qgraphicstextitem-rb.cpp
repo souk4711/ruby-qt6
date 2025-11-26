@@ -48,8 +48,8 @@ void Init_qgraphicstextitem(Rice::Module rb_mQt6QtWidgets)
             .define_method("text_width", &QGraphicsTextItem::textWidth)
             .define_method("to_html", &QGraphicsTextItem::toHtml)
             .define_method("to_plain_text", &QGraphicsTextItem::toPlainText)
-            .define_method("type", &QGraphicsTextItem::type)
+            .define_method("type", &QGraphicsTextItem::type);
             // Signals
-            .define_method("link_activated", &QGraphicsTextItem::linkActivated, Arg("link"))
-            .define_method("link_hovered", &QGraphicsTextItem::linkHovered, Arg("link"));
+            // .define_method("link_activated", &QGraphicsTextItem::linkActivated, Arg("link"))
+            // .define_method("link_hovered", &QGraphicsTextItem::linkHovered, Arg("link"));
 }

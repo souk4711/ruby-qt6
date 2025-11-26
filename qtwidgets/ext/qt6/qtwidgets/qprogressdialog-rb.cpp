@@ -42,7 +42,7 @@ void Init_qprogressdialog(Rice::Module rb_mQt6QtWidgets)
             .define_method("set_minimum", &QProgressDialog::setMinimum, Arg("minimum"))
             .define_method("set_minimum_duration", &QProgressDialog::setMinimumDuration, Arg("ms"))
             .define_method("set_range", &QProgressDialog::setRange, Arg("minimum"), Arg("maximum"))
-            .define_method("set_value", &QProgressDialog::setValue, Arg("progress"))
+            .define_method("set_value", &QProgressDialog::setValue, Arg("progress"));
             // Signals
-            .define_method("canceled", &QProgressDialog::canceled);
+            // .define_method("canceled", &QProgressDialog::canceled);
 }

@@ -29,11 +29,11 @@ void Init_qdbusservicewatcher(Rice::Module rb_mQt6QtDBus)
             .define_method("set_watch_mode", &QDBusServiceWatcher::setWatchMode, Arg("mode"))
             .define_method("set_watched_services", &QDBusServiceWatcher::setWatchedServices, Arg("services"))
             .define_method("watch_mode", &QDBusServiceWatcher::watchMode)
-            .define_method("watched_services", &QDBusServiceWatcher::watchedServices)
+            .define_method("watched_services", &QDBusServiceWatcher::watchedServices);
             // Signals
-            .define_method("service_owner_changed", &QDBusServiceWatcher::serviceOwnerChanged, Arg("service"), Arg("old_owner"), Arg("new_owner"))
-            .define_method("service_registered", &QDBusServiceWatcher::serviceRegistered, Arg("service"))
-            .define_method("service_unregistered", &QDBusServiceWatcher::serviceUnregistered, Arg("service"));
+            // .define_method("service_owner_changed", &QDBusServiceWatcher::serviceOwnerChanged, Arg("service"), Arg("old_owner"), Arg("new_owner"))
+            // .define_method("service_registered", &QDBusServiceWatcher::serviceRegistered, Arg("service"))
+            // .define_method("service_unregistered", &QDBusServiceWatcher::serviceUnregistered, Arg("service"));
 
     Data_Type<QDBusServiceWatcher::WatchModeFlag> rb_cQDBusServiceWatcherWatchModeFlag =
         // RubyQt6::QtDBus::QDBusServiceWatcher::WatchModeFlag

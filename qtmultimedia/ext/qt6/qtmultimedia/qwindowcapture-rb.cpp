@@ -29,10 +29,10 @@ void Init_qwindowcapture(Rice::Module rb_mQt6QtMultimedia)
             .define_method("start", &QWindowCapture::start)
             .define_method("stop", &QWindowCapture::stop)
             // Signals
-            .define_method("active_changed", &QWindowCapture::activeChanged, Arg("active"))
-            .define_method("error_changed", &QWindowCapture::errorChanged)
-            .define_method("error_occurred", &QWindowCapture::errorOccurred, Arg("error"), Arg("error_string"))
-            .define_method("window_changed", &QWindowCapture::windowChanged, Arg("window"))
+            // .define_method("active_changed", &QWindowCapture::activeChanged, Arg("active"))
+            // .define_method("error_changed", &QWindowCapture::errorChanged)
+            // .define_method("error_occurred", &QWindowCapture::errorOccurred, Arg("error"), Arg("error_string"))
+            // .define_method("window_changed", &QWindowCapture::windowChanged, Arg("window"))
             // Static Public Members
             .define_singleton_function("capturable_windows", &QWindowCapture::capturableWindows);
 

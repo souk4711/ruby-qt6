@@ -35,9 +35,9 @@ void Init_qlcdnumber(Rice::Module rb_mQt6QtWidgets)
             .define_method("set_dec_mode", &QLCDNumber::setDecMode)
             .define_method("set_hex_mode", &QLCDNumber::setHexMode)
             .define_method("set_oct_mode", &QLCDNumber::setOctMode)
-            .define_method("set_small_decimal_point", &QLCDNumber::setSmallDecimalPoint, Arg("enabled"))
+            .define_method("set_small_decimal_point", &QLCDNumber::setSmallDecimalPoint, Arg("enabled"));
             // Signals
-            .define_method("overflow", &QLCDNumber::overflow);
+            // .define_method("overflow", &QLCDNumber::overflow);
 
     Data_Type<QLCDNumber::Mode> rb_cQLCDNumberMode =
         // RubyQt6::QtWidgets::QLCDNumber::Mode

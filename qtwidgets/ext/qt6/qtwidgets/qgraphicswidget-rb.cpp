@@ -78,8 +78,8 @@ void Init_qgraphicswidget(Rice::Module rb_mQt6QtWidgets)
             // Public Slots
             .define_method("close", &QGraphicsWidget::close)
             // Signals
-            .define_method("geometry_changed", &QGraphicsWidget::geometryChanged)
-            .define_method("layout_changed", &QGraphicsWidget::layoutChanged)
+            // .define_method("geometry_changed", &QGraphicsWidget::geometryChanged)
+            // .define_method("layout_changed", &QGraphicsWidget::layoutChanged)
             // Static Public Members
             .define_singleton_function("set_tab_order", &QGraphicsWidget::setTabOrder, Arg("first"), Arg("second"));
 }

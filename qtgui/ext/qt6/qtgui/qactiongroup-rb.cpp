@@ -31,10 +31,10 @@ void Init_qactiongroup(Rice::Module rb_mQt6QtGui)
             .define_method("set_enabled", &QActionGroup::setEnabled, Arg("b"))
             .define_method("set_exclusion_policy", &QActionGroup::setExclusionPolicy, Arg("policy"))
             .define_method("set_exclusive", &QActionGroup::setExclusive, Arg("b"))
-            .define_method("set_visible", &QActionGroup::setVisible, Arg("b"))
+            .define_method("set_visible", &QActionGroup::setVisible, Arg("b"));
             // Signals
-            .define_method("hovered", &QActionGroup::hovered, Arg("action"))
-            .define_method("triggered", &QActionGroup::triggered, Arg("action"));
+            // .define_method("hovered", &QActionGroup::hovered, Arg("action"))
+            // .define_method("triggered", &QActionGroup::triggered, Arg("action"));
 
     Data_Type<QActionGroup::ExclusionPolicy> rb_cQActionGroupExclusionPolicy =
         // RubyQt6::QtGui::QActionGroup::ExclusionPolicy

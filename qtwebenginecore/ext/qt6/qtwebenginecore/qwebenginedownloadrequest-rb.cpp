@@ -39,17 +39,17 @@ void Init_qwebenginedownloadrequest(Rice::Module rb_mQt6QtWebEngineCore)
             .define_method("accept", &QWebEngineDownloadRequest::accept)
             .define_method("cancel", &QWebEngineDownloadRequest::cancel)
             .define_method("pause", &QWebEngineDownloadRequest::pause)
-            .define_method("resume", &QWebEngineDownloadRequest::resume)
+            .define_method("resume", &QWebEngineDownloadRequest::resume);
             // Signals
-            .define_method("download_directory_changed", &QWebEngineDownloadRequest::downloadDirectoryChanged)
-            .define_method("download_file_name_changed", &QWebEngineDownloadRequest::downloadFileNameChanged)
-            .define_method("interrupt_reason_changed", &QWebEngineDownloadRequest::interruptReasonChanged)
-            .define_method("is_finished_changed", &QWebEngineDownloadRequest::isFinishedChanged)
-            .define_method("is_paused_changed", &QWebEngineDownloadRequest::isPausedChanged)
-            .define_method("received_bytes_changed", &QWebEngineDownloadRequest::receivedBytesChanged)
-            .define_method("save_page_format_changed", &QWebEngineDownloadRequest::savePageFormatChanged)
-            .define_method("state_changed", &QWebEngineDownloadRequest::stateChanged, Arg("state"))
-            .define_method("total_bytes_changed", &QWebEngineDownloadRequest::totalBytesChanged);
+            // .define_method("download_directory_changed", &QWebEngineDownloadRequest::downloadDirectoryChanged)
+            // .define_method("download_file_name_changed", &QWebEngineDownloadRequest::downloadFileNameChanged)
+            // .define_method("interrupt_reason_changed", &QWebEngineDownloadRequest::interruptReasonChanged)
+            // .define_method("is_finished_changed", &QWebEngineDownloadRequest::isFinishedChanged)
+            // .define_method("is_paused_changed", &QWebEngineDownloadRequest::isPausedChanged)
+            // .define_method("received_bytes_changed", &QWebEngineDownloadRequest::receivedBytesChanged)
+            // .define_method("save_page_format_changed", &QWebEngineDownloadRequest::savePageFormatChanged)
+            // .define_method("state_changed", &QWebEngineDownloadRequest::stateChanged, Arg("state"))
+            // .define_method("total_bytes_changed", &QWebEngineDownloadRequest::totalBytesChanged);
 
     Data_Type<QWebEngineDownloadRequest::DownloadState> rb_cQWebEngineDownloadRequestDownloadState =
         // RubyQt6::QtWebEngineCore::QWebEngineDownloadRequest::DownloadState

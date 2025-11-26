@@ -27,12 +27,12 @@ void Init_qscreencapture(Rice::Module rb_mQt6QtMultimedia)
             // Public Slots
             .define_method("set_active", &QScreenCapture::setActive, Arg("active"))
             .define_method("start", &QScreenCapture::start)
-            .define_method("stop", &QScreenCapture::stop)
+            .define_method("stop", &QScreenCapture::stop);
             // Signals
-            .define_method("active_changed", &QScreenCapture::activeChanged, Arg("active"))
-            .define_method("error_changed", &QScreenCapture::errorChanged)
-            .define_method("error_occurred", &QScreenCapture::errorOccurred, Arg("error"), Arg("error_string"))
-            .define_method("screen_changed", &QScreenCapture::screenChanged, Arg("screen"));
+            // .define_method("active_changed", &QScreenCapture::activeChanged, Arg("active"))
+            // .define_method("error_changed", &QScreenCapture::errorChanged)
+            // .define_method("error_occurred", &QScreenCapture::errorOccurred, Arg("error"), Arg("error_string"))
+            // .define_method("screen_changed", &QScreenCapture::screenChanged, Arg("screen"));
 
     Data_Type<QScreenCapture::Error> rb_cQScreenCaptureError =
         // RubyQt6::QtMultimedia::QScreenCapture::Error

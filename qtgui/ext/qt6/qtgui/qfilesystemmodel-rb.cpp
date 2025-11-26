@@ -71,11 +71,11 @@ void Init_qfilesystemmodel(Rice::Module rb_mQt6QtGui)
             .define_method("sort", &QFileSystemModel::sort, Arg("column"), Arg("order") = static_cast<Qt::SortOrder>(Qt::AscendingOrder))
             .define_method("supported_drop_actions", &QFileSystemModel::supportedDropActions)
             .define_method("test_option", &QFileSystemModel::testOption, Arg("option"))
-            .define_method("type", &QFileSystemModel::type, Arg("index"))
+            .define_method("type", &QFileSystemModel::type, Arg("index"));
             // Signals
-            .define_method("directory_loaded", &QFileSystemModel::directoryLoaded, Arg("path"))
-            .define_method("file_renamed", &QFileSystemModel::fileRenamed, Arg("path"), Arg("old_name"), Arg("new_name"))
-            .define_method("root_path_changed", &QFileSystemModel::rootPathChanged, Arg("new_path"));
+            // .define_method("directory_loaded", &QFileSystemModel::directoryLoaded, Arg("path"))
+            // .define_method("file_renamed", &QFileSystemModel::fileRenamed, Arg("path"), Arg("old_name"), Arg("new_name"))
+            // .define_method("root_path_changed", &QFileSystemModel::rootPathChanged, Arg("new_path"));
 
     Data_Type<QFileSystemModel::Roles> rb_cQFileSystemModelRoles =
         // RubyQt6::QtGui::QFileSystemModel::Roles

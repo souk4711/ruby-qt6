@@ -20,7 +20,7 @@ void Init_qvideoframeinput(Rice::Module rb_mQt6QtMultimedia)
             // Public Functions
             .define_method("capture_session", &QVideoFrameInput::captureSession)
             .define_method("format", &QVideoFrameInput::format)
-            .define_method("send_video_frame", &QVideoFrameInput::sendVideoFrame, Arg("frame"))
+            .define_method("send_video_frame", &QVideoFrameInput::sendVideoFrame, Arg("frame"));
             // Signals
-            .define_method("ready_to_send_video_frame", &QVideoFrameInput::readyToSendVideoFrame);
+            // .define_method("ready_to_send_video_frame", &QVideoFrameInput::readyToSendVideoFrame);
 }

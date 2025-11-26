@@ -38,14 +38,14 @@ void Init_qabstractslider(Rice::Module rb_mQt6QtWidgets)
             // Public Slots
             .define_method("set_orientation", &QAbstractSlider::setOrientation, Arg("orientation"))
             .define_method("set_range", &QAbstractSlider::setRange, Arg("min"), Arg("max"))
-            .define_method("set_value", &QAbstractSlider::setValue, Arg("value"))
+            .define_method("set_value", &QAbstractSlider::setValue, Arg("value"));
             // Signals
-            .define_method("action_triggered", &QAbstractSlider::actionTriggered, Arg("action"))
-            .define_method("range_changed", &QAbstractSlider::rangeChanged, Arg("min"), Arg("max"))
-            .define_method("slider_moved", &QAbstractSlider::sliderMoved, Arg("position"))
-            .define_method("slider_pressed", &QAbstractSlider::sliderPressed)
-            .define_method("slider_released", &QAbstractSlider::sliderReleased)
-            .define_method("value_changed", &QAbstractSlider::valueChanged, Arg("value"));
+            // .define_method("action_triggered", &QAbstractSlider::actionTriggered, Arg("action"))
+            // .define_method("range_changed", &QAbstractSlider::rangeChanged, Arg("min"), Arg("max"))
+            // .define_method("slider_moved", &QAbstractSlider::sliderMoved, Arg("position"))
+            // .define_method("slider_pressed", &QAbstractSlider::sliderPressed)
+            // .define_method("slider_released", &QAbstractSlider::sliderReleased)
+            // .define_method("value_changed", &QAbstractSlider::valueChanged, Arg("value"));
 
     Data_Type<QAbstractSlider::SliderAction> rb_cQAbstractSliderSliderAction =
         // RubyQt6::QtWidgets::QAbstractSlider::SliderAction

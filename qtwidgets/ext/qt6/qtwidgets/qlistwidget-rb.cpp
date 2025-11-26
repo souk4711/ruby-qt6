@@ -56,18 +56,18 @@ void Init_qlistwidget(Rice::Module rb_mQt6QtWidgets)
             .define_method("visual_item_rect", &QListWidget::visualItemRect, Arg("item"))
             // Public Slots
             .define_method("clear", &QListWidget::clear)
-            .define_method("scroll_to_item", &QListWidget::scrollToItem, Arg("item"), Arg("hint") = static_cast<QAbstractItemView::ScrollHint>(QAbstractItemView::ScrollHint::EnsureVisible))
+            .define_method("scroll_to_item", &QListWidget::scrollToItem, Arg("item"), Arg("hint") = static_cast<QAbstractItemView::ScrollHint>(QAbstractItemView::ScrollHint::EnsureVisible));
             // Signals
-            .define_method("current_item_changed", &QListWidget::currentItemChanged, Arg("current"), Arg("previous"))
-            .define_method("current_row_changed", &QListWidget::currentRowChanged, Arg("current_row"))
-            .define_method("current_text_changed", &QListWidget::currentTextChanged, Arg("current_text"))
-            .define_method("item_activated", &QListWidget::itemActivated, Arg("item"))
-            .define_method("item_changed", &QListWidget::itemChanged, Arg("item"))
-            .define_method("item_clicked", &QListWidget::itemClicked, Arg("item"))
-            .define_method("item_double_clicked", &QListWidget::itemDoubleClicked, Arg("item"))
-            .define_method("item_entered", &QListWidget::itemEntered, Arg("item"))
-            .define_method("item_pressed", &QListWidget::itemPressed, Arg("item"))
-            .define_method("item_selection_changed", &QListWidget::itemSelectionChanged);
+            // .define_method("current_item_changed", &QListWidget::currentItemChanged, Arg("current"), Arg("previous"))
+            // .define_method("current_row_changed", &QListWidget::currentRowChanged, Arg("current_row"))
+            // .define_method("current_text_changed", &QListWidget::currentTextChanged, Arg("current_text"))
+            // .define_method("item_activated", &QListWidget::itemActivated, Arg("item"))
+            // .define_method("item_changed", &QListWidget::itemChanged, Arg("item"))
+            // .define_method("item_clicked", &QListWidget::itemClicked, Arg("item"))
+            // .define_method("item_double_clicked", &QListWidget::itemDoubleClicked, Arg("item"))
+            // .define_method("item_entered", &QListWidget::itemEntered, Arg("item"))
+            // .define_method("item_pressed", &QListWidget::itemPressed, Arg("item"))
+            // .define_method("item_selection_changed", &QListWidget::itemSelectionChanged);
 
     rb_cQListWidgetItem =
         // RubyQt6::QtWidgets::QListWidgetItem
