@@ -696,25 +696,41 @@ namespace Rice::detail
     static bool verify();
   };
 
+  class TypeIndexParser
+  {
+  public:
+    TypeIndexParser(const std::type_index& typeIndex, bool isFundamental = false);
+    std::string name();
+    std::string simplifiedName();
+    std::string rubyName(std::string rubyTypeName);
+
+    // public only for testing
+    std::string findGroup(std::string& string, size_t start = 0);
+
+  private:
+    std::string demangle(char const* mangled_name);
+    void removeGroup(std::string& string, std::regex regex);
+    void replaceGroup(std::string& string, std::regex regex, std::string replacement);
+    void capitalizeHelper(std::string& content, std::regex& regex);
+    void replaceAll(std::string& string, std::regex regex, std::string replacement);
+
+  private:
+    const std::type_index typeIndex_;
+    bool isFundamental_ = false;
+  };
+
   template<typename T>
   class TypeMapper
   {
   public:
-    std::string name();
-    std::string name(const std::type_index& typeIndex);
-    std::string simplifiedName();
-    std::string rubyName();
     VALUE rubyKlass();
+    std::string rubyName();
 
-    // public only for testing
-    std::string findGroup(std::string& string, size_t start = 0);
   private:
-    std::string demangle(char const* mangled_name);
     std::string rubyTypeName();
-    void removeGroup(std::string& string, std::regex regex);
-    void replaceGroup(std::string& string, std::regex regex, std::string replacement);
-    void replaceAll(std::string& string, std::regex regex, std::string replacement);
-    void capitalizeHelper(std::string& content, std::regex& regex);
+  
+  private:
+    TypeIndexParser typeIndexParser_{ typeid(T), std::is_fundamental_v<intrinsic_type<T>> };
   };
 
   template<typename T>
@@ -3997,8 +4013,8 @@ namespace Rice::detail
   template<typename T>
   inline std::string Parameter<T>::cppTypeName()
   {
-    detail::TypeMapper<T> typeMapper;
-    return typeMapper.simplifiedName();
+    detail::TypeIndexParser typeIndexParser(typeid(T), std::is_fundamental_v<detail::intrinsic_type<T>>);
+    return typeIndexParser.simplifiedName();
   }
 
   template<typename T>
@@ -4379,8 +4395,8 @@ namespace Rice
         }
         else
         {
-          detail::TypeMapper<T> typeMapper;
-          std::string typeName = typeMapper.name();
+          detail::TypeIndexParser typeIndexParser(typeid(T), std::is_fundamental_v<detail::intrinsic_type<T>>);
+          std::string typeName = typeIndexParser.name();
           throw Exception(rb_eTypeError, "wrong argument type %s (expected %s*)",
             detail::protect(rb_obj_classname, value), typeName.c_str());
         }
@@ -4419,8 +4435,9 @@ namespace Rice
           }
           else
           {
+            detail::TypeIndexParser typeIndexParser(typeid(Intrinsic_T), std::is_fundamental_v<Intrinsic_T>);
             throw Exception(rb_eTypeError, "Cannot construct object of type %s - type is not move or copy constructible",
-              detail::TypeMapper<Intrinsic_T>().name().c_str());
+              typeIndexParser.name().c_str());
           }
         }
         break;
@@ -4460,8 +4477,8 @@ namespace Rice
       }
       default:
       {
-        detail::TypeMapper<T> typeMapper;
-        std::string typeName = typeMapper.name();
+        detail::TypeIndexParser typeIndexParser(typeid(T), std::is_fundamental_v<detail::intrinsic_type<T>>);
+        std::string typeName = typeIndexParser.name();
         throw Exception(rb_eTypeError, "wrong argument type %s (expected %s*)",
           detail::protect(rb_obj_classname, value), typeName.c_str());
       }
@@ -4531,8 +4548,8 @@ namespace Rice
   template<typename T>
   inline VALUE Buffer<T, std::enable_if_t<!std::is_pointer_v<T> && !std::is_void_v<T>>>::toString() const
   {
-    detail::TypeMapper<T*> typeMapper;
-    std::string description = "Buffer<type: " + typeMapper.simplifiedName() + ", size: " + std::to_string(this->m_size) + ">";
+    detail::TypeIndexParser typeIndexParser(typeid(T*), std::is_fundamental_v<detail::intrinsic_type<T>>);
+    std::string description = "Buffer<type: " + typeIndexParser.simplifiedName() + ", size: " + std::to_string(this->m_size) + ">";
 
     // We can't use To_Ruby because To_Ruby depends on Buffer - ie a circular reference
     return detail::protect(rb_utf8_str_new_cstr, description.c_str());
@@ -4673,8 +4690,8 @@ namespace Rice
       }
       default:
       {
-        detail::TypeMapper<T> typeMapper;
-        std::string typeName = typeMapper.name();
+        detail::TypeIndexParser typeIndexParser(typeid(T), std::is_fundamental_v<detail::intrinsic_type<T>>);
+        std::string typeName = typeIndexParser.name();
         throw Exception(rb_eTypeError, "wrong argument type %s (expected %s*)",
           detail::protect(rb_obj_classname, value), typeName.c_str());
       }
@@ -4759,8 +4776,8 @@ namespace Rice
   template<typename T>
   inline VALUE Buffer<T*, std::enable_if_t<!detail::is_wrapped_v<T>>>::toString() const
   {
-    detail::TypeMapper<T*> typeMapper;
-    std::string description = "Buffer<type: " + typeMapper.simplifiedName() + ", size: " + std::to_string(this->m_size) + ">";
+    detail::TypeIndexParser typeIndexParser(typeid(T*), std::is_fundamental_v<detail::intrinsic_type<T>>);
+    std::string description = "Buffer<type: " + typeIndexParser.simplifiedName() + ", size: " + std::to_string(this->m_size) + ">";
 
     // We can't use To_Ruby because To_Ruby depends on Buffer - ie a circular reference
     return detail::protect(rb_utf8_str_new_cstr, description.c_str());
@@ -4866,8 +4883,8 @@ namespace Rice
       }
       default:
       {
-        detail::TypeMapper<T> typeMapper;
-        std::string typeName = typeMapper.name();
+        detail::TypeIndexParser typeIndexParser(typeid(T), std::is_fundamental_v<detail::intrinsic_type<T>>);
+        std::string typeName = typeIndexParser.name();
         throw Exception(rb_eTypeError, "wrong argument type %s (expected %s*)",
           detail::protect(rb_obj_classname, value), typeName.c_str());
       }
@@ -4951,8 +4968,8 @@ namespace Rice
   template<typename T>
   inline VALUE Buffer<T*, std::enable_if_t<detail::is_wrapped_v<T>>>::toString() const
   {
-    detail::TypeMapper<T*> typeMapper;
-    std::string description = "Buffer<type: " + typeMapper.simplifiedName() + ", size: " + std::to_string(this->m_size) + ">";
+    detail::TypeIndexParser typeIndexParser(typeid(T*), std::is_fundamental_v<detail::intrinsic_type<T>>);
+    std::string description = "Buffer<type: " + typeIndexParser.simplifiedName() + ", size: " + std::to_string(this->m_size) + ">";
 
     // We can't use To_Ruby because To_Ruby depends on Buffer - ie a circular reference
     return detail::protect(rb_utf8_str_new_cstr, description.c_str());
@@ -5031,8 +5048,8 @@ namespace Rice
       }
       default:
       {
-        detail::TypeMapper<void> typeMapper;
-        std::string typeName = typeMapper.name();
+        detail::TypeIndexParser typeIndexParser(typeid(T), std::is_fundamental_v<detail::intrinsic_type<T>>);
+        std::string typeName = typeIndexParser.name();
         throw Exception(rb_eTypeError, "wrong argument type %s (expected %s*)",
           detail::protect(rb_obj_classname, value), typeName.c_str());
       }
@@ -8415,8 +8432,9 @@ namespace Rice::detail
       return result.value();
     }
 
-    detail::TypeMapper<T> typeMapper;
-    raiseUnverifiedType(typeMapper.name());
+    detail::TypeIndexParser typeIndexParser(typeid(T), std::is_fundamental_v<detail::intrinsic_type<T>>);
+    raiseUnverifiedType(typeIndexParser.name());
+
     // Make the compiler happy
     return std::pair<VALUE, rb_data_type_t*>(Qnil, nullptr);
   }
@@ -8449,8 +8467,8 @@ namespace Rice::detail
 
     for (const std::type_index& typeIndex : this->unverified_)
     {
-      detail::TypeMapper<int> typeMapper;
-      stream << "  " << typeMapper.name(typeIndex) << "\n";
+      detail::TypeIndexParser typeIndexParser(typeIndex);
+      stream << "  " << typeIndexParser.name() << "\n";
     }
 
     throw std::invalid_argument(stream.str());
@@ -8743,37 +8761,20 @@ namespace Rice::detail
   {
   };
 
-  // ---------- TypeMapper ------------
-  template<typename T>
-  inline std::string TypeMapper<T>::demangle(char const* mangled_name)
+  // ---------- TypeIndexParser ------------
+  inline TypeIndexParser::TypeIndexParser(const std::type_index& typeIndex, bool isFundamental) :
+    typeIndex_(typeIndex), isFundamental_(isFundamental)
+  {
+  }
+
+  inline std::string TypeIndexParser::demangle(char const* mangled_name)
   {
 #ifdef __GNUC__
-    struct Helper
+    int status = 0;
+    char* name = abi::__cxa_demangle(mangled_name, 0, 0, &status);
+    if (name)
     {
-      Helper(
-        char const* mangled_name)
-        : name_(0)
-      {
-        int status = 0;
-        name_ = abi::__cxa_demangle(mangled_name, 0, 0, &status);
-      }
-
-      ~Helper()
-      {
-        std::free(name_);
-      }
-
-      char* name_;
-
-    private:
-      Helper(Helper const&);
-      void operator=(Helper const&);
-    };
-
-    Helper helper(mangled_name);
-    if (helper.name_)
-    {
-      return helper.name_;
+      return name;
     }
     else
     {
@@ -8784,17 +8785,9 @@ namespace Rice::detail
 #endif
   }
 
-  template<typename T>
-  inline std::string TypeMapper<T>::name()
+  inline std::string TypeIndexParser::name()
   {
-    const std::type_index& typeIndex = typeid(T);
-    return demangle(typeIndex.name());
-  }
-
-  template<typename T>
-  inline std::string TypeMapper<T>::name(const std::type_index& typeIndex)
-  {
-    return demangle(typeIndex.name());
+    return this->demangle(this->typeIndex_.name());
   }
 
   // Find text inside of < > taking into account nested groups.
@@ -8802,8 +8795,7 @@ namespace Rice::detail
   // Example:
   //  
   //   std::vector<std::vector<int>, std::allocator<std::vector, std::allocator<int>>>
-  template<typename T>
-  inline std::string TypeMapper<T>::findGroup(std::string& string, size_t offset)
+  inline std::string TypeIndexParser::findGroup(std::string& string, size_t offset)
   {
     int depth = 0;
 
@@ -8836,8 +8828,7 @@ namespace Rice::detail
     throw std::runtime_error("Unbalanced Group");
   }
 
-  template<typename T>
-  inline void TypeMapper<T>::replaceAll(std::string& string, std::regex regex, std::string replacement)
+  inline void TypeIndexParser::replaceAll(std::string& string, std::regex regex, std::string replacement)
   {
     std::smatch match;
     while (std::regex_search(string, match, regex))
@@ -8846,8 +8837,7 @@ namespace Rice::detail
     }
   }
 
-  template<typename T>
-  inline void TypeMapper<T>::removeGroup(std::string& string, std::regex regex)
+  inline void TypeIndexParser::removeGroup(std::string& string, std::regex regex)
   {
     std::smatch match;
     while (std::regex_search(string, match, regex))
@@ -8858,8 +8848,7 @@ namespace Rice::detail
     }
   }
 
-  template<typename T>
-  inline void TypeMapper<T>::replaceGroup(std::string& string, std::regex regex, std::string replacement)
+  inline void TypeIndexParser::replaceGroup(std::string& string, std::regex regex, std::string replacement)
   {
     std::smatch match;
     while (std::regex_search(string, match, regex))
@@ -8870,8 +8859,7 @@ namespace Rice::detail
     }
   }
 
-  template<typename T>
-  inline std::string TypeMapper<T>::simplifiedName()
+  inline std::string TypeIndexParser::simplifiedName()
   {
     std::string base = this->name();
 
@@ -8943,42 +8931,9 @@ namespace Rice::detail
     return base;
   }
 
-  template<typename T>
-  inline void TypeMapper<T>::capitalizeHelper(std::string& content, std::regex& regex)
+  inline std::string TypeIndexParser::rubyName(std::string rubyTypeName)
   {
-    std::smatch match;
-    while (std::regex_search(content, match, regex))
-    {
-      std::string replacement = match[1];
-      std::transform(replacement.begin(), replacement.end(), replacement.begin(), ::toupper);
-      content.replace(match.position(), match.length(), replacement);
-    }
-  }
-
-  template<typename T>
-  inline std::string TypeMapper<T>::rubyTypeName()
-  {
-    using Intrinsic_T = detail::intrinsic_type<T>;
-
-    if constexpr (std::is_fundamental_v<T>)
-    {
-      return RubyType<Intrinsic_T>::name;
-    }
-    else if constexpr (std::is_same_v<std::remove_cv_t<T>, char*>)
-    {
-      return "String";
-    }
-    else
-    {
-      detail::TypeMapper<Intrinsic_T> typeIntrinsicMapper;
-      return typeIntrinsicMapper.simplifiedName();
-    }
-  }
-
-  template<typename T>
-  inline std::string TypeMapper<T>::rubyName()
-  {
-    std::string base = this->rubyTypeName();
+    std::string base = rubyTypeName;
 
     // Remove std:: these could be embedded in template types
     auto stdRegex = std::regex("std::");
@@ -8994,44 +8949,83 @@ namespace Rice::detail
 
     // Replace :: with unicode U+u02F8 (Modified Letter raised colon)
     auto colonRegex = std::regex(R"(:)");
-    replaceAll(base, colonRegex, "\uA789");
+    this->replaceAll(base, colonRegex, "\uA789");
 
     // Replace _ and capitalize the next letter
     std::regex underscoreRegex(R"(_(\w))");
-    capitalizeHelper(base, underscoreRegex);
+    this->capitalizeHelper(base, underscoreRegex);
 
-    if constexpr (std::is_fundamental_v<intrinsic_type<T>>)
+    if (this->isFundamental_)
     {
       // Replace space and capitalize the next letter
       std::regex spaceRegex(R"(\s+(\w))");
-      capitalizeHelper(base, spaceRegex);
+      this->capitalizeHelper(base, spaceRegex);
     }
     else
     {
       // Replace spaces with unicode U+u00A0 (Non breaking Space)
       std::regex spaceRegex = std::regex(R"(\s+)");
-      replaceAll(base, spaceRegex, "\u00A0");
+      this->replaceAll(base, spaceRegex, "\u00A0");
     }
 
     // Replace < with unicode U+227A (Precedes)
     auto lessThanRegex = std::regex("<");
     //replaceAll(base, lessThanRegex, "≺");
-    replaceAll(base, lessThanRegex, "\u227A");
+    this->replaceAll(base, lessThanRegex, "\u227A");
 
     // Replace > with unicode U+227B (Succeeds)
     auto greaterThanRegex = std::regex(">");
     //replaceAll(base, greaterThanRegex, "≻");
-    replaceAll(base, greaterThanRegex, "\u227B");
+    this->replaceAll(base, greaterThanRegex, "\u227B");
 
     // Replace , with Unicode Character (U+066C) - Arabic Thousands Separator
     auto commaRegex = std::regex(R"(,\s*)");
-    replaceAll(base, commaRegex, "\u201A");
+    this->replaceAll(base, commaRegex, "\u201A");
 
     // Replace * with Unicode Character (U+2217) -	Asterisk Operator
     auto asteriskRegex = std::regex(R"(\*)");
-    replaceAll(base, asteriskRegex, "\u2217");
+    this->replaceAll(base, asteriskRegex, "\u2217");
 
     return base;
+  }
+
+  inline void TypeIndexParser::capitalizeHelper(std::string& content, std::regex& regex)
+  {
+    std::smatch match;
+    while (std::regex_search(content, match, regex))
+    {
+      std::string replacement = match[1];
+      std::transform(replacement.begin(), replacement.end(), replacement.begin(), ::toupper);
+      content.replace(match.position(), match.length(), replacement);
+    }
+  }
+
+  // ---------- TypeMapper ------------
+  template<typename T>
+  inline std::string TypeMapper<T>::rubyTypeName()
+  {
+    using Intrinsic_T = detail::intrinsic_type<T>;
+
+    if constexpr (std::is_fundamental_v<T>)
+    {
+      return RubyType<Intrinsic_T>::name;
+    }
+    else if constexpr (std::is_same_v<std::remove_cv_t<T>, char*>)
+    {
+      return "String";
+    }
+    else
+    {
+      detail::TypeIndexParser typeIndexParser(typeid(Intrinsic_T), std::is_fundamental_v<detail::intrinsic_type<Intrinsic_T>>);
+      return typeIndexParser.simplifiedName();
+    }
+  }
+
+  template<typename T>
+  inline std::string TypeMapper<T>::rubyName()
+  {
+    std::string base = this->rubyTypeName();
+    return this->typeIndexParser_.rubyName(base);
   }
 
   template<typename T>
@@ -9393,9 +9387,9 @@ namespace Rice::detail
 
     else
     {
-      detail::TypeMapper<T> typeMapper;
+      detail::TypeIndexParser typeIndexParser(typeid(T), std::is_fundamental_v<detail::intrinsic_type<T>>);
       std::string message = "Rice was directed to take ownership of a C++ object but it does not have an accessible copy or move constructor. Type: " +
-        typeMapper.name();
+        typeIndexParser.name();
       throw std::runtime_error(message);
     }
 
@@ -10317,8 +10311,8 @@ namespace Rice::detail
   {
     std::ostringstream result;
 
-    detail::TypeMapper<Return_T> typeMapper;
-    result << typeMapper.simplifiedName() << " ";
+    detail::TypeIndexParser typeIndexParser(typeid(Return_T), std::is_fundamental_v<detail::intrinsic_type<Return_T>>);
+    result << typeIndexParser.simplifiedName() << " ";
     result << this->method_name_;
 
     result << "(";
@@ -10773,13 +10767,13 @@ namespace Rice::detail
   {
     std::ostringstream result;
 
-    detail::TypeMapper<Return_T> typeReturnMapper;
-    result << typeReturnMapper.simplifiedName() << " ";
+    detail::TypeIndexParser typeIndexParserReturn(typeid(Return_T), std::is_fundamental_v<detail::intrinsic_type<Return_T>>);
+    result << typeIndexParserReturn.simplifiedName() << " ";
     
     if (!std::is_null_pointer_v<Receiver_T>)
     {
-      detail::TypeMapper<Receiver_T> typeReceiverMapper;
-      result << typeReceiverMapper.simplifiedName() << "::";
+      detail::TypeIndexParser typeIndexParserReceiver(typeid(Receiver_T), std::is_fundamental_v<detail::intrinsic_type<Receiver_T>>);
+      result << typeIndexParserReceiver.simplifiedName() << "::";
     }
     
     result << this->method_name_;
@@ -13629,8 +13623,8 @@ namespace Rice
   {
     if (is_bound())
     {
-      detail::TypeMapper<T> typeMapper;
-      std::string message = "Type " + typeMapper.name() + " is already bound to a different type";
+      detail::TypeIndexParser typeIndexParser(typeid(T), std::is_fundamental_v<detail::intrinsic_type<T>>);
+      std::string message = "Type " + typeIndexParser.name() + " is already bound to a different type";
       throw std::runtime_error(message.c_str());
     }
 
@@ -13663,8 +13657,8 @@ namespace Rice
     Data_Type<T> dataType;
     dataType.define_singleton_method("cpp_class", [](VALUE klass) -> VALUE
     {
-      detail::TypeMapper<T> typeMapper;
-      std::string cppClassName = typeMapper.simplifiedName();
+      detail::TypeIndexParser typeIndexParser(typeid(T), std::is_fundamental_v<detail::intrinsic_type<T>>);
+      std::string cppClassName = typeIndexParser.simplifiedName();
       Return returnInfo;
       returnInfo.takeOwnership();
       return detail::To_Ruby<char*>(&returnInfo).convert(cppClassName.c_str());
@@ -13825,8 +13819,8 @@ namespace Rice
   {
     if (!is_bound())
     {
-      detail::TypeMapper<T> typeMapper;
-      std::string message = "Type is not defined with Rice: " + typeMapper.name();
+      detail::TypeIndexParser typeIndexParser(typeid(T), std::is_fundamental_v<detail::intrinsic_type<T>>);
+      std::string message = "Type is not defined with Rice: " + typeIndexParser.name();
       throw std::invalid_argument(message.c_str());
     }
   }
@@ -14127,9 +14121,9 @@ namespace Rice
     }
     else
     {
-      detail::TypeMapper<T> typeMapper;
+      detail::TypeIndexParser typeIndexParser(typeid(T), std::is_fundamental_v<detail::intrinsic_type<T>>);
       return Exception(rb_eTypeError, "Wrong argument type. Expected %s. Received %s.",
-        typeMapper.simplifiedName().c_str(),
+        typeIndexParser.simplifiedName().c_str(),
         detail::protect(rb_obj_classname, value));
     }
   }
@@ -14954,8 +14948,8 @@ namespace Rice
         Enum_T otherEnum = (Enum_T)other;
 
         Array result;
-        result.push(self, false);
         result.push(otherEnum, true);
+        result.push(self, false);
         return result;
       })
       .define_method("inspect", [](Enum_T& self)
