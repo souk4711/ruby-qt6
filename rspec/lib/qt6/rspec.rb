@@ -31,7 +31,8 @@ module RubyQt6
       "QCoreApplication" => ["post_event", "send_event"],
       "QLayoutItem" => ["has_height_for_width", "height_for_width", "maximum_size", "minimum_size", "size_hint"],
       "QLayout" => ["maximum_size", "minimum_size"],
-      "QWidget" => ["maximum_size", "minimum_size", "minimum_size_hint", "size_hint"]
+      "QWidget" => ["maximum_size", "minimum_size", "minimum_size_hint", "size_hint"],
+      "QWindow" => ["maximum_size", "minimum_size"]
     }
     NO_VERIFY_QLASS_LEADING_UNDERSCORE_METHODS = {
       "QObject" => ["_connect", "_disconnect"],
