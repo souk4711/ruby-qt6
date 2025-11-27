@@ -2813,9 +2813,9 @@ namespace Rice::detail
   public:
     static VALUE resolve(int argc, VALUE* argv, VALUE self);
   public:
-    Native() = default;
-    Native(std::unique_ptr<Return>&& returnInfo);
-    Native(std::unique_ptr<Return>&& returnInfo, std::vector<std::unique_ptr<ParameterAbstract>>&& parameters);
+    Native(std::string name);
+    Native(std::string name, std::unique_ptr<Return>&& returnInfo);
+    Native(std::string name, std::unique_ptr<Return>&& returnInfo, std::vector<std::unique_ptr<ParameterAbstract>>&& parameters);
     virtual ~Native() = default;
 
     Native(const Native&) = delete;
@@ -2828,10 +2828,10 @@ namespace Rice::detail
     virtual std::string toString() = 0;
 
     // Ruby API access
-    virtual std::string name() = 0;
+    std::string name();
+    std::vector<const ParameterAbstract*> parameters();
     virtual NativeKind kind() = 0;
     virtual VALUE returnKlass() = 0;
-    std::vector<const ParameterAbstract*> parameters();
 
   protected:
     template<typename T, bool isBuffer>
@@ -2858,6 +2858,7 @@ namespace Rice::detail
     static void verify_parameter();
 
   protected:
+    std::string name_;
     std::unique_ptr<Return> returnInfo_;
     std::vector<std::unique_ptr<ParameterAbstract>> parameters_;
   };
@@ -2904,7 +2905,6 @@ namespace Rice
       VALUE operator()(size_t argc, const VALUE* argv, VALUE self) override;
       std::string toString() override;
 
-      std::string name() override;
       NativeKind kind() override;
       VALUE returnKlass() override;
 
@@ -2913,7 +2913,6 @@ namespace Rice
 
     private:
       VALUE klass_;
-      std::string name_;
       Attribute_T attribute_;
     };
   } // detail
@@ -2951,7 +2950,6 @@ namespace Rice
       VALUE operator()(size_t argc, const VALUE* argv, VALUE self) override;
       std::string toString() override;
 
-      std::string name() override;
       NativeKind kind() override;
       VALUE returnKlass() override;
 
@@ -2960,7 +2958,6 @@ namespace Rice
 
     private:
       VALUE klass_;
-      std::string name_;
       Attribute_T attribute_;
     };
   } // detail
@@ -9641,15 +9638,25 @@ namespace Rice::detail
     });
   }
 
-  inline Native::Native(std::unique_ptr<Return>&& returnInfo) : returnInfo_(std::move(returnInfo))
+  inline Native::Native(std::string name) :
+    name_(name)
   {
   }
 
-  inline Native::Native(std::unique_ptr<Return>&& returnInfo, std::vector<std::unique_ptr<ParameterAbstract>>&& parameters) :
-    returnInfo_(std::move(returnInfo)), parameters_(std::move(parameters))
+  inline Native::Native(std::string name,std::unique_ptr<Return>&& returnInfo) :
+    name_(name), returnInfo_(std::move(returnInfo))
   {
   }
 
+  inline Native::Native(std::string name, std::unique_ptr<Return>&& returnInfo, std::vector<std::unique_ptr<ParameterAbstract>>&& parameters) :
+    name_(name), returnInfo_(std::move(returnInfo)), parameters_(std::move(parameters))
+  {
+  }
+
+  inline std::string Native::name()
+  {
+    return this->name_;
+  }
   inline ParameterAbstract* Native::getParameterByName(std::string name)
   {
     for (std::unique_ptr<ParameterAbstract>& parameter : this->parameters_)
@@ -9974,8 +9981,8 @@ namespace Rice::detail
   
   template<typename Attribute_T>
   NativeAttributeGet<Attribute_T>::NativeAttributeGet(VALUE klass, std::string name, Attribute_T attribute, std::unique_ptr<Return>&& returnInfo)
-    : Native(std::move(returnInfo)),
-      klass_(klass), name_(name), attribute_(attribute)
+    : Native(name, std::move(returnInfo)),
+      klass_(klass), attribute_(attribute)
   {
   }
 
@@ -10035,12 +10042,6 @@ namespace Rice::detail
   }
 
   template<typename Attribute_T>
-  inline std::string NativeAttributeGet<Attribute_T>::name()
-  {
-    return this->name_;
-  }
-
-  template<typename Attribute_T>
   inline NativeKind NativeAttributeGet<Attribute_T>::kind()
   {
     return NativeKind::AttributeReader;
@@ -10092,7 +10093,7 @@ namespace Rice::detail
 
   template<typename Attribute_T>
   NativeAttributeSet<Attribute_T>::NativeAttributeSet(VALUE klass, std::string name, Attribute_T attribute)
-    : klass_(klass), name_(name), attribute_(attribute)
+    : Native(name), klass_(klass), attribute_(attribute)
   {
   }
 
@@ -10141,12 +10142,6 @@ namespace Rice::detail
   inline std::string NativeAttributeSet<Attribute_T>::toString()
   {
     return "";
-  }
-
-  template<typename Attribute_T>
-  inline std::string NativeAttributeSet<Attribute_T>::name()
-  {
-    return this->name_;
   }
 
   template<typename Attribute_T>
@@ -10213,7 +10208,7 @@ namespace Rice::detail
     using To_Ruby_T = remove_cv_recursive_t<Return_T>;
 
     template<typename ...Arg_Ts>
-    static void define(VALUE klass, std::string method_name, Function_T function, Arg_Ts&& ...args);
+    static void define(VALUE klass, std::string function_name, Function_T function, Arg_Ts&& ...args);
 
   public:
     NativeFunction(VALUE klass, std::string method_name, Function_T function, std::unique_ptr<Return>&& returnInfo, std::vector<std::unique_ptr<ParameterAbstract>>&& parameters);
@@ -10221,7 +10216,6 @@ namespace Rice::detail
     VALUE operator()(size_t argc, const VALUE* argv, VALUE self) override;
     std::string toString() override;
 
-    std::string name() override;
     NativeKind kind() override;
     VALUE returnKlass() override;
 
@@ -10239,7 +10233,6 @@ namespace Rice::detail
 
   private:
     VALUE klass_;
-    std::string method_name_;
     Function_T function_;
     To_Ruby<To_Ruby_T> toRuby_;
   };
@@ -10288,9 +10281,9 @@ namespace Rice::detail
   }
 
   template<typename Function_T, bool NoGVL>
-  NativeFunction<Function_T, NoGVL>::NativeFunction(VALUE klass, std::string method_name, Function_T function, std::unique_ptr<Return>&& returnInfo, std::vector<std::unique_ptr<ParameterAbstract>>&& parameters)
-    : Native(std::move(returnInfo), std::move(parameters)),
-      klass_(klass), method_name_(method_name), function_(function), toRuby_(returnInfo_.get())
+  NativeFunction<Function_T, NoGVL>::NativeFunction(VALUE klass, std::string function_name, Function_T function, std::unique_ptr<Return>&& returnInfo, std::vector<std::unique_ptr<ParameterAbstract>>&& parameters)
+    : Native(function_name, std::move(returnInfo), std::move(parameters)),
+      klass_(klass), function_(function), toRuby_(returnInfo_.get())
   {
   }
 
@@ -10313,7 +10306,7 @@ namespace Rice::detail
 
     detail::TypeIndexParser typeIndexParser(typeid(Return_T), std::is_fundamental_v<detail::intrinsic_type<Return_T>>);
     result << typeIndexParser.simplifiedName() << " ";
-    result << this->method_name_;
+    result << this->name();
 
     result << "(";
 
@@ -10410,17 +10403,10 @@ namespace Rice::detail
   }
 
   template<typename Function_T, bool NoGVL>
-  inline std::string NativeFunction<Function_T, NoGVL>::name()
-  {
-    return this->method_name_;
-  }
-
-  template<typename Function_T, bool NoGVL>
   inline NativeKind NativeFunction<Function_T, NoGVL>::kind()
   {
     return NativeKind::Function;
   }
-
   template<typename Function_T, bool NoGVL>
   inline VALUE NativeFunction<Function_T, NoGVL>::returnKlass()
   {
@@ -10470,7 +10456,6 @@ namespace Rice::detail
     VALUE operator()(size_t argc, const VALUE* argv, VALUE self) override;
     std::string toString() override;
 
-    std::string name() override;
     NativeKind kind() override;
     VALUE returnKlass() override;
 
@@ -10482,7 +10467,6 @@ namespace Rice::detail
 
   private:
     VALUE klass_;
-    std::string method_name_;
     Iterator_Func_T begin_;
     Iterator_Func_T end_;
   };
@@ -10513,7 +10497,7 @@ namespace Rice::detail
 
   template <typename T, typename Iterator_Func_T>
   inline NativeIterator<T, Iterator_Func_T>::NativeIterator(VALUE klass, std::string method_name, Iterator_Func_T begin, Iterator_Func_T end) :
-    klass_(klass), method_name_(method_name), begin_(begin), end_(end)
+    Native(method_name), klass_(klass), begin_(begin), end_(end)
   {
   }
 
@@ -10553,7 +10537,7 @@ namespace Rice::detail
       });
     };
 
-    Identifier identifier(this->method_name_);
+    Identifier identifier(this->name());
     VALUE enumerator = protect(rb_enumeratorize_with_size, self, identifier.to_sym(), 0, nullptr, rb_size_function);
     
     // Hack the enumerator object by storing name_ on the enumerator object so
@@ -10592,12 +10576,6 @@ namespace Rice::detail
   inline std::string NativeIterator<T, Iterator_Func_T>::toString()
   {
     return "";
-  }
-
-  template<typename T, typename Iterator_Func_T>
-  inline std::string NativeIterator<T, Iterator_Func_T>::name()
-  {
-    return this->method_name_;
   }
 
   template<typename T, typename Iterator_Func_T>
@@ -10674,7 +10652,6 @@ namespace Rice::detail
     VALUE operator()(size_t argc, const VALUE* argv, VALUE self) override;
     std::string toString() override;
 
-    std::string name() override;
     NativeKind kind() override;
     VALUE returnKlass() override;
 
@@ -10695,7 +10672,6 @@ namespace Rice::detail
 
   private:
     VALUE klass_;
-    std::string method_name_;
     Method_T method_;
     To_Ruby<To_Ruby_T> toRuby_;
   };
@@ -10745,8 +10721,8 @@ namespace Rice::detail
 
   template<typename Class_T, typename Method_T, bool NoGVL>
   NativeMethod<Class_T, Method_T, NoGVL>::NativeMethod(VALUE klass, std::string method_name, Method_T method, std::unique_ptr<Return>&& returnInfo, std::vector<std::unique_ptr<ParameterAbstract>>&& parameters)
-    : Native(std::move(returnInfo), std::move(parameters)),
-      klass_(klass), method_name_(method_name), method_(method), toRuby_(returnInfo_.get())
+    : Native(method_name, std::move(returnInfo), std::move(parameters)),
+      klass_(klass), method_(method), toRuby_(returnInfo_.get())
   {
   }
 
@@ -10776,7 +10752,7 @@ namespace Rice::detail
       result << typeIndexParserReceiver.simplifiedName() << "::";
     }
     
-    result << this->method_name_;
+    result << this->name();
 
     result << "(";
 
@@ -10955,12 +10931,6 @@ namespace Rice::detail
   }
 
   template<typename Class_T, typename Method_T, bool NoGVL>
-  inline std::string NativeMethod<Class_T, Method_T, NoGVL>::name()
-  {
-    return this->method_name_;
-  }
-
-  template<typename Class_T, typename Method_T, bool NoGVL>
   inline NativeKind NativeMethod<Class_T, Method_T, NoGVL>::kind()
   {
     return NativeKind::Method;
@@ -11012,7 +10982,6 @@ namespace Rice::detail
     VALUE operator()(size_t argc, const VALUE* argv, VALUE self) override;
     std::string toString() override;
     
-    std::string name() override;
     NativeKind kind() override;
     VALUE returnKlass() override;
 
@@ -11092,7 +11061,7 @@ namespace Rice::detail
 
   template<typename Proc_T>
   NativeProc<Proc_T>::NativeProc(Proc_T proc, std::unique_ptr<Return>&& returnInfo, std::vector<std::unique_ptr<ParameterAbstract>>&& parameters)
-    : Native(std::move(returnInfo), std::move(parameters)), 
+    : Native("proc", std::move(returnInfo), std::move(parameters)),
       proc_(proc), toRuby_(returnInfo_.get())
   {
   }
@@ -11152,12 +11121,6 @@ namespace Rice::detail
     VALUE result = this->invoke(std::forward<Parameter_Ts>(nativeValues));
 
     return result;
-  }
-
-  template<typename Proc_T>
-  inline std::string NativeProc< Proc_T>::name()
-  {
-    return "proc";
   }
 
   template<typename Proc_T>
@@ -11224,7 +11187,6 @@ namespace Rice::detail
   private:
     VALUE operator()(size_t argc, const VALUE* argv, VALUE self) override;
     std::string toString() override;
-    std::string name() override;
     NativeKind kind() override;
     VALUE returnKlass() override;
 
@@ -11419,7 +11381,7 @@ namespace Rice::detail
 
   template<typename Return_T, typename ...Parameter_Ts>
   NativeCallback<Return_T(*)(Parameter_Ts...)>::NativeCallback(VALUE proc) :
-    Native(std::move(copyReturnInfo()), std::move(copyParameters())),
+    Native("callback", std::move(copyReturnInfo()), std::move(copyParameters())),
       proc_(proc), fromRuby_(returnInfo_.get())
   {
     // Tie the lifetime of the NativeCallback C++ instance to the lifetime of the Ruby proc object
@@ -11483,12 +11445,6 @@ namespace Rice::detail
   inline VALUE NativeCallback<Return_T(*)(Parameter_Ts...)>::operator()(size_t argc, const VALUE* argv, VALUE self)
   {
     return Qnil;
-  }
-
-  template<typename Return_T, typename ...Parameter_Ts>
-  inline std::string NativeCallback<Return_T(*)(Parameter_Ts...)>::name()
-  {
-    return "";
   }
 
   template<typename Return_T, typename ...Parameter_Ts>
