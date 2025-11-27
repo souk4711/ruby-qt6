@@ -93,6 +93,11 @@ module RubyQt6
       end
 
       # @!visibility private
+      def set_object_name(name)
+        _set_object_name(T.to_qstr(name))
+      end
+
+      # @!visibility private
       def tr(source_text, disambiguation = "", n = -1)
         context = self.class.name
         QtCore::QCoreApplication.translate(context, source_text, disambiguation, n)

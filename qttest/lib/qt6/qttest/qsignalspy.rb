@@ -11,7 +11,7 @@ module RubyQt6
       # @param signal [String]
       # @return [QSignalSpy]
       def initialize(receiver, signal)
-        _initialize(receiver, signal)
+        _initialize(receiver, "2#{signal}")
       end
     end
   end
