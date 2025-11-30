@@ -4,7 +4,6 @@
 
 #include <QAccessible>
 #include <QScreen>
-#include <QVulkanInstance>
 
 using namespace Rice;
 
@@ -90,7 +89,6 @@ void Init_qwindow(Rice::Module rb_mQt6QtGui)
             .define_method("set_surface_type", &QWindow::setSurfaceType, Arg("surface_type"))
             .define_method("set_transient_parent", &QWindow::setTransientParent, Arg("parent"))
             .define_method("set_visibility", &QWindow::setVisibility, Arg("v"))
-            .define_method("set_vulkan_instance", &QWindow::setVulkanInstance, Arg("instance"))
             .define_method("set_window_state", &QWindow::setWindowState, Arg("state"))
             .define_method("set_window_states", &QWindow::setWindowStates, Arg("states"))
             .define_method("size", &QWindow::size)
@@ -101,7 +99,6 @@ void Init_qwindow(Rice::Module rb_mQt6QtGui)
             .define_method("type", &QWindow::type)
             .define_method("unset_cursor", &QWindow::unsetCursor)
             .define_method("visibility", &QWindow::visibility)
-            .define_method("vulkan_instance", &QWindow::vulkanInstance)
             .define_method("width", &QWindow::width)
             .define_method("win_id", &QWindow::winId)
             .define_method("window_state", &QWindow::windowState)
