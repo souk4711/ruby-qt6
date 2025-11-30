@@ -45,7 +45,7 @@ void define_qdbusreply_under(Module module)
         .define_constructor(Constructor<QDBusReply_T, const QDBusPendingCall &>(), Arg("pcall"))
         .define_constructor(Constructor<QDBusReply_T, const QDBusPendingReply_T &>(), Arg("reply"))
         .define_constructor(Constructor<QDBusReply_T, const QDBusReply_T &>(), Arg("other"))
-        .template define_method<const QDBusError &(QDBusReply_T::*)()>("error", &QDBusReply_T::error)
+        .template define_method<const QDBusError &(QDBusReply_T::*)() const>("error", &QDBusReply_T::error)
         .template define_method("valid?", &QDBusReply_T::isValid)
         .template define_method("value", &QDBusReply_T::value);
 };

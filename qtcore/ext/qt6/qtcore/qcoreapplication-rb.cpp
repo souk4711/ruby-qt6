@@ -15,6 +15,7 @@ void Init_qcoreapplication(Rice::Module rb_mQt6QtCore)
         // RubyQt6::QtCore::QCoreApplication
         define_class_under<QCoreApplication, QObject>(rb_mQt6QtCore, "QCoreApplication")
             // RubyQt6-Defined Functions
+            .define_singleton_function("application_pid", []() -> qint64 { return QCoreApplication::applicationPid(); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QCoreApplication::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QCoreApplication, int &, char **>(), Arg("argc"), ArgBuffer("argv"))
@@ -37,7 +38,6 @@ void Init_qcoreapplication(Rice::Module rb_mQt6QtCore)
             .define_singleton_function("application_dir_path", &QCoreApplication::applicationDirPath)
             .define_singleton_function("application_file_path", &QCoreApplication::applicationFilePath)
             .define_singleton_function("application_name", &QCoreApplication::applicationName)
-            .define_singleton_function("application_pid", &QCoreApplication::applicationPid)
             .define_singleton_function("application_version", &QCoreApplication::applicationVersion)
             .define_singleton_function("arguments", &QCoreApplication::arguments)
             .define_singleton_function("closing_down", &QCoreApplication::closingDown)
