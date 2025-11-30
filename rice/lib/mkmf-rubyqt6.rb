@@ -9,20 +9,28 @@ def qmake
     `#{qmake} -v`
     return @qmake = qmake if $?.success?
   end
-  raise "Could not find qmake"
+  raise "Could not find qmake, please add qmake to your PATH environment variable"
 end
 
-def qt_install_headers
-  return @qt_install_headers if @qt_install_headers
+qmake_persistent_props = {}
+%w[QT_INSTALL_HEADERS QT_INSTALL_LIBS].each do |name|
+  define_method(name.downcase) do
+    return qmake_persistent_props[name] if qmake_persistent_props[name]
 
-  r = ENV["QT_INSTALL_HEADERS"] || ""
-  return @qt_install_headers = r unless r == ""
+    r = (ENV[name] || "").strip
+    return qmake_persistent_props[name] = r if r != ""
 
-  r = `#{qmake} -query QT_INSTALL_HEADERS`.strip
-  return @qt_install_headers = r unless r == ""
+    r = `#{qmake} -query #{name}`.strip
+    return qmake_persistent_props[name] = r if r != ""
 
-  raise "Could not determine QT_INSTALL_HEADERS folder"
+    raise "Could not determine #{env} folder"
+  end
 end
 
-RUBYQT6_CXX_FLAGS = ENV["RUBYQT6_CXX_FLAGS"] || "-Os -fno-fast-math"
-append_cppflags(RUBYQT6_CXX_FLAGS) unless RUBYQT6_CXX_FLAGS.strip == ""
+def rubyqt6_cxx_flags
+  (ENV["RUBYQT6_CXX_FLAGS"] || "").strip
+end
+
+abort "Could not find Qt6Core library" unless find_library("Qt6Core", nil, qt_install_libs)
+abort "Could not find QtCore/QtCore header" unless find_header("QtCore/QtCore", qt_install_headers)
+append_cppflags(rubyqt6_cxx_flags) unless rubyqt6_cxx_flags == ""
