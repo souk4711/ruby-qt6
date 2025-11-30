@@ -22,9 +22,6 @@
 #ifndef RICE_QLIST_HPP
 #define RICE_QLIST_HPP
 
-#include <rice/rice.hpp>
-#include <rice/stl.hpp>
-
 #include <QList>
 
 using namespace Rice;

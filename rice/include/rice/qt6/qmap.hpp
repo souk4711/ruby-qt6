@@ -22,9 +22,6 @@
 #ifndef RICE_QMAP_HPP
 #define RICE_QMAP_HPP
 
-#include <rice/rice.hpp>
-#include <rice/stl.hpp>
-
 #include <QMap>
 
 using namespace Rice;

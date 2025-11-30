@@ -22,9 +22,6 @@
 #ifndef BANDO_COMMON_HPP
 #define BANDO_COMMON_HPP
 
-#include <rice/rice.hpp>
-#include <rice/stl.hpp>
-
 #include <QEvent>
 #include <QMetaMethod>
 #include <QMetaObject>

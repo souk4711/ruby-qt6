@@ -22,9 +22,6 @@
 #ifndef RICE_QENUM_HPP
 #define RICE_QENUM_HPP
 
-#include <rice/rice.hpp>
-#include <rice/stl.hpp>
-
 #include <QVariant>
 
 using namespace Rice;

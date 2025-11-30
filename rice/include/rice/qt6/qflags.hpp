@@ -22,9 +22,6 @@
 #ifndef RICE_QFLAGS_HPP
 #define RICE_QFLAGS_HPP
 
-#include <rice/rice.hpp>
-#include <rice/stl.hpp>
-
 #include <QFlags>
 
 using namespace Rice;

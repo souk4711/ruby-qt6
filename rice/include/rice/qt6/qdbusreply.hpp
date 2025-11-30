@@ -22,9 +22,6 @@
 #ifndef RICE_QDBUSREPLY_HPP
 #define RICE_QDBUSREPLY_HPP
 
-#include <rice/rice.hpp>
-#include <rice/stl.hpp>
-
 #include <QDBusReply>
 
 using namespace Rice;
