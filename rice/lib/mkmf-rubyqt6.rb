@@ -32,5 +32,5 @@ def rubyqt6_cxx_flags
 end
 
 abort "Could not find Qt6Core library" unless find_library("Qt6Core", nil, qt_install_libs)
-abort "Could not find QtCore/QtCore header" unless find_header("QtCore/QtCore", qt_install_headers)
+abort "Could not find QtCore/QtCoreVersion header" unless find_header("QtCore/QtCoreVersion", qt_install_headers)
 append_cppflags(rubyqt6_cxx_flags) unless rubyqt6_cxx_flags == ""
