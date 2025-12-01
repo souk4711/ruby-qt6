@@ -8,7 +8,8 @@ module RubyQt6
       def self.q_object(&blk)
         if !name.start_with?("RubyQt6::")
           if !superclass.name.start_with?("RubyQt6::Bando::")
-            raise "Invalid superclass: macro `q_object` only available for subclass of RubyQt6::Bando::<...>"
+            raise "Invalid superclass: macro `q_object` " \
+              "only available for subclass of RubyQt6::Bando::<...>"
           end
         end
 
