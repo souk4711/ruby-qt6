@@ -1,20 +1,9 @@
 # frozen_string_literal: true
 
-RUBYQT6_RICE_LIB_PATH = File.join(__dir__, "../../../../rice/lib")
-if File.exist?(RUBYQT6_RICE_LIB_PATH)
-  require File.join(RUBYQT6_RICE_LIB_PATH, "mkmf-rubyqt6.rb")
-else
-  require "mkmf-rubyqt6"
-end
+RUBYQT6_RICE_GEM_PATH = Gem::Specification.find_by_name("ruby-qt6-rice").full_gem_path
+require File.join(RUBYQT6_RICE_GEM_PATH, "lib/mkmf-rubyqt6.rb")
 
-includedir = qt_install_headers
-append_cppflags("-I#{includedir}")
-append_cppflags("-I#{includedir}/QtCore")
-append_cppflags("-I#{includedir}/QtGui")
-append_cppflags("-I#{includedir}/QtWidgets")
-append_cppflags("-I#{includedir}/QtQml")
-append_cppflags("-I#{includedir}/QtQuick")
-append_cppflags("-I#{includedir}/QtQuickWidgets")
-abort "libQt6QuickWidgets is missing, please install qt6-declarative" unless have_library("Qt6QuickWidgets")
+rubyqt6_config_depend_rubygems("QtCore", "QtGui", "QtWidgets", "QtQml", "QtQuick")
+rubyqt6_config("QtQuickWidgets", pkg: "qt6-declarative")
 
 create_makefile("qt6/qtquickwidgets/qtquickwidgets")
