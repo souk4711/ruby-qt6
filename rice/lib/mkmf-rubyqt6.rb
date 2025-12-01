@@ -5,11 +5,16 @@ require_relative "mkmf-rice"
 def qmake
   return @qmake if @qmake
 
+  r = (ENV["QMAKE"] || "").strip
+  return @qmake = r if r != ""
+
   ["qmake6", "qmake"].each do |qmake|
     `#{qmake} -v`
     return @qmake = qmake if $?.success?
   end
-  raise "Could not find qmake, please add qmake to your PATH environment variable"
+
+  raise "Could not find qmake, " \
+    "please add qmake to your PATH environment variable"
 end
 
 qmake_persistent_props = {}
@@ -23,7 +28,7 @@ qmake_persistent_props = {}
     r = `#{qmake} -query #{name}`.strip
     return qmake_persistent_props[name] = r if r != ""
 
-    raise "Could not determine #{env} folder"
+    raise "Could not determine #{name} folder"
   end
 end
 
