@@ -15,4 +15,5 @@ mkmf.log
 .rspec_status
 
 /examples/**/Gemfile.lock
+/extensions/
 /vendor/

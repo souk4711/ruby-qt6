@@ -8,6 +8,10 @@ Rake::ExtensionTask.new("qtuitools", GEMSPEC) do |ext|
   ext.ext_dir = "ext/qt6/qtuitools"
   ext.lib_dir = "lib/qt6/qtuitools"
 end
+Rake::Task["rake:compile"].enhance do
+  mkdir_p Pathname.new(GEMSPEC.gem_build_complete_path).parent
+  touch GEMSPEC.gem_build_complete_path
+end
 
 require "rubocop/rake_task"
 RuboCop::RakeTask.new
