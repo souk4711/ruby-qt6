@@ -7,7 +7,4 @@ includedir_private = Dir["#{qt_install_headers}/QtCore/*.*.*"][0]
 append_cppflags("-I#{includedir_private}")
 append_cppflags("-I#{includedir_private}/QtCore")
 
-rubyqt6_config_depend_rubygems
-rubyqt6_config("QtCore", pkg: "qt6-base")
-
-create_makefile("qt6/qtcore/qtcore")
+rubyqt6_extconf("QtCore", depends: [])

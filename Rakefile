@@ -100,6 +100,7 @@ task :compile, [:clobber] do |_, args|
 
   if args.clobber
     require "parallel"
+    sh "rm -rf extensions"
     Bundler.with_unbundled_env { Parallel.each(QT6_LIBS, &compile) }
   else
     Bundler.with_unbundled_env { QT6_LIBS.each(&compile) }
