@@ -39,19 +39,19 @@ def rubyqt6_extconf(mod, depends:)
 
   # Add qt6 included directories
   append_cppflags("-I#{qt_install_headers}")
-  (depends << mod).each do |name|
+  (Array(depends) + Array(mod)).each do |name|
     includedir = File.join(qt_install_headers, name)
     append_cppflags("-I#{includedir}")
   end
 
   # Add qt6 libraries
-  (depends << mod).each do |name|
+  (Array(depends) + Array(mod)).each do |name|
     library = name.sub("Qt", "Qt6")
     message = "Could not find lib#{library}, please install qt6 package"
     raise message unless find_library(library, nil, qt_install_libs)
   end
 
   # Create Makefile
-  gem_name = mod.downcase
-  create_makefile("qt6/#{gem_name}/#{gem_name}")
+  name = mod.downcase
+  create_makefile("qt6/#{name}/#{name}")
 end
