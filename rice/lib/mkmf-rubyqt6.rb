@@ -33,9 +33,13 @@ qmake_persistent_props = {}
 end
 
 def rubyqt6_extconf(mod, depends:)
-  # Add optimize cxxflags
+  # Add custom cxxflags
   r = (ENV["RUBYQT6_CXXFLAGS"] || "").strip
   append_cppflags(r) if r != ""
+
+  # Add rubyqt6 cxxflag
+  r = "RUBYQT6_BUILD_#{mod.upcase}_LIB"
+  append_cppflags("-D#{r}")
 
   # Add qt6 included directories
   append_cppflags("-I#{qt_install_headers}")
