@@ -55,6 +55,15 @@ def rubyqt6_extconf(mod, depends:)
     raise message unless find_library(library, nil, qt_install_libs)
   end
 
+  # Add rubyqt6 library
+  if IS_MINGW
+    # __declspec(dllimport) RubyQt6_RTypedData_Collector
+    if Array(depends).include?("QtCore")
+      gem_path = Gem::Specification.find_by_name("ruby-qt6-qtcore").full_gem_path
+      append_ldflags << File.join(gem_path, "lib/qt6/qtcore/qtcore.so")
+    end
+  end
+
   # Create Makefile
   name = mod.downcase
   create_makefile("qt6/#{name}/#{name}")

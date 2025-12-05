@@ -1,4 +1,5 @@
 #include "qtgui-rb.hpp"
+#include "qtguisetup-rb.hpp"
 #include "qtguiversion-rb.hpp"
 
 #include "qbrush-rb.hpp"
@@ -57,6 +58,7 @@ extern "C" void Init_qtgui()
         Rice::Module rb_mQt6 = Rice::define_module("RubyQt6");
         Rice::Module rb_mQt6QtGui = define_module_under(rb_mQt6, "QtGui");
 
+        Init_qtguisetup(rb_mQt6);
         Init_qtguiversion(rb_mQt6QtGui);
 
         Init_qbrush(rb_mQt6QtGui);

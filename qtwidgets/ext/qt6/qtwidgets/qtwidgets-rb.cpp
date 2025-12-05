@@ -1,4 +1,5 @@
 #include "qtwidgets-rb.hpp"
+#include "qtwidgetssetup-rb.hpp"
 #include "qtwidgetsversion-rb.hpp"
 
 #include "qgraphicsitem-rb.hpp"
@@ -166,6 +167,7 @@ extern "C" void Init_qtwidgets()
         Rice::Module rb_mQt6 = Rice::define_module("RubyQt6");
         Rice::Module rb_mQt6QtWidgets = define_module_under(rb_mQt6, "QtWidgets");
 
+        Init_qtwidgetssetup(rb_mQt6);
         Init_qtwidgetsversion(rb_mQt6QtWidgets);
 
         Init_qgraphicsitem(rb_mQt6QtWidgets);
