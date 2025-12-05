@@ -234,7 +234,7 @@ VALUE bando_qwidget_size_hint(VALUE self)
 template <typename BC_T, typename C_T>
 Data_Type<BC_T> define_bando_qwidget_under(Module module, char const *name)
 {
-    Data_Type<BC_T> bando_qlass = define_class_under<BC_T, C_T>(module, name);
+    Data_Type<BC_T> bando_qlass = define_qlass_under<BC_T, C_T>(module, name);
     detail::protect(rb_define_method, bando_qlass, "_initialize_ruby_value", (RUBY_METHOD_FUNC)bando_qwidget_initialize_ruby_value<BC_T>, 2);
     detail::protect(rb_define_method, bando_qlass, "_ruby_value", (RUBY_METHOD_FUNC)bando_qwidget_ruby_value<BC_T>, 0);
     detail::protect(rb_define_method, bando_qlass, "_ruby_value_handle_event", (RUBY_METHOD_FUNC)bando_qwidget_ruby_value_handle_event<BC_T>, 2);

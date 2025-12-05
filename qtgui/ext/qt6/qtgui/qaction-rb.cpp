@@ -13,7 +13,7 @@ void Init_qaction(Rice::Module rb_mQt6QtGui)
 {
     rb_cQAction =
         // RubyQt6::QtGui::QAction
-        define_class_under<QAction, QObject>(rb_mQt6QtGui, "QAction")
+        define_qlass_under<QAction, QObject>(rb_mQt6QtGui, "QAction")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QAction::staticMetaObject; })
             // Constructor

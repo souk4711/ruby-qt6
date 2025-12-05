@@ -22,7 +22,7 @@ void Init_qvariant(Rice::Module rb_mQt6QtCore)
 {
     rb_cQVariant =
         // RubyQt6::QtCore::QVariant
-        define_class_under<QVariant>(rb_mQt6QtCore, "QVariant")
+        define_qlass_under<QVariant>(rb_mQt6QtCore, "QVariant")
             // RubyQt6-Defined Functions
             .define_singleton_function("from_bool", [](bool value) -> QVariant { return QVariant(value); })
             .define_singleton_function("from_int", [](int value) -> QVariant { return QVariant(value); })

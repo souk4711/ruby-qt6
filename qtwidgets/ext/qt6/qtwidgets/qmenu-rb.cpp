@@ -9,7 +9,7 @@ void Init_qmenu(Rice::Module rb_mQt6QtWidgets)
 {
     rb_cQMenu =
         // RubyQt6::QtWidgets::QMenu
-        define_class_under<QMenu, QWidget>(rb_mQt6QtWidgets, "QMenu")
+        define_qlass_under<QMenu, QWidget>(rb_mQt6QtWidgets, "QMenu")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QMenu::staticMetaObject; })
             // Constructor

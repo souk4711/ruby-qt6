@@ -19,36 +19,16 @@
 // license terms which apply to the Application, with which you must still
 // comply.
 
-#ifndef RICE_QFLAGS_HPP
-#define RICE_QFLAGS_HPP
-
-#include <QFlags>
+#ifndef RICE_QTCORE_HPP
+#define RICE_QTCORE_HPP
 
 using namespace Rice;
 
-template<typename QFlags_T>
-VALUE qflags_to_i(VALUE self)
+template<typename T, typename Base_T = void>
+Data_Type<T> define_qlass_under(Object parent, char const* name)
 {
-    auto rb_return = (int)detail::From_Ruby<QFlags_T>().convert(self);
-    return detail::To_Ruby<int>().convert(rb_return);
-}
-
-template<typename QFlags_T>
-VALUE qflags_from_int(VALUE self, VALUE i)
-{
-    auto rb_return = static_cast<QFlags_T>(detail::From_Ruby<int>().convert(i));
-    return detail::To_Ruby<QFlags_T>().convert(rb_return);
-}
-
-template<typename Enum_T>
-Data_Type<QFlags<Enum_T>> define_qflags_under(Module module, char const* name)
-{
-    using QFlags_T = QFlags<Enum_T>;
-
-    Data_Type<QFlags_T> qflags = define_qlass_under<QFlags_T>(module, name);
-    detail::protect(rb_define_method, qflags, "to_i", (RUBY_METHOD_FUNC)qflags_to_i<QFlags_T>, 0);
-    detail::protect(rb_define_singleton_method, qflags, "from_int", (RUBY_METHOD_FUNC)qflags_from_int<QFlags_T>, 1);
-    return qflags;
+    Data_Type<T> qlass = define_class_under<T, Base_T>(parent, name);
+    return qlass;
 }
 
 #endif

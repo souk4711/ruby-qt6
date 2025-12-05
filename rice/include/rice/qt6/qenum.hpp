@@ -50,7 +50,7 @@ VALUE qenum_qvariant_register_metatype(VALUE self)
 template<typename Enum_T>
 Data_Type<Enum_T> define_qenum_under(Module module, char const* name)
 {
-    Data_Type<Enum_T> qenum = define_class_under<Enum_T>(module, name);
+    Data_Type<Enum_T> qenum = define_qlass_under<Enum_T>(module, name);
     detail::protect(rb_define_method, qenum, "to_i", (RUBY_METHOD_FUNC)qenum_to_i<Enum_T>, 0);
     detail::protect(rb_define_singleton_method, qenum, "from_int", (RUBY_METHOD_FUNC)qenum_from_int<Enum_T>, 1);
     detail::protect(rb_define_singleton_method, qenum, "_qvariant_register_metatype", (RUBY_METHOD_FUNC)qenum_qvariant_register_metatype<Enum_T>, 0);

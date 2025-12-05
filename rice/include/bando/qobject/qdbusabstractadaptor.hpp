@@ -86,7 +86,7 @@ template <typename BC_T, typename C_T>
 Data_Type<BC_T> define_bando_qdbusabstractadaptor_under(Module module, char const *name)
 {
     Data_Type<BC_T> bando_qlass =
-        define_class_under<BC_T, C_T>(module, name)
+        define_qlass_under<BC_T, C_T>(module, name)
             .define_method("_initialize_ruby_value", &BC_T::initializeValue, Arg("value"), Arg("mo"))
             .define_method("_ruby_value", &BC_T::value)
             .define_method("_ruby_value_handle_event", &BC_T::Class_T_handleEvent, Arg("name"), Arg("event"))
