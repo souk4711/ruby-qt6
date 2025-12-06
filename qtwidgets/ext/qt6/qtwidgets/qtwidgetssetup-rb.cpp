@@ -1,7 +1,7 @@
 #include "qtwidgetssetup-rb.hpp"
 
-#include <rice/qt6/dllimport/qtcore>
-#include <rice/qt6/dllimport/qtgui>
+#include <rice/qt6/dllimport/qtcore.hpp>
+#include <rice/qt6/dllimport/qtgui.hpp>
 
 void Init_qtwidgetssetup(Rice::Module rb_mQt6)
 {

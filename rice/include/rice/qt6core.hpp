@@ -38,8 +38,20 @@ using namespace Rice;
 
 struct RUBYQT6_QTCORE_EXPORT RubyQt6_RTypedData_Collector
 {
-    static inline std::map<VALUE, rb_data_type_t*> instance_ = {};
+    RUBYQT6_QTCORE_EXPORT static RubyQt6_RTypedData_Collector *instance();
+    static RubyQt6_RTypedData_Collector* instance_;
+
+    std::map<VALUE, rb_data_type_t*> map_;
 };
+
+#ifdef RUBYQT6_BUILD_QTCORE_LIB
+inline RubyQt6_RTypedData_Collector *RubyQt6_RTypedData_Collector::instance()
+{
+    if (instance_ == nullptr) { instance_ = new RubyQt6_RTypedData_Collector; }
+    return instance_;
+}
+inline RubyQt6_RTypedData_Collector *RubyQt6_RTypedData_Collector::instance_ = nullptr;
+#endif
 
 template<typename T, typename Base_T = void>
 inline Data_Type<T> define_qlass_under(Object parent, Identifier id)
@@ -47,8 +59,11 @@ inline Data_Type<T> define_qlass_under(Object parent, Identifier id)
     Class superKlass = get_superklass<Base_T>();
     Data_Type<T> klass = define_class_under<T, Base_T>(parent, id, superKlass);
 
-    auto ret = RubyQt6_RTypedData_Collector::instance_.insert({ klass.object_id(), klass.ruby_data_type() });
-    if (!ret.second) { Q_ASSERT((*ret.first).second == klass.ruby_data_type()); }
+    auto ret = RubyQt6_RTypedData_Collector::instance()->map_.insert({ klass.object_id(), klass.ruby_data_type() });
+    if (!ret.second && (*ret.first).second != klass.ruby_data_type()) {
+        std::string msg = "klass: " + klass.to_s().str();
+        Q_ASSERT_X(false, "define_qlass_under", msg.c_str());
+    }
 
     return klass;
 }
@@ -65,10 +80,13 @@ inline Data_Type<T> declare_qlass_under(Object parent, Identifier id)
 {
     Class klass = parent.const_get(id).value();
 
-    auto ret = RubyQt6_RTypedData_Collector::instance_.find(klass.object_id());
-    if (ret == RubyQt6_RTypedData_Collector::instance_.end()) { Q_UNREACHABLE(); }
+    auto ret = RubyQt6_RTypedData_Collector::instance()->map_.find(klass.object_id());
+    if (ret == RubyQt6_RTypedData_Collector::instance()->map_.end()) {
+        std::string msg = "klass: " + klass.to_s().str();
+        Q_ASSERT_X(false, "declare_qlass_under", msg.c_str());
+    }
 
-    return declare_class_under<T, Base_T>(klass, id.c_str(), (*ret).second);
+    return declare_class_under<T, Base_T>(parent, id.c_str(), (*ret).second);
 }
 
 template<typename T, typename Base_T = void>

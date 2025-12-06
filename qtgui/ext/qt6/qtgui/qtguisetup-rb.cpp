@@ -1,6 +1,6 @@
 #include "qtguisetup-rb.hpp"
 
-#include <rice/qt6/dllimport/qtcore>
+#include <rice/qt6/dllimport/qtcore.hpp>
 
 void Init_qtguisetup(Rice::Module rb_mQt6)
 {
