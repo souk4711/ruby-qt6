@@ -2,11 +2,11 @@
 #include <qaudioformat.h>
 #include <rice/qt6/qenum.hpp>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQAudioFormat;
+Class rb_cQAudioFormat;
 
-void Init_qaudioformat(Rice::Module rb_mQt6QtMultimedia)
+void Init_qaudioformat(Module rb_mQt6QtMultimedia)
 {
     rb_cQAudioFormat =
         // RubyQt6::QtMultimedia::QAudioFormat

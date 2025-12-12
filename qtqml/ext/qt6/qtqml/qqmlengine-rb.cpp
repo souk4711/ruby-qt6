@@ -4,11 +4,11 @@
 #include <QQmlContext>
 #include <QQmlIncubationController>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQQmlEngine;
+Class rb_cQQmlEngine;
 
-void Init_qqmlengine(Rice::Module rb_mQt6QtQml)
+void Init_qqmlengine(Module rb_mQt6QtQml)
 {
     rb_cQQmlEngine =
         // RubyQt6::QtQml::QQmlEngine

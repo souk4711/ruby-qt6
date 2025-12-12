@@ -1,11 +1,11 @@
 #include "qiodevice-rb.hpp"
 #include <qiodevice.h>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQIODevice;
+Class rb_cQIODevice;
 
-void Init_qiodevice(Rice::Module rb_mQt6QtCore)
+void Init_qiodevice(Module rb_mQt6QtCore)
 {
     rb_cQIODevice =
         // RubyQt6::QtCore::QIODevice

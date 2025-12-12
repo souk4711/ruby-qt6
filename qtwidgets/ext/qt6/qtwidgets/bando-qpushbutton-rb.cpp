@@ -3,13 +3,13 @@
 
 #include <QPushButton>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
 using Bando_QPushButton = BandoQWidget<QPushButton, const QString &, QWidget *>;
 
-Rice::Class rb_mBando_cQPushButton;
+Class rb_mBando_cQPushButton;
 
-void Init_bando_qpushbutton(Rice::Module rb_mQt6Bando)
+void Init_bando_qpushbutton(Module rb_mQt6Bando)
 {
     rb_mBando_cQPushButton =
         define_bando_qwidget_under<Bando_QPushButton, QPushButton>(rb_mQt6Bando, "QPushButton")

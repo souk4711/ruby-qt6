@@ -1,11 +1,11 @@
 #include "qaudiosink-rb.hpp"
 #include <qaudiosink.h>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQAudioSink;
+Class rb_cQAudioSink;
 
-void Init_qaudiosink(Rice::Module rb_mQt6QtMultimedia)
+void Init_qaudiosink(Module rb_mQt6QtMultimedia)
 {
     rb_cQAudioSink =
         // RubyQt6::QtMultimedia::QAudioSink

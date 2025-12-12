@@ -1,3 +1,5 @@
 #include <rice/qt6.hpp>
 
-void Init_qtnetworkversion(Rice::Module rb_mQt6QtNetwork);
+RICE4RUBYQT6_USE_NAMESPACE
+
+void Init_qtnetworkversion(Module rb_mQt6QtNetwork);

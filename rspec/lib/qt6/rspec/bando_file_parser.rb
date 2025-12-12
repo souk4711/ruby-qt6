@@ -23,7 +23,7 @@ module RubyQt6
       end
 
       def parse_bando_variants_declaration
-        while line == "" || line.start_with?("#include") || line.start_with?("using ")
+        while line == "" || line.start_with?("#include") || line.start_with?("using ") || line.start_with?("RICE4RUBYQT6_USE_NAMESPACE")
           matched = line.match(/^using Bando_(\w+) = Bando(\w+)<(\w+), (.*)>/)
           if matched.nil?
             take_next_line
@@ -41,7 +41,7 @@ module RubyQt6
         end
 
         @bandoes.each do |bando|
-          expected = "Rice::Class rb_mBando_c#{bando.name};"
+          expected = "Class rb_mBando_c#{bando.name};"
           if line == expected
             take_next_line
           else

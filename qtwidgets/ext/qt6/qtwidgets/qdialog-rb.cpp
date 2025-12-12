@@ -2,11 +2,11 @@
 #include <qdialog.h>
 #include <rice/qt6/qenum.hpp>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQDialog;
+Class rb_cQDialog;
 
-void Init_qdialog(Rice::Module rb_mQt6QtWidgets)
+void Init_qdialog(Module rb_mQt6QtWidgets)
 {
     rb_cQDialog =
         // RubyQt6::QtWidgets::QDialog

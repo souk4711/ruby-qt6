@@ -3,11 +3,11 @@
 
 #include <QScreen>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQCursor;
+Class rb_cQCursor;
 
-void Init_qcursor(Rice::Module rb_mQt6QtGui)
+void Init_qcursor(Module rb_mQt6QtGui)
 {
     rb_cQCursor =
         // RubyQt6::QtGui::QCursor

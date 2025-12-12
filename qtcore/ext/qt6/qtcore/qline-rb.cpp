@@ -1,12 +1,12 @@
 #include "qline-rb.hpp"
 #include <qline.h>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQLine;
-Rice::Class rb_cQLineF;
+Class rb_cQLine;
+Class rb_cQLineF;
 
-void Init_qline(Rice::Module rb_mQt6QtCore)
+void Init_qline(Module rb_mQt6QtCore)
 {
     rb_cQLine =
         // RubyQt6::QtCore::QLine

@@ -1,3 +1,5 @@
 #include <rice/qt6.hpp>
 
-void Init_qtooltip(Rice::Module rb_mQt6QtWidgets);
+RICE4RUBYQT6_USE_NAMESPACE
+
+void Init_qtooltip(Module rb_mQt6QtWidgets);

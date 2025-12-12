@@ -4,13 +4,13 @@
 #include <QWebEnginePage>
 #include <QWebEngineProfile>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
 using Bando_QWebEnginePage = BandoQWebEnginePage<QWebEnginePage, QObject *>;
 
-Rice::Class rb_mBando_cQWebEnginePage;
+Class rb_mBando_cQWebEnginePage;
 
-void Init_bando_qwebenginepage(Rice::Module rb_mQt6Bando)
+void Init_bando_qwebenginepage(Module rb_mQt6Bando)
 {
     rb_mBando_cQWebEnginePage =
         define_bando_qwebenginepage_under<Bando_QWebEnginePage, QWebEnginePage>(rb_mQt6Bando, "QWebEnginePage")

@@ -1,11 +1,11 @@
 #include "qstatusbar-rb.hpp"
 #include <qstatusbar.h>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQStatusBar;
+Class rb_cQStatusBar;
 
-void Init_qstatusbar(Rice::Module rb_mQt6QtWidgets)
+void Init_qstatusbar(Module rb_mQt6QtWidgets)
 {
     rb_cQStatusBar =
         // RubyQt6::QtWidgets::QStatusBar

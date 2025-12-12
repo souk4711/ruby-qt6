@@ -3,11 +3,13 @@
 
 #include "qquickwidget-rb.hpp"
 
+RICE4RUBYQT6_USE_NAMESPACE
+
 extern "C" void Init_qtquickwidgets()
 {
-    return Rice::detail::cpp_protect([] {
-        Rice::Module rb_mQt6 = Rice::define_module("RubyQt6");
-        Rice::Module rb_mQt6QtQuickWidgets = define_module_under(rb_mQt6, "QtQuickWidgets");
+    return detail::cpp_protect([] {
+        Module rb_mQt6 = define_module("RubyQt6");
+        Module rb_mQt6QtQuickWidgets = define_module_under(rb_mQt6, "QtQuickWidgets");
 
         Init_qtquickwidgetsversion(rb_mQt6QtQuickWidgets);
 

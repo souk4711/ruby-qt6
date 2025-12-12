@@ -1,12 +1,12 @@
 #include "qwebenginecookiestore-rb.hpp"
 #include <qwebenginecookiestore.h>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQWebEngineCookieStore;
-Rice::Class rb_cQWebEngineCookieStoreFilterRequest;
+Class rb_cQWebEngineCookieStore;
+Class rb_cQWebEngineCookieStoreFilterRequest;
 
-void Init_qwebenginecookiestore(Rice::Module rb_mQt6QtWebEngineCore)
+void Init_qwebenginecookiestore(Module rb_mQt6QtWebEngineCore)
 {
     rb_cQWebEngineCookieStore =
         // RubyQt6::QtWebEngineCore::QWebEngineCookieStore

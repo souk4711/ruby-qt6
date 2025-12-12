@@ -14,11 +14,11 @@
 #include <QSizeF>
 #include <QSizeF>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQVariant;
+Class rb_cQVariant;
 
-void Init_qvariant(Rice::Module rb_mQt6QtCore)
+void Init_qvariant(Module rb_mQt6QtCore)
 {
     rb_cQVariant =
         // RubyQt6::QtCore::QVariant

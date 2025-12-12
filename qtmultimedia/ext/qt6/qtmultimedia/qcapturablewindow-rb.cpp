@@ -1,11 +1,11 @@
 #include "qcapturablewindow-rb.hpp"
 #include <qcapturablewindow.h>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQCapturableWindow;
+Class rb_cQCapturableWindow;
 
-void Init_qcapturablewindow(Rice::Module rb_mQt6QtMultimedia)
+void Init_qcapturablewindow(Module rb_mQt6QtMultimedia)
 {
     rb_cQCapturableWindow =
         // RubyQt6::QtMultimedia::QCapturableWindow

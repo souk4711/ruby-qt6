@@ -3,13 +3,13 @@
 
 #include <QHeaderView>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
 using Bando_QHeaderView = BandoQWidget<QHeaderView, Qt::Orientation, QWidget *>;
 
-Rice::Class rb_mBando_cQHeaderView;
+Class rb_mBando_cQHeaderView;
 
-void Init_bando_qheaderview(Rice::Module rb_mQt6Bando)
+void Init_bando_qheaderview(Module rb_mQt6Bando)
 {
     rb_mBando_cQHeaderView =
         define_bando_qwidget_under<Bando_QHeaderView, QHeaderView>(rb_mQt6Bando, "QHeaderView")

@@ -2,11 +2,11 @@
 #include <qimagewriter.h>
 #include <rice/qt6/qenum.hpp>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQImageWriter;
+Class rb_cQImageWriter;
 
-void Init_qimagewriter(Rice::Module rb_mQt6QtGui)
+void Init_qimagewriter(Module rb_mQt6QtGui)
 {
     rb_cQImageWriter =
         // RubyQt6::QtGui::QImageWriter

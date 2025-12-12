@@ -3,13 +3,13 @@
 
 #include <QWizard>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
 using Bando_QWizard = BandoQWidget<QWizard, QWidget *>;
 
-Rice::Class rb_mBando_cQWizard;
+Class rb_mBando_cQWizard;
 
-void Init_bando_qwizard(Rice::Module rb_mQt6Bando)
+void Init_bando_qwizard(Module rb_mQt6Bando)
 {
     rb_mBando_cQWizard =
         define_bando_qwidget_under<Bando_QWizard, QWizard>(rb_mQt6Bando, "QWizard")

@@ -1,14 +1,14 @@
 #include "qgradient-rb.hpp"
 #include <qbrush.h>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQGradient;
-Rice::Class rb_cQConicalGradient;
-Rice::Class rb_cQLinearGradient;
-Rice::Class rb_cQRadialGradient;
+Class rb_cQGradient;
+Class rb_cQConicalGradient;
+Class rb_cQLinearGradient;
+Class rb_cQRadialGradient;
 
-void Init_qgradient(Rice::Module rb_mQt6QtGui)
+void Init_qgradient(Module rb_mQt6QtGui)
 {
     rb_cQGradient =
         // RubyQt6::QtGui::QGradient

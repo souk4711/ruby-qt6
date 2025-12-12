@@ -5,11 +5,11 @@
 #include <QMediaCaptureSession>
 #include <QMediaMetaData>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQImageCapture;
+Class rb_cQImageCapture;
 
-void Init_qimagecapture(Rice::Module rb_mQt6QtMultimedia)
+void Init_qimagecapture(Module rb_mQt6QtMultimedia)
 {
     rb_cQImageCapture =
         // RubyQt6::QtMultimedia::QImageCapture

@@ -1,11 +1,11 @@
 #include "qscrollbar-rb.hpp"
 #include <qscrollbar.h>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQScrollBar;
+Class rb_cQScrollBar;
 
-void Init_qscrollbar(Rice::Module rb_mQt6QtWidgets)
+void Init_qscrollbar(Module rb_mQt6QtWidgets)
 {
     rb_cQScrollBar =
         // RubyQt6::QtWidgets::QScrollBar

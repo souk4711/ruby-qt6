@@ -3,13 +3,13 @@
 
 #include <QColumnView>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
 using Bando_QColumnView = BandoQWidget<QColumnView, QWidget *>;
 
-Rice::Class rb_mBando_cQColumnView;
+Class rb_mBando_cQColumnView;
 
-void Init_bando_qcolumnview(Rice::Module rb_mQt6Bando)
+void Init_bando_qcolumnview(Module rb_mQt6Bando)
 {
     rb_mBando_cQColumnView =
         define_bando_qwidget_under<Bando_QColumnView, QColumnView>(rb_mQt6Bando, "QColumnView")

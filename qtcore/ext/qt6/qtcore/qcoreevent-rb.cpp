@@ -2,14 +2,14 @@
 #include <qcoreevent.h>
 #include <rice/qt6/qenum.hpp>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQEvent;
-Rice::Class rb_cQChildEvent;
-Rice::Class rb_cQTimerEvent;
-Rice::Class rb_cQDynamicPropertyChangeEvent;
+Class rb_cQEvent;
+Class rb_cQChildEvent;
+Class rb_cQTimerEvent;
+Class rb_cQDynamicPropertyChangeEvent;
 
-void Init_qcoreevent(Rice::Module rb_mQt6QtCore)
+void Init_qcoreevent(Module rb_mQt6QtCore)
 {
     rb_cQEvent =
         // RubyQt6::QtCore::QEvent

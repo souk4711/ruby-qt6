@@ -2,11 +2,11 @@
 #include <qrubberband.h>
 #include <rice/qt6/qenum.hpp>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQRubberBand;
+Class rb_cQRubberBand;
 
-void Init_qrubberband(Rice::Module rb_mQt6QtWidgets)
+void Init_qrubberband(Module rb_mQt6QtWidgets)
 {
     rb_cQRubberBand =
         // RubyQt6::QtWidgets::QRubberBand

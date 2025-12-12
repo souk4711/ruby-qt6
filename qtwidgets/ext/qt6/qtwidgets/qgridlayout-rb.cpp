@@ -3,11 +3,11 @@
 
 #include <QWidget>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQGridLayout;
+Class rb_cQGridLayout;
 
-void Init_qgridlayout(Rice::Module rb_mQt6QtWidgets)
+void Init_qgridlayout(Module rb_mQt6QtWidgets)
 {
     rb_cQGridLayout =
         // RubyQt6::QtWidgets::QGridLayout

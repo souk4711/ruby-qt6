@@ -2,11 +2,11 @@
 #include <qdbusmessage.h>
 #include <rice/qt6/qenum.hpp>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQDBusMessage;
+Class rb_cQDBusMessage;
 
-void Init_qdbusmessage(Rice::Module rb_mQt6QtDBus)
+void Init_qdbusmessage(Module rb_mQt6QtDBus)
 {
     rb_cQDBusMessage =
         // RubyQt6::QtDBus::QDBusMessage

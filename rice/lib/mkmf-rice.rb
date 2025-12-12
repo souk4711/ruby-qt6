@@ -61,8 +61,8 @@ end
 # to make this easy
 path = File.expand_path(File.join(__dir__, '../include'))
 
-unless find_header('rice/rice.hpp', path)
-  raise("Could not find rice/rice.hpp header")
+unless find_header('rice/core/rice.hpp', path)
+  raise("Could not find rice/core/rice.hpp header")
 end
 
 if !IS_DARWIN && !IS_MSWIN && !have_library('stdc++fs')

@@ -3,19 +3,19 @@
 #include <rice/qt6/qenum.hpp>
 #include <rice/qt6/qflags.hpp>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQTextFormat;
-Rice::Class rb_cQTextBlockFormat;
-Rice::Class rb_cQTextCharFormat;
-Rice::Class rb_cQTextImageFormat;
-Rice::Class rb_cQTextTableCellFormat;
-Rice::Class rb_cQTextFrameFormat;
-Rice::Class rb_cQTextTableFormat;
-Rice::Class rb_cQTextListFormat;
-Rice::Class rb_cQTextLength;
+Class rb_cQTextFormat;
+Class rb_cQTextBlockFormat;
+Class rb_cQTextCharFormat;
+Class rb_cQTextImageFormat;
+Class rb_cQTextTableCellFormat;
+Class rb_cQTextFrameFormat;
+Class rb_cQTextTableFormat;
+Class rb_cQTextListFormat;
+Class rb_cQTextLength;
 
-void Init_qtextformat(Rice::Module rb_mQt6QtGui)
+void Init_qtextformat(Module rb_mQt6QtGui)
 {
     rb_cQTextFormat =
         // RubyQt6::QtGui::QTextFormat

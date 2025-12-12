@@ -2,11 +2,11 @@
 #include <qwebenginepermission.h>
 #include <rice/qt6/qenum.hpp>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQWebEnginePermission;
+Class rb_cQWebEnginePermission;
 
-void Init_qwebenginepermission(Rice::Module rb_mQt6QtWebEngineCore)
+void Init_qwebenginepermission(Module rb_mQt6QtWebEngineCore)
 {
     rb_cQWebEnginePermission =
         // RubyQt6::QtWebEngineCore::QWebEnginePermission

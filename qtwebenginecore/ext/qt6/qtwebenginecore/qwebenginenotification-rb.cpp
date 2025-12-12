@@ -3,11 +3,11 @@
 
 #include <QImage>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQWebEngineNotification;
+Class rb_cQWebEngineNotification;
 
-void Init_qwebenginenotification(Rice::Module rb_mQt6QtWebEngineCore)
+void Init_qwebenginenotification(Module rb_mQt6QtWebEngineCore)
 {
     rb_cQWebEngineNotification =
         // RubyQt6::QtWebEngineCore::QWebEngineNotification

@@ -3,11 +3,11 @@
 
 #include <QMovie>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQLabel;
+Class rb_cQLabel;
 
-void Init_qlabel(Rice::Module rb_mQt6QtWidgets)
+void Init_qlabel(Module rb_mQt6QtWidgets)
 {
     rb_cQLabel =
         // RubyQt6::QtWidgets::QLabel

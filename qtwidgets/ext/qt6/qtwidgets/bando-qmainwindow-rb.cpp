@@ -3,13 +3,13 @@
 
 #include <QMainWindow>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
 using Bando_QMainWindow = BandoQWidget<QMainWindow, QWidget *>;
 
-Rice::Class rb_mBando_cQMainWindow;
+Class rb_mBando_cQMainWindow;
 
-void Init_bando_qmainwindow(Rice::Module rb_mQt6Bando)
+void Init_bando_qmainwindow(Module rb_mQt6Bando)
 {
     rb_mBando_cQMainWindow =
         define_bando_qwidget_under<Bando_QMainWindow, QMainWindow>(rb_mQt6Bando, "QMainWindow")

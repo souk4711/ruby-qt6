@@ -4,11 +4,11 @@
 
 #include <QScrollBar>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQAbstractScrollArea;
+Class rb_cQAbstractScrollArea;
 
-void Init_qabstractscrollarea(Rice::Module rb_mQt6QtWidgets)
+void Init_qabstractscrollarea(Module rb_mQt6QtWidgets)
 {
     rb_cQAbstractScrollArea =
         // RubyQt6::QtWidgets::QAbstractScrollArea

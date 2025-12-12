@@ -3,11 +3,11 @@
 
 #include <QButtonGroup>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQAbstractButton;
+Class rb_cQAbstractButton;
 
-void Init_qabstractbutton(Rice::Module rb_mQt6QtWidgets)
+void Init_qabstractbutton(Module rb_mQt6QtWidgets)
 {
     rb_cQAbstractButton =
         // RubyQt6::QtWidgets::QAbstractButton

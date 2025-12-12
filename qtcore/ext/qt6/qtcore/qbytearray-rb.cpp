@@ -1,9 +1,9 @@
 #include "qbytearray-rb.hpp"
 #include <qbytearray.h>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQByteArray;
+Class rb_cQByteArray;
 
 std::optional<QByteArray> QByteArray_slice(QByteArray *self, qsizetype start, qsizetype length)
 {
@@ -23,7 +23,7 @@ std::optional<QByteArray> QByteArray_slice(QByteArray *self, qsizetype start, qs
     }
 }
 
-void Init_qbytearray(Rice::Module rb_mQt6QtCore)
+void Init_qbytearray(Module rb_mQt6QtCore)
 {
     rb_cQByteArray =
         // RubyQt6::QtCore::QByteArray

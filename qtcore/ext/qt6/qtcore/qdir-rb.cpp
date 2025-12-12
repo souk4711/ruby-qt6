@@ -3,11 +3,11 @@
 #include <rice/qt6/qenum.hpp>
 #include <rice/qt6/qflags.hpp>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQDir;
+Class rb_cQDir;
 
-void Init_qdir(Rice::Module rb_mQt6QtCore)
+void Init_qdir(Module rb_mQt6QtCore)
 {
     rb_cQDir =
         // RubyQt6::QtCore::QDir

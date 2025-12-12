@@ -1,11 +1,11 @@
 #include "qsizegrip-rb.hpp"
 #include <qsizegrip.h>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQSizeGrip;
+Class rb_cQSizeGrip;
 
-void Init_qsizegrip(Rice::Module rb_mQt6QtWidgets)
+void Init_qsizegrip(Module rb_mQt6QtWidgets)
 {
     rb_cQSizeGrip =
         // RubyQt6::QtWidgets::QSizeGrip

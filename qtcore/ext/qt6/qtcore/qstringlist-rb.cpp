@@ -3,11 +3,11 @@
 
 #include <QList>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQStringList;
+Class rb_cQStringList;
 
-void Init_qstringlist(Rice::Module rb_mQt6QtCore)
+void Init_qstringlist(Module rb_mQt6QtCore)
 {
     rb_cQStringList =
         // RubyQt6::QtCore::QStringList

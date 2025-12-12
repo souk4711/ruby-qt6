@@ -3,11 +3,11 @@
 
 #include <QAccessibilityHints>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQStyleHints;
+Class rb_cQStyleHints;
 
-void Init_qstylehints(Rice::Module rb_mQt6QtGui)
+void Init_qstylehints(Module rb_mQt6QtGui)
 {
     rb_cQStyleHints =
         // RubyQt6::QtGui::QStyleHints

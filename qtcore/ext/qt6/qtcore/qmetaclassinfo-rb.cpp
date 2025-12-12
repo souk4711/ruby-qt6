@@ -1,11 +1,11 @@
 #include "qmetaclassinfo-rb.hpp"
 #include <qmetaobject.h>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQMetaClassInfo;
+Class rb_cQMetaClassInfo;
 
-void Init_qmetaclassinfo(Rice::Module rb_mQt6QtCore)
+void Init_qmetaclassinfo(Module rb_mQt6QtCore)
 {
     rb_cQMetaClassInfo =
         // RubyQt6::QtCore::QMetaClassInfo

@@ -5,13 +5,13 @@
 
 #include <QCalendarWidget>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQDateTimeEdit;
-Rice::Class rb_cQDateEdit;
-Rice::Class rb_cQTimeEdit;
+Class rb_cQDateTimeEdit;
+Class rb_cQDateEdit;
+Class rb_cQTimeEdit;
 
-void Init_qdatetimeedit(Rice::Module rb_mQt6QtWidgets)
+void Init_qdatetimeedit(Module rb_mQt6QtWidgets)
 {
     rb_cQDateTimeEdit =
         // RubyQt6::QtWidgets::QDateTimeEdit

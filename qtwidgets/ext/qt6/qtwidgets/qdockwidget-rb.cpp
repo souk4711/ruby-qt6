@@ -3,11 +3,11 @@
 #include <rice/qt6/qenum.hpp>
 #include <rice/qt6/qflags.hpp>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQDockWidget;
+Class rb_cQDockWidget;
 
-void Init_qdockwidget(Rice::Module rb_mQt6QtWidgets)
+void Init_qdockwidget(Module rb_mQt6QtWidgets)
 {
     rb_cQDockWidget =
         // RubyQt6::QtWidgets::QDockWidget

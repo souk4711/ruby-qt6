@@ -3,13 +3,13 @@
 
 #include <QFontDialog>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
 using Bando_QFontDialog = BandoQWidget<QFontDialog, const QFont &, QWidget *>;
 
-Rice::Class rb_mBando_cQFontDialog;
+Class rb_mBando_cQFontDialog;
 
-void Init_bando_qfontdialog(Rice::Module rb_mQt6Bando)
+void Init_bando_qfontdialog(Module rb_mQt6Bando)
 {
     rb_mBando_cQFontDialog =
         define_bando_qwidget_under<Bando_QFontDialog, QFontDialog>(rb_mQt6Bando, "QFontDialog")

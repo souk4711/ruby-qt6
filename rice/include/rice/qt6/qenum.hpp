@@ -24,7 +24,7 @@
 
 #include <QVariant>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
 template<typename Enum_T>
 VALUE qenum_to_i(VALUE self)

@@ -160,11 +160,13 @@
 #include "bando-qtabwidget-rb.hpp"
 #include "bando-qtoolbar-rb.hpp"
 
+RICE4RUBYQT6_USE_NAMESPACE
+
 extern "C" void Init_qtwidgets()
 {
-    return Rice::detail::cpp_protect([] {
-        Rice::Module rb_mQt6 = Rice::define_module("RubyQt6");
-        Rice::Module rb_mQt6QtWidgets = define_module_under(rb_mQt6, "QtWidgets");
+    return detail::cpp_protect([] {
+        Module rb_mQt6 = define_module("RubyQt6");
+        Module rb_mQt6QtWidgets = define_module_under(rb_mQt6, "QtWidgets");
 
         Init_qtwidgetsversion(rb_mQt6QtWidgets);
 
@@ -259,10 +261,10 @@ extern "C" void Init_qtwidgets()
         Init_qtabwidget(rb_mQt6QtWidgets);
         Init_qtoolbar(rb_mQt6QtWidgets);
 
-        Rice::Module rb_mQt6T = define_module_under(rb_mQt6, "T");
+        Module rb_mQt6T = define_module_under(rb_mQt6, "T");
         Init_t_qtwidgets(rb_mQt6T);
 
-        Rice::Module rb_mQt6Bando = define_module_under(rb_mQt6, "Bando");
+        Module rb_mQt6Bando = define_module_under(rb_mQt6, "Bando");
         Init_bando_qitemdelegate(rb_mQt6Bando);
         Init_bando_qstyleditemdelegate(rb_mQt6Bando);
         Init_bando_qlayout(rb_mQt6Bando);

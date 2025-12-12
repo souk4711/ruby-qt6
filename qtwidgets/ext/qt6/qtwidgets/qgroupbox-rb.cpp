@@ -1,11 +1,11 @@
 #include "qgroupbox-rb.hpp"
 #include <qgroupbox.h>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQGroupBox;
+Class rb_cQGroupBox;
 
-void Init_qgroupbox(Rice::Module rb_mQt6QtWidgets)
+void Init_qgroupbox(Module rb_mQt6QtWidgets)
 {
     rb_cQGroupBox =
         // RubyQt6::QtWidgets::QGroupBox

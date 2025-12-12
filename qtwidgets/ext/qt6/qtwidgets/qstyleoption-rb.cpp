@@ -2,45 +2,45 @@
 #include <qstyleoption.h>
 #include <rice/qt6/qenum.hpp>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQStyleOption;
-Rice::Class rb_cQStyleOptionButton;
-Rice::Class rb_cQStyleOptionComplex;
-Rice::Class rb_cQStyleOptionComboBox;
-Rice::Class rb_cQStyleOptionGroupBox;
-Rice::Class rb_cQStyleOptionSizeGrip;
-Rice::Class rb_cQStyleOptionSlider;
-Rice::Class rb_cQStyleOptionSpinBox;
-Rice::Class rb_cQStyleOptionTitleBar;
-Rice::Class rb_cQStyleOptionToolButton;
-Rice::Class rb_cQStyleOptionDockWidget;
-Rice::Class rb_cQStyleOptionFocusRect;
-Rice::Class rb_cQStyleOptionFrame;
-Rice::Class rb_cQStyleOptionGraphicsItem;
-Rice::Class rb_cQStyleOptionHeader;
-Rice::Class rb_cQStyleOptionHeaderV2;
-Rice::Class rb_cQStyleOptionMenuItem;
-Rice::Class rb_cQStyleOptionProgressBar;
-Rice::Class rb_cQStyleOptionRubberBand;
-Rice::Class rb_cQStyleOptionTab;
-Rice::Class rb_cQStyleOptionTabBarBase;
-Rice::Class rb_cQStyleOptionTabWidgetFrame;
-Rice::Class rb_cQStyleOptionToolBar;
-Rice::Class rb_cQStyleOptionToolBox;
-Rice::Class rb_cQStyleOptionViewItem;
+Class rb_cQStyleOption;
+Class rb_cQStyleOptionButton;
+Class rb_cQStyleOptionComplex;
+Class rb_cQStyleOptionComboBox;
+Class rb_cQStyleOptionGroupBox;
+Class rb_cQStyleOptionSizeGrip;
+Class rb_cQStyleOptionSlider;
+Class rb_cQStyleOptionSpinBox;
+Class rb_cQStyleOptionTitleBar;
+Class rb_cQStyleOptionToolButton;
+Class rb_cQStyleOptionDockWidget;
+Class rb_cQStyleOptionFocusRect;
+Class rb_cQStyleOptionFrame;
+Class rb_cQStyleOptionGraphicsItem;
+Class rb_cQStyleOptionHeader;
+Class rb_cQStyleOptionHeaderV2;
+Class rb_cQStyleOptionMenuItem;
+Class rb_cQStyleOptionProgressBar;
+Class rb_cQStyleOptionRubberBand;
+Class rb_cQStyleOptionTab;
+Class rb_cQStyleOptionTabBarBase;
+Class rb_cQStyleOptionTabWidgetFrame;
+Class rb_cQStyleOptionToolBar;
+Class rb_cQStyleOptionToolBox;
+Class rb_cQStyleOptionViewItem;
 
-void Init_qstyleoption(Rice::Module rb_mQt6QtWidgets)
+void Init_qstyleoption(Module rb_mQt6QtWidgets)
 {
     rb_cQStyleOption =
         // RubyQt6::QtWidgets::QStyleOption
         define_class_under<QStyleOption>(rb_mQt6QtWidgets, "QStyleOption")
-            .define_attr("direction", &QStyleOption::direction, Rice::AttrAccess::Read)
+            .define_attr("direction", &QStyleOption::direction, AttrAccess::Read)
             .define_attr("font_metrics", &QStyleOption::fontMetrics)
             .define_attr("palette", &QStyleOption::palette)
             .define_attr("rect", &QStyleOption::rect)
             .define_attr("state", &QStyleOption::state)
-            .define_attr("style_object", &QStyleOption::styleObject, Rice::AttrAccess::Read)
+            .define_attr("style_object", &QStyleOption::styleObject, AttrAccess::Read)
             .define_attr("type", &QStyleOption::type)
             .define_attr("version", &QStyleOption::version);
 
@@ -172,7 +172,7 @@ void Init_qstyleoption(Rice::Module rb_mQt6QtWidgets)
     rb_cQStyleOptionSizeGrip =
         // RubyQt6::QtWidgets::QStyleOptionSizeGrip
         define_class_under<QStyleOptionSizeGrip, QStyleOptionComplex>(rb_mQt6QtWidgets, "QStyleOptionSizeGrip")
-            .define_attr("corner", &QStyleOptionSizeGrip::corner, Rice::AttrAccess::Read);
+            .define_attr("corner", &QStyleOptionSizeGrip::corner, AttrAccess::Read);
 
     Data_Type<QStyleOptionSizeGrip::StyleOptionType> rb_cQStyleOptionSizeGripStyleOptionType =
         // RubyQt6::QtWidgets::QStyleOptionSizeGrip::StyleOptionType
@@ -192,13 +192,13 @@ void Init_qstyleoption(Rice::Module rb_mQt6QtWidgets)
             .define_attr("maximum", &QStyleOptionSlider::maximum)
             .define_attr("minimum", &QStyleOptionSlider::minimum)
             .define_attr("notch_target", &QStyleOptionSlider::notchTarget)
-            .define_attr("orientation", &QStyleOptionSlider::orientation, Rice::AttrAccess::Read)
+            .define_attr("orientation", &QStyleOptionSlider::orientation, AttrAccess::Read)
             .define_attr("page_step", &QStyleOptionSlider::pageStep)
             .define_attr("slider_position", &QStyleOptionSlider::sliderPosition)
             .define_attr("single_step", &QStyleOptionSlider::singleStep)
             .define_attr("slider_value", &QStyleOptionSlider::sliderValue)
             .define_attr("tick_interval", &QStyleOptionSlider::tickInterval)
-            .define_attr("tick_position", &QStyleOptionSlider::tickPosition, Rice::AttrAccess::Read)
+            .define_attr("tick_position", &QStyleOptionSlider::tickPosition, AttrAccess::Read)
             .define_attr("upside_down", &QStyleOptionSlider::upsideDown);
 
     Data_Type<QStyleOptionSlider::StyleOptionType> rb_cQStyleOptionSliderStyleOptionType =
@@ -214,7 +214,7 @@ void Init_qstyleoption(Rice::Module rb_mQt6QtWidgets)
     rb_cQStyleOptionSpinBox =
         // RubyQt6::QtWidgets::QStyleOptionSpinBox
         define_class_under<QStyleOptionSpinBox, QStyleOptionComplex>(rb_mQt6QtWidgets, "QStyleOptionSpinBox")
-            .define_attr("button_symbols", &QStyleOptionSpinBox::buttonSymbols, Rice::AttrAccess::Read)
+            .define_attr("button_symbols", &QStyleOptionSpinBox::buttonSymbols, AttrAccess::Read)
             .define_attr("frame", &QStyleOptionSpinBox::frame)
             .define_attr("step_enabled", &QStyleOptionSpinBox::stepEnabled);
 
@@ -249,14 +249,14 @@ void Init_qstyleoption(Rice::Module rb_mQt6QtWidgets)
     rb_cQStyleOptionToolButton =
         // RubyQt6::QtWidgets::QStyleOptionToolButton
         define_class_under<QStyleOptionToolButton, QStyleOptionComplex>(rb_mQt6QtWidgets, "QStyleOptionToolButton")
-            .define_attr("arrow_type", &QStyleOptionToolButton::arrowType, Rice::AttrAccess::Read)
+            .define_attr("arrow_type", &QStyleOptionToolButton::arrowType, AttrAccess::Read)
             .define_attr("features", &QStyleOptionToolButton::features)
             .define_attr("font", &QStyleOptionToolButton::font)
             .define_attr("icon", &QStyleOptionToolButton::icon)
             .define_attr("icon_size", &QStyleOptionToolButton::iconSize)
             .define_attr("pos", &QStyleOptionToolButton::pos)
             .define_attr("text", &QStyleOptionToolButton::text)
-            .define_attr("tool_button_style", &QStyleOptionToolButton::toolButtonStyle, Rice::AttrAccess::Read);
+            .define_attr("tool_button_style", &QStyleOptionToolButton::toolButtonStyle, AttrAccess::Read);
 
     Data_Type<QStyleOptionToolButton::StyleOptionType> rb_cQStyleOptionToolButtonStyleOptionType =
         // RubyQt6::QtWidgets::QStyleOptionToolButton::StyleOptionType
@@ -316,7 +316,7 @@ void Init_qstyleoption(Rice::Module rb_mQt6QtWidgets)
         // RubyQt6::QtWidgets::QStyleOptionFrame
         define_class_under<QStyleOptionFrame, QStyleOption>(rb_mQt6QtWidgets, "QStyleOptionFrame")
             .define_attr("features", &QStyleOptionFrame::features)
-            .define_attr("frame_shape", &QStyleOptionFrame::frameShape, Rice::AttrAccess::Read)
+            .define_attr("frame_shape", &QStyleOptionFrame::frameShape, AttrAccess::Read)
             .define_attr("line_width", &QStyleOptionFrame::lineWidth)
             .define_attr("mid_line_width", &QStyleOptionFrame::midLineWidth);
 
@@ -357,11 +357,11 @@ void Init_qstyleoption(Rice::Module rb_mQt6QtWidgets)
         define_class_under<QStyleOptionHeader, QStyleOption>(rb_mQt6QtWidgets, "QStyleOptionHeader")
             .define_attr("icon", &QStyleOptionHeader::icon)
             .define_attr("icon_alignment", &QStyleOptionHeader::iconAlignment)
-            .define_attr("orientation", &QStyleOptionHeader::orientation, Rice::AttrAccess::Read)
-            .define_attr("position", &QStyleOptionHeader::position, Rice::AttrAccess::Read)
+            .define_attr("orientation", &QStyleOptionHeader::orientation, AttrAccess::Read)
+            .define_attr("position", &QStyleOptionHeader::position, AttrAccess::Read)
             .define_attr("section", &QStyleOptionHeader::section)
-            .define_attr("selected_position", &QStyleOptionHeader::selectedPosition, Rice::AttrAccess::Read)
-            .define_attr("sort_indicator", &QStyleOptionHeader::sortIndicator, Rice::AttrAccess::Read)
+            .define_attr("selected_position", &QStyleOptionHeader::selectedPosition, AttrAccess::Read)
+            .define_attr("sort_indicator", &QStyleOptionHeader::sortIndicator, AttrAccess::Read)
             .define_attr("text", &QStyleOptionHeader::text)
             .define_attr("text_alignment", &QStyleOptionHeader::textAlignment);
 
@@ -415,13 +415,13 @@ void Init_qstyleoption(Rice::Module rb_mQt6QtWidgets)
     rb_cQStyleOptionMenuItem =
         // RubyQt6::QtWidgets::QStyleOptionMenuItem
         define_class_under<QStyleOptionMenuItem, QStyleOption>(rb_mQt6QtWidgets, "QStyleOptionMenuItem")
-            .define_attr("check_type", &QStyleOptionMenuItem::checkType, Rice::AttrAccess::Read)
+            .define_attr("check_type", &QStyleOptionMenuItem::checkType, AttrAccess::Read)
             .define_attr("checked", &QStyleOptionMenuItem::checked)
             .define_attr("font", &QStyleOptionMenuItem::font)
             .define_attr("icon", &QStyleOptionMenuItem::icon)
             .define_attr("max_icon_width", &QStyleOptionMenuItem::maxIconWidth)
             .define_attr("menu_has_checkable_items", &QStyleOptionMenuItem::menuHasCheckableItems)
-            .define_attr("menu_item_type", &QStyleOptionMenuItem::menuItemType, Rice::AttrAccess::Read)
+            .define_attr("menu_item_type", &QStyleOptionMenuItem::menuItemType, AttrAccess::Read)
             .define_attr("menu_rect", &QStyleOptionMenuItem::menuRect)
             .define_attr("reserved_shortcut_width", &QStyleOptionMenuItem::reservedShortcutWidth)
             .define_attr("text", &QStyleOptionMenuItem::text);
@@ -481,7 +481,7 @@ void Init_qstyleoption(Rice::Module rb_mQt6QtWidgets)
         // RubyQt6::QtWidgets::QStyleOptionRubberBand
         define_class_under<QStyleOptionRubberBand, QStyleOption>(rb_mQt6QtWidgets, "QStyleOptionRubberBand")
             .define_attr("opaque", &QStyleOptionRubberBand::opaque)
-            .define_attr("shape", &QStyleOptionRubberBand::shape, Rice::AttrAccess::Read);
+            .define_attr("shape", &QStyleOptionRubberBand::shape, AttrAccess::Read);
 
     Data_Type<QStyleOptionRubberBand::StyleOptionType> rb_cQStyleOptionRubberBandStyleOptionType =
         // RubyQt6::QtWidgets::QStyleOptionRubberBand::StyleOptionType
@@ -502,11 +502,11 @@ void Init_qstyleoption(Rice::Module rb_mQt6QtWidgets)
             .define_attr("icon", &QStyleOptionTab::icon)
             .define_attr("icon_size", &QStyleOptionTab::iconSize)
             .define_attr("left_button_size", &QStyleOptionTab::leftButtonSize)
-            .define_attr("position", &QStyleOptionTab::position, Rice::AttrAccess::Read)
+            .define_attr("position", &QStyleOptionTab::position, AttrAccess::Read)
             .define_attr("right_button_size", &QStyleOptionTab::rightButtonSize)
             .define_attr("row", &QStyleOptionTab::row)
-            .define_attr("selected_position", &QStyleOptionTab::selectedPosition, Rice::AttrAccess::Read)
-            .define_attr("shape", &QStyleOptionTab::shape, Rice::AttrAccess::Read)
+            .define_attr("selected_position", &QStyleOptionTab::selectedPosition, AttrAccess::Read)
+            .define_attr("shape", &QStyleOptionTab::shape, AttrAccess::Read)
             .define_attr("tab_index", &QStyleOptionTab::tabIndex)
             .define_attr("text", &QStyleOptionTab::text);
 
@@ -555,7 +555,7 @@ void Init_qstyleoption(Rice::Module rb_mQt6QtWidgets)
         define_class_under<QStyleOptionTabBarBase, QStyleOption>(rb_mQt6QtWidgets, "QStyleOptionTabBarBase")
             .define_attr("document_mode", &QStyleOptionTabBarBase::documentMode)
             .define_attr("selected_tab_rect", &QStyleOptionTabBarBase::selectedTabRect)
-            .define_attr("shape", &QStyleOptionTabBarBase::shape, Rice::AttrAccess::Read)
+            .define_attr("shape", &QStyleOptionTabBarBase::shape, AttrAccess::Read)
             .define_attr("tab_bar_rect", &QStyleOptionTabBarBase::tabBarRect);
 
     Data_Type<QStyleOptionTabBarBase::StyleOptionType> rb_cQStyleOptionTabBarBaseStyleOptionType =
@@ -576,7 +576,7 @@ void Init_qstyleoption(Rice::Module rb_mQt6QtWidgets)
             .define_attr("mid_line_width", &QStyleOptionTabWidgetFrame::midLineWidth)
             .define_attr("right_corner_widget_size", &QStyleOptionTabWidgetFrame::rightCornerWidgetSize)
             .define_attr("selected_tab_rect", &QStyleOptionTabWidgetFrame::selectedTabRect)
-            .define_attr("shape", &QStyleOptionTabWidgetFrame::shape, Rice::AttrAccess::Read)
+            .define_attr("shape", &QStyleOptionTabWidgetFrame::shape, AttrAccess::Read)
             .define_attr("tab_bar_rect", &QStyleOptionTabWidgetFrame::tabBarRect)
             .define_attr("tab_bar_size", &QStyleOptionTabWidgetFrame::tabBarSize);
 
@@ -596,9 +596,9 @@ void Init_qstyleoption(Rice::Module rb_mQt6QtWidgets)
             .define_attr("features", &QStyleOptionToolBar::features)
             .define_attr("line_width", &QStyleOptionToolBar::lineWidth)
             .define_attr("mid_line_width", &QStyleOptionToolBar::midLineWidth)
-            .define_attr("position_of_line", &QStyleOptionToolBar::positionOfLine, Rice::AttrAccess::Read)
-            .define_attr("position_within_line", &QStyleOptionToolBar::positionWithinLine, Rice::AttrAccess::Read)
-            .define_attr("tool_bar_area", &QStyleOptionToolBar::toolBarArea, Rice::AttrAccess::Read);
+            .define_attr("position_of_line", &QStyleOptionToolBar::positionOfLine, AttrAccess::Read)
+            .define_attr("position_within_line", &QStyleOptionToolBar::positionWithinLine, AttrAccess::Read)
+            .define_attr("tool_bar_area", &QStyleOptionToolBar::toolBarArea, AttrAccess::Read);
 
     Data_Type<QStyleOptionToolBar::StyleOptionType> rb_cQStyleOptionToolBarStyleOptionType =
         // RubyQt6::QtWidgets::QStyleOptionToolBar::StyleOptionType
@@ -628,7 +628,7 @@ void Init_qstyleoption(Rice::Module rb_mQt6QtWidgets)
         // RubyQt6::QtWidgets::QStyleOptionToolBox
         define_class_under<QStyleOptionToolBox, QStyleOption>(rb_mQt6QtWidgets, "QStyleOptionToolBox")
             .define_attr("icon", &QStyleOptionToolBox::icon)
-            .define_attr("position", &QStyleOptionToolBox::position, Rice::AttrAccess::Read)
+            .define_attr("position", &QStyleOptionToolBox::position, AttrAccess::Read)
             .define_attr("text", &QStyleOptionToolBox::text);
 
     Data_Type<QStyleOptionToolBox::StyleOptionType> rb_cQStyleOptionToolBoxStyleOptionType =
@@ -660,9 +660,9 @@ void Init_qstyleoption(Rice::Module rb_mQt6QtWidgets)
         // RubyQt6::QtWidgets::QStyleOptionViewItem
         define_class_under<QStyleOptionViewItem, QStyleOption>(rb_mQt6QtWidgets, "QStyleOptionViewItem")
             .define_attr("background_brush", &QStyleOptionViewItem::backgroundBrush)
-            .define_attr("check_state", &QStyleOptionViewItem::checkState, Rice::AttrAccess::Read)
+            .define_attr("check_state", &QStyleOptionViewItem::checkState, AttrAccess::Read)
             .define_attr("decoration_alignment", &QStyleOptionViewItem::decorationAlignment)
-            .define_attr("decoration_position", &QStyleOptionViewItem::decorationPosition, Rice::AttrAccess::Read)
+            .define_attr("decoration_position", &QStyleOptionViewItem::decorationPosition, AttrAccess::Read)
             .define_attr("decoration_size", &QStyleOptionViewItem::decorationSize)
             .define_attr("display_alignment", &QStyleOptionViewItem::displayAlignment)
             .define_attr("features", &QStyleOptionViewItem::features)
@@ -672,9 +672,9 @@ void Init_qstyleoption(Rice::Module rb_mQt6QtWidgets)
             .define_attr("locale", &QStyleOptionViewItem::locale)
             .define_attr("show_decoration_selected", &QStyleOptionViewItem::showDecorationSelected)
             .define_attr("text", &QStyleOptionViewItem::text)
-            .define_attr("text_elide_mode", &QStyleOptionViewItem::textElideMode, Rice::AttrAccess::Read)
-            .define_attr("view_item_position", &QStyleOptionViewItem::viewItemPosition, Rice::AttrAccess::Read)
-            .define_attr("widget", &QStyleOptionViewItem::widget, Rice::AttrAccess::Read);
+            .define_attr("text_elide_mode", &QStyleOptionViewItem::textElideMode, AttrAccess::Read)
+            .define_attr("view_item_position", &QStyleOptionViewItem::viewItemPosition, AttrAccess::Read)
+            .define_attr("widget", &QStyleOptionViewItem::widget, AttrAccess::Read);
 
     Data_Type<QStyleOptionViewItem::StyleOptionType> rb_cQStyleOptionViewItemStyleOptionType =
         // RubyQt6::QtWidgets::QStyleOptionViewItem::StyleOptionType

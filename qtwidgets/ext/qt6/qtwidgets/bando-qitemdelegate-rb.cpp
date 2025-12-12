@@ -3,13 +3,13 @@
 
 #include <QItemDelegate>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
 using Bando_QItemDelegate = BandoQItemDelegate<QItemDelegate, QObject *>;
 
-Rice::Class rb_mBando_cQItemDelegate;
+Class rb_mBando_cQItemDelegate;
 
-void Init_bando_qitemdelegate(Rice::Module rb_mQt6Bando)
+void Init_bando_qitemdelegate(Module rb_mQt6Bando)
 {
     rb_mBando_cQItemDelegate =
         define_bando_qitemdelegate_under<Bando_QItemDelegate, QItemDelegate>(rb_mQt6Bando, "QItemDelegate")

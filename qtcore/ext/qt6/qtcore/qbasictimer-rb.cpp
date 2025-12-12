@@ -1,11 +1,11 @@
 #include "qbasictimer-rb.hpp"
 #include <qbasictimer.h>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQBasicTimer;
+Class rb_cQBasicTimer;
 
-void Init_qbasictimer(Rice::Module rb_mQt6QtCore)
+void Init_qbasictimer(Module rb_mQt6QtCore)
 {
     rb_cQBasicTimer =
         // RubyQt6::QtCore::QBasicTimer

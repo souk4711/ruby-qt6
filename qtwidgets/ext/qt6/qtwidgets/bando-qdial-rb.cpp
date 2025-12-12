@@ -3,13 +3,13 @@
 
 #include <QDial>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
 using Bando_QDial = BandoQWidget<QDial, QWidget *>;
 
-Rice::Class rb_mBando_cQDial;
+Class rb_mBando_cQDial;
 
-void Init_bando_qdial(Rice::Module rb_mQt6Bando)
+void Init_bando_qdial(Module rb_mQt6Bando)
 {
     rb_mBando_cQDial =
         define_bando_qwidget_under<Bando_QDial, QDial>(rb_mQt6Bando, "QDial")

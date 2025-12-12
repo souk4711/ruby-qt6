@@ -1,11 +1,11 @@
 #include "qtextbrowser-rb.hpp"
 #include <qtextbrowser.h>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQTextBrowser;
+Class rb_cQTextBrowser;
 
-void Init_qtextbrowser(Rice::Module rb_mQt6QtWidgets)
+void Init_qtextbrowser(Module rb_mQt6QtWidgets)
 {
     rb_cQTextBrowser =
         // RubyQt6::QtWidgets::QTextBrowser

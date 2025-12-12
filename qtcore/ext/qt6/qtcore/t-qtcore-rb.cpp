@@ -9,9 +9,9 @@
 #include <QVariant>
 #include <QObject>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-void Init_t_qtcore(Rice::Module rb_mQt6T)
+void Init_t_qtcore(Module rb_mQt6T)
 {
     // QList<QByteArray>
     define_qlist_under<QByteArray>(rb_mQt6T);

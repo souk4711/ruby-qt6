@@ -3,12 +3,12 @@
 
 #include <QQmlEngine>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQQmlContext;
-Rice::Class rb_cQQmlContextPropertyPair;
+Class rb_cQQmlContext;
+Class rb_cQQmlContextPropertyPair;
 
-void Init_qqmlcontext(Rice::Module rb_mQt6QtQml)
+void Init_qqmlcontext(Module rb_mQt6QtQml)
 {
     rb_cQQmlContext =
         // RubyQt6::QtQml::QQmlContext

@@ -2,11 +2,11 @@
 #include <qlistview.h>
 #include <rice/qt6/qenum.hpp>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQListView;
+Class rb_cQListView;
 
-void Init_qlistview(Rice::Module rb_mQt6QtWidgets)
+void Init_qlistview(Module rb_mQt6QtWidgets)
 {
     rb_cQListView =
         // RubyQt6::QtWidgets::QListView

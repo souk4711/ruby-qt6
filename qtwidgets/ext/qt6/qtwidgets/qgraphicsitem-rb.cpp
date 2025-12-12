@@ -11,20 +11,20 @@
 #include <QStyleOptionGraphicsItem>
 #include <QWidget>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQGraphicsItem;
-Rice::Class rb_cQAbstractGraphicsShapeItem;
-Rice::Class rb_cQGraphicsEllipseItem;
-Rice::Class rb_cQGraphicsPathItem;
-Rice::Class rb_cQGraphicsPolygonItem;
-Rice::Class rb_cQGraphicsRectItem;
-Rice::Class rb_cQGraphicsSimpleTextItem;
-Rice::Class rb_cQGraphicsItemGroup;
-Rice::Class rb_cQGraphicsLineItem;
-Rice::Class rb_cQGraphicsPixmapItem;
+Class rb_cQGraphicsItem;
+Class rb_cQAbstractGraphicsShapeItem;
+Class rb_cQGraphicsEllipseItem;
+Class rb_cQGraphicsPathItem;
+Class rb_cQGraphicsPolygonItem;
+Class rb_cQGraphicsRectItem;
+Class rb_cQGraphicsSimpleTextItem;
+Class rb_cQGraphicsItemGroup;
+Class rb_cQGraphicsLineItem;
+Class rb_cQGraphicsPixmapItem;
 
-void Init_qgraphicsitem(Rice::Module rb_mQt6QtWidgets)
+void Init_qgraphicsitem(Module rb_mQt6QtWidgets)
 {
     rb_cQGraphicsItem =
         // RubyQt6::QtWidgets::QGraphicsItem

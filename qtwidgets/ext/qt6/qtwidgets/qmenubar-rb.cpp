@@ -1,11 +1,11 @@
 #include "qmenubar-rb.hpp"
 #include <qmenubar.h>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQMenuBar;
+Class rb_cQMenuBar;
 
-void Init_qmenubar(Rice::Module rb_mQt6QtWidgets)
+void Init_qmenubar(Module rb_mQt6QtWidgets)
 {
     rb_cQMenuBar =
         // RubyQt6::QtWidgets::QMenuBar

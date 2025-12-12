@@ -1,3 +1,5 @@
 #include <rice/qt6.hpp>
 
-void Init_qvideowidget(Rice::Module rb_mQt6QtMultimediaWidgets);
+RICE4RUBYQT6_USE_NAMESPACE
+
+void Init_qvideowidget(Module rb_mQt6QtMultimediaWidgets);

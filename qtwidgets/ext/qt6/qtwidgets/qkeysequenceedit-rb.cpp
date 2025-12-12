@@ -1,11 +1,11 @@
 #include "qkeysequenceedit-rb.hpp"
 #include <qkeysequenceedit.h>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQKeySequenceEdit;
+Class rb_cQKeySequenceEdit;
 
-void Init_qkeysequenceedit(Rice::Module rb_mQt6QtWidgets)
+void Init_qkeysequenceedit(Module rb_mQt6QtWidgets)
 {
     rb_cQKeySequenceEdit =
         // RubyQt6::QtWidgets::QKeySequenceEdit

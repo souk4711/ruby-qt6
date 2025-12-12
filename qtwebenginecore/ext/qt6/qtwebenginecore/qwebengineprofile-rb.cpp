@@ -13,9 +13,9 @@
 #include <QWebEngineUrlRequestInterceptor>
 #include <QWebEngineUrlSchemeHandler>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQWebEngineProfile;
+Class rb_cQWebEngineProfile;
 
 struct QWebEngineNotificationFunctor {
     QWebEngineNotificationFunctor(Object value) : value_(value) {}
@@ -27,7 +27,7 @@ struct QWebEngineNotificationFunctor {
     };
 };
 
-void Init_qwebengineprofile(Rice::Module rb_mQt6QtWebEngineCore)
+void Init_qwebengineprofile(Module rb_mQt6QtWebEngineCore)
 {
     rb_cQWebEngineProfile =
         // RubyQt6::QtWebEngineCore::QWebEngineProfile

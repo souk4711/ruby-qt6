@@ -11,11 +11,11 @@
 #include <QStyle>
 #include <QWidget>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQGraphicsScene;
+Class rb_cQGraphicsScene;
 
-void Init_qgraphicsscene(Rice::Module rb_mQt6QtWidgets)
+void Init_qgraphicsscene(Module rb_mQt6QtWidgets)
 {
     rb_cQGraphicsScene =
         // RubyQt6::QtWidgets::QGraphicsScene

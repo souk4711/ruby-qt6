@@ -4,13 +4,13 @@
 
 #include <QWidget>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQBoxLayout;
-Rice::Class rb_cQHBoxLayout;
-Rice::Class rb_cQVBoxLayout;
+Class rb_cQBoxLayout;
+Class rb_cQHBoxLayout;
+Class rb_cQVBoxLayout;
 
-void Init_qboxlayout(Rice::Module rb_mQt6QtWidgets)
+void Init_qboxlayout(Module rb_mQt6QtWidgets)
 {
     rb_cQBoxLayout =
         // RubyQt6::QtWidgets::QBoxLayout

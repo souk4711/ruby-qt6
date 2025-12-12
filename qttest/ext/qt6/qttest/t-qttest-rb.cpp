@@ -3,7 +3,7 @@
 
 #include <QVariant>
 
-void Init_t_qttest(Rice::Module rb_mQt6T)
+void Init_t_qttest(Module rb_mQt6T)
 {
     // QList<QList<QVariant>>
     define_qlist_under<QList<QVariant>>(rb_mQt6T);

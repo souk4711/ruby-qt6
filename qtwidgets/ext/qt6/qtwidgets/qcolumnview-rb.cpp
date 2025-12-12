@@ -1,11 +1,11 @@
 #include "qcolumnview-rb.hpp"
 #include <qcolumnview.h>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQColumnView;
+Class rb_cQColumnView;
 
-void Init_qcolumnview(Rice::Module rb_mQt6QtWidgets)
+void Init_qcolumnview(Module rb_mQt6QtWidgets)
 {
     rb_cQColumnView =
         // RubyQt6::QtWidgets::QColumnView

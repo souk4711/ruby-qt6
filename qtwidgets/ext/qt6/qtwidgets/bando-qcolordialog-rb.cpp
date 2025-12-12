@@ -3,13 +3,13 @@
 
 #include <QColorDialog>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
 using Bando_QColorDialog = BandoQWidget<QColorDialog, const QColor &, QWidget *>;
 
-Rice::Class rb_mBando_cQColorDialog;
+Class rb_mBando_cQColorDialog;
 
-void Init_bando_qcolordialog(Rice::Module rb_mQt6Bando)
+void Init_bando_qcolordialog(Module rb_mQt6Bando)
 {
     rb_mBando_cQColorDialog =
         define_bando_qwidget_under<Bando_QColorDialog, QColorDialog>(rb_mQt6Bando, "QColorDialog")

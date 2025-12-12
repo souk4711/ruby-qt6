@@ -3,13 +3,13 @@
 
 #include <QRubberBand>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
 using Bando_QRubberBand = BandoQWidget<QRubberBand, QRubberBand::Shape, QWidget *>;
 
-Rice::Class rb_mBando_cQRubberBand;
+Class rb_mBando_cQRubberBand;
 
-void Init_bando_qrubberband(Rice::Module rb_mQt6Bando)
+void Init_bando_qrubberband(Module rb_mQt6Bando)
 {
     rb_mBando_cQRubberBand =
         define_bando_qwidget_under<Bando_QRubberBand, QRubberBand>(rb_mQt6Bando, "QRubberBand")

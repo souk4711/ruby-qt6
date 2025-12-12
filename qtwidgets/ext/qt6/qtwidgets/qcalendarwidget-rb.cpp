@@ -4,11 +4,11 @@
 
 #include <QTextCharFormat>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQCalendarWidget;
+Class rb_cQCalendarWidget;
 
-void Init_qcalendarwidget(Rice::Module rb_mQt6QtWidgets)
+void Init_qcalendarwidget(Module rb_mQt6QtWidgets)
 {
     rb_cQCalendarWidget =
         // RubyQt6::QtWidgets::QCalendarWidget

@@ -1,11 +1,11 @@
 #include "qtextlist-rb.hpp"
 #include <qtextlist.h>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQTextList;
+Class rb_cQTextList;
 
-void Init_qtextlist(Rice::Module rb_mQt6QtGui)
+void Init_qtextlist(Module rb_mQt6QtGui)
 {
     rb_cQTextList =
         // RubyQt6::QtGui::QTextList

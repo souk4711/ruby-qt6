@@ -1,12 +1,12 @@
 #include "qmargins-rb.hpp"
 #include <qmargins.h>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQMargins;
-Rice::Class rb_cQMarginsF;
+Class rb_cQMargins;
+Class rb_cQMarginsF;
 
-void Init_qmargins(Rice::Module rb_mQt6QtCore)
+void Init_qmargins(Module rb_mQt6QtCore)
 {
     rb_cQMargins =
         // RubyQt6::QtCore::QMargins

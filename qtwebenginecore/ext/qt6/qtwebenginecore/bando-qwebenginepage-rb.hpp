@@ -1,3 +1,5 @@
 #include <rice/qt6.hpp>
 
-void Init_bando_qwebenginepage(Rice::Module rb_mQt6Bando);
+RICE4RUBYQT6_USE_NAMESPACE
+
+void Init_bando_qwebenginepage(Module rb_mQt6Bando);

@@ -6,11 +6,11 @@
 #include <QAbstractButton>
 #include <QPushButton>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQDialogButtonBox;
+Class rb_cQDialogButtonBox;
 
-void Init_qdialogbuttonbox(Rice::Module rb_mQt6QtWidgets)
+void Init_qdialogbuttonbox(Module rb_mQt6QtWidgets)
 {
     rb_cQDialogButtonBox =
         // RubyQt6::QtWidgets::QDialogButtonBox

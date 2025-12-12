@@ -2,11 +2,11 @@
 #include <qabstractslider.h>
 #include <rice/qt6/qenum.hpp>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQAbstractSlider;
+Class rb_cQAbstractSlider;
 
-void Init_qabstractslider(Rice::Module rb_mQt6QtWidgets)
+void Init_qabstractslider(Module rb_mQt6QtWidgets)
 {
     rb_cQAbstractSlider =
         // RubyQt6::QtWidgets::QAbstractSlider

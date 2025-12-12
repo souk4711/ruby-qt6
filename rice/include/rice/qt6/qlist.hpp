@@ -24,7 +24,7 @@
 
 #include <QList>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
 template<typename QList_T>
 class DefineQListMethods

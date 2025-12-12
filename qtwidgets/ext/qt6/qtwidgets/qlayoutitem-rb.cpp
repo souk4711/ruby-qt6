@@ -4,13 +4,13 @@
 #include <QLayout>
 #include <QWidget>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQLayoutItem;
-Rice::Class rb_cQSpacerItem;
-Rice::Class rb_cQWidgetItem;
+Class rb_cQLayoutItem;
+Class rb_cQSpacerItem;
+Class rb_cQWidgetItem;
 
-void Init_qlayoutitem(Rice::Module rb_mQt6QtWidgets)
+void Init_qlayoutitem(Module rb_mQt6QtWidgets)
 {
     rb_cQLayoutItem =
         // RubyQt6::QtWidgets::QLayoutItem

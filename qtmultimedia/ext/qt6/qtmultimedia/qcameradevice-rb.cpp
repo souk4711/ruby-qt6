@@ -2,11 +2,11 @@
 #include <qcameradevice.h>
 #include <rice/qt6/qenum.hpp>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQCameraDevice;
+Class rb_cQCameraDevice;
 
-void Init_qcameradevice(Rice::Module rb_mQt6QtMultimedia)
+void Init_qcameradevice(Module rb_mQt6QtMultimedia)
 {
     rb_cQCameraDevice =
         // RubyQt6::QtMultimedia::QCameraDevice

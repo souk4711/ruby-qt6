@@ -5,12 +5,12 @@
 
 #include <QAbstractButton>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQWizard;
-Rice::Class rb_cQWizardPage;
+Class rb_cQWizard;
+Class rb_cQWizardPage;
 
-void Init_qwizard(Rice::Module rb_mQt6QtWidgets)
+void Init_qwizard(Module rb_mQt6QtWidgets)
 {
     rb_cQWizard =
         // RubyQt6::QtWidgets::QWizard

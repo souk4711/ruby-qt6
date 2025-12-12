@@ -1,11 +1,11 @@
 #include "qsignalmapper-rb.hpp"
 #include <qsignalmapper.h>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQSignalMapper;
+Class rb_cQSignalMapper;
 
-void Init_qsignalmapper(Rice::Module rb_mQt6QtCore)
+void Init_qsignalmapper(Module rb_mQt6QtCore)
 {
     rb_cQSignalMapper =
         // RubyQt6::QtCore::QSignalMapper

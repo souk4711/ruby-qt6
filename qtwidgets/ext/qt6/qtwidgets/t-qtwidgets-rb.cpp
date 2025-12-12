@@ -10,9 +10,9 @@
 #include <QTableWidgetItem>
 #include <QTreeWidgetItem>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-void Init_t_qtwidgets(Rice::Module rb_mQt6T)
+void Init_t_qtwidgets(Module rb_mQt6T)
 {
     // QList<QKeyCombination>
     define_qlist_under<QKeyCombination>(rb_mQt6T);

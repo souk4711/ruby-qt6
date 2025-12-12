@@ -6,11 +6,11 @@
 #include <QPrintEngine>
 #include <QPrinterInfo>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQPrinter;
+Class rb_cQPrinter;
 
-void Init_qprinter(Rice::Module rb_mQt6QtPrintSupport)
+void Init_qprinter(Module rb_mQt6QtPrintSupport)
 {
     rb_cQPrinter =
         // RubyQt6::QtPrintSupport::QPrinter

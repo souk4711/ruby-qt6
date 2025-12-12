@@ -9,11 +9,11 @@
 #include <QTextBlock>
 #include <QTextFrame>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQPlainTextEdit;
+Class rb_cQPlainTextEdit;
 
-void Init_qplaintextedit(Rice::Module rb_mQt6QtWidgets)
+void Init_qplaintextedit(Module rb_mQt6QtWidgets)
 {
     rb_cQPlainTextEdit =
         // RubyQt6::QtWidgets::QPlainTextEdit

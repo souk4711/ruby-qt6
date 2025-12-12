@@ -3,11 +3,11 @@
 
 #include <QItemEditorFactory>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQItemDelegate;
+Class rb_cQItemDelegate;
 
-void Init_qitemdelegate(Rice::Module rb_mQt6QtWidgets)
+void Init_qitemdelegate(Module rb_mQt6QtWidgets)
 {
     rb_cQItemDelegate =
         // RubyQt6::QtWidgets::QItemDelegate

@@ -24,7 +24,7 @@
 
 #include <QMap>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
 template<typename QMap_T>
 class DefineQMapMethods

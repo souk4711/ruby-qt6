@@ -2,11 +2,11 @@
 #include <qlcdnumber.h>
 #include <rice/qt6/qenum.hpp>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQLCDNumber;
+Class rb_cQLCDNumber;
 
-void Init_qlcdnumber(Rice::Module rb_mQt6QtWidgets)
+void Init_qlcdnumber(Module rb_mQt6QtWidgets)
 {
     rb_cQLCDNumber =
         // RubyQt6::QtWidgets::QLCDNumber

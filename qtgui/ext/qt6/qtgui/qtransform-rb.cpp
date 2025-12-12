@@ -2,11 +2,11 @@
 #include <qtransform.h>
 #include <rice/qt6/qenum.hpp>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQTransform;
+Class rb_cQTransform;
 
-void Init_qtransform(Rice::Module rb_mQt6QtGui)
+void Init_qtransform(Module rb_mQt6QtGui)
 {
     rb_cQTransform =
         // RubyQt6::QtGui::QTransform

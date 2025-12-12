@@ -2,11 +2,11 @@
 #include <qpagedpaintdevice.h>
 #include <rice/qt6/qenum.hpp>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQPagedPaintDevice;
+Class rb_cQPagedPaintDevice;
 
-void Init_qpagedpaintdevice(Rice::Module rb_mQt6QtGui)
+void Init_qpagedpaintdevice(Module rb_mQt6QtGui)
 {
     rb_cQPagedPaintDevice =
         // RubyQt6::QtGui::QPagedPaintDevice

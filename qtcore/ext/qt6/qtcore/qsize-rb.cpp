@@ -1,12 +1,12 @@
 #include "qsize-rb.hpp"
 #include <qsize.h>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQSize;
-Rice::Class rb_cQSizeF;
+Class rb_cQSize;
+Class rb_cQSizeF;
 
-void Init_qsize(Rice::Module rb_mQt6QtCore)
+void Init_qsize(Module rb_mQt6QtCore)
 {
     rb_cQSize =
         // RubyQt6::QtCore::QSize

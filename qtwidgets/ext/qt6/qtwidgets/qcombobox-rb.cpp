@@ -6,11 +6,11 @@
 #include <QCompleter>
 #include <QLineEdit>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQComboBox;
+Class rb_cQComboBox;
 
-void Init_qcombobox(Rice::Module rb_mQt6QtWidgets)
+void Init_qcombobox(Module rb_mQt6QtWidgets)
 {
     rb_cQComboBox =
         // RubyQt6::QtWidgets::QComboBox

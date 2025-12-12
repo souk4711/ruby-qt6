@@ -4,11 +4,11 @@
 
 #include <QVideoFrame>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQVideoFrameFormat;
+Class rb_cQVideoFrameFormat;
 
-void Init_qvideoframeformat(Rice::Module rb_mQt6QtMultimedia)
+void Init_qvideoframeformat(Module rb_mQt6QtMultimedia)
 {
     rb_cQVideoFrameFormat =
         // RubyQt6::QtMultimedia::QVideoFrameFormat

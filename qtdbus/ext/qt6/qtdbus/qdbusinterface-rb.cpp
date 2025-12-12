@@ -1,11 +1,11 @@
 #include "qdbusinterface-rb.hpp"
 #include <qdbusinterface.h>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQDBusInterface;
+Class rb_cQDBusInterface;
 
-void Init_qdbusinterface(Rice::Module rb_mQt6QtDBus)
+void Init_qdbusinterface(Module rb_mQt6QtDBus)
 {
     rb_cQDBusInterface =
         // RubyQt6::QtDBus::QDBusInterface

@@ -62,13 +62,15 @@
 #include "bando-core-rb.hpp"
 #include "bando-qobject-rb.hpp"
 
+RICE4RUBYQT6_USE_NAMESPACE
+
 extern "C" void Init_qtcore()
 {
-    return Rice::detail::cpp_protect([] {
-        Rice::define_buffer<char *>();
+    return detail::cpp_protect([] {
+        define_buffer<char *>();
 
-        Rice::Module rb_mQt6 = Rice::define_module("RubyQt6");
-        Rice::Module rb_mQt6QtCore = define_module_under(rb_mQt6, "QtCore");
+        Module rb_mQt6 = define_module("RubyQt6");
+        Module rb_mQt6QtCore = define_module_under(rb_mQt6, "QtCore");
 
         Init_qtcoreversion(rb_mQt6QtCore);
         Init_qt_enum_af(rb_mQt6QtCore);
@@ -124,14 +126,14 @@ extern "C" void Init_qtcore()
         Init_qtimer(rb_mQt6QtCore);
         Init_qtranslator(rb_mQt6QtCore);
 
-        Rice::Module rb_mQt6T = define_module_under(rb_mQt6, "T");
+        Module rb_mQt6T = define_module_under(rb_mQt6, "T");
         Init_t_qtcore(rb_mQt6T);
         Init_qitemselection(rb_mQt6QtCore);
         Init_qstringlist(rb_mQt6QtCore);
         Init_qvariantlist(rb_mQt6QtCore);
         Init_qvariantmap(rb_mQt6QtCore);
 
-        Rice::Module rb_mQt6Bando = define_module_under(rb_mQt6, "Bando");
+        Module rb_mQt6Bando = define_module_under(rb_mQt6, "Bando");
         Init_bando_core(rb_mQt6Bando);
         Init_bando_qobject(rb_mQt6Bando);
     });

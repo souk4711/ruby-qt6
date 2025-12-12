@@ -5,11 +5,11 @@
 
 #include <QGraphicsItem>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQGraphicsView;
+Class rb_cQGraphicsView;
 
-void Init_qgraphicsview(Rice::Module rb_mQt6QtWidgets)
+void Init_qgraphicsview(Module rb_mQt6QtWidgets)
 {
     rb_cQGraphicsView =
         // RubyQt6::QtWidgets::QGraphicsView

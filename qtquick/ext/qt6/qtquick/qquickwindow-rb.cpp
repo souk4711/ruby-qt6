@@ -13,11 +13,11 @@
 #include <QSGTextNode>
 #include <QSGTexture>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQQuickWindow;
+Class rb_cQQuickWindow;
 
-void Init_qquickwindow(Rice::Module rb_mQt6QtQuick)
+void Init_qquickwindow(Module rb_mQt6QtQuick)
 {
     rb_cQQuickWindow =
         // RubyQt6::QtQuick::QQuickWindow

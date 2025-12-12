@@ -4,11 +4,11 @@
 #include <QDir>
 #include <QFileDevice>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQFileInfo;
+Class rb_cQFileInfo;
 
-void Init_qfileinfo(Rice::Module rb_mQt6QtCore)
+void Init_qfileinfo(Module rb_mQt6QtCore)
 {
     rb_cQFileInfo =
         // RubyQt6::QtCore::QFileInfo

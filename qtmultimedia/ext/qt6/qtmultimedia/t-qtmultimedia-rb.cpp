@@ -5,9 +5,9 @@
 #include <QCameraDevice>
 #include <QMediaFormat>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-void Init_t_qtmultimedia(Rice::Module rb_mQt6T)
+void Init_t_qtmultimedia(Module rb_mQt6T)
 {
     // QList<QAudioDevice>
     define_qlist_under<QAudioDevice>(rb_mQt6T);

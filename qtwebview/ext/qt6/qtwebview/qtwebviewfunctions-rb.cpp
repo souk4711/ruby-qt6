@@ -1,9 +1,9 @@
 #include "qtwebviewfunctions-rb.hpp"
 #include <qtwebviewfunctions.h>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-void Init_qtwebviewfunctions(Rice::Module rb_mQt6QtWebView)
+void Init_qtwebviewfunctions(Module rb_mQt6QtWebView)
 {
     Module rb_mQtWebView =
         // RubyQt6::QtWebView::QtWebView

@@ -3,13 +3,13 @@
 
 #include <QProgressBar>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
 using Bando_QProgressBar = BandoQWidget<QProgressBar, QWidget *>;
 
-Rice::Class rb_mBando_cQProgressBar;
+Class rb_mBando_cQProgressBar;
 
-void Init_bando_qprogressbar(Rice::Module rb_mQt6Bando)
+void Init_bando_qprogressbar(Module rb_mQt6Bando)
 {
     rb_mBando_cQProgressBar =
         define_bando_qwidget_under<Bando_QProgressBar, QProgressBar>(rb_mQt6Bando, "QProgressBar")

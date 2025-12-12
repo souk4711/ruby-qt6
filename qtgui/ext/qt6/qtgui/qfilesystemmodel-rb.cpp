@@ -6,11 +6,11 @@
 #include <QAbstractFileIconProvider>
 #include <QMimeData>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQFileSystemModel;
+Class rb_cQFileSystemModel;
 
-void Init_qfilesystemmodel(Rice::Module rb_mQt6QtGui)
+void Init_qfilesystemmodel(Module rb_mQt6QtGui)
 {
     rb_cQFileSystemModel =
         // RubyQt6::QtGui::QFileSystemModel

@@ -3,11 +3,11 @@
 
 #include <QScreen>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQSplashScreen;
+Class rb_cQSplashScreen;
 
-void Init_qsplashscreen(Rice::Module rb_mQt6QtWidgets)
+void Init_qsplashscreen(Module rb_mQt6QtWidgets)
 {
     rb_cQSplashScreen =
         // RubyQt6::QtWidgets::QSplashScreen

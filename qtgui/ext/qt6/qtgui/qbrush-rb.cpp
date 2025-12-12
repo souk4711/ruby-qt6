@@ -1,11 +1,11 @@
 #include "qbrush-rb.hpp"
 #include <qbrush.h>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQBrush;
+Class rb_cQBrush;
 
-void Init_qbrush(Rice::Module rb_mQt6QtGui)
+void Init_qbrush(Module rb_mQt6QtGui)
 {
     rb_cQBrush =
         // RubyQt6::QtGui::QBrush

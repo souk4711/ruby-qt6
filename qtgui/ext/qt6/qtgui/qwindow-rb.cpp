@@ -5,11 +5,11 @@
 #include <QAccessible>
 #include <QScreen>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQWindow;
+Class rb_cQWindow;
 
-void Init_qwindow(Rice::Module rb_mQt6QtGui)
+void Init_qwindow(Module rb_mQt6QtGui)
 {
     rb_cQWindow =
         // RubyQt6::QtGui::QWindow

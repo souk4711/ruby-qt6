@@ -5,12 +5,12 @@
 #include <QBindable>
 #include <QMimeData>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQStandardItemModel;
-Rice::Class rb_cQStandardItem;
+Class rb_cQStandardItemModel;
+Class rb_cQStandardItem;
 
-void Init_qstandarditemmodel(Rice::Module rb_mQt6QtGui)
+void Init_qstandarditemmodel(Module rb_mQt6QtGui)
 {
     rb_cQStandardItemModel =
         // RubyQt6::QtGui::QStandardItemModel

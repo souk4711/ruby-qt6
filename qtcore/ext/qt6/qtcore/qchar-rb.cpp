@@ -4,11 +4,11 @@
 
 #include <QString>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQChar;
+Class rb_cQChar;
 
-void Init_qchar(Rice::Module rb_mQt6QtCore)
+void Init_qchar(Module rb_mQt6QtCore)
 {
     rb_cQChar =
         // RubyQt6::QtCore::QChar

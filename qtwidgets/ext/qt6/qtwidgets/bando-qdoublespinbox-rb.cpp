@@ -3,13 +3,13 @@
 
 #include <QDoubleSpinBox>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
 using Bando_QDoubleSpinBox = BandoQWidget<QDoubleSpinBox, QWidget *>;
 
-Rice::Class rb_mBando_cQDoubleSpinBox;
+Class rb_mBando_cQDoubleSpinBox;
 
-void Init_bando_qdoublespinbox(Rice::Module rb_mQt6Bando)
+void Init_bando_qdoublespinbox(Module rb_mQt6Bando)
 {
     rb_mBando_cQDoubleSpinBox =
         define_bando_qwidget_under<Bando_QDoubleSpinBox, QDoubleSpinBox>(rb_mQt6Bando, "QDoubleSpinBox")

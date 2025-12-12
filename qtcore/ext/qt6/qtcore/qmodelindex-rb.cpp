@@ -1,11 +1,11 @@
 #include "qmodelindex-rb.hpp"
 #include <qabstractitemmodel.h>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQModelIndex;
+Class rb_cQModelIndex;
 
-void Init_qmodelindex(Rice::Module rb_mQt6QtCore)
+void Init_qmodelindex(Module rb_mQt6QtCore)
 {
     rb_cQModelIndex =
         // RubyQt6::QtCore::QModelIndex

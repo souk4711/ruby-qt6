@@ -1,3 +1,5 @@
 #include <rice/qt6.hpp>
 
-void Init_qdbusservicewatcher(Rice::Module rb_mQt6QtDBus);
+RICE4RUBYQT6_USE_NAMESPACE
+
+void Init_qdbusservicewatcher(Module rb_mQt6QtDBus);

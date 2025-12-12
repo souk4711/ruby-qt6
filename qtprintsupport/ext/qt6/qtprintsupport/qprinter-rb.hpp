@@ -1,3 +1,5 @@
 #include <rice/qt6.hpp>
 
-void Init_qprinter(Rice::Module rb_mQt6QtPrintSupport);
+RICE4RUBYQT6_USE_NAMESPACE
+
+void Init_qprinter(Module rb_mQt6QtPrintSupport);

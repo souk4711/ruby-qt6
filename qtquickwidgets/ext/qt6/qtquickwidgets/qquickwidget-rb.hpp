@@ -1,3 +1,5 @@
 #include <rice/qt6.hpp>
 
-void Init_qquickwidget(Rice::Module rb_mQt6QtQuickControls2);
+RICE4RUBYQT6_USE_NAMESPACE
+
+void Init_qquickwidget(Module rb_mQt6QtQuickControls2);

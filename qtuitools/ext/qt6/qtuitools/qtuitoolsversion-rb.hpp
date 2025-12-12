@@ -1,3 +1,5 @@
 #include <rice/qt6.hpp>
 
-void Init_qtuitoolsversion(Rice::Module rb_mQt6QtUiTools);
+RICE4RUBYQT6_USE_NAMESPACE
+
+void Init_qtuitoolsversion(Module rb_mQt6QtUiTools);

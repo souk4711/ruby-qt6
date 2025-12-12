@@ -3,13 +3,13 @@
 
 #include <QTreeWidget>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
 using Bando_QTreeWidget = BandoQWidget<QTreeWidget, QWidget *>;
 
-Rice::Class rb_mBando_cQTreeWidget;
+Class rb_mBando_cQTreeWidget;
 
-void Init_bando_qtreewidget(Rice::Module rb_mQt6Bando)
+void Init_bando_qtreewidget(Module rb_mQt6Bando)
 {
     rb_mBando_cQTreeWidget =
         define_bando_qwidget_under<Bando_QTreeWidget, QTreeWidget>(rb_mQt6Bando, "QTreeWidget")

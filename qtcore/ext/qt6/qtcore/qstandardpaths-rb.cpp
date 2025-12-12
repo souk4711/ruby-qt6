@@ -3,11 +3,11 @@
 #include <rice/qt6/qenum.hpp>
 #include <rice/qt6/qflags.hpp>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQStandardPaths;
+Class rb_cQStandardPaths;
 
-void Init_qstandardpaths(Rice::Module rb_mQt6QtCore)
+void Init_qstandardpaths(Module rb_mQt6QtCore)
 {
     rb_cQStandardPaths =
         // RubyQt6::QtCore::QStandardPaths

@@ -2,14 +2,14 @@
 #include <qvalidator.h>
 #include <rice/qt6/qenum.hpp>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQValidator;
-Rice::Class rb_cQDoubleValidator;
-Rice::Class rb_cQIntValidator;
-Rice::Class rb_cQRegularExpressionValidator;
+Class rb_cQValidator;
+Class rb_cQDoubleValidator;
+Class rb_cQIntValidator;
+Class rb_cQRegularExpressionValidator;
 
-void Init_qvalidator(Rice::Module rb_mQt6QtGui)
+void Init_qvalidator(Module rb_mQt6QtGui)
 {
     rb_cQValidator =
         // RubyQt6::QtGui::QValidator

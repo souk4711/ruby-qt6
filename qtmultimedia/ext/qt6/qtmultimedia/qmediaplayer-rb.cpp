@@ -9,11 +9,11 @@
 #include <QMediaTimeRange>
 #include <QVideoSink>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQMediaPlayer;
+Class rb_cQMediaPlayer;
 
-void Init_qmediaplayer(Rice::Module rb_mQt6QtMultimedia)
+void Init_qmediaplayer(Module rb_mQt6QtMultimedia)
 {
     rb_cQMediaPlayer =
         // RubyQt6::QtMultimedia::QMediaPlayer

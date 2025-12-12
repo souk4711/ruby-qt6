@@ -3,13 +3,13 @@
 
 #include <QSlider>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
 using Bando_QSlider = BandoQWidget<QSlider, Qt::Orientation, QWidget *>;
 
-Rice::Class rb_mBando_cQSlider;
+Class rb_mBando_cQSlider;
 
-void Init_bando_qslider(Rice::Module rb_mQt6Bando)
+void Init_bando_qslider(Module rb_mQt6Bando)
 {
     rb_mBando_cQSlider =
         define_bando_qwidget_under<Bando_QSlider, QSlider>(rb_mQt6Bando, "QSlider")

@@ -18,11 +18,13 @@
 #include "bando-qdbusabstractadaptor-rb.hpp"
 #include "bando-qdbusabstractinterface-rb.hpp"
 
+RICE4RUBYQT6_USE_NAMESPACE
+
 extern "C" void Init_qtdbus()
 {
-    return Rice::detail::cpp_protect([] {
-        Rice::Module rb_mQt6 = Rice::define_module("RubyQt6");
-        Rice::Module rb_mQt6QtDBus = define_module_under(rb_mQt6, "QtDBus");
+    return detail::cpp_protect([] {
+        Module rb_mQt6 = define_module("RubyQt6");
+        Module rb_mQt6QtDBus = define_module_under(rb_mQt6, "QtDBus");
 
         Init_qtdbusversion(rb_mQt6QtDBus);
         Init_qdbus(rb_mQt6QtDBus);
@@ -38,10 +40,10 @@ extern "C" void Init_qtdbus()
         Init_qdbusinterface(rb_mQt6QtDBus);
         Init_qdbusservicewatcher(rb_mQt6QtDBus);
 
-        Rice::Module rb_mQt6T = define_module_under(rb_mQt6, "T");
+        Module rb_mQt6T = define_module_under(rb_mQt6, "T");
         Init_t_qtdbus(rb_mQt6T);
 
-        Rice::Module rb_mQt6Bando = define_module_under(rb_mQt6, "Bando");
+        Module rb_mQt6Bando = define_module_under(rb_mQt6, "Bando");
         Init_bando_qdbusabstractadaptor(rb_mQt6Bando);
         Init_bando_qdbusabstractinterface(rb_mQt6Bando);
     });

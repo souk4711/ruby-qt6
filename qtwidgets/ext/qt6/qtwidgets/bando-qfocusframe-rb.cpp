@@ -3,13 +3,13 @@
 
 #include <QFocusFrame>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
 using Bando_QFocusFrame = BandoQWidget<QFocusFrame, QWidget *>;
 
-Rice::Class rb_mBando_cQFocusFrame;
+Class rb_mBando_cQFocusFrame;
 
-void Init_bando_qfocusframe(Rice::Module rb_mQt6Bando)
+void Init_bando_qfocusframe(Module rb_mQt6Bando)
 {
     rb_mBando_cQFocusFrame =
         define_bando_qwidget_under<Bando_QFocusFrame, QFocusFrame>(rb_mQt6Bando, "QFocusFrame")

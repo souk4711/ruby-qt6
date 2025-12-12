@@ -3,13 +3,13 @@
 
 #include <QScrollArea>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
 using Bando_QScrollArea = BandoQWidget<QScrollArea, QWidget *>;
 
-Rice::Class rb_mBando_cQScrollArea;
+Class rb_mBando_cQScrollArea;
 
-void Init_bando_qscrollarea(Rice::Module rb_mQt6Bando)
+void Init_bando_qscrollarea(Module rb_mQt6Bando)
 {
     rb_mBando_cQScrollArea =
         define_bando_qwidget_under<Bando_QScrollArea, QScrollArea>(rb_mQt6Bando, "QScrollArea")

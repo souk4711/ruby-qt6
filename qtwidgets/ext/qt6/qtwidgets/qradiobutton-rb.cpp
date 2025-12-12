@@ -1,11 +1,11 @@
 #include "qradiobutton-rb.hpp"
 #include <qradiobutton.h>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQRadioButton;
+Class rb_cQRadioButton;
 
-void Init_qradiobutton(Rice::Module rb_mQt6QtWidgets)
+void Init_qradiobutton(Module rb_mQt6QtWidgets)
 {
     rb_cQRadioButton =
         // RubyQt6::QtWidgets::QRadioButton

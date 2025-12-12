@@ -4,11 +4,11 @@
 #include <QMap>
 #include <QVariant>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQVariantMap;
+Class rb_cQVariantMap;
 
-void Init_qvariantmap(Rice::Module rb_mQt6QtCore)
+void Init_qvariantmap(Module rb_mQt6QtCore)
 {
     rb_cQVariantMap =
         // RubyQt6::QtCore::QVariantMap

@@ -24,7 +24,7 @@
 
 #include <QDBusReply>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
 template <typename Value_T>
 void define_qdbusreply_under(Module module)

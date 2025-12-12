@@ -27,7 +27,7 @@
 #include <QEvent>
 #include <QTimerEvent>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
 template <typename Class_T, typename... Arg_Ts> class BandoQDBusAbstractAdaptor : public Class_T
 {

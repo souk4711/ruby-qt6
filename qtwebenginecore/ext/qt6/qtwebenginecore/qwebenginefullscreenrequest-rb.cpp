@@ -1,11 +1,11 @@
 #include "qwebenginefullscreenrequest-rb.hpp"
 #include <qwebenginefullscreenrequest.h>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQWebEngineFullScreenRequest;
+Class rb_cQWebEngineFullScreenRequest;
 
-void Init_qwebenginefullscreenrequest(Rice::Module rb_mQt6QtWebEngineCore)
+void Init_qwebenginefullscreenrequest(Module rb_mQt6QtWebEngineCore)
 {
     rb_cQWebEngineFullScreenRequest =
         // RubyQt6::QtWebEngineCore::QWebEngineFullScreenRequest

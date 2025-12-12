@@ -4,11 +4,11 @@
 #include <QMediaCaptureSession>
 #include <QVideoFrame>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQVideoFrameInput;
+Class rb_cQVideoFrameInput;
 
-void Init_qvideoframeinput(Rice::Module rb_mQt6QtMultimedia)
+void Init_qvideoframeinput(Module rb_mQt6QtMultimedia)
 {
     rb_cQVideoFrameInput =
         // RubyQt6::QtMultimedia::QVideoFrameInput

@@ -1,12 +1,12 @@
 #include "qsplitter-rb.hpp"
 #include <qsplitter.h>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQSplitter;
-Rice::Class rb_cQSplitterHandle;
+Class rb_cQSplitter;
+Class rb_cQSplitterHandle;
 
-void Init_qsplitter(Rice::Module rb_mQt6QtWidgets)
+void Init_qsplitter(Module rb_mQt6QtWidgets)
 {
     rb_cQSplitter =
         // RubyQt6::QtWidgets::QSplitter

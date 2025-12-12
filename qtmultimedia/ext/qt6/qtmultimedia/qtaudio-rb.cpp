@@ -2,9 +2,9 @@
 #include <qtaudio.h>
 #include <rice/qt6/qenum.hpp>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-void Init_qtaudio(Rice::Module rb_mQt6QtMultimedia)
+void Init_qtaudio(Module rb_mQt6QtMultimedia)
 {
     Module rb_mQtAudio =
         // RubyQt6::QtMultimedia::QtAudio

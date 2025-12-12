@@ -2,9 +2,9 @@
 #include <qnamespace.h>
 #include <rice/qt6/qenum.hpp>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-void Init_qt_enum_af(Rice::Module rb_mQt6QtCore)
+void Init_qt_enum_af(Module rb_mQt6QtCore)
 {
     Module rb_mQt =
         // RubyQt6::QtCore::Qt

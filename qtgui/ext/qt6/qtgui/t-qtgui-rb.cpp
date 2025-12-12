@@ -7,9 +7,9 @@
 #include <QTextLength>
 #include <QScreen>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-void Init_t_qtgui(Rice::Module rb_mQt6T)
+void Init_t_qtgui(Module rb_mQt6T)
 {
     // QList<QPoint> -> QPolygon
     define_qlist_under<QPoint>(rb_mQt6T);

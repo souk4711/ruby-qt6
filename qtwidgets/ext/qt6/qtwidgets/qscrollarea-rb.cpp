@@ -1,11 +1,11 @@
 #include "qscrollarea-rb.hpp"
 #include <qscrollarea.h>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQScrollArea;
+Class rb_cQScrollArea;
 
-void Init_qscrollarea(Rice::Module rb_mQt6QtWidgets)
+void Init_qscrollarea(Module rb_mQt6QtWidgets)
 {
     rb_cQScrollArea =
         // RubyQt6::QtWidgets::QScrollArea

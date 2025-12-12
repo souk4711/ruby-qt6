@@ -3,11 +3,11 @@
 
 #include <QString>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQAnyStringView;
+Class rb_cQAnyStringView;
 
-void Init_qanystringview(Rice::Module rb_mQt6QtCore)
+void Init_qanystringview(Module rb_mQt6QtCore)
 {
     rb_cQAnyStringView =
         // RubyQt6::QtCore::QAnyStringView

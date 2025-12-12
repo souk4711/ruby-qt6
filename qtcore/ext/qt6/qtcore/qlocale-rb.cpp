@@ -6,11 +6,11 @@
 #include <QCalendar>
 #include <QDateTime>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQLocale;
+Class rb_cQLocale;
 
-void Init_qlocale(Rice::Module rb_mQt6QtCore)
+void Init_qlocale(Module rb_mQt6QtCore)
 {
     rb_cQLocale =
         // RubyQt6::QtCore::QLocale

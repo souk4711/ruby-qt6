@@ -3,13 +3,13 @@
 
 #include <QSplashScreen>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
 using Bando_QSplashScreen = BandoQWidget<QSplashScreen, const QPixmap &>;
 
-Rice::Class rb_mBando_cQSplashScreen;
+Class rb_mBando_cQSplashScreen;
 
-void Init_bando_qsplashscreen(Rice::Module rb_mQt6Bando)
+void Init_bando_qsplashscreen(Module rb_mQt6Bando)
 {
     rb_mBando_cQSplashScreen =
         define_bando_qwidget_under<Bando_QSplashScreen, QSplashScreen>(rb_mQt6Bando, "QSplashScreen")

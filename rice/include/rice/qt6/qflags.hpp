@@ -24,7 +24,7 @@
 
 #include <QFlags>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
 template<typename QFlags_T>
 VALUE qflags_to_i(VALUE self)

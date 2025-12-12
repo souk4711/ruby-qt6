@@ -3,13 +3,13 @@
 
 #include <QLCDNumber>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
 using Bando_QLCDNumber = BandoQWidget<QLCDNumber, uint, QWidget *>;
 
-Rice::Class rb_mBando_cQLCDNumber;
+Class rb_mBando_cQLCDNumber;
 
-void Init_bando_qlcdnumber(Rice::Module rb_mQt6Bando)
+void Init_bando_qlcdnumber(Module rb_mQt6Bando)
 {
     rb_mBando_cQLCDNumber =
         define_bando_qwidget_under<Bando_QLCDNumber, QLCDNumber>(rb_mQt6Bando, "QLCDNumber")

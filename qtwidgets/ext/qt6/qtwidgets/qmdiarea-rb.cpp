@@ -5,11 +5,11 @@
 
 #include <QMdiSubWindow>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQMdiArea;
+Class rb_cQMdiArea;
 
-void Init_qmdiarea(Rice::Module rb_mQt6QtWidgets)
+void Init_qmdiarea(Module rb_mQt6QtWidgets)
 {
     rb_cQMdiArea =
         // RubyQt6::QtWidgets::QMdiArea

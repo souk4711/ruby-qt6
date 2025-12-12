@@ -3,11 +3,11 @@
 #include <rice/qt6/qenum.hpp>
 #include <rice/qt6/qflags.hpp>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQColorDialog;
+Class rb_cQColorDialog;
 
-void Init_qcolordialog(Rice::Module rb_mQt6QtWidgets)
+void Init_qcolordialog(Module rb_mQt6QtWidgets)
 {
     rb_cQColorDialog =
         // RubyQt6::QtWidgets::QColorDialog

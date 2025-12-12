@@ -1,3 +1,5 @@
 #include <rice/qt6.hpp>
 
-void Init_qstackedlayout(Rice::Module rb_mQt6QtWidgets);
+RICE4RUBYQT6_USE_NAMESPACE
+
+void Init_qstackedlayout(Module rb_mQt6QtWidgets);

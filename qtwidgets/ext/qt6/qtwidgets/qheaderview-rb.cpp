@@ -2,11 +2,11 @@
 #include <qheaderview.h>
 #include <rice/qt6/qenum.hpp>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQHeaderView;
+Class rb_cQHeaderView;
 
-void Init_qheaderview(Rice::Module rb_mQt6QtWidgets)
+void Init_qheaderview(Module rb_mQt6QtWidgets)
 {
     rb_cQHeaderView =
         // RubyQt6::QtWidgets::QHeaderView

@@ -3,11 +3,11 @@
 #include <rice/qt6/qenum.hpp>
 #include <rice/qt6/qflags.hpp>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQAbstractSpinBox;
+Class rb_cQAbstractSpinBox;
 
-void Init_qabstractspinbox(Rice::Module rb_mQt6QtWidgets)
+void Init_qabstractspinbox(Module rb_mQt6QtWidgets)
 {
     rb_cQAbstractSpinBox =
         // RubyQt6::QtWidgets::QAbstractSpinBox

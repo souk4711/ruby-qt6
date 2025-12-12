@@ -4,12 +4,12 @@
 
 #include <QWidget>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQFormLayout;
-Rice::Class rb_cQFormLayoutTakeRowResult;
+Class rb_cQFormLayout;
+Class rb_cQFormLayoutTakeRowResult;
 
-void Init_qformlayout(Rice::Module rb_mQt6QtWidgets)
+void Init_qformlayout(Module rb_mQt6QtWidgets)
 {
     rb_cQFormLayout =
         // RubyQt6::QtWidgets::QFormLayout

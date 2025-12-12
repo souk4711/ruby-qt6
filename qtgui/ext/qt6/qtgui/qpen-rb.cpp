@@ -1,11 +1,11 @@
 #include "qpen-rb.hpp"
 #include <qpen.h>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQPen;
+Class rb_cQPen;
 
-void Init_qpen(Rice::Module rb_mQt6QtGui)
+void Init_qpen(Module rb_mQt6QtGui)
 {
     rb_cQPen =
         // RubyQt6::QtGui::QPen

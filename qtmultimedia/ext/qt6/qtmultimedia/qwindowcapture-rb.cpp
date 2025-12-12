@@ -4,11 +4,11 @@
 
 #include <QMediaCaptureSession>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQWindowCapture;
+Class rb_cQWindowCapture;
 
-void Init_qwindowcapture(Rice::Module rb_mQt6QtMultimedia)
+void Init_qwindowcapture(Module rb_mQt6QtMultimedia)
 {
     rb_cQWindowCapture =
         // RubyQt6::QtMultimedia::QWindowCapture

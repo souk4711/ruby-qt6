@@ -2,9 +2,9 @@
 #include <qdbusconnection.h>
 #include <rice/qt6/qenum.hpp>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-void Init_qdbus(Rice::Module rb_mQt6QtDBus)
+void Init_qdbus(Module rb_mQt6QtDBus)
 {
     Module rb_mQDBus =
         // RubyQt6::QtDBus::QDBus

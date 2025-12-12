@@ -6,11 +6,11 @@
 #include <QIODevice>
 #include <QPaintEngine>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQPixmap;
+Class rb_cQPixmap;
 
-void Init_qpixmap(Rice::Module rb_mQt6QtGui)
+void Init_qpixmap(Module rb_mQt6QtGui)
 {
     rb_cQPixmap =
         // RubyQt6::QtGui::QPixmap

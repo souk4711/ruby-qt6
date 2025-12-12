@@ -29,7 +29,7 @@
 #include <QTimerEvent>
 #include <QWidget>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
 template <typename Class_T, typename... Arg_Ts> class BandoQLayout : public Class_T
 {

@@ -3,13 +3,13 @@
 
 #include <QCommandLinkButton>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
 using Bando_QCommandLinkButton = BandoQWidget<QCommandLinkButton, const QString &, const QString &, QWidget *>;
 
-Rice::Class rb_mBando_cQCommandLinkButton;
+Class rb_mBando_cQCommandLinkButton;
 
-void Init_bando_qcommandlinkbutton(Rice::Module rb_mQt6Bando)
+void Init_bando_qcommandlinkbutton(Module rb_mQt6Bando)
 {
     rb_mBando_cQCommandLinkButton =
         define_bando_qwidget_under<Bando_QCommandLinkButton, QCommandLinkButton>(rb_mQt6Bando, "QCommandLinkButton")

@@ -3,13 +3,13 @@
 
 #include <QLayout>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
 using Bando_QLayout = BandoQLayout<QLayout, QWidget *>;
 
-Rice::Class rb_mBando_cQLayout;
+Class rb_mBando_cQLayout;
 
-void Init_bando_qlayout(Rice::Module rb_mQt6Bando)
+void Init_bando_qlayout(Module rb_mQt6Bando)
 {
     rb_mBando_cQLayout =
         define_bando_qlayout_under<Bando_QLayout, QLayout>(rb_mQt6Bando, "QLayout")

@@ -1,11 +1,11 @@
 #include "qjsengine-rb.hpp"
 #include <qjsengine.h>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQJSEngine;
+Class rb_cQJSEngine;
 
-void Init_qjsengine(Rice::Module rb_mQt6QtQml)
+void Init_qjsengine(Module rb_mQt6QtQml)
 {
     rb_cQJSEngine =
         // RubyQt6::QtQml::QJSEngine

@@ -1,12 +1,12 @@
 #include "qpolygon-rb.hpp"
 #include <qpolygon.h>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQPolygon;
-Rice::Class rb_cQPolygonF;
+Class rb_cQPolygon;
+Class rb_cQPolygonF;
 
-void Init_qpolygon(Rice::Module rb_mQt6QtGui)
+void Init_qpolygon(Module rb_mQt6QtGui)
 {
     rb_cQPolygon =
         // RubyQt6::QtGui::QPolygon

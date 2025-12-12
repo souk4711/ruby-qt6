@@ -5,11 +5,11 @@
 #include <QProgressBar>
 #include <QPushButton>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQProgressDialog;
+Class rb_cQProgressDialog;
 
-void Init_qprogressdialog(Rice::Module rb_mQt6QtWidgets)
+void Init_qprogressdialog(Module rb_mQt6QtWidgets)
 {
     rb_cQProgressDialog =
         // RubyQt6::QtWidgets::QProgressDialog

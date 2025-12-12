@@ -1,11 +1,11 @@
 #include "qqmlapplicationengine-rb.hpp"
 #include <qqmlapplicationengine.h>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQQmlApplicationEngine;
+Class rb_cQQmlApplicationEngine;
 
-void Init_qqmlapplicationengine(Rice::Module rb_mQt6QtQml)
+void Init_qqmlapplicationengine(Module rb_mQt6QtQml)
 {
     rb_cQQmlApplicationEngine =
         // RubyQt6::QtQml::QQmlApplicationEngine

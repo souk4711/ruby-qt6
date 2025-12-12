@@ -3,14 +3,14 @@
 
 #include <QTextList>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQTextBlock;
-Rice::Class rb_cQTextObject;
-Rice::Class rb_cQTextBlockGroup;
-Rice::Class rb_cQTextFrame;
+Class rb_cQTextBlock;
+Class rb_cQTextObject;
+Class rb_cQTextBlockGroup;
+Class rb_cQTextFrame;
 
-void Init_qtextobject(Rice::Module rb_mQt6QtGui)
+void Init_qtextobject(Module rb_mQt6QtGui)
 {
     rb_cQTextBlock =
         // RubyQt6::QtGui::QTextBlock

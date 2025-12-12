@@ -1,12 +1,12 @@
 #include "qrect-rb.hpp"
 #include <qrect.h>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQRect;
-Rice::Class rb_cQRectF;
+Class rb_cQRect;
+Class rb_cQRectF;
 
-void Init_qrect(Rice::Module rb_mQt6QtCore)
+void Init_qrect(Module rb_mQt6QtCore)
 {
     rb_cQRect =
         // RubyQt6::QtCore::QRect

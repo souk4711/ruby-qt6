@@ -6,11 +6,11 @@
 #include <QPixmap>
 #include <QMimeData>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQClipboard;
+Class rb_cQClipboard;
 
-void Init_qclipboard(Rice::Module rb_mQt6QtGui)
+void Init_qclipboard(Module rb_mQt6QtGui)
 {
     rb_cQClipboard =
         // RubyQt6::QtGui::QClipboard

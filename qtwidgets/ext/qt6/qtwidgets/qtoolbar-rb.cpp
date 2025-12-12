@@ -1,11 +1,11 @@
 #include "qtoolbar-rb.hpp"
 #include <qtoolbar.h>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQToolBar;
+Class rb_cQToolBar;
 
-void Init_qtoolbar(Rice::Module rb_mQt6QtWidgets)
+void Init_qtoolbar(Module rb_mQt6QtWidgets)
 {
     rb_cQToolBar =
         // RubyQt6::QtWidgets::QToolBar

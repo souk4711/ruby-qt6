@@ -1,11 +1,11 @@
 #include "qfile-rb.hpp"
 #include <qfile.h>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQFile;
+Class rb_cQFile;
 
-void Init_qfile(Rice::Module rb_mQt6QtCore)
+void Init_qfile(Module rb_mQt6QtCore)
 {
     rb_cQFile =
         // RubyQt6::QtCore::QFile

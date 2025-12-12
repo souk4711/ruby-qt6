@@ -1,11 +1,11 @@
 #include "qaudiosource-rb.hpp"
 #include <qaudiosource.h>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQAudioSource;
+Class rb_cQAudioSource;
 
-void Init_qaudiosource(Rice::Module rb_mQt6QtMultimedia)
+void Init_qaudiosource(Module rb_mQt6QtMultimedia)
 {
     rb_cQAudioSource =
         // RubyQt6::QtMultimedia::QAudioSource

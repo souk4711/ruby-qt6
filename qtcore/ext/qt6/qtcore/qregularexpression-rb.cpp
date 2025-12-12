@@ -3,13 +3,13 @@
 #include <rice/qt6/qenum.hpp>
 #include <rice/qt6/qflags.hpp>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQRegularExpression;
-Rice::Class rb_cQRegularExpressionMatch;
-Rice::Class rb_cQRegularExpressionMatchIterator;
+Class rb_cQRegularExpression;
+Class rb_cQRegularExpressionMatch;
+Class rb_cQRegularExpressionMatchIterator;
 
-void Init_qregularexpression(Rice::Module rb_mQt6QtCore)
+void Init_qregularexpression(Module rb_mQt6QtCore)
 {
     rb_cQRegularExpression =
         // RubyQt6::QtCore::QRegularExpression

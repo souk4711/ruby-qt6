@@ -11,11 +11,11 @@
 #include <QTextFormat>
 #include <QTextObject>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQTextDocument;
+Class rb_cQTextDocument;
 
-void Init_qtextdocument(Rice::Module rb_mQt6QtGui)
+void Init_qtextdocument(Module rb_mQt6QtGui)
 {
     rb_cQTextDocument =
         // RubyQt6::QtGui::QTextDocument

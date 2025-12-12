@@ -5,12 +5,12 @@
 #include <QPainter>
 #include <QTextBlock>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQTextLayout;
-Rice::Class rb_cQTextLayoutFormatRange;
+Class rb_cQTextLayout;
+Class rb_cQTextLayoutFormatRange;
 
-void Init_qtextlayout(Rice::Module rb_mQt6QtGui)
+void Init_qtextlayout(Module rb_mQt6QtGui)
 {
     rb_cQTextLayout =
         // RubyQt6::QtGui::QTextLayout

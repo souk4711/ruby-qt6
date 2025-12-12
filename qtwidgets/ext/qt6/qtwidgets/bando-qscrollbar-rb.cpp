@@ -3,13 +3,13 @@
 
 #include <QScrollBar>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
 using Bando_QScrollBar = BandoQWidget<QScrollBar, Qt::Orientation, QWidget *>;
 
-Rice::Class rb_mBando_cQScrollBar;
+Class rb_mBando_cQScrollBar;
 
-void Init_bando_qscrollbar(Rice::Module rb_mQt6Bando)
+void Init_bando_qscrollbar(Module rb_mQt6Bando)
 {
     rb_mBando_cQScrollBar =
         define_bando_qwidget_under<Bando_QScrollBar, QScrollBar>(rb_mQt6Bando, "QScrollBar")

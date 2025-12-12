@@ -4,11 +4,11 @@
 
 #include <QMimeType>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQMediaFormat;
+Class rb_cQMediaFormat;
 
-void Init_qmediaformat(Rice::Module rb_mQt6QtMultimedia)
+void Init_qmediaformat(Module rb_mQt6QtMultimedia)
 {
     rb_cQMediaFormat =
         // RubyQt6::QtMultimedia::QMediaFormat

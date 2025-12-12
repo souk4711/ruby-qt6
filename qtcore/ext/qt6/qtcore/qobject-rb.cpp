@@ -8,9 +8,9 @@
 #include <QThread>
 #include <QVariant>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQObject;
+Class rb_cQObject;
 
 int QObject_emit(QObject *sender, const QMetaMethod *signal, const std::vector<QVariant> &args)
 {
@@ -25,7 +25,7 @@ int QObject_emit(QObject *sender, const QMetaMethod *signal, const std::vector<Q
     return -1;
 }
 
-void Init_qobject(Rice::Module rb_mQt6QtCore)
+void Init_qobject(Module rb_mQt6QtCore)
 {
     rb_cQObject =
         // RubyQt6::QtCore::QObject

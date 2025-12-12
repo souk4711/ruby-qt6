@@ -7,11 +7,11 @@
 #include <QMediaFormat>
 #include <QUrl>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQMediaRecorder;
+Class rb_cQMediaRecorder;
 
-void Init_qmediarecorder(Rice::Module rb_mQt6QtMultimedia)
+void Init_qmediarecorder(Module rb_mQt6QtMultimedia)
 {
     rb_cQMediaRecorder =
         // RubyQt6::QtMultimedia::QMediaRecorder

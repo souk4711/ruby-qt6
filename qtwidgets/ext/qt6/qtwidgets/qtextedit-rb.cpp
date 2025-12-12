@@ -7,12 +7,12 @@
 #include <QPagedPaintDevice>
 #include <QRegularExpression>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQTextEdit;
-Rice::Class rb_cQTextEditExtraSelection;
+Class rb_cQTextEdit;
+Class rb_cQTextEditExtraSelection;
 
-void Init_qtextedit(Rice::Module rb_mQt6QtWidgets)
+void Init_qtextedit(Module rb_mQt6QtWidgets)
 {
     rb_cQTextEdit =
         // RubyQt6::QtWidgets::QTextEdit

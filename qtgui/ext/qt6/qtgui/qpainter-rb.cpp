@@ -9,11 +9,11 @@
 #include <QStaticText>
 #include <QTextItem>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQPainter;
+Class rb_cQPainter;
 
-void Init_qpainter(Rice::Module rb_mQt6QtGui)
+void Init_qpainter(Module rb_mQt6QtGui)
 {
     rb_cQPainter =
         // RubyQt6::QtGui::QPainter

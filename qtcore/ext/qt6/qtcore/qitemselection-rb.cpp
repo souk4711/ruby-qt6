@@ -1,12 +1,12 @@
 #include "qitemselection-rb.hpp"
 #include <qitemselectionmodel.h>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQItemSelectionRange;
-Rice::Class rb_cQItemSelection;
+Class rb_cQItemSelectionRange;
+Class rb_cQItemSelection;
 
-void Init_qitemselection(Rice::Module rb_mQt6QtCore)
+void Init_qitemselection(Module rb_mQt6QtCore)
 {
     rb_cQItemSelectionRange =
         // RubyQt6::QtCore::QItemSelectionRange

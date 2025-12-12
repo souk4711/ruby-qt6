@@ -6,11 +6,11 @@
 #include <QIODevice>
 #include <QLocale>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQTextStream;
+Class rb_cQTextStream;
 
-void Init_qtextstream(Rice::Module rb_mQt6QtCore)
+void Init_qtextstream(Module rb_mQt6QtCore)
 {
     rb_cQTextStream =
         // RubyQt6::QtCore::QTextStream

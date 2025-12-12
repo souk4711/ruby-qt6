@@ -7,11 +7,11 @@
 #include <QIODevice>
 #include <QPaintEngine>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQImage;
+Class rb_cQImage;
 
-void Init_qimage(Rice::Module rb_mQt6QtGui)
+void Init_qimage(Module rb_mQt6QtGui)
 {
     rb_cQImage =
         // RubyQt6::QtGui::QImage

@@ -3,11 +3,11 @@
 
 #include <QPrinter>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQPrintDialog;
+Class rb_cQPrintDialog;
 
-void Init_qprintdialog(Rice::Module rb_mQt6QtPrintSupport)
+void Init_qprintdialog(Module rb_mQt6QtPrintSupport)
 {
     rb_cQPrintDialog =
         // RubyQt6::QtPrintSupport::QPrintDialog

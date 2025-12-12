@@ -4,11 +4,11 @@
 
 #include <QDateTime>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQResource;
+Class rb_cQResource;
 
-void Init_qresource(Rice::Module rb_mQt6QtCore)
+void Init_qresource(Module rb_mQt6QtCore)
 {
     rb_cQResource =
         // RubyQt6::QtCore::QResource

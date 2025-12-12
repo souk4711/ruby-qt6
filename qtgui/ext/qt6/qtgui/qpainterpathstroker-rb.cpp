@@ -3,11 +3,11 @@
 
 #include <QPen>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQPainterPathStroker;
+Class rb_cQPainterPathStroker;
 
-void Init_qpainterpathstroker(Rice::Module rb_mQt6QtGui)
+void Init_qpainterpathstroker(Module rb_mQt6QtGui)
 {
     rb_cQPainterPathStroker =
         // RubyQt6::QtGui::QPainterPathStroker

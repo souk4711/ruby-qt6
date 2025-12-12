@@ -3,13 +3,13 @@
 
 #include <QUndoView>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
 using Bando_QUndoView = BandoQWidget<QUndoView, QWidget *>;
 
-Rice::Class rb_mBando_cQUndoView;
+Class rb_mBando_cQUndoView;
 
-void Init_bando_qundoview(Rice::Module rb_mQt6Bando)
+void Init_bando_qundoview(Module rb_mQt6Bando)
 {
     rb_mBando_cQUndoView =
         define_bando_qwidget_under<Bando_QUndoView, QUndoView>(rb_mQt6Bando, "QUndoView")

@@ -7,11 +7,11 @@
 #include <QTextDocument>
 #include <QWidget>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQGraphicsTextItem;
+Class rb_cQGraphicsTextItem;
 
-void Init_qgraphicstextitem(Rice::Module rb_mQt6QtWidgets)
+void Init_qgraphicstextitem(Module rb_mQt6QtWidgets)
 {
     rb_cQGraphicsTextItem =
         // RubyQt6::QtWidgets::QGraphicsTextItem

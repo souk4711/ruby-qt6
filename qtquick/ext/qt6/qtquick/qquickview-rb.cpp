@@ -5,11 +5,11 @@
 #include <QQmlEngine>
 #include <QQuickItem>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQQuickView;
+Class rb_cQQuickView;
 
-void Init_qquickview(Rice::Module rb_mQt6QtQuick)
+void Init_qquickview(Module rb_mQt6QtQuick)
 {
     rb_cQQuickView =
         // RubyQt6::QtQuick::QQuickView

@@ -1,11 +1,11 @@
 #include "qstackedwidget-rb.hpp"
 #include <qstackedwidget.h>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQStackedWidget;
+Class rb_cQStackedWidget;
 
-void Init_qstackedwidget(Rice::Module rb_mQt6QtWidgets)
+void Init_qstackedwidget(Module rb_mQt6QtWidgets)
 {
     rb_cQStackedWidget =
         // RubyQt6::QtWidgets::QStackedWidget

@@ -3,13 +3,13 @@
 
 #include <QLabel>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
 using Bando_QLabel = BandoQWidget<QLabel, const QString &, QWidget *>;
 
-Rice::Class rb_mBando_cQLabel;
+Class rb_mBando_cQLabel;
 
-void Init_bando_qlabel(Rice::Module rb_mQt6Bando)
+void Init_bando_qlabel(Module rb_mQt6Bando)
 {
     rb_mBando_cQLabel =
         define_bando_qwidget_under<Bando_QLabel, QLabel>(rb_mQt6Bando, "QLabel")

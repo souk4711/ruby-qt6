@@ -3,13 +3,13 @@
 
 #include <QTreeView>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
 using Bando_QTreeView = BandoQWidget<QTreeView, QWidget *>;
 
-Rice::Class rb_mBando_cQTreeView;
+Class rb_mBando_cQTreeView;
 
-void Init_bando_qtreeview(Rice::Module rb_mQt6Bando)
+void Init_bando_qtreeview(Module rb_mQt6Bando)
 {
     rb_mBando_cQTreeView =
         define_bando_qwidget_under<Bando_QTreeView, QTreeView>(rb_mQt6Bando, "QTreeView")

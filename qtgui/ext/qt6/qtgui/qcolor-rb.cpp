@@ -2,11 +2,11 @@
 #include <qcolor.h>
 #include <rice/qt6/qenum.hpp>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQColor;
+Class rb_cQColor;
 
-void Init_qcolor(Rice::Module rb_mQt6QtGui)
+void Init_qcolor(Module rb_mQt6QtGui)
 {
     rb_cQColor =
         // RubyQt6::QtGui::QColor

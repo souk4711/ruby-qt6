@@ -5,11 +5,11 @@
 #include <QFontInfo>
 #include <QList>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQFontDatabase;
+Class rb_cQFontDatabase;
 
-void Init_qfontdatabase(Rice::Module rb_mQt6QtGui)
+void Init_qfontdatabase(Module rb_mQt6QtGui)
 {
     rb_cQFontDatabase =
         // RubyQt6::QtGui::QFontDatabase

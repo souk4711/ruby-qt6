@@ -2,11 +2,11 @@
 #include <qactiongroup.h>
 #include <rice/qt6/qenum.hpp>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQActionGroup;
+Class rb_cQActionGroup;
 
-void Init_qactiongroup(Rice::Module rb_mQt6QtGui)
+void Init_qactiongroup(Module rb_mQt6QtGui)
 {
     rb_cQActionGroup =
         // RubyQt6::QtGui::QActionGroup

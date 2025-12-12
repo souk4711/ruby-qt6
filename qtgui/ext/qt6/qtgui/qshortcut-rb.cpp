@@ -1,11 +1,11 @@
 #include "qshortcut-rb.hpp"
 #include <qshortcut.h>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQShortcut;
+Class rb_cQShortcut;
 
-void Init_qshortcut(Rice::Module rb_mQt6QtGui)
+void Init_qshortcut(Module rb_mQt6QtGui)
 {
     rb_cQShortcut =
         // RubyQt6::QtGui::QShortcut

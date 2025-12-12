@@ -1,11 +1,11 @@
 #include "qerrormessage-rb.hpp"
 #include <qerrormessage.h>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQErrorMessage;
+Class rb_cQErrorMessage;
 
-void Init_qerrormessage(Rice::Module rb_mQt6QtWidgets)
+void Init_qerrormessage(Module rb_mQt6QtWidgets)
 {
     rb_cQErrorMessage =
         // RubyQt6::QtWidgets::QErrorMessage

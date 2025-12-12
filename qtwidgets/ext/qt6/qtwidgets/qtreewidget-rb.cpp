@@ -2,12 +2,12 @@
 #include <qtreewidget.h>
 #include <rice/qt6/qenum.hpp>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQTreeWidget;
-Rice::Class rb_cQTreeWidgetItem;
+Class rb_cQTreeWidget;
+Class rb_cQTreeWidgetItem;
 
-void Init_qtreewidget(Rice::Module rb_mQt6QtWidgets)
+void Init_qtreewidget(Module rb_mQt6QtWidgets)
 {
     rb_cQTreeWidget =
         // RubyQt6::QtWidgets::QTreeWidget

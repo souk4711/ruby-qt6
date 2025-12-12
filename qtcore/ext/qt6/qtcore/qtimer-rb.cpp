@@ -3,11 +3,11 @@
 
 #include <QBindable>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQTimer;
+Class rb_cQTimer;
 
-void Init_qtimer(Rice::Module rb_mQt6QtCore)
+void Init_qtimer(Module rb_mQt6QtCore)
 {
     rb_cQTimer =
         // RubyQt6::QtCore::QTimer

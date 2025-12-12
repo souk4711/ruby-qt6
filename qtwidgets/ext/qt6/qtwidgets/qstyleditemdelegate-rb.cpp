@@ -3,11 +3,11 @@
 
 #include <QItemEditorFactory>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQStyledItemDelegate;
+Class rb_cQStyledItemDelegate;
 
-void Init_qstyleditemdelegate(Rice::Module rb_mQt6QtWidgets)
+void Init_qstyleditemdelegate(Module rb_mQt6QtWidgets)
 {
     rb_cQStyledItemDelegate =
         // RubyQt6::QtWidgets::QStyledItemDelegate

@@ -4,11 +4,11 @@
 #include <QList>
 #include <QVariant>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQVariantList;
+Class rb_cQVariantList;
 
-void Init_qvariantlist(Rice::Module rb_mQt6QtCore)
+void Init_qvariantlist(Module rb_mQt6QtCore)
 {
     rb_cQVariantList =
         // RubyQt6::QtCore::QVariantList

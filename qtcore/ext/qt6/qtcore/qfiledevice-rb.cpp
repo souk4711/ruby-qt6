@@ -5,11 +5,11 @@
 
 #include <QDateTime>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQFileDevice;
+Class rb_cQFileDevice;
 
-void Init_qfiledevice(Rice::Module rb_mQt6QtCore)
+void Init_qfiledevice(Module rb_mQt6QtCore)
 {
     rb_cQFileDevice =
         // RubyQt6::QtCore::QFileDevice

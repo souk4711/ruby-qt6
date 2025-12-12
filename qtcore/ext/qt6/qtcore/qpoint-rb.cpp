@@ -1,12 +1,12 @@
 #include "qpoint-rb.hpp"
 #include <qpoint.h>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQPoint;
-Rice::Class rb_cQPointF;
+Class rb_cQPoint;
+Class rb_cQPointF;
 
-void Init_qpoint(Rice::Module rb_mQt6QtCore)
+void Init_qpoint(Module rb_mQt6QtCore)
 {
     rb_cQPoint =
         // RubyQt6::QtCore::QPoint

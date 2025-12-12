@@ -1,9 +1,9 @@
 #include "qtnetworkversion-rb.hpp"
 #include <qtnetworkversion.h>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-void Init_qtnetworkversion(Rice::Module rb_mQt6QtNetwork)
+void Init_qtnetworkversion(Module rb_mQt6QtNetwork)
 {
     rb_mQt6QtNetwork.define_constant("QTNETWORK_VERSION", QTNETWORK_VERSION_STR);
 }

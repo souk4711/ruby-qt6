@@ -4,11 +4,11 @@
 
 #include <QAudioDevice>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQSoundEffect;
+Class rb_cQSoundEffect;
 
-void Init_qsoundeffect(Rice::Module rb_mQt6QtMultimedia)
+void Init_qsoundeffect(Module rb_mQt6QtMultimedia)
 {
     rb_cQSoundEffect =
         // RubyQt6::QtMultimedia::QSoundEffect

@@ -5,11 +5,11 @@
 
 #include <QList>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQTextOption;
+Class rb_cQTextOption;
 
-void Init_qtextoption(Rice::Module rb_mQt6QtGui)
+void Init_qtextoption(Module rb_mQt6QtGui)
 {
     rb_cQTextOption =
         // RubyQt6::QtGui::QTextOption

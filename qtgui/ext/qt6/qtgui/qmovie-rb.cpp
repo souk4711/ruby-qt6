@@ -5,11 +5,11 @@
 #include <QBindable>
 #include <QPixmap>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQMovie;
+Class rb_cQMovie;
 
-void Init_qmovie(Rice::Module rb_mQt6QtGui)
+void Init_qmovie(Module rb_mQt6QtGui)
 {
     rb_cQMovie =
         // RubyQt6::QtGui::QMovie

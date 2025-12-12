@@ -4,11 +4,11 @@
 
 #include <QTabBar>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQTabWidget;
+Class rb_cQTabWidget;
 
-void Init_qtabwidget(Rice::Module rb_mQt6QtWidgets)
+void Init_qtabwidget(Module rb_mQt6QtWidgets)
 {
     rb_cQTabWidget =
         // RubyQt6::QtWidgets::QTabWidget

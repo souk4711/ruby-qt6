@@ -3,13 +3,13 @@
 
 #include <QCheckBox>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
 using Bando_QCheckBox = BandoQWidget<QCheckBox, const QString &, QWidget *>;
 
-Rice::Class rb_mBando_cQCheckBox;
+Class rb_mBando_cQCheckBox;
 
-void Init_bando_qcheckbox(Rice::Module rb_mQt6Bando)
+void Init_bando_qcheckbox(Module rb_mQt6Bando)
 {
     rb_mBando_cQCheckBox =
         define_bando_qwidget_under<Bando_QCheckBox, QCheckBox>(rb_mQt6Bando, "QCheckBox")

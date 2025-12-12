@@ -1,11 +1,11 @@
 #include "qprinterinfo-rb.hpp"
 #include <qprinterinfo.h>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQPrinterInfo;
+Class rb_cQPrinterInfo;
 
-void Init_qprinterinfo(Rice::Module rb_mQt6QtPrintSupport)
+void Init_qprinterinfo(Module rb_mQt6QtPrintSupport)
 {
     rb_cQPrinterInfo =
         // RubyQt6::QtPrintSupport::QPrinterInfo

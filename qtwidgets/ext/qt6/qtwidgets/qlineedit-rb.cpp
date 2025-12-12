@@ -6,11 +6,11 @@
 #include <QMenu>
 #include <QValidator>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQLineEdit;
+Class rb_cQLineEdit;
 
-void Init_qlineedit(Rice::Module rb_mQt6QtWidgets)
+void Init_qlineedit(Module rb_mQt6QtWidgets)
 {
     rb_cQLineEdit =
         // RubyQt6::QtWidgets::QLineEdit

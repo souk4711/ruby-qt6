@@ -2,11 +2,11 @@
 #include <qwebenginecertificateerror.h>
 #include <rice/qt6/qenum.hpp>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQWebEngineCertificateError;
+Class rb_cQWebEngineCertificateError;
 
-void Init_qwebenginecertificateerror(Rice::Module rb_mQt6QtWebEngineCore)
+void Init_qwebenginecertificateerror(Module rb_mQt6QtWebEngineCore)
 {
     rb_cQWebEngineCertificateError =
         // RubyQt6::QtWebEngineCore::QWebEngineCertificateError

@@ -4,11 +4,11 @@
 
 #include <QList>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQKeySequence;
+Class rb_cQKeySequence;
 
-void Init_qkeysequence(Rice::Module rb_mQt6QtGui)
+void Init_qkeysequence(Module rb_mQt6QtGui)
 {
     rb_cQKeySequence =
         // RubyQt6::QtGui::QKeySequence

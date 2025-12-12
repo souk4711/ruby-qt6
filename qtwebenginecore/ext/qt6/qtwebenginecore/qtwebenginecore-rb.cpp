@@ -17,11 +17,13 @@
 
 #include "bando-qwebenginepage-rb.hpp"
 
+RICE4RUBYQT6_USE_NAMESPACE
+
 extern "C" void Init_qtwebenginecore()
 {
-    return Rice::detail::cpp_protect([] {
-        Rice::Module rb_mQt6 = Rice::define_module("RubyQt6");
-        Rice::Module rb_mQt6QtWebEngineCore = define_module_under(rb_mQt6, "QtWebEngineCore");
+    return detail::cpp_protect([] {
+        Module rb_mQt6 = define_module("RubyQt6");
+        Module rb_mQt6QtWebEngineCore = define_module_under(rb_mQt6, "QtWebEngineCore");
 
         Init_qtwebenginecoreversion(rb_mQt6QtWebEngineCore);
 
@@ -39,7 +41,7 @@ extern "C" void Init_qtwebenginecore()
         Init_qwebenginepage(rb_mQt6QtWebEngineCore);
         Init_qwebengineprofile(rb_mQt6QtWebEngineCore);
 
-        Rice::Module rb_mQt6Bando = define_module_under(rb_mQt6, "Bando");
+        Module rb_mQt6Bando = define_module_under(rb_mQt6, "Bando");
         Init_bando_qwebenginepage(rb_mQt6Bando);
     });
 }

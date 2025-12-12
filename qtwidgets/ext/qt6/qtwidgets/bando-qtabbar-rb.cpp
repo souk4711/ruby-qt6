@@ -3,13 +3,13 @@
 
 #include <QTabBar>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
 using Bando_QTabBar = BandoQWidget<QTabBar, QWidget *>;
 
-Rice::Class rb_mBando_cQTabBar;
+Class rb_mBando_cQTabBar;
 
-void Init_bando_qtabbar(Rice::Module rb_mQt6Bando)
+void Init_bando_qtabbar(Module rb_mQt6Bando)
 {
     rb_mBando_cQTabBar =
         define_bando_qwidget_under<Bando_QTabBar, QTabBar>(rb_mQt6Bando, "QTabBar")

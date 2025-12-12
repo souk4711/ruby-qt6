@@ -2,11 +2,11 @@
 #include <qwebenginenavigationrequest.h>
 #include <rice/qt6/qenum.hpp>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQWebEngineNavigationRequest;
+Class rb_cQWebEngineNavigationRequest;
 
-void Init_qwebenginenavigationrequest(Rice::Module rb_mQt6QtWebEngineCore)
+void Init_qwebenginenavigationrequest(Module rb_mQt6QtWebEngineCore)
 {
     rb_cQWebEngineNavigationRequest =
         // RubyQt6::QtWebEngineCore::QWebEngineNavigationRequest

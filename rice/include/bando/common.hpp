@@ -27,7 +27,7 @@
 #include <QMetaObject>
 #include <QObject>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
 enum bando_FunctionName
 {

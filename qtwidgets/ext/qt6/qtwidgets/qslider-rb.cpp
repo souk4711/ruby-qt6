@@ -2,11 +2,11 @@
 #include <qslider.h>
 #include <rice/qt6/qenum.hpp>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQSlider;
+Class rb_cQSlider;
 
-void Init_qslider(Rice::Module rb_mQt6QtWidgets)
+void Init_qslider(Module rb_mQt6QtWidgets)
 {
     rb_cQSlider =
         // RubyQt6::QtWidgets::QSlider

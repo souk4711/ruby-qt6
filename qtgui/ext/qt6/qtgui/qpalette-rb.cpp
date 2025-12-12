@@ -2,11 +2,11 @@
 #include <qpalette.h>
 #include <rice/qt6/qenum.hpp>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQPalette;
+Class rb_cQPalette;
 
-void Init_qpalette(Rice::Module rb_mQt6QtGui)
+void Init_qpalette(Module rb_mQt6QtGui)
 {
     rb_cQPalette =
         // RubyQt6::QtGui::QPalette

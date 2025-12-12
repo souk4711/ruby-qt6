@@ -1,11 +1,11 @@
 #include "qquickstyle-rb.hpp"
 #include <qquickstyle.h>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQQuickStyle;
+Class rb_cQQuickStyle;
 
-void Init_qquickstyle(Rice::Module rb_mQt6QtQuickControls2)
+void Init_qquickstyle(Module rb_mQt6QtQuickControls2)
 {
     rb_cQQuickStyle =
         // RubyQt6::QtQuickControls2::QQuickStyle

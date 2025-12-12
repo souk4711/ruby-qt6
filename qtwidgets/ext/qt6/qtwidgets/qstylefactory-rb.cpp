@@ -3,11 +3,11 @@
 
 #include <QStyle>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQStyleFactory;
+Class rb_cQStyleFactory;
 
-void Init_qstylefactory(Rice::Module rb_mQt6QtWidgets)
+void Init_qstylefactory(Module rb_mQt6QtWidgets)
 {
     rb_cQStyleFactory =
         // RubyQt6::QtWidgets::QStyleFactory

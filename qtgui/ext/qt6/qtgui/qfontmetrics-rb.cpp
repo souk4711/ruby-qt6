@@ -3,12 +3,12 @@
 
 #include <QTextOption>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQFontMetrics;
-Rice::Class rb_cQFontMetricsF;
+Class rb_cQFontMetrics;
+Class rb_cQFontMetricsF;
 
-void Init_qfontmetrics(Rice::Module rb_mQt6QtGui)
+void Init_qfontmetrics(Module rb_mQt6QtGui)
 {
     rb_cQFontMetrics =
         // RubyQt6::QtGui::QFontMetrics

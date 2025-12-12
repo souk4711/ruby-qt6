@@ -5,13 +5,13 @@
 #include <QMimeData>
 #include <QSize>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQAbstractItemModel;
-Rice::Class rb_cQAbstractTableModel;
-Rice::Class rb_cQAbstractListModel;
+Class rb_cQAbstractItemModel;
+Class rb_cQAbstractTableModel;
+Class rb_cQAbstractListModel;
 
-void Init_qabstractitemmodel(Rice::Module rb_mQt6QtCore)
+void Init_qabstractitemmodel(Module rb_mQt6QtCore)
 {
     rb_cQAbstractItemModel =
         // RubyQt6::QtCore::QAbstractItemModel

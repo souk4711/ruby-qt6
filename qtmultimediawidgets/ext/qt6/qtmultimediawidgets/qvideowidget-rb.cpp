@@ -3,11 +3,11 @@
 
 #include <QVideoSink>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQVideoWidget;
+Class rb_cQVideoWidget;
 
-void Init_qvideowidget(Rice::Module rb_mQt6QtMultimediaWidgets)
+void Init_qvideowidget(Module rb_mQt6QtMultimediaWidgets)
 {
     rb_cQVideoWidget =
         // RubyQt6::QtMultimediaWidgets::QVideoWidget

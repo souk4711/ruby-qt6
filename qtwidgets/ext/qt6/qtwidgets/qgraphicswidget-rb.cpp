@@ -6,11 +6,11 @@
 #include <QStyleOptionGraphicsItem>
 #include <QWidget>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQGraphicsWidget;
+Class rb_cQGraphicsWidget;
 
-void Init_qgraphicswidget(Rice::Module rb_mQt6QtWidgets)
+void Init_qgraphicswidget(Module rb_mQt6QtWidgets)
 {
     rb_cQGraphicsWidget =
         // RubyQt6::QtWidgets::QGraphicsWidget

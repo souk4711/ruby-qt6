@@ -2,11 +2,11 @@
 #include <qaudiodevice.h>
 #include <rice/qt6/qenum.hpp>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQAudioDevice;
+Class rb_cQAudioDevice;
 
-void Init_qaudiodevice(Rice::Module rb_mQt6QtMultimedia)
+void Init_qaudiodevice(Module rb_mQt6QtMultimedia)
 {
     rb_cQAudioDevice =
         // RubyQt6::QtMultimedia::QAudioDevice

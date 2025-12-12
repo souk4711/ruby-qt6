@@ -7,11 +7,11 @@
 #include <QAbstractFileIconProvider>
 #include <QAbstractProxyModel>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQFileDialog;
+Class rb_cQFileDialog;
 
-void Init_qfiledialog(Rice::Module rb_mQt6QtWidgets)
+void Init_qfiledialog(Module rb_mQt6QtWidgets)
 {
     rb_cQFileDialog =
         // RubyQt6::QtWidgets::QFileDialog

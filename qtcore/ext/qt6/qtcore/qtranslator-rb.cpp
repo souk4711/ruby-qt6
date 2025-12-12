@@ -3,11 +3,11 @@
 
 #include <QLocale>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQTranslator;
+Class rb_cQTranslator;
 
-void Init_qtranslator(Rice::Module rb_mQt6QtCore)
+void Init_qtranslator(Module rb_mQt6QtCore)
 {
     rb_cQTranslator =
         // RubyQt6::QtCore::QTranslator

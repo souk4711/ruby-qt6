@@ -2,7 +2,9 @@
 #include <bando/common.hpp>
 #include <rice/qt6/qenum.hpp>
 
-void Init_bando_core(Rice::Module rb_mQt6Bando)
+RICE4RUBYQT6_USE_NAMESPACE
+
+void Init_bando_core(Module rb_mQt6Bando)
 {
     Data_Type<bando_FunctionName> rb_cBandoFunctionName =
         define_class_under<bando_FunctionName>(rb_mQt6Bando, "FunctionName");

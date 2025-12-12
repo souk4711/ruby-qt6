@@ -8,11 +8,11 @@
 #include <QDBusMessage>
 #include <QDBusVirtualObject>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQDBusConnection;
+Class rb_cQDBusConnection;
 
-void Init_qdbusconnection(Rice::Module rb_mQt6QtDBus)
+void Init_qdbusconnection(Module rb_mQt6QtDBus)
 {
     rb_cQDBusConnection =
         // RubyQt6::QtDBus::QDBusConnection

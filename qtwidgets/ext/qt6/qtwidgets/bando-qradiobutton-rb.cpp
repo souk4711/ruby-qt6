@@ -3,13 +3,13 @@
 
 #include <QRadioButton>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
 using Bando_QRadioButton = BandoQWidget<QRadioButton, const QString &, QWidget *>;
 
-Rice::Class rb_mBando_cQRadioButton;
+Class rb_mBando_cQRadioButton;
 
-void Init_bando_qradiobutton(Rice::Module rb_mQt6Bando)
+void Init_bando_qradiobutton(Module rb_mQt6Bando)
 {
     rb_mBando_cQRadioButton =
         define_bando_qwidget_under<Bando_QRadioButton, QRadioButton>(rb_mQt6Bando, "QRadioButton")

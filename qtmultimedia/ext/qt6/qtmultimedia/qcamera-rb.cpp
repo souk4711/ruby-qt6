@@ -4,11 +4,11 @@
 
 #include <QMediaCaptureSession>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQCamera;
+Class rb_cQCamera;
 
-void Init_qcamera(Rice::Module rb_mQt6QtMultimedia)
+void Init_qcamera(Module rb_mQt6QtMultimedia)
 {
     rb_cQCamera =
         // RubyQt6::QtMultimedia::QCamera

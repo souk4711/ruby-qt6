@@ -2,11 +2,11 @@
 #include <qdbusconnectioninterface.h>
 #include <rice/qt6/qenum.hpp>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQDBusConnectionInterface;
+Class rb_cQDBusConnectionInterface;
 
-void Init_qdbusconnectioninterface(Rice::Module rb_mQt6QtDBus)
+void Init_qdbusconnectioninterface(Module rb_mQt6QtDBus)
 {
     rb_cQDBusConnectionInterface =
         // RubyQt6::QtDBus::QDBusConnectionInterface

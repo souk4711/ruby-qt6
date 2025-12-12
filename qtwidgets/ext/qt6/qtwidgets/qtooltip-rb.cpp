@@ -1,11 +1,11 @@
 #include "qtooltip-rb.hpp"
 #include <qtooltip.h>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQToolTip;
+Class rb_cQToolTip;
 
-void Init_qtooltip(Rice::Module rb_mQt6QtWidgets)
+void Init_qtooltip(Module rb_mQt6QtWidgets)
 {
     rb_cQToolTip =
         // RubyQt6::QtWidgets::QToolTip

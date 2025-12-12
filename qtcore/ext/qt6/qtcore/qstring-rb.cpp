@@ -3,9 +3,9 @@
 
 #include <QRegularExpression>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQString;
+Class rb_cQString;
 
 std::optional<QString> QString_slice(QString *self, qsizetype start, qsizetype length)
 {
@@ -37,7 +37,7 @@ QString QString_replace(QString *self, qsizetype start, const QString &after)
     return self->replace(start, 1, after);
 }
 
-void Init_qstring(Rice::Module rb_mQt6QtCore)
+void Init_qstring(Module rb_mQt6QtCore)
 {
     rb_cQString =
         // RubyQt6::QtCore::QString

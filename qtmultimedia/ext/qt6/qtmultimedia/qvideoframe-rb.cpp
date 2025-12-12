@@ -4,11 +4,11 @@
 
 #include <QPainter>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQVideoFrame;
+Class rb_cQVideoFrame;
 
-void Init_qvideoframe(Rice::Module rb_mQt6QtMultimedia)
+void Init_qvideoframe(Module rb_mQt6QtMultimedia)
 {
     rb_cQVideoFrame =
         // RubyQt6::QtMultimedia::QVideoFrame

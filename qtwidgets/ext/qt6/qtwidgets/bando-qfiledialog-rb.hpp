@@ -1,3 +1,5 @@
 #include <rice/qt6.hpp>
 
-void Init_bando_qfiledialog(Rice::Module rb_mQt6Bando);
+RICE4RUBYQT6_USE_NAMESPACE
+
+void Init_bando_qfiledialog(Module rb_mQt6Bando);

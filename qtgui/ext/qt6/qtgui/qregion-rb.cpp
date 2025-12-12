@@ -5,11 +5,11 @@
 #include <QBitmap>
 #include <QPolygon>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQRegion;
+Class rb_cQRegion;
 
-void Init_qregion(Rice::Module rb_mQt6QtGui)
+void Init_qregion(Module rb_mQt6QtGui)
 {
     rb_cQRegion =
         // RubyQt6::QtGui::QRegion

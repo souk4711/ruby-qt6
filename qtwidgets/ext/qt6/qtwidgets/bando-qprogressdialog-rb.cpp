@@ -3,13 +3,13 @@
 
 #include <QProgressDialog>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
 using Bando_QProgressDialog = BandoQWidget<QProgressDialog, const QString &, const QString &, int, int, QWidget *>;
 
-Rice::Class rb_mBando_cQProgressDialog;
+Class rb_mBando_cQProgressDialog;
 
-void Init_bando_qprogressdialog(Rice::Module rb_mQt6Bando)
+void Init_bando_qprogressdialog(Module rb_mQt6Bando)
 {
     rb_mBando_cQProgressDialog =
         define_bando_qwidget_under<Bando_QProgressDialog, QProgressDialog>(rb_mQt6Bando, "QProgressDialog")

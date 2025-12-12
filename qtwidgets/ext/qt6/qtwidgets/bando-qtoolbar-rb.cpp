@@ -3,13 +3,13 @@
 
 #include <QToolBar>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
 using Bando_QToolBar = BandoQWidget<QToolBar, QWidget *>;
 
-Rice::Class rb_mBando_cQToolBar;
+Class rb_mBando_cQToolBar;
 
-void Init_bando_qtoolbar(Rice::Module rb_mQt6Bando)
+void Init_bando_qtoolbar(Module rb_mQt6Bando)
 {
     rb_mBando_cQToolBar =
         define_bando_qwidget_under<Bando_QToolBar, QToolBar>(rb_mQt6Bando, "QToolBar")

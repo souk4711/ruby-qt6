@@ -3,13 +3,13 @@
 
 #include <QCalendarWidget>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
 using Bando_QCalendarWidget = BandoQWidget<QCalendarWidget, QWidget *>;
 
-Rice::Class rb_mBando_cQCalendarWidget;
+Class rb_mBando_cQCalendarWidget;
 
-void Init_bando_qcalendarwidget(Rice::Module rb_mQt6Bando)
+void Init_bando_qcalendarwidget(Module rb_mQt6Bando)
 {
     rb_mBando_cQCalendarWidget =
         define_bando_qwidget_under<Bando_QCalendarWidget, QCalendarWidget>(rb_mQt6Bando, "QCalendarWidget")

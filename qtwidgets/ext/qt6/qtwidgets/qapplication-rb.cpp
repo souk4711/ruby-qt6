@@ -6,11 +6,11 @@
 #include <QStyle>
 #include <QWidget>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQApplication;
+Class rb_cQApplication;
 
-void Init_qapplication(Rice::Module rb_mQt6QtWidgets)
+void Init_qapplication(Module rb_mQt6QtWidgets)
 {
     rb_cQApplication =
         // RubyQt6::QtWidgets::QApplication

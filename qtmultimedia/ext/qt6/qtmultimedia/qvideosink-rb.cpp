@@ -3,11 +3,11 @@
 
 #include <QVideoFrame>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQVideoSink;
+Class rb_cQVideoSink;
 
-void Init_qvideosink(Rice::Module rb_mQt6QtMultimedia)
+void Init_qvideosink(Module rb_mQt6QtMultimedia)
 {
     rb_cQVideoSink =
         // RubyQt6::QtMultimedia::QVideoSink

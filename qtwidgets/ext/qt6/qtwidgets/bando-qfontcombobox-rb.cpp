@@ -3,13 +3,13 @@
 
 #include <QFontComboBox>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
 using Bando_QFontComboBox = BandoQWidget<QFontComboBox, QWidget *>;
 
-Rice::Class rb_mBando_cQFontComboBox;
+Class rb_mBando_cQFontComboBox;
 
-void Init_bando_qfontcombobox(Rice::Module rb_mQt6Bando)
+void Init_bando_qfontcombobox(Module rb_mQt6Bando)
 {
     rb_mBando_cQFontComboBox =
         define_bando_qwidget_under<Bando_QFontComboBox, QFontComboBox>(rb_mQt6Bando, "QFontComboBox")

@@ -1,3 +1,5 @@
 #include <rice/qt6.hpp>
 
-void Init_qsignalspy(Rice::Module rb_mQt6QtTest);
+RICE4RUBYQT6_USE_NAMESPACE
+
+void Init_qsignalspy(Module rb_mQt6QtTest);

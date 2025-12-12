@@ -3,11 +3,11 @@
 
 #include <QAudioDevice>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQAudioOutput;
+Class rb_cQAudioOutput;
 
-void Init_qaudiooutput(Rice::Module rb_mQt6QtMultimedia)
+void Init_qaudiooutput(Module rb_mQt6QtMultimedia)
 {
     rb_cQAudioOutput =
         // RubyQt6::QtMultimedia::QAudioOutput

@@ -1,3 +1,5 @@
 #include <rice/qt6.hpp>
 
-void Init_qsoundeffect(Rice::Module rb_mQt6QtMultimedia);
+RICE4RUBYQT6_USE_NAMESPACE
+
+void Init_qsoundeffect(Module rb_mQt6QtMultimedia);

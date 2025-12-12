@@ -2,11 +2,11 @@
 #include <qsettings.h>
 #include <rice/qt6/qenum.hpp>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQSettings;
+Class rb_cQSettings;
 
-void Init_qsettings(Rice::Module rb_mQt6QtCore)
+void Init_qsettings(Module rb_mQt6QtCore)
 {
     rb_cQSettings =
         // RubyQt6::QtCore::QSettings

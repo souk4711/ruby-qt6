@@ -3,13 +3,13 @@
 
 #include <QMessageBox>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
 using Bando_QMessageBox = BandoQWidget<QMessageBox, QMessageBox::Icon, const QString &, const QString &, QMessageBox::StandardButtons, QWidget *>;
 
-Rice::Class rb_mBando_cQMessageBox;
+Class rb_mBando_cQMessageBox;
 
-void Init_bando_qmessagebox(Rice::Module rb_mQt6Bando)
+void Init_bando_qmessagebox(Module rb_mQt6Bando)
 {
     rb_mBando_cQMessageBox =
         define_bando_qwidget_under<Bando_QMessageBox, QMessageBox>(rb_mQt6Bando, "QMessageBox")

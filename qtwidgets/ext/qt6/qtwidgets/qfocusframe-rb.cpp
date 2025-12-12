@@ -1,11 +1,11 @@
 #include "qfocusframe-rb.hpp"
 #include <qfocusframe.h>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQFocusFrame;
+Class rb_cQFocusFrame;
 
-void Init_qfocusframe(Rice::Module rb_mQt6QtWidgets)
+void Init_qfocusframe(Module rb_mQt6QtWidgets)
 {
     rb_cQFocusFrame =
         // RubyQt6::QtWidgets::QFocusFrame

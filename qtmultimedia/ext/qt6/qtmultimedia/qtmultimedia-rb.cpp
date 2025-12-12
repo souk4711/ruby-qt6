@@ -31,11 +31,13 @@
 
 #include "t-qtmultimedia-rb.hpp"
 
+RICE4RUBYQT6_USE_NAMESPACE
+
 extern "C" void Init_qtmultimedia()
 {
-    return Rice::detail::cpp_protect([] {
-        Rice::Module rb_mQt6 = Rice::define_module("RubyQt6");
-        Rice::Module rb_mQt6QtMultimedia = define_module_under(rb_mQt6, "QtMultimedia");
+    return detail::cpp_protect([] {
+        Module rb_mQt6 = define_module("RubyQt6");
+        Module rb_mQt6QtMultimedia = define_module_under(rb_mQt6, "QtMultimedia");
 
         Init_qtmultimediaversion(rb_mQt6QtMultimedia);
         Init_qtaudio(rb_mQt6QtMultimedia);
@@ -67,7 +69,7 @@ extern "C" void Init_qtmultimedia()
         Init_qvideosink(rb_mQt6QtMultimedia);
         Init_qwindowcapture(rb_mQt6QtMultimedia);
 
-        Rice::Module rb_mQt6T = define_module_under(rb_mQt6, "T");
+        Module rb_mQt6T = define_module_under(rb_mQt6, "T");
         Init_t_qtmultimedia(rb_mQt6T);
     });
 }

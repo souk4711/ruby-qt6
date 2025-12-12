@@ -2,11 +2,11 @@
 #include <qmetaobject.h>
 #include <rice/qt6/qenum.hpp>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQMetaMethod;
+Class rb_cQMetaMethod;
 
-void Init_qmetamethod(Rice::Module rb_mQt6QtCore)
+void Init_qmetamethod(Module rb_mQt6QtCore)
 {
     rb_cQMetaMethod =
         // RubyQt6::QtCore::QMetaMethod

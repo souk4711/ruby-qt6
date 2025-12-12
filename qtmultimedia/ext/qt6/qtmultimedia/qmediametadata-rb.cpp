@@ -2,11 +2,11 @@
 #include <qmediametadata.h>
 #include <rice/qt6/qenum.hpp>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQMediaMetaData;
+Class rb_cQMediaMetaData;
 
-void Init_qmediametadata(Rice::Module rb_mQt6QtMultimedia)
+void Init_qmediametadata(Module rb_mQt6QtMultimedia)
 {
     rb_cQMediaMetaData =
         // RubyQt6::QtMultimedia::QMediaMetaData

@@ -3,13 +3,13 @@
 
 #include <QTimeEdit>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
 using Bando_QTimeEdit = BandoQWidget<QTimeEdit, QTime, QWidget *>;
 
-Rice::Class rb_mBando_cQTimeEdit;
+Class rb_mBando_cQTimeEdit;
 
-void Init_bando_qtimeedit(Rice::Module rb_mQt6Bando)
+void Init_bando_qtimeedit(Module rb_mQt6Bando)
 {
     rb_mBando_cQTimeEdit =
         define_bando_qwidget_under<Bando_QTimeEdit, QTimeEdit>(rb_mQt6Bando, "QTimeEdit")

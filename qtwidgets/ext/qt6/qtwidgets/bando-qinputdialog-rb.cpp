@@ -3,13 +3,13 @@
 
 #include <QInputDialog>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
 using Bando_QInputDialog = BandoQWidget<QInputDialog, QWidget *>;
 
-Rice::Class rb_mBando_cQInputDialog;
+Class rb_mBando_cQInputDialog;
 
-void Init_bando_qinputdialog(Rice::Module rb_mQt6Bando)
+void Init_bando_qinputdialog(Module rb_mQt6Bando)
 {
     rb_mBando_cQInputDialog =
         define_bando_qwidget_under<Bando_QInputDialog, QInputDialog>(rb_mQt6Bando, "QInputDialog")

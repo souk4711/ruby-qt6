@@ -5,11 +5,11 @@
 #include <QPermission>
 #include <QTranslator>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQCoreApplication;
+Class rb_cQCoreApplication;
 
-void Init_qcoreapplication(Rice::Module rb_mQt6QtCore)
+void Init_qcoreapplication(Module rb_mQt6QtCore)
 {
     rb_cQCoreApplication =
         // RubyQt6::QtCore::QCoreApplication

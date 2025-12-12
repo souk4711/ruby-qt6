@@ -1,3 +1,5 @@
 #include <rice/qt6.hpp>
 
-void Init_qwebenginenewwindowrequest(Rice::Module rb_mQt6QtWebEngineCore);
+RICE4RUBYQT6_USE_NAMESPACE
+
+void Init_qwebenginenewwindowrequest(Module rb_mQt6QtWebEngineCore);

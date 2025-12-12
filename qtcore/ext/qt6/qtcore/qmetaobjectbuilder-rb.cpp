@@ -1,14 +1,14 @@
 #include "qmetaobjectbuilder-rb.hpp"
 #include "private/qmetaobjectbuilder_p.h"
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQMetaObjectBuilder;
-Rice::Class rb_cQMetaMethodBuilder;
-Rice::Class rb_cQMetaPropertyBuilder;
-Rice::Class rb_cQMetaEnumBuilder;
+Class rb_cQMetaObjectBuilder;
+Class rb_cQMetaMethodBuilder;
+Class rb_cQMetaPropertyBuilder;
+Class rb_cQMetaEnumBuilder;
 
-void Init_qmetaobjectbuilder(Rice::Module rb_mQt6QtCore)
+void Init_qmetaobjectbuilder(Module rb_mQt6QtCore)
 {
     rb_cQMetaObjectBuilder =
         // RubyQt6::QtCore::QMetaObjectBuilder

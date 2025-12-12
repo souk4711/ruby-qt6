@@ -1,3 +1,5 @@
 #include <rice/qt6.hpp>
 
-void Init_qpainterpathstroker(Rice::Module rb_mQt6QtGui);
+RICE4RUBYQT6_USE_NAMESPACE
+
+void Init_qpainterpathstroker(Module rb_mQt6QtGui);

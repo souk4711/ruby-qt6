@@ -6,11 +6,11 @@
 #include <QBindable>
 #include <QDBusConnection>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQDBusServiceWatcher;
+Class rb_cQDBusServiceWatcher;
 
-void Init_qdbusservicewatcher(Rice::Module rb_mQt6QtDBus)
+void Init_qdbusservicewatcher(Module rb_mQt6QtDBus)
 {
     rb_cQDBusServiceWatcher =
         // RubyQt6::QtDBus::QDBusServiceWatcher

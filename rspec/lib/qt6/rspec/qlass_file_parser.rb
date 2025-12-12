@@ -33,17 +33,17 @@ module RubyQt6
       end
 
       def parse_qlass_variants_declaration
-        while line == "" || line.start_with?("#include") || line == "using namespace Rice;"
+        while line == "" || line.start_with?("#include") || line == "RICE4RUBYQT6_USE_NAMESPACE"
           take_next_line
         end
 
-        while (matched = line.match(/^Rice::Class rb_c(\w+)/))
+        while (matched = line.match(/^Class rb_c(\w+)/))
           @qlasses << Struct.new(:name, :methods, :enums, :flags).new(matched[1], [], [], [])
           take_next_line
         end
 
         if @qlasses.length.zero?
-          raise MissingLine.new("Rice::Class rb_c...", line)
+          raise MissingLine.new("Class rb_c...", line)
         end
 
         until line.start_with?("void Init_q")

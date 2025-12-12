@@ -3,13 +3,13 @@
 
 #include <QDockWidget>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
 using Bando_QDockWidget = BandoQWidget<QDockWidget, const QString &, QWidget *>;
 
-Rice::Class rb_mBando_cQDockWidget;
+Class rb_mBando_cQDockWidget;
 
-void Init_bando_qdockwidget(Rice::Module rb_mQt6Bando)
+void Init_bando_qdockwidget(Module rb_mQt6Bando)
 {
     rb_mBando_cQDockWidget =
         define_bando_qwidget_under<Bando_QDockWidget, QDockWidget>(rb_mQt6Bando, "QDockWidget")

@@ -4,12 +4,12 @@
 
 #include <QMimeData>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQListWidget;
-Rice::Class rb_cQListWidgetItem;
+Class rb_cQListWidget;
+Class rb_cQListWidgetItem;
 
-void Init_qlistwidget(Rice::Module rb_mQt6QtWidgets)
+void Init_qlistwidget(Module rb_mQt6QtWidgets)
 {
     rb_cQListWidget =
         // RubyQt6::QtWidgets::QListWidget

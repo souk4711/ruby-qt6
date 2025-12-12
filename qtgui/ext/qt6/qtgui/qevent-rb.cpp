@@ -8,51 +8,51 @@
 #include <QPointer>
 #include <QWindow>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQActionEvent;
-Rice::Class rb_cQApplicationStateChangeEvent;
-Rice::Class rb_cQChildWindowEvent;
-Rice::Class rb_cQCloseEvent;
-Rice::Class rb_cQDragLeaveEvent;
-Rice::Class rb_cQDropEvent;
-Rice::Class rb_cQDragMoveEvent;
-Rice::Class rb_cQDragEnterEvent;
-Rice::Class rb_cQExposeEvent;
-Rice::Class rb_cQFileOpenEvent;
-Rice::Class rb_cQFocusEvent;
-Rice::Class rb_cQHelpEvent;
-Rice::Class rb_cQHideEvent;
-Rice::Class rb_cQIconDragEvent;
-Rice::Class rb_cQInputEvent;
-Rice::Class rb_cQInputMethodEvent;
-Rice::Class rb_cQInputMethodQueryEvent;
-Rice::Class rb_cQMoveEvent;
-Rice::Class rb_cQPaintEvent;
-Rice::Class rb_cQPlatformSurfaceEvent;
-Rice::Class rb_cQResizeEvent;
-Rice::Class rb_cQScreenOrientationChangeEvent;
-Rice::Class rb_cQScrollEvent;
-Rice::Class rb_cQScrollPrepareEvent;
-Rice::Class rb_cQShortcutEvent;
-Rice::Class rb_cQShowEvent;
-Rice::Class rb_cQStatusTipEvent;
-Rice::Class rb_cQToolBarChangeEvent;
-Rice::Class rb_cQWhatsThisClickedEvent;
-Rice::Class rb_cQWindowStateChangeEvent;
-Rice::Class rb_cQContextMenuEvent;
-Rice::Class rb_cQKeyEvent;
-Rice::Class rb_cQPointerEvent;
-Rice::Class rb_cQSinglePointEvent;
-Rice::Class rb_cQEnterEvent;
-Rice::Class rb_cQHoverEvent;
-Rice::Class rb_cQMouseEvent;
-Rice::Class rb_cQNativeGestureEvent;
-Rice::Class rb_cQTabletEvent;
-Rice::Class rb_cQWheelEvent;
-Rice::Class rb_cQTouchEvent;
+Class rb_cQActionEvent;
+Class rb_cQApplicationStateChangeEvent;
+Class rb_cQChildWindowEvent;
+Class rb_cQCloseEvent;
+Class rb_cQDragLeaveEvent;
+Class rb_cQDropEvent;
+Class rb_cQDragMoveEvent;
+Class rb_cQDragEnterEvent;
+Class rb_cQExposeEvent;
+Class rb_cQFileOpenEvent;
+Class rb_cQFocusEvent;
+Class rb_cQHelpEvent;
+Class rb_cQHideEvent;
+Class rb_cQIconDragEvent;
+Class rb_cQInputEvent;
+Class rb_cQInputMethodEvent;
+Class rb_cQInputMethodQueryEvent;
+Class rb_cQMoveEvent;
+Class rb_cQPaintEvent;
+Class rb_cQPlatformSurfaceEvent;
+Class rb_cQResizeEvent;
+Class rb_cQScreenOrientationChangeEvent;
+Class rb_cQScrollEvent;
+Class rb_cQScrollPrepareEvent;
+Class rb_cQShortcutEvent;
+Class rb_cQShowEvent;
+Class rb_cQStatusTipEvent;
+Class rb_cQToolBarChangeEvent;
+Class rb_cQWhatsThisClickedEvent;
+Class rb_cQWindowStateChangeEvent;
+Class rb_cQContextMenuEvent;
+Class rb_cQKeyEvent;
+Class rb_cQPointerEvent;
+Class rb_cQSinglePointEvent;
+Class rb_cQEnterEvent;
+Class rb_cQHoverEvent;
+Class rb_cQMouseEvent;
+Class rb_cQNativeGestureEvent;
+Class rb_cQTabletEvent;
+Class rb_cQWheelEvent;
+Class rb_cQTouchEvent;
 
-void Init_qevent(Rice::Module rb_mQt6QtGui)
+void Init_qevent(Module rb_mQt6QtGui)
 {
     rb_cQActionEvent =
         // RubyQt6::QtGui::QActionEvent

@@ -4,11 +4,11 @@
 
 #include <QWidget>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQStackedLayout;
+Class rb_cQStackedLayout;
 
-void Init_qstackedlayout(Rice::Module rb_mQt6QtWidgets)
+void Init_qstackedlayout(Module rb_mQt6QtWidgets)
 {
     rb_cQStackedLayout =
         // RubyQt6::QtWidgets::QStackedLayout

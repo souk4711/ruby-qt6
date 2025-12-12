@@ -1,11 +1,11 @@
 #include "qcameraformat-rb.hpp"
 #include <qcameradevice.h>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQCameraFormat;
+Class rb_cQCameraFormat;
 
-void Init_qcameraformat(Rice::Module rb_mQt6QtMultimedia)
+void Init_qcameraformat(Module rb_mQt6QtMultimedia)
 {
     rb_cQCameraFormat =
         // RubyQt6::QtMultimedia::QCameraFormat

@@ -2,12 +2,12 @@
 #include <qmetaobject.h>
 #include <qobjectdefs.h>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQMetaObject;
-Rice::Class rb_cQMetaObjectConnection;
+Class rb_cQMetaObject;
+Class rb_cQMetaObjectConnection;
 
-void Init_qmetaobject(Rice::Module rb_mQt6QtCore)
+void Init_qmetaobject(Module rb_mQt6QtCore)
 {
     rb_cQMetaObject =
         // RubyQt6::QtCore::QMetaObject

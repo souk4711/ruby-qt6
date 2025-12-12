@@ -5,11 +5,11 @@
 #include <QAudioDevice>
 #include <QCameraDevice>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQMediaDevices;
+Class rb_cQMediaDevices;
 
-void Init_qmediadevices(Rice::Module rb_mQt6QtMultimedia)
+void Init_qmediadevices(Module rb_mQt6QtMultimedia)
 {
     rb_cQMediaDevices =
         // RubyQt6::QtMultimedia::QMediaDevices

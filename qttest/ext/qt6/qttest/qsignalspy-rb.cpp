@@ -1,11 +1,11 @@
 #include "qsignalspy-rb.hpp"
 #include <qsignalspy.h>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQSignalSpy;
+Class rb_cQSignalSpy;
 
-void Init_qsignalspy(Rice::Module rb_mQt6QtTest)
+void Init_qsignalspy(Module rb_mQt6QtTest)
 {
     rb_cQSignalSpy =
         // RubyQt6::QtTest::QSignalSpy

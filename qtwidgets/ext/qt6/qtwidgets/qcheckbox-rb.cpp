@@ -1,11 +1,11 @@
 #include "qcheckbox-rb.hpp"
 #include <qcheckbox.h>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQCheckBox;
+Class rb_cQCheckBox;
 
-void Init_qcheckbox(Rice::Module rb_mQt6QtWidgets)
+void Init_qcheckbox(Module rb_mQt6QtWidgets)
 {
     rb_cQCheckBox =
         // RubyQt6::QtWidgets::QCheckBox

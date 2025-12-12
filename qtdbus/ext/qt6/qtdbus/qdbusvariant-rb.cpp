@@ -1,11 +1,11 @@
 #include "qdbusvariant-rb.hpp"
 #include <qdbusextratypes.h>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQDBusVariant;
+Class rb_cQDBusVariant;
 
-void Init_qdbusvariant(Rice::Module rb_mQt6QtDBus)
+void Init_qdbusvariant(Module rb_mQt6QtDBus)
 {
 
     rb_cQDBusVariant =

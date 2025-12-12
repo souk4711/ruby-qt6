@@ -4,11 +4,11 @@
 #include <QQuickWindow>
 #include <QSGTextureProvider>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQQuickItem;
+Class rb_cQQuickItem;
 
-void Init_qquickitem(Rice::Module rb_mQt6QtQuick)
+void Init_qquickitem(Module rb_mQt6QtQuick)
 {
     rb_cQQuickItem =
         // RubyQt6::QtQuick::QQuickItem

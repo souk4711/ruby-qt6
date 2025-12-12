@@ -3,13 +3,13 @@
 
 #include <QPlainTextEdit>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
 using Bando_QPlainTextEdit = BandoQWidget<QPlainTextEdit, const QString &, QWidget *>;
 
-Rice::Class rb_mBando_cQPlainTextEdit;
+Class rb_mBando_cQPlainTextEdit;
 
-void Init_bando_qplaintextedit(Rice::Module rb_mQt6Bando)
+void Init_bando_qplaintextedit(Module rb_mQt6Bando)
 {
     rb_mBando_cQPlainTextEdit =
         define_bando_qwidget_under<Bando_QPlainTextEdit, QPlainTextEdit>(rb_mQt6Bando, "QPlainTextEdit")

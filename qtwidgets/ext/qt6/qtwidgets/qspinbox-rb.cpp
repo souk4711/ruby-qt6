@@ -1,12 +1,12 @@
 #include "qspinbox-rb.hpp"
 #include <qspinbox.h>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQDoubleSpinBox;
-Rice::Class rb_cQSpinBox;
+Class rb_cQDoubleSpinBox;
+Class rb_cQSpinBox;
 
-void Init_qspinbox(Rice::Module rb_mQt6QtWidgets)
+void Init_qspinbox(Module rb_mQt6QtWidgets)
 {
     rb_cQDoubleSpinBox =
         // RubyQt6::QtWidgets::QDoubleSpinBox

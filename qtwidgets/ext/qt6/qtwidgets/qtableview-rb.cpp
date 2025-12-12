@@ -3,11 +3,11 @@
 
 #include <QHeaderView>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQTableView;
+Class rb_cQTableView;
 
-void Init_qtableview(Rice::Module rb_mQt6QtWidgets)
+void Init_qtableview(Module rb_mQt6QtWidgets)
 {
     rb_cQTableView =
         // RubyQt6::QtWidgets::QTableView

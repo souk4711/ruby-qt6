@@ -1,9 +1,9 @@
 #include "qtwebenginewidgetsversion-rb.hpp"
 #include <qtwebenginewidgetsversion.h>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-void Init_qtwebenginewidgetsversion(Rice::Module rb_mQt6QtWebEngineWidgets)
+void Init_qtwebenginewidgetsversion(Module rb_mQt6QtWebEngineWidgets)
 {
     rb_mQt6QtWebEngineWidgets.define_constant("QTWEBENGINEWIDGETS_VERSION", QTWEBENGINEWIDGETS_VERSION_STR);
 }

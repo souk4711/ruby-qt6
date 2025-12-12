@@ -3,11 +3,11 @@
 #include <rice/qt6/qenum.hpp>
 #include <rice/qt6/qflags.hpp>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQAbstractItemView;
+Class rb_cQAbstractItemView;
 
-void Init_qabstractitemview(Rice::Module rb_mQt6QtWidgets)
+void Init_qabstractitemview(Module rb_mQt6QtWidgets)
 {
     rb_cQAbstractItemView =
         // RubyQt6::QtWidgets::QAbstractItemView

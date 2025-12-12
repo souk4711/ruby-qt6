@@ -1,3 +1,5 @@
 #include <rice/qt6.hpp>
 
-void Init_qtmultimediaversion(Rice::Module rb_mQt6QtMultimedia);
+RICE4RUBYQT6_USE_NAMESPACE
+
+void Init_qtmultimediaversion(Module rb_mQt6QtMultimedia);

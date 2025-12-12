@@ -3,11 +3,11 @@
 
 #include <QList>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQFontInfo;
+Class rb_cQFontInfo;
 
-void Init_qfontinfo(Rice::Module rb_mQt6QtGui)
+void Init_qfontinfo(Module rb_mQt6QtGui)
 {
     rb_cQFontInfo =
         // RubyQt6::QtGui::QFontInfo

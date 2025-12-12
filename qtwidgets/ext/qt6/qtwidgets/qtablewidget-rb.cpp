@@ -4,13 +4,13 @@
 
 #include <QMimeData>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQTableWidget;
-Rice::Class rb_cQTableWidgetItem;
-Rice::Class rb_cQTableWidgetSelectionRange;
+Class rb_cQTableWidget;
+Class rb_cQTableWidgetItem;
+Class rb_cQTableWidgetSelectionRange;
 
-void Init_qtablewidget(Rice::Module rb_mQt6QtWidgets)
+void Init_qtablewidget(Module rb_mQt6QtWidgets)
 {
     rb_cQTableWidget =
         // RubyQt6::QtWidgets::QTableWidget

@@ -1,12 +1,12 @@
 #include "qtexttable-rb.hpp"
 #include <qtexttable.h>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQTextTable;
-Rice::Class rb_cQTextTableCell;
+Class rb_cQTextTable;
+Class rb_cQTextTableCell;
 
-void Init_qtexttable(Rice::Module rb_mQt6QtGui)
+void Init_qtexttable(Module rb_mQt6QtGui)
 {
     rb_cQTextTable =
         // RubyQt6::QtGui::QTextTable

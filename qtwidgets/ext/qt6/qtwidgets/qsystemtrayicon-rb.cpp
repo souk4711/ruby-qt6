@@ -4,11 +4,11 @@
 
 #include <QMenu>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQSystemTrayIcon;
+Class rb_cQSystemTrayIcon;
 
-void Init_qsystemtrayicon(Rice::Module rb_mQt6QtWidgets)
+void Init_qsystemtrayicon(Module rb_mQt6QtWidgets)
 {
     rb_cQSystemTrayIcon =
         // RubyQt6::QtWidgets::QSystemTrayIcon

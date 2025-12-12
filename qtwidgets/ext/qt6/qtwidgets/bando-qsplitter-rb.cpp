@@ -3,13 +3,13 @@
 
 #include <QSplitter>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
 using Bando_QSplitter = BandoQWidget<QSplitter, Qt::Orientation, QWidget *>;
 
-Rice::Class rb_mBando_cQSplitter;
+Class rb_mBando_cQSplitter;
 
-void Init_bando_qsplitter(Rice::Module rb_mQt6Bando)
+void Init_bando_qsplitter(Module rb_mQt6Bando)
 {
     rb_mBando_cQSplitter =
         define_bando_qwidget_under<Bando_QSplitter, QSplitter>(rb_mQt6Bando, "QSplitter")

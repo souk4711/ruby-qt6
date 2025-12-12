@@ -3,13 +3,13 @@
 
 #include <QGraphicsView>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
 using Bando_QGraphicsView = BandoQWidget<QGraphicsView, QWidget *>;
 
-Rice::Class rb_mBando_cQGraphicsView;
+Class rb_mBando_cQGraphicsView;
 
-void Init_bando_qgraphicsview(Rice::Module rb_mQt6Bando)
+void Init_bando_qgraphicsview(Module rb_mQt6Bando)
 {
     rb_mBando_cQGraphicsView =
         define_bando_qwidget_under<Bando_QGraphicsView, QGraphicsView>(rb_mQt6Bando, "QGraphicsView")

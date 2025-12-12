@@ -3,13 +3,13 @@
 
 #include <QTextBrowser>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
 using Bando_QTextBrowser = BandoQWidget<QTextBrowser, QWidget *>;
 
-Rice::Class rb_mBando_cQTextBrowser;
+Class rb_mBando_cQTextBrowser;
 
-void Init_bando_qtextbrowser(Rice::Module rb_mQt6Bando)
+void Init_bando_qtextbrowser(Module rb_mQt6Bando)
 {
     rb_mBando_cQTextBrowser =
         define_bando_qwidget_under<Bando_QTextBrowser, QTextBrowser>(rb_mQt6Bando, "QTextBrowser")

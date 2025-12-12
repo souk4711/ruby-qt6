@@ -5,11 +5,11 @@
 #include <QPainter>
 #include <QWindow>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQIcon;
+Class rb_cQIcon;
 
-void Init_qicon(Rice::Module rb_mQt6QtGui)
+void Init_qicon(Module rb_mQt6QtGui)
 {
     rb_cQIcon =
         // RubyQt6::QtGui::QIcon

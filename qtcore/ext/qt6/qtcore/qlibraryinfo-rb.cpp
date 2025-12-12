@@ -2,11 +2,11 @@
 #include <qlibraryinfo.h>
 #include <rice/qt6/qenum.hpp>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQLibraryInfo;
+Class rb_cQLibraryInfo;
 
-void Init_qlibraryinfo(Rice::Module rb_mQt6QtCore)
+void Init_qlibraryinfo(Module rb_mQt6QtCore)
 {
     rb_cQLibraryInfo =
         // RubyQt6::QtCore::QLibraryInfo

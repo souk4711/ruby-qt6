@@ -3,13 +3,13 @@
 
 #include <QStackedWidget>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
 using Bando_QStackedWidget = BandoQWidget<QStackedWidget, QWidget *>;
 
-Rice::Class rb_mBando_cQStackedWidget;
+Class rb_mBando_cQStackedWidget;
 
-void Init_bando_qstackedwidget(Rice::Module rb_mQt6Bando)
+void Init_bando_qstackedwidget(Module rb_mQt6Bando)
 {
     rb_mBando_cQStackedWidget =
         define_bando_qwidget_under<Bando_QStackedWidget, QStackedWidget>(rb_mQt6Bando, "QStackedWidget")

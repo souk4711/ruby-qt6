@@ -1,11 +1,11 @@
 #include "qmimetype-rb.hpp"
 #include <qmimetype.h>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQMimeType;
+Class rb_cQMimeType;
 
-void Init_qmimetype(Rice::Module rb_mQt6QtCore)
+void Init_qmimetype(Module rb_mQt6QtCore)
 {
     rb_cQMimeType =
         // RubyQt6::QtCore::QMimeType

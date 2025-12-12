@@ -1,3 +1,5 @@
 #include <rice/qt6.hpp>
 
-void Init_qtquickwidgetsversion(Rice::Module rb_mQt6QtQuickWidgets);
+RICE4RUBYQT6_USE_NAMESPACE
+
+void Init_qtquickwidgetsversion(Module rb_mQt6QtQuickWidgets);

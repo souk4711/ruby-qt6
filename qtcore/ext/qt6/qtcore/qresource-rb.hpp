@@ -1,3 +1,5 @@
 #include <rice/qt6.hpp>
 
-void Init_qresource(Rice::Module rb_mQt6QtCore);
+RICE4RUBYQT6_USE_NAMESPACE
+
+void Init_qresource(Module rb_mQt6QtCore);

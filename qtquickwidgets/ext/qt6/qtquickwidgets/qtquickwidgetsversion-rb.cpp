@@ -1,9 +1,9 @@
 #include "qtquickwidgetsversion-rb.hpp"
 #include <qtquickwidgetsversion.h>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-void Init_qtquickwidgetsversion(Rice::Module rb_mQt6QtQuickWidgets)
+void Init_qtquickwidgetsversion(Module rb_mQt6QtQuickWidgets)
 {
     rb_mQt6QtQuickWidgets.define_constant("QTQUICKWIDGETS_VERSION", QTQUICKWIDGETS_VERSION_STR);
 }

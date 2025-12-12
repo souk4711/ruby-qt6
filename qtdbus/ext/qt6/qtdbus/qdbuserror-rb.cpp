@@ -4,11 +4,11 @@
 
 #include <QDBusMessage>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQDBusError;
+Class rb_cQDBusError;
 
-void Init_qdbuserror(Rice::Module rb_mQt6QtDBus)
+void Init_qdbuserror(Module rb_mQt6QtDBus)
 {
     rb_cQDBusError =
         // RubyQt6::QtDBus::QDBusError

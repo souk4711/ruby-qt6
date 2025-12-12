@@ -3,13 +3,13 @@
 
 #include <QErrorMessage>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
 using Bando_QErrorMessage = BandoQWidget<QErrorMessage, QWidget *>;
 
-Rice::Class rb_mBando_cQErrorMessage;
+Class rb_mBando_cQErrorMessage;
 
-void Init_bando_qerrormessage(Rice::Module rb_mQt6Bando)
+void Init_bando_qerrormessage(Module rb_mQt6Bando)
 {
     rb_mBando_cQErrorMessage =
         define_bando_qwidget_under<Bando_QErrorMessage, QErrorMessage>(rb_mQt6Bando, "QErrorMessage")

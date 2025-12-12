@@ -3,9 +3,9 @@
 #include <rice/qt6/qenum.hpp>
 #include <rice/qt6/qflags.hpp>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQInputDialog;
+Class rb_cQInputDialog;
 
 double QInputDialog_get_double(QWidget *parent, const QString &title, const QString &label, double value, double min, double max, int decimals, Object boolean, Qt::WindowFlags flags, double step)
 {
@@ -47,7 +47,7 @@ QString QInputDialog_get_text(QWidget *parent, const QString &title, const QStri
     return v;
 }
 
-void Init_qinputdialog(Rice::Module rb_mQt6QtWidgets)
+void Init_qinputdialog(Module rb_mQt6QtWidgets)
 {
     rb_cQInputDialog =
         // RubyQt6::QtWidgets::QInputDialog

@@ -3,13 +3,13 @@
 
 #include <QLineEdit>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
 using Bando_QLineEdit = BandoQWidget<QLineEdit, const QString &, QWidget *>;
 
-Rice::Class rb_mBando_cQLineEdit;
+Class rb_mBando_cQLineEdit;
 
-void Init_bando_qlineedit(Rice::Module rb_mQt6Bando)
+void Init_bando_qlineedit(Module rb_mQt6Bando)
 {
     rb_mBando_cQLineEdit =
         define_bando_qwidget_under<Bando_QLineEdit, QLineEdit>(rb_mQt6Bando, "QLineEdit")

@@ -8,11 +8,11 @@
 #include <QPainter>
 #include <QStyleHintReturn>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQStyle;
+Class rb_cQStyle;
 
-void Init_qstyle(Rice::Module rb_mQt6QtWidgets)
+void Init_qstyle(Module rb_mQt6QtWidgets)
 {
     rb_cQStyle =
         // RubyQt6::QtWidgets::QStyle

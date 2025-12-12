@@ -1,11 +1,11 @@
 #include "qquickwidget-rb.hpp"
 #include <qquickwidget.h>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQQuickWidget;
+Class rb_cQQuickWidget;
 
-void Init_qquickwidget(Rice::Module rb_mQt6QtQuickWidgets)
+void Init_qquickwidget(Module rb_mQt6QtQuickWidgets)
 {
     rb_cQQuickWidget =
         // RubyQt6::QtQuickWidgets::QQuickWidget

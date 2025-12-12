@@ -2,11 +2,11 @@
 #include <qmetatype.h>
 #include <rice/qt6/qenum.hpp>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQMetaType;
+Class rb_cQMetaType;
 
-void Init_qmetatype(Rice::Module rb_mQt6QtCore)
+void Init_qmetatype(Module rb_mQt6QtCore)
 {
     rb_cQMetaType =
         // RubyQt6::QtCore::QMetaType

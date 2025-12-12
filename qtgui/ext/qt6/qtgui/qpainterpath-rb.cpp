@@ -4,12 +4,12 @@
 
 #include <QFont>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQPainterPath;
-Rice::Class rb_cQPainterPathElement;
+Class rb_cQPainterPath;
+Class rb_cQPainterPathElement;
 
-void Init_qpainterpath(Rice::Module rb_mQt6QtGui)
+void Init_qpainterpath(Module rb_mQt6QtGui)
 {
     rb_cQPainterPath =
         // RubyQt6::QtGui::QPainterPath

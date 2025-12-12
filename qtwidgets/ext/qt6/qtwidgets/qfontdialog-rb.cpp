@@ -3,9 +3,9 @@
 #include <rice/qt6/qenum.hpp>
 #include <rice/qt6/qflags.hpp>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQFontDialog;
+Class rb_cQFontDialog;
 
 QFont QFontDialog_get_font_2(Object boolean, QWidget *parent)
 {
@@ -23,7 +23,7 @@ QFont QFontDialog_get_font_5(Object boolean, const QFont &initial, QWidget *pare
     return v;
 }
 
-void Init_qfontdialog(Rice::Module rb_mQt6QtWidgets)
+void Init_qfontdialog(Module rb_mQt6QtWidgets)
 {
     rb_cQFontDialog =
         // RubyQt6::QtWidgets::QFontDialog

@@ -3,11 +3,11 @@
 
 #include <QStyleOptionButton>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQCommandLinkButton;
+Class rb_cQCommandLinkButton;
 
-void Init_qcommandlinkbutton(Rice::Module rb_mQt6QtWidgets)
+void Init_qcommandlinkbutton(Module rb_mQt6QtWidgets)
 {
     rb_cQCommandLinkButton =
         // RubyQt6::QtWidgets::QCommandLinkButton

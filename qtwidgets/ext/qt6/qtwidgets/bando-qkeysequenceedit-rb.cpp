@@ -3,13 +3,13 @@
 
 #include <QKeySequenceEdit>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
 using Bando_QKeySequenceEdit = BandoQWidget<QKeySequenceEdit, const QKeySequence &, QWidget *>;
 
-Rice::Class rb_mBando_cQKeySequenceEdit;
+Class rb_mBando_cQKeySequenceEdit;
 
-void Init_bando_qkeysequenceedit(Rice::Module rb_mQt6Bando)
+void Init_bando_qkeysequenceedit(Module rb_mQt6Bando)
 {
     rb_mBando_cQKeySequenceEdit =
         define_bando_qwidget_under<Bando_QKeySequenceEdit, QKeySequenceEdit>(rb_mQt6Bando, "QKeySequenceEdit")

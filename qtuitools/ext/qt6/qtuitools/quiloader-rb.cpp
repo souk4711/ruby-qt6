@@ -5,11 +5,11 @@
 #include <QIODevice>
 #include <QWidget>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQUiLoader;
+Class rb_cQUiLoader;
 
-void Init_quiloader(Rice::Module rb_mQt6QtUiTools)
+void Init_quiloader(Module rb_mQt6QtUiTools)
 {
     rb_cQUiLoader =
         // RubyQt6::QtUiTools::QUiLoader

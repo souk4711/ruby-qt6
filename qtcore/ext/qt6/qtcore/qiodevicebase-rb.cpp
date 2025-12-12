@@ -3,11 +3,11 @@
 #include <rice/qt6/qenum.hpp>
 #include <rice/qt6/qflags.hpp>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQIODeviceBase;
+Class rb_cQIODeviceBase;
 
-void Init_qiodevicebase(Rice::Module rb_mQt6QtCore)
+void Init_qiodevicebase(Module rb_mQt6QtCore)
 {
     rb_cQIODeviceBase =
         // RubyQt6::QtCore::QIODeviceBase

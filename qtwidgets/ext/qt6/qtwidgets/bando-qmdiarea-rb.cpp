@@ -3,13 +3,13 @@
 
 #include <QMdiArea>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
 using Bando_QMdiArea = BandoQWidget<QMdiArea, QWidget *>;
 
-Rice::Class rb_mBando_cQMdiArea;
+Class rb_mBando_cQMdiArea;
 
-void Init_bando_qmdiarea(Rice::Module rb_mQt6Bando)
+void Init_bando_qmdiarea(Module rb_mQt6Bando)
 {
     rb_mBando_cQMdiArea =
         define_bando_qwidget_under<Bando_QMdiArea, QMdiArea>(rb_mQt6Bando, "QMdiArea")

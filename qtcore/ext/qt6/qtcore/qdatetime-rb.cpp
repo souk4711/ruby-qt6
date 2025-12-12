@@ -4,11 +4,11 @@
 
 #include <QTimeZone>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQDateTime;
-Rice::Class rb_cQDate;
-Rice::Class rb_cQTime;
+Class rb_cQDateTime;
+Class rb_cQDate;
+Class rb_cQTime;
 
 int QDateTime_operator_compare(QDateTime *lhs, QDateTime *rhs)
 {
@@ -31,7 +31,7 @@ int QTime_operator_compare(QTime *lhs, QTime *rhs)
     return 0;
 }
 
-void Init_qdatetime(Rice::Module rb_mQt6QtCore)
+void Init_qdatetime(Module rb_mQt6QtCore)
 {
     rb_cQDateTime =
         // RubyQt6::QtCore::QDateTime

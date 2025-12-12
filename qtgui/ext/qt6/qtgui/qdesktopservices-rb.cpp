@@ -3,11 +3,11 @@
 
 #include <QUrl>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQDesktopServices;
+Class rb_cQDesktopServices;
 
-void Init_qdesktopservices(Rice::Module rb_mQt6QtGui)
+void Init_qdesktopservices(Module rb_mQt6QtGui)
 {
     rb_cQDesktopServices =
         // RubyQt6::QtGui::QDesktopServices

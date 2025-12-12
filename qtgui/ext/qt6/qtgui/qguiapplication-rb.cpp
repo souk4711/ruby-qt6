@@ -11,11 +11,11 @@
 #include <QStyleHints>
 #include <QWindow>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQGuiApplication;
+Class rb_cQGuiApplication;
 
-void Init_qguiapplication(Rice::Module rb_mQt6QtGui)
+void Init_qguiapplication(Module rb_mQt6QtGui)
 {
     rb_cQGuiApplication =
         // RubyQt6::QtGui::QGuiApplication

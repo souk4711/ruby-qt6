@@ -2,11 +2,11 @@
 #include <qwebenginesettings.h>
 #include <rice/qt6/qenum.hpp>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQWebEngineSettings;
+Class rb_cQWebEngineSettings;
 
-void Init_qwebenginesettings(Rice::Module rb_mQt6QtWebEngineCore)
+void Init_qwebenginesettings(Module rb_mQt6QtWebEngineCore)
 {
     rb_cQWebEngineSettings =
         // RubyQt6::QtWebEngineCore::QWebEngineSettings

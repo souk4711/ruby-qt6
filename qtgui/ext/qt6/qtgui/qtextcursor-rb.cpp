@@ -9,11 +9,11 @@
 #include <QTextList>
 #include <QTextTable>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQTextCursor;
+Class rb_cQTextCursor;
 
-void Init_qtextcursor(Rice::Module rb_mQt6QtGui)
+void Init_qtextcursor(Module rb_mQt6QtGui)
 {
     rb_cQTextCursor =
         // RubyQt6::QtGui::QTextCursor

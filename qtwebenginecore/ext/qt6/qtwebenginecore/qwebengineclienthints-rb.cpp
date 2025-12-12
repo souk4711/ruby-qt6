@@ -1,11 +1,11 @@
 #include "qwebengineclienthints-rb.hpp"
 #include <qwebengineclienthints.h>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQWebEngineClientHints;
+Class rb_cQWebEngineClientHints;
 
-void Init_qwebengineclienthints(Rice::Module rb_mQt6QtWebEngineCore)
+void Init_qwebengineclienthints(Module rb_mQt6QtWebEngineCore)
 {
     rb_cQWebEngineClientHints =
         // RubyQt6::QtWebEngineCore::QWebEngineClientHints

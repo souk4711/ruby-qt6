@@ -5,11 +5,11 @@
 
 #include <QUrlQuery>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQUrl;
+Class rb_cQUrl;
 
-void Init_qurl(Rice::Module rb_mQt6QtCore)
+void Init_qurl(Module rb_mQt6QtCore)
 {
     rb_cQUrl =
         // RubyQt6::QtCore::QUrl

@@ -1,11 +1,11 @@
 #include "qdbusabstractadaptor-rb.hpp"
 #include <qdbusabstractadaptor.h>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQDBusAbstractAdaptor;
+Class rb_cQDBusAbstractAdaptor;
 
-void Init_qdbusabstractadaptor(Rice::Module rb_mQt6QtDBus)
+void Init_qdbusabstractadaptor(Module rb_mQt6QtDBus)
 {
     rb_cQDBusAbstractAdaptor =
         // RubyQt6::QtDBus::QDBusAbstractAdaptor

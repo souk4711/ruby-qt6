@@ -3,13 +3,13 @@
 
 #include <QDBusAbstractAdaptor>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
 using Bando_QDBusAbstractAdaptor = BandoQDBusAbstractAdaptor<QDBusAbstractAdaptor, QObject *>;
 
-Rice::Class rb_mBando_cQDBusAbstractAdaptor;
+Class rb_mBando_cQDBusAbstractAdaptor;
 
-void Init_bando_qdbusabstractadaptor(Rice::Module rb_mQt6Bando)
+void Init_bando_qdbusabstractadaptor(Module rb_mQt6Bando)
 {
     rb_mBando_cQDBusAbstractAdaptor =
         define_bando_qdbusabstractadaptor_under<Bando_QDBusAbstractAdaptor, QDBusAbstractAdaptor>(rb_mQt6Bando, "QDBusAbstractAdaptor")

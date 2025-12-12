@@ -22,11 +22,11 @@
 #include <QWebEngineUrlRequestInterceptor>
 #include <QWebEngineWebAuthUxRequest>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQWebEnginePage;
+Class rb_cQWebEnginePage;
 
-void Init_qwebenginepage(Rice::Module rb_mQt6QtWebEngineCore)
+void Init_qwebenginepage(Module rb_mQt6QtWebEngineCore)
 {
     rb_cQWebEnginePage =
         // RubyQt6::QtWebEngineCore::QWebEnginePage

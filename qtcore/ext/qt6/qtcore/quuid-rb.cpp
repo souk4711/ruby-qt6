@@ -2,9 +2,9 @@
 #include <quuid.h>
 #include <rice/qt6/qenum.hpp>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQUuid;
+Class rb_cQUuid;
 
 int QUuid_operator_compare(QUuid *lhs, QUuid *rhs)
 {
@@ -13,7 +13,7 @@ int QUuid_operator_compare(QUuid *lhs, QUuid *rhs)
     return 0;
 }
 
-void Init_quuid(Rice::Module rb_mQt6QtCore)
+void Init_quuid(Module rb_mQt6QtCore)
 {
     rb_cQUuid =
         // RubyQt6::QtCore::QUuid

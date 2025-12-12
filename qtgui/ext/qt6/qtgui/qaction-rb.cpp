@@ -5,11 +5,11 @@
 #include <QActionGroup>
 #include <QFont>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQAction;
+Class rb_cQAction;
 
-void Init_qaction(Rice::Module rb_mQt6QtGui)
+void Init_qaction(Module rb_mQt6QtGui)
 {
     rb_cQAction =
         // RubyQt6::QtGui::QAction

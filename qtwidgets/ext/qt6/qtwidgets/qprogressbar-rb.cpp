@@ -2,11 +2,11 @@
 #include <qprogressbar.h>
 #include <rice/qt6/qenum.hpp>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQProgressBar;
+Class rb_cQProgressBar;
 
-void Init_qprogressbar(Rice::Module rb_mQt6QtWidgets)
+void Init_qprogressbar(Module rb_mQt6QtWidgets)
 {
     rb_cQProgressBar =
         // RubyQt6::QtWidgets::QProgressBar

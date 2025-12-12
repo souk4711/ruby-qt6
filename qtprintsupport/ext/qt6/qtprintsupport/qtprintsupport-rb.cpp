@@ -7,11 +7,13 @@
 #include "qabstractprintdialog-rb.hpp"
 #include "qprintdialog-rb.hpp"
 
+RICE4RUBYQT6_USE_NAMESPACE
+
 extern "C" void Init_qtprintsupport()
 {
-    return Rice::detail::cpp_protect([] {
-        Rice::Module rb_mQt6 = Rice::define_module("RubyQt6");
-        Rice::Module rb_mQt6QtPrintSupport = define_module_under(rb_mQt6, "QtPrintSupport");
+    return detail::cpp_protect([] {
+        Module rb_mQt6 = define_module("RubyQt6");
+        Module rb_mQt6QtPrintSupport = define_module_under(rb_mQt6, "QtPrintSupport");
 
         Init_qtprintsupportversion(rb_mQt6QtPrintSupport);
 

@@ -4,11 +4,11 @@
 
 #include <QMenu>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQToolButton;
+Class rb_cQToolButton;
 
-void Init_qtoolbutton(Rice::Module rb_mQt6QtWidgets)
+void Init_qtoolbutton(Module rb_mQt6QtWidgets)
 {
     rb_cQToolButton =
         // RubyQt6::QtWidgets::QToolButton

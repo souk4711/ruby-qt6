@@ -4,11 +4,11 @@
 
 #include <QWebEnginePage>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQWebEngineDownloadRequest;
+Class rb_cQWebEngineDownloadRequest;
 
-void Init_qwebenginedownloadrequest(Rice::Module rb_mQt6QtWebEngineCore)
+void Init_qwebenginedownloadrequest(Module rb_mQt6QtWebEngineCore)
 {
     rb_cQWebEngineDownloadRequest =
         // RubyQt6::QtWebEngineCore::QWebEngineDownloadRequest

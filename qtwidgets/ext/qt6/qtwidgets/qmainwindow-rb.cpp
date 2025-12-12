@@ -8,11 +8,11 @@
 #include <QStatusBar>
 #include <QToolBar>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQMainWindow;
+Class rb_cQMainWindow;
 
-void Init_qmainwindow(Rice::Module rb_mQt6QtWidgets)
+void Init_qmainwindow(Module rb_mQt6QtWidgets)
 {
     rb_cQMainWindow =
         // RubyQt6::QtWidgets::QMainWindow

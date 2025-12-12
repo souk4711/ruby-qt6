@@ -1,11 +1,11 @@
 #include "qgraphicsobject-rb.hpp"
 #include <qgraphicsitem.h>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQGraphicsObject;
+Class rb_cQGraphicsObject;
 
-void Init_qgraphicsobject(Rice::Module rb_mQt6QtWidgets)
+void Init_qgraphicsobject(Module rb_mQt6QtWidgets)
 {
     rb_cQGraphicsObject =
         // RubyQt6::QtWidgets::QGraphicsObject

@@ -8,11 +8,11 @@
 #include <QWebEngineProfile>
 #include <QWebEngineSettings>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQWebEngineView;
+Class rb_cQWebEngineView;
 
-void Init_qwebengineview(Rice::Module rb_mQt6QtWebEngineWidgets)
+void Init_qwebengineview(Module rb_mQt6QtWebEngineWidgets)
 {
     rb_cQWebEngineView =
         // RubyQt6::QtWebEngineWidgets::QWebEngineView

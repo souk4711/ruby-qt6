@@ -3,13 +3,13 @@
 
 #include <QObject>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
 using Bando_QObject = BandoQObject<QObject, QObject *>;
 
-Rice::Class rb_mBando_cQObject;
+Class rb_mBando_cQObject;
 
-void Init_bando_qobject(Rice::Module rb_mQt6Bando)
+void Init_bando_qobject(Module rb_mQt6Bando)
 {
     rb_mBando_cQObject =
         define_bando_qobject_under<Bando_QObject, QObject>(rb_mQt6Bando, "QObject")

@@ -1,3 +1,5 @@
 #include <rice/qt6.hpp>
 
-void Init_qtoolbox(Rice::Module rb_mQt6QtWidgets);
+RICE4RUBYQT6_USE_NAMESPACE
+
+void Init_qtoolbox(Module rb_mQt6QtWidgets);

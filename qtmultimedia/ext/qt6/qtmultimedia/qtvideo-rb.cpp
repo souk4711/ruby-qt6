@@ -2,9 +2,9 @@
 #include <qtvideo.h>
 #include <rice/qt6/qenum.hpp>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-void Init_qtvideo(Rice::Module rb_mQt6QtMultimedia)
+void Init_qtvideo(Module rb_mQt6QtMultimedia)
 {
     Module rb_mQtVideo =
         // RubyQt6::QtMultimedia::QtVideo

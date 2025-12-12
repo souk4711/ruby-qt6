@@ -7,11 +7,11 @@
 #include <QCheckBox>
 #include <QPushButton>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQMessageBox;
+Class rb_cQMessageBox;
 
-void Init_qmessagebox(Rice::Module rb_mQt6QtWidgets)
+void Init_qmessagebox(Module rb_mQt6QtWidgets)
 {
     rb_cQMessageBox =
         // RubyQt6::QtWidgets::QMessageBox

@@ -1,3 +1,5 @@
 #include <rice/qt6.hpp>
 
-void Init_qtwebviewversion(Rice::Module rb_mQt6QtWebView);
+RICE4RUBYQT6_USE_NAMESPACE
+
+void Init_qtwebviewversion(Module rb_mQt6QtWebView);

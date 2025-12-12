@@ -3,13 +3,13 @@
 
 #include <QListView>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
 using Bando_QListView = BandoQWidget<QListView, QWidget *>;
 
-Rice::Class rb_mBando_cQListView;
+Class rb_mBando_cQListView;
 
-void Init_bando_qlistview(Rice::Module rb_mQt6Bando)
+void Init_bando_qlistview(Module rb_mQt6Bando)
 {
     rb_mBando_cQListView =
         define_bando_qwidget_under<Bando_QListView, QListView>(rb_mQt6Bando, "QListView")

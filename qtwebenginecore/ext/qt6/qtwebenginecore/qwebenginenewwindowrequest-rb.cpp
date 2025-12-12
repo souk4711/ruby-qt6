@@ -4,11 +4,11 @@
 
 #include <QWebEnginePage>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQWebEngineNewWindowRequest;
+Class rb_cQWebEngineNewWindowRequest;
 
-void Init_qwebenginenewwindowrequest(Rice::Module rb_mQt6QtWebEngineCore)
+void Init_qwebenginenewwindowrequest(Module rb_mQt6QtWebEngineCore)
 {
     rb_cQWebEngineNewWindowRequest =
         // RubyQt6::QtWebEngineCore::QWebEngineNewWindowRequest

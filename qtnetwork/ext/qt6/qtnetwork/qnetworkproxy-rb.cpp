@@ -3,13 +3,13 @@
 #include <rice/qt6/qenum.hpp>
 #include <rice/qt6/qflags.hpp>
 
-using namespace Rice;
+RICE4RUBYQT6_USE_NAMESPACE
 
-Rice::Class rb_cQNetworkProxy;
-Rice::Class rb_cQNetworkProxyFactory;
-Rice::Class rb_cQNetworkProxyQuery;
+Class rb_cQNetworkProxy;
+Class rb_cQNetworkProxyFactory;
+Class rb_cQNetworkProxyQuery;
 
-void Init_qnetworkproxy(Rice::Module rb_mQt6QtNetwork)
+void Init_qnetworkproxy(Module rb_mQt6QtNetwork)
 {
     rb_cQNetworkProxy =
         // RubyQt6::QtNetwork::QNetworkProxy
