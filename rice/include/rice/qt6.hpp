@@ -34,6 +34,6 @@
 #endif
 
 // macros
-#define RICE4RUBYQT6_USE_NAMESPACE using namespace ::Rice;
+#define RICE4RUBYQT6_USE_NAMESPACE using namespace ::Rice4RubyQt6;
 
 #endif

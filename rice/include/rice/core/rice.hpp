@@ -39,9 +39,32 @@
 
 #include <cmath>
 
+// Clang has to be first because on Windows it defines _MSC_VER too
+#if defined(__clang__)
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wunknown-pragmas"
+#pragma clang diagnostic ignored "-Wunused-parameter"
+#elif defined(_MSC_VER)
+#pragma warning(push)
+#pragma warning(disable: 4100)  // unreferenced formal parameter
+#pragma warning(disable: 4702)  // unreachable code
+#elif defined(__GNUC__ )
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wunknown-pragmas"
+#endif
+
 #include <ruby.h>
 #include <ruby/encoding.h>
 #include <ruby/thread.h>
+
+// Clang has to be first because on Windows it defines _MSC_VER too
+#if defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__GNUC__ )
+#pragma GCC diagnostic pop
+#endif
 
 // ruby.h has a few defines that conflict with Visual Studio's STL
 #if defined(_MSC_VER)
@@ -107,7 +130,7 @@ extern "C" typedef VALUE (*RUBY_VALUE_FUNC)(VALUE);
 #include <variant>
 #include <vector>
 
-namespace Rice
+namespace Rice4RubyQt6
 {
   namespace detail
   {
@@ -413,7 +436,7 @@ namespace Rice
 
 #include <tuple>
 
-namespace Rice::detail
+namespace Rice4RubyQt6::detail
 {
   // Base class
   template<typename Function_T>
@@ -507,7 +530,7 @@ namespace Rice::detail
 
 #include <tuple>
 
-namespace Rice::detail
+namespace Rice4RubyQt6::detail
 {
   // Declare struct
   template<typename Function_T, typename = void>
@@ -542,7 +565,7 @@ namespace Rice::detail
 
 #include <tuple>
 
-namespace Rice::detail
+namespace Rice4RubyQt6::detail
 {
   // Base class
   template<typename Attribute_T>
@@ -567,7 +590,7 @@ namespace Rice::detail
 
 // =========   Wrapper.hpp   =========
 
-namespace Rice::detail
+namespace Rice4RubyQt6::detail
 {
   class WrapperBase
   {
@@ -643,7 +666,7 @@ namespace Rice::detail
 
   // ---- Helper Functions ---------
   template <typename T>
-  void wrapConstructed(VALUE value, rb_data_type_t* rb_data_type, T* data, bool isOwner);
+  void wrapConstructed(VALUE value, rb_data_type_t* rb_data_type, T* data);
 
   template <typename T>
   VALUE wrap(VALUE klass, rb_data_type_t* rb_data_type, T& data, bool isOwner);
@@ -664,7 +687,7 @@ namespace Rice::detail
 
 #include <regex>
 
-namespace Rice::detail
+namespace Rice4RubyQt6::detail
 {
   template<typename T>
   struct Type
@@ -747,14 +770,14 @@ namespace Rice::detail
 
 #include <stdexcept>
 
-namespace Rice
+namespace Rice4RubyQt6
 {
   //! A placeholder for Ruby exceptions.
   /*! You can use this to safely throw a Ruby exception using C++ syntax:
    *  \code
    *    VALUE foo(VALUE self) {
    *      RUBY_TRY {
-   *        throw Rice::Exception(rb_eMyException, "uh oh!");
+   *        throw Rice4RubyQt6::Exception(rb_eMyException, "uh oh!");
    *      RUBY_CATCH
    *    }
    *  \endcode
@@ -806,12 +829,12 @@ namespace Rice
     mutable VALUE exception_ = Qnil;
     mutable std::string message_;
   };
-} // namespace Rice
+} // namespace Rice4RubyQt6
 
 
 // =========   JumpException.hpp   =========
 
-namespace Rice
+namespace Rice4RubyQt6
 {
   //! A placeholder for Ruby longjmp data.
   /*! When a Ruby exception is caught, the tag used for the longjmp is stored in
@@ -849,11 +872,11 @@ namespace Rice
   private:
     std::string message_;
   };
-} // namespace Rice
+} // namespace Rice4RubyQt6
 
 
 // =========   JumpException.ipp   =========
-namespace Rice
+namespace Rice4RubyQt6
 {
   inline JumpException::JumpException(ruby_tag_type tag) : tag(tag)
   {
@@ -900,13 +923,13 @@ namespace Rice
         break;
     }
   }
-} // namespace Rice
+} // namespace Rice4RubyQt6
 
 // =========   NativeInvoker.hpp   =========
 
 #include <optional>
 
-namespace Rice::detail
+namespace Rice4RubyQt6::detail
 {
   template<typename Return_T>
   class ResultWrapper
@@ -976,7 +999,7 @@ namespace Rice::detail
 
 
 // =========   NativeInvoker.ipp   =========
-namespace Rice::detail
+namespace Rice4RubyQt6::detail
 {
   // ----- ResultWrapper -------
   template<typename Return_T>
@@ -1126,11 +1149,11 @@ namespace Rice::detail
       if (state == JumpException::RUBY_TAG_RAISE && RB_TEST(err))
       {
         rb_set_errinfo(Qnil);
-        throw Rice::Exception(err);
+        throw Rice4RubyQt6::Exception(err);
       }
       else
       {
-        throw Rice::JumpException((Rice::JumpException::ruby_tag_type)state);
+        throw Rice4RubyQt6::JumpException((Rice4RubyQt6::JumpException::ruby_tag_type)state);
       }
     }
   }
@@ -1175,7 +1198,7 @@ namespace Rice::detail
 }
 // =========   to_ruby.hpp   =========
 
-namespace Rice
+namespace Rice4RubyQt6
 {
   namespace detail
   {
@@ -1224,7 +1247,7 @@ namespace Rice
 
 #include <any>
 
-namespace Rice
+namespace Rice4RubyQt6
 {
   //! Helper for defining default arguments of a method
   /*! This class exposes the ability to define the default values of a
@@ -1325,7 +1348,7 @@ namespace Rice
 
 // =========   Return.hpp   =========
 
-namespace Rice
+namespace Rice4RubyQt6
 {
   //! Helper for defining Return argument of a method
 
@@ -1347,7 +1370,7 @@ namespace Rice
 
 // =========   from_ruby.hpp   =========
 
-namespace Rice::detail
+namespace Rice4RubyQt6::detail
 {
   //! Convert a Ruby object to C++.
   /*! If the Ruby object can be converted to an immediate value, returns a
@@ -1391,7 +1414,7 @@ namespace Rice::detail
 
 #include <set>
 
-namespace Rice::detail
+namespace Rice4RubyQt6::detail
 {
   template <typename T>
   class RubyType
@@ -1404,7 +1427,7 @@ namespace Rice::detail
 
 #include <optional>
 
-namespace Rice::detail
+namespace Rice4RubyQt6::detail
 {
   class ParameterAbstract
   {
@@ -1457,7 +1480,7 @@ namespace Rice::detail
 
 // =========   Encoding.hpp   =========
 
-namespace Rice
+namespace Rice4RubyQt6
 {
   //! A wrapper for a Ruby encoding
   class Encoding
@@ -1482,13 +1505,13 @@ namespace Rice
   private:
     rb_encoding* encoding_;
   };
-} // namespace Rice
+} // namespace Rice4RubyQt6
 
 
 
 // =========   Identifier.hpp   =========
 
-namespace Rice
+namespace Rice4RubyQt6
 {
   class Symbol;
 
@@ -1528,11 +1551,11 @@ namespace Rice
   private:
     ID id_;
   };
-} // namespace Rice
+} // namespace Rice4RubyQt6
 
 
 // =========   Identifier.ipp   =========
-namespace Rice
+namespace Rice4RubyQt6
 {
   inline Identifier::Identifier(ID id) : id_(id)
   {
@@ -1570,7 +1593,7 @@ namespace Rice
 
 #include <iosfwd>
 
-namespace Rice
+namespace Rice4RubyQt6
 {
   class Class;
   class String;
@@ -1734,7 +1757,7 @@ namespace Rice
     *
     *  E.g.:
     *  \code
-    *    Rice::Object obj = x.call("foo", "one", 2);
+    *    Rice4RubyQt6::Object obj = x.call("foo", "one", 2);
     *  \endcode
     *
     *  If a return type is specified, the return value will automatically be
@@ -1755,9 +1778,9 @@ namespace Rice
     *
     *  E.g.:
     *  \code
-    *    Rice::Hash kw;
+    *    Rice4RubyQt6::Hash kw;
     *    kw[":argument"] = String("one")
-    *    Rice::Object obj = x.call_kw("foo", kw);
+    *    Rice4RubyQt6::Object obj = x.call_kw("foo", kw);
     *  \endcode
     *
     *  If a return type is specified, the return value will automatically be
@@ -1831,12 +1854,12 @@ namespace Rice
   extern Object const True;
   extern Object const False;
   extern Object const Undef;
-} // namespace Rice
+} // namespace Rice4RubyQt6
 
 
 // =========   Builtin_Object.hpp   =========
 
-namespace Rice
+namespace Rice4RubyQt6
 {
   //! A smartpointer-like wrapper for Ruby builtin objects.
   /*! A builtin object is one of Ruby's internal types, e.g. RArray or
@@ -1861,12 +1884,12 @@ namespace Rice
     RObject* operator->() const; //!< Return a pointer to obj_
     RObject* get() const;       //!< Return a pointer to obj_
   };
-} // namespace Rice
+} // namespace Rice4RubyQt6
 
 
 // =========   String.hpp   =========
 
-namespace Rice
+namespace Rice4RubyQt6
 {
   //! A Wraper for the ruby String class.
   /*! This class provides a C++-style interface to ruby's String class and
@@ -1933,12 +1956,12 @@ namespace Rice
      */
     Identifier intern() const;
   };
-} // namespace Rice
+} // namespace Rice4RubyQt6
 
 
 // =========   Symbol.hpp   =========
 
-namespace Rice
+namespace Rice4RubyQt6
 {
   //! A wrapper for ruby's Symbol class.
   /*! Symbols are internal identifiers in ruby.  They are singletons and
@@ -1977,7 +2000,7 @@ namespace Rice
     //! Return the Symbol as an Identifier.
     Identifier to_id() const;
   };
-} // namespace Rice
+} // namespace Rice4RubyQt6
 
 
 
@@ -1986,7 +2009,7 @@ namespace Rice
 #include <iterator>
 #include <memory>
 
-namespace Rice
+namespace Rice4RubyQt6
 {
   //! A wrapper for the ruby Array class.
   /*! This class provides a C++-style interface to ruby's Array class and
@@ -2098,6 +2121,12 @@ namespace Rice
     template<typename Array_Ptr_T, typename Value_T>
     class Iterator;
 
+    // Friend declaration for non-member operator+
+    template<typename Array_Ptr_T, typename Value_T>
+    friend Iterator<Array_Ptr_T, Value_T> operator+(
+      long n,
+      Iterator<Array_Ptr_T, Value_T> const& it);
+
     long position_of(long index) const;
 
   public:
@@ -2146,13 +2175,12 @@ namespace Rice
     long index_;
   };
 
-  //! A helper class for implementing iterators for a Array.
-  // TODO: This really should be a random-access iterator.
+  //! A random-access iterator for Array.
   template<typename Array_Ptr_T, typename Value_T>
   class Array::Iterator
   {
   public:
-    using iterator_category = std::forward_iterator_tag;
+    using iterator_category = std::random_access_iterator_tag;
     using value_type = Value_T;
     using difference_type = long;
     using pointer = Object*;
@@ -2166,16 +2194,42 @@ namespace Rice
     template<typename Array_Ptr_T_, typename Value_T_>
     Iterator& operator=(Iterator<Array_Ptr_T_, Value_T_> const& rhs);
 
+    // Forward iterator operations
     Iterator& operator++();
     Iterator operator++(int);
-    Value_T operator*();
+    Value_T operator*() const;
     Object* operator->();
 
+    // Bidirectional iterator operations
+    Iterator& operator--();
+    Iterator operator--(int);
+
+    // Random access iterator operations
+    Iterator& operator+=(difference_type n);
+    Iterator& operator-=(difference_type n);
+    Iterator operator+(difference_type n) const;
+    Iterator operator-(difference_type n) const;
+    difference_type operator-(Iterator const& rhs) const;
+    Value_T operator[](difference_type n) const;
+
+    // Comparison operators
     template<typename Array_Ptr_T_, typename Value_T_>
     bool operator==(Iterator<Array_Ptr_T_, Value_T_> const& rhs) const;
 
     template<typename Array_Ptr_T_, typename Value_T_>
     bool operator!=(Iterator<Array_Ptr_T_, Value_T_> const& rhs) const;
+
+    template<typename Array_Ptr_T_, typename Value_T_>
+    bool operator<(Iterator<Array_Ptr_T_, Value_T_> const& rhs) const;
+
+    template<typename Array_Ptr_T_, typename Value_T_>
+    bool operator>(Iterator<Array_Ptr_T_, Value_T_> const& rhs) const;
+
+    template<typename Array_Ptr_T_, typename Value_T_>
+    bool operator<=(Iterator<Array_Ptr_T_, Value_T_> const& rhs) const;
+
+    template<typename Array_Ptr_T_, typename Value_T_>
+    bool operator>=(Iterator<Array_Ptr_T_, Value_T_> const& rhs) const;
 
     Array_Ptr_T array() const;
     long index() const;
@@ -2186,7 +2240,13 @@ namespace Rice
 
     Object tmp_;
   };
-} // namespace Rice
+
+  // Non-member operator+ for n + iterator (allows n + iterator syntax)
+  template<typename Array_Ptr_T, typename Value_T>
+  Array::Iterator<Array_Ptr_T, Value_T> operator+(
+    long n,
+    Array::Iterator<Array_Ptr_T, Value_T> const& it);
+} // namespace Rice4RubyQt6
 
 
 // =========   Hash.hpp   =========
@@ -2194,7 +2254,7 @@ namespace Rice
 #include <iterator>
 #include <type_traits>
 
-namespace Rice
+namespace Rice4RubyQt6
 {
   //! A wrapper for the ruby Hash class.
   //! This class provides a C++-style interface to ruby's Hash class and
@@ -2378,14 +2438,14 @@ namespace Rice
 
     mutable typename std::remove_const<Value_T>::type tmp_;
   };
-} // namespace Rice
+} // namespace Rice4RubyQt6
 
 
 
 
 // =========   Module.hpp   =========
 
-namespace Rice
+namespace Rice4RubyQt6
 {
   template <typename T>
   void validateType();
@@ -2522,7 +2582,7 @@ inline auto& define_singleton_method(std::string name, Method_T&& method, const 
  *  \return *this
  */
 template<typename Function_T, typename...Arg_Ts>
-inline auto& define_singleton_function(std::string name, Function_T&& func, Arg_Ts&& ...args)
+inline auto& define_singleton_function(std::string name, Function_T&& func, const Arg_Ts& ...args)
 {
   this->wrap_native_function(rb_singleton_class(*this), name, std::forward<Function_T>(func), args...);
   return *this;
@@ -2588,7 +2648,7 @@ inline auto& define_constant(std::string name, Constant_T value)
 
 // =========   Class.hpp   =========
 
-namespace Rice
+namespace Rice4RubyQt6
 {
   //! A helper for defining a Class and its methods.
   /*! This class provides a C++-style interface to ruby's Class class and
@@ -2715,7 +2775,7 @@ inline auto& define_singleton_method(std::string name, Method_T&& method, const 
  *  \return *this
  */
 template<typename Function_T, typename...Arg_Ts>
-inline auto& define_singleton_function(std::string name, Function_T&& func, Arg_Ts&& ...args)
+inline auto& define_singleton_function(std::string name, Function_T&& func, const Arg_Ts& ...args)
 {
   this->wrap_native_function(rb_singleton_class(*this), name, std::forward<Function_T>(func), args...);
   return *this;
@@ -2776,13 +2836,13 @@ inline auto& define_constant(std::string name, Constant_T value)
   /*! \return the new class.
    */
   Class anonymous_class();
-} // namespace Rice
+} // namespace Rice4RubyQt6
 
 
 
 // =========   Native.hpp   =========
 
-namespace Rice::detail
+namespace Rice4RubyQt6::detail
 {
   class Native;
 
@@ -2823,7 +2883,7 @@ namespace Rice::detail
     void operator=(const Native&) = delete;
     void operator=(Native&&) = delete;
 
-    virtual Resolved matches(size_t argc, const VALUE* argv, VALUE self);
+    virtual Resolved matches(size_t argc, const VALUE* argv);
     virtual VALUE operator()(size_t argc, const VALUE* argv, VALUE self) = 0;
     virtual std::string toString() = 0;
 
@@ -2867,7 +2927,7 @@ namespace Rice::detail
 
 // =========   NativeAttributeGet.hpp   =========
 
-namespace Rice
+namespace Rice4RubyQt6
 {
   enum class AttrAccess
   {
@@ -2901,7 +2961,7 @@ namespace Rice
       void operator=(const NativeAttribute_T&) = delete;
       void operator=(NativeAttribute_T&&) = delete;
 
-      Resolved matches(size_t argc, const VALUE* argv, VALUE self) override;
+      Resolved matches(size_t argc, const VALUE* argv) override;
       VALUE operator()(size_t argc, const VALUE* argv, VALUE self) override;
       std::string toString() override;
 
@@ -2921,7 +2981,7 @@ namespace Rice
 
 // =========   NativeAttributeSet.hpp   =========
 
-namespace Rice
+namespace Rice4RubyQt6
 {
   namespace detail
   {
@@ -2946,7 +3006,7 @@ namespace Rice
       void operator=(const NativeAttribute_T&) = delete;
       void operator=(NativeAttribute_T&&) = delete;
 
-      Resolved matches(size_t argc, const VALUE* argv, VALUE self) override;
+      Resolved matches(size_t argc, const VALUE* argv) override;
       VALUE operator()(size_t argc, const VALUE* argv, VALUE self) override;
       std::string toString() override;
 
@@ -2968,7 +3028,7 @@ namespace Rice
 
 #include <set>
 
-namespace Rice
+namespace Rice4RubyQt6
 {
   //! A mechanism for binding ruby types to C++ types.
   /*! This class binds run-time types (Ruby VALUEs) to compile-time types
@@ -3049,7 +3109,7 @@ namespace Rice
     Data_Type<T>& define(Func_T func);
 
     //! Register a Director class for this class.
-    /*! For any class that uses Rice::Director to enable polymorphism
+    /*! For any class that uses Rice4RubyQt6::Director to enable polymorphism
      *  across the languages, you need to register that director proxy
      *  class with this method. Not doing so will cause the resulting 
      *  library to die at run time when it tries to convert the base
@@ -3059,13 +3119,13 @@ namespace Rice
      *
      *  For example:
      *  \code
-     *    class FooDirector : public Foo, public Rice::Director {
+     *    class FooDirector : public Foo, public Rice4RubyQt6::Director {
      *      ...
      *    };
      *
      *    define_class<Foo>("Foo")
      *      .define_director<FooDirector>()
-     *      .define_constructor(Constructor<FooDirector, Rice::Object>());
+     *      .define_constructor(Constructor<FooDirector, Rice4RubyQt6::Object>());
      *  \endcode
      */
     template<typename Director_T>
@@ -3195,7 +3255,7 @@ inline auto& define_singleton_method(std::string name, Method_T&& method, const 
  *  \return *this
  */
 template<typename Function_T, typename...Arg_Ts>
-inline auto& define_singleton_function(std::string name, Function_T&& func, Arg_Ts&& ...args)
+inline auto& define_singleton_function(std::string name, Function_T&& func, const Arg_Ts& ...args)
 {
   this->wrap_native_function(rb_singleton_class(*this), name, std::forward<Function_T>(func), args...);
   return *this;
@@ -3246,13 +3306,13 @@ inline auto& define_constant(std::string name, Constant_T value)
     static Data_Type<T> bind(const Module& klass);
 
     template<typename T_, typename Base_T>
-    friend Rice::Data_Type<T_> define_class_under(Object parent, Identifier id, Class superKlass);
+    friend Rice4RubyQt6::Data_Type<T_> define_class_under(Object parent, Identifier id, Class superKlass);
 
     template<typename T_, typename Base_T>
-    friend Rice::Data_Type<T_> define_class_under(Object parent, char const * name);
+    friend Rice4RubyQt6::Data_Type<T_> define_class_under(Object parent, char const * name);
 
     template<typename T_, typename Base_T>
-    friend Rice::Data_Type<T_> define_class(char const * name);
+    friend Rice4RubyQt6::Data_Type<T_> define_class(char const * name);
 
     template<typename Method_T, typename...Arg_Ts>
     void wrap_native_method(VALUE klass, std::string name, Method_T&& function, const Arg_Ts&...args);
@@ -3317,7 +3377,7 @@ inline auto& define_constant(std::string name, Constant_T value)
  *  objects as Ruby objects.
  */
 
-namespace Rice
+namespace Rice4RubyQt6
 {
   //! A smartpointer-like wrapper for Ruby data objects.
   /*! A data object is a ruby object of type T_DATA, which is usually
@@ -3384,11 +3444,11 @@ namespace Rice
   private:
     static void check_ruby_type(VALUE value);
   };
-} // namespace Rice
+} // namespace Rice4RubyQt6
 
 
 // =========   RubyType.ipp   =========
-namespace Rice::detail
+namespace Rice4RubyQt6::detail
 {
   template<>
   class RubyType<bool>
@@ -3422,8 +3482,7 @@ namespace Rice::detail
   class RubyType<signed char>
   {
   public:
-    // Hack - need to later typecast
-    using FromRuby_T = char(*)(VALUE);
+    using FromRuby_T =  char(*)(VALUE);
 
     static inline FromRuby_T fromRuby = rb_num2char_inline;
     static inline std::set<ruby_value_type> Exact = { };
@@ -3437,7 +3496,6 @@ namespace Rice::detail
   class RubyType<unsigned char>
   {
   public:
-    // Hack - need to later typecast, although char's in ruby are unsigned
     using FromRuby_T = char(*)(VALUE);
 
     static inline FromRuby_T fromRuby = rb_num2char_inline;
@@ -3619,7 +3677,7 @@ namespace Rice::detail
    to an Abstract class, the actual returned object will be a Child class. However, all we know
    from the C++ method signature is that it is an Absract class - thus the need for a registry.*/
 
-namespace Rice::detail
+namespace Rice4RubyQt6::detail
 {
   class TypeRegistry
   {
@@ -3665,7 +3723,7 @@ namespace Rice::detail
 
 #include <map>
 
-namespace Rice::detail
+namespace Rice4RubyQt6::detail
 {
   class InstanceRegistry
   {
@@ -3687,13 +3745,13 @@ namespace Rice::detail
   private:
     std::map<void*, VALUE> objectMap_;
   };
-} // namespace Rice::detail
+} // namespace Rice4RubyQt6::detail
 
 
 
 // =========   DefaultHandler.hpp   =========
 
-namespace Rice::detail
+namespace Rice4RubyQt6::detail
 {
   class DefaultHandler
   {
@@ -3706,7 +3764,7 @@ namespace Rice::detail
 
 #include <functional>
 
-namespace Rice::detail
+namespace Rice4RubyQt6::detail
 {
   class HandlerRegistry
   {
@@ -3718,13 +3776,13 @@ namespace Rice::detail
   private:
     std::function<void()> handler_;
   };
-} // namespace Rice::detail
+} // namespace Rice4RubyQt6::detail
 
 
 
 // =========   ModuleRegistry.hpp   =========
 
-namespace Rice::detail
+namespace Rice4RubyQt6::detail
 {
   class ModuleRegistry
   {
@@ -3760,7 +3818,7 @@ namespace Rice::detail
    by calling the reset method on the registry. Although redefinition shouldn't happen in 
    production code it happens in many places in the unit tests. */
    
-namespace Rice::detail
+namespace Rice4RubyQt6::detail
 {
   class NativeRegistry
   {
@@ -3787,7 +3845,7 @@ namespace Rice::detail
 
 // =========   Registries.hpp   =========
 
-namespace Rice::detail
+namespace Rice4RubyQt6::detail
 {
   class Registries
   {
@@ -3807,7 +3865,7 @@ namespace Rice::detail
 // To / From Ruby
 
 // =========   Arg.ipp   =========
-namespace Rice
+namespace Rice4RubyQt6
 {
   inline Arg::Arg(std::string name) : name(name)
   {
@@ -3886,7 +3944,7 @@ namespace Rice
 
 } // Rice
 // =========   Parameter.ipp   =========
-namespace Rice::detail
+namespace Rice4RubyQt6::detail
 {
   // -----------  ParameterAbstract ----------------
   inline ParameterAbstract::ParameterAbstract(std::unique_ptr<Arg>&& arg) : arg_(std::move(arg))
@@ -3959,6 +4017,11 @@ namespace Rice::detail
     return result;
   }
 
+#ifdef _MSC_VER
+#pragma warning(push)
+#pragma warning(disable: 4702)  // unreachable code
+#endif
+
   template<typename T>
   inline T Parameter<T>::convertToNative(std::optional<VALUE>& valueOpt)
   {
@@ -3998,8 +4061,13 @@ namespace Rice::detail
       }
     }
 
+    // This can be unreachable code
     throw std::invalid_argument("Could not convert Ruby value");
   }
+
+#ifdef _MSC_VER
+#pragma warning(pop)
+#endif
 
   template<typename T>
   inline VALUE Parameter<T>::convertToRuby(T object)
@@ -4024,7 +4092,7 @@ namespace Rice::detail
 
 // =========   NoGVL.hpp   =========
 
-namespace Rice
+namespace Rice4RubyQt6
 {
   class NoGVL
   {
@@ -4037,7 +4105,7 @@ namespace Rice
 // =========   Return.ipp   =========
 #include <any>
 
-namespace Rice
+namespace Rice4RubyQt6
 {
   inline Return::Return(): Arg("Return")
   {
@@ -4070,7 +4138,7 @@ namespace Rice
 
 // =========   Constructor.hpp   =========
 
-namespace Rice
+namespace Rice4RubyQt6
 {
   //! Define a Type's Constructor and it's arguments.
   /*! E.g. for the default constructor on a Type:
@@ -4083,7 +4151,7 @@ namespace Rice
   *  Additional arguments must be the types of the parameters sent
   *  to the constructor.
   *
-  *  For more information, see Rice::Data_Type::define_constructor.
+  *  For more information, see Rice4RubyQt6::Data_Type::define_constructor.
   */
   template<typename T, typename...Parameter_Ts>
   class Constructor;
@@ -4091,7 +4159,7 @@ namespace Rice
 
 // =========   Buffer.hpp   =========
 
-namespace Rice
+namespace Rice4RubyQt6
 {
   template<typename T, typename = void>
   class Buffer;
@@ -4262,7 +4330,7 @@ namespace Rice
 
 // =========   Pointer.hpp   =========
 
-namespace Rice
+namespace Rice4RubyQt6
 {
   template<typename T>
   class Pointer
@@ -4275,7 +4343,7 @@ namespace Rice
 
 
 // =========   Buffer.ipp   =========
-namespace Rice
+namespace Rice4RubyQt6
 {
   // ----  Buffer<T> ------- 
   template<typename T>
@@ -4380,10 +4448,12 @@ namespace Rice
       default:
       {
         if (RubyType_T::Exact.find(valueType) != RubyType_T::Exact.end() ||
-          RubyType_T::Castable.find(valueType) != RubyType_T::Castable.end() ||
-          RubyType_T::Narrowable.find(valueType) != RubyType_T::Narrowable.end())
+            RubyType_T::Castable.find(valueType) != RubyType_T::Castable.end() ||
+            RubyType_T::Narrowable.find(valueType) != RubyType_T::Narrowable.end())
         {
-          T data = detail::protect(RubyType_T::fromRuby, value);
+          // The Ruby method may return a different type - for example Ruby floats
+          // are converted to double and not float - so we need a typecast.
+          T data = (T)detail::protect(RubyType_T::fromRuby, value);
           this->m_size = 1;
           this->m_buffer = new T[this->m_size]();
           memcpy((void*)this->m_buffer, &data, sizeof(T));
@@ -4414,8 +4484,8 @@ namespace Rice
         this->m_size = array.size();
 
         // Use operator new[] to allocate memory but not call constructors.
-        size_t size = sizeof(T) * this->m_size;
-        this->m_buffer = static_cast<T*>(operator new[](size));
+        size_t memsize = sizeof(T) * this->m_size;
+        this->m_buffer = static_cast<T*>(operator new[](memsize));
 
         detail::From_Ruby<Intrinsic_T> fromRuby;
 
@@ -4424,7 +4494,7 @@ namespace Rice
           // Construct objects in allocated memory using move or copy construction
           if constexpr (std::is_move_constructible_v<T>)
           {
-            new (&this->m_buffer[i]) T(std::move(fromRuby.convert(array[i].value())));
+            new (&this->m_buffer[i]) T(std::move(fromRuby.convert(array[(long)i].value())));
           }
           else if constexpr (std::is_copy_constructible_v<T>)
           {
@@ -4623,7 +4693,7 @@ namespace Rice
   }
 
   template<typename T>
-  inline Buffer<T*, std::enable_if_t<!detail::is_wrapped_v<T>>>::Buffer(T** pointer, size_t size) : m_buffer(pointer), m_size(size)
+  inline Buffer<T*, std::enable_if_t<!detail::is_wrapped_v<T>>>::Buffer(T** pointer, size_t size) : m_size(size), m_buffer(pointer)
   {
   }
 
@@ -4651,7 +4721,7 @@ namespace Rice
         for (size_t i = 0; i < this->m_size; i++)
         {
           // Check the inner value is also an array
-          Array inner(outer[i].value());
+          Array inner(outer[(long)i].value());
 
           // Allocate inner buffer
           this->m_buffer[i] = new T[inner.size()]();
@@ -4661,13 +4731,16 @@ namespace Rice
             String packed = inner.pack<Intrinsic_T>();
             memcpy((void*)this->m_buffer[i], RSTRING_PTR(packed.value()), RSTRING_LEN(packed.value()));
           }
+          // This is for std::string, should be a 1 length array
           else
           {
             detail::From_Ruby<Intrinsic_T*> fromRuby;
-            for (int i = 0; i < inner.size(); i++)
+            if (inner.size() != 1)
             {
-              this->m_buffer[0] = fromRuby.convert(inner[i].value());
+              throw Exception(rb_eTypeError, "Expected inner array size 1 for type %s* but got %ld",
+                detail::TypeIndexParser(typeid(T)).name().c_str(), inner.size());
             }
+            this->m_buffer[i] = fromRuby.convert(inner[0].value());
           }
         }
 
@@ -4837,7 +4910,7 @@ namespace Rice
   }
 
   template<typename T>
-  inline Buffer<T*, std::enable_if_t<detail::is_wrapped_v<T>>>::Buffer(T** pointer, size_t size) : m_buffer(pointer), m_size(size)
+  inline Buffer<T*, std::enable_if_t<detail::is_wrapped_v<T>>>::Buffer(T** pointer, size_t size) : m_size(size), m_buffer(pointer)
   {
   }
 
@@ -4862,7 +4935,7 @@ namespace Rice
 
         for (size_t i = 0; i < this->m_size; i++)
         {
-          this->m_buffer[i] = fromRuby.convert(array[i].value());
+          this->m_buffer[i] = fromRuby.convert(array[(long)i].value());
         }
 
         this->m_owner = true;
@@ -5028,7 +5101,7 @@ namespace Rice
   }
   
   template<typename T>
-  inline Buffer<T, std::enable_if_t<std::is_void_v<T>>>::Buffer(VALUE value, size_t size)
+  inline Buffer<T, std::enable_if_t<std::is_void_v<T>>>::Buffer(VALUE value, size_t)
   {
     ruby_value_type valueType = rb_type(value);
 
@@ -5126,7 +5199,7 @@ namespace Rice
       klassName = typeMapper.rubyName();
     }
 
-    Module rb_mRice = define_module("Rice");
+    Module rb_mRice = define_module("Rice4RubyQt6");
 
     if (Data_Type_T::check_defined(klassName, rb_mRice))
     {
@@ -5179,7 +5252,7 @@ namespace Rice
   }
 }
 
-namespace Rice::detail
+namespace Rice4RubyQt6::detail
 {
   template<typename T>
   struct Type<Buffer<T>>
@@ -5194,7 +5267,7 @@ namespace Rice::detail
 }
 
 // =========   Pointer.ipp   =========
-namespace Rice
+namespace Rice4RubyQt6
 {
   template<typename T>
   inline Data_Type<Pointer<T>> define_pointer(std::string klassName)
@@ -5208,7 +5281,7 @@ namespace Rice
       klassName = typeMapper.rubyName();
     }
 
-    Module rb_mRice = define_module("Rice");
+    Module rb_mRice = define_module("Rice4RubyQt6");
 
     if (Data_Type_T::check_defined(klassName, rb_mRice))
     {
@@ -5230,7 +5303,7 @@ namespace Rice
   }
 }
 
-namespace Rice::detail
+namespace Rice4RubyQt6::detail
 {
   template<typename T>
   struct Type<Pointer<T>>
@@ -5245,7 +5318,7 @@ namespace Rice::detail
 }
 
 // =========   Types.ipp   =========
-namespace Rice::detail
+namespace Rice4RubyQt6::detail
 {
   template<>
   struct Type<bool>
@@ -5677,7 +5750,7 @@ namespace Rice::detail
 }
 // =========   to_ruby.ipp   =========
 
-namespace Rice
+namespace Rice4RubyQt6
 {
   namespace detail
   {
@@ -6730,7 +6803,7 @@ namespace Rice
 
 /* This file implements conversions from Ruby to native values fo fundamental types 
    such as bool, int, float, etc. It also includes conversions for chars and strings */
-namespace Rice::detail
+namespace Rice4RubyQt6::detail
 {
   inline Convertible operator&(Convertible left, Convertible right)
   {
@@ -8213,8 +8286,9 @@ namespace Rice::detail
       }
     }
 
-    void convert(VALUE value)
+    void convert(VALUE)
     {
+      // Nothing to do
     }
   private:
     Arg* arg_ = nullptr;
@@ -8336,7 +8410,7 @@ namespace Rice::detail
 #include <typeindex>
 
 
-namespace Rice::detail
+namespace Rice4RubyQt6::detail
 {
   template <typename T>
   inline void TypeRegistry::add(VALUE klass, rb_data_type_t* rbType)
@@ -8498,7 +8572,7 @@ namespace Rice::detail
 // =========   InstanceRegistry.ipp   =========
 #include <memory>
 
-namespace Rice::detail
+namespace Rice4RubyQt6::detail
 {
   template <typename T>
   inline VALUE InstanceRegistry::lookup(T& cppInstance)
@@ -8548,16 +8622,16 @@ namespace Rice::detail
 } // namespace
 
 // =========   DefaultHandler.ipp   =========
-namespace Rice::detail
+namespace Rice4RubyQt6::detail
 {
-  inline void Rice::detail::DefaultHandler::operator()() const
+  inline void Rice4RubyQt6::detail::DefaultHandler::operator()() const
   {
     // This handler does nothing, it just rethrows the exception so it can be handled
     throw;
   }
 }
 // =========   HandlerRegistry.ipp   =========
-namespace Rice::detail
+namespace Rice4RubyQt6::detail
 {
   inline HandlerRegistry::HandlerRegistry() : handler_(DefaultHandler())
   {
@@ -8580,7 +8654,7 @@ namespace Rice::detail
 #include <typeindex>
 
 
-namespace Rice::detail
+namespace Rice4RubyQt6::detail
 {
   inline void ModuleRegistry::add(VALUE module)
   {
@@ -8601,7 +8675,7 @@ namespace Rice::detail
 }
 // =========   NativeRegistry.ipp   =========
 
-namespace Rice::detail
+namespace Rice4RubyQt6::detail
 {
   inline void NativeRegistry::add(VALUE klass, ID methodId, std::unique_ptr<Native>& native)
   {
@@ -8677,7 +8751,7 @@ namespace Rice::detail
 }
 
 // =========   Registries.ipp   =========
-namespace Rice::detail
+namespace Rice4RubyQt6::detail
 {
   //Initialize static variables here.
   inline Registries Registries::instance;
@@ -8694,7 +8768,7 @@ namespace Rice::detail
 // Rice saves types either as the intrinsic type (MyObject) or pointer (MyObject*).
 // It strips out references, const and volatile to avoid an explosion of template classes.
 // Pointers are used for C function pointers used in callbacks and for the Buffer class.
-namespace Rice::detail
+namespace Rice4RubyQt6::detail
 {
   // ------ Type ----------------
   template<typename T>
@@ -8942,7 +9016,7 @@ namespace Rice::detail
     base = std::regex_replace(base, leadingNamespacesRegex, "");
 
     // Capitalize first letter
-    base[0] = std::toupper(base[0]);
+    base[0] = (char)std::toupper(base[0]);
 
     // Replace :: with unicode U+u02F8 (Modified Letter raised colon)
     auto colonRegex = std::regex(R"(:)");
@@ -8992,7 +9066,11 @@ namespace Rice::detail
     while (std::regex_search(content, match, regex))
     {
       std::string replacement = match[1];
-      std::transform(replacement.begin(), replacement.end(), replacement.begin(), ::toupper);
+      std::transform(replacement.begin(), replacement.end(), replacement.begin(), 
+        [](unsigned char c) -> char
+        {
+          return static_cast<char>(std::toupper(c));
+        });
       content.replace(match.position(), match.length(), replacement);
     }
   }
@@ -9052,7 +9130,7 @@ namespace Rice::detail
 
 // =========   Exception.ipp   =========
 
-namespace Rice
+namespace Rice4RubyQt6
 {
   inline Exception::Exception(VALUE exception) : exception_(exception)
   {
@@ -9127,7 +9205,7 @@ namespace Rice
 #endif
 
 
-namespace Rice::detail
+namespace Rice4RubyQt6::detail
 {
   template <typename Callable_T>
   auto cpp_protect(Callable_T&& func)
@@ -9143,11 +9221,11 @@ namespace Rice::detail
         std::function<void()> handler = detail::Registries::instance.handlers.handler();
         handler();
       }
-      catch (::Rice::Exception const& ex)
+      catch (::Rice4RubyQt6::Exception const& ex)
       {
         rb_exc_raise(ex.value());
       }
-      catch (::Rice::JumpException const& ex)
+      catch (::Rice4RubyQt6::JumpException const& ex)
       {
         rb_jump_tag(ex.tag);
       }
@@ -9214,7 +9292,7 @@ namespace Rice::detail
 // =========   Wrapper.ipp   =========
 #include <memory>
 
-namespace Rice::detail
+namespace Rice4RubyQt6::detail
 {
   inline bool WrapperBase::isConst()
   {
@@ -9415,7 +9493,8 @@ namespace Rice::detail
   {
     if (rb_type(value) != RUBY_T_DATA)
     {
-      std::string message = "The provided Ruby object does not wrap a C++ object";
+      std::string message = "The Ruby object does not wrap a C++ object. It is actually a " +
+        std::string(detail::protect(rb_obj_classname, value)) + ".";
       throw std::runtime_error(message);
     }
 
@@ -9466,7 +9545,7 @@ namespace Rice::detail
   }
 
   template <typename T>
-  inline void wrapConstructed(VALUE value, rb_data_type_t* rb_data_type, T* data, bool isOwner)
+  inline void wrapConstructed(VALUE value, rb_data_type_t* rb_data_type, T* data)
   {
     using Wrapper_T = Wrapper<T*>;
     
@@ -9486,7 +9565,7 @@ namespace Rice::detail
 } // namespace
 
 // =========   Native.ipp   =========
-namespace Rice::detail
+namespace Rice4RubyQt6::detail
 {
   inline bool Resolved::operator<(Resolved other)
   {
@@ -9574,7 +9653,7 @@ namespace Rice::detail
           std::back_inserter(resolves), 
           [&](const std::unique_ptr<Native>& native)
           {
-            return native->matches(argc, argv, self);
+            return native->matches(argc, argv);
           });
 
         // Now sort from best to worst
@@ -9737,7 +9816,7 @@ namespace Rice::detail
   };
 
   template<typename Parameter_Tuple, typename Arg_Tuple, std::size_t ...Indices>
-  inline void Native::create_parameters_impl(std::vector<std::unique_ptr<ParameterAbstract>>& parameters, std::index_sequence<Indices...> indices, std::vector<std::unique_ptr<Arg>>&& args)
+  inline void Native::create_parameters_impl(std::vector<std::unique_ptr<ParameterAbstract>>& parameters, std::index_sequence<Indices...>, std::vector<std::unique_ptr<Arg>>&& args)
   {
     // Verify parameter types
     (verify_parameter<Parameter_Tuple, Arg_Tuple, Indices>(), ...);
@@ -9785,7 +9864,7 @@ namespace Rice::detail
     for (size_t i = 0; i < argsVector.size(); i++)
     {
       std::unique_ptr<Arg>& arg = argsVector[i];
-      arg->position = i;
+      arg->position = (int32_t)i;
     }
 
     auto indices = std::make_index_sequence<std::tuple_size_v<Parameter_Tuple>>{};
@@ -9819,20 +9898,20 @@ namespace Rice::detail
   inline std::vector<std::optional<VALUE>> Native::getRubyValues(size_t argc, const VALUE* argv, bool validate)
   {
 #undef max
-    int size = std::max(this->parameters_.size(), argc);
+    size_t size = std::max(this->parameters_.size(), argc);
     std::vector<std::optional<VALUE>> result(size);
 
     // Keyword handling
     if (rb_keyword_given_p())
     {
       // Keywords are stored in the last element in a hash
-      int actualArgc = argc - 1;
+      size_t actualArgc = argc - 1;
 
       VALUE value = argv[actualArgc];
       Hash keywords(value);
 
       // Copy over leading non-keyword arguments
-      for (int i = 0; i < actualArgc; i++)
+      for (size_t i = 0; i < actualArgc; i++)
       {
         result[i] = argv[i];
       }
@@ -9904,7 +9983,7 @@ namespace Rice::detail
     return result;
   }
 
-  inline Resolved Native::matches(size_t argc, const VALUE* argv, VALUE self)
+  inline Resolved Native::matches(size_t argc, const VALUE* argv)
   {
     // Return false if Ruby provided more arguments than the C++ method takes
     if (argc > this->parameters_.size())
@@ -9917,10 +9996,10 @@ namespace Rice::detail
 
     if (this->parameters_.size() > 0)
     {
-      int providedValues = std::count_if(rubyValues.begin(), rubyValues.end(), [](std::optional<VALUE>& value)
-        {
-          return value.has_value();
-        });
+      size_t providedValues = std::count_if(rubyValues.begin(), rubyValues.end(), [](std::optional<VALUE>& value)
+      {
+        return value.has_value();
+      });
 
       result.parameterMatch = providedValues / (double)this->parameters_.size();
     }
@@ -9945,7 +10024,7 @@ namespace Rice::detail
 #include <array>
 #include <algorithm>
 
-namespace Rice::detail
+namespace Rice4RubyQt6::detail
 {
   template<typename Attribute_T>
   template<typename...Arg_Ts>
@@ -9971,7 +10050,7 @@ namespace Rice::detail
   }
 
   template<typename Attribute_T>
-  inline Resolved NativeAttributeGet<Attribute_T>::matches(size_t argc, const VALUE* argv, VALUE self)
+  inline Resolved NativeAttributeGet<Attribute_T>::matches(size_t argc, const VALUE*)
   {
     if (argc == 0)
       return Resolved { Convertible::Exact, 1, this };
@@ -9987,7 +10066,7 @@ namespace Rice::detail
   }
 
   template<typename Attribute_T>
-  inline VALUE NativeAttributeGet<Attribute_T>::operator()(size_t argc, const VALUE* argv, VALUE self)
+  inline VALUE NativeAttributeGet<Attribute_T>::operator()(size_t, const VALUE*, VALUE self)
   {
     if constexpr (std::is_member_object_pointer_v<Attribute_T>)
     {
@@ -10069,7 +10148,7 @@ namespace Rice::detail
 #include <algorithm>
 
 
-namespace Rice::detail
+namespace Rice4RubyQt6::detail
 {
   template<typename Attribute_T>
   void NativeAttributeSet<Attribute_T>::define(VALUE klass, std::string name, Attribute_T attribute)
@@ -10098,7 +10177,7 @@ namespace Rice::detail
   }
 
   template<typename Attribute_T>
-  inline Resolved NativeAttributeSet<Attribute_T>::matches(size_t argc, const VALUE* argv, VALUE self)
+  inline Resolved NativeAttributeSet<Attribute_T>::matches(size_t argc, const VALUE*)
   {
     if (argc == 1)
       return Resolved{ Convertible::Exact, 1, this };
@@ -10160,7 +10239,7 @@ namespace Rice::detail
 
 // =========   NativeFunction.hpp   =========
 
-namespace Rice::detail
+namespace Rice4RubyQt6::detail
 {
   //! The NativeFunction class calls C++ functions/methods/lambdas on behalf of Ruby
   /*! The NativeFunction class is an intermediate between Ruby and C++. Every method
@@ -10220,8 +10299,7 @@ namespace Rice::detail
     VALUE returnKlass() override;
 
   private:
-    template<std::size_t...I>
-    std::vector<std::string> argTypeNames(std::ostringstream& stream, const std::index_sequence<I...>& indices);
+    std::vector<std::string> argTypeNames();
 
     // Convert Ruby values to C++ values
     template<typename std::size_t...I>
@@ -10246,7 +10324,7 @@ namespace Rice::detail
 #include <sstream>
 #include <tuple>
 
-namespace Rice::detail
+namespace Rice4RubyQt6::detail
 {
   template<typename Function_T, bool NoGVL>
   template<typename ...Arg_Ts>
@@ -10288,8 +10366,7 @@ namespace Rice::detail
   }
 
   template<typename Function_T, bool NoGVL>
-  template<std::size_t... I>
-  std::vector<std::string> NativeFunction<Function_T, NoGVL>::argTypeNames(std::ostringstream& stream, const std::index_sequence<I...>& indices)
+  std::vector<std::string> NativeFunction<Function_T, NoGVL>::argTypeNames()
   {
     std::vector<std::string> result;
     for (std::unique_ptr<ParameterAbstract>& parameter : this->parameters_)
@@ -10310,8 +10387,7 @@ namespace Rice::detail
 
     result << "(";
 
-    auto indices = std::make_index_sequence<std::tuple_size_v<Parameter_Ts>>{};
-    std::vector<std::string> argTypeNames = this->argTypeNames(result, indices);
+    std::vector<std::string> argTypeNames = this->argTypeNames();
     for (size_t i = 0; i < argTypeNames.size(); i++)
     {
       result << argTypeNames[i];
@@ -10325,7 +10401,7 @@ namespace Rice::detail
   template<typename Function_T, bool NoGVL>
   template<std::size_t... I>
   typename NativeFunction<Function_T, NoGVL>::Parameter_Ts NativeFunction<Function_T, NoGVL>::getNativeValues(std::vector<std::optional<VALUE>>& values,
-     std::index_sequence<I...>& indices)
+     std::index_sequence<I...>&)
   {
     /* Loop over each value returned from Ruby and convert it to the appropriate C++ type based
        on the arguments (Parameter_Ts) required by the C++ function. Arg_T may have const/volatile while
@@ -10427,7 +10503,7 @@ namespace Rice::detail
 
 // =========   NativeIterator.hpp   =========
 
-namespace Rice::detail
+namespace Rice4RubyQt6::detail
 {
   template<typename T, typename Iterator_Func_T>
   class NativeIterator: Native
@@ -10452,7 +10528,7 @@ namespace Rice::detail
     void operator=(const NativeIterator_T&) = delete;
     void operator=(NativeIterator_T&&) = delete;
 
-    Resolved matches(size_t argc, const VALUE* argv, VALUE self) override;
+    Resolved matches(size_t argc, const VALUE* argv) override;
     VALUE operator()(size_t argc, const VALUE* argv, VALUE self) override;
     std::string toString() override;
 
@@ -10478,7 +10554,7 @@ namespace Rice::detail
 #include <functional>
 #include <type_traits>
 
-namespace Rice::detail
+namespace Rice4RubyQt6::detail
 {
   template <typename T, typename Iterator_Func_T>
   inline void NativeIterator<T, Iterator_Func_T>::define(VALUE klass, std::string method_name, Iterator_Func_T begin, Iterator_Func_T end)
@@ -10502,7 +10578,7 @@ namespace Rice::detail
   }
 
   template<typename T, typename Iterator_Func_T>
-  inline Resolved NativeIterator<T, Iterator_Func_T>::matches(size_t argc, const VALUE* argv, VALUE self)
+  inline Resolved NativeIterator<T, Iterator_Func_T>::matches(size_t, const VALUE*)
   {
     return Resolved{ Convertible::Exact, 1.0, this };
   }
@@ -10510,7 +10586,7 @@ namespace Rice::detail
   template<typename T, typename Iterator_Func_T>
   inline VALUE NativeIterator<T, Iterator_Func_T>::createRubyEnumerator(VALUE self)
   {
-    auto rb_size_function = [](VALUE recv, VALUE argv, VALUE eobj) -> VALUE
+    auto rb_size_function = [](VALUE recv, VALUE, VALUE eobj) -> VALUE
     {
       // Since we can't capture VALUE self from above (because then we can't send
       // this lambda to rb_enumeratorize_with_size), extract it from recv
@@ -10548,7 +10624,7 @@ namespace Rice::detail
   }
 
   template<typename T, typename Iterator_Func_T>
-  inline VALUE NativeIterator<T, Iterator_Func_T>::operator()(size_t argc, const VALUE* argv, VALUE self)
+  inline VALUE NativeIterator<T, Iterator_Func_T>::operator()(size_t, const VALUE*, VALUE self)
   {
     if (!protect(rb_block_given_p))
     {
@@ -10593,7 +10669,7 @@ namespace Rice::detail
 }
 // =========   NativeMethod.hpp   =========
 
-namespace Rice::detail
+namespace Rice4RubyQt6::detail
 {
   //! The NativeMethod class calls C++ functions/methods/lambdas on behalf of Ruby
   /*! The NativeMethod class is an intermediate between Ruby and C++. Every method
@@ -10656,8 +10732,7 @@ namespace Rice::detail
     VALUE returnKlass() override;
 
   private:
-    template<std::size_t...I>
-    std::vector<std::string> argTypeNames(std::ostringstream& stream, const std::index_sequence<I...>& indices);
+    std::vector<std::string> argTypeNames();
 
     // Convert Ruby values to C++ values
     template<typename std::size_t...I>
@@ -10685,7 +10760,7 @@ namespace Rice::detail
 #include <sstream>
 #include <tuple>
 
-namespace Rice::detail
+namespace Rice4RubyQt6::detail
 {
   template<typename Class_T, typename Method_T, bool NoGVL>
   template<typename ...Arg_Ts>
@@ -10727,8 +10802,7 @@ namespace Rice::detail
   }
 
   template<typename Class_T, typename Method_T, bool NoGVL>
-  template<std::size_t... I>
-  std::vector<std::string> NativeMethod<Class_T, Method_T, NoGVL>::argTypeNames(std::ostringstream& stream, const std::index_sequence<I...>& indices)
+  std::vector<std::string> NativeMethod<Class_T, Method_T, NoGVL>::argTypeNames()
   {
     std::vector<std::string> result;
     for (std::unique_ptr<ParameterAbstract>& parameter : this->parameters_)
@@ -10756,8 +10830,7 @@ namespace Rice::detail
 
     result << "(";
 
-    auto indices = std::make_index_sequence<std::tuple_size_v<Parameter_Ts>>{};
-    std::vector<std::string> argTypeNames = this->argTypeNames(result, indices);
+    std::vector<std::string> argTypeNames = this->argTypeNames();
     for (size_t i = 0; i < argTypeNames.size(); i++)
     {
       result << argTypeNames[i];
@@ -10770,7 +10843,7 @@ namespace Rice::detail
     
   template<typename Class_T, typename Method_T, bool NoGVL>
   template<std::size_t... I>
-  typename NativeMethod<Class_T, Method_T, NoGVL>::Apply_Args_T NativeMethod<Class_T, Method_T, NoGVL>::getNativeValues(VALUE self, std::vector<std::optional<VALUE>>& values, const std::index_sequence<I...>& indices)
+  typename NativeMethod<Class_T, Method_T, NoGVL>::Apply_Args_T NativeMethod<Class_T, Method_T, NoGVL>::getNativeValues(VALUE self, std::vector<std::optional<VALUE>>& values, const std::index_sequence<I...>&)
   {
     /* Loop over each value returned from Ruby and convert it to the appropriate C++ type based
        on the arguments (Parameter_Ts) required by the C++ method. Arg_T may have const/volatile while
@@ -10956,7 +11029,7 @@ namespace Rice::detail
 
 // =========   NativeProc.hpp   =========
 
-namespace Rice::detail
+namespace Rice4RubyQt6::detail
 {
   template<typename Proc_T>
   class NativeProc: Native
@@ -11009,7 +11082,7 @@ namespace Rice::detail
 #include <sstream>
 #include <tuple>
 
-namespace Rice::detail
+namespace Rice4RubyQt6::detail
 {
   template<typename Proc_T>
   NativeProc<Proc_T>* NativeProc<Proc_T>::define(Proc_T proc)
@@ -11040,7 +11113,7 @@ namespace Rice::detail
 
   // Ruby calls this method when invoking a proc that was defined as a C++ function
   template<typename Proc_T>
-  VALUE NativeProc<Proc_T>::resolve(VALUE yielded_arg, VALUE callback_arg, int argc, const VALUE* argv, VALUE blockarg)
+  VALUE NativeProc<Proc_T>::resolve(VALUE, VALUE callback_arg, int argc, const VALUE* argv, VALUE)
   {
     return cpp_protect([&]
     {
@@ -11052,7 +11125,7 @@ namespace Rice::detail
   // Ruby calls this method if an instance of a NativeProc is owned by a Ruby proc. That happens when C++
   // returns a function back to Ruby
   template<typename Proc_T>
-  VALUE NativeProc<Proc_T>::finalizerCallback(VALUE yielded_arg, VALUE callback_arg, int argc, const VALUE* argv, VALUE blockarg)
+  VALUE NativeProc<Proc_T>::finalizerCallback(VALUE, VALUE callback_arg, int, const VALUE*, VALUE)
   {
     NativeProc_T* native = (NativeProc_T*)callback_arg;
     delete native;
@@ -11075,7 +11148,7 @@ namespace Rice::detail
   template<typename Proc_T>
   template<std::size_t... I>
   typename NativeProc<Proc_T>::Parameter_Ts NativeProc<Proc_T>::getNativeValues(std::vector<std::optional<VALUE>>& values,
-     std::index_sequence<I...>& indices)
+     std::index_sequence<I...>&)
   {
     /* Loop over each value returned from Ruby and convert it to the appropriate C++ type based
        on the arguments (Parameter_Ts) required by the C++ function. Arg_T may have const/volatile while
@@ -11107,7 +11180,7 @@ namespace Rice::detail
   }
 
   template<typename Proc_T>
-  VALUE NativeProc<Proc_T>::operator()(size_t argc, const VALUE* argv, VALUE self)
+  VALUE NativeProc<Proc_T>::operator()(size_t argc, const VALUE* argv, VALUE)
   {
     // Get the ruby values and make sure we have the correct number
     std::vector<std::optional<VALUE>> rubyValues = this->getRubyValues(argc, argv, true);
@@ -11142,7 +11215,7 @@ namespace Rice::detail
 #include <ffi.h>
 #endif //HAVE_LIBFFI
 
-namespace Rice::detail
+namespace Rice4RubyQt6::detail
 {
   template<typename Callback_T>
   class NativeCallback;
@@ -11171,6 +11244,9 @@ namespace Rice::detail
 
     Callback_T callback();
   private:
+    template<typename Parameter_T>
+    static Parameter_T extractArg(void* arg);
+
     template<std::size_t... I>
     static Tuple_T convertArgsToTuple(void* args[], std::index_sequence<I...>& indices);
     Callback_T callback_ = nullptr;
@@ -11210,7 +11286,7 @@ namespace Rice::detail
 }
 
 // =========   NativeCallback.ipp   =========
-namespace Rice::detail
+namespace Rice4RubyQt6::detail
 {
 #ifdef HAVE_LIBFFI
   template<typename Return_T, typename ...Parameter_Ts>
@@ -11254,7 +11330,7 @@ namespace Rice::detail
       nativeToFfiMapping[std::type_index(typeid(long))] = &ffi_type_sint64;
     }
     
-    if (std::is_pointer_v<Arg_T>)
+    if constexpr (std::is_pointer_v<Arg_T> || std::is_reference_v<Arg_T>)
     {
       return &ffi_type_pointer;
     }
@@ -11267,7 +11343,7 @@ namespace Rice::detail
 
   // This is the function provided to the C++ callback with FFI
   template<typename Return_T, typename ...Parameter_Ts>
-  void NativeCallback<Return_T(*)(Parameter_Ts...)>::invokeFFI(ffi_cif* cif, void* ret, void* args[], void* instance)
+  void NativeCallback<Return_T(*)(Parameter_Ts...)>::invokeFFI(ffi_cif*, void* ret, void* args[], void* instance)
   {
     NativeCallback_T* self = (NativeCallback_T*)instance;
 
@@ -11275,8 +11351,6 @@ namespace Rice::detail
     auto indices = std::make_index_sequence<sizeof...(Parameter_Ts)>{};
     auto helper = [&](auto&&... args)
     {
-      self->callRuby(indices, std::forward<Parameter_Ts>(args)...);
-
       if constexpr (!std::is_void_v<Return_T>)
       {
         *(Return_T*)ret = self->callRuby(indices, std::forward<Parameter_Ts>(args)...);
@@ -11331,7 +11405,7 @@ namespace Rice::detail
 
   template<typename Return_T, typename ...Parameter_Ts>
   template<std::size_t... I>
-  void NativeCallback<Return_T(*)(Parameter_Ts...)>::copyParametersImpl(std::vector<std::unique_ptr<ParameterAbstract>>& result, std::index_sequence<I...> indices)
+  void NativeCallback<Return_T(*)(Parameter_Ts...)>::copyParametersImpl(std::vector<std::unique_ptr<ParameterAbstract>>& result, std::index_sequence<I...>)
   {
     (result.push_back(std::make_unique<Parameter<Parameter_Ts>>(*(Parameter<Parameter_Ts>*)parameters_[I].get())), ...);
   }
@@ -11348,19 +11422,34 @@ namespace Rice::detail
   }
 
   template<typename Return_T, typename ...Parameter_Ts>
+  template<typename Parameter_T>
+  Parameter_T NativeCallback<Return_T(*)(Parameter_Ts...)>::extractArg(void* arg)
+  {
+    if constexpr (std::is_reference_v<Parameter_T>)
+    {
+      // We told libffi to pass references as pointers, so arg points to the pointer
+      return static_cast<Parameter_T>(**reinterpret_cast<std::remove_reference_t<Parameter_T>**>(arg));
+    }
+    else
+    {
+      return *reinterpret_cast<Parameter_T*>(arg);
+    }
+  }
+
+  template<typename Return_T, typename ...Parameter_Ts>
   template<std::size_t... I>
-  typename NativeCallback<Return_T(*)(Parameter_Ts...)>::Tuple_T NativeCallback<Return_T(*)(Parameter_Ts...)>::convertArgsToTuple(void* args[], std::index_sequence<I...>& indices)
+  typename NativeCallback<Return_T(*)(Parameter_Ts...)>::Tuple_T NativeCallback<Return_T(*)(Parameter_Ts...)>::convertArgsToTuple(void* args[], std::index_sequence<I...>&)
   {
     /* Loop over each value returned from Ruby and convert it to the appropriate C++ type based
        on the arguments (Parameter_Ts) required by the C++ function. Arg_T may have const/volatile while
        the associated From_Ruby<T> template parameter will not. Thus From_Ruby produces non-const values
        which we let the compiler convert to const values as needed. This works except for
        T** -> const T**, see comment in convertToNative method. */
-    return std::forward_as_tuple(*(Parameter_Ts*)(args[I])...);
+    return std::forward_as_tuple(extractArg<Parameter_Ts>(args[I])...);
   }
 
   template<typename Return_T, typename ...Parameter_Ts>
-  VALUE NativeCallback<Return_T(*)(Parameter_Ts...)>::finalizerCallback(VALUE yielded_arg, VALUE callback_arg, int argc, const VALUE* argv, VALUE blockarg)
+  VALUE NativeCallback<Return_T(*)(Parameter_Ts...)>::finalizerCallback(VALUE, VALUE callback_arg, int, const VALUE*, VALUE)
   {
     NativeCallback_T* nativeCallback = (NativeCallback_T*)callback_arg;
     delete nativeCallback;
@@ -11381,7 +11470,7 @@ namespace Rice::detail
 
   template<typename Return_T, typename ...Parameter_Ts>
   NativeCallback<Return_T(*)(Parameter_Ts...)>::NativeCallback(VALUE proc) :
-    Native("callback", std::move(copyReturnInfo()), std::move(copyParameters())),
+    Native("callback", copyReturnInfo(), copyParameters()),
       proc_(proc), fromRuby_(returnInfo_.get())
   {
     // Tie the lifetime of the NativeCallback C++ instance to the lifetime of the Ruby proc object
@@ -11392,7 +11481,7 @@ namespace Rice::detail
     // First setup description of callback
     if (cif_.bytes == 0)
     {
-      ffi_prep_cif(&cif_, FFI_DEFAULT_ABI, sizeof...(Parameter_Ts), &ffi_type_pointer, args_.data());
+      ffi_prep_cif(&cif_, FFI_DEFAULT_ABI, sizeof...(Parameter_Ts), ffiType<Return_T>(), args_.data());
     }
 
     // Now allocate memory
@@ -11426,7 +11515,7 @@ namespace Rice::detail
 
   template<typename Return_T, typename ...Parameter_Ts>
   template<std::size_t... I>
-  Return_T NativeCallback<Return_T(*)(Parameter_Ts...)>::callRuby(std::index_sequence<I...>& indices, Parameter_Ts...args)
+  Return_T NativeCallback<Return_T(*)(Parameter_Ts...)>::callRuby(std::index_sequence<I...>&, Parameter_Ts...args)
   {
     // Convert the C++ arguments to Ruby VALUEs
     std::array<VALUE, sizeof...(Parameter_Ts)> values = {
@@ -11442,7 +11531,7 @@ namespace Rice::detail
   }
 
   template<typename Return_T, typename ...Parameter_Ts>
-  inline VALUE NativeCallback<Return_T(*)(Parameter_Ts...)>::operator()(size_t argc, const VALUE* argv, VALUE self)
+  inline VALUE NativeCallback<Return_T(*)(Parameter_Ts...)>::operator()(size_t, const VALUE*, VALUE)
   {
     return Qnil;
   }
@@ -11469,7 +11558,7 @@ namespace Rice::detail
 }
 
 // =========   Proc.ipp   =========
-namespace Rice::detail
+namespace Rice4RubyQt6::detail
 {
   template<typename Return_T, typename ...Parameter_Ts>
   struct Type<Return_T(*)(Parameter_Ts...)>
@@ -11494,7 +11583,7 @@ namespace Rice::detail
 
     To_Ruby() = default;
 
-    explicit To_Ruby(Arg* arg)
+    explicit To_Ruby(Arg*)
     {
     }
 
@@ -11545,7 +11634,7 @@ namespace Rice::detail
 // C++ API definitions
 
 // =========   Encoding.ipp   =========
-namespace Rice
+namespace Rice4RubyQt6
 {
   inline Encoding Encoding::utf8()
   {
@@ -11557,7 +11646,7 @@ namespace Rice
   }
 }
 
-/*namespace Rice::detail
+/*namespace Rice4RubyQt6::detail
 {
   template<>
   struct Type<Encoding>
@@ -11605,7 +11694,7 @@ namespace Rice
 }
 */
 // =========   Object.ipp   =========
-namespace Rice
+namespace Rice4RubyQt6
 {
   inline const Object Nil(Qnil);
   inline const Object True(Qtrue);
@@ -11787,7 +11876,7 @@ namespace Rice
   }
 }
 
-namespace Rice::detail
+namespace Rice4RubyQt6::detail
 {
   template<>
   struct Type<Object>
@@ -11847,7 +11936,7 @@ namespace Rice::detail
   public:
     From_Ruby() = default;
 
-    explicit From_Ruby(Arg* arg)
+    explicit From_Ruby(Arg* arg) : arg_(arg)
     {
     }
 
@@ -11867,13 +11956,16 @@ namespace Rice::detail
     {
       return Object(value);
     }
+
+  private:
+    Arg* arg_ = nullptr;
   };
 }
 
 // =========   Builtin_Object.ipp   =========
 #include <algorithm>
 
-namespace Rice
+namespace Rice4RubyQt6
 {
   namespace detail
   {
@@ -11907,10 +11999,10 @@ namespace Rice
   {
     return ROBJECT(this->value());
   }
-} // namespace Rice
+} // namespace Rice4RubyQt6
 
 // =========   String.ipp   =========
-namespace Rice
+namespace Rice4RubyQt6
 {
   inline String::String() : Builtin_Object<T_STRING>(detail::protect(rb_str_new2, ""))
   {
@@ -11987,7 +12079,7 @@ namespace Rice
   }
 }
 
-namespace Rice::detail
+namespace Rice4RubyQt6::detail
 {
   template<>
   struct Type<String>
@@ -12028,7 +12120,7 @@ namespace Rice::detail
   public:
     From_Ruby() = default;
 
-    explicit From_Ruby(Arg* arg)
+    explicit From_Ruby(Arg* arg) : arg_(arg)
     {
     }
 
@@ -12048,11 +12140,14 @@ namespace Rice::detail
     {
       return String(value);
     }
+
+  private:
+    Arg* arg_ = nullptr;
   };
 }
 // =========   Array.ipp   =========
 
-namespace Rice
+namespace Rice4RubyQt6
 {
   inline Array::Array() : Builtin_Object<T_ARRAY>(detail::protect(rb_ary_new))
   {
@@ -12237,7 +12332,7 @@ namespace Rice
   }
 
   template<typename Array_Ptr_T, typename Value_T>
-  inline Value_T Array::Iterator<Array_Ptr_T, Value_T>::operator*()
+  inline Value_T Array::Iterator<Array_Ptr_T, Value_T>::operator*() const
   {
     return (*array_)[index_];
   }
@@ -12261,6 +12356,99 @@ namespace Rice
   inline bool Array::Iterator<Array_Ptr_T, Value_T>::operator!=(Iterator<Array_Ptr_T_, Value_T_> const& rhs) const
   {
     return !(*this == rhs);
+  }
+
+  template<typename Array_Ptr_T, typename Value_T>
+  template<typename Array_Ptr_T_, typename Value_T_>
+  inline bool Array::Iterator<Array_Ptr_T, Value_T>::operator<(Iterator<Array_Ptr_T_, Value_T_> const& rhs) const
+  {
+    return index_ < rhs.index_;
+  }
+
+  template<typename Array_Ptr_T, typename Value_T>
+  template<typename Array_Ptr_T_, typename Value_T_>
+  inline bool Array::Iterator<Array_Ptr_T, Value_T>::operator>(Iterator<Array_Ptr_T_, Value_T_> const& rhs) const
+  {
+    return index_ > rhs.index_;
+  }
+
+  template<typename Array_Ptr_T, typename Value_T>
+  template<typename Array_Ptr_T_, typename Value_T_>
+  inline bool Array::Iterator<Array_Ptr_T, Value_T>::operator<=(Iterator<Array_Ptr_T_, Value_T_> const& rhs) const
+  {
+    return index_ <= rhs.index_;
+  }
+
+  template<typename Array_Ptr_T, typename Value_T>
+  template<typename Array_Ptr_T_, typename Value_T_>
+  inline bool Array::Iterator<Array_Ptr_T, Value_T>::operator>=(Iterator<Array_Ptr_T_, Value_T_> const& rhs) const
+  {
+    return index_ >= rhs.index_;
+  }
+
+  // Bidirectional iterator operations
+  template<typename Array_Ptr_T, typename Value_T>
+  inline Array::Iterator<Array_Ptr_T, Value_T>& Array::Iterator<Array_Ptr_T, Value_T>::operator--()
+  {
+    --index_;
+    return *this;
+  }
+
+  template<typename Array_Ptr_T, typename Value_T>
+  inline Array::Iterator<Array_Ptr_T, Value_T> Array::Iterator<Array_Ptr_T, Value_T>::operator--(int)
+  {
+    Iterator copy(*this);
+    --(*this);
+    return copy;
+  }
+
+  // Random access iterator operations
+  template<typename Array_Ptr_T, typename Value_T>
+  inline Array::Iterator<Array_Ptr_T, Value_T>& Array::Iterator<Array_Ptr_T, Value_T>::operator+=(difference_type n)
+  {
+    index_ += n;
+    return *this;
+  }
+
+  template<typename Array_Ptr_T, typename Value_T>
+  inline Array::Iterator<Array_Ptr_T, Value_T>& Array::Iterator<Array_Ptr_T, Value_T>::operator-=(difference_type n)
+  {
+    index_ -= n;
+    return *this;
+  }
+
+  template<typename Array_Ptr_T, typename Value_T>
+  inline Array::Iterator<Array_Ptr_T, Value_T> Array::Iterator<Array_Ptr_T, Value_T>::operator+(difference_type n) const
+  {
+    return Iterator(array_, index_ + n);
+  }
+
+  template<typename Array_Ptr_T, typename Value_T>
+  inline Array::Iterator<Array_Ptr_T, Value_T> Array::Iterator<Array_Ptr_T, Value_T>::operator-(difference_type n) const
+  {
+    return Iterator(array_, index_ - n);
+  }
+
+  template<typename Array_Ptr_T, typename Value_T>
+  inline typename Array::Iterator<Array_Ptr_T, Value_T>::difference_type
+  Array::Iterator<Array_Ptr_T, Value_T>::operator-(Iterator const& rhs) const
+  {
+    return index_ - rhs.index_;
+  }
+
+  template<typename Array_Ptr_T, typename Value_T>
+  inline Value_T Array::Iterator<Array_Ptr_T, Value_T>::operator[](difference_type n) const
+  {
+    return (*array_)[index_ + n];
+  }
+
+  // Non-member operator+ (allows n + iterator syntax)
+  template<typename Array_Ptr_T, typename Value_T>
+  inline Array::Iterator<Array_Ptr_T, Value_T> operator+(
+    long n,
+    Array::Iterator<Array_Ptr_T, Value_T> const& it)
+  {
+    return it + n;
   }
 
   template<typename Array_Ptr_T, typename Value_T>
@@ -12296,7 +12484,7 @@ namespace Rice
   }
 }
 
-namespace Rice::detail
+namespace Rice4RubyQt6::detail
 {
   template<>
   struct Type<Array>
@@ -12375,7 +12563,7 @@ namespace Rice::detail
   public:
     From_Ruby() = default;
 
-    explicit From_Ruby(Arg* arg)
+    explicit From_Ruby(Arg* arg) : arg_(arg)
     {
     }
 
@@ -12395,13 +12583,16 @@ namespace Rice::detail
     {
       return Array(value);
     }
+
+  private:
+    Arg* arg_ = nullptr;
   };
 }
 
 // =========   Hash.ipp   =========
 #include <algorithm>
 
-namespace Rice
+namespace Rice4RubyQt6
 {
   inline Hash::Hash() : Builtin_Object<T_HASH>(detail::protect(rb_hash_new))
   {
@@ -12590,10 +12781,10 @@ namespace Rice
     return const_iterator(this, (int)size());
   }
 
-  inline bool operator<(Rice::Hash::Entry const& lhs, Rice::Hash::Entry const& rhs)
+  inline bool operator<(Rice4RubyQt6::Hash::Entry const& lhs, Rice4RubyQt6::Hash::Entry const& rhs)
   {
-    Rice::Object lhs_key(lhs.key);
-    Rice::Object rhs_key(rhs.key);
+    Rice4RubyQt6::Object lhs_key(lhs.key);
+    Rice4RubyQt6::Object rhs_key(rhs.key);
     if (lhs_key < rhs_key)
     {
       return true;
@@ -12602,7 +12793,7 @@ namespace Rice
     {
       return false;
     }
-    else if (Rice::Object(lhs.value.value()) < Rice::Object(rhs.value.value()))
+    else if (Rice4RubyQt6::Object(lhs.value.value()) < Rice4RubyQt6::Object(rhs.value.value()))
     {
       return true;
     }
@@ -12613,7 +12804,7 @@ namespace Rice
   }
 }
 
-namespace Rice::detail
+namespace Rice4RubyQt6::detail
 {
   template<>
   struct Type<Hash>
@@ -12654,7 +12845,7 @@ namespace Rice::detail
   public:
     From_Ruby() = default;
 
-    explicit From_Ruby(Arg* arg)
+    explicit From_Ruby(Arg* arg) : arg_(arg)
     {
     }
 
@@ -12674,11 +12865,14 @@ namespace Rice::detail
     {
       return Hash(value);
     }
+
+  private:
+    Arg* arg_ = nullptr;
   };
 }
 
 // =========   Symbol.ipp   =========
-namespace Rice
+namespace Rice4RubyQt6
 {
   inline Symbol::Symbol(VALUE value) : Object(value)
   {
@@ -12725,7 +12919,7 @@ namespace Rice
   }
 }
 
-namespace Rice::detail
+namespace Rice4RubyQt6::detail
 {
   template<>
   struct Type<Symbol>
@@ -12818,7 +13012,7 @@ namespace Rice::detail
 
 // =========   Module.ipp   =========
 
-namespace Rice
+namespace Rice4RubyQt6
 {
   inline Module::Module() : Object(rb_cObject)
   {
@@ -12893,7 +13087,7 @@ namespace Rice
   }
 }
 
-namespace Rice::detail
+namespace Rice4RubyQt6::detail
 {
   template<>
   struct Type<Module>
@@ -12961,7 +13155,7 @@ namespace Rice::detail
 
 // =========   Class.ipp   =========
 
-namespace Rice
+namespace Rice4RubyQt6
 {
   inline Class::Class(VALUE value) : Module(value)
   {
@@ -13035,7 +13229,7 @@ namespace Rice
   }
 }
 
-namespace Rice::detail
+namespace Rice4RubyQt6::detail
 {
   template<>
   class To_Ruby<Class>
@@ -13079,7 +13273,7 @@ namespace Rice::detail
 
 // =========   Struct.hpp   =========
 
-namespace Rice
+namespace Rice4RubyQt6
 {
   //! A wrapper for creating Struct classes.
   /*! The Struct class is used for creating new Classes.  Note that the
@@ -13142,7 +13336,7 @@ namespace Rice
 
     class Instance;
     friend class Instance;
-    //friend Struct Rice::define_struct();
+    //friend Struct Rice4RubyQt6::define_struct();
 
     //! Create a new instance of the Struct
     /*! \param args the arguments to the constructor.
@@ -13186,12 +13380,12 @@ namespace Rice
   //! Define a new Struct
   Struct define_struct();
 
-} // namespace Rice
+} // namespace Rice4RubyQt6
 
 
 // =========   Struct.ipp   =========
 
-namespace Rice
+namespace Rice4RubyQt6
 {
   inline Struct& Struct::initialize(Module module, Identifier name)
   {
@@ -13271,7 +13465,7 @@ namespace Rice
   }
 }
 
-namespace Rice::detail
+namespace Rice4RubyQt6::detail
 {
   template<>
   struct Type<Struct>
@@ -13290,7 +13484,7 @@ namespace Rice::detail
 
 // =========   Address_Registration_Guard.hpp   =========
 
-namespace Rice
+namespace Rice4RubyQt6
 {
   //! A guard to register a given address with the GC.
   /*! Calls rb_gc_register_address upon construction and
@@ -13360,11 +13554,11 @@ namespace Rice
 
     VALUE* address_ = nullptr;
   };
-} // namespace Rice
+} // namespace Rice4RubyQt6
 
 
 // =========   Address_Registration_Guard.ipp   =========
-namespace Rice
+namespace Rice4RubyQt6
 {
   inline Address_Registration_Guard::Address_Registration_Guard(VALUE* address) : address_(address)
   {
@@ -13446,7 +13640,7 @@ namespace Rice
 } // Rice
 // =========   global_function.hpp   =========
 
-namespace Rice
+namespace Rice4RubyQt6
 {
    //! Define an global function
    /*! The method's implementation can be any function or static member
@@ -13467,7 +13661,7 @@ namespace Rice
 // =========   global_function.ipp   =========
 
 template<typename Function_T, typename...Arg_Ts>
-void Rice::define_global_function(char const * name, Function_T&& func, Arg_Ts const& ...args)
+void Rice4RubyQt6::define_global_function(char const * name, Function_T&& func, Arg_Ts const& ...args)
 {
   Module(rb_mKernel).define_module_function(name, std::forward<Function_T>(func), args...);
 }
@@ -13479,18 +13673,19 @@ void Rice::define_global_function(char const * name, Function_T&& func, Arg_Ts c
 /*! This function can be specialized for a particular type to override
  *  the default behavior (which is to not mark any additional objects).
  */
-namespace Rice
+namespace Rice4RubyQt6
 {
   template<typename T>
-  void ruby_mark(T* data)
+  void ruby_mark(T*)
   {
+    // Do nothing by default
   }
 }
 
 
 // =========   default_allocation_func.hpp   =========
 
-namespace Rice::detail
+namespace Rice4RubyQt6::detail
 {
   //! A default implementation of an allocate_func.  This function does no
   //! actual allocation; the initialize_func can later do the real
@@ -13501,7 +13696,7 @@ namespace Rice::detail
 
 // =========   Director.hpp   =========
 
-namespace Rice
+namespace Rice4RubyQt6
 {
   /**
    * A Director works exactly as a SWIG %director works (thus the name).
@@ -13523,6 +13718,7 @@ namespace Rice
       /*! If a Ruby script calls 'super' on a method that's otherwise a pure virtual
        *  method, use this method to throw an exception in this case.
        */
+      [[noreturn]]
       void raisePureVirtual() const
       {
         rb_raise(rb_eNotImpError, "Cannot call super() into a pure-virtual C++ method");
@@ -13542,7 +13738,7 @@ namespace Rice
 // =========   Data_Type.ipp   =========
 #include <stdexcept>
 
-namespace Rice
+namespace Rice4RubyQt6
 {
   template<typename T>
   inline void ruby_mark_internal(detail::WrapperBase* wrapper)
@@ -13562,13 +13758,13 @@ namespace Rice
   }
 
   template<typename T>
-  inline size_t ruby_size_internal(const T* data)
+  inline size_t ruby_size_internal(const T*)
   {
     return sizeof(T);
   }
 
   template<>
-  inline size_t ruby_size_internal(const void* data)
+  inline size_t ruby_size_internal(const void*)
   {
     return sizeof(void*);
   }
@@ -13587,10 +13783,10 @@ namespace Rice
     klass_ = klass;
 
     rb_data_type_ = new rb_data_type_t();
-    rb_data_type_->wrap_struct_name = strdup(Rice::detail::protect(rb_class2name, klass_));
-    rb_data_type_->function.dmark = reinterpret_cast<void(*)(void*)>(&Rice::ruby_mark_internal<T>);
-    rb_data_type_->function.dfree = reinterpret_cast<void(*)(void*)>(&Rice::ruby_free_internal<T>);
-    rb_data_type_->function.dsize = reinterpret_cast<size_t(*)(const void*)>(&Rice::ruby_size_internal<T>);
+    rb_data_type_->wrap_struct_name = strdup(Rice4RubyQt6::detail::protect(rb_class2name, klass_));
+    rb_data_type_->function.dmark = reinterpret_cast<void(*)(void*)>(&Rice4RubyQt6::ruby_mark_internal<T>);
+    rb_data_type_->function.dfree = reinterpret_cast<void(*)(void*)>(&Rice4RubyQt6::ruby_free_internal<T>);
+    rb_data_type_->function.dsize = reinterpret_cast<size_t(*)(const void*)>(&Rice4RubyQt6::ruby_size_internal<T>);
     rb_data_type_->data = nullptr;
     rb_data_type_->flags = RUBY_TYPED_FREE_IMMEDIATELY;
 
@@ -13611,7 +13807,7 @@ namespace Rice
 
     // Add a method to get the source C++ class name from Ruby
     Data_Type<T> dataType;
-    dataType.define_singleton_method("cpp_class", [](VALUE klass) -> VALUE
+    dataType.define_singleton_method("cpp_class", [](VALUE) -> VALUE
     {
       detail::TypeIndexParser typeIndexParser(typeid(T), std::is_fundamental_v<detail::intrinsic_type<T>>);
       std::string cppClassName = typeIndexParser.simplifiedName();
@@ -13690,7 +13886,7 @@ namespace Rice
 
   template<typename T>
   template<typename Constructor_T, typename...Rice_Arg_Ts>
-  inline Data_Type<T>& Data_Type<T>::define_constructor(Constructor_T constructor, Rice_Arg_Ts const& ...args)
+  inline Data_Type<T>& Data_Type<T>::define_constructor(Constructor_T, Rice_Arg_Ts const& ...args)
   {
     check_is_bound();
 
@@ -13729,9 +13925,6 @@ namespace Rice
   template<typename Function_T>
   inline Data_Type<T>& Data_Type<T>::define(Function_T func)
   {
-    // The passed in this pointer is an RValue, so we need to keep it alive by
-    // assigning it to a const lvalue
-    const auto& dummy = *this;
     func(*this);
     return *this;
   }
@@ -13824,7 +14017,7 @@ namespace Rice
   template<typename T, typename Base_T>
   inline Data_Type<T> define_class_under(Object parent, Identifier id, Class superKlass)
   {
-    if (Rice::Data_Type<T>::check_defined(id.str(), parent))
+    if (Rice4RubyQt6::Data_Type<T>::check_defined(id.str(), parent))
     {
       return Data_Type<T>();
     }
@@ -13847,7 +14040,7 @@ namespace Rice
   {
     std::string klassName(name);
 
-    if (Rice::Data_Type<T>::check_defined(klassName))
+    if (Rice4RubyQt6::Data_Type<T>::check_defined(klassName))
     {
       return Data_Type<T>();
     }
@@ -13941,7 +14134,7 @@ namespace Rice
 }
 
 // =========   default_allocation_func.ipp   =========
-namespace Rice::detail
+namespace Rice4RubyQt6::detail
 {
   template<typename T>
   VALUE default_allocation_func(VALUE klass)
@@ -13952,7 +14145,7 @@ namespace Rice::detail
   }
 }
 // =========   Constructor.ipp   =========
-namespace Rice
+namespace Rice4RubyQt6
 {
   template<typename T, typename...Parameter_Ts>
   class Constructor
@@ -13996,14 +14189,14 @@ namespace Rice
     {
       // Call C++ constructor
       T* data = new T(args...);
-      detail::wrapConstructed<T>(self, Data_Type<T>::ruby_data_type(), data, true);
+      detail::wrapConstructed<T>(self, Data_Type<T>::ruby_data_type(), data);
     }
 
     static void initialize_copy(VALUE self, const T& other)
     {
       // Call C++ copy constructor
       T* data = new T(other);
-      detail::wrapConstructed<T>(self, Data_Type<T>::ruby_data_type(), data, true);
+      detail::wrapConstructed<T>(self, Data_Type<T>::ruby_data_type(), data);
     }
 
   };
@@ -14027,13 +14220,13 @@ namespace Rice
       {
         // Call C++ constructor
         T* data = new T(self, args...);
-        detail::wrapConstructed<T>(self.value(), Data_Type<T>::ruby_data_type(), data, true);
+        detail::wrapConstructed<T>(self.value(), Data_Type<T>::ruby_data_type(), data);
       }
   };
 }
 // =========   Callback.hpp   =========
 
-namespace Rice
+namespace Rice4RubyQt6
 {
   //! Define a callback.
   /*! When C++ invokes a C style callback, Rice automatically converts the C++ arguments
@@ -14052,7 +14245,7 @@ namespace Rice
 }
 
 // =========   Callback.ipp   =========
-namespace Rice
+namespace Rice4RubyQt6
 {
   template<typename Callback_T, typename...Arg_Ts>
   inline void define_callback(Arg_Ts&&...args)
@@ -14064,7 +14257,7 @@ namespace Rice
 
 #include <algorithm>
 
-namespace Rice
+namespace Rice4RubyQt6
 {
   template <typename T>
   Exception create_type_exception(VALUE value)
@@ -14159,7 +14352,7 @@ namespace Rice
   }
 }
 
-namespace Rice::detail
+namespace Rice4RubyQt6::detail
 {
   template<typename T>
   class To_Ruby
@@ -14791,7 +14984,7 @@ namespace Rice::detail
 
 // =========   Enum.hpp   =========
 
-namespace Rice
+namespace Rice4RubyQt6
 {
   /*!
    *  \example enum/sample_enum.cpp
@@ -14849,13 +15042,13 @@ namespace Rice
 
   template<typename T>
   Enum<T> define_enum_under(char const* name, Module module );
-} // namespace Rice
+} // namespace Rice4RubyQt6
 
 
 // =========   Enum.ipp   =========
 #include <stdexcept>
 
-namespace Rice
+namespace Rice4RubyQt6
 {
   template<typename Enum_T>
   Enum<Enum_T>::Enum(char const* name, Module module) : Data_Type<Enum_T>()
@@ -14884,48 +15077,52 @@ namespace Rice
     klass.define_constructor(Constructor<Enum_T>());
 
     klass.define_method("to_s", [](Enum_T& self) -> String
-      {
-        return String(valuesToNames_[self]);
-      })
-      .define_method("to_int", [](Enum_T& self) ->  Underlying_T
-      {
-        return (Underlying_T)(self);
-      })
-      .define_method("coerce", [](Enum_T& self, Underlying_T& other) -> Array
-      {
-        /* Other will be a numeric value that matches the underlying type of the enum, for example an int.
-           Convert that to the enum type and then create new Ruby object to wrap it. This then enables code
-           like this:
+    {
+      return String(valuesToNames_[self]);
+    })
+    .define_method("to_int", [](Enum_T& self) ->  Underlying_T
+    {
+      return (Underlying_T)(self);
+    })
+    .define_method("coerce", [](Enum_T& self, Underlying_T& other) -> Array
+    {
+      /* Other will be a numeric value that matches the underlying type of the enum, for example an int.
+          Convert that to the enum type and then create new Ruby object to wrap it. This then enables code
+          like this:
         
-           Colors::Red | Colors:Blue | Colors:Green
+          Colors::Red | Colors:Blue | Colors:Green
 
-        Colors::Red | Colors:Blue returns an integer. Then this method converts the integer back into an Enum
-        instance so that Colors:Blue | Colors:Green works. */
-        Enum_T otherEnum = (Enum_T)other;
+      Colors::Red | Colors:Blue returns an integer. Then this method converts the integer back into an Enum
+      instance so that Colors:Blue | Colors:Green works. */
+      Enum_T otherEnum = (Enum_T)other;
 
-        Array result;
-        result.push(otherEnum, true);
-        result.push(self, false);
-        return result;
-      })
-      .define_method("inspect", [](Enum_T& self)
-      {
-        std::stringstream result;
-        VALUE rubyKlass = Enum<Enum_T>::klass().value();
-        result << "#<" << detail::protect(rb_class2name, rubyKlass)
-          << "::" << Enum<Enum_T>::valuesToNames_[self] << ">";
+      Array result;
+      result.push(otherEnum, true);
+      result.push(self, false);
+      return result;
+    })
+    .define_method("inspect", [](Enum_T& self)
+    {
+      std::stringstream result;
+      VALUE rubyKlass = Enum<Enum_T>::klass().value();
+      result << "#<" << detail::protect(rb_class2name, rubyKlass)
+        << "::" << Enum<Enum_T>::valuesToNames_[self] << ">";
 
-        // We have to return string because we don't know if std::string support has
-        // been included by the user
-        return String(result.str());
-      })
-      .define_method("hash", [](Enum_T& self) ->  Underlying_T
-      {
-        return (Underlying_T)self;
-      })
-      .define_method("eql?", [](Enum_T& self, Enum_T& other)
-      {
-        return self == other;
+      // We have to return string because we don't know if std::string support has
+      // been included by the user
+      return String(result.str());
+    })
+    .define_method("hash", [](Enum_T& self) ->  Underlying_T
+    {
+      return (Underlying_T)self;
+    })
+    .define_method("eql?", [](Enum_T& self, Enum_T& other)
+    {
+      return self == other;
+    })
+    .define_method("eql?", [](Enum_T& self, Underlying_T& other)
+    {
+      return self == (Enum_T)other;
     });
 
     // Add aliases
@@ -14941,6 +15138,21 @@ namespace Rice
           return 0;
         }
         else if (self < other)
+        {
+          return -1;
+        }
+        else
+        {
+          return 1;
+        }
+      })
+      .define_method("<=>", [](Enum_T& self, Underlying_T& other)
+      {
+        if (self == (Enum_T)other)
+        {
+          return 0;
+        }
+        else if (self < (Enum_T)other)
         {
           return -1;
         }
@@ -15025,7 +15237,7 @@ namespace Rice
 }
 // =========   MemoryView.hpp   =========
 
-namespace Rice
+namespace Rice4RubyQt6
 {
   class MemoryView
   {
@@ -15034,14 +15246,14 @@ namespace Rice
 
 
 // =========   MemoryView.ipp   =========
-namespace Rice
+namespace Rice4RubyQt6
 {
 }
 // Dependent on Module, Class, Array and String
 
 // =========   forward_declares.ipp   =========
 
-namespace Rice
+namespace Rice4RubyQt6
 {
   // These methods cannot be defined where they are declared due to circular dependencies
   inline Class Object::class_of() const
@@ -15130,7 +15342,7 @@ namespace Rice
 
 // =========   file.hpp   =========
 
-namespace Rice::libc
+namespace Rice4RubyQt6::Libc
 {
   extern Class rb_cLibcFile;
 }
@@ -15139,18 +15351,18 @@ namespace Rice::libc
 // ---------   file.ipp   ---------
 #include <exception>
 
-namespace Rice::Libc
+namespace Rice4RubyQt6::Libc
 {
   inline Class rb_cLibcFile;
 
   inline void define_libc_file()
   {
-    Module rb_mLibc = define_module("Libc");
+    Module rb_mLibc = define_module_under(define_module("Rice4RubyQt6"), "Libc");
     rb_cLibcFile = define_class_under<FILE>(rb_mLibc, "File");
   }
 }
 
-namespace Rice::detail
+namespace Rice4RubyQt6::detail
 {
   template<>
   struct Type<FILE>

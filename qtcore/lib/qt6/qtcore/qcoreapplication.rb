@@ -61,7 +61,7 @@ module RubyQt6
       # one valid character string.
       def _initialize_qApp_argv
         argv = [$PROGRAM_NAME] + ARGV
-        $qApp_argv = ::Rice::Buffer≺char∗≻.new(argv.map(&:bytes))
+        $qApp_argv = ::Rice4RubyQt6::Buffer≺char∗≻.new(argv.map(&:bytes))
       end
 
       def _initialize_qApp

@@ -31,7 +31,7 @@
 
 // =========   exception.hpp   =========
 
-namespace Rice::stl
+namespace Rice4RubyQt6::stl
 {
   extern Class rb_cStlException;
 }
@@ -42,11 +42,11 @@ namespace Rice::stl
 
 // Libraries sometime inherit custom exception objects from std::exception,
 // so define it for Ruby if necessary
-namespace Rice::stl
+namespace Rice4RubyQt6::stl
 {
   inline void define_stl_exceptions()
   {
-    Module rb_mStd = define_module("Std");
+    Module rb_mStd = define_module_under(define_module("Rice4RubyQt6"), "Std");
 
     define_class_under<std::exception>(rb_mStd, "Exception", rb_eStandardError).
       define_constructor(Constructor<std::exception>()).
@@ -58,14 +58,14 @@ namespace Rice::stl
   }
 }
 
-namespace Rice::detail
+namespace Rice4RubyQt6::detail
 {
   template<>
   struct Type<std::exception>
   {
     static bool verify()
     {
-      Rice::stl::define_stl_exceptions();
+      Rice4RubyQt6::stl::define_stl_exceptions();
       return true;
     }
   };
@@ -75,7 +75,7 @@ namespace Rice::detail
   {
     static bool verify()
     {
-      Rice::stl::define_stl_exceptions();
+      Rice4RubyQt6::stl::define_stl_exceptions();
       return true;
     }
   };
@@ -88,16 +88,16 @@ namespace Rice::detail
 // ---------   exception_ptr.ipp   ---------
 #include <exception>
 
-namespace Rice::stl
+namespace Rice4RubyQt6::stl
 {
   inline Data_Type<std::exception_ptr> define_exception_ptr()
   {
-    Module rb_mStd = define_module("Std");
+    Module rb_mStd = define_module_under(define_module("Rice4RubyQt6"), "Std");
     return define_class_under<std::exception_ptr>(rb_mStd, "ExceptionPtr");
   }
 }
 
-namespace Rice::detail
+namespace Rice4RubyQt6::detail
 {
   template<>
   struct Type<std::exception_ptr>
@@ -121,7 +121,7 @@ namespace Rice::detail
 // ---------   string.ipp   ---------
 #include <string>
 
-namespace Rice::detail
+namespace Rice4RubyQt6::detail
 {
   template<>
   struct Type<std::string>
@@ -452,7 +452,7 @@ namespace Rice::detail
 // ---------   string_view.ipp   ---------
 #include <string_view>
 
-namespace Rice::detail
+namespace Rice4RubyQt6::detail
 {
   template<>
   struct Type<std::string_view>
@@ -545,7 +545,7 @@ namespace Rice::detail
 // ---------   complex.ipp   ---------
 #include <complex>
 
-namespace Rice::detail
+namespace Rice4RubyQt6::detail
 {
   template<typename T>
   struct Type<std::complex<T>>
@@ -611,7 +611,7 @@ namespace Rice::detail
   public:
     From_Ruby() = default;
 
-    explicit From_Ruby(Arg* arg)
+    explicit From_Ruby(Arg* arg) :arg_(arg)
     {
     }
 
@@ -634,6 +634,9 @@ namespace Rice::detail
 
       return std::complex<T>(From_Ruby<T>().convert(real), From_Ruby<T>().convert(imaginary));
     }
+
+  private:
+    Arg* arg_ = nullptr;
   };
 
   template<typename T>
@@ -642,7 +645,7 @@ namespace Rice::detail
   public:
     From_Ruby() = default;
 
-    explicit From_Ruby(Arg* arg)
+    explicit From_Ruby(Arg* arg) : arg_(arg)
     {
     }
 
@@ -668,6 +671,7 @@ namespace Rice::detail
     }
 
   private:
+    Arg* arg_ = nullptr;
     std::complex<T> converted_;
   };
 }
@@ -679,13 +683,13 @@ namespace Rice::detail
 // ---------   filesystem.ipp   ---------
 #include <filesystem>
 
-namespace Rice
+namespace Rice4RubyQt6
 {
   namespace stl
   {
     inline void define_filesystem_path()
     {
-      Module rb_mStd = define_module("Std");
+      Module rb_mStd = define_module_under(define_module("Rice4RubyQt6"), "Std");
       Module rb_mFileSystem = define_module_under(rb_mStd, "Filesystem");
 
       define_class_under<std::filesystem::path>(rb_mFileSystem, "Path").
@@ -695,7 +699,7 @@ namespace Rice
   }
 }
 
-namespace Rice::detail
+namespace Rice4RubyQt6::detail
 {
   template<>
   struct Type<std::filesystem::path>
@@ -704,7 +708,7 @@ namespace Rice::detail
     {
       if (!Data_Type<std::filesystem::path>::is_defined())
       {
-        Rice::stl::define_filesystem_path();
+        Rice4RubyQt6::stl::define_filesystem_path();
       }
 
       return true;
@@ -719,7 +723,7 @@ namespace Rice::detail
 // ---------   optional.ipp   ---------
 #include <optional>
 
-namespace Rice::detail
+namespace Rice4RubyQt6::detail
 {
   template<typename T>
   struct Type<std::optional<T>>
@@ -746,7 +750,7 @@ namespace Rice::detail
     {
     }
 
-    VALUE convert(const std::nullopt_t& _)
+    VALUE convert(const std::nullopt_t&)
     {
       return Qnil;
     }
@@ -813,7 +817,7 @@ namespace Rice::detail
   public:
     From_Ruby() = default;
 
-    explicit From_Ruby(Arg* arg)
+    explicit From_Ruby(Arg* arg) : arg_(arg)
     {
     }
 
@@ -840,6 +844,9 @@ namespace Rice::detail
         return From_Ruby<T>().convert(value);
       }
     }
+
+  private:
+    Arg* arg_ = nullptr;
   };
 
   template<typename T>
@@ -848,7 +855,7 @@ namespace Rice::detail
   public:
     From_Ruby() = default;
 
-    explicit From_Ruby(Arg* arg)
+    explicit From_Ruby(Arg* arg) : arg_(arg)
     {
     }
 
@@ -877,6 +884,7 @@ namespace Rice::detail
       return this->converted_;
     }
   private:
+    Arg* arg_ = nullptr;
     std::optional<T> converted_;
   };
 }
@@ -888,7 +896,7 @@ namespace Rice::detail
 // ---------   reference_wrapper.ipp   ---------
 #include <functional>
 
-namespace Rice::detail
+namespace Rice4RubyQt6::detail
 {
   template<typename T>
   struct Type<std::reference_wrapper<T>>
@@ -930,7 +938,7 @@ namespace Rice::detail
   public:
     From_Ruby() = default;
 
-    explicit From_Ruby(Arg* arg)
+    explicit From_Ruby(Arg* arg) : arg_(arg)
     {
     }
 
@@ -945,6 +953,7 @@ namespace Rice::detail
     }
 
   private:
+    Arg* arg_ = nullptr;
     From_Ruby<T&> converter_;
   };
 }
@@ -952,7 +961,7 @@ namespace Rice::detail
 
 // =========   pair.hpp   =========
 
-namespace Rice
+namespace Rice4RubyQt6
 {
   template<typename T1, typename T2>
   Data_Type<std::pair<T1, T2>> define_pair(std::string klassName = "");
@@ -962,7 +971,7 @@ namespace Rice
 // ---------   pair.ipp   ---------
 #include <utility>
 
-namespace Rice
+namespace Rice4RubyQt6
 {
   namespace stl
   {
@@ -994,20 +1003,20 @@ namespace Rice
         // Access methods
         if constexpr (std::is_const_v<std::remove_reference_t<std::remove_pointer_t<typename T::first_type>>>)
         {
-          klass_.define_attr("first", &T::first, Rice::AttrAccess::Read);
+          klass_.define_attr("first", &T::first, Rice4RubyQt6::AttrAccess::Read);
         }
         else
         {
-          klass_.define_attr("first", &T::first, Rice::AttrAccess::ReadWrite);
+          klass_.define_attr("first", &T::first, Rice4RubyQt6::AttrAccess::ReadWrite);
         }
 
         if constexpr (std::is_const_v<std::remove_reference_t<std::remove_pointer_t<typename T::second_type>>>)
         {
-          klass_.define_attr("second", &T::second, Rice::AttrAccess::Read);
+          klass_.define_attr("second", &T::second, Rice4RubyQt6::AttrAccess::Read);
         }
         else
         {
-          klass_.define_attr("second", &T::second, Rice::AttrAccess::ReadWrite);
+          klass_.define_attr("second", &T::second, Rice4RubyQt6::AttrAccess::ReadWrite);
         }
       }
 
@@ -1024,11 +1033,11 @@ namespace Rice
         }
         else
         {
-          klass_.define_method("to_s", [](const T& pair)
-            {
-              return "[Not printable]";
-            });
-        }
+          klass_.define_method("to_s", [](const T&)
+          {
+            return "[Not printable]";
+          });
+      }
       }
 
       private:
@@ -1048,7 +1057,7 @@ namespace Rice
       klassName = typeMapper.rubyName();
     }
 
-    Module rb_mStd = define_module("Std");
+    Module rb_mStd = define_module_under(define_module("Rice4RubyQt6"), "Std");
     if (Data_Type_T::check_defined(klassName, rb_mStd))
     {
       return Data_Type_T();
@@ -1085,7 +1094,7 @@ namespace Rice
 
 // =========   map.hpp   =========
 
-namespace Rice
+namespace Rice4RubyQt6
 {
   template<typename K, typename T>
   Data_Type<std::map<K, T>> define_map(std::string name = "");
@@ -1095,7 +1104,7 @@ namespace Rice
 // ---------   map.ipp   ---------
 #include <map>
 
-namespace Rice
+namespace Rice4RubyQt6
 {
   namespace stl
   {
@@ -1220,7 +1229,7 @@ namespace Rice
         }
         else
         {
-          klass_.define_method("value?", [](T& map, Mapped_T& value) -> bool
+          klass_.define_method("value?", [](T&, Mapped_T&) -> bool
           {
               return false;
           });
@@ -1305,10 +1314,10 @@ namespace Rice
         }
         else
         {
-          klass_.define_method("to_s", [](const T& map)
-            {
-              return "[Not printable]";
-            });
+          klass_.define_method("to_s", [](const T&)
+          {
+            return "[Not printable]";
+          });
         }
       }
 
@@ -1329,7 +1338,7 @@ namespace Rice
       klassName = typeMapper.rubyName();
     }
 
-    Module rb_mStd = define_module("Std");
+    Module rb_mStd = define_module_under(define_module("Rice4RubyQt6"), "Std");
     if (Data_Type_T::check_defined(klassName, rb_mStd))
     {
       return Data_Type_T();
@@ -1566,7 +1575,7 @@ namespace Rice
 // ---------   monostate.ipp   ---------
 #include <variant>
 
-namespace Rice::detail
+namespace Rice4RubyQt6::detail
 {
   template<>
   struct Type<std::monostate>
@@ -1592,7 +1601,7 @@ namespace Rice::detail
     {
     }
 
-    VALUE convert(const std::monostate& _)
+    VALUE convert(const std::monostate&)
     {
       return Qnil;
     }
@@ -1612,7 +1621,7 @@ namespace Rice::detail
     {
     }
 
-    VALUE convert(const std::monostate& data)
+    VALUE convert(const std::monostate&)
     {
       return Qnil;
     }
@@ -1627,7 +1636,7 @@ namespace Rice::detail
   public:
     From_Ruby() = default;
 
-    explicit From_Ruby(Arg* arg)
+    explicit From_Ruby(Arg* arg) : arg_(arg)
     {
     }
 
@@ -1647,6 +1656,9 @@ namespace Rice::detail
         throw std::runtime_error("Can only convert nil values to std::monostate");
       }
     }
+
+  private:
+    Arg* arg_ = nullptr;
   };
 
   template<>
@@ -1655,7 +1667,7 @@ namespace Rice::detail
   public:
     From_Ruby() = default;
 
-    explicit From_Ruby(Arg* arg)
+    explicit From_Ruby(Arg* arg) : arg_(arg)
     {
     }
 
@@ -1677,6 +1689,7 @@ namespace Rice::detail
     }
     
   private:
+    Arg* arg_ = nullptr;
     std::monostate converted_ = std::monostate();
   };
 }
@@ -1686,7 +1699,7 @@ namespace Rice::detail
 
 #include <map>
 
-namespace Rice
+namespace Rice4RubyQt6
 {
   template<typename K, typename T>
   Data_Type<std::multimap<K, T>> define_multimap(std::string name = "");
@@ -1696,7 +1709,7 @@ namespace Rice
 // ---------   multimap.ipp   ---------
 #include <map>
 
-namespace Rice
+namespace Rice4RubyQt6
 {
   namespace stl
   {
@@ -1820,7 +1833,7 @@ namespace Rice
         }
         else
         {
-          klass_.define_method("value?", [](T& multimap, Mapped_T& value) -> bool
+          klass_.define_method("value?", [](T&, Mapped_T&) -> bool
           {
               return false;
           });
@@ -1889,10 +1902,10 @@ namespace Rice
         }
         else
         {
-          klass_.define_method("to_s", [](const T& multimap)
-            {
-              return "[Not printable]";
-            });
+          klass_.define_method("to_s", [](const T&)
+          {
+            return "[Not printable]";
+          });
         }
       }
 
@@ -1913,7 +1926,7 @@ namespace Rice
       klassName = typeMapper.rubyName();
     }
 
-    Module rb_mStd = define_module("Std");
+    Module rb_mStd = define_module_under(define_module("Rice4RubyQt6"), "Std");
     if (Data_Type_T::check_defined(klassName, rb_mStd))
     {
       return Data_Type_T();
@@ -2143,7 +2156,7 @@ namespace Rice
 
 // =========   set.hpp   =========
 
-namespace Rice
+namespace Rice4RubyQt6
 {
   template<typename T>
   Data_Type<std::set<T>> define_set(std::string klassName = "");
@@ -2153,7 +2166,7 @@ namespace Rice
 // ---------   set.ipp   ---------
 #include <set>
 
-namespace Rice
+namespace Rice4RubyQt6
 {
   namespace stl
   {
@@ -2370,10 +2383,10 @@ namespace Rice
         }
         else
         {
-          klass_.define_method("to_s", [](const T& self)
-            {
-              return "[Not printable]";
-            });
+          klass_.define_method("to_s", [](const T&)
+          {
+            return "[Not printable]";
+          });
         }
       }
 
@@ -2394,7 +2407,7 @@ namespace Rice
       klassName = typeMapper.rubyName();
     }
 
-    Module rb_mStd = define_module("Std");
+    Module rb_mStd = define_module_under(define_module("Rice4RubyQt6"), "Std");
     if (Data_Type_T::check_defined(klassName, rb_mStd))
     {
       return Data_Type_T();
@@ -2658,7 +2671,7 @@ namespace Rice
 
 // =========   shared_ptr.hpp   =========
 
-namespace Rice::detail
+namespace Rice4RubyQt6::detail
 {
   template<typename T>
   class Wrapper<std::shared_ptr<T>> : public WrapperBase
@@ -2674,7 +2687,7 @@ namespace Rice::detail
   };
 }
 
-namespace Rice
+namespace Rice4RubyQt6
 {
   template<typename T>
   Data_Type<std::shared_ptr<T>> define_shared_ptr(std::string klassName = "");
@@ -2685,7 +2698,7 @@ namespace Rice
 #include <memory>
 
 // --------- Enable creation of std::shared_ptr from Ruby ---------
-namespace Rice
+namespace Rice4RubyQt6
 {
   template<typename T>
   Data_Type<std::shared_ptr<T>> define_shared_ptr(std::string klassName)
@@ -2699,7 +2712,7 @@ namespace Rice
       klassName = typeMapper.rubyName();
     }
 
-    Module rb_mStd = define_module("Std");
+    Module rb_mStd = define_module_under(define_module("Rice4RubyQt6"), "Std");
     if (Data_Type_T::check_defined(klassName, rb_mStd))
     {
       return Data_Type_T();
@@ -2714,7 +2727,7 @@ namespace Rice
 }
 
 // --------- Wrapper ---------
-namespace Rice::detail
+namespace Rice4RubyQt6::detail
 {
   template<typename T>
   inline Wrapper<std::shared_ptr<T>>::Wrapper(const std::shared_ptr<T>& data)
@@ -2742,7 +2755,7 @@ namespace Rice::detail
 }
 
 // --------- Type/To_Ruby/From_Ruby ---------
-namespace Rice::detail
+namespace Rice4RubyQt6::detail
 {
   template<typename T>
   struct Type<std::shared_ptr<T>>
@@ -2752,7 +2765,6 @@ namespace Rice::detail
       if constexpr (std::is_fundamental_v<T>)
       {
         return Type<Pointer<T>>::verify();
-        return Type<Buffer<T>>::verify();
       }
       else
       {
@@ -2781,7 +2793,7 @@ namespace Rice::detail
   public:
     To_Ruby() = default;
 
-    explicit To_Ruby(Arg* arv)
+    explicit To_Ruby(Arg*)
     {
     }
 
@@ -2869,7 +2881,7 @@ namespace Rice::detail
   public:
     To_Ruby() = default;
 
-    explicit To_Ruby(Arg* arg)
+    explicit To_Ruby(Arg* arg) : arg_(arg)
     {
     }
 
@@ -2877,6 +2889,9 @@ namespace Rice::detail
     {
       return detail::wrap(Data_Type<T>::klass(), Data_Type<T>::ruby_data_type(), data, true);
     }
+
+  private:
+    Arg* arg_ = nullptr;
   };
 
   template <typename T>
@@ -2941,7 +2956,7 @@ namespace Rice::detail
 // ---------   tuple.ipp   ---------
 #include <tuple>
 
-namespace Rice::detail
+namespace Rice4RubyQt6::detail
 {
   template<typename...Types>
   struct Type<std::tuple<Types...>>
@@ -2949,7 +2964,7 @@ namespace Rice::detail
     using Tuple_T = std::tuple<Types...>;
 
     template<std::size_t... I>
-    constexpr static bool verifyTypes(std::index_sequence<I...>& indices)
+    constexpr static bool verifyTypes(std::index_sequence<I...>&)
     {
       return (Type<std::tuple_element_t<I, Tuple_T>>::verify() && ...);
     }
@@ -3027,15 +3042,9 @@ namespace Rice::detail
   public:
     using Tuple_T = std::tuple<Types...>;
 
-    template<std::size_t... I>
-    constexpr static bool verifyTypes(Array& array, std::index_sequence<I...>& indices)
-    {
-      return (Type<std::tuple_element_t<I, Tuple_T>>::verify() && ...);
-    }
-
     From_Ruby() = default;
 
-    explicit From_Ruby(Arg* arg)
+    explicit From_Ruby(Arg* arg) : arg_(arg)
     {
     }
 
@@ -3063,7 +3072,7 @@ namespace Rice::detail
     }
 
     template <std::size_t... I>
-    std::tuple<Types...> convertInternal(Array array, std::index_sequence<I...>& indices)
+    std::tuple<Types...> convertInternal(Array array, std::index_sequence<I...>&)
     {
       return std::forward_as_tuple(std::get<I>(this->fromRubys_).convert(array[I].value())...);
     }
@@ -3076,25 +3085,11 @@ namespace Rice::detail
     }
 
   private:
+    Arg* arg_ = nullptr;
     // Possible converters we could use for this variant
     using From_Ruby_Ts = std::tuple<From_Ruby<Types>...>;
     From_Ruby_Ts fromRubys_;
   };
-
-/*  template<typename...Types>
-  class From_Ruby<std::tuple<Types...>&> : public From_Ruby<std::tuple<Types...>>
-  {
-  public:
-    std::tuple<Types...>& convert(VALUE value)
-    {
-      int index = this->figureIndex(value);
-      this->converted_ = this->convertInternal(value, index);
-      return this->converted_;
-    }
-
-  private:
-    std::tuple<Types...> converted_;
-  };*/
 }
 
 
@@ -3104,11 +3099,11 @@ namespace Rice::detail
 // ---------   type_index.ipp   ---------
 #include <typeindex>
 
-namespace Rice::stl
+namespace Rice4RubyQt6::stl
 {
   inline Data_Type<std::type_index> define_type_index()
   {
-    Module rb_mStd = define_module("Std");
+    Module rb_mStd = define_module_under(define_module("Rice4RubyQt6"), "Std");
     return define_class_under<std::type_index>(rb_mStd, "TypeIndex").
       define_constructor(Constructor<std::type_index, const std::type_info&>()).
       define_method("hash_code", &std::type_index::hash_code).
@@ -3116,7 +3111,7 @@ namespace Rice::stl
   }
 }
 
-namespace Rice::detail
+namespace Rice4RubyQt6::detail
 {
   template<>
   struct Type<std::type_index>
@@ -3140,18 +3135,18 @@ namespace Rice::detail
 // ---------   type_info.ipp   ---------
 #include <typeinfo>
 
-namespace Rice::stl
+namespace Rice4RubyQt6::stl
 {
   inline Data_Type<std::type_info> define_type_info()
   {
-    Module rb_mStd = define_module("Std");
+    Module rb_mStd = define_module_under(define_module("Rice4RubyQt6"), "Std");
     return define_class_under<std::type_info>(rb_mStd, "TypeInfo").
       define_method("hash_code", &std::type_info::hash_code).
       define_method("name", &std::type_info::name);
   }
 }
 
-namespace Rice::detail
+namespace Rice4RubyQt6::detail
 {
   template<>
   struct Type<std::type_info>
@@ -3175,7 +3170,7 @@ namespace Rice::detail
 // ---------   variant.ipp   ---------
 #include <variant>
 
-namespace Rice::detail
+namespace Rice4RubyQt6::detail
 {
   template<typename...Types>
   struct Type<std::variant<Types...>>
@@ -3183,7 +3178,7 @@ namespace Rice::detail
     using Tuple_T = std::tuple<Types...>;
 
     template<std::size_t... I>
-    constexpr static bool verifyTypes(std::index_sequence<I...>& indices)
+    constexpr static bool verifyTypes(std::index_sequence<I...>&)
     {
       return (Type<std::tuple_element_t<I, Tuple_T>>::verify() && ...);
     }
@@ -3214,11 +3209,16 @@ namespace Rice::detail
     template<typename U, typename V>
     VALUE convertElement(U& data, bool takeOwnership)
     {
-      return To_Ruby<V>().convert(std::forward<V>(std::get<V>(data)));
+      Arg arg("arg1");
+      if (takeOwnership)
+      {
+        arg.takeOwnership();
+      }
+      return To_Ruby<V>(&arg).convert(std::forward<V>(std::get<V>(data)));
     }
 
     template<typename U, std::size_t... I>
-    VALUE convertIterator(U& data, bool takeOwnership, std::index_sequence<I...>& indices)
+    VALUE convertIterator(U& data, bool takeOwnership, std::index_sequence<I...>&)
     {
       // Create a tuple of the variant types so we can look over the tuple's types
       using Tuple_T = std::tuple<Types...>;
@@ -3292,18 +3292,24 @@ namespace Rice::detail
     template<typename U, typename V>
     VALUE convertElement(U& data, bool takeOwnership)
     {
+      Arg arg("arg1");
+      if (takeOwnership)
+      {
+        arg.takeOwnership();
+      }
+
       if constexpr (std::is_const_v<U>)
       {
-        return To_Ruby<V>().convert(std::get<V>(data));
+        return To_Ruby<V>(&arg).convert(std::get<V>(data));
       }
       else
       {
-        return To_Ruby<V>().convert(std::forward<V>(std::get<V>(data)));
+        return To_Ruby<V>(&arg).convert(std::forward<V>(std::get<V>(data)));
       }
     }
 
     template<typename U, std::size_t... I>
-    VALUE convertIterator(U& data, bool takeOwnership, std::index_sequence<I...>& indices)
+    VALUE convertIterator(U& data, bool takeOwnership, std::index_sequence<I...>&)
     {
       // Create a tuple of the variant types so we can look over the tuple's types
       using Tuple_T = std::tuple<Types...>;
@@ -3344,7 +3350,7 @@ namespace Rice::detail
   public:
     From_Ruby() = default;
 
-    explicit From_Ruby(Arg* arg)
+    explicit From_Ruby(Arg* arg) : arg_(arg)
     {
     }
 
@@ -3415,7 +3421,10 @@ namespace Rice::detail
           return convertInternal<I + 1>(value, index);
         }
       }
-      rb_raise(rb_eArgError, "Could not find converter for variant");
+      else
+      {
+        rb_raise(rb_eArgError, "Could not find converter for variant");
+      }
     }
 
     std::variant<Types...> convert(VALUE value)
@@ -3425,6 +3434,7 @@ namespace Rice::detail
     }
 
   private:
+    Arg* arg_ = nullptr;
     // Possible converters we could use for this variant
     using From_Ruby_Ts = std::tuple<From_Ruby<Types>...>;
     From_Ruby_Ts fromRubys_;
@@ -3436,7 +3446,7 @@ namespace Rice::detail
   public:
     From_Ruby() = default;
 
-    explicit From_Ruby(Arg* arg)
+    explicit From_Ruby(Arg* arg) : arg_(arg)
     {
     }
 
@@ -3448,6 +3458,7 @@ namespace Rice::detail
     }
 
   private:
+    Arg* arg_ = nullptr;
     std::variant<Types...> converted_;
   };
 }
@@ -3455,7 +3466,7 @@ namespace Rice::detail
 
 // =========   unique_ptr.hpp   =========
 
-namespace Rice::detail
+namespace Rice4RubyQt6::detail
 {
   template<typename T>
   class Wrapper<std::unique_ptr<T>> : public WrapperBase
@@ -3475,7 +3486,7 @@ namespace Rice::detail
 // ---------   unique_ptr.ipp   ---------
 #include <memory>
 
-namespace Rice::detail
+namespace Rice4RubyQt6::detail
 {
   template<typename T>
   inline Wrapper<std::unique_ptr<T>>::Wrapper(std::unique_ptr<T>&& data)
@@ -3559,7 +3570,7 @@ namespace Rice::detail
 
     From_Ruby() = default;
 
-    explicit From_Ruby(Arg* arg)
+    explicit From_Ruby(Arg* arg) : arg_(arg)
     {
     }
 
@@ -3588,6 +3599,9 @@ namespace Rice::detail
       }
       return std::move(wrapper->data());
     }
+
+  private:
+    Arg* arg_ = nullptr;
   };
 
   template <typename T>
@@ -3602,7 +3616,7 @@ namespace Rice::detail
 
     From_Ruby() = default;
 
-    explicit From_Ruby(Arg* arg)
+    explicit From_Ruby(Arg* arg) : arg_(arg)
     {
     }
 
@@ -3631,6 +3645,9 @@ namespace Rice::detail
       }
       return wrapper->data();
     }
+
+  private:
+    Arg* arg_ = nullptr;
   };
 
   template<typename T>
@@ -3660,7 +3677,7 @@ namespace Rice::detail
 
 // =========   unordered_map.hpp   =========
 
-namespace Rice
+namespace Rice4RubyQt6
 {
   template<typename Key, typename T>
   Data_Type<std::unordered_map<Key, T>> define_unordered_map(std::string name = "");
@@ -3670,7 +3687,7 @@ namespace Rice
 // ---------   unordered_map.ipp   ---------
 #include <unordered_map>
 
-namespace Rice
+namespace Rice4RubyQt6
 {
   namespace stl
   {
@@ -3795,7 +3812,7 @@ namespace Rice
         }
         else
         {
-          klass_.define_method("value?", [](T& unordered_map, Mapped_T& value) -> bool
+          klass_.define_method("value?", [](T&, Mapped_T&) -> bool
           {
               return false;
           });
@@ -3880,10 +3897,10 @@ namespace Rice
         }
         else
         {
-          klass_.define_method("to_s", [](const T& unordered_map)
-            {
-              return "[Not printable]";
-            });
+          klass_.define_method("to_s", [](const T&)
+          {
+            return "[Not printable]";
+          });
         }
       }
 
@@ -3904,7 +3921,7 @@ namespace Rice
       klassName = typeMapper.rubyName();
     }
 
-    Module rb_mStd = define_module("Std");
+    Module rb_mStd = define_module_under(define_module("Rice4RubyQt6"), "Std");
     if (Data_Type_T::check_defined(klassName, rb_mStd))
     {
       return Data_Type_T();
@@ -4137,7 +4154,7 @@ namespace Rice
 
 // =========   vector.hpp   =========
 
-namespace Rice
+namespace Rice4RubyQt6
 {
   template<typename T>
   Data_Type<std::vector<T>> define_vector(std::string name = "" );
@@ -4147,7 +4164,7 @@ namespace Rice
 // ---------   vector.ipp   ---------
 #include <vector>
 
-namespace Rice
+namespace Rice4RubyQt6
 {
   namespace stl
   {
@@ -4186,7 +4203,7 @@ namespace Rice
       Difference_T normalizeIndex(Size_T size, Difference_T index, bool enforceBounds = false)
       {
         // Negative indices mean count from the right
-        if (index < 0 && (-index <= size))
+        if (index < 0 && ((Size_T)(-index) <= size))
         {
           index = size + index;
         }
@@ -4230,7 +4247,7 @@ namespace Rice
           }
 
           // Wrap the vector
-          detail::wrapConstructed<T>(self, Data_Type<T>::ruby_data_type(), data, true);
+          detail::wrapConstructed<T>(self, Data_Type<T>::ruby_data_type(), data);
         });
       }
 
@@ -4246,10 +4263,10 @@ namespace Rice
         }
         else
         {
-          klass_.define_method("resize", [](const T& vector, Size_T newSize)
-              {
-                // Do nothing
-              });
+          klass_.define_method("resize", [](const T&, Size_T)
+          {
+            // Do nothing
+          });
         }
       }
 
@@ -4429,18 +4446,18 @@ namespace Rice
         }
         else
         {
-          klass_.define_method("delete", [](T& vector, Parameter_T element) -> std::optional<Value_T>
-            {
-              return std::nullopt;
-            })
-          .define_method("include?", [](const T& vector, Parameter_T element)
-            {
-              return false;
-            })
-          .define_method("index", [](const T& vector, Parameter_T element) -> std::optional<Difference_T>
-            {
-              return std::nullopt;
-            });
+          klass_.define_method("delete", [](T&, Parameter_T) -> std::optional<Value_T>
+          {
+            return std::nullopt;
+          })
+          .define_method("include?", [](const T&, Parameter_T)
+          {
+            return false;
+          })
+          .define_method("index", [](const T&, Parameter_T) -> std::optional<Difference_T>
+          {
+            return std::nullopt;
+          });
         }
       }
 
@@ -4465,7 +4482,7 @@ namespace Rice
           })
           .define_method("insert", [this](T& vector, Difference_T index, Parameter_T element) -> T&
           {
-            int normalized = normalizeIndex(vector.size(), index, true);
+            size_t normalized = normalizeIndex(vector.size(), index, true);
             // For a Ruby array a positive index means insert the element before the index. But
             // a negative index means insert the element *after* the index. std::vector
             // inserts *before* the index. So add 1 if this is a negative index.
@@ -4564,10 +4581,10 @@ namespace Rice
         }
         else
         {
-          klass_.define_method("to_s", [](const T& vector)
-            {
-              return "[Not printable]";
-            });
+          klass_.define_method("to_s", [](const T&)
+          {
+            return "[Not printable]";
+          });
         }
       }
 
@@ -4588,7 +4605,7 @@ namespace Rice
       klassName = typeMapper.rubyName();
     }
 
-    Module rb_mStd = define_module("Std");
+    Module rb_mStd = define_module_under(define_module("Rice4RubyQt6"), "Std");
     if (Data_Type_T::check_defined(klassName, rb_mStd))
     {
       return Data_Type_T();

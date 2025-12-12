@@ -38,4 +38,16 @@ RSpec.describe RubyQt6 do
       end
     end
   end
+
+  describe "rubyqt6-rice" do
+    it "namespace" do
+      expect(Rice4RubyQt6::Buffer≺char∗≻).to be_a(Class)
+      expect(Rice4RubyQt6::Libc::File).to be_a(Class)
+      expect(Rice4RubyQt6::Std::Vector≺QVariant≻).to be_a(Class)
+
+      expect(::Object.const_defined?(:Rice)).to be(false)
+      expect(::Object.const_defined?(:Libc)).to be(false)
+      expect(::Object.const_defined?(:Std)).to be(false)
+    end
+  end
 end
