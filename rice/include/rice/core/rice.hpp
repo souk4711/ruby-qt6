@@ -111,6 +111,7 @@ extern "C" typedef VALUE (*RUBY_VALUE_FUNC)(VALUE);
 // C++ headers have to come after Ruby on MacOS for reasons I do not understand
 #include <cstdio>
 #include <cstring> // For std::memset
+#include <map>
 #include <string>
 #include <typeinfo>
 #include <typeindex>
@@ -141,6 +142,10 @@ namespace Rice4RubyQt6
 
     template<typename T>
     constexpr bool is_const_any_v = std::is_const_v<std::remove_pointer_t<std::remove_pointer_t<std::remove_reference_t<T>>>>;
+
+    // Helper to detect char types
+    template<typename T>
+    constexpr bool is_char_type_v = std::is_same_v<T, char> || std::is_same_v<T, signed char> || std::is_same_v<T, unsigned char>;
 
     // Recursively remove const/volatile
     template<typename T>
@@ -595,9 +600,13 @@ namespace Rice4RubyQt6::detail
   class WrapperBase
   {
   public:
-    WrapperBase() = default;
+    static void addKeepAlive(VALUE object, VALUE keepAlive);
+    static bool isConst(VALUE object);
+
+  public:
+    WrapperBase(rb_data_type_t* rb_data_type);
     virtual ~WrapperBase() = default;
-    virtual void* get() = 0;
+    virtual void* get(rb_data_type_t* requestedType) = 0;
     bool isConst();
 
     void ruby_mark();
@@ -605,6 +614,7 @@ namespace Rice4RubyQt6::detail
     void setOwner(bool value);
 
   protected:
+    rb_data_type_t* rb_data_type_;
     bool isOwner_ = false;
     bool isConst_ = false;
 
@@ -619,10 +629,10 @@ namespace Rice4RubyQt6::detail
   class Wrapper : public WrapperBase
   {
   public:
-    Wrapper(T& data);
-    Wrapper(T&& data);
+    Wrapper(rb_data_type_t* rb_data_type, T& data);
+    Wrapper(rb_data_type_t* rb_data_type, T&& data);
     ~Wrapper();
-    void* get() override;
+    void* get(rb_data_type_t* requestedType) override;
 
   private:
     T data_;
@@ -632,9 +642,9 @@ namespace Rice4RubyQt6::detail
   class Wrapper<T&> : public WrapperBase
   {
   public:
-    Wrapper(T& data);
+    Wrapper(rb_data_type_t* rb_data_type, T& data);
     ~Wrapper();
-    void* get() override;
+    void* get(rb_data_type_t* requestedType) override;
 
   private:
     T& data_;
@@ -644,9 +654,9 @@ namespace Rice4RubyQt6::detail
   class Wrapper<T*> : public WrapperBase
   {
   public:
-    Wrapper(T* data, bool isOwner);
+    Wrapper(rb_data_type_t* rb_data_type, T* data, bool isOwner);
     ~Wrapper();
-    void* get() override;
+    void* get(rb_data_type_t* requestedType) override;
 
   private:
     T* data_ = nullptr;
@@ -656,9 +666,9 @@ namespace Rice4RubyQt6::detail
   class Wrapper<T**> : public WrapperBase
   {
   public:
-    Wrapper(T** data, bool isOwner);
+    Wrapper(rb_data_type_t* rb_data_type, T** data, bool isOwner);
     ~Wrapper();
-    void* get() override;
+    void* get(rb_data_type_t* requestedType) override;
 
   private:
     T** data_ = nullptr;
@@ -666,7 +676,7 @@ namespace Rice4RubyQt6::detail
 
   // ---- Helper Functions ---------
   template <typename T>
-  void wrapConstructed(VALUE value, rb_data_type_t* rb_data_type, T* data);
+  Wrapper<T*>* wrapConstructed(VALUE value, rb_data_type_t* rb_data_type, T* data);
 
   template <typename T>
   VALUE wrap(VALUE klass, rb_data_type_t* rb_data_type, T& data, bool isOwner);
@@ -1314,6 +1324,12 @@ namespace Rice4RubyQt6
     //! Returns if the argument should be treated as a value
     bool isValue() const;
 
+    //! Specifies if the argument should capture a block
+    virtual Arg& setBlock();
+
+    //! Returns if the argument should capture a block
+    bool isBlock() const;
+
     //! Specifies if the argument is opaque and Rice should not convert it from Ruby to C++ or vice versa.
     //! This is useful for callbacks and user provided data paramameters.
     virtual Arg& setOpaque();
@@ -1327,12 +1343,12 @@ namespace Rice4RubyQt6
 
   public:
     std::string name;
-    int32_t position = -1;
 
   private:
     //! Our saved default value
     std::any defaultValue_;
     bool isValue_ = false;
+    bool isBlock_ = false;
     bool isKeepAlive_ = false;
     bool isOwner_ = false;
     bool isOpaque_ = false;
@@ -1399,13 +1415,15 @@ namespace Rice4RubyQt6::detail
   template <typename T>
   class From_Ruby;
 
-  enum class Convertible: uint8_t
+  // Overload resolution scoring constants
+  struct Convertible
   {
-      None   = 0b0000,
-      Narrow = 0b0001,
-      Cast   = 0b0011,
-      Const  = 0b0111,
-      Exact  = 0b1111
+    static constexpr double Exact = 1.0;           // Perfect type match
+    static constexpr double None = 0.0;            // Cannot convert
+    static constexpr double IntToFloat = 0.5;      // Domain change penalty when converting int to float
+    static constexpr double SignedToUnsigned = 0.5;// Penalty for signed to unsigned (can't represent negatives)
+    static constexpr double FloatToInt = 0.5;      // Domain change penalty when converting float to int (lossy)
+    static constexpr double ConstMismatch = 0.99;  // Penalty for const mismatch
   };
 }
 
@@ -1432,7 +1450,6 @@ namespace Rice4RubyQt6::detail
   class ParameterAbstract
   {
   public:
-    ParameterAbstract() = default;
     ParameterAbstract(std::unique_ptr<Arg>&& arg);
     virtual ~ParameterAbstract() = default;
 
@@ -1440,7 +1457,8 @@ namespace Rice4RubyQt6::detail
     ParameterAbstract(ParameterAbstract&& other) = default;
     ParameterAbstract& operator=(ParameterAbstract&& other) = default;
 
-    virtual Convertible matches(std::optional<VALUE>& valueOpt) = 0;
+    virtual VALUE defaultValueRuby() = 0;
+    virtual double matches(std::optional<VALUE>& valueOpt) = 0;
     virtual std::string cppTypeName() = 0;
     virtual VALUE klass() = 0;
 
@@ -1456,16 +1474,16 @@ namespace Rice4RubyQt6::detail
    public:
      using Type = T;
 
-     Parameter() = default;
      Parameter(std::unique_ptr<Arg>&& arg);
      Parameter(const Parameter& other) = default;
      Parameter(Parameter&& other) = default;
      Parameter& operator=(Parameter&& other) = default;
 
      T convertToNative(std::optional<VALUE>& valueOpt);
-     VALUE convertToRuby(T object);
+     VALUE convertToRuby(T& object);
+     VALUE defaultValueRuby() override;
 
-     Convertible matches(std::optional<VALUE>& valueOpt) override;
+     double matches(std::optional<VALUE>& valueOpt) override;
      std::string cppTypeName() override;
      VALUE klass() override;
 
@@ -1596,6 +1614,7 @@ namespace Rice4RubyQt6
 namespace Rice4RubyQt6
 {
   class Class;
+  class Module;
   class String;
   class Array;
 
@@ -1702,6 +1721,11 @@ namespace Rice4RubyQt6
      *  class/module or one of its descendants.
      */
     bool is_a(Object klass) const;
+
+    //! Extend the object with a module.
+    /*! \param mod the module to extend with.
+     */
+    void extend(Module const& mod);
 
     //! Determine if the objects responds to a method.
     /*! \param id the name of the method
@@ -2684,6 +2708,11 @@ namespace Rice4RubyQt6
      */
     const std::string base_name() const;
 
+    //! Return the superclass of this class
+    /*! \return Class.
+     */
+    Class superclass() const;
+
 // Include these methods to call methods from Module but return
 // an instance of the current classes. This is an alternative to
 // using CRTP.
@@ -2852,8 +2881,7 @@ namespace Rice4RubyQt6::detail
     inline bool operator<(Resolved other);
     inline bool operator>(Resolved other);
 
-    Convertible convertible;
-    double parameterMatch;
+    double score;  // Combined score: minParameterScore * parameterMatch
     Native* native;
   };
 
@@ -2883,8 +2911,8 @@ namespace Rice4RubyQt6::detail
     void operator=(const Native&) = delete;
     void operator=(Native&&) = delete;
 
-    virtual Resolved matches(size_t argc, const VALUE* argv);
-    virtual VALUE operator()(size_t argc, const VALUE* argv, VALUE self) = 0;
+    virtual Resolved matches(std::map<std::string, VALUE>& values);
+    virtual VALUE operator()(std::map<std::string, VALUE>& values, VALUE self) = 0;
     virtual std::string toString() = 0;
 
     // Ruby API access
@@ -2897,9 +2925,10 @@ namespace Rice4RubyQt6::detail
     template<typename T, bool isBuffer>
     static void verify_type();
 
-    std::vector<std::optional<VALUE>> getRubyValues(size_t argc, const VALUE* argv, bool validate);
+    static std::map<std::string, VALUE> readRubyArgs(size_t argc, const VALUE* argv);
+    std::vector<std::optional<VALUE>> getRubyValues(std::map<std::string, VALUE> values, bool validate);
     ParameterAbstract* getParameterByName(std::string name);
-    Convertible matchParameters(std::vector<std::optional<VALUE>>& values);
+    double matchParameters(std::vector<std::optional<VALUE>>& values, size_t argc);
 
     template<typename Parameter_Tuple, typename... Arg_Ts>
     static std::vector<std::unique_ptr<ParameterAbstract>> create_parameters(Arg_Ts&& ...args);
@@ -2961,8 +2990,8 @@ namespace Rice4RubyQt6
       void operator=(const NativeAttribute_T&) = delete;
       void operator=(NativeAttribute_T&&) = delete;
 
-      Resolved matches(size_t argc, const VALUE* argv) override;
-      VALUE operator()(size_t argc, const VALUE* argv, VALUE self) override;
+      Resolved matches(std::map<std::string, VALUE>& values) override;
+      VALUE operator()(std::map<std::string, VALUE>& values, VALUE self) override;
       std::string toString() override;
 
       NativeKind kind() override;
@@ -2995,8 +3024,9 @@ namespace Rice4RubyQt6
       using Receiver_T = typename attribute_traits<Attribute_T>::class_type;
 
     public:
-      // Register attribute getter/setter with Ruby
-      static void define(VALUE klass, std::string name, Attribute_T attribute);
+      // Register attribute setter with Ruby
+      template<typename...Arg_Ts>
+      static void define(VALUE klass, std::string name, Attribute_T attribute, Arg_Ts&...args);
 
     public:
       // Disallow creating/copying/moving
@@ -3006,19 +3036,20 @@ namespace Rice4RubyQt6
       void operator=(const NativeAttribute_T&) = delete;
       void operator=(NativeAttribute_T&&) = delete;
 
-      Resolved matches(size_t argc, const VALUE* argv) override;
-      VALUE operator()(size_t argc, const VALUE* argv, VALUE self) override;
+      Resolved matches(std::map<std::string, VALUE>& values) override;
+      VALUE operator()(std::map<std::string, VALUE>& values, VALUE self) override;
       std::string toString() override;
 
       NativeKind kind() override;
       VALUE returnKlass() override;
 
     protected:
-      NativeAttributeSet(VALUE klass, std::string name, Attribute_T attr);
+      NativeAttributeSet(VALUE klass, std::string name, Attribute_T attr, std::unique_ptr<Parameter<T_Unqualified>> parameter);
 
     private:
       VALUE klass_;
       Attribute_T attribute_;
+      std::unique_ptr<Parameter<T_Unqualified>> parameter_;
     };
   } // detail
 } // Rice
@@ -3457,9 +3488,6 @@ namespace Rice4RubyQt6::detail
     using FromRuby_T = bool(*)(VALUE);
 
     static inline FromRuby_T fromRuby = RB_TEST;
-    static inline std::set<ruby_value_type> Exact = { RUBY_T_TRUE, RUBY_T_FALSE };
-    static inline std::set<ruby_value_type> Castable = { RUBY_T_NIL };
-    static inline std::set<ruby_value_type> Narrowable = {  };
     static inline std::string packTemplate = "not supported";
     static inline std::string name = "bool";
   };
@@ -3471,9 +3499,6 @@ namespace Rice4RubyQt6::detail
     using FromRuby_T = char(*)(VALUE);
 
     static inline FromRuby_T fromRuby = rb_num2char_inline;
-    static inline std::set<ruby_value_type> Exact = { };
-    static inline std::set<ruby_value_type> Castable = { RUBY_T_STRING };
-    static inline std::set<ruby_value_type> Narrowable = { RUBY_T_FIXNUM };
     static inline std::string packTemplate = CHAR_MIN < 0 ? "c*" : "C*";
     static inline std::string name = "String";
   };
@@ -3485,9 +3510,6 @@ namespace Rice4RubyQt6::detail
     using FromRuby_T =  char(*)(VALUE);
 
     static inline FromRuby_T fromRuby = rb_num2char_inline;
-    static inline std::set<ruby_value_type> Exact = { };
-    static inline std::set<ruby_value_type> Castable = { RUBY_T_STRING };
-    static inline std::set<ruby_value_type> Narrowable = { RUBY_T_FIXNUM };
     static inline std::string packTemplate = "c*";
     static inline std::string name = "String";
   };
@@ -3499,9 +3521,6 @@ namespace Rice4RubyQt6::detail
     using FromRuby_T = char(*)(VALUE);
 
     static inline FromRuby_T fromRuby = rb_num2char_inline;
-    static inline std::set<ruby_value_type> Exact = { };
-    static inline std::set<ruby_value_type> Castable = { RUBY_T_STRING };
-    static inline std::set<ruby_value_type> Narrowable = { RUBY_T_FIXNUM };
     static inline std::string packTemplate = "C*";
     static inline std::string name = "String";
   };
@@ -3513,9 +3532,6 @@ namespace Rice4RubyQt6::detail
     using FromRuby_T = short(*)(VALUE);
 
     static inline FromRuby_T fromRuby = rb_num2short_inline;
-    static inline std::set<ruby_value_type> Exact = { };
-    static inline std::set<ruby_value_type> Castable = { };
-    static inline std::set<ruby_value_type> Narrowable = { RUBY_T_FIXNUM };
     static inline std::string packTemplate = "s*";
     static inline std::string name = "Integer";
   };
@@ -3527,9 +3543,6 @@ namespace Rice4RubyQt6::detail
     using FromRuby_T = unsigned short(*)(VALUE);
 
     static inline FromRuby_T fromRuby = rb_num2ushort;
-    static inline std::set<ruby_value_type> Exact = { };
-    static inline std::set<ruby_value_type> Castable = { };
-    static inline std::set<ruby_value_type> Narrowable = { RUBY_T_FIXNUM };
     static inline std::string packTemplate = "S*";
     static inline std::string name = "Integer";
   };
@@ -3541,11 +3554,6 @@ namespace Rice4RubyQt6::detail
     using FromRuby_T = int(*)(VALUE);
 
     static inline FromRuby_T fromRuby = rb_num2int_inline;
-    static inline std::set<ruby_value_type> Exact = { RUBY_T_FIXNUM };
-    static inline std::set<ruby_value_type> Castable = { };
-    // We allow bignum to integer because Ruby switches to bignum at about 2 billion on 64 bit systems,
-    // while int can go up to 4 billion
-    static inline std::set<ruby_value_type> Narrowable = { RUBY_T_BIGNUM };
     static inline std::string packTemplate = "i*";
     static inline std::string name = "Integer";
   };
@@ -3557,11 +3565,6 @@ namespace Rice4RubyQt6::detail
     using FromRuby_T = unsigned int(*)(VALUE);
 
     static inline FromRuby_T fromRuby = RB_NUM2UINT;
-    static inline std::set<ruby_value_type> Exact = { RUBY_T_FIXNUM };
-    static inline std::set<ruby_value_type> Castable = { };
-    // We allow bignum to integer because Ruby switches to bignum at about 2 billion on 64 bit systems,
-    // while int can go up to 4 billion
-    static inline std::set<ruby_value_type> Narrowable = { RUBY_T_BIGNUM };
     static inline std::string packTemplate = "I*";
     static inline std::string name = "Integer";
   };
@@ -3573,9 +3576,6 @@ namespace Rice4RubyQt6::detail
     using FromRuby_T = long(*)(VALUE);
 
     static inline FromRuby_T fromRuby = rb_num2long_inline;
-    static inline std::set<ruby_value_type> Exact = { RUBY_T_FIXNUM };
-    static inline std::set<ruby_value_type> Castable = { };
-    static inline std::set<ruby_value_type> Narrowable = { RUBY_T_BIGNUM };
     static inline std::string packTemplate = "l_*";
     static inline std::string name = "Integer";
   };
@@ -3587,9 +3587,6 @@ namespace Rice4RubyQt6::detail
     using FromRuby_T = unsigned long(*)(VALUE);
 
     static inline FromRuby_T fromRuby = rb_num2ulong_inline;
-    static inline std::set<ruby_value_type> Exact = { RUBY_T_FIXNUM  };
-    static inline std::set<ruby_value_type> Castable = { };
-    static inline std::set<ruby_value_type> Narrowable = { RUBY_T_BIGNUM};
     static inline std::string packTemplate = "L_*";
     static inline std::string name = "Integer";
   };
@@ -3601,9 +3598,6 @@ namespace Rice4RubyQt6::detail
     using FromRuby_T = long long(*)(VALUE);
 
     static inline FromRuby_T fromRuby = rb_num2ll_inline;
-    static inline std::set<ruby_value_type> Exact = { RUBY_T_FIXNUM, RUBY_T_BIGNUM };
-    static inline std::set<ruby_value_type> Castable = { };
-    static inline std::set<ruby_value_type> Narrowable = { };
     static inline std::string packTemplate = "q_*";
     static inline std::string name = "Integer";
   };
@@ -3615,9 +3609,6 @@ namespace Rice4RubyQt6::detail
     using FromRuby_T = unsigned long long(*)(VALUE);
 
     static inline FromRuby_T fromRuby = RB_NUM2ULL;
-    static inline std::set<ruby_value_type> Exact = { RUBY_T_FIXNUM, RUBY_T_BIGNUM };
-    static inline std::set<ruby_value_type> Castable = { };
-    static inline std::set<ruby_value_type> Narrowable = { };
     static inline std::string packTemplate = "Q_*";
     static inline std::string name = "Integer";
   };
@@ -3629,9 +3620,6 @@ namespace Rice4RubyQt6::detail
     using FromRuby_T = double(*)(VALUE);
 
     static inline FromRuby_T fromRuby = rb_num2dbl;
-    static inline std::set<ruby_value_type> Exact = { };
-    static inline std::set<ruby_value_type> Castable = { RUBY_T_FIXNUM };
-    static inline std::set<ruby_value_type> Narrowable = { RUBY_T_FLOAT };
     static inline std::string packTemplate = "f*";
     static inline std::string name = "Float";
   };
@@ -3643,9 +3631,6 @@ namespace Rice4RubyQt6::detail
     using FromRuby_T = double(*)(VALUE);
 
     static inline FromRuby_T fromRuby = rb_num2dbl;
-    static inline std::set<ruby_value_type> Exact = { RUBY_T_FLOAT };
-    static inline std::set<ruby_value_type> Castable = { RUBY_T_FIXNUM, RUBY_T_BIGNUM };
-    static inline std::set<ruby_value_type> Narrowable = { };
     static inline std::string packTemplate = "d*";
     static inline std::string name = "Float";
   };
@@ -3654,12 +3639,10 @@ namespace Rice4RubyQt6::detail
   class RubyType<void>
   {
   public:
-    static inline std::set<ruby_value_type> Exact = { };
-    static inline std::set<ruby_value_type> Castable = { };
-    static inline std::set<ruby_value_type> Narrowable = { };
     static inline std::string name = "void";
   };
 }
+
 // Registries
 
 // =========   TypeRegistry.hpp   =========
@@ -3720,8 +3703,6 @@ namespace Rice4RubyQt6::detail
 
 
 // =========   InstanceRegistry.hpp   =========
-
-#include <map>
 
 namespace Rice4RubyQt6::detail
 {
@@ -3799,7 +3780,6 @@ namespace Rice4RubyQt6::detail
 
 // =========   NativeRegistry.hpp   =========
 
-#include <map>
 #include <memory>
 #include <utility>
 
@@ -3830,10 +3810,12 @@ namespace Rice4RubyQt6::detail
     NativeRegistry& operator=(const NativeRegistry& other) = delete;
 
     void add(VALUE klass, ID methodId, std::unique_ptr<Native>& native);
+    void replace(VALUE klass, ID methodId, std::unique_ptr<Native>& native);
     void reset(VALUE klass);
 
-    const std::vector<Native*> lookup(VALUE klass);
-    const std::vector<std::unique_ptr<Native>>& lookup(VALUE klass, ID methodId);
+    std::vector<Native*> lookup(VALUE klass);
+    std::vector<std::unique_ptr<Native>>& lookup(VALUE klass, ID methodId);
+    std::vector<Native*> lookup(VALUE klass, NativeKind kind);
 
   private:
     // Key - Ruby klass/method
@@ -3915,6 +3897,18 @@ namespace Rice4RubyQt6
     return isValue_;
   }
 
+  inline Arg& Arg::setBlock()
+  {
+    isBlock_ = true;
+    isValue_ = true;
+    return *this;
+  }
+
+  inline bool Arg::isBlock() const
+  {
+    return isBlock_;
+  }
+
   inline Arg& Arg::setOpaque()
   {
     isOpaque_ = true;
@@ -3969,49 +3963,39 @@ namespace Rice4RubyQt6::detail
   }
 
   template<typename T>
-  inline Convertible Parameter<T>::matches(std::optional<VALUE>& valueOpt)
+  inline double Parameter<T>::matches(std::optional<VALUE>& valueOpt)
   {
-    Convertible result = Convertible::None;
-
-    // Is a VALUE being passed directly to C++ ?
-    if (valueOpt.has_value())
+    if (!valueOpt.has_value())
     {
-      VALUE value = valueOpt.value();
-      if (this->arg()->isValue())
-      {
-        result = Convertible::Exact;
-      }
-      // If index is less than argc then check with FromRuby if the VALUE is convertible
-      // to C++.
-      else
-      {
-        result = this->fromRuby_.is_convertible(value);
-
-        // If this is an exact match check if the const-ness of the value and the parameter match.
-        // One caveat - procs are also RUBY_T_DATA so don't check if this is a function type
-        if (result == Convertible::Exact && rb_type(value) == RUBY_T_DATA && !std::is_function_v<std::remove_pointer_t<T>>)
-        {
-          // Check the constness of the Ruby wrapped value and the parameter
-          WrapperBase* wrapper = getWrapper(value);
-
-          // Do not send a const value to a non-const parameter
-          if (wrapper->isConst() && !is_const_any_v<T>)
-          {
-            result = Convertible::None;
-          }
-          // It is ok to send a non-const value to a const parameter but
-          // prefer non-const to non-const by slighly decreasing the convertible value
-          else if (!wrapper->isConst() && is_const_any_v<T>)
-          {
-            result = Convertible::Const;
-          }
-        }
-      }
+      return Convertible::None;
     }
-    // Last check if a default value has been set
-    else if (this->arg()->hasDefaultValue())
+    else if (this->arg()->isValue())
     {
-      result = Convertible::Exact;
+      return Convertible::Exact;
+    }
+
+    VALUE value = valueOpt.value();
+
+    // Check with FromRuby if the VALUE is convertible to C++
+    double result = this->fromRuby_.is_convertible(value);
+
+    // If this is an exact match check if the const-ness of the value and the parameter match.
+    // One caveat - procs are also RUBY_T_DATA so don't check if this is a function type
+    if (result == Convertible::Exact && rb_type(value) == RUBY_T_DATA && !std::is_function_v<std::remove_pointer_t<T>>)
+    {
+      bool isConst = WrapperBase::isConst(value);
+
+      // Do not send a const value to a non-const parameter
+      if (isConst && !is_const_any_v<T>)
+      {
+        result = Convertible::None;
+      }
+      // It is ok to send a non-const value to a const parameter but
+      // prefer non-const to non-const by slightly decreasing the score
+      else if (!isConst && is_const_any_v<T>)
+      {
+        result = Convertible::ConstMismatch;
+      }
     }
 
     return result;
@@ -4070,9 +4054,37 @@ namespace Rice4RubyQt6::detail
 #endif
 
   template<typename T>
-  inline VALUE Parameter<T>::convertToRuby(T object)
+  inline VALUE Parameter<T>::convertToRuby(T& object)
   {
     return this->toRuby_.convert(object);
+  }
+
+  template<typename T>
+  inline VALUE Parameter<T>::defaultValueRuby()
+  {
+    if constexpr (std::is_constructible_v<std::remove_cv_t<T>, std::remove_cv_t<std::remove_reference_t<T>>&>)
+    {
+      // Remember std::is_copy_constructible_v<std::vector<std::unique_ptr<T>>>> returns true. Sigh.
+      // So special case vector handling
+      if constexpr (detail::is_std_vector_v<detail::intrinsic_type<T>>)
+      {
+        if constexpr (std::is_copy_constructible_v<typename detail::intrinsic_type<T>::value_type>)
+        {
+          if (this->arg()->hasDefaultValue())
+          {
+            T defaultValue = this->arg()->template defaultValue<T>();
+            return this->toRuby_.convert(defaultValue);
+          }
+        }
+      }
+      else if (this->arg()->hasDefaultValue())
+      {
+        T defaultValue = this->arg()->template defaultValue<T>();
+        return this->toRuby_.convert((remove_cv_recursive_t<T>)defaultValue);
+      }
+    }
+
+    throw std::runtime_error("No default value set for parameter " + this->arg()->name);
   }
 
   template<typename T>
@@ -4342,6 +4354,61 @@ namespace Rice4RubyQt6
 }
 
 
+// =========   Reference.hpp   =========
+
+namespace Rice4RubyQt6
+{
+  template<typename T>
+  class Reference
+  {
+    static_assert(!detail::is_wrapped_v<detail::intrinsic_type<T>>,
+      "Reference can only be used with fundamental types");
+
+  public:
+    Reference();
+    Reference(T& data);
+    Reference(VALUE value);
+    T& get();
+
+  private:
+    T data_;
+  };
+
+  // Specialization needed when VALUE type matches T, causing constructor ambiguity
+  // between Reference(T&) and Reference(VALUE). VALUE is unsigned long when
+  // SIZEOF_LONG == SIZEOF_VOIDP (Linux/macOS) and unsigned long long when
+  // SIZEOF_LONG_LONG == SIZEOF_VOIDP (Windows x64).
+#if SIZEOF_LONG == SIZEOF_VOIDP
+  template<>
+  class Reference<unsigned long>
+  {
+  public:
+    Reference();
+    Reference(unsigned long value, bool isValue = true);
+    unsigned long& get();
+
+  private:
+    unsigned long data_;
+  };
+#else
+  template<>
+  class Reference<unsigned long long>
+  {
+  public:
+    Reference();
+    Reference(unsigned long long value, bool isValue = true);
+    unsigned long long& get();
+
+  private:
+    unsigned long long data_;
+  };
+#endif
+
+  template<typename T>
+  Data_Type<Reference<T>> define_reference(std::string klassName = "");
+}
+
+
 // =========   Buffer.ipp   =========
 namespace Rice4RubyQt6
 {
@@ -4447,9 +4514,7 @@ namespace Rice4RubyQt6
       }
       default:
       {
-        if (RubyType_T::Exact.find(valueType) != RubyType_T::Exact.end() ||
-            RubyType_T::Castable.find(valueType) != RubyType_T::Castable.end() ||
-            RubyType_T::Narrowable.find(valueType) != RubyType_T::Narrowable.end())
+        if (detail::From_Ruby<detail::remove_cv_recursive_t<T>>().is_convertible(value))
         {
           // The Ruby method may return a different type - for example Ruby floats
           // are converted to double and not float - so we need a typecast.
@@ -6801,57 +6866,128 @@ namespace Rice4RubyQt6
 #include <optional>
 #include <stdexcept>
 
-/* This file implements conversions from Ruby to native values fo fundamental types 
+/* This file implements conversions from Ruby to native values fo fundamental types
    such as bool, int, float, etc. It also includes conversions for chars and strings */
 namespace Rice4RubyQt6::detail
 {
-  inline Convertible operator&(Convertible left, Convertible right)
+  // Get precision bits for a Ruby numeric value
+  inline int rubyPrecisionBits(VALUE value)
   {
-    return static_cast<Convertible>(static_cast<uint8_t>(left) & static_cast<uint8_t>(right));
+    switch (rb_type(value))
+    {
+      // Ruby fixnums fit in long long (63 bits)
+      case RUBY_T_FIXNUM:
+        return std::numeric_limits<long long>::digits;
+
+      // Ruby bignums can be arbitrarily large - return actual size
+      case RUBY_T_BIGNUM:
+      {
+        int nlz = 0;
+        size_t bytes = protect(rb_absint_size, value, &nlz);
+        return static_cast<int>(bytes * CHAR_BIT - nlz);
+      }
+
+      // Ruby floats are C doubles (53 bit mantissa)
+      case RUBY_T_FLOAT:
+        return std::numeric_limits<double>::digits;
+      
+      // Everything else...
+      default:
+        return 0;
+    }
   }
 
-  inline Convertible operator|(Convertible left, Convertible right)
-  {
-    return static_cast<Convertible>(static_cast<uint8_t>(left) | static_cast<uint8_t>(right));
-  }
-
-  inline bool operator<(Convertible left, Convertible right)
-  {
-    return static_cast<uint8_t>(left) < static_cast<uint8_t>(right);
-  }
-
-  // ===========  Helpers  ============
+  // Precision score for converting Ruby numeric value to C++ type T
   template<typename T>
+  inline double precisionScore(VALUE value)
+  {
+    int sourceBits = rubyPrecisionBits(value);
+    if (sourceBits == 0)
+    {
+      return Convertible::None;
+    }
+
+    constexpr int targetBits = std::numeric_limits<T>::digits;
+    return (targetBits >= sourceBits) ? Convertible::Exact : static_cast<double>(targetBits) / sourceBits;
+  }
+
+  // Primary template for integral types
+  template<typename T, typename Enable = void>
   class FromRubyFundamental
   {
   public:
-    using RubyType_T = RubyType<T>;
-
-    static Convertible is_convertible(VALUE value)
+    static double is_convertible(VALUE value)
     {
-      ruby_value_type valueType = rb_type(value);
+      double score = precisionScore<T>(value);
+      if (score > Convertible::None)
+      {
+        switch (rb_type(value))
+        {
+          case RUBY_T_BIGNUM:
+          {
+            constexpr int targetBits = std::numeric_limits<T>::digits;
+            int sourceBits = rubyPrecisionBits(value);
+            if (sourceBits > targetBits)
+            {
+              return Convertible::None;
+            }
+            [[fallthrough]];
+          }
+          case RUBY_T_FIXNUM:
+          {
+            if constexpr (std::is_unsigned_v<T>)
+            {
+              score *= Convertible::SignedToUnsigned;
+            }
+            break;
+          }
+          case RUBY_T_FLOAT:
+          {
+            score *= Convertible::FloatToInt;
+            break;
+          }
+          default:
+            break;
+        }
 
-      if (RubyType_T::Exact.find(valueType) != RubyType_T::Exact.end())
-      {
-        return Convertible::Exact;
+        return score;
       }
-      else if (RubyType_T::Castable.find(valueType) != RubyType_T::Castable.end())
+
+      if constexpr (is_char_type_v<T>)
       {
-        return Convertible::Cast;
+        if (rb_type(value) == RUBY_T_STRING)
+        {
+          return Convertible::Exact;
+        }
       }
-      else if (RubyType_T::Narrowable.find(valueType) != RubyType_T::Narrowable.end())
-      {
-        return Convertible::Narrow;
-      }
-      else
-      {
-        return Convertible::None;
-      }
+
+      return Convertible::None;
     }
 
     static T convert(VALUE value)
     {
-      return (T)protect(RubyType_T::fromRuby, value);
+      return (T)protect(RubyType<T>::fromRuby, value);
+    }
+  };
+
+  // Specialization for floating point types
+  template<typename T>
+  class FromRubyFundamental<T, std::enable_if_t<std::is_floating_point_v<T>>>
+  {
+  public:
+    static double is_convertible(VALUE value)
+    {
+      double score = precisionScore<T>(value);
+      if (score > Convertible::None && rb_type(value) != RUBY_T_FLOAT)
+      {
+        score *= Convertible::IntToFloat;
+      }
+      return score;
+    }
+
+    static T convert(VALUE value)
+    {
+      return (T)protect(RubyType<T>::fromRuby, value);
     }
   };
 
@@ -6859,7 +6995,7 @@ namespace Rice4RubyQt6::detail
   class FromRubyFundamental<T*>
   {
   public:
-    static Convertible is_convertible(VALUE value)
+    static double is_convertible(VALUE value)
     {
       ruby_value_type valueType = rb_type(value);
 
@@ -6868,7 +7004,6 @@ namespace Rice4RubyQt6::detail
         case RUBY_T_NIL:
         {
           return Convertible::Exact;
-          break;
         }
         case RUBY_T_DATA:
         {
@@ -6918,7 +7053,7 @@ namespace Rice4RubyQt6::detail
   class FromRubyFundamental<T**>
   {
   public:
-    static Convertible is_convertible(VALUE value)
+    static double is_convertible(VALUE value)
     {
       ruby_value_type valueType = rb_type(value);
 
@@ -6927,7 +7062,6 @@ namespace Rice4RubyQt6::detail
         case RUBY_T_NIL:
         {
           return Convertible::Exact;
-          break;
         }
         case RUBY_T_DATA:
         {
@@ -6984,14 +7118,22 @@ namespace Rice4RubyQt6::detail
     {
     }
 
-    Convertible is_convertible(VALUE value)
+    double is_convertible(VALUE value)
     {
-      return FromRubyFundamental<bool>::is_convertible(value);
+      switch (rb_type(value))
+      {
+        case RUBY_T_TRUE:
+        case RUBY_T_FALSE:
+        case RUBY_T_NIL:
+          return Convertible::Exact;
+        default:
+          return Convertible::None;
+      }
     }
 
     bool convert(VALUE value)
     {
-      return FromRubyFundamental<bool>::convert(value);
+      return protect(RubyType<bool>::fromRuby, value);
     }
 
   private:
@@ -7002,7 +7144,7 @@ namespace Rice4RubyQt6::detail
   class From_Ruby<bool&>
   {
   public:
-    using Pointer_T = Pointer<bool>;
+    using Reference_T = Reference<bool>;
 
     From_Ruby() = default;
 
@@ -7010,13 +7152,13 @@ namespace Rice4RubyQt6::detail
     {
     }
 
-    Convertible is_convertible(VALUE value)
+    double is_convertible(VALUE value)
     {
       switch (rb_type(value))
       {
         case RUBY_T_DATA:
         {
-          if (Data_Type<Pointer_T>::is_descendant(value))
+          if (Data_Type<Reference_T>::is_descendant(value))
           {
             return Convertible::Exact;
           }
@@ -7024,7 +7166,7 @@ namespace Rice4RubyQt6::detail
         }
         default:
         {
-          return FromRubyFundamental<bool>::is_convertible(value);
+          return this->from_.is_convertible(value);
         }
       }
     }
@@ -7035,23 +7177,25 @@ namespace Rice4RubyQt6::detail
       {
         case RUBY_T_DATA:
         {
-          if (Data_Type<Pointer_T>::is_descendant(value))
+          if (Data_Type<Reference_T>::is_descendant(value))
           {
-            return (bool&)*unwrap<Pointer_T>(value, Data_Type<Pointer_T>::ruby_data_type(), false);
+            Reference_T* reference = unwrap<Reference_T>(value, Data_Type<Reference_T>::ruby_data_type(), false);
+            return reference->get();
           }
           [[fallthrough]];
         }
         default:
         {
-          this->converted_ = FromRubyFundamental<bool>::convert(value);
-          return this->converted_;
+          this->reference_ = Reference<bool>(value);
+          return this->reference_.get();
         }
       }
     }
 
   private:
+    From_Ruby<bool> from_;
     Arg* arg_ = nullptr;
-    bool converted_ = false;
+    Reference<bool> reference_;
   };
 
   // ===========  char  ============
@@ -7065,7 +7209,7 @@ namespace Rice4RubyQt6::detail
     {
     }
 
-    Convertible is_convertible(VALUE value)
+    double is_convertible(VALUE value)
     {
       return FromRubyFundamental<char>::is_convertible(value);
     }
@@ -7083,7 +7227,7 @@ namespace Rice4RubyQt6::detail
   class From_Ruby<char&>
   {
   public:
-    using Pointer_T = Pointer<char>;
+    using Reference_T = Reference<char>;
 
     From_Ruby() = default;
 
@@ -7091,13 +7235,13 @@ namespace Rice4RubyQt6::detail
     {
     }
 
-    Convertible is_convertible(VALUE value)
+    double is_convertible(VALUE value)
     {
       switch (rb_type(value))
       {
         case RUBY_T_DATA:
         {
-          if (Data_Type<Pointer_T>::is_descendant(value))
+          if (Data_Type<Reference_T>::is_descendant(value))
           {
             return Convertible::Exact;
           }
@@ -7116,25 +7260,26 @@ namespace Rice4RubyQt6::detail
       {
         case RUBY_T_DATA:
         {
-          if (Data_Type<Pointer_T>::is_descendant(value))
+          if (Data_Type<Reference_T>::is_descendant(value))
           {
-            return (char&)*unwrap<Pointer_T>(value, Data_Type<Pointer_T>::ruby_data_type(), false);
+            Reference_T* reference = unwrap<Reference_T>(value, Data_Type<Reference_T>::ruby_data_type(), false);
+            return reference->get();
           }
           [[fallthrough]];
         }
         default:
         {
-          this->converted_ = FromRubyFundamental<char>::convert(value);
-          return this->converted_;
+          this->reference_ = Reference<char>(value);
+          return this->reference_.get();
         }
       }
     }
 
   private:
     Arg* arg_ = nullptr;
-    char converted_ = 0;
+    Reference<char> reference_;
   };
-      
+
   template<>
   class From_Ruby<char*>
   {
@@ -7145,7 +7290,7 @@ namespace Rice4RubyQt6::detail
     {
     }
 
-    Convertible is_convertible(VALUE value)
+    double is_convertible(VALUE value)
     {
       switch (rb_type(value))
       {
@@ -7201,7 +7346,7 @@ namespace Rice4RubyQt6::detail
     {
     }
 
-    Convertible is_convertible(VALUE value)
+    double is_convertible(VALUE value)
     {
       return FromRubyFundamental<unsigned char>::is_convertible(value);
     }
@@ -7219,7 +7364,7 @@ namespace Rice4RubyQt6::detail
   class From_Ruby<unsigned char&>
   {
   public:
-    using Pointer_T = Pointer<unsigned char>;
+    using Reference_T = Reference<unsigned char>;
 
     From_Ruby() = default;
 
@@ -7227,13 +7372,13 @@ namespace Rice4RubyQt6::detail
     {
     }
 
-    Convertible is_convertible(VALUE value)
+    double is_convertible(VALUE value)
     {
       switch (rb_type(value))
       {
         case RUBY_T_DATA:
         {
-          if (Data_Type<Pointer_T>::is_descendant(value))
+          if (Data_Type<Reference_T>::is_descendant(value))
           {
             return Convertible::Exact;
           }
@@ -7252,23 +7397,24 @@ namespace Rice4RubyQt6::detail
       {
         case RUBY_T_DATA:
         {
-          if (Data_Type<Pointer_T>::is_descendant(value))
+          if (Data_Type<Reference_T>::is_descendant(value))
           {
-            return (unsigned char&)*unwrap<Pointer_T>(value, Data_Type<Pointer_T>::ruby_data_type(), false);
+            Reference_T* reference = unwrap<Reference_T>(value, Data_Type<Reference_T>::ruby_data_type(), false);
+            return reference->get();
           }
           [[fallthrough]];
         }
         default:
         {
-          this->converted_ = FromRubyFundamental<unsigned char>::convert(value);
-          return this->converted_;
+          this->reference_ = Reference<unsigned char>(value);
+          return this->reference_.get();
         }
       }
     }
 
   private:
     Arg* arg_ = nullptr;
-    unsigned char converted_ = 0;
+    Reference<unsigned char> reference_;
   };
 
   // ===========  signed char  ============
@@ -7282,7 +7428,7 @@ namespace Rice4RubyQt6::detail
     {
     }
 
-    Convertible is_convertible(VALUE value)
+    double is_convertible(VALUE value)
     {
       return FromRubyFundamental<signed char>::is_convertible(value);
     }
@@ -7300,7 +7446,7 @@ namespace Rice4RubyQt6::detail
   class From_Ruby<signed char&>
   {
   public:
-    using Pointer_T = Pointer<signed char>;
+    using Reference_T = Reference<signed char>;
 
     From_Ruby() = default;
 
@@ -7308,13 +7454,13 @@ namespace Rice4RubyQt6::detail
     {
     }
 
-    Convertible is_convertible(VALUE value)
+    double is_convertible(VALUE value)
     {
       switch (rb_type(value))
       {
         case RUBY_T_DATA:
         {
-          if (Data_Type<Pointer_T>::is_descendant(value))
+          if (Data_Type<Reference_T>::is_descendant(value))
           {
             return Convertible::Exact;
           }
@@ -7333,23 +7479,24 @@ namespace Rice4RubyQt6::detail
       {
         case RUBY_T_DATA:
         {
-          if (Data_Type<Pointer_T>::is_descendant(value))
+          if (Data_Type<Reference_T>::is_descendant(value))
           {
-            return (signed char&)*unwrap<Pointer_T>(value, Data_Type<Pointer_T>::ruby_data_type(), false);
+            Reference_T* reference = unwrap<Reference_T>(value, Data_Type<Reference_T>::ruby_data_type(), false);
+            return reference->get();
           }
           [[fallthrough]];
         }
         default:
         {
-          this->converted_ = FromRubyFundamental<signed char>::convert(value);
-          return this->converted_;
+          this->reference_ = Reference<signed char>(value);
+          return this->reference_.get();
         }
       }
     }
 
   private:
     Arg* arg_ = nullptr;
-    signed char converted_ = 0;
+    Reference<signed char> reference_;
   };
 
   // ===========  double  ============
@@ -7363,7 +7510,7 @@ namespace Rice4RubyQt6::detail
     {
     }
 
-    Convertible is_convertible(VALUE value)
+    double is_convertible(VALUE value)
     {
       return FromRubyFundamental<double>::is_convertible(value);
     }
@@ -7381,7 +7528,7 @@ namespace Rice4RubyQt6::detail
   class From_Ruby<double&>
   {
   public:
-    using Pointer_T = Pointer<double>;
+    using Reference_T = Reference<double>;
 
     From_Ruby() = default;
 
@@ -7389,13 +7536,13 @@ namespace Rice4RubyQt6::detail
     {
     }
 
-    Convertible is_convertible(VALUE value)
+    double is_convertible(VALUE value)
     {
       switch (rb_type(value))
       {
         case RUBY_T_DATA:
         {
-          if (Data_Type<Pointer_T>::is_descendant(value))
+          if (Data_Type<Reference_T>::is_descendant(value))
           {
             return Convertible::Exact;
           }
@@ -7414,23 +7561,24 @@ namespace Rice4RubyQt6::detail
       {
         case RUBY_T_DATA:
         {
-          if (Data_Type<Pointer_T>::is_descendant(value))
+          if (Data_Type<Reference_T>::is_descendant(value))
           {
-            return (double&)*unwrap<Pointer_T>(value, Data_Type<Pointer_T>::ruby_data_type(), false);
+            Reference_T* reference = unwrap<Reference_T>(value, Data_Type<Reference_T>::ruby_data_type(), false);
+            return reference->get();
           }
           [[fallthrough]];
         }
         default:
         {
-          this->converted_ = FromRubyFundamental<double>::convert(value);
-          return this->converted_;
+          this->reference_ = Reference<double>(value);
+          return this->reference_.get();
         }
       }
     }
 
   private:
     Arg* arg_ = nullptr;
-    double converted_;
+    Reference<double> reference_;
   };
 
   // ===========  float  ============
@@ -7444,7 +7592,7 @@ namespace Rice4RubyQt6::detail
     {
     }
 
-    Convertible is_convertible(VALUE value)
+    double is_convertible(VALUE value)
     {
       return FromRubyFundamental<float>::is_convertible(value);
     }
@@ -7462,7 +7610,7 @@ namespace Rice4RubyQt6::detail
   class From_Ruby<float&>
   {
   public:
-    using Pointer_T = Pointer<float>;
+    using Reference_T = Reference<float>;
 
     From_Ruby() = default;
 
@@ -7470,13 +7618,13 @@ namespace Rice4RubyQt6::detail
     {
     }
 
-    Convertible is_convertible(VALUE value)
+    double is_convertible(VALUE value)
     {
       switch (rb_type(value))
       {
         case RUBY_T_DATA:
         {
-          if (Data_Type<Pointer_T>::is_descendant(value))
+          if (Data_Type<Reference_T>::is_descendant(value))
           {
             return Convertible::Exact;
           }
@@ -7495,23 +7643,24 @@ namespace Rice4RubyQt6::detail
       {
         case RUBY_T_DATA:
         {
-          if (Data_Type<Pointer_T>::is_descendant(value))
+          if (Data_Type<Reference_T>::is_descendant(value))
           {
-            return (float&)*unwrap<Pointer_T>(value, Data_Type<Pointer_T>::ruby_data_type(), false);
+            Reference_T* reference = unwrap<Reference_T>(value, Data_Type<Reference_T>::ruby_data_type(), false);
+            return reference->get();
           }
           [[fallthrough]];
         }
         default:
         {
-          this->converted_ = FromRubyFundamental<float>::convert(value);
-          return this->converted_;
+          this->reference_ = Reference<float>(value);
+          return this->reference_.get();
         }
       }
     }
 
   private:
     Arg* arg_ = nullptr;
-    float converted_;
+    Reference<float> reference_;
   };
 
   // ===========  int  ============
@@ -7525,9 +7674,9 @@ namespace Rice4RubyQt6::detail
     {
     }
 
-    Convertible is_convertible(VALUE value)
+    double is_convertible(VALUE value)
     {
-      Convertible result = FromRubyFundamental<int>::is_convertible(value);
+      double result = FromRubyFundamental<int>::is_convertible(value);
 
       // Is this an enum? If so we want to support converting it to an integer
       if (result == Convertible::None && rb_type(value) == RUBY_T_DATA)
@@ -7535,7 +7684,7 @@ namespace Rice4RubyQt6::detail
         static ID id = protect(rb_intern, "to_int");
         if (protect(rb_respond_to, value, id))
         {
-          result = Convertible::Cast;
+          result = Convertible::Exact;
         }
       }
       return result;
@@ -7545,7 +7694,7 @@ namespace Rice4RubyQt6::detail
     {
       return FromRubyFundamental<int>::convert(value);
     }
-  
+
   private:
     Arg* arg_ = nullptr;
   };
@@ -7554,7 +7703,7 @@ namespace Rice4RubyQt6::detail
   class From_Ruby<int&>
   {
   public:
-    using Pointer_T = Pointer<int>;
+    using Reference_T = Reference<int>;
 
     From_Ruby() = default;
 
@@ -7562,13 +7711,13 @@ namespace Rice4RubyQt6::detail
     {
     }
 
-    Convertible is_convertible(VALUE value)
+    double is_convertible(VALUE value)
     {
       switch (rb_type(value))
       {
         case RUBY_T_DATA:
         {
-          if (Data_Type<Pointer_T>::is_descendant(value))
+          if (Data_Type<Reference_T>::is_descendant(value))
           {
             return Convertible::Exact;
           }
@@ -7587,23 +7736,24 @@ namespace Rice4RubyQt6::detail
       {
         case RUBY_T_DATA:
         {
-          if (Data_Type<Pointer_T>::is_descendant(value))
+          if (Data_Type<Reference_T>::is_descendant(value))
           {
-            return (int&)*unwrap<Pointer_T>(value, Data_Type<Pointer_T>::ruby_data_type(), false);
+            Reference_T* reference = unwrap<Reference_T>(value, Data_Type<Reference_T>::ruby_data_type(), false);
+            return reference->get();
           }
           [[fallthrough]];
         }
         default:
         {
-          this->converted_ = FromRubyFundamental<int>::convert(value);
-          return this->converted_;
+          this->reference_ = Reference<int>(value);
+          return this->reference_.get();
         }
       }
     }
 
   private:
     Arg* arg_ = nullptr;
-    int converted_ = 0;
+    Reference<int> reference_;
   };
 
   // ===========  unsigned int  ============
@@ -7617,7 +7767,7 @@ namespace Rice4RubyQt6::detail
     {
     }
 
-    Convertible is_convertible(VALUE value)
+    double is_convertible(VALUE value)
     {
       return FromRubyFundamental<unsigned int>::is_convertible(value);
     }
@@ -7635,7 +7785,7 @@ namespace Rice4RubyQt6::detail
   class From_Ruby<unsigned int&>
   {
   public:
-    using Pointer_T = Pointer<unsigned int>;
+    using Reference_T = Reference<unsigned int>;
 
     From_Ruby() = default;
 
@@ -7643,13 +7793,13 @@ namespace Rice4RubyQt6::detail
     {
     }
 
-    Convertible is_convertible(VALUE value)
+    double is_convertible(VALUE value)
     {
       switch (rb_type(value))
       {
         case RUBY_T_DATA:
         {
-          if (Data_Type<Pointer_T>::is_descendant(value))
+          if (Data_Type<Reference_T>::is_descendant(value))
           {
             return Convertible::Exact;
           }
@@ -7668,23 +7818,24 @@ namespace Rice4RubyQt6::detail
       {
         case RUBY_T_DATA:
         {
-          if (Data_Type<Pointer_T>::is_descendant(value))
+          if (Data_Type<Reference_T>::is_descendant(value))
           {
-            return (unsigned int&)*unwrap<Pointer_T>(value, Data_Type<Pointer_T>::ruby_data_type(), false);
+            Reference_T* reference = unwrap<Reference_T>(value, Data_Type<Reference_T>::ruby_data_type(), false);
+            return reference->get();
           }
           [[fallthrough]];
         }
         default:
         {
-          this->converted_ = FromRubyFundamental<unsigned int>::convert(value);
-          return this->converted_;
+          this->reference_ = Reference<unsigned int>(value);
+          return this->reference_.get();
         }
       }
     }
 
   private:
     Arg* arg_ = nullptr;
-    unsigned int converted_ = 0;
+    Reference<unsigned int> reference_;
   };
 
   // ===========  long  ============
@@ -7698,7 +7849,7 @@ namespace Rice4RubyQt6::detail
     {
     }
 
-    Convertible is_convertible(VALUE value)
+    double is_convertible(VALUE value)
     {
       return FromRubyFundamental<long>::is_convertible(value);
     }
@@ -7716,7 +7867,7 @@ namespace Rice4RubyQt6::detail
   class From_Ruby<long&>
   {
   public:
-    using Pointer_T = Pointer<long>;
+    using Reference_T = Reference<long>;
 
     From_Ruby() = default;
 
@@ -7724,13 +7875,13 @@ namespace Rice4RubyQt6::detail
     {
     }
 
-    Convertible is_convertible(VALUE value)
+    double is_convertible(VALUE value)
     {
       switch (rb_type(value))
       {
         case RUBY_T_DATA:
         {
-          if (Data_Type<Pointer_T>::is_descendant(value))
+          if (Data_Type<Reference_T>::is_descendant(value))
           {
             return Convertible::Exact;
           }
@@ -7749,23 +7900,24 @@ namespace Rice4RubyQt6::detail
       {
         case RUBY_T_DATA:
         {
-          if (Data_Type<Pointer_T>::is_descendant(value))
+          if (Data_Type<Reference_T>::is_descendant(value))
           {
-            return (long&)*unwrap<Pointer_T>(value, Data_Type<Pointer_T>::ruby_data_type(), false);
+            Reference_T* reference = unwrap<Reference_T>(value, Data_Type<Reference_T>::ruby_data_type(), false);
+            return reference->get();
           }
           [[fallthrough]];
         }
         default:
         {
-          this->converted_ = FromRubyFundamental<long>::convert(value);
-          return this->converted_;
+          this->reference_ = Reference<long>(value);
+          return this->reference_.get();
         }
       }
     }
 
   private:
     Arg* arg_ = nullptr;
-    long converted_ = 0;
+    Reference<long> reference_;
   };
 
   // ===========  unsigned long  ============
@@ -7779,7 +7931,7 @@ namespace Rice4RubyQt6::detail
     {
     }
 
-    Convertible is_convertible(VALUE value)
+    double is_convertible(VALUE value)
     {
       return FromRubyFundamental<unsigned long>::is_convertible(value);
     }
@@ -7804,7 +7956,7 @@ namespace Rice4RubyQt6::detail
   class From_Ruby<unsigned long&>
   {
   public:
-    using Pointer_T = Pointer<unsigned long>;
+    using Reference_T = Reference<unsigned long>;
 
     From_Ruby() = default;
 
@@ -7812,13 +7964,13 @@ namespace Rice4RubyQt6::detail
     {
     }
 
-    Convertible is_convertible(VALUE value)
+    double is_convertible(VALUE value)
     {
       switch (rb_type(value))
       {
         case RUBY_T_DATA:
         {
-          if (Data_Type<Pointer_T>::is_descendant(value))
+          if (Data_Type<Reference_T>::is_descendant(value))
           {
             return Convertible::Exact;
           }
@@ -7837,23 +7989,24 @@ namespace Rice4RubyQt6::detail
       {
         case RUBY_T_DATA:
         {
-          if (Data_Type<Pointer_T>::is_descendant(value))
+          if (Data_Type<Reference_T>::is_descendant(value))
           {
-            return (unsigned long&)*unwrap<Pointer_T>(value, Data_Type<Pointer_T>::ruby_data_type(), false);
+            Reference_T* reference = unwrap<Reference_T>(value, Data_Type<Reference_T>::ruby_data_type(), false);
+            return reference->get();
           }
           [[fallthrough]];
         }
         default:
         {
-          this->converted_ = FromRubyFundamental<unsigned long>::convert(value);
-          return this->converted_;
+          this->reference_ = Reference<unsigned long>(value);
+          return this->reference_.get();
         }
       }
     }
 
   private:
     Arg* arg_ = nullptr;
-    unsigned long converted_ = 0;
+    Reference<unsigned long> reference_;
   };
 
   // ===========  unsigned long long  ============
@@ -7867,7 +8020,7 @@ namespace Rice4RubyQt6::detail
     {
     }
 
-    Convertible is_convertible(VALUE value)
+    double is_convertible(VALUE value)
     {
       return FromRubyFundamental<unsigned long long>::is_convertible(value);
     }
@@ -7892,7 +8045,7 @@ namespace Rice4RubyQt6::detail
   class From_Ruby<unsigned long long&>
   {
   public:
-    using Pointer_T = Pointer<unsigned long long>;
+    using Reference_T = Reference<unsigned long long>;
 
     From_Ruby() = default;
 
@@ -7900,13 +8053,13 @@ namespace Rice4RubyQt6::detail
     {
     }
 
-    Convertible is_convertible(VALUE value)
+    double is_convertible(VALUE value)
     {
       switch (rb_type(value))
       {
         case RUBY_T_DATA:
         {
-          if (Data_Type<Pointer_T>::is_descendant(value))
+          if (Data_Type<Reference_T>::is_descendant(value))
           {
             return Convertible::Exact;
           }
@@ -7925,9 +8078,10 @@ namespace Rice4RubyQt6::detail
       {
         case RUBY_T_DATA:
         {
-          if (Data_Type<Pointer_T>::is_descendant(value))
+          if (Data_Type<Reference_T>::is_descendant(value))
           {
-            return (unsigned long long&)*unwrap<Pointer_T>(value, Data_Type<Pointer_T>::ruby_data_type(), false);
+            Reference_T* reference = unwrap<Reference_T>(value, Data_Type<Reference_T>::ruby_data_type(), false);
+            return reference->get();
           }
           [[fallthrough]];
         }
@@ -7943,7 +8097,7 @@ namespace Rice4RubyQt6::detail
     Arg* arg_ = nullptr;
     unsigned long long converted_ = 0;
   };
- 
+
   // ===========  long long  ============
   template<>
   class From_Ruby<long long>
@@ -7955,7 +8109,7 @@ namespace Rice4RubyQt6::detail
     {
     }
 
-    Convertible is_convertible(VALUE value)
+    double is_convertible(VALUE value)
     {
       return FromRubyFundamental<long long>::is_convertible(value);
     }
@@ -7973,7 +8127,7 @@ namespace Rice4RubyQt6::detail
   class From_Ruby<long long&>
   {
   public:
-    using Pointer_T = Pointer<long long>;
+    using Reference_T = Reference<long long>;
 
     From_Ruby() = default;
 
@@ -7981,13 +8135,13 @@ namespace Rice4RubyQt6::detail
     {
     }
 
-    Convertible is_convertible(VALUE value)
+    double is_convertible(VALUE value)
     {
       switch (rb_type(value))
       {
         case RUBY_T_DATA:
         {
-          if (Data_Type<Pointer_T>::is_descendant(value))
+          if (Data_Type<Reference_T>::is_descendant(value))
           {
             return Convertible::Exact;
           }
@@ -8006,23 +8160,24 @@ namespace Rice4RubyQt6::detail
       {
         case RUBY_T_DATA:
         {
-          if (Data_Type<Pointer_T>::is_descendant(value))
+          if (Data_Type<Reference_T>::is_descendant(value))
           {
-            return (long long&)*unwrap<Pointer_T>(value, Data_Type<Pointer_T>::ruby_data_type(), false);
+            Reference_T* reference = unwrap<Reference_T>(value, Data_Type<Reference_T>::ruby_data_type(), false);
+            return reference->get();
           }
           [[fallthrough]];
         }
         default:
         {
-          this->converted_ = FromRubyFundamental<long long>::convert(value);
-          return this->converted_;
+          this->reference_ = Reference<long long>(value);
+          return this->reference_.get();
         }
       }
     }
 
   private:
     Arg* arg_ = nullptr;
-    long long converted_ = 0;
+    Reference<long long> reference_;
   };
 
   // ===========  short  ============
@@ -8036,7 +8191,7 @@ namespace Rice4RubyQt6::detail
     {
     }
 
-    Convertible is_convertible(VALUE value)
+    double is_convertible(VALUE value)
     {
       return FromRubyFundamental<short>::is_convertible(value);
     }
@@ -8054,7 +8209,7 @@ namespace Rice4RubyQt6::detail
   class From_Ruby<short&>
   {
   public:
-    using Pointer_T = Pointer<short>;
+    using Reference_T = Reference<short>;
 
     From_Ruby() = default;
 
@@ -8062,13 +8217,13 @@ namespace Rice4RubyQt6::detail
     {
     }
 
-    Convertible is_convertible(VALUE value)
+    double is_convertible(VALUE value)
     {
       switch (rb_type(value))
       {
         case RUBY_T_DATA:
         {
-          if (Data_Type<Pointer_T>::is_descendant(value))
+          if (Data_Type<Reference_T>::is_descendant(value))
           {
             return Convertible::Exact;
           }
@@ -8087,23 +8242,24 @@ namespace Rice4RubyQt6::detail
       {
         case RUBY_T_DATA:
         {
-          if (Data_Type<Pointer_T>::is_descendant(value))
+          if (Data_Type<Reference_T>::is_descendant(value))
           {
-            return (short&)*unwrap<Pointer_T>(value, Data_Type<Pointer_T>::ruby_data_type(), false);
+            Reference_T* reference = unwrap<Reference_T>(value, Data_Type<Reference_T>::ruby_data_type(), false);
+            return reference->get();
           }
           [[fallthrough]];
         }
         default:
         {
-          this->converted_ = FromRubyFundamental<short>::convert(value);
-          return this->converted_;
+          this->reference_ = Reference<short>(value);
+          return this->reference_.get();
         }
       }
     }
 
   private:
     Arg* arg_ = nullptr;
-    short converted_ = 0;
+    Reference<short> reference_;
   };
 
   // ===========  unsigned short  ============
@@ -8117,7 +8273,7 @@ namespace Rice4RubyQt6::detail
     {
     }
 
-    Convertible is_convertible(VALUE value)
+    double is_convertible(VALUE value)
     {
       return FromRubyFundamental<unsigned short>::is_convertible(value);
     }
@@ -8135,7 +8291,7 @@ namespace Rice4RubyQt6::detail
   class From_Ruby<unsigned short&>
   {
   public:
-    using Pointer_T = Pointer<unsigned short>;
+    using Reference_T = Reference<unsigned short>;
 
     From_Ruby() = default;
 
@@ -8143,13 +8299,13 @@ namespace Rice4RubyQt6::detail
     {
     }
 
-    Convertible is_convertible(VALUE value)
+    double is_convertible(VALUE value)
     {
       switch (rb_type(value))
       {
         case RUBY_T_DATA:
         {
-          if (Data_Type<Pointer_T>::is_descendant(value))
+          if (Data_Type<Reference_T>::is_descendant(value))
           {
             return Convertible::Exact;
           }
@@ -8168,23 +8324,24 @@ namespace Rice4RubyQt6::detail
       {
         case RUBY_T_DATA:
         {
-          if (Data_Type<Pointer_T>::is_descendant(value))
+          if (Data_Type<Reference_T>::is_descendant(value))
           {
-            return (unsigned short&)*unwrap<Pointer_T>(value, Data_Type<Pointer_T>::ruby_data_type(), false);
+            Reference_T* reference = unwrap<Reference_T>(value, Data_Type<Reference_T>::ruby_data_type(), false);
+            return reference->get();
           }
           [[fallthrough]];
         }
         default:
         {
-          this->converted_ = FromRubyFundamental<unsigned short>::convert(value);
-          return this->converted_;
+          this->reference_ = Reference<unsigned short>(value);
+          return this->reference_.get();
         }
       }
     }
 
   private:
     Arg* arg_ = nullptr;
-    unsigned short converted_ = 0;
+    Reference<unsigned short> reference_;
   };
 
   // ===========  std::nullptr_t  ============
@@ -8202,7 +8359,7 @@ namespace Rice4RubyQt6::detail
       }
     }
 
-    Convertible is_convertible(VALUE value)
+    double is_convertible(VALUE value)
     {
       if (this->arg_ && this->arg_->isOpaque())
       {
@@ -8270,7 +8427,7 @@ namespace Rice4RubyQt6::detail
       }
     }
 
-    Convertible is_convertible(VALUE value)
+    double is_convertible(VALUE value)
     {
       switch (rb_type(value))
       {
@@ -8310,7 +8467,7 @@ namespace Rice4RubyQt6::detail
       }
     }
 
-    Convertible is_convertible(VALUE value)
+    double is_convertible(VALUE value)
     {
       if (this->arg_ && this->arg_->isOpaque())
       {
@@ -8321,21 +8478,22 @@ namespace Rice4RubyQt6::detail
       {
         case RUBY_T_DATA:
         {
-          return Convertible::Cast;
-          break;
+          return Convertible::Exact;
         }
         case RUBY_T_STRING:
         {
           if (RB_ENCODING_IS_ASCII8BIT(value))
+          {
             return Convertible::Exact;
+          }
           else
+          {
             return Convertible::None;
-          break;
+          }
         }
         case RUBY_T_NIL:
         {
           return Convertible::Exact;
-          break;
         }
         default:
         {
@@ -8398,6 +8556,104 @@ namespace Rice4RubyQt6::detail
     Arg* arg_ = nullptr;
   };
 }
+// =========   Reference.ipp   =========
+namespace Rice4RubyQt6
+{
+  template<typename T>
+  inline Reference<T>::Reference() : data_{}
+  {
+  }
+
+  template<typename T>
+  inline Reference<T>::Reference(T& data) : data_(data)
+  {
+  }
+
+  template<typename T>
+  inline Reference<T>::Reference(VALUE value) : data_(detail::FromRubyFundamental<T>::convert(value))
+  {
+  }
+
+  template<typename T>
+  inline T& Reference<T>::get()
+  {
+    return data_;
+  }
+
+  // Specialization implementations - only one is compiled per platform
+#if SIZEOF_LONG == SIZEOF_VOIDP
+  // VALUE is unsigned long on Linux/macOS
+  inline Reference<unsigned long>::Reference() : data_{}
+  {
+  }
+
+  inline Reference<unsigned long>::Reference(unsigned long value, bool isValue) :
+    data_(isValue ? detail::FromRubyFundamental<unsigned long>::convert(value) : value)
+  {
+  }
+
+  inline unsigned long& Reference<unsigned long>::get()
+  {
+    return data_;
+  }
+#else
+  // VALUE is unsigned long long on Windows x64
+  inline Reference<unsigned long long>::Reference() : data_{}
+  {
+  }
+
+  inline Reference<unsigned long long>::Reference(unsigned long long value, bool isValue) :
+    data_(isValue ? detail::FromRubyFundamental<unsigned long long>::convert(value) : value)
+  {
+  }
+
+  inline unsigned long long& Reference<unsigned long long>::get()
+  {
+    return data_;
+  }
+#endif
+
+  template<typename T>
+  inline Data_Type<Reference<T>> define_reference(std::string klassName)
+  {
+    using Reference_T = Reference<T>;
+    using Data_Type_T = Data_Type<Reference_T>;
+
+    if (klassName.empty())
+    {
+      detail::TypeMapper<Reference_T> typeMapper;
+      klassName = typeMapper.rubyName();
+    }
+
+    Module rb_mRice = define_module("Rice4RubyQt6");
+
+    if (Data_Type_T::check_defined(klassName, rb_mRice))
+    {
+      return Data_Type_T();
+    }
+
+    Data_Type<Reference<T>> result = define_class_under<Reference_T>(rb_mRice, klassName).
+      define_constructor(Constructor<Reference_T, T>()).
+      define_method("value", &Reference_T::get);
+
+    return result;
+  }
+}
+
+namespace Rice4RubyQt6::detail
+{
+  template<typename T>
+  struct Type<Reference<T>>
+  {
+    static bool verify()
+    {
+      detail::verifyType<T>();
+      define_reference<T>();
+      return true;
+    }
+  };
+}
+
 // =========   Proc.hpp   =========
 
 
@@ -8679,17 +8935,21 @@ namespace Rice4RubyQt6::detail
 {
   inline void NativeRegistry::add(VALUE klass, ID methodId, std::unique_ptr<Native>& native)
   {
-    if (rb_type(klass) == T_ICLASS)
-    {
-      klass = detail::protect(rb_class_of, klass);
-    }
-
-    // Create the key
-    std::pair<VALUE, ID> key = std::make_pair(klass, methodId);
-
     // Lookup items for method
-    std::vector<std::unique_ptr<Native>>& natives = this->natives_[key];
+    std::vector<std::unique_ptr<Native>>& natives = NativeRegistry::lookup(klass, methodId);
 
+    // Add new native
+    natives.push_back(std::move(native));
+  }
+
+  inline void NativeRegistry::replace(VALUE klass, ID methodId, std::unique_ptr<Native>& native)
+  {
+    // Lookup items for method
+    std::vector<std::unique_ptr<Native>>& natives = NativeRegistry::lookup(klass, methodId);
+
+    // Clear existing natives
+    natives.clear();
+    // Add new native
     natives.push_back(std::move(native));
   }
 
@@ -8709,7 +8969,7 @@ namespace Rice4RubyQt6::detail
     }
   }
   
-  inline const std::vector<Native*> NativeRegistry::lookup(VALUE klass)
+  inline std::vector<Native*> NativeRegistry::lookup(VALUE klass)
   {
     std::vector<Native*> result;
 
@@ -8735,7 +8995,7 @@ namespace Rice4RubyQt6::detail
     return result;
   }
 
-  inline const std::vector<std::unique_ptr<Native>>& NativeRegistry::lookup(VALUE klass, ID methodId)
+  inline std::vector<std::unique_ptr<Native>>& NativeRegistry::lookup(VALUE klass, ID methodId)
   {
     if (rb_type(klass) == T_ICLASS)
     {
@@ -8747,6 +9007,35 @@ namespace Rice4RubyQt6::detail
 
     // Lookup items for method
     return this->natives_[key];
+  }
+
+  inline std::vector<Native*> NativeRegistry::lookup(VALUE klass, NativeKind kind)
+  {
+    std::vector<Native*> result;
+
+    if (rb_type(klass) == T_ICLASS)
+    {
+      klass = detail::protect(rb_class_of, klass);
+    }
+
+    for (auto& pair : this->natives_)
+    {
+      const std::pair<VALUE, ID>& key = pair.first;
+
+      if (klass == key.first)
+      {
+        const std::vector<std::unique_ptr<Native>>& natives = pair.second;
+        for (auto& native : natives)
+        {
+          if (native->kind() == kind)
+          {
+            result.push_back(native.get());
+          }
+        }
+      }
+    }
+
+    return result;
   }
 }
 
@@ -8969,6 +9258,10 @@ namespace Rice4RubyQt6::detail
     // Remove equal_to (std::unordered_map)
     std::regex equalRegex(R"(,\s*std::equal_to)");
     removeGroup(base, equalRegex);
+
+    // Remove default_delete (std::unique_ptr)
+    std::regex defaultDeleteRegex(R"(,\s*std::default_delete)");
+    removeGroup(base, defaultDeleteRegex);
 
     // Remove spaces before pointers
     std::regex ptrRegex = std::regex(R"(\s+\*)");
@@ -9294,6 +9587,22 @@ namespace Rice4RubyQt6::detail
 
 namespace Rice4RubyQt6::detail
 {
+  inline void WrapperBase::addKeepAlive(VALUE object, VALUE keepAlive)
+  {
+    WrapperBase* wrapper = getWrapper(object);
+    wrapper->addKeepAlive(keepAlive);
+  }
+
+  inline bool WrapperBase::isConst(VALUE object)
+  {
+    WrapperBase* wrapper = getWrapper(object);
+    return wrapper->isConst();
+  }
+
+  inline WrapperBase::WrapperBase(rb_data_type_t* rb_data_type) : rb_data_type_(rb_data_type)
+  {
+  }
+
   inline bool WrapperBase::isConst()
   {
     return this->isConst_;
@@ -9319,30 +9628,40 @@ namespace Rice4RubyQt6::detail
 
   // ----  Wrapper -----
   template <typename T>
-  inline Wrapper<T>::Wrapper(T& data): data_(data)
+  inline Wrapper<T>::Wrapper(rb_data_type_t* rb_data_type, T& data) : WrapperBase(rb_data_type), data_(data)
   {
+    this->isConst_ = std::is_const_v<std::remove_reference_t<T>>;
   }
 
   template <typename T>
-  inline Wrapper<T>::Wrapper(T&& data) : data_(std::move(data))
+  inline Wrapper<T>::Wrapper(rb_data_type_t* rb_data_type, T&& data) : WrapperBase(rb_data_type), data_(std::move(data))
   {
   }
 
   template <typename T>
   inline Wrapper<T>::~Wrapper()
   {
-    Registries::instance.instances.remove(this->get());
+    Registries::instance.instances.remove(this->get(this->rb_data_type_));
   }
 
   template <typename T>
-  inline void* Wrapper<T>::Wrapper::get()
+  inline void* Wrapper<T>::get(rb_data_type_t* requestedType)
   {
-    return (void*)&this->data_;
+    if (rb_typeddata_inherited_p(this->rb_data_type_, requestedType))
+    {
+      return (void*)&this->data_;
+    }
+    else
+    {
+      throw Exception(rb_eTypeError, "wrong argument type %s (expected %s)",
+                      this->rb_data_type_->wrap_struct_name,
+                      requestedType->wrap_struct_name);
+    }
   }
 
   // ----  Wrapper& -----
   template <typename T>
-  inline Wrapper<T&>::Wrapper(T& data): data_(data)
+  inline Wrapper<T&>::Wrapper(rb_data_type_t* rb_data_type, T& data) : WrapperBase(rb_data_type), data_(data)
   {
     this->isConst_ = std::is_const_v<std::remove_reference_t<T>>;
   }
@@ -9350,18 +9669,27 @@ namespace Rice4RubyQt6::detail
   template <typename T>
   inline Wrapper<T&>::~Wrapper()
   {
-    Registries::instance.instances.remove(this->get());
+    Registries::instance.instances.remove(this->get(this->rb_data_type_));
   }
 
   template <typename T>
-  inline void* Wrapper<T&>::get()
+  inline void* Wrapper<T&>::get(rb_data_type_t* requestedType)
   {
-    return (void*)&this->data_;
+    if (rb_typeddata_inherited_p(this->rb_data_type_, requestedType))
+    {
+      return (void*)&this->data_;
+    }
+    else
+    {
+      throw Exception(rb_eTypeError, "wrong argument type %s (expected %s)",
+                      this->rb_data_type_->wrap_struct_name,
+                      requestedType->wrap_struct_name);
+    }
   }
 
   // ----  Wrapper* -----
   template <typename T>
-  inline Wrapper<T*>::Wrapper(T* data, bool isOwner) : data_(data)
+  inline Wrapper<T*>::Wrapper(rb_data_type_t* rb_data_type, T* data, bool isOwner) : WrapperBase(rb_data_type), data_(data)
   {
     this->isOwner_ = isOwner;
     this->isConst_ = std::is_const_v<std::remove_pointer_t<T>>;
@@ -9370,7 +9698,8 @@ namespace Rice4RubyQt6::detail
   template <typename T>
   inline Wrapper<T*>::~Wrapper()
   {
-    Registries::instance.instances.remove(this->get());
+    Registries::instance.instances.remove(this->get(this->rb_data_type_));
+
     if constexpr (std::is_destructible_v<T>)
     {
       if (this->isOwner_)
@@ -9381,14 +9710,23 @@ namespace Rice4RubyQt6::detail
   }
 
   template <typename T>
-  inline void* Wrapper<T*>::get()
+  inline void* Wrapper<T*>::get(rb_data_type_t* requestedType)
   {
-    return (void*)this->data_;
+    if (rb_typeddata_inherited_p(this->rb_data_type_, requestedType))
+    {
+      return (void*)this->data_;
+    }
+    else
+    {
+      throw Exception(rb_eTypeError, "wrong argument type %s (expected %s)",
+                      this->rb_data_type_->wrap_struct_name,
+                      requestedType->wrap_struct_name);
+    }
   }
 
   // ----  Wrapper** -----
   template <typename T>
-  inline Wrapper<T**>::Wrapper(T** data, bool isOwner) : data_(data)
+  inline Wrapper<T**>::Wrapper(rb_data_type_t* rb_data_type, T** data, bool isOwner) : WrapperBase(rb_data_type), data_(data)
   {
     this->isOwner_ = isOwner;
     this->isConst_ = std::is_const_v<std::remove_pointer_t<std::remove_pointer_t<T>>>;
@@ -9397,7 +9735,8 @@ namespace Rice4RubyQt6::detail
   template <typename T>
   inline Wrapper<T**>::~Wrapper()
   {
-    Registries::instance.instances.remove(this->get());
+    Registries::instance.instances.remove(this->get(this->rb_data_type_));
+
     if constexpr (std::is_destructible_v<T>)
     {
       if (this->isOwner_)
@@ -9408,9 +9747,18 @@ namespace Rice4RubyQt6::detail
   }
 
   template <typename T>
-  inline void* Wrapper<T**>::get()
+  inline void* Wrapper<T**>::get(rb_data_type_t* requestedType)
   {
-    return (void*)this->data_;
+    if (rb_typeddata_inherited_p(this->rb_data_type_, requestedType))
+    {
+      return (void*)this->data_;
+    }
+    else
+    {
+      throw Exception(rb_eTypeError, "wrong argument type %s (expected %s)",
+                      this->rb_data_type_->wrap_struct_name,
+                      requestedType->wrap_struct_name);
+    }
   }
 
   // ---- Helper Functions -------
@@ -9427,7 +9775,7 @@ namespace Rice4RubyQt6::detail
     // If Ruby is not the owner then wrap the reference
     if (!isOwner)
     {
-      wrapper = new Wrapper<T&>(data);
+      wrapper = new Wrapper<T&>(rb_data_type, data);
       result = TypedData_Wrap_Struct(klass, rb_data_type, wrapper);
     }
 
@@ -9436,12 +9784,12 @@ namespace Rice4RubyQt6::detail
     {
       if constexpr (std::is_copy_constructible_v<typename T::value_type>)
       {
-        wrapper = new Wrapper<T>(data);
+        wrapper = new Wrapper<T>(rb_data_type, data);
         result = TypedData_Wrap_Struct(klass, rb_data_type, wrapper);
       }
       else
       {
-        wrapper = new Wrapper<T>(std::move(data));
+        wrapper = new Wrapper<T>(rb_data_type, std::move(data));
         result = TypedData_Wrap_Struct(klass, rb_data_type, wrapper);
       }
     }
@@ -9449,14 +9797,14 @@ namespace Rice4RubyQt6::detail
     // Ruby is the owner so copy data
     else if constexpr (std::is_copy_constructible_v<T>)
     {
-      wrapper = new Wrapper<T>(data);
+      wrapper = new Wrapper<T>(rb_data_type, data);
       result = TypedData_Wrap_Struct(klass, rb_data_type, wrapper);
     }
 
     // Ruby is the owner so move data
     else if constexpr (std::is_move_constructible_v<T>)
     {
-      wrapper = new Wrapper<T>(std::move(data));
+      wrapper = new Wrapper<T>(rb_data_type, std::move(data));
       result = TypedData_Wrap_Struct(klass, rb_data_type, wrapper);
     }
 
@@ -9468,7 +9816,7 @@ namespace Rice4RubyQt6::detail
       throw std::runtime_error(message);
     }
 
-    Registries::instance.instances.add(wrapper->get(), result);
+    Registries::instance.instances.add(wrapper->get(rb_data_type), result);
 
     return result;
   };
@@ -9481,38 +9829,40 @@ namespace Rice4RubyQt6::detail
     if (result != Qnil)
       return result;
 
-    WrapperBase* wrapper = new Wrapper<T*>(data, isOwner);
+    WrapperBase* wrapper = new Wrapper<T*>(rb_data_type, data, isOwner);
     result = TypedData_Wrap_Struct(klass, rb_data_type, wrapper);
 
-    Registries::instance.instances.add(wrapper->get(), result);
+    Registries::instance.instances.add(wrapper->get(rb_data_type), result);
     return result;
   };
 
   template <typename T>
   inline T* unwrap(VALUE value, rb_data_type_t* rb_data_type, bool takeOwnership)
   {
-    if (rb_type(value) != RUBY_T_DATA)
+    if (!RTYPEDDATA_P(value))
     {
       std::string message = "The Ruby object does not wrap a C++ object. It is actually a " +
         std::string(detail::protect(rb_obj_classname, value)) + ".";
       throw std::runtime_error(message);
     }
 
-    WrapperBase* wrapper = getWrapper(value, rb_data_type);
+    WrapperBase* wrapper = static_cast<WrapperBase*>(RTYPEDDATA_DATA(value));
 
     if (wrapper == nullptr)
     {
-      std::string message = "Wrapped C++ object is nil. Did you override " + 
-                            std::string(detail::protect(rb_obj_classname, value)) + 
+      std::string message = "Wrapped C++ object is nil. Did you override " +
+                            std::string(detail::protect(rb_obj_classname, value)) +
                             "#initialize and forget to call super?";
 
       throw std::runtime_error(message);
     }
 
     if (takeOwnership)
+    {
       wrapper->setOwner(false);
+    }
 
-    return static_cast<T*>(wrapper->get());
+    return static_cast<T*>(wrapper->get(rb_data_type));
   }
     
   template <typename Wrapper_T>
@@ -9534,7 +9884,8 @@ namespace Rice4RubyQt6::detail
     if (!RTYPEDDATA_P(value))
     {
       throw Exception(rb_eTypeError, "wrong argument type %s (expected %s)",
-        detail::protect(rb_obj_classname, value), "wrapped C++ object");
+                      detail::protect(rb_obj_classname, value),
+                      "wrapped C++ object");
     }
 
     return static_cast<WrapperBase*>(RTYPEDDATA_DATA(value));
@@ -9545,80 +9896,66 @@ namespace Rice4RubyQt6::detail
   }
 
   template <typename T>
-  inline void wrapConstructed(VALUE value, rb_data_type_t* rb_data_type, T* data)
+  inline Wrapper<T*>* wrapConstructed(VALUE value, rb_data_type_t* rb_data_type, T* data)
   {
     using Wrapper_T = Wrapper<T*>;
-    
+
     Wrapper_T* wrapper = nullptr;
     TypedData_Get_Struct(value, Wrapper_T, rb_data_type, wrapper);
     if (wrapper)
     {
-      Registries::instance.instances.remove(wrapper->get());
+      Registries::instance.instances.remove(wrapper->get(rb_data_type));
       delete wrapper;
     }
 
-    wrapper = new Wrapper_T(data, true);
+    wrapper = new Wrapper_T(rb_data_type, data, true);
     RTYPEDDATA_DATA(value) = wrapper;
 
     Registries::instance.instances.add(data, value);
+
+    return wrapper;
   }
-} // namespace
+}
 
 // =========   Native.ipp   =========
 namespace Rice4RubyQt6::detail
 {
   inline bool Resolved::operator<(Resolved other)
   {
-    if (this->convertible != other.convertible)
-    {
-      return this->convertible < other.convertible;
-    }
-    else
-    {
-      return this->parameterMatch < other.parameterMatch;
-    }
+    return this->score < other.score;
   }
 
   inline bool Resolved::operator>(Resolved other)
   {
-    if (this->convertible != other.convertible)
-    {
-      return this->convertible > other.convertible;
-    }
-    else
-    {
-      return this->parameterMatch > other.parameterMatch;
-    }
+    return this->score > other.score;
   }
 
   inline VALUE Native::resolve(int argc, VALUE* argv, VALUE self)
   {
     /* This method is called from Ruby and is responsible for determining the correct
-       Native object (ie, NativeFunction, NativeIterator, NativeAttributeGet and 
-       NativeAttributeSet) that shoudl be used to invoke the underlying C++ code.
+       Native object (ie, NativeFunction, NativeIterator, NativeAttributeGet and
+       NativeAttributeSet) that should be used to invoke the underlying C++ code.
        Most of the time there will be a single Native object registered for a C++ function,
-       method, constructor, iterator or attribute. However, there can be multiple Natives 
-       when a C++ function/method/construtor is overloaded.
+       method, constructor, iterator or attribute. However, there can be multiple Natives
+       when a C++ function/method/constructor is overloaded.
 
        In that case, the code iterates over each Native and calls its matches method. The matches
-       method returns a Resolved object which includes a Convertible field and parameterMatch field.
-       The Convertible field is an enum that specifies if the types of the values supplied by Ruby
-       match the types of the C++ function parameters. Allowed values include  can be Exact (example Ruby into to C++ int),
-       TypeCast (example Ruby into to C++ float) or None (cannot be converted). 
+       method returns a Resolved object with a numeric score (0.0 to 1.0). The score is computed as:
 
-       The parameterMatch field is simply the number or arguments provided by Ruby divided by the
-       number of arguments required by C++. These numbers can be different because C++ method 
-       parameters can have default values.
+         score = minParameterScore * parameterMatch
 
-       Taking these two values into account, the method sorts the Natives and picks the one with the 
-       highest score (Convertible::Exact and 1.0 for parameterMatch). Thus given these two C++ functions:
+       where minParameterScore is the minimum score across all passed parameters (using precision-based
+       scoring for numeric types), and parameterMatch applies a small penalty (0.99) for each default
+       parameter used. If not enough arguments are provided and missing parameters don't have defaults,
+       the method returns 0 (not viable).
+
+       The method sorts the Natives and picks the one with the highest score. Given these two C++ functions:
 
        void some_method(int a);
-       void some_mtehod(int a, float b = 2.0).
+       void some_method(int a, float b = 2.0);
 
-       A call from ruby of some_method(1) will exactly match both signatures, but the first one 
-       will be chosen because the parameterMatch will be 1.0 for the first overload but 0.5
-       for the second. */
+       A call from ruby of some_method(1) will match both signatures, but the first one
+       will be chosen because parameterMatch = 1.0 for the first overload but 0.99 for the second. */
 
     Native* native = nullptr;
 
@@ -9632,6 +9969,8 @@ namespace Rice4RubyQt6::detail
     // Execute the function but make sure to catch any C++ exceptions!
     return cpp_protect([&]()
     {
+      std::map<std::string, VALUE> values = readRubyArgs(argc, argv);
+
       const std::vector<std::unique_ptr<Native>>& natives = Registries::instance.natives.lookup(klass, methodId);
 
       if (natives.size() == 1)
@@ -9653,7 +9992,7 @@ namespace Rice4RubyQt6::detail
           std::back_inserter(resolves), 
           [&](const std::unique_ptr<Native>& native)
           {
-            return native->matches(argc, argv);
+            return native->matches(values);
           });
 
         // Now sort from best to worst
@@ -9684,7 +10023,7 @@ namespace Rice4RubyQt6::detail
         }*/
 
         // Did it match?
-        if (resolved.convertible != Convertible::None)
+        if (resolved.score > Convertible::None)
         {
           native = resolved.native;
         }
@@ -9713,7 +10052,7 @@ namespace Rice4RubyQt6::detail
       }
 
       // Call the C++ function
-      return (*native)(argc, argv, self);
+      return (*native)(values, self);
     });
   }
 
@@ -9757,16 +10096,14 @@ namespace Rice4RubyQt6::detail
       Arg* arg = parameters_[i]->arg();
       if (arg->isKeepAlive())
       {
-        static WrapperBase* selfWrapper = getWrapper(self);
-        selfWrapper->addKeepAlive(rubyValues[i].value());
+        WrapperBase::addKeepAlive(self, rubyValues[i].value());
       }
     }
 
     // Check return value
     if (this->returnInfo_->isKeepAlive())
     {
-      WrapperBase* returnWrapper = getWrapper(returnValue);
-      returnWrapper->addKeepAlive(self);
+      WrapperBase::addKeepAlive(returnValue, self);
     }
   }
 
@@ -9774,29 +10111,31 @@ namespace Rice4RubyQt6::detail
   template<typename T, bool isBuffer>
   inline void Native::verify_type()
   {
-    using Base_T = std::remove_pointer_t<remove_cv_recursive_t<T>>;
-
     detail::verifyType<T>();
 
-    if constexpr (std::is_pointer_v<T> && std::is_fundamental_v<std::remove_pointer_t<T>>)
+    if constexpr (std::is_pointer_v<T>)
     {
-      Type<Pointer<Base_T>>::verify();
-      Type<Buffer<Base_T>>::verify();
+      using Base_T = std::remove_pointer_t<remove_cv_recursive_t<T>>;
+
+      if constexpr (std::is_fundamental_v<Base_T> || std::is_pointer_v<Base_T> || isBuffer)
+      {
+        Type<Pointer<Base_T>>::verify();
+      }
     }
-    else if constexpr (std::is_pointer_v<Base_T>)
+    else if constexpr (std::is_reference_v<T>)
     {
-      Type<Pointer<Base_T>>::verify();
-      Type<Buffer<Base_T>>::verify();
+      using Base_T = std::remove_reference_t<remove_cv_recursive_t<T>>;
+
+      if constexpr (std::is_fundamental_v<Base_T>)
+      {
+        Type<Reference<Base_T>>::verify();
+      }
     }
     else if constexpr (std::is_array_v<T>)
     {
-      Type<Pointer<std::remove_extent_t<remove_cv_recursive_t<T>>>>::verify();
-      Type<Buffer<std::remove_extent_t<remove_cv_recursive_t<T>>>>::verify();
-    }
-    else if constexpr (isBuffer)
-    {
+      using Base_T = std::remove_extent_t<remove_cv_recursive_t<T>>;
+
       Type<Pointer<Base_T>>::verify();
-      Type<Buffer<Base_T>>::verify();
     }
   }
 
@@ -9857,14 +10196,8 @@ namespace Rice4RubyQt6::detail
     // Fill in missing args
     for (size_t i = argsVector.size(); i < std::tuple_size_v<Parameter_Tuple>; i++)
     {
-      argsVector.emplace_back(std::make_unique<Arg>("arg_" + std::to_string(i)));
-    }
-
-    // TODO - there has to be a better way!
-    for (size_t i = 0; i < argsVector.size(); i++)
-    {
-      std::unique_ptr<Arg>& arg = argsVector[i];
-      arg->position = (int32_t)i;
+      std::string argName = "arg_" + std::to_string(i);
+      argsVector.emplace_back(std::make_unique<Arg>(argName));
     }
 
     auto indices = std::make_index_sequence<std::tuple_size_v<Parameter_Tuple>>{};
@@ -9895,11 +10228,9 @@ namespace Rice4RubyQt6::detail
     return result;
   }
 
-  inline std::vector<std::optional<VALUE>> Native::getRubyValues(size_t argc, const VALUE* argv, bool validate)
+  inline std::map<std::string, VALUE> Native::readRubyArgs(size_t argc, const VALUE* argv)
   {
-#undef max
-    size_t size = std::max(this->parameters_.size(), argc);
-    std::vector<std::optional<VALUE>> result(size);
+    std::map<std::string, VALUE> result;
 
     // Keyword handling
     if (rb_keyword_given_p())
@@ -9907,103 +10238,168 @@ namespace Rice4RubyQt6::detail
       // Keywords are stored in the last element in a hash
       size_t actualArgc = argc - 1;
 
-      VALUE value = argv[actualArgc];
-      Hash keywords(value);
-
       // Copy over leading non-keyword arguments
       for (size_t i = 0; i < actualArgc; i++)
       {
-        result[i] = argv[i];
+        std::string key = "arg_" + std::to_string(i);
+        result[key] = argv[i];
       }
+
+      VALUE value = argv[actualArgc];
+      Hash keywords(value);
 
       // Copy over keyword arguments
       for (auto pair : keywords)
       {
-        Symbol key(pair.first);
-        ParameterAbstract* parameter = this->getParameterByName(key.str());
-        if (!parameter)
-        {
-          throw std::invalid_argument("Unknown keyword: " + key.str());
-        }
-
-        const Arg* arg = parameter->arg();
-
-        result[arg->position] = pair.second.value();
+        result[pair.first.to_s().str()] = pair.second.value();
       }
     }
     else
     {
-      std::copy(argv, argv + argc, result.begin());
-    }
-
-    // Block handling. If we find a block and the last parameter is missing then
-    // set it to the block
-    if (rb_block_given_p() && result.size() > 0 && !result.back().has_value())
-    {
-      VALUE proc = rb_block_proc();
-      result.back() = proc;
-    }
-
-    if (validate)
-    {
-      // Protect against user sending too many arguments
-      if (argc > this->parameters_.size())
+      // Copy over leading non-keyword arguments
+      for (size_t i = 0; i < argc; i++)
       {
-        std::string message = "wrong number of arguments (given " +
-          std::to_string(argc) + ", expected " + std::to_string(this->parameters_.size()) + ")";
-        throw std::invalid_argument(message);
-      }
-
-      for (size_t i = 0; i < result.size(); i++)
-      {
-        std::optional<VALUE> value = result[i];
-        ParameterAbstract* parameter = this->parameters_[i].get();
-
-        if (!parameter->arg()->hasDefaultValue() && !value.has_value())
-        {
-          std::string message;
-          message = "Missing argument. Name: " + parameter->arg()->name + ". Index: " + std::to_string(parameter->arg()->position) + ".";
-          throw std::invalid_argument(message);
-        }
+        std::string key = "arg_" + std::to_string(i);
+        result[key] = argv[i];
       }
     }
 
     return result;
   }
 
-  inline Convertible Native::matchParameters(std::vector<std::optional<VALUE>>& values)
+  inline std::vector<std::optional<VALUE>> Native::getRubyValues(std::map<std::string, VALUE> values, bool validate)
   {
-    Convertible result = Convertible::Exact;
-    for (size_t i = 0; i < this->parameters_.size(); i++)
+    // !!!NOTE!!! We copied the values parameter because we are going to modify it!
+
+    // Protect against user sending too many arguments
+    if (values.size() > this->parameters_.size())
+    {
+      std::string message = "wrong number of arguments (given " +
+        std::to_string(values.size()) + ", expected " + std::to_string(this->parameters_.size()) + ")";
+      throw std::invalid_argument(message);
+    }
+
+    std::vector<std::optional<VALUE>> result(this->parameters_.size());
+
+    for (size_t i=0; i< this->parameters_.size(); i++)
+    {
+      std::unique_ptr<ParameterAbstract>& parameter = this->parameters_[i];
+      Arg* arg = parameter->arg();
+
+      // If using keywords arguments, then the value key will be arg->name(). If using positional 
+      // arguments then they key will be "arg_<position>"
+      std::string keywordKey = arg->name;
+      std::string positionKey = "arg_" + std::to_string(i);
+
+      auto iter = values.find(keywordKey);
+      if (iter == values.end() && keywordKey != positionKey)
+      {
+        iter = values.find(positionKey);
+      }
+
+      if (iter != values.end())
+      {
+        result[i] = iter->second;
+        // Remove the value
+        values.erase(iter);
+      }
+      else if (arg->hasDefaultValue())
+      {
+        result[i] = parameter->defaultValueRuby();
+      }
+      else if (arg->isBlock() && rb_block_given_p())
+      {
+        result[i] = protect(rb_block_proc);
+      }
+      else if (validate)
+      {
+        std::string message = "Missing argument. Name: " + arg->name + ". Index: " + std::to_string(i) + ".";
+        throw std::invalid_argument(message);
+      }
+      else
+      {
+        // No point in continuing - this native is not going to match
+        return result;
+      }
+    }
+
+    // Check for unknown arguments
+    if (validate && values.size() > 0)
+    {
+      // There are unknown arguments
+      std::ostringstream message;
+      message << "Unknown argument(s): ";
+      size_t count = 0;
+      for (const std::pair<const std::string, VALUE>& pair : values)
+      {
+        if (count > 0)
+          message << ", ";
+        message << pair.first;
+        count++;
+      }
+      throw std::invalid_argument(message.str());
+    }
+
+    return result;
+  }
+
+  inline double Native::matchParameters(std::vector<std::optional<VALUE>>& values, size_t argc)
+  {
+    // Only score arguments actually passed (not defaults)
+    double minScore = Convertible::Exact;
+
+    for (size_t i = 0; i < argc && i < this->parameters_.size(); i++)
     {
       ParameterAbstract* parameter = this->parameters_[i].get();
       std::optional<VALUE>& value = values[i];
-      result = result & parameter->matches(value);
+      double score = parameter->matches(value);
+      minScore = (std::min)(minScore, score);
     }
-    return result;
+
+    return minScore;
   }
 
-  inline Resolved Native::matches(size_t argc, const VALUE* argv)
+  inline Resolved Native::matches(std::map<std::string, VALUE>& values)
   {
-    // Return false if Ruby provided more arguments than the C++ method takes
-    if (argc > this->parameters_.size())
-      return Resolved{ Convertible::None, 0, this };
-
-    Resolved result{ Convertible::Exact, 1, this };
-
-    std::vector<std::optional<VALUE>> rubyValues = this->getRubyValues(argc, argv, false);
-    result.convertible = this->matchParameters(rubyValues);
-
-    if (this->parameters_.size() > 0)
+    // Return Convertible::None if Ruby provided more arguments than the C++ method takes
+    if (values.size() > this->parameters_.size())
     {
-      size_t providedValues = std::count_if(rubyValues.begin(), rubyValues.end(), [](std::optional<VALUE>& value)
+      return Resolved{ Convertible::None, this };
+    }
+
+    // Get Ruby values for each parameter and see how they match
+    std::vector<std::optional<VALUE>> rubyValues = this->getRubyValues(values, false);
+    double minScore = this->matchParameters(rubyValues, values.size());
+
+    // If zero score return then stop
+    if (minScore == 0)
+    {
+      return Resolved{ Convertible::None, this };
+    }
+
+    // How many actual values do we have?
+    size_t actualValuesCount = std::count_if(rubyValues.begin(), rubyValues.end(),
+      [](std::optional<VALUE>& optional)
       {
-        return value.has_value();
+        return optional.has_value();
       });
 
-      result.parameterMatch = providedValues / (double)this->parameters_.size();
+    // If we don't have enough parameters return
+    if (actualValuesCount < this->parameters_.size())
+      return Resolved{ Convertible::None, this };
+
+    // Penalize use of default parameters
+    double parameterMatch = Convertible::Exact;
+    size_t defaultParameterCount = actualValuesCount - values.size();
+    for (size_t i = 0; i < defaultParameterCount; i++)
+    {
+      parameterMatch *= 0.99;  // Small penalty per default used
     }
-    return result;
+
+    // Final score: minScore * parameterMatch
+    double finalScore = minScore * parameterMatch;
+
+    return Resolved{ finalScore, this };
   }
 
   inline std::vector<const ParameterAbstract*> Native::parameters()
@@ -10046,16 +10442,16 @@ namespace Rice4RubyQt6::detail
     // matches or calls function pointer. Instead Ruby can call the static call method defined on
     // this class (&NativeAttribute_T::get).
     Identifier identifier(name);
-    detail::Registries::instance.natives.add(klass, identifier.id(), native);
+    detail::Registries::instance.natives.replace(klass, identifier.id(), native);
   }
 
   template<typename Attribute_T>
-  inline Resolved NativeAttributeGet<Attribute_T>::matches(size_t argc, const VALUE*)
+  inline Resolved NativeAttributeGet<Attribute_T>::matches(std::map<std::string, VALUE>& values)
   {
-    if (argc == 0)
-      return Resolved { Convertible::Exact, 1, this };
+    if (values.size() == 0)
+      return Resolved{ Convertible::Exact, this };
     else
-      return Resolved{ Convertible::None, 0, this };
+      return Resolved{ Convertible::None, this };
   }
   
   template<typename Attribute_T>
@@ -10066,7 +10462,7 @@ namespace Rice4RubyQt6::detail
   }
 
   template<typename Attribute_T>
-  inline VALUE NativeAttributeGet<Attribute_T>::operator()(size_t, const VALUE*, VALUE self)
+  inline VALUE NativeAttributeGet<Attribute_T>::operator()(std::map<std::string, VALUE>&, VALUE self)
   {
     if constexpr (std::is_member_object_pointer_v<Attribute_T>)
     {
@@ -10133,7 +10529,7 @@ namespace Rice4RubyQt6::detail
     bool isBuffer = dynamic_cast<ReturnBuffer*>(this->returnInfo_.get()) ? true : false;
     if (isBuffer)
     {
-      TypeMapper<Pointer<Attr_T>> typeMapper;
+      TypeMapper<Pointer<detail::remove_cv_recursive_t<std::remove_pointer_t<Attr_T>>>> typeMapper;
       return typeMapper.rubyKlass();
     }
     else
@@ -10151,67 +10547,85 @@ namespace Rice4RubyQt6::detail
 namespace Rice4RubyQt6::detail
 {
   template<typename Attribute_T>
-  void NativeAttributeSet<Attribute_T>::define(VALUE klass, std::string name, Attribute_T attribute)
+  template<typename...Arg_Ts>
+  void NativeAttributeSet<Attribute_T>::define(VALUE klass, std::string name, Attribute_T attribute, Arg_Ts&...args)
   {
-    // Create a NativeAttributeSet that Ruby will call to read/write C++ variables
-    NativeAttribute_T* nativeAttribute = new NativeAttribute_T(klass, name, std::forward<Attribute_T>(attribute));
+    // Extract Arg from Arg_Ts if present, otherwise create default
+    using Arg_Tuple = std::tuple<Arg_Ts...>;
+    constexpr std::size_t index = tuple_element_index_v<Arg_Tuple, Arg, ArgBuffer>;
+
+    std::unique_ptr<Arg> arg;
+    if constexpr (index < std::tuple_size_v<Arg_Tuple>)
+    {
+      using Arg_T_Local = std::decay_t<std::tuple_element_t<index, Arg_Tuple>>;
+      const Arg_T_Local& argInfo = std::get<index>(std::forward_as_tuple(std::forward<Arg_Ts>(args)...));
+      arg = std::make_unique<Arg_T_Local>(argInfo);
+    }
+    else
+    {
+      arg = std::make_unique<Arg>("value");
+    }
+
+    // Create the parameter
+    auto parameter = std::make_unique<Parameter<T_Unqualified>>(std::move(arg));
+
+    // Create a NativeAttributeSet that Ruby will call to write C++ variables
+    NativeAttribute_T* nativeAttribute = new NativeAttribute_T(klass, name, std::forward<Attribute_T>(attribute), std::move(parameter));
     std::unique_ptr<Native> native(nativeAttribute);
 
     // Define the write method name
     std::string setter = name + "=";
 
-    // Tell Ruby to invoke the static method write to get the attribute value
+    // Tell Ruby to invoke the static method resolve to set the attribute value
     detail::protect(rb_define_method, klass, setter.c_str(), (RUBY_METHOD_FUNC)&Native::resolve, -1);
 
-    // Add to native registry. Since attributes cannot be overridden, there is no need to set the
-    // matches or calls function pointer. Instead Ruby can call the static call method defined on
-    // this class (&NativeAttribute_T::set).
+    // Add to native registry
     Identifier identifier(setter);
-    detail::Registries::instance.natives.add(klass, identifier.id(), native);
+    detail::Registries::instance.natives.replace(klass, identifier.id(), native);
   }
 
   template<typename Attribute_T>
-  NativeAttributeSet<Attribute_T>::NativeAttributeSet(VALUE klass, std::string name, Attribute_T attribute)
-    : Native(name), klass_(klass), attribute_(attribute)
+  NativeAttributeSet<Attribute_T>::NativeAttributeSet(VALUE klass, std::string name, Attribute_T attribute, std::unique_ptr<Parameter<T_Unqualified>> parameter)
+    : Native(name), klass_(klass), attribute_(attribute), parameter_(std::move(parameter))
   {
   }
 
   template<typename Attribute_T>
-  inline Resolved NativeAttributeSet<Attribute_T>::matches(size_t argc, const VALUE*)
+  inline Resolved NativeAttributeSet<Attribute_T>::matches(std::map<std::string, VALUE>& values)
   {
-    if (argc == 1)
-      return Resolved{ Convertible::Exact, 1, this };
+    if (values.size() == 1)
+      return Resolved{ Convertible::Exact, this };
     else
-      return Resolved{ Convertible::None, 0, this };
+      return Resolved{ Convertible::None, this };
   }
 
   template<typename Attribute_T>
-  inline VALUE NativeAttributeSet<Attribute_T>::operator()(size_t argc, const VALUE* argv, VALUE self)
+  inline VALUE NativeAttributeSet<Attribute_T>::operator()(std::map<std::string, VALUE>& values, VALUE self)
   {
-    if (argc != 1)
+    if (values.size() != 1)
     {
       throw std::runtime_error("Incorrect number of parameters for setting attribute. Attribute: " + this->name_);
     }
 
-    VALUE value = argv[0];
+    // Get the Ruby value and convert to native
+    VALUE value = values.begin()->second;
+    std::optional<VALUE> valueOpt(value);
+    T_Unqualified nativeValue = this->parameter_->convertToNative(valueOpt);
 
     if constexpr (!std::is_null_pointer_v<Receiver_T>)
     {
       Receiver_T* nativeSelf = From_Ruby<Receiver_T*>().convert(self);
-
-      // Deal with pointers to pointes, see Parameter::convertToNative commment
-      if constexpr (is_pointer_pointer_v<Attr_T> && !std::is_convertible_v<remove_cv_recursive_t<Attr_T>, Attr_T>)
-      {
-        nativeSelf->*attribute_ = (Attr_T)From_Ruby<T_Unqualified>().convert(value);
-      }
-      else
-      {
-        nativeSelf->*attribute_ = From_Ruby<T_Unqualified>().convert(value);
-      }
+      nativeSelf->*attribute_ = (Attr_T)nativeValue;
     }
     else
     {
-      *attribute_ = From_Ruby<T_Unqualified>().convert(value);
+      *attribute_ = nativeValue;
+    }
+
+    // Check if we need to prevent the value from being garbage collected
+    if (this->parameter_->arg()->isKeepAlive())
+    {
+      WrapperBase::addKeepAlive(self, value);
     }
 
     return value;
@@ -10292,7 +10706,7 @@ namespace Rice4RubyQt6::detail
   public:
     NativeFunction(VALUE klass, std::string method_name, Function_T function, std::unique_ptr<Return>&& returnInfo, std::vector<std::unique_ptr<ParameterAbstract>>&& parameters);
 
-    VALUE operator()(size_t argc, const VALUE* argv, VALUE self) override;
+    VALUE operator()(std::map<std::string, VALUE>& values, VALUE self) override;
     std::string toString() override;
 
     NativeKind kind() override;
@@ -10451,10 +10865,10 @@ namespace Rice4RubyQt6::detail
   }
 
   template<typename Function_T, bool NoGVL>
-  VALUE NativeFunction<Function_T, NoGVL>::operator()(size_t argc, const VALUE* argv, VALUE self)
+  VALUE NativeFunction<Function_T, NoGVL>::operator()(std::map<std::string, VALUE>& values, VALUE self)
   {
     // Get the ruby values and make sure we have the correct number
-    std::vector<std::optional<VALUE>> rubyValues = this->getRubyValues(argc, argv, true);
+    std::vector<std::optional<VALUE>> rubyValues = this->getRubyValues(values, true);
 
     auto indices = std::make_index_sequence<std::tuple_size_v<Parameter_Ts>>{};
 
@@ -10490,7 +10904,7 @@ namespace Rice4RubyQt6::detail
     bool isBuffer = dynamic_cast<ReturnBuffer*>(this->returnInfo_.get()) ? true : false;
     if (isBuffer)
     {
-      TypeMapper<Pointer<Return_T>> typeMapper;
+      TypeMapper<Pointer<detail::remove_cv_recursive_t<std::remove_pointer_t<Return_T>>>> typeMapper;
       return typeMapper.rubyKlass();
     }
     else
@@ -10528,8 +10942,8 @@ namespace Rice4RubyQt6::detail
     void operator=(const NativeIterator_T&) = delete;
     void operator=(NativeIterator_T&&) = delete;
 
-    Resolved matches(size_t argc, const VALUE* argv) override;
-    VALUE operator()(size_t argc, const VALUE* argv, VALUE self) override;
+    Resolved matches(std::map<std::string, VALUE>& values) override;
+    VALUE operator()(std::map<std::string, VALUE>& values, VALUE self) override;
     std::string toString() override;
 
     NativeKind kind() override;
@@ -10578,9 +10992,9 @@ namespace Rice4RubyQt6::detail
   }
 
   template<typename T, typename Iterator_Func_T>
-  inline Resolved NativeIterator<T, Iterator_Func_T>::matches(size_t, const VALUE*)
+  inline Resolved NativeIterator<T, Iterator_Func_T>::matches(std::map<std::string, VALUE>&)
   {
-    return Resolved{ Convertible::Exact, 1.0, this };
+    return Resolved{ Convertible::Exact, this };
   }
 
   template<typename T, typename Iterator_Func_T>
@@ -10624,7 +11038,7 @@ namespace Rice4RubyQt6::detail
   }
 
   template<typename T, typename Iterator_Func_T>
-  inline VALUE NativeIterator<T, Iterator_Func_T>::operator()(size_t, const VALUE*, VALUE self)
+  inline VALUE NativeIterator<T, Iterator_Func_T>::operator()(std::map<std::string, VALUE>&, VALUE self)
   {
     if (!protect(rb_block_given_p))
     {
@@ -10663,8 +11077,18 @@ namespace Rice4RubyQt6::detail
   template<typename T, typename Iterator_Func_T>
   inline VALUE NativeIterator<T, Iterator_Func_T>::returnKlass()
   {
-    TypeMapper<Value_T> typeMapper;
-    return typeMapper.rubyKlass();
+    // Check if an array is being returned
+    bool isBuffer = dynamic_cast<ReturnBuffer*>(this->returnInfo_.get()) ? true : false;
+    if (isBuffer)
+    {
+      TypeMapper<Pointer<detail::remove_cv_recursive_t<std::remove_pointer_t<Value_T>>>> typeMapper;
+      return typeMapper.rubyKlass();
+    }
+    else
+    {
+      TypeMapper<Value_T> typeMapper;
+      return typeMapper.rubyKlass();
+    }
   }
 }
 // =========   NativeMethod.hpp   =========
@@ -10725,7 +11149,7 @@ namespace Rice4RubyQt6::detail
   public:
     NativeMethod(VALUE klass, std::string method_name, Method_T method, std::unique_ptr<Return>&& returnInfo, std::vector<std::unique_ptr<ParameterAbstract>>&& parameters);
 
-    VALUE operator()(size_t argc, const VALUE* argv, VALUE self) override;
+    VALUE operator()(std::map<std::string, VALUE>& values, VALUE self) override;
     std::string toString() override;
 
     NativeKind kind() override;
@@ -10863,30 +11287,33 @@ namespace Rice4RubyQt6::detail
     {
       return self;
     }
-    /* This case happens when a class wrapped by Rice is calling a method
-       defined on an ancestor class. For example, the std::map size method
-       is defined on _Tree not map. Rice needs to know the actual type
-       that was wrapped so it can correctly extract the C++ object from 
-       the Ruby object. */
-    else if constexpr (!std::is_same_v<intrinsic_type<Receiver_T>, Class_T> && 
-                        std::is_base_of_v<intrinsic_type<Receiver_T>, Class_T> &&
-                        std::is_pointer_v<Receiver_T>)
-    {
-      Class_T* instance = From_Ruby<Class_T*>().convert(self);
-      return dynamic_cast<Receiver_T>(instance);
-    }
-    else if constexpr (!std::is_same_v<intrinsic_type<Receiver_T>, Class_T> &&
-                        std::is_base_of_v<intrinsic_type<Receiver_T>, Class_T> &&
-                        std::is_reference_v<Receiver_T>)
-    {
-      Class_T& instance = From_Ruby<Class_T&>().convert(self);
-      return dynamic_cast<Receiver_T>(instance);
-    }
-    // Self parameter could be derived from Object or it is an C++ instance and
-    // needs to be unwrapped from Ruby
     else
     {
-      return From_Ruby<Receiver_T>().convert(self);
+      /* When a class wrapped by Rice calls a method defined on an ancestor class
+         (e.g., std::map calling a method from _Tree), we need to unwrap as Class_T
+         and dynamic_cast to the base class. Otherwise unwrap directly as Receiver_T. */
+      constexpr bool isDerived = !std::is_same_v<intrinsic_type<Receiver_T>, Class_T> &&
+                                  std::is_base_of_v<intrinsic_type<Receiver_T>, Class_T>;
+
+      if constexpr (isDerived)
+      {
+        if constexpr (std::is_pointer_v<Receiver_T>)
+        {
+          Class_T* instance = From_Ruby<Class_T*>().convert(self);
+          return dynamic_cast<Receiver_T>(instance);
+        }
+        else if constexpr (std::is_reference_v<Receiver_T>)
+        {
+          Class_T& instance = From_Ruby<Class_T&>().convert(self);
+          return dynamic_cast<Receiver_T>(instance);
+        }
+      }
+      else
+      {
+        // Note GCC has a false warning: function may return address of local variable [-Wreturn-local-addr].
+        // From_Ruby returns a reference to data in the Ruby object, not the temporary.
+        return From_Ruby<Receiver_T>().convert(self);
+      }
     }
   }
 
@@ -10979,10 +11406,10 @@ namespace Rice4RubyQt6::detail
   }
 
   template<typename Class_T, typename Method_T, bool NoGVL>
-  VALUE NativeMethod<Class_T, Method_T, NoGVL>::operator()(size_t argc, const VALUE* argv, VALUE self)
+  VALUE NativeMethod<Class_T, Method_T, NoGVL>::operator()(std::map<std::string, VALUE>& values, VALUE self)
   {
     // Get the ruby values and make sure we have the correct number
-    std::vector<std::optional<VALUE>> rubyValues = this->getRubyValues(argc, argv, true);
+    std::vector<std::optional<VALUE>> rubyValues = this->getRubyValues(values, true);
     auto indices = std::make_index_sequence<std::tuple_size_v<Parameter_Ts>>{};
     Apply_Args_T nativeArgs = this->getNativeValues(self, rubyValues, indices);
 
@@ -11016,7 +11443,7 @@ namespace Rice4RubyQt6::detail
     bool isBuffer = dynamic_cast<ReturnBuffer*>(this->returnInfo_.get()) ? true : false;
     if (isBuffer)
     {
-      TypeMapper<Pointer<Return_T>> typeMapper;
+      TypeMapper<Pointer<detail::remove_cv_recursive_t<std::remove_pointer_t<Return_T>>>> typeMapper;
       return typeMapper.rubyKlass();
     }
     else
@@ -11052,7 +11479,7 @@ namespace Rice4RubyQt6::detail
  
   public:
     NativeProc(Proc_T proc, std::unique_ptr<Return>&& returnInfo, std::vector<std::unique_ptr<ParameterAbstract>>&& parameters);
-    VALUE operator()(size_t argc, const VALUE* argv, VALUE self) override;
+    VALUE operator()(std::map<std::string, VALUE>& values, VALUE self) override;
     std::string toString() override;
     
     NativeKind kind() override;
@@ -11117,8 +11544,9 @@ namespace Rice4RubyQt6::detail
   {
     return cpp_protect([&]
     {
+      std::map<std::string, VALUE> values = readRubyArgs(argc, argv);
       NativeProc_T * native = (NativeProc_T*)callback_arg;
-      return (*native)(argc, argv, Qnil);
+      return (*native)(values, Qnil);
     });
   }
 
@@ -11180,10 +11608,10 @@ namespace Rice4RubyQt6::detail
   }
 
   template<typename Proc_T>
-  VALUE NativeProc<Proc_T>::operator()(size_t argc, const VALUE* argv, VALUE)
+  VALUE NativeProc<Proc_T>::operator()(std::map<std::string, VALUE>& values, VALUE)
   {
     // Get the ruby values and make sure we have the correct number
-    std::vector<std::optional<VALUE>> rubyValues = this->getRubyValues(argc, argv, true);
+    std::vector<std::optional<VALUE>> rubyValues = this->getRubyValues(values, true);
 
     auto indices = std::make_index_sequence<std::tuple_size_v<Parameter_Ts>>{};
 
@@ -11205,8 +11633,18 @@ namespace Rice4RubyQt6::detail
   template<typename Proc_T>
   inline VALUE NativeProc<Proc_T>::returnKlass()
   {
-    TypeMapper<Return_T> typeMapper;
-    return typeMapper.rubyKlass();
+    // Check if an array is being returned
+    bool isBuffer = dynamic_cast<ReturnBuffer*>(this->returnInfo_.get()) ? true : false;
+    if (isBuffer)
+    {
+      TypeMapper<Pointer<detail::remove_cv_recursive_t<std::remove_pointer_t<Return_T>>>> typeMapper;
+      return typeMapper.rubyKlass();
+    }
+    else
+    {
+      TypeMapper<Return_T> typeMapper;
+      return typeMapper.rubyKlass();
+    }
   }
 }
 // =========   NativeCallback.hpp   =========
@@ -11261,7 +11699,7 @@ namespace Rice4RubyQt6::detail
     static inline NativeCallback_T* native_;
 
   private:
-    VALUE operator()(size_t argc, const VALUE* argv, VALUE self) override;
+    VALUE operator()(std::map<std::string, VALUE>& values, VALUE self) override;
     std::string toString() override;
     NativeKind kind() override;
     VALUE returnKlass() override;
@@ -11531,7 +11969,7 @@ namespace Rice4RubyQt6::detail
   }
 
   template<typename Return_T, typename ...Parameter_Ts>
-  inline VALUE NativeCallback<Return_T(*)(Parameter_Ts...)>::operator()(size_t, const VALUE*, VALUE)
+  inline VALUE NativeCallback<Return_T(*)(Parameter_Ts...)>::operator()(std::map<std::string, VALUE>&, VALUE)
   {
     return Qnil;
   }
@@ -11549,11 +11987,21 @@ namespace Rice4RubyQt6::detail
     return NativeKind::Callback;
   }
 
-  //VALUE returnKlass() override;
   template<typename Return_T, typename ...Parameter_Ts>
   inline VALUE NativeCallback<Return_T(*)(Parameter_Ts...)>::returnKlass()
   {
-    return Qnil;
+    // Check if an array is being returned
+    bool isBuffer = dynamic_cast<ReturnBuffer*>(this->returnInfo_.get()) ? true : false;
+    if (isBuffer)
+    {
+      TypeMapper<Pointer<detail::remove_cv_recursive_t<std::remove_pointer_t<Return_T>>>> typeMapper;
+      return typeMapper.rubyKlass();
+    }
+    else
+    {
+      TypeMapper<Return_T> typeMapper;
+      return typeMapper.rubyKlass();
+    }
   }
 }
 
@@ -11607,7 +12055,7 @@ namespace Rice4RubyQt6::detail
     {
     }
 
-    Convertible is_convertible(VALUE value)
+    double is_convertible(VALUE value)
     {
       if (protect(rb_obj_is_proc, value) == Qtrue || protect(rb_proc_lambda_p, value) == Qtrue)
       {
@@ -11795,6 +12243,11 @@ namespace Rice4RubyQt6
     return RB_TEST(result);
   }
 
+  inline void Object::extend(Module const& mod)
+  {
+    detail::protect(rb_extend_object, this->value(), mod.value());
+  }
+
   inline bool Object::respond_to(Identifier id) const
   {
     return bool(rb_respond_to(this->value(), id.id()));
@@ -11940,7 +12393,7 @@ namespace Rice4RubyQt6::detail
     {
     }
 
-    Convertible is_convertible(VALUE value)
+    double is_convertible(VALUE value)
     {
       switch (rb_type(value))
       {
@@ -12124,7 +12577,7 @@ namespace Rice4RubyQt6::detail
     {
     }
 
-    Convertible is_convertible(VALUE value)
+    double is_convertible(VALUE value)
     {
       switch (rb_type(value))
       {
@@ -12567,7 +13020,7 @@ namespace Rice4RubyQt6::detail
     {
     }
 
-    Convertible is_convertible(VALUE value)
+    double is_convertible(VALUE value)
     {
       switch (rb_type(value))
       {
@@ -12849,7 +13302,7 @@ namespace Rice4RubyQt6::detail
     {
     }
 
-    Convertible is_convertible(VALUE value)
+    double is_convertible(VALUE value)
     {
       switch (rb_type(value))
       {
@@ -12984,15 +13437,15 @@ namespace Rice4RubyQt6::detail
     {
     }
 
-    Convertible is_convertible(VALUE value)
+    double is_convertible(VALUE value)
     {
       switch (rb_type(value))
       {
         case RUBY_T_SYMBOL:
           return Convertible::Exact;
           break;
-      case RUBY_T_STRING:
-          return Convertible::Cast;
+        case RUBY_T_STRING:
+          return Convertible::Exact;
           break;
         default:
           return Convertible::None;
@@ -13187,6 +13640,11 @@ namespace Rice4RubyQt6
     auto regex = std::regex("^.*::");
     std::string result = std::regex_replace(name, regex, "");
     return result;
+  }
+
+  inline Class Class::superclass() const
+  {
+    return detail::protect(rb_class_superclass, this->value());
   }
 
   inline Class define_class_under(Object parent, Identifier id, const Class& superclass)
@@ -13743,17 +14201,22 @@ namespace Rice4RubyQt6
   template<typename T>
   inline void ruby_mark_internal(detail::WrapperBase* wrapper)
   {
-    // Tell the wrapper to mark the objects its keeping alive
-    wrapper->ruby_mark();
+    detail::cpp_protect([&]
+    {
+      // Tell the wrapper to mark the objects its keeping alive
+      wrapper->ruby_mark();
 
-    // Get the underlying data and call custom mark function (if any)
-    T* data = static_cast<T*>(wrapper->get());
-    ruby_mark<T>(data);
+      // Get the underlying data and call custom mark function (if any)
+      // Use the wrapper's stored rb_data_type to avoid type mismatch
+      T* data = static_cast<T*>(wrapper->get(Data_Type<T>::ruby_data_type()));
+      ruby_mark<T>(data);
+    });
   }
 
   template<typename T>
   inline void ruby_free_internal(detail::WrapperBase* wrapper)
   {
+    // Destructors are noexcept so we cannot use cpp_protect here
     delete wrapper;
   }
 
@@ -14118,7 +14581,7 @@ namespace Rice4RubyQt6
       }
       else
       {
-        detail::NativeAttributeSet<Attribute_T>::define(klass, name, std::forward<Attribute_T>(attribute));
+        detail::NativeAttributeSet<Attribute_T>::define(klass, name, std::forward<Attribute_T>(attribute), args...);
       }
     }
 
@@ -14617,7 +15080,7 @@ namespace Rice4RubyQt6::detail
     {
     }
     
-    Convertible is_convertible(VALUE value)
+    double is_convertible(VALUE value)
     {
       switch (rb_type(value))
       {
@@ -14668,7 +15131,7 @@ namespace Rice4RubyQt6::detail
     {
     }
 
-    Convertible is_convertible(VALUE value)
+    double is_convertible(VALUE value)
     {
       switch (rb_type(value))
       {
@@ -14711,7 +15174,7 @@ namespace Rice4RubyQt6::detail
     {
     }
 
-    Convertible is_convertible(VALUE value)
+    double is_convertible(VALUE value)
     {
       switch (rb_type(value))
       {
@@ -14757,7 +15220,7 @@ namespace Rice4RubyQt6::detail
     {
     }
 
-    Convertible is_convertible(VALUE value)
+    double is_convertible(VALUE value)
     {
       bool isBuffer = dynamic_cast<ArgBuffer*>(this->arg_) ? true : false;
 
@@ -14840,7 +15303,7 @@ namespace Rice4RubyQt6::detail
     {
     }
 
-    Convertible is_convertible(VALUE value)
+    double is_convertible(VALUE value)
     {
       switch (rb_type(value))
       {
@@ -14889,7 +15352,7 @@ namespace Rice4RubyQt6::detail
     {
     }
 
-    Convertible is_convertible(VALUE value)
+    double is_convertible(VALUE value)
     {
       bool isBuffer = dynamic_cast<ArgBuffer*>(this->arg_) ? true : false;
 
@@ -14963,7 +15426,7 @@ namespace Rice4RubyQt6::detail
                   "Please include rice/stl.hpp header for STL support");
 
   public:
-    Convertible is_convertible(VALUE value)
+    double is_convertible(VALUE value)
     {
       switch (rb_type(value))
       {
@@ -15337,6 +15800,86 @@ namespace Rice4RubyQt6
     return detail::protect(rb_mod_module_eval, 1, &argv[0], this->value());
   }
 }
+
+// Dependent on Module, Array, Symbol - used by stl smart pointers
+
+// =========   Forwards.hpp   =========
+
+namespace Rice4RubyQt6::detail
+{
+  // Setup method forwarding from a wrapper class to its wrapped type using Ruby's Forwardable.
+  // This allows calling methods on the wrapper that get delegated to the wrapped object via
+  // a "get" method that returns the wrapped object.
+  //
+  // Parameters:
+  //   wrapper_klass - The Ruby class to add forwarding to (e.g., SharedPtr_MyClass)
+  //   wrapped_klass - The Ruby class whose methods should be forwarded (e.g., MyClass)
+  void define_forwarding(VALUE wrapper_klass, VALUE wrapped_klass);
+}
+
+
+// ---------   Forwards.ipp   ---------
+namespace Rice4RubyQt6::detail
+{
+  inline void define_forwarding(VALUE wrapper_klass, VALUE wrapped_klass)
+  {
+    protect(rb_require, "forwardable");
+    Object forwardable = Object(rb_cObject).const_get("Forwardable");
+    Object(wrapper_klass).extend(forwardable.value());
+
+    // Get wrapper class's method names to avoid conflicts
+    std::set<std::string> wrapperMethodSet;
+    for (Native* native : Registries::instance.natives.lookup(wrapper_klass, NativeKind::Method))
+    {
+      wrapperMethodSet.insert(native->name());
+    }
+    for (Native* native : Registries::instance.natives.lookup(wrapper_klass, NativeKind::AttributeReader))
+    {
+      wrapperMethodSet.insert(native->name());
+    }
+    for (Native* native : Registries::instance.natives.lookup(wrapper_klass, NativeKind::AttributeWriter))
+    {
+      wrapperMethodSet.insert(native->name() + "=");
+    }
+
+    // Get wrapped class's method names from the registry, including ancestor classes
+    std::set<std::string> wrappedMethodSet;
+    Class klass(wrapped_klass);
+    while (klass.value() != rb_cObject && klass.value() != Qnil)
+    {
+      for (Native* native : Registries::instance.natives.lookup(klass.value(), NativeKind::Method))
+      {
+        wrappedMethodSet.insert(native->name());
+      }
+      for (Native* native : Registries::instance.natives.lookup(klass.value(), NativeKind::AttributeReader))
+      {
+        wrappedMethodSet.insert(native->name());
+      }
+      for (Native* native : Registries::instance.natives.lookup(klass.value(), NativeKind::AttributeWriter))
+      {
+        wrappedMethodSet.insert(native->name() + "=");
+      }
+
+      klass = klass.superclass();
+    }
+
+    // Build the arguments array for def_delegators: [:get, :method1, :method2, ...]
+    // Skip methods that are already defined on the wrapper class
+    Array args;
+    args.push(Symbol("get"));
+    for (const std::string& method : wrappedMethodSet)
+    {
+      if (wrapperMethodSet.find(method) == wrapperMethodSet.end())
+      {
+        args.push(Symbol(method));
+      }
+    }
+
+    // Call def_delegators(*args)
+    Object(wrapper_klass).vcall("def_delegators", args);
+  }
+}
+
 
 // For now include libc support - maybe should be separate header file someday
 

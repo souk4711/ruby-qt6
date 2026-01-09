@@ -79,7 +79,20 @@ inline void Init_Native_Registry()
       }
 
       return result;
-    }, Arg("klass").setValue());
+    }, Arg("klass").setValue()).
+
+    define_method("lookup_by_kind", [](detail::NativeRegistry& self, VALUE klass, detail::NativeKind kind) -> Array
+    {
+      Array result;
+
+      const std::vector<detail::Native*> natives = self.lookup(klass, kind);
+      for (detail::Native* native : natives)
+      {
+        result.push(native, false);
+      }
+
+      return result;
+    }, Arg("klass").setValue(), Arg("kind"));
 }
 
 // =========   TypeRegistry.hpp   =========
@@ -223,6 +236,9 @@ inline void Init_Native()
             break;
           case detail::NativeKind::Proc:
             stream << "Proc";
+            break;
+          case detail::NativeKind::Callback:
+            stream << "Callback";
             break;
         }
 
