@@ -54,7 +54,7 @@ class MyWidget < RubyQt6::Bando::QWidget
 end
 
 if __FILE__ == $PROGRAM_NAME
-  app = QApplication.new
+  app = QApplication.new(ARGV)
   widget = MyWidget.new
   widget.quit_clicked.connect(app, :quit)
   widget.show
