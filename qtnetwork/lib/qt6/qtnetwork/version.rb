@@ -2,6 +2,6 @@
 
 module RubyQt6
   module QtNetwork
-    QTNETWORK_RUBYGEM_VERSION = "1.0.1"
+    QTNETWORK_RUBYGEM_VERSION = "2.0.0"
   end
 end

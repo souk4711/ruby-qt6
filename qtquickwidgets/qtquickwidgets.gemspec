@@ -31,12 +31,12 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
   spec.extensions = ["ext/qt6/qtquickwidgets/extconf.rb"]
 
-  spec.add_runtime_dependency("ruby-qt6-rice", "= 1.0.1")
-  spec.add_runtime_dependency("ruby-qt6-qtcore", "~> 1.0.0")
-  spec.add_runtime_dependency("ruby-qt6-qtgui", "~> 1.0.0")
-  spec.add_runtime_dependency("ruby-qt6-qtwidgets", "~> 1.0.0")
-  spec.add_runtime_dependency("ruby-qt6-qtqml", "~> 1.0.0")
-  spec.add_runtime_dependency("ruby-qt6-qtquick", "~> 1.0.0")
+  spec.add_runtime_dependency("ruby-qt6-rice", "= 2.0.0")
+  spec.add_runtime_dependency("ruby-qt6-qtcore", "~> 2.0.0")
+  spec.add_runtime_dependency("ruby-qt6-qtgui", "~> 2.0.0")
+  spec.add_runtime_dependency("ruby-qt6-qtwidgets", "~> 2.0.0")
+  spec.add_runtime_dependency("ruby-qt6-qtqml", "~> 2.0.0")
+  spec.add_runtime_dependency("ruby-qt6-qtquick", "~> 2.0.0")
 
   # For more information and examples about making a new gem, check out our
   # guide at: https://bundler.io/guides/creating_gem.html
