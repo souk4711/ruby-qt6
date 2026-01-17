@@ -61,6 +61,12 @@ module RubyQt6
       end
 
       # @!visibility private
+      def to_string(options = nil)
+        options ||= QtCore::QUrl::ComponentFormattingOption::PrettyDecoded
+        _to_string(options.to_i)
+      end
+
+      # @!visibility private
       def to_s
         to_string.to_s
       end
