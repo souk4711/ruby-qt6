@@ -15,6 +15,8 @@
 #include "qwebenginepage-rb.hpp"
 #include "qwebengineprofile-rb.hpp"
 
+#include "t-qtwebenginecore-rb.hpp"
+
 #include "bando-qwebenginepage-rb.hpp"
 
 RICE4RUBYQT6_USE_NAMESPACE
@@ -40,6 +42,9 @@ extern "C" void Init_qtwebenginecore()
         Init_qwebenginenotification(rb_mQt6QtWebEngineCore);
         Init_qwebenginepage(rb_mQt6QtWebEngineCore);
         Init_qwebengineprofile(rb_mQt6QtWebEngineCore);
+
+        Module rb_mQt6T = define_module_under(rb_mQt6, "T");
+        Init_t_qtwebenginecore(rb_mQt6T);
 
         Module rb_mQt6Bando = define_module_under(rb_mQt6, "Bando");
         Init_bando_qwebenginepage(rb_mQt6Bando);

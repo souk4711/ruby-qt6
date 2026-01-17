@@ -23,7 +23,7 @@ struct QWebEngineNotificationFunctor {
 
     void operator()(std::unique_ptr<QWebEngineNotification> notification) {
         Q_ASSERT(this->value_.rb_type() != RUBY_T_NONE);
-        this->value_.call("call", Object(detail::to_ruby(notification)));
+        this->value_.call("call", Object(detail::to_ruby(std::move(notification))));
     };
 };
 

@@ -12,5 +12,9 @@ module RubyQt6
         slot "show()"
       end
     end
+
+    rubyqt6_declare_std_unique_ptr(
+      ::Rice4RubyQt6::Std::UniquePtr≺QWebEngineNotification≻, delegators: [:closed]
+    )
   end
 end
