@@ -66,6 +66,16 @@ module RubyQt6
       end
 
       # @!visibility private
+      def menu
+        QtWidgets::QMenu._ioc_action_menu(self)
+      end
+
+      # @!visibility private
+      def set_menu(menu)
+        QtWidgets::QMenu._ioc_action_set_menu(self, menu)
+      end
+
+      # @!visibility private
       def set_shortcut(shortcut)
         _set_shortcut(T.to_qkeysequence(shortcut))
       end
