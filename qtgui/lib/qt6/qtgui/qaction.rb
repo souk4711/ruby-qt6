@@ -76,6 +76,11 @@ module RubyQt6
       end
 
       # @!visibility private
+      def set_text(text)
+        _set_text(T.to_qstr(text))
+      end
+
+      # @!visibility private
       def set_shortcut(shortcut)
         _set_shortcut(T.to_qkeysequence(shortcut))
       end
