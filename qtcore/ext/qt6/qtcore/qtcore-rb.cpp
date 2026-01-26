@@ -44,6 +44,7 @@
 #include "qobject-rb.hpp"
 #include "qabstractitemmodel-rb.hpp"
 #include "qcoreapplication-rb.hpp"
+#include "qeventloop-rb.hpp"
 #include "qiodevice-rb.hpp"
 #include "qfiledevice-rb.hpp"
 #include "qfile-rb.hpp"
@@ -117,6 +118,7 @@ extern "C" void Init_qtcore()
         Init_qobject(rb_mQt6QtCore);
         Init_qabstractitemmodel(rb_mQt6QtCore);
         Init_qcoreapplication(rb_mQt6QtCore);
+        Init_qeventloop(rb_mQt6QtCore);
         Init_qiodevice(rb_mQt6QtCore);
         Init_qfiledevice(rb_mQt6QtCore);
         Init_qfile(rb_mQt6QtCore);
