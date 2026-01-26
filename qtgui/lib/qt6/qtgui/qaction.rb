@@ -67,12 +67,12 @@ module RubyQt6
 
       # @!visibility private
       def menu
-        QtWidgets::QMenu._ioc_action_menu(self)
+        QtWidgets::QMenu._ioc_qaction_menu(self)
       end
 
       # @!visibility private
       def set_menu(menu)
-        QtWidgets::QMenu._ioc_action_set_menu(self, menu)
+        QtWidgets::QMenu._ioc_qaction_set_menu(self, menu)
       end
 
       # @!visibility private
