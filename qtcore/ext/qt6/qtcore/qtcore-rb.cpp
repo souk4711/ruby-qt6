@@ -39,6 +39,7 @@
 #include "qstandardpaths-rb.hpp"
 #include "qtextstream-rb.hpp"
 #include "qurl-rb.hpp"
+#include "qurlquery-rb.hpp"
 #include "quuid-rb.hpp"
 #include "qvariant-rb.hpp"
 
@@ -115,6 +116,7 @@ extern "C" void Init_qtcore()
         Init_qstandardpaths(rb_mQt6QtCore);
         Init_qtextstream(rb_mQt6QtCore);
         Init_qurl(rb_mQt6QtCore);
+        Init_qurlquery(rb_mQt6QtCore);
         Init_quuid(rb_mQt6QtCore);
         Init_qvariant(rb_mQt6QtCore);
 

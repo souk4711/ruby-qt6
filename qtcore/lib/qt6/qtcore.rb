@@ -67,6 +67,7 @@ require_relative "qtcore/qsizef"
 require_relative "qtcore/qstandardpaths"
 require_relative "qtcore/qtextstream"
 require_relative "qtcore/qurl"
+require_relative "qtcore/qurlquery"
 require_relative "qtcore/quuid"
 require_relative "qtcore/qvariant"
 

@@ -31,6 +31,11 @@ module RubyQt6
       def initialize(*args)
         _initialize(*args)
       end
+
+      # @!visibility private
+      def set_raw_header(header_name, value)
+        _set_raw_header(T.to_qbytearray(header_name), T.to_qbytearray(value))
+      end
     end
   end
 end
