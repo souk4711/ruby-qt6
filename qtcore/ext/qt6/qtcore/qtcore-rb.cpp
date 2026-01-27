@@ -31,6 +31,7 @@
 #include "qmimetype-rb.hpp"
 #include "qmodelindex-rb.hpp"
 #include "qpoint-rb.hpp"
+#include "qprocessenvironment-rb.hpp"
 #include "qrect-rb.hpp"
 #include "qregularexpression-rb.hpp"
 #include "qresource-rb.hpp"
@@ -48,6 +49,7 @@
 #include "qiodevice-rb.hpp"
 #include "qfiledevice-rb.hpp"
 #include "qfile-rb.hpp"
+#include "qprocess-rb.hpp"
 #include "qitemselectionmodel-rb.hpp"
 #include "qsettings-rb.hpp"
 #include "qsignalmapper-rb.hpp"
@@ -105,6 +107,7 @@ extern "C" void Init_qtcore()
         Init_qmimetype(rb_mQt6QtCore);
         Init_qmodelindex(rb_mQt6QtCore);
         Init_qpoint(rb_mQt6QtCore);
+        Init_qprocessenvironment(rb_mQt6QtCore);
         Init_qrect(rb_mQt6QtCore);
         Init_qregularexpression(rb_mQt6QtCore);
         Init_qresource(rb_mQt6QtCore);
@@ -122,6 +125,7 @@ extern "C" void Init_qtcore()
         Init_qiodevice(rb_mQt6QtCore);
         Init_qfiledevice(rb_mQt6QtCore);
         Init_qfile(rb_mQt6QtCore);
+        Init_qprocess(rb_mQt6QtCore);
         Init_qitemselectionmodel(rb_mQt6QtCore);
         Init_qsettings(rb_mQt6QtCore);
         Init_qsignalmapper(rb_mQt6QtCore);
