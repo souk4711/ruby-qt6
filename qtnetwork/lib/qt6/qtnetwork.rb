@@ -9,3 +9,7 @@ require_relative "qtnetwork/qtnetworkversion"
 require_relative "qtnetwork/qnetworkproxy"
 require_relative "qtnetwork/qnetworkproxyquery"
 require_relative "qtnetwork/qnetworkproxyfactory"
+require_relative "qtnetwork/qnetworkrequest"
+
+require_relative "qtnetwork/qnetworkaccessmanager"
+require_relative "qtnetwork/qnetworkreply"
