@@ -51,7 +51,7 @@ namespace :bindgen do
       submod = m[1]
       copied = "#{submod.downcase}/ext/qt6/#{submod.downcase}/#{m[2]}"
       sh("cp #{file} #{copied}")
-      sh("sed -i 's/Init_Q#{name.downcase[1..]}(/Init_#{name.downcase}(Rice::Module rb_mQt6#{submod}/' #{copied}")
+      sh("sed -i 's/Init_Q#{name.downcase[1..]}(/Init_#{name.downcase}(Module rb_mQt6#{submod}/' #{copied}")
       sh("sed -i 's/define_class<#{name}\\(.*\\)>(/define_class_under<#{name}\\1>(rb_mQt6#{submod}, /' #{copied}")
     end
   end

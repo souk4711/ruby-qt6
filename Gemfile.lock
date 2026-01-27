@@ -7,7 +7,7 @@ GIT
 
 GIT
   remote: https://github.com/souk4711/ruby-bindgen
-  revision: 1e415b9dd3669ed1f15a358f1942604e0c899017
+  revision: bb65ead2cea8eaf519309a500cc0cb06b39bbf9c
   specs:
     ruby-bindgen (1.0.0)
       ffi (>= 1.16)
@@ -17,29 +17,29 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
-    date (3.5.0)
-    erb (6.0.0)
-    ffi (1.17.2-x86_64-linux-gnu)
+    date (3.5.1)
+    erb (6.0.1)
+    ffi (1.17.3-x86_64-linux-gnu)
     nio4r (2.7.5)
     ostruct (0.6.3)
     parallel (1.27.0)
-    psych (5.2.6)
+    psych (5.3.1)
       date
       stringio
-    puma (7.1.0)
+    puma (7.2.0)
       nio4r (~> 2.0)
     rack (3.2.4)
-    rackup (2.2.1)
+    rackup (2.3.1)
       rack (>= 3)
     rake (13.3.1)
-    rdoc (6.15.1)
+    rdoc (7.1.0)
       erb
       psych (>= 4.0.0)
       tsort
     redcarpet (3.6.1)
-    stringio (3.1.8)
+    stringio (3.2.0)
     tsort (0.2.0)
-    yard (0.9.37)
+    yard (0.9.38)
 
 PLATFORMS
   x86_64-linux
