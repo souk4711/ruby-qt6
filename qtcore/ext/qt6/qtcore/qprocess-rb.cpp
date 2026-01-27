@@ -71,7 +71,7 @@ void Init_qprocess(Module rb_mQt6QtCore)
             // .define_method("started", &QProcess::started)
             // .define_method("state_changed", &QProcess::stateChanged, Arg("state"))
             // Static Public Members
-            .define_singleton_function("execute", &QProcess::execute, Arg("program"), Arg("arguments") = static_cast<const QStringList &>(QStringList {}))
+            .define_singleton_function("_execute", &QProcess::execute, Arg("program"), Arg("arguments"))
             .define_singleton_function("null_device", &QProcess::nullDevice)
             .define_singleton_function("split_command", &QProcess::splitCommand, Arg("command"))
             .define_singleton_function<bool (*)(const QString &, const QStringList &, const QString &, qint64 *)>("start_detached", &QProcess::startDetached, Arg("program"), Arg("arguments") = static_cast<const QStringList &>(QStringList {}), Arg("working_directory") = static_cast<const QString &>(QString()), Arg("pid") = static_cast<qint64 *>(nullptr))

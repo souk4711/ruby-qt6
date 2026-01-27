@@ -31,6 +31,12 @@ module RubyQt6
       end
 
       # @!visibility private
+      def self.execute(program, arguments = nil)
+        arguments ||= QtCore::QStringList.new
+        _execute(T.to_qstr(program), arguments)
+      end
+
+      # @!visibility private
       alias_method :_initialize, :initialize
 
       # @param parent [QObject]
