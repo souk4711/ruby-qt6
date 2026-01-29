@@ -11,9 +11,11 @@ tmp/
 *.so
 *.o
 *.a
-mkmf.log
 .rspec_status
+mkmf.log
 
-/examples/**/Gemfile.lock
+Gemfile.lock
+!/Gemfile.lock
+
 /extensions/
 /vendor/
