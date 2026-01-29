@@ -19,6 +19,14 @@ module RubyQt6
       rubyqt6_declare_enum_under QAction, QAction::ActionEvent
 
       # @!parse
+      QtCore::QVariant.register(
+        _qvariant_register_metatype,
+        method(:_qvariant_from_value),
+        method(:_qvariant_to_value),
+        from: self
+      )
+
+      # @!parse
       q_object do
         signal "changed()"
         signal "checkableChanged(bool)"
