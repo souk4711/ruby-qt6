@@ -10,3 +10,5 @@ require_relative "qtqml/qjsengine"
 require_relative "qtqml/qqmlengine"
 require_relative "qtqml/qqmlapplicationengine"
 require_relative "qtqml/qqmlcontext"
+
+RubyQt6.initialize!(RubyQt6::QtQml)

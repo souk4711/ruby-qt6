@@ -95,4 +95,4 @@ require_relative "qtcore/qvariantmap"
 require_relative "bando/dsl"
 require_relative "bando/qobject"
 
-RubyQt6::Qt = RubyQt6::QtCore::Qt
+RubyQt6.initialize!(RubyQt6::QtCore)

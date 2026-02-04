@@ -20,8 +20,8 @@ module Kernel
     qmetatype_id = enum._qvariant_register_metatype
     RubyQt6::QtCore::QVariant.register(
       qmetatype_id,
-      ->(value) { RubyQt6::QtCore::QVariant.from_int(value.to_int).tap { |qvariant| qvariant.convert(RubyQt6::QtCore::QMetaType.new(qmetatype_id)) } },
-      ->(qvariant) { enum.from_int(RubyQt6::QtCore::QVariant.to_int(qvariant)) },
+      ->(value) { QVariant.from_int(value.to_int).tap { |qvariant| qvariant.convert(QMetaType.new(qmetatype_id)) } },
+      ->(qvariant) { enum.from_int(QVariant.to_int(qvariant)) },
       from: enum
     )
   end

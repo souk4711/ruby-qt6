@@ -56,7 +56,7 @@ module RubyQt6
         end
 
         def super_class
-          return nil if @qlass == QtCore::QObject
+          return nil if @qlass == QObject
           @qlass.superclass._rubyqt6_metaobject
         end
 
@@ -67,7 +67,7 @@ module RubyQt6
         def to_qmetaobject
           return @qlass._static_meta_object unless ruby?
 
-          builder = QtCore::QMetaObjectBuilder.new
+          builder = QMetaObjectBuilder.new
           builder.set_class_name(@qlass.name)
           builder.set_super_class(@qlass.superclass._qmetaobject)
           @classinfo.each { |name, value| builder.add_class_info(name, value) }

@@ -54,7 +54,7 @@ module RubyQt6
 
       # @!visibility private
       def set_value(key, value)
-        qvariant = QtCore::QVariant.new(value)
+        qvariant = QVariant.new(value)
         _set_value(T.to_qanystringview(key), qvariant)
       end
 
@@ -64,7 +64,7 @@ module RubyQt6
         return default unless qvariant.valid?
 
         case default
-        when QtCore::QStringList then QtCore::QVariant.to_qstringlist(qvariant)
+        when QStringList then QVariant.to_qstringlist(qvariant)
         else qvariant.value
         end
       end

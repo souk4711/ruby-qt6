@@ -4,56 +4,56 @@ module RubyQt6
   # @!visibility private
   module T
     def self.args_nth_delete_qobject(args, index)
-      return unless args[index].is_a?(QtCore::QObject)
+      return unless args[index].is_a?(QObject)
       args.delete_at(index)
     end
 
     def self.args_nth_delete_qwidget(args, index)
-      return unless args[index].is_a?(QtWidgets::QWidget)
+      return unless args[index].is_a?(QWidget)
       args.delete_at(index)
     end
 
     def self.args_nth_delete_qgraphicsitem(args, index)
-      return unless args[index].is_a?(QtWidgets::QGraphicsItem)
+      return unless args[index].is_a?(QGraphicsItem)
       args.delete_at(index)
     end
 
     def self.args_nth_to_qanystringview(args, index)
-      return unless args[index].is_a?(String) || args[index].is_a?(QtCore::QString)
-      args[index] = QtCore::QAnyStringView.new(args[index])
+      return unless args[index].is_a?(String) || args[index].is_a?(QString)
+      args[index] = QAnyStringView.new(args[index])
     end
 
     def self.args_nth_to_qstr(args, index)
       return unless args[index].is_a?(String)
-      args[index] = QtCore::QString.new(args[index])
+      args[index] = QString.new(args[index])
     end
 
     def self.to_qanystringview(str)
-      return str unless str.is_a?(String) || str.is_a?(QtCore::QString)
-      QtCore::QAnyStringView.new(str)
+      return str unless str.is_a?(String) || str.is_a?(QString)
+      QAnyStringView.new(str)
     end
 
     def self.to_qbytearray(str)
       return str unless str.is_a?(String)
-      QtCore::QByteArray.new(str)
+      QByteArray.new(str)
     end
 
     def self.to_qstr(str)
       return str unless str.is_a?(String)
-      QtCore::QString.new(str)
+      QString.new(str)
     end
 
     def self.to_qkeysequence(key)
-      return key unless key.is_a?(String) || key.is_a?(QtCore::QString) || key.is_a?(Integer) || key.is_a?(QtGui::QKeySequence::StandardKey)
-      QtGui::QKeySequence.new(key)
+      return key unless key.is_a?(String) || key.is_a?(QString) || key.is_a?(Integer) || key.is_a?(QKeySequence::StandardKey)
+      QKeySequence.new(key)
     end
 
     def self.to_qvariantlist(array)
-      array.each_with_object(QtCore::QVariantList.new) { |e, memo| memo << QtCore::QVariant.new(e) }
+      array.each_with_object(QVariantList.new) { |e, memo| memo << QVariant.new(e) }
     end
 
     def self.to_qvariantmap(hash)
-      hash.each_with_object(QtCore::QVariantMap.new) { |(k, v), memo| memo[k.to_qstr] = QtCore::QVariant.new(v) }
+      hash.each_with_object(QVariantMap.new) { |(k, v), memo| memo[k.to_qstr] = QVariant.new(v) }
     end
 
     def self.to_qflags(enum_or_flags)

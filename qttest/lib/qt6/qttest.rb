@@ -7,3 +7,5 @@ require_relative "qttest/qttest"
 require_relative "qttest/qttestversion"
 
 require_relative "qttest/qsignalspy"
+
+RubyQt6.initialize!(RubyQt6::QtTest)

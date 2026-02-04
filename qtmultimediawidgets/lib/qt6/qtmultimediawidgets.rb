@@ -10,3 +10,5 @@ require_relative "qtmultimediawidgets/qtmultimediawidgets"
 require_relative "qtmultimediawidgets/qtmultimediawidgetsversion"
 
 require_relative "qtmultimediawidgets/qvideowidget"
+
+RubyQt6.initialize!(RubyQt6::QtMultimediaWidgets)

@@ -73,3 +73,5 @@ require_relative "qtgui/qdoublevalidator"
 require_relative "qtgui/qintvalidator"
 require_relative "qtgui/qregularexpressionvalidator"
 require_relative "qtgui/qwindow"
+
+RubyQt6.initialize!(RubyQt6::QtGui)

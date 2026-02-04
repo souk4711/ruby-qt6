@@ -1,4 +1,4 @@
-RSpec.describe RubyQt6::QtCore::QVariantList do
+RSpec.describe QVariantList do
   it "#initialize" do
     o = described_class.new
     expect(o.size).to eq(0)
@@ -10,7 +10,7 @@ RSpec.describe RubyQt6::QtCore::QVariantList do
     o = described_class.new << "1" << "2" << "3" << "2" << "5"
     a = o.to_a
     expect(a).to be_a(Array)
-    expect(a[0]).to be_a(RubyQt6::QtCore::QVariant)
+    expect(a[0]).to be_a(QVariant)
     expect(a[0].value).to eq("1")
     expect(a[-1].value).to eq("5")
   end

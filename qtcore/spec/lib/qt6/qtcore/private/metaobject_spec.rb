@@ -1,5 +1,5 @@
 RSpec.describe RubyQt6::QtCore::Private::MetaObject do
-  let(:receiver) { RubyQt6::QtCore::QObject }
+  let(:receiver) { QObject }
   let(:signal) { RubyQt6::QtCore::Private::MetaMethod.new("signal()", :signal, :ruby) }
   let(:signal_qstr) { RubyQt6::QtCore::Private::MetaMethod.new("signal(QString)", :signal, :ruby) }
   let(:signal_qobj) { RubyQt6::QtCore::Private::MetaMethod.new("signal(QObject*)", :signal, :ruby) }
@@ -18,12 +18,12 @@ RSpec.describe RubyQt6::QtCore::Private::MetaObject do
     end
 
     it "receiver - class" do
-      metamethod = described_class.find_receiver_metamethod!(RubyQt6::QtCore::QObject, :destroyed, signal)
+      metamethod = described_class.find_receiver_metamethod!(QObject, :destroyed, signal)
       expect(metamethod.qsignature).to eq("2destroyed()")
     end
 
     it "receiver - instance" do
-      metamethod = described_class.find_receiver_metamethod!(RubyQt6::QtCore::QObject.new, :destroyed, signal)
+      metamethod = described_class.find_receiver_metamethod!(QObject.new, :destroyed, signal)
       expect(metamethod.qsignature).to eq("2destroyed()")
     end
 

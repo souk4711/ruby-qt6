@@ -1,4 +1,4 @@
-RSpec.describe RubyQt6::QtCore::QString do
+RSpec.describe QString do
   it "#initialize" do
     o = described_class.new("ハロー")
     expect(o).to eq("ハロー")

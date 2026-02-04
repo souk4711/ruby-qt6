@@ -18,13 +18,13 @@ module RubyQt6
 
       # @!visibility private
       def has_value?(value)
-        _has_value?(QtCore::QVariant.new(value))
+        _has_value?(QVariant.new(value))
       end
       alias_method :value?, :has_value?
 
       # @!visibility private
       def insert(key, value)
-        _insert(T.to_qstr(key), QtCore::QVariant.new(value))
+        _insert(T.to_qstr(key), QVariant.new(value))
       end
       alias_method :[]=, :insert
 

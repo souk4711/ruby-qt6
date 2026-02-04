@@ -11,3 +11,5 @@ require_relative "qtquickwidgets/qtquickwidgets"
 require_relative "qtquickwidgets/qtquickwidgetsversion"
 
 require_relative "qtquickwidgets/qquickwidget"
+
+RubyQt6.initialize!(RubyQt6::QtQuickWidgets)

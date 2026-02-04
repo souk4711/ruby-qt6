@@ -1,22 +1,22 @@
-RSpec.describe "RubyQt6::QtCore::QFlags" do
+RSpec.describe "QFlags" do
   it "#~" do
-    expect(~RubyQt6::QtCore::Qt::AlignLeft).to be_a(RubyQt6::QtCore::Qt::Alignment)
-    expect(~RubyQt6::QtCore::Qt::AlignLeft).to eq(~0x0001)
+    expect(~Qt::AlignLeft).to be_a(Qt::Alignment)
+    expect(~Qt::AlignLeft).to eq(~0x0001)
   end
 
   it "#&" do
-    expect(RubyQt6::QtCore::Qt::AlignHCenter & RubyQt6::QtCore::Qt::AlignCenter).to be_a(RubyQt6::QtCore::Qt::Alignment)
-    expect(RubyQt6::QtCore::Qt::AlignHCenter & RubyQt6::QtCore::Qt::AlignCenter).to eq(0x0004)
-    expect(RubyQt6::QtCore::Qt::AlignHCenter & RubyQt6::QtCore::Qt::AlignLeft).to eq(0)
+    expect(Qt::AlignHCenter & Qt::AlignCenter).to be_a(Qt::Alignment)
+    expect(Qt::AlignHCenter & Qt::AlignCenter).to eq(0x0004)
+    expect(Qt::AlignHCenter & Qt::AlignLeft).to eq(0)
   end
 
   it "#^" do
-    expect(RubyQt6::QtCore::Qt::AlignHCenter ^ RubyQt6::QtCore::Qt::AlignCenter).to be_a(RubyQt6::QtCore::Qt::Alignment)
+    expect(Qt::AlignHCenter ^ Qt::AlignCenter).to be_a(Qt::Alignment)
   end
 
   it "#|" do
-    expect(RubyQt6::QtCore::Qt::AlignHCenter | RubyQt6::QtCore::Qt::AlignCenter).to be_a(RubyQt6::QtCore::Qt::Alignment)
-    expect(RubyQt6::QtCore::Qt::AlignHCenter | RubyQt6::QtCore::Qt::AlignCenter).to eq(0x0084)
-    expect(RubyQt6::QtCore::Qt::AlignHCenter | RubyQt6::QtCore::Qt::AlignLeft).to eq(0x0005)
+    expect(Qt::AlignHCenter | Qt::AlignCenter).to be_a(Qt::Alignment)
+    expect(Qt::AlignHCenter | Qt::AlignCenter).to eq(0x0084)
+    expect(Qt::AlignHCenter | Qt::AlignLeft).to eq(0x0005)
   end
 end

@@ -11,7 +11,7 @@ module RubyQt6
         from_object_methods[id] = from_object_method
         to_object_methods[id] = to_object_method
 
-        qmetatype = QtCore::QMetaType.new(id)
+        qmetatype = QMetaType.new(id)
         Array(from).each do |klass|
           klass.define_singleton_method(:default_qmetatype) do
             qmetatype
@@ -25,7 +25,7 @@ module RubyQt6
       private_class_method :from_object_methods
 
       def self.from_object(object, qmetatype)
-        qmetatype = QtCore::QMetaType.infer(object) if qmetatype.nil?
+        qmetatype = QMetaType.infer(object) if qmetatype.nil?
         meth = from_object_methods[qmetatype.id]
         meth ? meth.call(object) : raise("Unsupported qmetatype `#{qmetatype.name}`")
       end

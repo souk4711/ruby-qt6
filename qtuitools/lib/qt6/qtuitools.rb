@@ -9,3 +9,5 @@ require_relative "qtuitools/qtuitools"
 require_relative "qtuitools/qtuitoolsversion"
 
 require_relative "qtuitools/quiloader"
+
+RubyQt6.initialize!(RubyQt6::QtUiTools)

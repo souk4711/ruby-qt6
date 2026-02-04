@@ -17,9 +17,6 @@ See [INSTALL.md](https://github.com/souk4711/ruby-qt6/blob/main/INSTALL.md) for 
 ```ruby
 require 'qt6/qtwidgets'
 
-# Import all components from QtCore, QtGui and QtWidgets modules
-RubyQt6.load_defaults
-
 # Create a widget inherit from RubyQt6::Bando::<...>, so that we
 # can use `q_object` macro to define signals and slots.
 class MyWidget < RubyQt6::Bando::QWidget

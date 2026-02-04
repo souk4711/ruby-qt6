@@ -1,4 +1,4 @@
-RSpec.describe RubyQt6::QtCore::QBool do
+RSpec.describe QBool do
   it "#initialize" do
     o = described_class.new
     expect(o.value).to be_nil

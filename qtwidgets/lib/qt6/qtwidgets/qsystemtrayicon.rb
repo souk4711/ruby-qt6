@@ -43,7 +43,7 @@ module RubyQt6
       def initialize(*args)
         parent = T.args_nth_delete_qobject(args, -1)
         case args.size
-        when 0 then _initialize(QtGui::QIcon.new, parent)
+        when 0 then _initialize(QIcon.new, parent)
         when 1 then _initialize(args[-1], parent)
         else raise ArgumentError, INITIALIZE_ARG_ERROR_MESSAGE
         end

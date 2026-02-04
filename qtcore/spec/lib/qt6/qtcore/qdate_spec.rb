@@ -1,4 +1,4 @@
-RSpec.describe RubyQt6::QtCore::QDate do
+RSpec.describe QDate do
   it "#initialize" do
     o = described_class.new(2025, 9, 28)
     expect(o.year).to eq(2025)

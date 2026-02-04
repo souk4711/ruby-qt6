@@ -1,4 +1,4 @@
-RSpec.describe RubyQt6::QtCore::QStringList do
+RSpec.describe QStringList do
   it "#initialize" do
     o = described_class.new
     expect(o.size).to eq(0)
@@ -20,7 +20,7 @@ RSpec.describe RubyQt6::QtCore::QStringList do
     o = described_class.new << "1" << "2" << "3" << "2" << "5"
     a = o.to_a
     expect(a).to be_a(Array)
-    expect(a[0]).to be_a(RubyQt6::QtCore::QString)
+    expect(a[0]).to be_a(QString)
     expect(a[0]).to eq("1")
     expect(a[-1]).to eq("5")
   end

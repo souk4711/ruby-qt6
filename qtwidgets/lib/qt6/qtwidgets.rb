@@ -215,3 +215,5 @@ require_relative "bando/qstatusbar"
 require_relative "bando/qtabbar"
 require_relative "bando/qtabwidget"
 require_relative "bando/qtoolbar"
+
+RubyQt6.initialize!(RubyQt6::QtWidgets)

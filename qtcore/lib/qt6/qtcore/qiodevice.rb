@@ -5,8 +5,8 @@ module RubyQt6
     # @see https://doc.qt.io/qt-6/qiodevice.html
     class QIODevice < RubyQt6::QtCore::QObject
       # Inherits QIODeviceBase
-      OpenModeFlag = QtCore::QIODeviceBase::OpenModeFlag
-      OpenMode = QtCore::QIODeviceBase::OpenMode
+      OpenModeFlag = QIODeviceBase::OpenModeFlag
+      OpenMode = QIODeviceBase::OpenMode
 
       # @!parse
       [

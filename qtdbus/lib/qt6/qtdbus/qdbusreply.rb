@@ -13,15 +13,15 @@ module RubyQt6
       # @param message [QDBusMessage]
       # @return [QDBusReply]
       def initialize(message)
-        @error = QtDBus::QDBusError.new(message)
+        @error = QDBusError.new(message)
         if @error.valid?
-          @data = QtCore::QVariant.new("")
+          @data = QVariant.new("")
           return
         end
 
         if message.arguments.size < 1
-          @error = QtDBus::QDBusError.new(QtDBus::QDBusError::ErrorType::InvalidSignature, "Unexpected reply signature")
-          @data = QtCore::QVariant.new("")
+          @error = QDBusError.new(QDBusError::ErrorType::InvalidSignature, "Unexpected reply signature")
+          @data = QVariant.new("")
           return
         end
 

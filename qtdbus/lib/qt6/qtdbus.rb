@@ -21,3 +21,5 @@ require_relative "qtdbus/qdbusservicewatcher"
 
 require_relative "bando/qdbusabstractadaptor"
 require_relative "bando/qdbusabstractinterface"
+
+RubyQt6.initialize!(RubyQt6::QtDBus)

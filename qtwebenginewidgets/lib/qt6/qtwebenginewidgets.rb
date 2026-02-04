@@ -10,3 +10,5 @@ require_relative "qtwebenginewidgets/qtwebenginewidgets"
 require_relative "qtwebenginewidgets/qtwebenginewidgetsversion"
 
 require_relative "qtwebenginewidgets/qwebengineview"
+
+RubyQt6.initialize!(RubyQt6::QtWebEngineWidgets)

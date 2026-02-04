@@ -24,7 +24,7 @@ module RubyQt6
       rubyqt6_declare_qflags QUrl::UserInputResolutionOptions, QUrl::UserInputResolutionOption
 
       # @!parse
-      QtCore::QVariant.register(
+      QVariant.register(
         _qvariant_register_metatype,
         method(:_qvariant_from_value),
         method(:_qvariant_to_value),

@@ -34,3 +34,5 @@ require_relative "qtmultimedia/qsoundeffect"
 require_relative "qtmultimedia/qvideoframeinput"
 require_relative "qtmultimedia/qvideosink"
 require_relative "qtmultimedia/qwindowcapture"
+
+RubyQt6.initialize!(RubyQt6::QtMultimedia)

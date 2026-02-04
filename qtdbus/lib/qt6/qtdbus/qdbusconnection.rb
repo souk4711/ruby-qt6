@@ -28,7 +28,7 @@ module RubyQt6
 
       # @!visibility private
       def register_object(*args)
-        options = args_nth_delete_registeroptions(args, -1) || QtDBus::QDBusConnection::ExportAdaptors
+        options = args_nth_delete_registeroptions(args, -1) || QDBusConnection::ExportAdaptors
         case args.size
         when 2 then _register_object(T.to_qstr(args[-2]), args[-1], T.to_qflags(options))
         when 3 then _register_object(T.to_qstr(args[-3]), T.to_qstr(args[-2]), args[-1], T.to_qflags(options))
@@ -44,7 +44,7 @@ module RubyQt6
       private
 
       def args_nth_delete_registeroptions(args, index)
-        return unless args[index].is_a?(QtDBus::QDBusConnection::RegisterOption) || args[index].is_a?(QtDBus::QDBusConnection::RegisterOptions)
+        return unless args[index].is_a?(QDBusConnection::RegisterOption) || args[index].is_a?(QDBusConnection::RegisterOptions)
         args.delete_at(index)
       end
     end

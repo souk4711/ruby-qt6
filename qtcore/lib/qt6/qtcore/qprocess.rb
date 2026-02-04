@@ -32,7 +32,7 @@ module RubyQt6
 
       # @!visibility private
       def self.execute(program, arguments = nil)
-        arguments ||= QtCore::QStringList.new
+        arguments ||= QStringList.new
         _execute(T.to_qstr(program), arguments)
       end
 

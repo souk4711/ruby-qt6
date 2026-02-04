@@ -22,3 +22,5 @@ require_relative "qtwebenginecore/qwebenginepage"
 require_relative "qtwebenginecore/qwebengineprofile"
 
 require_relative "bando/qwebenginepage"
+
+RubyQt6.initialize!(RubyQt6::QtWebEngineCore)

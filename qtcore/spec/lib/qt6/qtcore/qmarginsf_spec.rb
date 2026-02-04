@@ -1,4 +1,4 @@
-RSpec.describe RubyQt6::QtCore::QMarginsF do
+RSpec.describe QMarginsF do
   it "#initialize" do
     o = described_class.new(1, 2, 3, 4)
     expect(o.left).to eq(1)
@@ -11,8 +11,8 @@ RSpec.describe RubyQt6::QtCore::QMarginsF do
     expect(described_class.new(1.0, 2.0, 3.0, 4.0)).to eq(described_class.new(1.0, 2.0, 3.0, 4.0))
     expect(described_class.new(1.0, 2.0, 3.0, 4.0)).not_to eq(described_class.new(1.0, 2.0, 3.0, 4.1))
 
-    expect(described_class.new(1.0, 2.0, 3.0, 4.0)).to eq(RubyQt6::QtCore::QMargins.new(1, 2, 3, 4))
-    expect(described_class.new(1.0, 2.0, 3.0, 4.0)).not_to eq(RubyQt6::QtCore::QMargins.new(1, 2, 3, 5))
+    expect(described_class.new(1.0, 2.0, 3.0, 4.0)).to eq(QMargins.new(1, 2, 3, 4))
+    expect(described_class.new(1.0, 2.0, 3.0, 4.0)).not_to eq(QMargins.new(1, 2, 3, 5))
 
     expect(described_class.new(1.0, 2.0, 3.0, 4.0)).not_to eq(1.0)
     expect(described_class.new(1.0, 2.0, 3.0, 4.0)).not_to eq(nil)

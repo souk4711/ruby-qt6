@@ -13,3 +13,5 @@ require_relative "qtprintsupport/qprinterinfo"
 
 require_relative "qtprintsupport/qabstractprintdialog"
 require_relative "qtprintsupport/qprintdialog"
+
+RubyQt6.initialize!(RubyQt6::QtPrintSupport)

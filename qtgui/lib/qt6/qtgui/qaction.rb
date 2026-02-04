@@ -19,7 +19,7 @@ module RubyQt6
       rubyqt6_declare_enum_under QAction, QAction::ActionEvent
 
       # @!parse
-      QtCore::QVariant.register(
+      QVariant.register(
         _qvariant_register_metatype,
         method(:_qvariant_from_value),
         method(:_qvariant_to_value),
@@ -65,8 +65,8 @@ module RubyQt6
       def initialize(*args)
         parent = T.args_nth_delete_qobject(args, -1)
         case args.size
-        when 0 then _initialize(QtGui::QIcon.new, T.to_qstr(""), parent)
-        when 1 then _initialize(QtGui::QIcon.new, T.to_qstr(args[-1]), parent)
+        when 0 then _initialize(QIcon.new, T.to_qstr(""), parent)
+        when 1 then _initialize(QIcon.new, T.to_qstr(args[-1]), parent)
         when 2 then _initialize(args[-2], T.to_qstr(args[-1]), parent)
         else raise ArgumentError, INITIALIZE_ARG_ERROR_MESSAGE
         end
@@ -75,12 +75,12 @@ module RubyQt6
 
       # @!visibility private
       def menu
-        QtWidgets::QMenu._ioc_qaction_menu(self)
+        QMenu._ioc_qaction_menu(self)
       end
 
       # @!visibility private
       def set_menu(menu)
-        QtWidgets::QMenu._ioc_qaction_set_menu(self, menu)
+        QMenu._ioc_qaction_set_menu(self, menu)
       end
 
       # @!visibility private

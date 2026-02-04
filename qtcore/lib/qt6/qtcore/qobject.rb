@@ -27,8 +27,8 @@ module RubyQt6
               r = __send__(meth.name, *args.map(&:value))
               next if meth.return_type.nil?
 
-              qmetatype = QtCore::QMetaType.from_name(meth.return_type)
-              QtCore::QVariant.new(r, qmetatype)
+              qmetatype = QMetaType.from_name(meth.return_type)
+              QVariant.new(r, qmetatype)
             end
           end
         end
@@ -101,7 +101,7 @@ module RubyQt6
       # @!visibility private
       def tr(source_text, disambiguation = "", n = -1)
         context = self.class.name
-        QtCore::QCoreApplication.translate(context, source_text, disambiguation, n)
+        QCoreApplication.translate(context, source_text, disambiguation, n)
       end
 
       private

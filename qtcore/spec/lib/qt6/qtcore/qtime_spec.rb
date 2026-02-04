@@ -1,4 +1,4 @@
-RSpec.describe RubyQt6::QtCore::QTime do
+RSpec.describe QTime do
   it "#initialize" do
     o = described_class.new(12, 30, 45)
     expect(o.hour).to eq(12)

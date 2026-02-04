@@ -13,3 +13,5 @@ require_relative "qtnetwork/qnetworkrequest"
 
 require_relative "qtnetwork/qnetworkaccessmanager"
 require_relative "qtnetwork/qnetworkreply"
+
+RubyQt6.initialize!(RubyQt6::QtNetwork)

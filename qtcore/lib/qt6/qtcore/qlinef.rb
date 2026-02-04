@@ -29,7 +29,7 @@ module RubyQt6
 
       # @!visibility private
       def ==(other)
-        return false unless other.is_a?(QtCore::QLine) || other.is_a?(QtCore::QLineF)
+        return false unless other.is_a?(QLine) || other.is_a?(QLineF)
         self.class._operator_equal(self, other)
       end
 

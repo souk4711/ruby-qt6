@@ -1,7 +1,7 @@
-RSpec.describe RubyQt6::QtCore::QUuid do
+RSpec.describe QUuid do
   it "#initialize" do
     o = described_class.new("774a1506-d835-4cee-ba86-5b316f6fc762")
-    expect(o).to be_a(RubyQt6::QtCore::QUuid)
+    expect(o).to be_a(QUuid)
   end
 
   it "#to_s" do

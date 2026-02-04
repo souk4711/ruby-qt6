@@ -1,4 +1,4 @@
-RSpec.describe RubyQt6::QtCore::QUrl do
+RSpec.describe QUrl do
   it "#initialize" do
     o = described_class.new("https://github.com/souk4711/ruby-qt6/issues?q=is:issue state:open")
     expect(o.scheme).to eq("https")
