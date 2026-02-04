@@ -25,6 +25,11 @@ module RubyQt6
         T.args_nth_to_qstr(args, 1)
         _initialize(*args)
       end
+
+      # @!visibility private
+      def inspect
+        T.inspect_struct(self, absolute_file_path: absolute_file_path.to_s)
+      end
     end
   end
 end

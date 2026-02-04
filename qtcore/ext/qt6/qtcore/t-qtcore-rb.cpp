@@ -2,6 +2,7 @@
 #include <rice/qt6/qlist.hpp>
 #include <rice/qt6/qmap.hpp>
 
+#include <QFileInfo>
 #include <QItemSelectionRange>
 #include <QModelIndex>
 #include <QString>
@@ -15,6 +16,9 @@ void Init_t_qtcore(Module rb_mQt6T)
 {
     // QList<QByteArray>
     define_qlist_under<QByteArray>(rb_mQt6T);
+
+    // QList<QFileInfo>
+    define_qlist_under<QFileInfo>(rb_mQt6T);
 
     // QList<QItemSelectionRange> -> QItemSelection
     define_qlist_under<QItemSelectionRange>(rb_mQt6T);

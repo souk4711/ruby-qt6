@@ -16,6 +16,11 @@ module RubyQt6
       def initialize(name)
         _initialize(T.to_qstr(name))
       end
+
+      # @!visibility private
+      def inspect
+        T.inspect_struct(self, file_name: file_name.to_s)
+      end
     end
   end
 end
