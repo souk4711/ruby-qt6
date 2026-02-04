@@ -51,6 +51,14 @@ module RubyQt6
       end
 
       # @!visibility private
+      alias_method :eql?, :==
+
+      # @!visibility private
+      def hash
+        to_str.hash
+      end
+
+      # @!visibility private
       def inspect
         T.inspect_struct(self, str: to_s)
       end
