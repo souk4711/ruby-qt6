@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative "mkmf-rice"
+require_relative "qt6/mkmf-rice"
 
 def qmake
   return @qmake if @qmake

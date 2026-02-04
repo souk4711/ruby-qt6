@@ -59,7 +59,7 @@ end
 
 # Rice needs to include its header. Let's setup the include path
 # to make this easy
-path = File.expand_path(File.join(__dir__, '../include'))
+path = File.expand_path(File.join(__dir__, '../../include'))
 
 unless find_header('rice/core/rice.hpp', path)
   raise("Could not find rice/core/rice.hpp header")
