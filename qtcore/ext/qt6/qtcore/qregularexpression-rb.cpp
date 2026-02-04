@@ -32,12 +32,9 @@ void Init_qregularexpression(Module rb_mQt6QtCore)
             .define_method("set_pattern", &QRegularExpression::setPattern, Arg("pattern"))
             .define_method("set_pattern_options", &QRegularExpression::setPatternOptions, Arg("options"))
             // Static Public Members
-            .define_singleton_function<QString (*)(QStringView)>("anchored_pattern", &QRegularExpression::anchoredPattern, Arg("expression"))
             .define_singleton_function<QString (*)(const QString &)>("anchored_pattern", &QRegularExpression::anchoredPattern, Arg("expression"))
-            .define_singleton_function<QString (*)(QStringView)>("escape", &QRegularExpression::escape, Arg("str"))
             .define_singleton_function<QString (*)(const QString &)>("escape", &QRegularExpression::escape, Arg("str"))
             .define_singleton_function("from_wildcard", &QRegularExpression::fromWildcard, Arg("pattern"), Arg("cs") = static_cast<Qt::CaseSensitivity>(Qt::CaseInsensitive), Arg("options") = static_cast<QRegularExpression::WildcardConversionOptions>(QRegularExpression::WildcardConversionOption::DefaultWildcardConversion))
-            .define_singleton_function<QString (*)(QStringView, QRegularExpression::WildcardConversionOptions)>("wildcard_to_regular_expression", &QRegularExpression::wildcardToRegularExpression, Arg("str"), Arg("options") = static_cast<QRegularExpression::WildcardConversionOptions>(QRegularExpression::WildcardConversionOption::DefaultWildcardConversion))
             .define_singleton_function<QString (*)(const QString &, QRegularExpression::WildcardConversionOptions)>("wildcard_to_regular_expression", &QRegularExpression::wildcardToRegularExpression, Arg("str"), Arg("options") = static_cast<QRegularExpression::WildcardConversionOptions>(QRegularExpression::WildcardConversionOption::DefaultWildcardConversion));
 
     Data_Type<QRegularExpression::PatternOption> rb_cQRegularExpressionPatternOption =
@@ -101,8 +98,6 @@ void Init_qregularexpression(Module rb_mQt6QtCore)
             .define_method<qsizetype (QRegularExpressionMatch::*)(QAnyStringView) const>("captured_start", &QRegularExpressionMatch::capturedStart, Arg("name"))
             .define_method<qsizetype (QRegularExpressionMatch::*)(int) const>("captured_start", &QRegularExpressionMatch::capturedStart, Arg("nth") = static_cast<int>(0))
             .define_method("captured_texts", &QRegularExpressionMatch::capturedTexts)
-            .define_method<QStringView (QRegularExpressionMatch::*)(QAnyStringView) const>("captured_view", &QRegularExpressionMatch::capturedView, Arg("name"))
-            .define_method<QStringView (QRegularExpressionMatch::*)(int) const>("captured_view", &QRegularExpressionMatch::capturedView, Arg("nth") = static_cast<int>(0))
             .define_method<bool (QRegularExpressionMatch::*)(QAnyStringView) const>("has_captured", &QRegularExpressionMatch::hasCaptured, Arg("name"))
             .define_method<bool (QRegularExpressionMatch::*)(int) const>("has_captured", &QRegularExpressionMatch::hasCaptured, Arg("nth"))
             .define_method("has_match", &QRegularExpressionMatch::hasMatch)
