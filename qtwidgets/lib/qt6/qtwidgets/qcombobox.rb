@@ -44,7 +44,7 @@ module RubyQt6
 
       # @!visibility private
       def find_text(text, flags = nil)
-        flags ||= QtCore::Qt::MatchExactly | QtCore::Qt::MatchCaseSensitive
+        flags ||= Qt::MatchExactly | Qt::MatchCaseSensitive
         _find_text(T.to_qstr(text), T.to_qflags(flags))
       end
     end

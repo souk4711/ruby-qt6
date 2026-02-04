@@ -27,7 +27,7 @@ module RubyQt6
 
       # @!visibility private
       def load(file_name, format = "", flags = nil)
-        flags ||= QtCore::Qt::AutoColor
+        flags ||= Qt::AutoColor
         _load(T.to_qstr(file_name), format, T.to_qflags(flags))
       end
     end

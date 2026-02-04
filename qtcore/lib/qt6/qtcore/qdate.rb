@@ -25,7 +25,7 @@ module RubyQt6
 
       # @!visibility private
       def to_s
-        _to_string(QtCore::Qt::RFC2822Date).to_s
+        _to_string(Qt::RFC2822Date).to_s
       end
 
       # @!visibility private

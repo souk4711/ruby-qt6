@@ -76,14 +76,14 @@ module RubyQt6
 
       # @!visibility private
       def find_child(name, options = nil)
-        options ||= QtCore::Qt::FindChildrenRecursively
+        options ||= Qt::FindChildrenRecursively
         child = _find_child(T.to_qanystringview(name), T.to_qflags(options))
         T.bando_qobject_cast(child)
       end
 
       # @!visibility private
       def find_children(name, options = nil)
-        options ||= QtCore::Qt::FindChildrenRecursively
+        options ||= Qt::FindChildrenRecursively
         children = _find_children(T.to_qanystringview(name), T.to_qflags(options))
         children.map { |child| T.bando_qobject_cast(child) }
       end

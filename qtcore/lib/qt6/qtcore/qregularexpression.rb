@@ -21,7 +21,7 @@ module RubyQt6
 
       # @!visibility private
       def self.from_wildcard(pattern, cs = nil, options = nil)
-        options ||= QRegularExpression::WildcardConversionOption::DefaultWildcardConversion
+        options ||= QRegularExpression::DefaultWildcardConversion
         pattern = wildcard_to_regular_expression(T.to_qstr(pattern), options)
 
         cs ||= Qt::CaseInsensitive
@@ -31,7 +31,7 @@ module RubyQt6
 
       # @!visibility private
       def self.wildcard_to_regular_expression(pattern, options = nil)
-        options ||= QRegularExpression::WildcardConversionOption::DefaultWildcardConversion
+        options ||= QRegularExpression::DefaultWildcardConversion
         _wildcard_to_regular_expression(T.to_qstr(pattern), T.to_qflags(options))
       end
 
@@ -42,7 +42,7 @@ module RubyQt6
       # @param options [QRegularExpression::PatternOptions]
       # @return [QRegularExpression]
       def initialize(pattern = "", options = nil)
-        options ||= QtCore::QRegularExpression::NoPatternOption
+        options ||= QRegularExpression::NoPatternOption
         _initialize(T.to_qstr(pattern), T.to_qflags(options))
       end
     end

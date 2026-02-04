@@ -22,8 +22,8 @@ module RubyQt6
       # @param application [QString]
       # @return [QSettings]
       def initialize(organization, application)
-        format = QtCore::QSettings.default_format
-        scope = QtCore::QSettings::Scope::UserScope
+        format = QSettings.default_format
+        scope = QSettings::Scope::UserScope
         _initialize(format, scope, T.to_qstr(organization), T.to_qstr(application))
       end
 
