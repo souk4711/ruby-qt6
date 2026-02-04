@@ -34,8 +34,7 @@ void Init_qregularexpression(Module rb_mQt6QtCore)
             // Static Public Members
             .define_singleton_function<QString (*)(const QString &)>("anchored_pattern", &QRegularExpression::anchoredPattern, Arg("expression"))
             .define_singleton_function<QString (*)(const QString &)>("escape", &QRegularExpression::escape, Arg("str"))
-            .define_singleton_function("from_wildcard", &QRegularExpression::fromWildcard, Arg("pattern"), Arg("cs") = static_cast<Qt::CaseSensitivity>(Qt::CaseInsensitive), Arg("options") = static_cast<QRegularExpression::WildcardConversionOptions>(QRegularExpression::WildcardConversionOption::DefaultWildcardConversion))
-            .define_singleton_function<QString (*)(const QString &, QRegularExpression::WildcardConversionOptions)>("wildcard_to_regular_expression", &QRegularExpression::wildcardToRegularExpression, Arg("str"), Arg("options") = static_cast<QRegularExpression::WildcardConversionOptions>(QRegularExpression::WildcardConversionOption::DefaultWildcardConversion));
+            .define_singleton_function<QString (*)(const QString &, QRegularExpression::WildcardConversionOptions)>("_wildcard_to_regular_expression", &QRegularExpression::wildcardToRegularExpression, Arg("str"), Arg("options") = static_cast<QRegularExpression::WildcardConversionOptions>(QRegularExpression::WildcardConversionOption::DefaultWildcardConversion));
 
     Data_Type<QRegularExpression::PatternOption> rb_cQRegularExpressionPatternOption =
         // RubyQt6::QtCore::QRegularExpression::PatternOption

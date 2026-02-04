@@ -20,6 +20,22 @@ module RubyQt6
       rubyqt6_declare_qflags QRegularExpression::WildcardConversionOptions, QRegularExpression::WildcardConversionOption
 
       # @!visibility private
+      def self.from_wildcard(pattern, cs = nil, options = nil)
+        options ||= QRegularExpression::WildcardConversionOption::DefaultWildcardConversion
+        pattern = wildcard_to_regular_expression(T.to_qstr(pattern), options)
+
+        cs ||= Qt::CaseInsensitive
+        options = (cs == Qt::CaseSensitive) ? QRegularExpression::NoPatternOption : QRegularExpression::CaseInsensitiveOption
+        new(pattern, options)
+      end
+
+      # @!visibility private
+      def self.wildcard_to_regular_expression(pattern, options = nil)
+        options ||= QRegularExpression::WildcardConversionOption::DefaultWildcardConversion
+        _wildcard_to_regular_expression(T.to_qstr(pattern), T.to_qflags(options))
+      end
+
+      # @!visibility private
       alias_method :_initialize, :initialize
 
       # @param pattern [String, QString]
