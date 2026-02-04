@@ -21,7 +21,7 @@ module RubyQt6
       # @param format [QMediaFormat::FileFormat>]
       # @return [QMediaFormat]
       def initialize(format = nil)
-        format ||= QtMultimedia::QMediaFormat::UnspecifiedFormat
+        format ||= QMediaFormat::UnspecifiedFormat
         _initialize(format)
       end
     end

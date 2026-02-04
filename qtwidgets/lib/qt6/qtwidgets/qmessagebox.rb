@@ -32,29 +32,29 @@ module RubyQt6
 
       # @!visibility private
       def self.critical(parent, title, text, buttons = nil, default_button = nil)
-        buttons ||= QtWidgets::QMessageBox::Ok
-        default_button ||= QtWidgets::QMessageBox::NoButton
+        buttons ||= QMessageBox::Ok
+        default_button ||= QMessageBox::NoButton
         _critical(parent, T.to_qstr(title), T.to_qstr(text), T.to_qflags(buttons), default_button)
       end
 
       # @!visibility private
       def self.information(parent, title, text, buttons = nil, default_button = nil)
-        buttons ||= QtWidgets::QMessageBox::Ok
-        default_button ||= QtWidgets::QMessageBox::NoButton
+        buttons ||= QMessageBox::Ok
+        default_button ||= QMessageBox::NoButton
         _information(parent, T.to_qstr(title), T.to_qstr(text), T.to_qflags(buttons), default_button)
       end
 
       # @!visibility private
       def self.question(parent, title, text, buttons = nil, default_button = nil)
-        buttons ||= QtWidgets::QMessageBox::Yes || QtWidgets::QMessageBox::No
-        default_button ||= QtWidgets::QMessageBox::NoButton
+        buttons ||= QMessageBox::Yes || QMessageBox::No
+        default_button ||= QMessageBox::NoButton
         _question(parent, T.to_qstr(title), T.to_qstr(text), T.to_qflags(buttons), default_button)
       end
 
       # @!visibility private
       def self.warning(parent, title, text, buttons = nil, default_button = nil)
-        buttons ||= QtWidgets::QMessageBox::Ok
-        default_button ||= QtWidgets::QMessageBox::NoButton
+        buttons ||= QMessageBox::Ok
+        default_button ||= QMessageBox::NoButton
         _warning(parent, T.to_qstr(title), T.to_qstr(text), T.to_qflags(buttons), default_button)
       end
 

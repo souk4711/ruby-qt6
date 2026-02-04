@@ -4,7 +4,7 @@ module RubyQt6
   module Bando
     # @!visibility private
     def self.define_bando_qobject(qlass)
-      unless qlass <= QtCore::QObject
+      unless qlass <= RubyQt6::QtCore::QObject
         raise "Invalid superclass: macro `define_bando_qobject` " \
           "only available for subclass of RubyQt6::QtCore::QObject"
       end
@@ -23,7 +23,7 @@ module RubyQt6
 
     # @!visibility private
     def self.define_bando_qwidget(qlass)
-      unless qlass <= QtWidgets::QWidget
+      unless qlass <= RubyQt6::QtWidgets::QWidget
         raise "Invalid superclass: macro `define_bando_qwidget` " \
           "only available for subclass of RubyQt6::QtWidgets::QWidget"
       end
