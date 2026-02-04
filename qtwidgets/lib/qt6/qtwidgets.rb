@@ -7,6 +7,7 @@ require_relative "qtwidgets/version"
 require_relative "qtwidgets/qtwidgets"
 require_relative "qtwidgets/qtwidgetsversion"
 
+require_relative "qtwidgets/qfileiconprovider"
 require_relative "qtwidgets/qgraphicsitem"
 require_relative "qtwidgets/qabstractgraphicsshapeitem"
 require_relative "qtwidgets/qgraphicsellipseitem"

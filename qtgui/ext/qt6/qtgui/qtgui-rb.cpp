@@ -1,6 +1,7 @@
 #include "qtgui-rb.hpp"
 #include "qtguiversion-rb.hpp"
 
+#include "qabstractfileiconprovider-rb.hpp"
 #include "qbrush-rb.hpp"
 #include "qcolor-rb.hpp"
 #include "qcursor-rb.hpp"
@@ -61,6 +62,7 @@ extern "C" void Init_qtgui()
 
         Init_qtguiversion(rb_mQt6QtGui);
 
+        Init_qabstractfileiconprovider(rb_mQt6QtGui);
         Init_qbrush(rb_mQt6QtGui);
         Init_qcolor(rb_mQt6QtGui);
         Init_qcursor(rb_mQt6QtGui);

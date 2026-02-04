@@ -1,6 +1,7 @@
 #include "qtwidgets-rb.hpp"
 #include "qtwidgetsversion-rb.hpp"
 
+#include "qfileiconprovider-rb.hpp"
 #include "qgraphicsitem-rb.hpp"
 #include "qlayoutitem-rb.hpp"
 #include "qsizepolicy-rb.hpp"
@@ -170,6 +171,7 @@ extern "C" void Init_qtwidgets()
 
         Init_qtwidgetsversion(rb_mQt6QtWidgets);
 
+        Init_qfileiconprovider(rb_mQt6QtWidgets);
         Init_qgraphicsitem(rb_mQt6QtWidgets);
         Init_qlayoutitem(rb_mQt6QtWidgets);
         Init_qsizepolicy(rb_mQt6QtWidgets);
