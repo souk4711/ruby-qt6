@@ -45,6 +45,11 @@ module RubyQt6
         options ||= QRegularExpression::NoPatternOption
         _initialize(T.to_qstr(pattern), T.to_qflags(options))
       end
+
+      # @!visibility private
+      def inspect
+        T.inspect_struct(self, pattern: pattern.to_s)
+      end
     end
   end
 end
