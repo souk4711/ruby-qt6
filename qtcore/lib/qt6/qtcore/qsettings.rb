@@ -61,7 +61,7 @@ module RubyQt6
       end
 
       # @!visibility private
-      def value(key, default = nil)
+      def value(key, default)
         qvariant = _value(T.to_qanystringview(key))
         return default unless qvariant.valid?
 
