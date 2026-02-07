@@ -31,6 +31,16 @@ module RubyQt6
       end
 
       # @!visibility private
+      def absolute_file_path(file_name)
+        _absolute_file_path(T.to_qstr(file_name))
+      end
+
+      # @!visibility private
+      def file_path(file_name)
+        _file_path(T.to_qstr(file_name))
+      end
+
+      # @!visibility private
       def inspect
         T.inspect_struct(self, absolute_path: absolute_path.to_s)
       end
