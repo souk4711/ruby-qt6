@@ -18,6 +18,7 @@ void Init_qfileinfo(Module rb_mQt6QtCore)
             .define_constructor(Constructor<QFileInfo, const QString &>(), Arg("file"))
             .define_constructor(Constructor<QFileInfo, const QFileDevice &>(), Arg("file"))
             .define_constructor(Constructor<QFileInfo, const QDir &, const QString &>(), Arg("dir"), Arg("file"))
+            .define_constructor(Constructor<QFileInfo, const QFileInfo &>(), Arg("other"))
             // Public Functions
             .define_method("absolute_dir", &QFileInfo::absoluteDir)
             .define_method("absolute_file_path", &QFileInfo::absoluteFilePath)
