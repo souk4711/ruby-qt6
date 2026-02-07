@@ -9,6 +9,14 @@ module RubyQt6
       rubyqt6_declare_enum_under QTreeWidgetItem, QTreeWidgetItem::ChildIndicatorPolicy
       rubyqt6_declare_enum_under QTreeWidgetItem, QTreeWidgetItem::ItemType
 
+      # @!parse
+      QVariant.register(
+        _qvariant_register_metatype,
+        method(:_qvariant_from_value),
+        method(:_qvariant_to_value),
+        from: self
+      )
+
       # @!visibility private
       alias_method :_initialize, :initialize
 

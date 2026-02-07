@@ -77,6 +77,9 @@ void Init_qtreewidget(Module rb_mQt6QtWidgets)
         // RubyQt6::QtWidgets::QTreeWidgetItem
         define_class_under<QTreeWidgetItem>(rb_mQt6QtWidgets, "QTreeWidgetItem")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qvariant_register_metatype", []() -> int { return qRegisterMetaType<QTreeWidgetItem *>(); })
+            .define_singleton_function("_qvariant_from_value", [](QTreeWidgetItem *value) -> QVariant { return QVariant::fromValue(value); })
+            .define_singleton_function("_qvariant_to_value", [](const QVariant &qvariant) -> QTreeWidgetItem * { return qvariant.value<QTreeWidgetItem *>(); })
             .define_singleton_function("_delete_now", [](QTreeWidgetItem *item) -> void { delete item; }, Arg("item").takeOwnership())
             .define_singleton_function("_take_ownership_from_ruby", [](QTreeWidgetItem *) -> void {}, Arg("item").takeOwnership())
             // Constructor
