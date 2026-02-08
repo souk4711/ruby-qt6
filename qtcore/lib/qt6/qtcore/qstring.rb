@@ -22,6 +22,12 @@ module RubyQt6
       end
 
       # @!visibility private
+      def ends_with(*args)
+        T.args_nth_to_qstr(args, 0)
+        _ends_with(*args)
+      end
+
+      # @!visibility private
       def index_of(*args)
         T.args_nth_to_qstr(args, 0)
         _index_of(*args).tap { |r| return nil if r == -1 }
