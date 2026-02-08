@@ -45,6 +45,12 @@ module RubyQt6
         _initialize(parent)
         _take_ownership_from_ruby(self)
       end
+
+      # @!visibility private
+      def start(*args)
+        T.args_nth_to_qstr(args, 0)
+        _start(*args)
+      end
     end
   end
 end
