@@ -14,6 +14,12 @@ module RubyQt6
         signal "findBufferChanged()"
         signal "selectionChanged()"
       end
+
+      # @!visibility private
+      def set_text(text, mode = nil)
+        mode ||= QClipboard::Mode::Clipboard
+        _set_text(T.to_qstr(text), mode)
+      end
     end
   end
 end
