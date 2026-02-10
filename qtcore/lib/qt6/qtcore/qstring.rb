@@ -11,7 +11,7 @@ module RubyQt6
 
       # @param str [String]
       # @return [QString]
-      def initialize(str)
+      def initialize(str = "")
         _initialize(str)
       end
 
