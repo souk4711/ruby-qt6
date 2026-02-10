@@ -84,8 +84,23 @@ module RubyQt6
       end
 
       # @!visibility private
+      def set_status_tip(tip)
+        set_status_tip(T.to_qstr(tip))
+      end
+
+      # @!visibility private
       def set_text(text)
         _set_text(T.to_qstr(text))
+      end
+
+      # @!visibility private
+      def set_tool_tip(tip)
+        _set_tool_tip(T.to_qstr(tip))
+      end
+
+      # @!visibility private
+      def set_whats_this(what)
+        _set_whats_this(T.to_qstr(what))
       end
 
       # @!visibility private
