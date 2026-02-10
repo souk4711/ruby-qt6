@@ -66,6 +66,11 @@ module RubyQt6
       end
 
       # @!visibility private
+      def set_placeholder_text(text)
+        _set_placeholder_text(T.to_qstr(text))
+      end
+
+      # @!visibility private
       def set_text(text)
         _set_text(T.to_qstr(text))
       end
