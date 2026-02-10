@@ -36,6 +36,12 @@ module RubyQt6
       end
 
       # @!visibility private
+      def exists(*args)
+        T.args_nth_to_qstr(args, 0)
+        _exists(*args)
+      end
+
+      # @!visibility private
       def file_path(file_name)
         _file_path(T.to_qstr(file_name))
       end
