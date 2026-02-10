@@ -104,6 +104,12 @@ module RubyQt6
         QCoreApplication.translate(context, source_text, disambiguation, n)
       end
 
+      # @!visibility private
+      def ==(other)
+        return false unless other.is_a?(QObject)
+        _qobject_ptr == other._qobject_ptr
+      end
+
       private
 
       def _take_ownership_from_ruby(object)
