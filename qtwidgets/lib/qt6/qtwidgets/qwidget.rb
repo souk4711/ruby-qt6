@@ -65,6 +65,11 @@ module RubyQt6
       end
 
       # @!visibility private
+      def set_style_sheet(sheet)
+        _set_style_sheet(T.to_qstr(sheet))
+      end
+
+      # @!visibility private
       def set_tool_tip(tool_tip)
         _set_tool_tip(T.to_qstr(tool_tip))
       end
