@@ -85,7 +85,7 @@ module RubyQt6
 
       # @!visibility private
       def set_status_tip(tip)
-        set_status_tip(T.to_qstr(tip))
+        _set_status_tip(T.to_qstr(tip))
       end
 
       # @!visibility private
