@@ -46,7 +46,7 @@ module RubyQt6
 
       # @!visibility private
       def self.question(parent, title, text, buttons = nil, default_button = nil)
-        buttons ||= QMessageBox::Yes || QMessageBox::No
+        buttons ||= QMessageBox::Yes | QMessageBox::No
         default_button ||= QMessageBox::NoButton
         _question(parent, T.to_qstr(title), T.to_qstr(text), T.to_qflags(buttons), default_button)
       end
