@@ -62,6 +62,28 @@ end
 
 More examples can be found in [examples](https://github.com/souk4711/ruby-qt6/tree/main/examples).
 
+## Notes
+
+### Memory Management
+
+Following types are allocated on the C++ heap when created using `.new`.
+
+- QObject and its subclasses except
+  - QCoreApplication, QGuiApplication, QApplication
+  - QFile
+  - QSettings
+  - QUiLoader
+- QLayoutItem and its subclasses
+- QGraphicsItem and its subclasses
+- QStandardItem, QListWidgetItem, QTableWidgetItem, QTreeWidgetItem
+
+You need to trigger immediate deletion by calling the `#delete_now` method if necessary. Or you can
+call the `#delete_later` method, which will wait for the next event loop iteration.
+
+## Use Cases
+
+- [ruby-pass-qt](https://github.com/souk4711/ruby-pass-qt) - A simple GUI for pass on Linux.
+
 ## License
 
 The RubyQt6 library is licensed under the [LGPL-3.0 WITH LGPL-3.0-linking-exception](https://spdx.org/licenses/LGPL-3.0-linking-exception.html).
