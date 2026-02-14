@@ -2,6 +2,6 @@
 
 module RubyQt6
   module QtCore
-    QTCORE_RUBYGEM_VERSION = "2.1.0"
+    QTCORE_RUBYGEM_VERSION = "2.1.1"
   end
 end
