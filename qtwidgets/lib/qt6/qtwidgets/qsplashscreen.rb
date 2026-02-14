@@ -20,6 +20,7 @@ module RubyQt6
       # @return [QSplashScreen]
       def initialize(pixmap)
         _initialize(pixmap)
+        _take_ownership_from_ruby(self)
       end
     end
   end
