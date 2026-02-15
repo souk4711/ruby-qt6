@@ -14,6 +14,12 @@ module RubyQt6
       # @!visibility private
       alias_method :_initialize, :initialize
 
+      # @!visibility private
+      def self.from_theme(*args)
+        T.args_nth_to_qstr(args, 0)
+        _from_theme(*args)
+      end
+
       # @return [QIcon]
       #
       # @overload initialize
