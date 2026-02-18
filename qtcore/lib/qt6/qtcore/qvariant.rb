@@ -16,6 +16,12 @@ module RubyQt6
       end
 
       # @!visibility private
+      def ==(other)
+        return false unless other.is_a?(self.class)
+        self.class._operator_equal(self, other)
+      end
+
+      # @!visibility private
       def inspect
         T.inspect_struct(self, type: type_name, value:)
       end

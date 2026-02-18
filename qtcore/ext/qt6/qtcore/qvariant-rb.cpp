@@ -24,6 +24,7 @@ void Init_qvariant(Module rb_mQt6QtCore)
         // RubyQt6::QtCore::QVariant
         define_class_under<QVariant>(rb_mQt6QtCore, "QVariant")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_operator_equal", [](QVariant *lhs, QVariant *rhs) -> bool { return *lhs == *rhs; }, Arg("lhs"), Arg("rhs"))
             .define_singleton_function("from_bool", [](bool value) -> QVariant { return QVariant(value); })
             .define_singleton_function("from_int", [](int value) -> QVariant { return QVariant(value); })
             .define_singleton_function("from_double", [](double value) -> QVariant { return QVariant(value); })

@@ -122,4 +122,21 @@ RSpec.describe QVariant do
     o2 = described_class.new(o1)
     expect(o2).to eq(o1)
   end
+
+  it "#==" do
+    o1 = described_class.new("123")
+    o2 = described_class.new("123")
+    expect(o1).to eq(o2)
+
+    o3 = described_class.new(123)
+    expect(o1).to eq(o3)
+
+    qo = QObject.new
+    o1 = described_class.new(qo)
+    o2 = described_class.new(qo)
+    expect(o1).to eq(o2)
+
+    o3 = described_class.new(QObject.new)
+    expect(o1).not_to eq(o3)
+  end
 end
