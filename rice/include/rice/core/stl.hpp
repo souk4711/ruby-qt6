@@ -115,6 +115,114 @@ namespace Rice4RubyQt6::detail
 }
 
 
+// =========   function.hpp   =========
+
+namespace Rice4RubyQt6
+{
+  template<typename Signature_T>
+  Data_Type<std::function<Signature_T>> define_stl_function(std::string klassName = "");
+}
+
+
+// ---------   function.ipp   ---------
+#include <functional>
+
+namespace Rice4RubyQt6::stl
+{
+  template<typename T>
+  class FunctionHelper
+  {
+    using Function_T = T;
+
+  public:
+    FunctionHelper(Data_Type<T> klass) : klass_(klass)
+    {
+      this->define_constructors();
+      this->define_methods();
+    }
+
+  private:
+    void define_constructors()
+    {
+      // Default constructor
+      klass_.define_constructor(Constructor<Function_T>());
+
+      // Constructor from Ruby callable
+      klass_.define_method("initialize", [](VALUE self, VALUE callable) -> void
+      {
+        // Create std::function that wraps the Ruby callable
+        Function_T* data = new Function_T([callable](auto... args)
+        {
+          Object result = Object(callable).call("call", args...);
+
+          using Return_T = typename Function_T::result_type;
+          if constexpr (!std::is_void_v<Return_T>)
+          {
+            return detail::From_Ruby<std::remove_cv_t<Return_T>>().convert(result);
+          }
+        });
+
+        // Wrap the function
+        detail::wrapConstructed<T>(self, Data_Type<T>::ruby_data_type(), data);
+      }, Arg("callable").setValue().keepAlive());
+    }
+
+    void define_methods()
+    {
+      klass_.define_method("call", &Function_T::operator());
+      klass_.define_method("callable?", [](const Function_T& func) -> bool
+      {
+        return static_cast<bool>(func);
+      });
+    }
+
+    Data_Type<T> klass_;
+  };
+}
+
+namespace Rice4RubyQt6
+{
+  template<typename Signature_T>
+  Data_Type<std::function<Signature_T>> define_stl_function(std::string klassName)
+  {
+    using Function_T = std::function<Signature_T>;
+    using Data_Type_T = Data_Type<Function_T>;
+
+    if (klassName.empty())
+    {
+      detail::TypeDetail<Function_T> typeDetail;
+      klassName = typeDetail.rubyName();
+    }
+
+    Module rb_mStd = define_module_under(define_module("Rice4RubyQt6"), "Std");
+    if (Data_Type_T::check_defined(klassName, rb_mStd))
+    {
+      return Data_Type_T();
+    }
+
+    Identifier id(klassName);
+    Data_Type_T result = define_class_under<detail::intrinsic_type<Function_T>>(rb_mStd, id);
+
+    stl::FunctionHelper helper(result);
+
+    return result;
+  }
+}
+
+namespace Rice4RubyQt6::detail
+{
+  template<typename Signature_T>
+  struct Type<std::function<Signature_T>>
+  {
+    static bool verify()
+    {
+      define_stl_function<Signature_T>();
+      return true;
+    }
+  };
+}
+
+
 // =========   string.hpp   =========
 
 
@@ -735,8 +843,8 @@ namespace Rice4RubyQt6::detail
 
     static VALUE rubyKlass()
     {
-      TypeMapper<T> typeMapper;
-      return typeMapper.rubyKlass();
+      TypeDetail<T> typeDetail;
+      return typeDetail.rubyKlass();
     }
   };
 
@@ -902,71 +1010,266 @@ namespace Rice4RubyQt6::detail
 }
 
 
-// =========   reference_wrapper.hpp   =========
+// =========   ios_base.hpp   =========
+
+#include <ios>
+
+namespace Rice4RubyQt6
+{
+  Data_Type<std::ios_base> define_ios_base();
+}
 
 
-// ---------   reference_wrapper.ipp   ---------
-#include <functional>
+// ---------   ios_base.ipp   ---------
+#include <ios>
+
+namespace Rice4RubyQt6
+{
+  inline Data_Type<std::ios_base> define_ios_base()
+  {
+    Module rb_mStd = define_module_under(define_module("Rice4RubyQt6"), "Std");
+    if (Data_Type<std::ios_base>::check_defined("IOSBase", rb_mStd))
+    {
+      return Data_Type<std::ios_base>();
+    }
+
+    Data_Type<std::ios_base> result = define_class_under<std::ios_base>(rb_mStd, "IOSBase");
+
+    result.const_set("GOODBIT", static_cast<int>(std::ios_base::goodbit));
+    result.const_set("BADBIT", static_cast<int>(std::ios_base::badbit));
+    result.const_set("FAILBIT", static_cast<int>(std::ios_base::failbit));
+    result.const_set("EOFBIT", static_cast<int>(std::ios_base::eofbit));
+
+    return result;
+  }
+}
 
 namespace Rice4RubyQt6::detail
 {
-  template<typename T>
-  struct Type<std::reference_wrapper<T>>
+  template<>
+  struct Type<std::ios_base>
   {
-    constexpr static bool verify()
+    static bool verify()
     {
-      return Type<T>::verify();
-    }
-
-    static VALUE rubyKlass()
-    {
-      TypeMapper<T> typeMapper;
-      return typeMapper.rubyKlass();
+      if (!Data_Type<std::ios_base>::is_defined())
+      {
+        define_ios_base();
+      }
+      return true;
     }
   };
+}
 
-  template<typename T>
-  class To_Ruby<std::reference_wrapper<T>>
+
+// =========   ostream.hpp   =========
+
+namespace Rice4RubyQt6
+{
+  Data_Type<std::ostream> define_ostream();
+  Data_Type<std::ostringstream> define_ostringstream(std::string klassName = "");
+  Data_Type<std::ofstream> define_ofstream(std::string klassName = "");
+}
+
+
+// ---------   ostream.ipp   ---------
+#include <sstream>
+#include <fstream>
+#include <iostream>
+
+namespace Rice4RubyQt6::stl
+{
+  class OStreamHelper
   {
   public:
-    To_Ruby() = default;
-
-    explicit To_Ruby(Arg* arg) : arg_(arg)
+    OStreamHelper(Data_Type<std::ostream> klass) : klass_(klass)
     {
-    }
-
-    VALUE convert(const std::reference_wrapper<T>& data)
-    {
-      return To_Ruby<T&>().convert(data.get());
+      this->define_write_methods();
+      this->define_state_methods();
     }
 
   private:
-    Arg* arg_ = nullptr;
+    void define_write_methods()
+    {
+      klass_.define_method("write", [](std::ostream& stream, VALUE value) -> std::ostream&
+        {
+          stream << Object(value).to_s().c_str();
+          return stream;
+        }, Arg("value").setValue())
+        .define_method<std::ostream& (std::ostream::*)()>("flush", &std::ostream::flush)
+        .define_method("clear", [](std::ostream& stream, int state)
+          {
+            stream.clear(static_cast<std::ios_base::iostate>(state));
+          }, Arg("state") = static_cast<int>(std::ios_base::goodbit));
+
+      rb_define_alias(klass_, "<<", "write");
+    }
+
+    void define_state_methods()
+    {
+      klass_.define_method("good?", &std::ostream::good)
+            .define_method("bad?", &std::ostream::bad)
+            .define_method("fail?", &std::ostream::fail)
+            .define_method("eof?", &std::ostream::eof);
+    }
+
+    Data_Type<std::ostream> klass_;
   };
 
-  template<typename T>
-  class From_Ruby<std::reference_wrapper<T>>
+  class OStringStreamHelper
   {
   public:
-    From_Ruby() = default;
-
-    explicit From_Ruby(Arg* arg) : arg_(arg)
+    OStringStreamHelper(Data_Type<std::ostringstream> klass) : klass_(klass)
     {
-    }
-
-    double is_convertible(VALUE value)
-    {
-      return this->converter_.is_convertible(value);
-    }
-
-    std::reference_wrapper<T> convert(VALUE value)
-    {
-      return this->converter_.convert(value);
+      this->define_constructors();
+      this->define_methods();
     }
 
   private:
-    Arg* arg_ = nullptr;
-    From_Ruby<T&> converter_;
+    void define_constructors()
+    {
+      klass_.define_constructor(Constructor<std::ostringstream>())
+            .define_constructor(Constructor<std::ostringstream, const std::string&>(), Arg("str"));
+    }
+
+    void define_methods()
+    {
+      klass_.define_method<std::string(std::ostringstream::*)() const>("str", &std::ostringstream::str)
+            .define_method("str=", [](std::ostringstream& stream, const std::string& s) { stream.str(s); }, Arg("str"));
+
+      rb_define_alias(klass_, "to_s", "str");
+    }
+
+    Data_Type<std::ostringstream> klass_;
+  };
+
+  class OFStreamHelper
+  {
+  public:
+    OFStreamHelper(Data_Type<std::ofstream> klass) : klass_(klass)
+    {
+      this->define_constructors();
+      this->define_methods();
+    }
+
+  private:
+    void define_constructors()
+    {
+      klass_.define_constructor(Constructor<std::ofstream>())
+            .define_constructor(Constructor<std::ofstream, const std::string&>(), Arg("filename"));
+    }
+
+    void define_methods()
+    {
+      klass_.define_method("open", [](std::ofstream& stream, const std::string& filename) { stream.open(filename); }, Arg("filename"))
+            .define_method("close", &std::ofstream::close)
+            .define_method<bool(std::ofstream::*)() const>("open?", &std::ofstream::is_open);
+    }
+
+    Data_Type<std::ofstream> klass_;
+  };
+}
+
+namespace Rice4RubyQt6
+{
+  inline Data_Type<std::ostream> define_ostream()
+  {
+    define_ios_base();
+
+    Module rb_mStd = define_module_under(define_module("Rice4RubyQt6"), "Std");
+    if (Data_Type<std::ostream>::check_defined("OStream", rb_mStd))
+    {
+      return Data_Type<std::ostream>();
+    }
+
+    Data_Type<std::ostream> result = define_class_under<std::ostream>(rb_mStd, "OStream");
+    stl::OStreamHelper helper(result);
+
+    rb_mStd.const_set("COUT", Data_Object<std::ostream>(&std::cout).value());
+    rb_mStd.const_set("CERR", Data_Object<std::ostream>(&std::cerr).value());
+
+    return result;
+  }
+
+  inline Data_Type<std::ostringstream> define_ostringstream(std::string klassName)
+  {
+    define_ostream();
+
+    if (klassName.empty())
+    {
+      klassName = "OStringStream";
+    }
+
+    Module rb_mStd = define_module_under(define_module("Rice4RubyQt6"), "Std");
+    if (Data_Type<std::ostringstream>::check_defined(klassName, rb_mStd))
+    {
+      return Data_Type<std::ostringstream>();
+    }
+
+    Data_Type<std::ostringstream> result = define_class_under<std::ostringstream, std::ostream>(rb_mStd, klassName.c_str());
+    stl::OStringStreamHelper helper(result);
+    return result;
+  }
+
+  inline Data_Type<std::ofstream> define_ofstream(std::string klassName)
+  {
+    define_ostream();
+
+    if (klassName.empty())
+    {
+      klassName = "OFStream";
+    }
+
+    Module rb_mStd = define_module_under(define_module("Rice4RubyQt6"), "Std");
+    if (Data_Type<std::ofstream>::check_defined(klassName, rb_mStd))
+    {
+      return Data_Type<std::ofstream>();
+    }
+
+    Data_Type<std::ofstream> result = define_class_under<std::ofstream, std::ostream>(rb_mStd, klassName.c_str());
+    stl::OFStreamHelper helper(result);
+    return result;
+  }
+}
+
+namespace Rice4RubyQt6::detail
+{
+  template<>
+  struct Type<std::ostream>
+  {
+    static bool verify()
+    {
+      if (!Data_Type<std::ostream>::is_defined())
+      {
+        define_ostream();
+      }
+      return true;
+    }
+  };
+
+  template<>
+  struct Type<std::ostringstream>
+  {
+    static bool verify()
+    {
+      if (!Data_Type<std::ostringstream>::is_defined())
+      {
+        define_ostringstream();
+      }
+      return true;
+    }
+  };
+
+  template<>
+  struct Type<std::ofstream>
+  {
+    static bool verify()
+    {
+      if (!Data_Type<std::ofstream>::is_defined())
+      {
+        define_ofstream();
+      }
+      return true;
+    }
   };
 }
 
@@ -1071,8 +1374,8 @@ namespace Rice4RubyQt6
 
     if (klassName.empty())
     {
-      detail::TypeMapper<Pair_T> typeMapper;
-      klassName = typeMapper.rubyName();
+      detail::TypeDetail<Pair_T> typeDetail;
+      klassName = typeDetail.rubyName();
     }
 
     Module rb_mStd = define_module_under(define_module("Rice4RubyQt6"), "Std");
@@ -1108,6 +1411,75 @@ namespace Rice4RubyQt6
   }
 }
 
+
+
+// =========   reference_wrapper.hpp   =========
+
+
+// ---------   reference_wrapper.ipp   ---------
+#include <functional>
+
+namespace Rice4RubyQt6::detail
+{
+  template<typename T>
+  struct Type<std::reference_wrapper<T>>
+  {
+    constexpr static bool verify()
+    {
+      return Type<T>::verify();
+    }
+
+    static VALUE rubyKlass()
+    {
+      TypeDetail<T> typeDetail;
+      return typeDetail.rubyKlass();
+    }
+  };
+
+  template<typename T>
+  class To_Ruby<std::reference_wrapper<T>>
+  {
+  public:
+    To_Ruby() = default;
+
+    explicit To_Ruby(Arg* arg) : arg_(arg)
+    {
+    }
+
+    VALUE convert(const std::reference_wrapper<T>& data)
+    {
+      return To_Ruby<T&>().convert(data.get());
+    }
+
+  private:
+    Arg* arg_ = nullptr;
+  };
+
+  template<typename T>
+  class From_Ruby<std::reference_wrapper<T>>
+  {
+  public:
+    From_Ruby() = default;
+
+    explicit From_Ruby(Arg* arg) : arg_(arg)
+    {
+    }
+
+    double is_convertible(VALUE value)
+    {
+      return this->converter_.is_convertible(value);
+    }
+
+    std::reference_wrapper<T> convert(VALUE value)
+    {
+      return this->converter_.convert(value);
+    }
+
+  private:
+    Arg* arg_ = nullptr;
+    From_Ruby<T&> converter_;
+  };
+}
 
 
 // =========   map.hpp   =========
@@ -1354,8 +1726,8 @@ namespace Rice4RubyQt6
 
     if (klassName.empty())
     {
-      detail::TypeMapper<Map_T> typeMapper;
-      klassName = typeMapper.rubyName();
+      detail::TypeDetail<Map_T> typeDetail;
+      klassName = typeDetail.rubyName();
     }
 
     Module rb_mStd = define_module_under(define_module("Rice4RubyQt6"), "Std");
@@ -1903,8 +2275,8 @@ namespace Rice4RubyQt6
               auto iter = multimap.begin();
 
               std::stringstream stream;
-              detail::TypeMapper<T> typeMapper;
-              stream << "<" << typeMapper.rubyName() << ":";
+              detail::TypeDetail<T> typeDetail;
+              stream << "<" << typeDetail.rubyName() << ":";
               stream << "{";
 
               for (; iter != multimap.end(); iter++)
@@ -1942,8 +2314,8 @@ namespace Rice4RubyQt6
 
     if (klassName.empty())
     {
-      detail::TypeMapper<MultiMap_T> typeMapper;
-      klassName = typeMapper.rubyName();
+      detail::TypeDetail<MultiMap_T> typeDetail;
+      klassName = typeDetail.rubyName();
     }
 
     Module rb_mStd = define_module_under(define_module("Rice4RubyQt6"), "Std");
@@ -2265,11 +2637,22 @@ namespace Rice4RubyQt6
             self.insert(value);
             return self;
           }, Arg("value").keepAlive())
-          .define_method("merge", [](T& self, T& other) -> T&
+          .define_method("merge", [](VALUE self, VALUE source)
           {
-            self.merge(other);
+            T* selfPtr = detail::unwrap<T>(self, Data_Type<T>::ruby_data_type(), false);
+            T* sourcePtr = detail::unwrap<T>(source, Data_Type<T>::ruby_data_type(), false);
+            selfPtr->merge(*sourcePtr);
+
+            // Merge moves elements from source to self, so copy keepAlive references.
+            // This is conservative — duplicate elements that remain in source will also
+            // have their keepAlive references copied, keeping them alive longer than
+            // strictly necessary. This is safe (better than premature GC).
+            detail::WrapperBase* selfWrapper = detail::getWrapper(self);
+            detail::WrapperBase* sourceWrapper = detail::getWrapper(source);
+            selfWrapper->setKeepAlive(sourceWrapper->getKeepAlive());
+
             return self;
-          }, Arg("source"));
+          }, Arg("self").setValue(), Arg("source").setValue());
 
         rb_define_alias(klass_, "erase", "delete");
       }
@@ -2381,8 +2764,8 @@ namespace Rice4RubyQt6
             auto finish = self.end();
 
             std::stringstream stream;
-            detail::TypeMapper<T> typeMapper;
-            stream << "<" << typeMapper.rubyName() << ":";
+            detail::TypeDetail<T> typeDetail;
+            stream << "<" << typeDetail.rubyName() << ":";
             stream << "{";
 
             for (; iter != finish; iter++)
@@ -2423,8 +2806,8 @@ namespace Rice4RubyQt6
 
     if (klassName.empty())
     {
-      detail::TypeMapper<Set_T> typeMapper;
-      klassName = typeMapper.rubyName();
+      detail::TypeDetail<Set_T> typeDetail;
+      klassName = typeDetail.rubyName();
     }
 
     Module rb_mStd = define_module_under(define_module("Rice4RubyQt6"), "Std");
@@ -2498,8 +2881,17 @@ namespace Rice4RubyQt6
         switch (rb_type(value))
         {
           case RUBY_T_DATA:
+          {
+          #if RUBY_API_VERSION_MAJOR >= 4
+            if (detail::protect(rb_obj_is_instance_of, value, rb_cSet))
+            {
+              return Convertible::Exact;
+            }
+          #endif
             return Data_Type<std::set<T>>::is_descendant(value) ? Convertible::Exact : Convertible::None;
             break;
+          }
+          #if RUBY_API_VERSION_MAJOR < 4
           case RUBY_T_OBJECT:
           {
             Object object(value);
@@ -2508,6 +2900,7 @@ namespace Rice4RubyQt6
               return Convertible::Exact;
             }
           }
+          #endif
           default:
             return Convertible::None;
         }
@@ -2519,9 +2912,19 @@ namespace Rice4RubyQt6
         {
           case RUBY_T_DATA:
           {
-            // This is a wrapped self (hopefully!)
-            return *detail::unwrap<std::set<T>>(value, Data_Type<std::set<T>>::ruby_data_type(), false);
+            #if RUBY_API_VERSION_MAJOR >= 4
+            if (detail::protect(rb_obj_is_instance_of, value, rb_cSet))
+            {
+              return toSet<T>(value);
+            }
+            #endif
+
+            if (Data_Type<std::set<T>>::is_descendant(value))
+            {
+              return *detail::unwrap<std::set<T>>(value, Data_Type<std::set<T>>::ruby_data_type(), false);
+            }
           }
+          #if RUBY_API_VERSION_MAJOR < 4
           case RUBY_T_OBJECT:
           {
             Object object(value);
@@ -2532,6 +2935,7 @@ namespace Rice4RubyQt6
             throw Exception(rb_eTypeError, "wrong argument type %s (expected %s)",
               detail::protect(rb_obj_classname, value), "std::set");
           }
+          #endif
           default:
           {
             throw Exception(rb_eTypeError, "wrong argument type %s (expected %s)",
@@ -2562,8 +2966,15 @@ namespace Rice4RubyQt6
         switch (rb_type(value))
         {
           case RUBY_T_DATA:
+            #if RUBY_API_VERSION_MAJOR >= 4
+            if (detail::protect(rb_obj_is_instance_of, value, rb_cSet))
+            {
+              return Convertible::Exact;
+            }
+            #endif
             return Data_Type<std::set<T>>::is_descendant(value) ? Convertible::Exact : Convertible::None;
             break;
+          #if RUBY_API_VERSION_MAJOR < 4
           case RUBY_T_OBJECT:
           {
             Object object(value);
@@ -2572,6 +2983,7 @@ namespace Rice4RubyQt6
               return Convertible::Exact;
             }
           }
+          #endif
           default:
             return Convertible::None;
         }
@@ -2583,9 +2995,24 @@ namespace Rice4RubyQt6
         {
           case RUBY_T_DATA:
           {
-            // This is a wrapped self (hopefully!)
-            return *detail::unwrap<std::set<T>>(value, Data_Type<std::set<T>>::ruby_data_type(), false);
+            #if RUBY_API_VERSION_MAJOR >= 4
+            if (detail::protect(rb_obj_is_instance_of, value, rb_cSet))
+            {
+              // If this an Ruby array and the vector type is copyable
+              if constexpr (std::is_default_constructible_v<T>)
+              {
+                this->converted_ = toSet<T>(value);
+                return this->converted_;
+              }
+            }
+            #endif
+
+            if (Data_Type<std::set<T>>::is_descendant(value))
+            {
+              return *detail::unwrap<std::set<T>>(value, Data_Type<std::set<T>>::ruby_data_type(), false);
+            }
           }
+          #if RUBY_API_VERSION_MAJOR < 4
           case RUBY_T_OBJECT:
           {
             Object object(value);
@@ -2601,6 +3028,7 @@ namespace Rice4RubyQt6
             throw Exception(rb_eTypeError, "wrong argument type %s (expected %s)",
               detail::protect(rb_obj_classname, value), "std::set");
           }
+          #endif
           default:
           {
             throw Exception(rb_eTypeError, "wrong argument type %s (expected %s)",
@@ -2631,11 +3059,18 @@ namespace Rice4RubyQt6
         switch (rb_type(value))
         {
           case RUBY_T_DATA:
+            #if RUBY_API_VERSION_MAJOR >= 4
+            if (detail::protect(rb_obj_is_instance_of, value, rb_cSet))
+            {
+              return Convertible::Exact;
+            }
+            #endif
             return Data_Type<std::set<T>>::is_descendant(value) ? Convertible::Exact : Convertible::None;
             break;
           case RUBY_T_NIL:
             return Convertible::Exact;
             break;
+          #if RUBY_API_VERSION_MAJOR < 4
           case RUBY_T_OBJECT:
           {
             Object object(value);
@@ -2644,6 +3079,7 @@ namespace Rice4RubyQt6
               return Convertible::Exact;
             }
           }
+          #endif
           default:
             return Convertible::None;
         }
@@ -2655,9 +3091,24 @@ namespace Rice4RubyQt6
         {
           case RUBY_T_DATA:
           {
-            // This is a wrapped self (hopefully!)
-            return detail::unwrap<std::set<T>>(value, Data_Type<std::set<T>>::ruby_data_type(), false);
+            #if RUBY_API_VERSION_MAJOR >= 4
+            if (detail::protect(rb_obj_is_instance_of, value, rb_cSet))
+            {
+              // If this an Ruby array and the vector type is copyable
+              if constexpr (std::is_default_constructible_v<T>)
+              {
+                this->converted_ = toSet<T>(value);
+                return &this->converted_;
+              }
+            }
+            #endif
+
+            if (Data_Type<std::set<T>>::is_descendant(value))
+            {
+              return detail::unwrap<std::set<T>>(value, Data_Type<std::set<T>>::ruby_data_type(), false);
+            }
           }
+          #if RUBY_API_VERSION_MAJOR < 4
           case RUBY_T_OBJECT:
           {
             Object object(value);
@@ -2673,6 +3124,7 @@ namespace Rice4RubyQt6
             throw Exception(rb_eTypeError, "wrong argument type %s (expected %s)",
               detail::protect(rb_obj_classname, value), "std::set");
           }
+          #endif
           default:
           {
             throw Exception(rb_eTypeError, "wrong argument type %s (expected %s)",
@@ -2727,8 +3179,8 @@ namespace Rice4RubyQt6
 
     if (klassName.empty())
     {
-      detail::TypeMapper<SharedPtr_T> typeMapper;
-      klassName = typeMapper.rubyName();
+      detail::TypeDetail<SharedPtr_T> typeDetail;
+      klassName = typeDetail.rubyName();
     }
 
     Module rb_mStd = define_module_under(define_module("Rice4RubyQt6"), "Std");
@@ -2747,15 +3199,23 @@ namespace Rice4RubyQt6
         return !self;
       });
 
-    if constexpr (!std::is_void_v<T>)
+    if constexpr (detail::is_complete_v<T> && !std::is_void_v<T>)
     {
       result.define_constructor(Constructor<SharedPtr_T, typename SharedPtr_T::element_type*>(), Arg("value").takeOwnership());
     }
 
-    // Setup delegation to forward T's methods via get (only for non-fundamental, non-void types)
-    if constexpr (!std::is_void_v<T> && !std::is_fundamental_v<T>)
+    // Forward methods to wrapped T
+    if constexpr (detail::is_complete_v<T> && !std::is_void_v<T> && !std::is_fundamental_v<T>)
     {
-      detail::define_forwarding(result.klass(), Data_Type<T>::klass());
+      result.instance_eval(R"(
+        define_method(:method_missing) do |method_name, *args, &block|
+          self.get.send(method_name, *args, &block)
+        end
+
+        define_method(:respond_to_missing?) do |method_name, include_private = false|
+          self.get.send(method_name, *args, &block)
+        end
+      )");
     }
 
     return result;
@@ -2824,10 +3284,8 @@ namespace Rice4RubyQt6::detail
         result = result && Type<T>::verify();
       }
 
-      if (result)
-      {
-        define_shared_ptr<T>();
-      }
+      // We ALWAYS need to define the std::shared_ptr<T>, even if T is not bound, because it could be bound after this call
+      define_shared_ptr<T>();
 
       return result;
     }
@@ -3400,8 +3858,8 @@ namespace Rice4RubyQt6
 
     if (klassName.empty())
     {
-      detail::TypeMapper<UniquePtr_T> typeMapper;
-      klassName = typeMapper.rubyName();
+      detail::TypeDetail<UniquePtr_T> typeDetail;
+      klassName = typeDetail.rubyName();
     }
 
     Module rb_mStd = define_module_under(define_module("Rice4RubyQt6"), "Std");
@@ -3421,10 +3879,18 @@ namespace Rice4RubyQt6
         return !self;
       });
 
-    // Setup delegation to forward T's methods via get (only for non-fundamental, non-void types)
+    // Forward methods to wrapped T
     if constexpr (!std::is_void_v<T> && !std::is_fundamental_v<T>)
     {
-      detail::define_forwarding(result.klass(), Data_Type<T>::klass());
+      result.instance_eval(R"(
+        define_method(:method_missing) do |method_name, *args, &block|
+          self.get.send(method_name, *args, &block)
+        end
+
+        define_method(:respond_to_missing?) do |method_name, include_private = false|
+          self.get.send(method_name, *args, &block)
+        end
+      )");
     }
 
     return result;
@@ -3494,10 +3960,8 @@ namespace Rice4RubyQt6::detail
         result = result && Type<T>::verify();
       }
 
-      if (result)
-      {
-        define_unique_ptr<T>();
-      }
+      // We ALWAYS need to define the std::unique_ptr<T>, even if T is not bound, because it could be bound after this call
+      define_unique_ptr<T>();
 
       return result;
     }
@@ -3783,8 +4247,8 @@ namespace Rice4RubyQt6
 
     if (klassName.empty())
     {
-      detail::TypeMapper<UnorderedMap_T> typeMapper;
-      klassName = typeMapper.rubyName();
+      detail::TypeDetail<UnorderedMap_T> typeDetail;
+      klassName = typeDetail.rubyName();
     }
 
     Module rb_mStd = define_module_under(define_module("Rice4RubyQt6"), "Std");
@@ -4089,7 +4553,7 @@ namespace Rice4RubyQt6
         if constexpr (std::is_copy_constructible_v<Value_T>)
         {
           klass_.define_constructor(Constructor<T, const T&>(), Arg("other"))
-                .define_constructor(Constructor<T, Size_T, const Parameter_T>(), Arg("count"), Arg("value"));
+                .define_constructor(Constructor<T, Size_T, const Parameter_T>(), Arg("count"), Arg("value").keepAlive());
         }
 
         if constexpr (std::is_default_constructible_v<Value_T>)
@@ -4155,7 +4619,7 @@ namespace Rice4RubyQt6
         if constexpr (!std::is_same_v<Value_T, bool>)
         {
           // Access methods
-          klass_.define_method("first", [](T& vector) -> std::optional<std::reference_wrapper<Value_T>>
+          auto first_func = [](T& vector) -> std::optional<std::reference_wrapper<Value_T>>
           {
             if (vector.size() > 0)
             {
@@ -4165,8 +4629,9 @@ namespace Rice4RubyQt6
             {
               return std::nullopt;
             }
-          })
-          .define_method("last", [](T& vector) -> std::optional<std::reference_wrapper<Value_T>>
+          };
+
+          auto last_func = [](T& vector) -> std::optional<std::reference_wrapper<Value_T>>
           {
             if (vector.size() > 0)
             {
@@ -4176,8 +4641,9 @@ namespace Rice4RubyQt6
             {
               return std::nullopt;
             }
-          })
-          .define_method("[]", [this](T& vector, Difference_T index) -> std::optional<std::reference_wrapper<Value_T>>
+          };
+
+          auto index_func = [this](T& vector, Difference_T index) -> std::optional<std::reference_wrapper<Value_T>>
           {
             index = normalizeIndex(vector.size(), index);
             if (index < 0 || index >= (Difference_T)vector.size())
@@ -4188,8 +4654,22 @@ namespace Rice4RubyQt6
             {
               return vector[index];
             }
-          }, Arg("pos"))
-          .template define_method<Value_T*(T::*)()>("data", &T::data, ReturnBuffer());
+          };
+
+          if constexpr (detail::is_wrapped_v<Value_T>)
+          {
+            klass_.define_method("first", first_func, Return().keepAlive())
+                  .define_method("last", last_func, Return().keepAlive())
+                  .define_method("[]", index_func, Arg("pos"), Return().keepAlive());
+          }
+          else
+          {
+            klass_.define_method("first", first_func)
+                  .define_method("last", last_func)
+                  .define_method("[]", index_func, Arg("pos"));
+          }
+
+          klass_.template define_method<Value_T*(T::*)()>("data", &T::data, ReturnBuffer());
         }
         else
         {
@@ -4467,8 +4947,8 @@ namespace Rice4RubyQt6
 
     if (klassName.empty())
     {
-      detail::TypeMapper<Vector_T> typeMapper;
-      klassName = typeMapper.rubyName();
+      detail::TypeDetail<Vector_T> typeDetail;
+      klassName = typeDetail.rubyName();
     }
 
     Module rb_mStd = define_module_under(define_module("Rice4RubyQt6"), "Std");

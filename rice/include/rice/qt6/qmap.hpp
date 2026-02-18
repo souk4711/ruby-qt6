@@ -31,6 +31,7 @@ class DefineQMapMethods
 {
       using Key_T = typename QMap_T::key_type;
       using Mapped_T = typename QMap_T::mapped_type;
+      using To_Ruby_T = typename detail::remove_cv_recursive_t<Mapped_T>;
 
 public:
     DefineQMapMethods(Data_Type<QMap_T> klass) : klass_(klass)
@@ -124,18 +125,20 @@ private:
 
     void define_enumerable()
     {
-        klass_.include_module(rb_mEnumerable);
-        klass_.define_method("each", [](QMap_T *self) -> QMap_T* {
-            for (auto i = self->cbegin(), end = self->cend(); i != end; ++i) {
-                detail::protect(rb_yield_values, 2, detail::to_ruby(i.key()), detail::to_ruby(i.value()));
-            }
-            return self;
-        });
+        klass_.template define_iterator<typename QMap_T::iterator (QMap_T::*)()>(&QMap_T::begin, &QMap_T::end);
     }
 
     void define_to_hash()
     {
-        rb_define_alias(klass_, "to_hash", "to_h");
+        klass_.define_method("to_h", [](QMap_T *self) {
+            VALUE result = rb_hash_new();
+            for (auto iter = self->cbegin(), end = self->cend(); iter != end; ++iter) {
+                VALUE key = detail::To_Ruby<Key_T&>().convert(iter.key());
+                VALUE value = detail::To_Ruby<To_Ruby_T&>().convert(iter.value());
+                rb_hash_aset(result, key, value);
+            }
+            return result;
+        }, Return().setValue());
     }
 
 private:
@@ -147,8 +150,8 @@ void define_qmap_under(Module module)
 {
     using QMap_T = QMap<Key_T, Mapped_T>;
 
-    detail::TypeMapper<QMap_T> typeMapper;
-    std::string klassName = typeMapper.rubyName();
+    detail::TypeDetail<QMap_T> typeDetail;
+    std::string klassName = typeDetail.rubyName();
     Identifier id(klassName);
 
     Data_Type<QMap_T> qmap = define_class_under<QMap_T>(module, id);

@@ -32,8 +32,8 @@ void define_qdbusreply_under(Module module)
     using QDBusReply_T = QDBusReply<Value_T>;
     using QDBusPendingReply_T = QDBusPendingReply<Value_T>;
 
-    detail::TypeMapper<QDBusReply_T> typeMapper;
-    std::string klassName = typeMapper.rubyName();
+    detail::TypeDetail<QDBusReply_T> typeDetail;
+    std::string klassName = typeDetail.rubyName();
     Identifier id(klassName);
 
     define_class_under<QDBusReply_T>(module, id)

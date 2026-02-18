@@ -132,7 +132,8 @@ template <typename BandoClass_T> void bando_initializeValue(BandoClass_T *self, 
     self->value_ = value;
     self->mo_ = mo;
 
-    self->value_address_ = const_cast<VALUE*>(&self->value_.value());
+    auto v = self->value_.value();
+    self->value_address_ = const_cast<VALUE*>(&v);
     detail::protect(rb_gc_register_address, self->value_address_);
 }
 

@@ -35,7 +35,7 @@ module RubyQt6
 
       # @!visibility private
       def [](key)
-        __send__("[]", T.to_qstr(key))
+        __send__("_[]", T.to_qstr(key))
       end
 
       # @!visibility private

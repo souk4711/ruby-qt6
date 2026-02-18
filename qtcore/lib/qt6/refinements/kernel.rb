@@ -46,10 +46,4 @@ module Kernel
     flags.define_method(:^) { |other| flags.from_int(to_i ^ other.to_i) }
     flags.define_method(:|) { |other| flags.from_int(to_i | other.to_i) }
   end
-
-  def rubyqt6_declare_std_unique_ptr(ptr, **options)
-    ptr.instance_exec do
-      def_delegators :get, *options[:delegators]
-    end
-  end
 end
