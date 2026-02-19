@@ -52,11 +52,11 @@ namespace :bindgen do
   task :rbext, [:qlass] do |_, args|
     name = args.qlass.to_s
     Dir["vendor/rice/*/#{name.downcase}-rb.*"].each do |file|
-      m = file.match("/(Qt.*)/(.*)")
+      m = name.start_with?("K") ? file.match("/(K.*)/(.*)") : file.match("/(Qt.*)/(.*)")
       submod = m[1]
       copied = "#{submod.downcase}/ext/qt6/#{submod.downcase}/#{m[2]}"
       sh("cp #{file} #{copied}")
-      sh("sed -i 's/Init_Q#{name.downcase[1..]}(/Init_#{name.downcase}(Module rb_mQt6#{submod}/' #{copied}")
+      sh("sed -i 's/Init_[QK]#{name.downcase[1..]}(/Init_#{name.downcase}(Module rb_mQt6#{submod}/' #{copied}")
       sh("sed -i 's/define_class<#{name}\\(.*\\)>(/define_class_under<#{name}\\1>(rb_mQt6#{submod}, /' #{copied}")
     end
   end
@@ -94,8 +94,6 @@ namespace :bindgen do
     upinc(pkg: "kcoreaddons-6.23.0-1")
     upinc(pkg: "kguiaddons-6.23.0-1")
     upinc(pkg: "kwidgetsaddons-6.23.0-1")
-    upinc(pkg: "ktexteditor-6.23.0-1")
-    upinc(pkg: "ktextwidgets-6.23.0-1")
   end
 end
 
