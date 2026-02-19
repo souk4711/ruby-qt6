@@ -23,6 +23,7 @@
 #define RICE_QLIST_HPP
 
 #include <QList>
+#include <rice/cxx/concepts.hpp>
 
 RICE4RUBYQT6_USE_NAMESPACE
 
@@ -38,7 +39,7 @@ public:
         this->define_constructors();
         this->define_capacity_methods();
         this->define_access_methods();
-        this->define_comparable_methods();
+        if constexpr (has_equal_operator<Parameter_T>::value) { this->define_comparable_methods(); }
         this->define_insert_methods();
         this->define_remove_methods();
         this->define_enumerable();
@@ -159,15 +160,17 @@ private:
             return self;
         });
 
-        klass_.define_method("delete", [](QList_T *self, Parameter_T element) -> std::optional<Value_T> {
-            qsizetype index = self->lastIndexOf(element);
-            if (index != -1) {
-                Value_T result = self->takeAt(index);
-                self->removeAll(element);
-                return result;
-            }
-            return std::nullopt;
-        });
+        if constexpr (has_equal_operator<Parameter_T>::value) {
+            klass_.define_method("delete", [](QList_T *self, Parameter_T element) -> std::optional<Value_T> {
+                qsizetype index = self->lastIndexOf(element);
+                if (index != -1) {
+                    Value_T result = self->takeAt(index);
+                    self->removeAll(element);
+                    return result;
+                }
+                return std::nullopt;
+            });
+        }
 
         klass_.define_method("delete_at", [](QList_T *self, qsizetype index) -> std::optional<Value_T> {
             if (index < 0) {
