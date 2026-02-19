@@ -1,16 +1,18 @@
 # frozen_string_literal: true
 
-QT6_LIBS = %w[
+LIBS = %w[
   QtCore QtGui QtWidgets QtNetwork QtPrintSupport QtTest
   QtQml QtQuick QtQuickControls2 QtQuickWidgets
   QtMultimedia QtMultimediaWidgets
   QtWebEngineCore QtWebEngineWidgets QtWebView
   QtUiTools
   QtDBus
+  KCoreAddons KGuiAddons KWidgetsAddons
+  KTextEditor KTextWidgets
 ].freeze
 
-QT6_LIBS_Z =
-  QT6_LIBS + ["Qt"]
+LIBS_Z =
+  LIBS + ["Qt"]
 
 namespace :bindgen do
   def bindgen(extension:)
@@ -18,35 +20,42 @@ namespace :bindgen do
 
     clang_args = []
     clang_args << "-I/usr/lib/clang/21/include"
-    clang_args << "-I./vendor/qt6include"
-    clang_args << "-I./vendor/qt6include/#{extension}"
+    clang_args << "-I./vendor/include"
+    clang_args << "-I./vendor/include/#{extension}"
     clang_args << "-xc++"
-    inputter = RubyBindgen::Inputter.new("vendor/qt6include/#{extension}", "q[a-z]*.h", ["*impl.h", "*helpers.h", "qwindowdefs.h"])
-    outputter = RubyBindgen::Outputter.new("vendor/qt6rice/#{extension}")
+
+    if extension.start_with?("K")
+      clang_args << "-I./vendor/include/QtCore"
+      clang_args << "-I./vendor/include/QtGui"
+      clang_args << "-I./vendor/include/QtWidgets"
+    end
+
+    inputter = RubyBindgen::Inputter.new("vendor/include/#{extension}", "[qk][a-z]*.h", ["*impl.h", "*helpers.h", "qwindowdefs.h"])
+    outputter = RubyBindgen::Outputter.new("vendor/rice/#{extension}")
     parser = RubyBindgen::Parser.new(inputter, clang_args)
     format = RubyBindgen::Visitors::Rice.new(extension.downcase, outputter)
     parser.generate(format, parallel: true)
   end
 
-  QT6_LIBS.each do |lib|
-    desc "Generate Rice bindings for #{lib.sub("Qt", "libQt6")}"
+  LIBS.each do |lib|
+    desc "Generate Rice bindings for #{lib}"
     task lib.downcase do
-      FileUtils.mkdir_p("vendor/qt6rice")
-      FileUtils.rm_rf("vendor/qt6rice/#{lib}")
+      FileUtils.mkdir_p("vendor/rice")
+      FileUtils.rm_rf("vendor/rice/#{lib}")
       bindgen(extension: lib)
-      sh("clang-format -i -style=file --verbose vendor/qt6rice/#{lib}/*{hpp,cpp}")
+      sh("clang-format -i -style=file --verbose vendor/rice/#{lib}/*{hpp,cpp}")
     end
   end
 
-  desc "Generate Rice bindings for libQt6"
+  desc "Generate Rice bindings"
   task :all do
-    QT6_LIBS.each { |lib| system("rake bindgen:#{lib.downcase}") }
+    LIBS.each { |lib| system("rake bindgen:#{lib.downcase}") }
   end
 
-  desc "Generate Rice bindings for qlass"
+  desc "Update extension file"
   task :rbext, [:qlass] do |_, args|
     name = args.qlass.to_s
-    Dir["vendor/qt6rice/*/#{name.downcase}-rb.*"].each do |file|
+    Dir["vendor/rice/*/#{name.downcase}-rb.*"].each do |file|
       m = file.match("/(Qt.*)/(.*)")
       submod = m[1]
       copied = "#{submod.downcase}/ext/qt6/#{submod.downcase}/#{m[2]}"
@@ -56,7 +65,7 @@ namespace :bindgen do
     end
   end
 
-  desc "Update libQt6 headers"
+  desc "Update header files"
   task :upinc do
     def upinc(pkg:)
       url = "https://mirror.rackspace.com/archlinux/extra/os/x86_64/#{pkg}-x86_64.pkg.tar.zst"
@@ -72,11 +81,13 @@ namespace :bindgen do
 
       sh "mkdir -p #{out} && rm -rf #{out}/*"
       sh "tar --zstd -xf #{inf} --directory=#{out}"
-      sh "cp -r #{out}/usr/include/qt6/. vendor/qt6include"
+
+      dir = pkg.start_with?("k") ? "KF6" : "qt6"
+      sh "cp -r #{out}/usr/include/#{dir}/. vendor/include"
     end
 
-    FileUtils.rm_rf("vendor/qt6include")
-    FileUtils.mkdir_p("vendor/qt6include")
+    FileUtils.rm_rf("vendor/include")
+    FileUtils.mkdir_p("vendor/include")
     upinc(pkg: "qt6-base-6.10.1-1")
     upinc(pkg: "qt6-declarative-6.10.1-2")
     upinc(pkg: "qt6-multimedia-6.10.1-1")
@@ -84,6 +95,11 @@ namespace :bindgen do
     upinc(pkg: "qt6-tools-6.10.1-1")
     upinc(pkg: "qt6-webengine-6.10.1-1")
     upinc(pkg: "qt6-webview-6.10.1-1")
+    upinc(pkg: "kcoreaddons-6.23.0-1")
+    upinc(pkg: "kguiaddons-6.23.0-1")
+    upinc(pkg: "kwidgetsaddons-6.23.0-1")
+    upinc(pkg: "ktexteditor-6.23.0-1")
+    upinc(pkg: "ktextwidgets-6.23.0-1")
   end
 end
 
@@ -101,9 +117,9 @@ task :compile, [:clobber] do |_, args|
   if args.clobber
     require "parallel"
     sh "rm -rf extensions"
-    Bundler.with_unbundled_env { Parallel.each(QT6_LIBS, &compile) }
+    Bundler.with_unbundled_env { Parallel.each(LIBS, &compile) }
   else
-    Bundler.with_unbundled_env { QT6_LIBS.each(&compile) }
+    Bundler.with_unbundled_env { LIBS.each(&compile) }
   end
 end
 
@@ -117,7 +133,7 @@ task :rubocop do
     end
   end
 
-  Bundler.with_unbundled_env { QT6_LIBS_Z.each(&rubocop) }
+  Bundler.with_unbundled_env { LIBS_Z.each(&rubocop) }
 end
 
 desc "Run RSpec code examples"
@@ -130,7 +146,7 @@ task :spec do
     end
   end
 
-  Bundler.with_unbundled_env { QT6_LIBS_Z.each(&rspec) }
+  Bundler.with_unbundled_env { LIBS_Z.each(&rspec) }
 end
 
 desc "Run YARD documentation"
