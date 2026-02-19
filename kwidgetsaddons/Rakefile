@@ -1,0 +1,23 @@
+# frozen_string_literal: true
+
+require "bundler/gem_tasks"
+GEMSPEC = Gem::Specification.load("kwidgetsaddons.gemspec")
+
+require "rake/extensiontask"
+Rake::ExtensionTask.new("kwidgetsaddons", GEMSPEC) do |ext|
+  ext.ext_dir = "ext/qt6/kwidgetsaddons"
+  ext.lib_dir = "lib/qt6/kwidgetsaddons"
+end
+Rake::Task["rake:compile"].enhance do
+  mkdir_p Pathname.new(GEMSPEC.gem_build_complete_path).parent
+  touch GEMSPEC.gem_build_complete_path
+end
+
+require "rubocop/rake_task"
+RuboCop::RakeTask.new
+
+require "rspec/core/rake_task"
+RSpec::Core::RakeTask.new(:spec)
+
+task build: :compile
+task default: %i[compile spec]
