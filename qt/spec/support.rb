@@ -4,7 +4,7 @@ module Support
   end
 
   def self.descendants(klass)
-    _descendants(klass).filter { |k| !k.name.start_with?("RubyQt6::Bando") }
+    _descendants(klass).filter { |k| k.name.start_with?("RubyQt6::Q") }
   end
 
   def self._descendants(klass)

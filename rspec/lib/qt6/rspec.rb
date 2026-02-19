@@ -140,6 +140,7 @@ module RubyQt6
 
       return if rbfile_contents.nil?
       return if rbfile_contents.include?("# @see https://doc.qt.io/qt-6/#{qlass.name.downcase}.html")
+      return if rbfile_contents.include?("# @see https://api.kde.org/#{qlass.name.downcase}.html")
       raise "#{rbfile}: docs: Missing `# @see https://doc.qt.io/qt-6/...`"
     end
 

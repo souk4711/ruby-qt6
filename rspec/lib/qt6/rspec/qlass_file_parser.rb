@@ -46,11 +46,11 @@ module RubyQt6
           raise MissingLine.new("Class rb_c...", line)
         end
 
-        until line.start_with?("void Init_q")
+        until line.start_with?("void Init_q", "void Init_k")
           take_next_line
         end
 
-        while line == "" || line.start_with?("void Init_q") || line == "{"
+        while line == "" || line.start_with?("void Init_q", "void Init_k") || line == "{"
           take_next_line
         end
       end

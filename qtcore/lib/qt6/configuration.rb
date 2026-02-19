@@ -5,7 +5,7 @@ module RubyQt6
   def self.initialize!(mod)
     mod.constants.each do |const|
       next if const.match?("VERSION")
-      Object.const_set(const, mod.const_get(const)) if const.start_with?("Q")
+      Object.const_set(const, mod.const_get(const)) if const.start_with?("Q", "K")
     end
   end
 end

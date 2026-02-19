@@ -48,6 +48,11 @@ module RubyQt6
       QKeySequence.new(key)
     end
 
+    def self.to_qurl(url)
+      return url unless url.is_a?(String) || key.is_a?(QString)
+      QUrl.new(url)
+    end
+
     def self.to_qvariantlist(array)
       array.each_with_object(QVariantList.new) { |e, memo| memo << QVariant.new(e) }
     end
