@@ -1,0 +1,13 @@
+# frozen_string_literal: true
+
+source "https://rubygems.org"
+
+%w[
+  rice
+  qtcore qtgui qtwidgets
+  kcoreaddons kguiaddons kwidgetsaddons
+  k
+].each do |lib|
+  gem_name = (lib != "k" ? "ruby-qt6-#{lib}" : "ruby-qt6-kdeframeworks")
+  gem gem_name, path: "../#{lib}"
+end

@@ -26,5 +26,6 @@ bundle exec ruby main.rb
 
 ## License
 
+- `kdeframeworks-<...>` examples are translated from [kdeframeworks](https://invent.kde.org/frameworks)
 - `pyside-<...>` examples are translated from [pyside/pyside-setup](https://github.com/pyside/pyside-setup/tree/v6.9.3/examples)
 - `qtbindings-<...>` examples are translated from [ryanmelt/qtbindings](https://github.com/ryanmelt/qtbindings/tree/v4.6.3.4/examples)
