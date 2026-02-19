@@ -9,5 +9,6 @@ require_relative "kcoreaddons/kcoreaddonsversion"
 require_relative "kcoreaddons/kaboutdata"
 require_relative "kcoreaddons/kaboutlicense"
 require_relative "kcoreaddons/kaboutperson"
+require_relative "kcoreaddons/kformat"
 
 RubyQt6.initialize!(RubyQt6::KCoreAddons)
