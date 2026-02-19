@@ -41,18 +41,29 @@ def rubyqt6_extconf(mod, depends:)
   r = "RUBYQT6_BUILD_#{mod.upcase}_LIB"
   append_cppflags("-D#{r}")
 
-  # Add qt6 included directories
+  # Add included directories
   append_cppflags("-I#{qt_install_headers}")
   (Array(depends) + Array(mod)).each do |name|
-    includedir = File.join(qt_install_headers, name)
-    append_cppflags("-I#{includedir}")
+    if name.start_with?("Qt")
+      includedir = File.join(qt_install_headers, name)
+      append_cppflags("-I#{includedir}")
+    elsif name.start_with?("K")
+      includedir = File.join("/usr/include/KF6", name)
+      append_cppflags("-I#{includedir}")
+    end
   end
 
-  # Add qt6 libraries
+  # Add libraries
   (Array(depends) + Array(mod)).each do |name|
-    library = name.sub("Qt", "Qt6")
-    message = "Could not find lib#{library}, please install qt6 package"
-    raise message unless find_library(library, nil, qt_install_libs)
+    if name.start_with?("Qt")
+      library = name.sub("Qt", "Qt6")
+      message = "Could not find lib#{library}, please install qt6 package"
+      raise message unless find_library(library, nil, qt_install_libs)
+    elsif name.start_with?("K")
+      library = name.sub("K", "KF6")
+      message = "Could not find lib#{library}, please install kf6 package"
+      raise message unless find_library(library, nil, "/usr/lib")
+    end
   end
 
   # Create Makefile
