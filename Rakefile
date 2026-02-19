@@ -129,8 +129,8 @@ task :rubocop do
     end
   end
 
-  Bundler.with_unbundled_env { LIBS.each(&rubocop) }
-  Bundler.with_unbundled_env { rubocop.call("qt") }
+  libs = LIBS + ["qt", "k"]
+  Bundler.with_unbundled_env { libs.each(&rubocop) }
 end
 
 desc "Run RSpec code examples"
@@ -143,8 +143,8 @@ task :spec do
     end
   end
 
-  Bundler.with_unbundled_env { LIBS.each(&rspec) }
-  Bundler.with_unbundled_env { rspec.call("qt") }
+  libs = LIBS + ["qt", "k"]
+  Bundler.with_unbundled_env { libs.each(&rspec) }
 end
 
 desc "Run YARD documentation"
@@ -152,8 +152,8 @@ task :yard, [:server] do |_, args|
   src = "tmp/tasks/yardoc/src"
 
   sh "rm -rf #{src} && mkdir -p #{src}"
-  sh "cp -rv qt*/lib #{src}"
-  sh "cp -rv k*/lib #{src}"
+  sh "cp -rv qt[a-z]*/lib #{src}"
+  sh "cp -rv k[a-z]*/lib #{src}"
 
   Dir.chdir(src) do
     yardopts = []
