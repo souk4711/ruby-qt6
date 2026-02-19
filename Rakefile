@@ -8,11 +8,7 @@ LIBS = %w[
   QtUiTools
   QtDBus
   KCoreAddons KGuiAddons KWidgetsAddons
-  KTextEditor KTextWidgets
 ].freeze
-
-LIBS_Z =
-  LIBS + ["Qt"]
 
 namespace :bindgen do
   def bindgen(extension:)
@@ -133,7 +129,8 @@ task :rubocop do
     end
   end
 
-  Bundler.with_unbundled_env { LIBS_Z.each(&rubocop) }
+  Bundler.with_unbundled_env { LIBS.each(&rubocop) }
+  Bundler.with_unbundled_env { rubocop.call("qt") }
 end
 
 desc "Run RSpec code examples"
@@ -146,7 +143,8 @@ task :spec do
     end
   end
 
-  Bundler.with_unbundled_env { LIBS_Z.each(&rspec) }
+  Bundler.with_unbundled_env { LIBS.each(&rspec) }
+  Bundler.with_unbundled_env { rspec.call("qt") }
 end
 
 desc "Run YARD documentation"
@@ -155,6 +153,7 @@ task :yard, [:server] do |_, args|
 
   sh "rm -rf #{src} && mkdir -p #{src}"
   sh "cp -rv qt*/lib #{src}"
+  sh "cp -rv k*/lib #{src}"
 
   Dir.chdir(src) do
     yardopts = []

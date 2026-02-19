@@ -13,5 +13,8 @@ bundle_install() {
 
 bundle_install "."
 bundle_install "rice"
+
 for lib in qt[a-z]*; do bundle_install "$lib"; done
 bundle_install "qt"
+
+for lib in k[a-z]*; do bundle_install "$lib"; done
