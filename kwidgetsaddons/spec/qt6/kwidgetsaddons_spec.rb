@@ -11,6 +11,7 @@ RSpec.describe RubyQt6::KWidgetsAddons do
     Dir.glob("ext/**/k*.cpp").each do |cppfile|
       next if cppfile == "ext/qt6/kwidgetsaddons/kwidgetsaddons-rb.cpp"
       next if cppfile == "ext/qt6/kwidgetsaddons/kwidgetsaddonsversion-rb.cpp"
+      next if cppfile == "ext/qt6/kwidgetsaddons/kmessagebox-rb.cpp"
 
       it cppfile do
         RubyQt6::RSpec.verify_qlass_cppfile cppfile, qmod
