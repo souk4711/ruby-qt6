@@ -1,6 +1,7 @@
 #include "kwidgetsaddons-rb.hpp"
 #include "kwidgetsaddonsversion-rb.hpp"
 
+#include "kguiitem-rb.hpp"
 #include "kseparator-rb.hpp"
 
 #include "bando-kseparator-rb.hpp"
@@ -15,6 +16,7 @@ extern "C" void Init_kwidgetsaddons()
 
         Init_kwidgetsaddonsversion(rb_mQt6KWidgetsAddons);
 
+        Init_kguiitem(rb_mQt6KWidgetsAddons);
         Init_kseparator(rb_mQt6KWidgetsAddons);
 
         Module rb_mQt6Bando = define_module_under(rb_mQt6, "Bando");

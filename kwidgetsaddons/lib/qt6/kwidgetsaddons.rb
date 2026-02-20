@@ -10,6 +10,7 @@ require_relative "kwidgetsaddons/version"
 require_relative "kwidgetsaddons/kwidgetsaddons"
 require_relative "kwidgetsaddons/kwidgetsaddonsversion"
 
+require_relative "kwidgetsaddons/kguiitem"
 require_relative "kwidgetsaddons/kseparator"
 
 require_relative "bando/kseparator"
