@@ -18,8 +18,8 @@ module RubyQt6
       # @!visibility private
       alias_method :_initialize, :initialize
 
-      # @param organization [QString]
-      # @param application [QString]
+      # @param organization [String, QString]
+      # @param application [String, QString]
       # @return [QSettings]
       def initialize(organization = nil, application = nil)
         format = QSettings.default_format

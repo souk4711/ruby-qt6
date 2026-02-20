@@ -29,28 +29,33 @@ module RubyQt6
     end
 
     def self.to_qanystringview(str)
-      return str unless str.is_a?(String) || str.is_a?(QString)
-      QAnyStringView.new(str)
+      return str if str.is_a?(QAnyStringView)
+      return QAnyStringView.new(str) if str.is_a?(String) || str.is_a?(QString)
+      raise ArgumentError, "Expected type QAnyStringView, but got #{str.class}"
     end
 
     def self.to_qbytearray(str)
-      return str unless str.is_a?(String)
-      QByteArray.new(str)
+      return str if str.is_a?(QByteArray)
+      return QByteArray.new(str) if str.is_a?(String)
+      raise ArgumentError, "Expected type QByteArray, but got #{str.class}"
     end
 
     def self.to_qstr(str)
-      return str unless str.is_a?(String)
-      QString.new(str)
+      return str if str.is_a?(QString)
+      return QString.new(str) if str.is_a?(String)
+      raise ArgumentError, "Expected type QString, but got #{str.class}"
     end
 
     def self.to_qkeysequence(key)
-      return key unless key.is_a?(String) || key.is_a?(QString) || key.is_a?(Integer) || key.is_a?(QKeySequence::StandardKey)
-      QKeySequence.new(key)
+      return key if key.is_a?(QKeySequence)
+      return QKeySequence.new(key) if key.is_a?(String) || key.is_a?(QString) || key.is_a?(Integer) || key.is_a?(QKeySequence::StandardKey)
+      raise ArgumentError, "Expected type QKeySequence, but got #{key.class}"
     end
 
     def self.to_qurl(url)
-      return url unless url.is_a?(String) || key.is_a?(QString)
-      QUrl.new(url)
+      return url if url.is_a?(QUrl)
+      return QUrl.new(url) if url.is_a?(String) || url.is_a?(QString)
+      raise ArgumentError, "Expected type QUrl, but got #{url.class}"
     end
 
     def self.to_qvariantlist(array)
@@ -62,13 +67,12 @@ module RubyQt6
     end
 
     def self.to_qflags(enum_or_flags)
-      return enum_or_flags unless enum_or_flags.respond_to?(:to_qflags)
       enum_or_flags.to_qflags
     end
 
     def self.bando_qobject_cast(object)
-      return object unless object.class.name.start_with?("RubyQt6::Bando::")
-      object._ruby_value
+      b = object.class.name.start_with?("RubyQt6::Bando::")
+      b ? object._ruby_value : object
     end
 
     def self.inspect_struct(object, **attributes)

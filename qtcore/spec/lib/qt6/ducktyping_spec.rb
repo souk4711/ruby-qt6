@@ -43,7 +43,6 @@ RSpec.describe RubyQt6::T do
     expect(RubyQt6::T.to_qanystringview(o1).to_s).to eq("abc")
     expect(RubyQt6::T.to_qanystringview(o2).to_s).to eq("def")
     expect(RubyQt6::T.to_qanystringview(o3).to_s).to eq("xyz")
-    expect(RubyQt6::T.to_qanystringview(12)).to eq(12)
   end
 
   it ".to_qstr" do
@@ -53,7 +52,6 @@ RSpec.describe RubyQt6::T do
     expect(RubyQt6::T.to_qstr(o2)).to be_a(QString)
     expect(RubyQt6::T.to_qstr(o1)).to eq("abc")
     expect(RubyQt6::T.to_qstr(o2)).to eq("def")
-    expect(RubyQt6::T.to_qstr(12)).to eq(12)
   end
 
   it ".to_qflags" do
@@ -61,7 +59,5 @@ RSpec.describe RubyQt6::T do
     o2 = Qt::Alignment.new
     expect(RubyQt6::T.to_qflags(o1)).to be_a(Qt::Alignment)
     expect(RubyQt6::T.to_qflags(o2)).to be_a(Qt::Alignment)
-    expect(RubyQt6::T.to_qflags(12)).to eq(12)
-    expect(RubyQt6::T.to_qflags(:s)).to eq(:s)
   end
 end
