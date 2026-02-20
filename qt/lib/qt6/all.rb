@@ -3,6 +3,7 @@
 require "qt6/qtcore"
 require "qt6/qtgui"
 require "qt6/qtwidgets"
+require "qt6/qtdbus"
 require "qt6/qtnetwork"
 require "qt6/qtprintsupport"
 require "qt6/qttest"
@@ -16,4 +17,3 @@ require "qt6/qtwebenginecore"
 require "qt6/qtwebenginewidgets"
 require "qt6/qtwebview"
 require "qt6/qtuitools"
-require "qt6/qtdbus" if RUBY_PLATFORM.downcase.include?("linux")

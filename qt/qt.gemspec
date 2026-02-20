@@ -34,6 +34,7 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency("ruby-qt6-qtcore", "~> 2.1.0")
   spec.add_runtime_dependency("ruby-qt6-qtgui", "~> 2.1.0")
   spec.add_runtime_dependency("ruby-qt6-qtwidgets", "~> 2.1.0")
+  spec.add_runtime_dependency("ruby-qt6-qtdbus", "~> 2.1.0")
   spec.add_runtime_dependency("ruby-qt6-qtnetwork", "~> 2.1.0")
   spec.add_runtime_dependency("ruby-qt6-qtprintsupport", "~> 2.1.0")
   spec.add_runtime_dependency("ruby-qt6-qttest", "~> 2.1.0")
@@ -47,7 +48,6 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency("ruby-qt6-qtwebenginewidgets", "~> 2.1.0")
   spec.add_runtime_dependency("ruby-qt6-qtwebview", "~> 2.1.0")
   spec.add_runtime_dependency("ruby-qt6-qtuitools", "~> 2.1.0")
-  spec.add_runtime_dependency("ruby-qt6-qtdbus", "~> 2.1.0") if RUBY_PLATFORM.downcase.include?("linux")
 
   # For more information and examples about making a new gem, check out our
   # guide at: https://bundler.io/guides/creating_gem.html

@@ -4,7 +4,7 @@ source "https://rubygems.org"
 
 %w[
   rice
-  qtcore qtgui qtwidgets qtnetwork qtprintsupport qttest
+  qtcore qtgui qtwidgets qtdbus qtnetwork qtprintsupport qttest
   qtqml qtquick qtquickcontrols2 qtquickwidgets
   qtmultimedia qtmultimediawidgets
   qtwebenginecore qtwebenginewidgets qtwebview
@@ -13,11 +13,4 @@ source "https://rubygems.org"
 ].each do |lib|
   gem_name = (lib != "qt" ? "ruby-qt6-#{lib}" : "ruby-qt6")
   gem gem_name, path: "../#{lib}"
-end
-
-%w[
-  qtdbus
-].each do |lib|
-  next unless RUBY_PLATFORM.downcase.include?("linux")
-  gem "ruby-qt6-#{lib}", path: "../#{lib}"
 end

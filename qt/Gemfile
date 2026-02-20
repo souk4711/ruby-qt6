@@ -8,20 +8,12 @@ gemspec
 # ruby-qt6
 %w[
   rice
-  qtcore qtgui qtwidgets qtnetwork qtprintsupport qttest
+  qtcore qtgui qtwidgets qtdbus qtnetwork qtprintsupport qttest
   qtqml qtquick qtquickcontrols2 qtquickwidgets
   qtmultimedia qtmultimediawidgets
   qtwebenginecore qtwebenginewidgets qtwebview
   qtuitools
 ].each do |lib|
-  gem "ruby-qt6-#{lib}", path: "../#{lib}"
-end
-
-# ruby-qt6 - linux
-%w[
-  qtdbus
-].each do |lib|
-  next unless RUBY_PLATFORM.downcase.include?("linux")
   gem "ruby-qt6-#{lib}", path: "../#{lib}"
 end
 
