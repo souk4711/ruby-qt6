@@ -8,4 +8,6 @@ require_relative "kguiaddons/version"
 require_relative "kguiaddons/kguiaddons"
 require_relative "kguiaddons/kguiaddonsversion"
 
+require_relative "kguiaddons/kdatevalidator"
+
 RubyQt6.initialize!(RubyQt6::KGuiAddons)

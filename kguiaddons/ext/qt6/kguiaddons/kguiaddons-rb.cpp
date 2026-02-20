@@ -1,6 +1,8 @@
 #include "kguiaddons-rb.hpp"
 #include "kguiaddonsversion-rb.hpp"
 
+#include "kdatevalidator-rb.hpp"
+
 RICE4RUBYQT6_USE_NAMESPACE
 
 extern "C" void Init_kguiaddons()
@@ -10,5 +12,7 @@ extern "C" void Init_kguiaddons()
         Module rb_mQt6KGuiAddons = define_module_under(rb_mQt6, "KGuiAddons");
 
         Init_kguiaddonsversion(rb_mQt6KGuiAddons);
+
+        Init_kdatevalidator(rb_mQt6KGuiAddons);
     });
 }

@@ -22,7 +22,7 @@ RSpec.describe RubyQt6::K do
 
     ownership_all.each do |klass|
       _, lib, filename = klass.name.split("::").map(&:downcase)
-      filename = File.expand_path("../../../#{lib}/lib/qt6/#{lib}/#{filename}.rb", __dir__)
+      filename = File.expand_path("../../../../#{lib}/lib/qt6/#{lib}/#{filename}.rb", __dir__)
       filedata = File.read(filename)
       next unless filedata.include?("def initialize")
 
