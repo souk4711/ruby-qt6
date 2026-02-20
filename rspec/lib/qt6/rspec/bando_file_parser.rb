@@ -49,7 +49,7 @@ module RubyQt6
           end
         end
 
-        while line == "" || line.start_with?("void Init_bando_q") || line == "{"
+        while line == "" || line.start_with?("void Init_bando_q", "void Init_bando_k") || line == "{"
           take_next_line
         end
       end
