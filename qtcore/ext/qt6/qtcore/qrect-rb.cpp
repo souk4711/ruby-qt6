@@ -10,7 +10,7 @@ void Init_qrect(Module rb_mQt6QtCore)
 {
     rb_cQRect =
         // RubyQt6::QtCore::QRect
-        define_class_under<QRect>(rb_mQt6QtCore, "QRect")
+        define_qlass_under<QRect>(rb_mQt6QtCore, "QRect")
             // RubyQt6-Defined Functions
             .define_method("+", [](QRect *self, QMargins *margins) -> QRect { return *self + *margins; })
             .define_method("-", [](QRect *self, QMargins *margins) -> QRect { return *self - *margins; })
@@ -88,7 +88,7 @@ void Init_qrect(Module rb_mQt6QtCore)
 
     rb_cQRectF =
         // RubyQt6::QtCore::QRectF
-        define_class_under<QRectF>(rb_mQt6QtCore, "QRectF")
+        define_qlass_under<QRectF>(rb_mQt6QtCore, "QRectF")
             // RubyQt6-Defined Functions
             .define_method("+", [](QRectF *self, QMarginsF *margins) -> QRectF { return *self + *margins; })
             .define_method("-", [](QRectF *self, QMarginsF *margins) -> QRectF { return *self - *margins; })

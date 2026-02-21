@@ -9,7 +9,7 @@ void Init_qquickwidget(Module rb_mQt6QtQuickWidgets)
 {
     rb_cQQuickWidget =
         // RubyQt6::QtQuickWidgets::QQuickWidget
-        define_class_under<QQuickWidget, QWidget>(rb_mQt6QtQuickWidgets, "QQuickWidget")
+        define_qlass_under<QQuickWidget, QWidget>(rb_mQt6QtQuickWidgets, "QQuickWidget")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QQuickWidget::staticMetaObject; });
 }

@@ -10,7 +10,7 @@ void Init_qwebenginecookiestore(Module rb_mQt6QtWebEngineCore)
 {
     rb_cQWebEngineCookieStore =
         // RubyQt6::QtWebEngineCore::QWebEngineCookieStore
-        define_class_under<QWebEngineCookieStore, QObject>(rb_mQt6QtWebEngineCore, "QWebEngineCookieStore")
+        define_qlass_under<QWebEngineCookieStore, QObject>(rb_mQt6QtWebEngineCore, "QWebEngineCookieStore")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QWebEngineCookieStore::staticMetaObject; })
             // Public Functions
@@ -25,7 +25,7 @@ void Init_qwebenginecookiestore(Module rb_mQt6QtWebEngineCore)
 
     rb_cQWebEngineCookieStoreFilterRequest =
         // RubyQt6::QtWebEngineCore::QWebEngineCookieStore::FilterRequest
-        define_class_under<QWebEngineCookieStore::FilterRequest>(rb_cQWebEngineCookieStore, "FilterRequest")
+        define_qlass_under<QWebEngineCookieStore::FilterRequest>(rb_cQWebEngineCookieStore, "FilterRequest")
             .define_attr("first_party_url", &QWebEngineCookieStore::FilterRequest::firstPartyUrl)
             .define_attr("origin", &QWebEngineCookieStore::FilterRequest::origin)
             .define_attr("third_party", &QWebEngineCookieStore::FilterRequest::thirdParty);

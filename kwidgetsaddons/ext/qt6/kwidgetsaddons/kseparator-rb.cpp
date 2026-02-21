@@ -9,7 +9,7 @@ void Init_kseparator(Module rb_mQt6KWidgetsAddons)
 {
     rb_cKSeparator =
         // RubyQt6::KWidgetsAddons::KSeparator
-        define_class_under<KSeparator, QFrame>(rb_mQt6KWidgetsAddons, "KSeparator")
+        define_qlass_under<KSeparator, QFrame>(rb_mQt6KWidgetsAddons, "KSeparator")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &KSeparator::staticMetaObject; })
             // Constructor

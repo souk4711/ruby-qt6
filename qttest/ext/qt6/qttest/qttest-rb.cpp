@@ -1,4 +1,5 @@
 #include "qttest-rb.hpp"
+#include "qttestpreludes-rb.hpp"
 #include "qttestversion-rb.hpp"
 
 #include "t-qttest-rb.hpp"
@@ -12,6 +13,7 @@ extern "C" void Init_qttest()
         Module rb_mQt6 = define_module("RubyQt6");
         Module rb_mQt6QtTest = define_module_under(rb_mQt6, "QtTest");
 
+        Init_qttestpreludes(rb_mQt6);
         Init_qttestversion(rb_mQt6QtTest);
 
         Module rb_mQt6T = define_module_under(rb_mQt6, "T");

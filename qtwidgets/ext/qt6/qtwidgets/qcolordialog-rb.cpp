@@ -11,7 +11,7 @@ void Init_qcolordialog(Module rb_mQt6QtWidgets)
 {
     rb_cQColorDialog =
         // RubyQt6::QtWidgets::QColorDialog
-        define_class_under<QColorDialog, QDialog>(rb_mQt6QtWidgets, "QColorDialog")
+        define_qlass_under<QColorDialog, QDialog>(rb_mQt6QtWidgets, "QColorDialog")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QColorDialog::staticMetaObject; })
             // Constructor

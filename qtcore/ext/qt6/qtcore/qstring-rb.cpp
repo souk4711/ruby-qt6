@@ -41,7 +41,7 @@ void Init_qstring(Module rb_mQt6QtCore)
 {
     rb_cQString =
         // RubyQt6::QtCore::QString
-        define_class_under<QString>(rb_mQt6QtCore, "QString")
+        define_qlass_under<QString>(rb_mQt6QtCore, "QString")
             // RubyQt6-Defined Functions
             .define_method("downcase", [](QString *self) -> QString { return self->toLower(); })
             .define_method("upcase", [](QString *self) -> QString { return self->toUpper(); })

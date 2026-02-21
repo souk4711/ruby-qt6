@@ -11,7 +11,7 @@ void Init_qcursor(Module rb_mQt6QtGui)
 {
     rb_cQCursor =
         // RubyQt6::QtGui::QCursor
-        define_class_under<QCursor>(rb_mQt6QtGui, "QCursor")
+        define_qlass_under<QCursor>(rb_mQt6QtGui, "QCursor")
             // Constructor
             .define_constructor(Constructor<QCursor>())
             .define_constructor(Constructor<QCursor, Qt::CursorShape>(), Arg("shape"))

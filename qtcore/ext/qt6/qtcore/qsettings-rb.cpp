@@ -10,7 +10,7 @@ void Init_qsettings(Module rb_mQt6QtCore)
 {
     rb_cQSettings =
         // RubyQt6::QtCore::QSettings
-        define_class_under<QSettings, QObject>(rb_mQt6QtCore, "QSettings")
+        define_qlass_under<QSettings, QObject>(rb_mQt6QtCore, "QSettings")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QSettings::staticMetaObject; })
             // Constructor

@@ -12,7 +12,7 @@ void Init_qsystemtrayicon(Module rb_mQt6QtWidgets)
 {
     rb_cQSystemTrayIcon =
         // RubyQt6::QtWidgets::QSystemTrayIcon
-        define_class_under<QSystemTrayIcon, QObject>(rb_mQt6QtWidgets, "QSystemTrayIcon")
+        define_qlass_under<QSystemTrayIcon, QObject>(rb_mQt6QtWidgets, "QSystemTrayIcon")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QSystemTrayIcon::staticMetaObject; })
             // Constructor

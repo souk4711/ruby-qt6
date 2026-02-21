@@ -10,7 +10,7 @@ void Init_qlibraryinfo(Module rb_mQt6QtCore)
 {
     rb_cQLibraryInfo =
         // RubyQt6::QtCore::QLibraryInfo
-        define_class_under<QLibraryInfo>(rb_mQt6QtCore, "QLibraryInfo")
+        define_qlass_under<QLibraryInfo>(rb_mQt6QtCore, "QLibraryInfo")
             // Static Public Members
             .define_singleton_function("path", &QLibraryInfo::path, Arg("p"))
             .define_singleton_function("paths", &QLibraryInfo::paths, Arg("p"));

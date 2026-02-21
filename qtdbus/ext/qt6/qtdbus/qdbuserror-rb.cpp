@@ -12,7 +12,7 @@ void Init_qdbuserror(Module rb_mQt6QtDBus)
 {
     rb_cQDBusError =
         // RubyQt6::QtDBus::QDBusError
-        define_class_under<QDBusError>(rb_mQt6QtDBus, "QDBusError")
+        define_qlass_under<QDBusError>(rb_mQt6QtDBus, "QDBusError")
             // Constructor
             .define_constructor(Constructor<QDBusError, const QDBusMessage&>(), Arg("message"))
             .define_constructor(Constructor<QDBusError, QDBusError::ErrorType, const QString &>(), Arg("type"), Arg("message"))

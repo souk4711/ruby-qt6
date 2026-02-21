@@ -9,7 +9,7 @@ void Init_qtoolbar(Module rb_mQt6QtWidgets)
 {
     rb_cQToolBar =
         // RubyQt6::QtWidgets::QToolBar
-        define_class_under<QToolBar, QWidget>(rb_mQt6QtWidgets, "QToolBar")
+        define_qlass_under<QToolBar, QWidget>(rb_mQt6QtWidgets, "QToolBar")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QToolBar::staticMetaObject; })
             // Constructor

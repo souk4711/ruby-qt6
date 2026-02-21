@@ -16,7 +16,7 @@ void Init_qdbusconnection(Module rb_mQt6QtDBus)
 {
     rb_cQDBusConnection =
         // RubyQt6::QtDBus::QDBusConnection
-        define_class_under<QDBusConnection>(rb_mQt6QtDBus, "QDBusConnection")
+        define_qlass_under<QDBusConnection>(rb_mQt6QtDBus, "QDBusConnection")
             // Constructor
             .define_constructor(Constructor<QDBusConnection, const QString &>(), Arg("name"))
             // Public Functions

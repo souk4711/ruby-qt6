@@ -13,7 +13,7 @@ void Init_qfiledevice(Module rb_mQt6QtCore)
 {
     rb_cQFileDevice =
         // RubyQt6::QtCore::QFileDevice
-        define_class_under<QFileDevice, QIODevice>(rb_mQt6QtCore, "QFileDevice")
+        define_qlass_under<QFileDevice, QIODevice>(rb_mQt6QtCore, "QFileDevice")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QFileDevice::staticMetaObject; })
             // Public Functions

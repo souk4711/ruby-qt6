@@ -11,7 +11,7 @@ void Init_qfontcombobox(Module rb_mQt6QtWidgets)
 {
     rb_cQFontComboBox =
         // RubyQt6::QtWidgets::QFontComboBox
-        define_class_under<QFontComboBox, QComboBox>(rb_mQt6QtWidgets, "QFontComboBox")
+        define_qlass_under<QFontComboBox, QComboBox>(rb_mQt6QtWidgets, "QFontComboBox")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QFontComboBox::staticMetaObject; })
             // Constructor

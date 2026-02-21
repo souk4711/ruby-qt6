@@ -14,7 +14,7 @@ void Init_qnetworkrequest(Module rb_mQt6QtNetwork)
 {
     rb_cQNetworkRequest =
         // RubyQt6::QtNetwork::QNetworkRequest
-        define_class_under<QNetworkRequest>(rb_mQt6QtNetwork, "QNetworkRequest")
+        define_qlass_under<QNetworkRequest>(rb_mQt6QtNetwork, "QNetworkRequest")
             // Constructor
             .define_constructor(Constructor<QNetworkRequest>())
             .define_constructor(Constructor<QNetworkRequest, const QUrl &>(), Arg("url"))

@@ -14,7 +14,7 @@ void Init_qclipboard(Module rb_mQt6QtGui)
 {
     rb_cQClipboard =
         // RubyQt6::QtGui::QClipboard
-        define_class_under<QClipboard, QObject>(rb_mQt6QtGui, "QClipboard")
+        define_qlass_under<QClipboard, QObject>(rb_mQt6QtGui, "QClipboard")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QClipboard::staticMetaObject; })
             // Public Functions

@@ -10,7 +10,7 @@ void Init_qtransform(Module rb_mQt6QtGui)
 {
     rb_cQTransform =
         // RubyQt6::QtGui::QTransform
-        define_class_under<QTransform>(rb_mQt6QtGui, "QTransform")
+        define_qlass_under<QTransform>(rb_mQt6QtGui, "QTransform")
             // Constructor
             .define_constructor(Constructor<QTransform>())
             .define_constructor(Constructor<QTransform, qreal, qreal, qreal, qreal, qreal, qreal>(), Arg("h11"), Arg("h12"), Arg("h21"), Arg("h22"), Arg("dx"), Arg("dy"))

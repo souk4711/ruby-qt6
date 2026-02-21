@@ -9,7 +9,7 @@ void Init_qerrormessage(Module rb_mQt6QtWidgets)
 {
     rb_cQErrorMessage =
         // RubyQt6::QtWidgets::QErrorMessage
-        define_class_under<QErrorMessage, QDialog>(rb_mQt6QtWidgets, "QErrorMessage")
+        define_qlass_under<QErrorMessage, QDialog>(rb_mQt6QtWidgets, "QErrorMessage")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QErrorMessage::staticMetaObject; })
             // Constructor

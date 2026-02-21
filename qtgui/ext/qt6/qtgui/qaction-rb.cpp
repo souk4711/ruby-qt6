@@ -13,7 +13,7 @@ void Init_qaction(Module rb_mQt6QtGui)
 {
     rb_cQAction =
         // RubyQt6::QtGui::QAction
-        define_class_under<QAction, QObject>(rb_mQt6QtGui, "QAction")
+        define_qlass_under<QAction, QObject>(rb_mQt6QtGui, "QAction")
             // RubyQt6-Defined Functions
             .define_singleton_function("_qvariant_register_metatype", []() -> int { return qRegisterMetaType<QAction *>(); })
             .define_singleton_function("_qvariant_from_value", [](QAction *value) -> QVariant { return QVariant::fromValue(value); })

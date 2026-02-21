@@ -19,7 +19,7 @@ void Init_qtextformat(Module rb_mQt6QtGui)
 {
     rb_cQTextFormat =
         // RubyQt6::QtGui::QTextFormat
-        define_class_under<QTextFormat>(rb_mQt6QtGui, "QTextFormat")
+        define_qlass_under<QTextFormat>(rb_mQt6QtGui, "QTextFormat")
             // Constructor
             .define_constructor(Constructor<QTextFormat>())
             .define_constructor(Constructor<QTextFormat, int>(), Arg("type"))
@@ -221,7 +221,7 @@ void Init_qtextformat(Module rb_mQt6QtGui)
 
     rb_cQTextBlockFormat =
         // RubyQt6::QtGui::QTextBlockFormat
-        define_class_under<QTextBlockFormat, QTextFormat>(rb_mQt6QtGui, "QTextBlockFormat")
+        define_qlass_under<QTextBlockFormat, QTextFormat>(rb_mQt6QtGui, "QTextBlockFormat")
             // RubyQt6-Defined Functions
             .define_method("set_alignment", [](QTextBlockFormat *self, Qt::AlignmentFlag alignment) -> void { return self->setAlignment(alignment); }, Arg("alignment"))
             // Constructor
@@ -275,7 +275,7 @@ void Init_qtextformat(Module rb_mQt6QtGui)
 
     rb_cQTextCharFormat =
         // RubyQt6::QtGui::QTextCharFormat
-        define_class_under<QTextCharFormat, QTextFormat>(rb_mQt6QtGui, "QTextCharFormat")
+        define_qlass_under<QTextCharFormat, QTextFormat>(rb_mQt6QtGui, "QTextCharFormat")
             // Constructor
             .define_constructor(Constructor<QTextCharFormat>())
             // Public Functions
@@ -376,7 +376,7 @@ void Init_qtextformat(Module rb_mQt6QtGui)
 
     rb_cQTextImageFormat =
         // RubyQt6::QtGui::QTextImageFormat
-        define_class_under<QTextImageFormat, QTextCharFormat>(rb_mQt6QtGui, "QTextImageFormat")
+        define_qlass_under<QTextImageFormat, QTextCharFormat>(rb_mQt6QtGui, "QTextImageFormat")
             // Constructor
             .define_constructor(Constructor<QTextImageFormat>())
             // Public Functions
@@ -394,7 +394,7 @@ void Init_qtextformat(Module rb_mQt6QtGui)
 
     rb_cQTextTableCellFormat =
         // RubyQt6::QtGui::QTextTableCellFormat
-        define_class_under<QTextTableCellFormat, QTextCharFormat>(rb_mQt6QtGui, "QTextTableCellFormat")
+        define_qlass_under<QTextTableCellFormat, QTextCharFormat>(rb_mQt6QtGui, "QTextTableCellFormat")
             // Constructor
             .define_constructor(Constructor<QTextTableCellFormat>())
             // Public Functions
@@ -438,7 +438,7 @@ void Init_qtextformat(Module rb_mQt6QtGui)
 
     rb_cQTextFrameFormat =
         // RubyQt6::QtGui::QTextFrameFormat
-        define_class_under<QTextFrameFormat, QTextFormat>(rb_mQt6QtGui, "QTextFrameFormat")
+        define_qlass_under<QTextFrameFormat, QTextFormat>(rb_mQt6QtGui, "QTextFrameFormat")
             // Constructor
             .define_constructor(Constructor<QTextFrameFormat>())
             // Public Functions
@@ -496,7 +496,7 @@ void Init_qtextformat(Module rb_mQt6QtGui)
 
     rb_cQTextTableFormat =
         // RubyQt6::QtGui::QTextTableFormat
-        define_class_under<QTextTableFormat, QTextFrameFormat>(rb_mQt6QtGui, "QTextTableFormat")
+        define_qlass_under<QTextTableFormat, QTextFrameFormat>(rb_mQt6QtGui, "QTextTableFormat")
             // RubyQt6-Defined Functions
             .define_method("set_alignment", [](QTextTableFormat *self, Qt::AlignmentFlag alignment) -> void { return self->setAlignment(alignment); }, Arg("alignment"))
             // Constructor
@@ -521,7 +521,7 @@ void Init_qtextformat(Module rb_mQt6QtGui)
 
     rb_cQTextListFormat =
         // RubyQt6::QtGui::QTextListFormat
-        define_class_under<QTextListFormat, QTextFormat>(rb_mQt6QtGui, "QTextListFormat")
+        define_qlass_under<QTextListFormat, QTextFormat>(rb_mQt6QtGui, "QTextListFormat")
             // Constructor
             .define_constructor(Constructor<QTextListFormat>())
             // Public Functions
@@ -552,7 +552,7 @@ void Init_qtextformat(Module rb_mQt6QtGui)
 
     rb_cQTextLength =
         // RubyQt6::QtGui::QTextLength
-        define_class_under<QTextLength>(rb_mQt6QtGui, "QTextLength")
+        define_qlass_under<QTextLength>(rb_mQt6QtGui, "QTextLength")
             // Constructor
             .define_constructor(Constructor<QTextLength>())
             .define_constructor(Constructor<QTextLength, QTextLength::Type, qreal>(), Arg("type"), Arg("value"))

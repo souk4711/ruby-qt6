@@ -14,7 +14,7 @@ void Init_qlocale(Module rb_mQt6QtCore)
 {
     rb_cQLocale =
         // RubyQt6::QtCore::QLocale
-        define_class_under<QLocale>(rb_mQt6QtCore, "QLocale")
+        define_qlass_under<QLocale>(rb_mQt6QtCore, "QLocale")
             // Public Functions
             .define_method("am_text", &QLocale::amText)
             .define_method("bcp47_name", &QLocale::bcp47Name, Arg("separator") = static_cast<QLocale::TagSeparator>(QLocale::TagSeparator::Dash))

@@ -16,7 +16,7 @@ void Init_qtextedit(Module rb_mQt6QtWidgets)
 {
     rb_cQTextEdit =
         // RubyQt6::QtWidgets::QTextEdit
-        define_class_under<QTextEdit, QAbstractScrollArea>(rb_mQt6QtWidgets, "QTextEdit")
+        define_qlass_under<QTextEdit, QAbstractScrollArea>(rb_mQt6QtWidgets, "QTextEdit")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QTextEdit::staticMetaObject; })
             // Constructor
@@ -141,7 +141,7 @@ void Init_qtextedit(Module rb_mQt6QtWidgets)
 
     rb_cQTextEditExtraSelection =
         // RubyQt6::QtWidgets::QTextEdit::ExtraSelection
-        define_class_under<QTextEdit::ExtraSelection>(rb_cQTextEdit, "ExtraSelection")
+        define_qlass_under<QTextEdit::ExtraSelection>(rb_cQTextEdit, "ExtraSelection")
             .define_attr("cursor", &QTextEdit::ExtraSelection::cursor)
             .define_attr("format", &QTextEdit::ExtraSelection::format);
 }

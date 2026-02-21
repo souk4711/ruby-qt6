@@ -9,7 +9,7 @@ void Init_qstackedwidget(Module rb_mQt6QtWidgets)
 {
     rb_cQStackedWidget =
         // RubyQt6::QtWidgets::QStackedWidget
-        define_class_under<QStackedWidget, QFrame>(rb_mQt6QtWidgets, "QStackedWidget")
+        define_qlass_under<QStackedWidget, QFrame>(rb_mQt6QtWidgets, "QStackedWidget")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QStackedWidget::staticMetaObject; })
             // Constructor

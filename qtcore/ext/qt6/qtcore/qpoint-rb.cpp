@@ -10,7 +10,7 @@ void Init_qpoint(Module rb_mQt6QtCore)
 {
     rb_cQPoint =
         // RubyQt6::QtCore::QPoint
-        define_class_under<QPoint>(rb_mQt6QtCore, "QPoint")
+        define_qlass_under<QPoint>(rb_mQt6QtCore, "QPoint")
             // RubyQt6-Defined Functions
             .define_method("*", [](QPoint *self,  qreal  factor) -> QPoint { return *self *  factor; })
             .define_method("+", [](QPoint *self, QPoint  *other) -> QPoint { return *self +  *other; })
@@ -37,7 +37,7 @@ void Init_qpoint(Module rb_mQt6QtCore)
 
     rb_cQPointF =
         // RubyQt6::QtCore::QPointF
-        define_class_under<QPointF>(rb_mQt6QtCore, "QPointF")
+        define_qlass_under<QPointF>(rb_mQt6QtCore, "QPointF")
             // RubyQt6-Defined Functions
             .define_method("*", [](QPointF *self,   qreal  factor) -> QPointF { return *self *  factor; })
             .define_method("+", [](QPointF *self, QPointF  *other) -> QPointF { return *self +  *other; })

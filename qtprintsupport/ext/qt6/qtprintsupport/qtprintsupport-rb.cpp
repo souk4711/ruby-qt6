@@ -1,4 +1,5 @@
 #include "qtprintsupport-rb.hpp"
+#include "qtprintsupportpreludes-rb.hpp"
 #include "qtprintsupportversion-rb.hpp"
 
 #include "qprinter-rb.hpp"
@@ -15,6 +16,7 @@ extern "C" void Init_qtprintsupport()
         Module rb_mQt6 = define_module("RubyQt6");
         Module rb_mQt6QtPrintSupport = define_module_under(rb_mQt6, "QtPrintSupport");
 
+        Init_qtprintsupportpreludes(rb_mQt6);
         Init_qtprintsupportversion(rb_mQt6QtPrintSupport);
 
         Init_qprinter(rb_mQt6QtPrintSupport);

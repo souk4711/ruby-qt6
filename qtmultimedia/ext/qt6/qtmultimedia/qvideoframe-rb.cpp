@@ -12,7 +12,7 @@ void Init_qvideoframe(Module rb_mQt6QtMultimedia)
 {
     rb_cQVideoFrame =
         // RubyQt6::QtMultimedia::QVideoFrame
-        define_class_under<QVideoFrame>(rb_mQt6QtMultimedia, "QVideoFrame")
+        define_qlass_under<QVideoFrame>(rb_mQt6QtMultimedia, "QVideoFrame")
             // Constructor
             .define_constructor(Constructor<QVideoFrame>())
             .define_constructor(Constructor<QVideoFrame, const QImage &>(), Arg("image"))

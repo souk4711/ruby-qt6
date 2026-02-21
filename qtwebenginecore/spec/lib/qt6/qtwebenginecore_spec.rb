@@ -10,6 +10,7 @@ RSpec.describe RubyQt6::QtWebEngineCore do
 
     Dir.glob("ext/**/q*.cpp").each do |cppfile|
       next if cppfile == "ext/qt6/qtwebenginecore/qtwebenginecore-rb.cpp"
+      next if cppfile == "ext/qt6/qtwebenginecore/qtwebenginecorepreludes-rb.cpp"
       next if cppfile == "ext/qt6/qtwebenginecore/qtwebenginecoreversion-rb.cpp"
 
       it cppfile do

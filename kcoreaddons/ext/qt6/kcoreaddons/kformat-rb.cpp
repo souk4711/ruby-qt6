@@ -11,7 +11,7 @@ void Init_kformat(Module rb_mQt6KCoreAddons)
 {
     rb_cKFormat =
         // RubyQt6::KCoreAddons::KFormat
-        define_class_under<KFormat>(rb_mQt6KCoreAddons, "KFormat")
+        define_qlass_under<KFormat>(rb_mQt6KCoreAddons, "KFormat")
             // Constructor
             .define_constructor(Constructor<KFormat>())
             // Public Functions

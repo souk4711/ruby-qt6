@@ -9,7 +9,7 @@ void Init_qcapturablewindow(Module rb_mQt6QtMultimedia)
 {
     rb_cQCapturableWindow =
         // RubyQt6::QtMultimedia::QCapturableWindow
-        define_class_under<QCapturableWindow>(rb_mQt6QtMultimedia, "QCapturableWindow")
+        define_qlass_under<QCapturableWindow>(rb_mQt6QtMultimedia, "QCapturableWindow")
             // Constructor
             .define_constructor(Constructor<QCapturableWindow>())
             // Public Functions

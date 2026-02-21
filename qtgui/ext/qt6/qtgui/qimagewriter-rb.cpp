@@ -10,7 +10,7 @@ void Init_qimagewriter(Module rb_mQt6QtGui)
 {
     rb_cQImageWriter =
         // RubyQt6::QtGui::QImageWriter
-        define_class_under<QImageWriter>(rb_mQt6QtGui, "QImageWriter")
+        define_qlass_under<QImageWriter>(rb_mQt6QtGui, "QImageWriter")
             // Constructor
             .define_constructor(Constructor<QImageWriter>())
             .define_constructor(Constructor<QImageWriter, QIODevice *, const QByteArray &>(), Arg("device"), Arg("format"))

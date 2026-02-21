@@ -9,7 +9,7 @@ void Init_qsignalmapper(Module rb_mQt6QtCore)
 {
     rb_cQSignalMapper =
         // RubyQt6::QtCore::QSignalMapper
-        define_class_under<QSignalMapper, QObject>(rb_mQt6QtCore, "QSignalMapper")
+        define_qlass_under<QSignalMapper, QObject>(rb_mQt6QtCore, "QSignalMapper")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QSignalMapper::staticMetaObject; })
             // Constructor

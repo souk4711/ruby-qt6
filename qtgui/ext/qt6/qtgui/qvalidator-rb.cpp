@@ -13,7 +13,7 @@ void Init_qvalidator(Module rb_mQt6QtGui)
 {
     rb_cQValidator =
         // RubyQt6::QtGui::QValidator
-        define_class_under<QValidator, QObject>(rb_mQt6QtGui, "QValidator")
+        define_qlass_under<QValidator, QObject>(rb_mQt6QtGui, "QValidator")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QValidator::staticMetaObject; })
             // Public Functions
@@ -33,7 +33,7 @@ void Init_qvalidator(Module rb_mQt6QtGui)
 
     rb_cQDoubleValidator =
         // RubyQt6::QtGui::QDoubleValidator
-        define_class_under<QDoubleValidator, QValidator>(rb_mQt6QtGui, "QDoubleValidator")
+        define_qlass_under<QDoubleValidator, QValidator>(rb_mQt6QtGui, "QDoubleValidator")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QDoubleValidator::staticMetaObject; })
             // Constructor
@@ -65,7 +65,7 @@ void Init_qvalidator(Module rb_mQt6QtGui)
 
     rb_cQIntValidator =
         // RubyQt6::QtGui::QIntValidator
-        define_class_under<QIntValidator, QValidator>(rb_mQt6QtGui, "QIntValidator")
+        define_qlass_under<QIntValidator, QValidator>(rb_mQt6QtGui, "QIntValidator")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QIntValidator::staticMetaObject; })
             // Constructor
@@ -84,7 +84,7 @@ void Init_qvalidator(Module rb_mQt6QtGui)
 
     rb_cQRegularExpressionValidator =
         // RubyQt6::QtGui::QRegularExpressionValidator
-        define_class_under<QRegularExpressionValidator, QValidator>(rb_mQt6QtGui, "QRegularExpressionValidator")
+        define_qlass_under<QRegularExpressionValidator, QValidator>(rb_mQt6QtGui, "QRegularExpressionValidator")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QRegularExpressionValidator::staticMetaObject; })
             // Constructor

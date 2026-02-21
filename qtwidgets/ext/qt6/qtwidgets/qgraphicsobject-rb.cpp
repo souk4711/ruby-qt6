@@ -9,7 +9,7 @@ void Init_qgraphicsobject(Module rb_mQt6QtWidgets)
 {
     rb_cQGraphicsObject =
         // RubyQt6::QtWidgets::QGraphicsObject
-        define_class_under<QGraphicsObject, QObject>(rb_mQt6QtWidgets, "QGraphicsObject")
+        define_qlass_under<QGraphicsObject, QObject>(rb_mQt6QtWidgets, "QGraphicsObject")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QGraphicsObject::staticMetaObject; })
             // Public Functions

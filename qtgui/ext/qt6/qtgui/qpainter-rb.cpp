@@ -17,7 +17,7 @@ void Init_qpainter(Module rb_mQt6QtGui)
 {
     rb_cQPainter =
         // RubyQt6::QtGui::QPainter
-        define_class_under<QPainter>(rb_mQt6QtGui, "QPainter")
+        define_qlass_under<QPainter>(rb_mQt6QtGui, "QPainter")
             // Constructor
             .define_constructor(Constructor<QPainter, QPaintDevice *>(), Arg("device"))
             // Public Functions

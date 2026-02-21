@@ -10,7 +10,7 @@ void Init_qdbusmessage(Module rb_mQt6QtDBus)
 {
     rb_cQDBusMessage =
         // RubyQt6::QtDBus::QDBusMessage
-        define_class_under<QDBusMessage>(rb_mQt6QtDBus, "QDBusMessage")
+        define_qlass_under<QDBusMessage>(rb_mQt6QtDBus, "QDBusMessage")
             // Constructor
             .define_constructor(Constructor<QDBusMessage>())
             // Public Functions

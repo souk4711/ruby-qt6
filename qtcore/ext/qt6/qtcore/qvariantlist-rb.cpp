@@ -12,5 +12,5 @@ void Init_qvariantlist(Module rb_mQt6QtCore)
 {
     rb_cQVariantList =
         // RubyQt6::QtCore::QVariantList
-        define_class_under<QVariantList, QList<QVariant>>(rb_mQt6QtCore, "QVariantList");
+        define_qlass_under<QVariantList, QList<QVariant>>(rb_mQt6QtCore, "QVariantList");
 }

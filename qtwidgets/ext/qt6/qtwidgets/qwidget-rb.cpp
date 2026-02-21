@@ -21,7 +21,7 @@ void Init_qwidget(Module rb_mQt6QtWidgets)
 {
     rb_cQWidget =
         // RubyQt6::QtWidgets::QWidget
-        define_class_under<QWidget, QObject>(rb_mQt6QtWidgets, "QWidget")
+        define_qlass_under<QWidget, QObject>(rb_mQt6QtWidgets, "QWidget")
             // RubyQt6-Defined Functions
             .define_method("_ioc_qpainter_new", [](QWidget *self) -> QPainter * { return new QPainter(self); }, Return().takeOwnership())
             .define_method("_ioc_qpainter_begin", [](QWidget *self, QPainter *painter) -> bool { return painter->begin(self); })

@@ -12,7 +12,7 @@ void Init_kaboutdata(Module rb_mQt6KCoreAddons)
 {
     rb_cKAboutData =
         // RubyQt6::KCoreAddons::KAboutData
-        define_class_under<KAboutData>(rb_mQt6KCoreAddons, "KAboutData")
+        define_qlass_under<KAboutData>(rb_mQt6KCoreAddons, "KAboutData")
             // Constructor
             .define_constructor(Constructor<KAboutData, const QString &, const QString &, const QString &>(), Arg("component_name"), Arg("display_name"), Arg("version"))
             // Public Functions
@@ -77,7 +77,7 @@ void Init_kaboutdata(Module rb_mQt6KCoreAddons)
 
     rb_cKAboutLicense =
         // RubyQt6::KCoreAddons::KAboutLicense
-        define_class_under<KAboutLicense>(rb_mQt6KCoreAddons, "KAboutLicense")
+        define_qlass_under<KAboutLicense>(rb_mQt6KCoreAddons, "KAboutLicense")
             // Constructor
             .define_constructor(Constructor<KAboutLicense>())
             // Public Functions
@@ -126,7 +126,7 @@ void Init_kaboutdata(Module rb_mQt6KCoreAddons)
 
     rb_cKAboutPerson =
         // RubyQt6::KCoreAddons::KAboutPerson
-        define_class_under<KAboutPerson>(rb_mQt6KCoreAddons, "KAboutPerson")
+        define_qlass_under<KAboutPerson>(rb_mQt6KCoreAddons, "KAboutPerson")
             // Constructor
             .define_constructor(Constructor<KAboutPerson, const QString &, const QString &, const QString &, const QString &, const QUrl &>(), Arg("name"), Arg("task"), Arg("email"), Arg("webaddress"), Arg("avatar"))
             // Public Functions

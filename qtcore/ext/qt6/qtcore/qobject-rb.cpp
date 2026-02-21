@@ -29,7 +29,7 @@ void Init_qobject(Module rb_mQt6QtCore)
 {
     rb_cQObject =
         // RubyQt6::QtCore::QObject
-        define_class_under<QObject>(rb_mQt6QtCore, "QObject")
+        define_qlass_under<QObject>(rb_mQt6QtCore, "QObject")
             // RubyQt6-Defined Functions
             .define_method("_qobject_ptr", [](QObject *self) -> uintptr_t { return (uintptr_t)self; })
             .define_singleton_function("_emit", QObject_emit, Arg("sender"), Arg("signal"), Arg("args"))

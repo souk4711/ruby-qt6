@@ -14,7 +14,7 @@ void Init_qtextlayout(Module rb_mQt6QtGui)
 {
     rb_cQTextLayout =
         // RubyQt6::QtGui::QTextLayout
-        define_class_under<QTextLayout>(rb_mQt6QtGui, "QTextLayout")
+        define_qlass_under<QTextLayout>(rb_mQt6QtGui, "QTextLayout")
             // Constructor
             .define_constructor(Constructor<QTextLayout>())
             .define_constructor(Constructor<QTextLayout, const QString &>(), Arg("text"))
@@ -80,7 +80,7 @@ void Init_qtextlayout(Module rb_mQt6QtGui)
 
     rb_cQTextLayoutFormatRange =
         // RubyQt6::QtGui::QTextLayout::FormatRange
-        define_class_under<QTextLayout::FormatRange>(rb_cQTextLayout, "FormatRange")
+        define_qlass_under<QTextLayout::FormatRange>(rb_cQTextLayout, "FormatRange")
             .define_constructor(Constructor<QTextLayout::FormatRange>())
             .define_attr("start", &QTextLayout::FormatRange::start)
             .define_attr("length", &QTextLayout::FormatRange::length)

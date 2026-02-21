@@ -15,7 +15,7 @@ void Init_qgraphicstextitem(Module rb_mQt6QtWidgets)
 {
     rb_cQGraphicsTextItem =
         // RubyQt6::QtWidgets::QGraphicsTextItem
-        define_class_under<QGraphicsTextItem, QGraphicsObject>(rb_mQt6QtWidgets, "QGraphicsTextItem")
+        define_qlass_under<QGraphicsTextItem, QGraphicsObject>(rb_mQt6QtWidgets, "QGraphicsTextItem")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QGraphicsTextItem::staticMetaObject; })
             // Constructor

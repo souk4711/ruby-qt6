@@ -10,7 +10,7 @@ void Init_qabstractitemdelegate(Module rb_mQt6QtWidgets)
 {
     rb_cQAbstractItemDelegate =
         // RubyQt6::QtWidgets::QAbstractItemDelegate
-        define_class_under<QAbstractItemDelegate, QObject>(rb_mQt6QtWidgets, "QAbstractItemDelegate")
+        define_qlass_under<QAbstractItemDelegate, QObject>(rb_mQt6QtWidgets, "QAbstractItemDelegate")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QAbstractItemDelegate::staticMetaObject; });
             // Signals

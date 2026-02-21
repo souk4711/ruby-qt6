@@ -11,7 +11,7 @@ void Init_qtranslator(Module rb_mQt6QtCore)
 {
     rb_cQTranslator =
         // RubyQt6::QtCore::QTranslator
-        define_class_under<QTranslator, QObject>(rb_mQt6QtCore, "QTranslator")
+        define_qlass_under<QTranslator, QObject>(rb_mQt6QtCore, "QTranslator")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QTranslator::staticMetaObject; })
             // Constructor

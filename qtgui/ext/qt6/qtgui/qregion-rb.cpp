@@ -13,7 +13,7 @@ void Init_qregion(Module rb_mQt6QtGui)
 {
     rb_cQRegion =
         // RubyQt6::QtGui::QRegion
-        define_class_under<QRegion>(rb_mQt6QtGui, "QRegion")
+        define_qlass_under<QRegion>(rb_mQt6QtGui, "QRegion")
             // Constructor
             .define_constructor(Constructor<QRegion>())
             .define_constructor(Constructor<QRegion, int, int, int, int>(), Arg("x"), Arg("y"), Arg("w"), Arg("h"))

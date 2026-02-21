@@ -10,7 +10,7 @@ void Init_qprocessenvironment(Module rb_mQt6QtCore)
 {
     rb_cQProcessEnvironment =
         // RubyQt6::QtCore::QProcessEnvironment
-        define_class_under<QProcessEnvironment>(rb_mQt6QtCore, "QProcessEnvironment")
+        define_qlass_under<QProcessEnvironment>(rb_mQt6QtCore, "QProcessEnvironment")
             // Public Functions
             .define_method("clear", &QProcessEnvironment::clear)
             .define_method("_contains", &QProcessEnvironment::contains, Arg("name"))

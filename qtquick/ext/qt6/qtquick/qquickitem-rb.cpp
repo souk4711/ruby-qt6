@@ -12,7 +12,7 @@ void Init_qquickitem(Module rb_mQt6QtQuick)
 {
     rb_cQQuickItem =
         // RubyQt6::QtQuick::QQuickItem
-        define_class_under<QQuickItem, QObject>(rb_mQt6QtQuick, "QQuickItem")
+        define_qlass_under<QQuickItem, QObject>(rb_mQt6QtQuick, "QQuickItem")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QQuickItem::staticMetaObject; })
             // Constructor

@@ -9,7 +9,7 @@ void Init_qbrush(Module rb_mQt6QtGui)
 {
     rb_cQBrush =
         // RubyQt6::QtGui::QBrush
-        define_class_under<QBrush>(rb_mQt6QtGui, "QBrush")
+        define_qlass_under<QBrush>(rb_mQt6QtGui, "QBrush")
             // RubyQt6-Defined Functions
             .define_singleton_function("_operator_equal", [](QBrush *lhs, QBrush *rhs) -> bool { return *lhs == *rhs; }, Arg("lhs"), Arg("rhs"))
             // Constructor

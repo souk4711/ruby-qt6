@@ -11,7 +11,7 @@ void Init_qtableview(Module rb_mQt6QtWidgets)
 {
     rb_cQTableView =
         // RubyQt6::QtWidgets::QTableView
-        define_class_under<QTableView, QAbstractItemView>(rb_mQt6QtWidgets, "QTableView")
+        define_qlass_under<QTableView, QAbstractItemView>(rb_mQt6QtWidgets, "QTableView")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QTableView::staticMetaObject; })
             // Constructor

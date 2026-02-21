@@ -10,7 +10,7 @@ void Init_qlcdnumber(Module rb_mQt6QtWidgets)
 {
     rb_cQLCDNumber =
         // RubyQt6::QtWidgets::QLCDNumber
-        define_class_under<QLCDNumber, QFrame>(rb_mQt6QtWidgets, "QLCDNumber")
+        define_qlass_under<QLCDNumber, QFrame>(rb_mQt6QtWidgets, "QLCDNumber")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QLCDNumber::staticMetaObject; })
             // Constructor

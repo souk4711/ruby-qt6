@@ -14,7 +14,7 @@ void Init_qgraphicswidget(Module rb_mQt6QtWidgets)
 {
     rb_cQGraphicsWidget =
         // RubyQt6::QtWidgets::QGraphicsWidget
-        define_class_under<QGraphicsWidget, QGraphicsObject>(rb_mQt6QtWidgets, "QGraphicsWidget")
+        define_qlass_under<QGraphicsWidget, QGraphicsObject>(rb_mQt6QtWidgets, "QGraphicsWidget")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QGraphicsWidget::staticMetaObject; })
             // Constructor

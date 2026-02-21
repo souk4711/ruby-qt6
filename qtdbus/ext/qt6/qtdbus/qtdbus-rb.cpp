@@ -1,4 +1,5 @@
 #include "qtdbus-rb.hpp"
+#include "qtdbuspreludes-rb.hpp"
 #include "qtdbusversion-rb.hpp"
 #include "qdbus-rb.hpp"
 
@@ -26,6 +27,7 @@ extern "C" void Init_qtdbus()
         Module rb_mQt6 = define_module("RubyQt6");
         Module rb_mQt6QtDBus = define_module_under(rb_mQt6, "QtDBus");
 
+        Init_qtdbuspreludes(rb_mQt6);
         Init_qtdbusversion(rb_mQt6QtDBus);
         Init_qdbus(rb_mQt6QtDBus);
 

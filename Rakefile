@@ -1,12 +1,11 @@
 # frozen_string_literal: true
 
 LIBS = %w[
-  QtCore QtGui QtWidgets QtNetwork QtPrintSupport QtTest
+  QtCore QtGui QtWidgets QtDBus QtNetwork QtPrintSupport QtTest
   QtQml QtQuick QtQuickControls2 QtQuickWidgets
   QtMultimedia QtMultimediaWidgets
   QtWebEngineCore QtWebEngineWidgets QtWebView
   QtUiTools
-  QtDBus
   KCoreAddons KGuiAddons KWidgetsAddons
 ].freeze
 

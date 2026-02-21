@@ -10,7 +10,7 @@ void Init_qsplitter(Module rb_mQt6QtWidgets)
 {
     rb_cQSplitter =
         // RubyQt6::QtWidgets::QSplitter
-        define_class_under<QSplitter, QFrame>(rb_mQt6QtWidgets, "QSplitter")
+        define_qlass_under<QSplitter, QFrame>(rb_mQt6QtWidgets, "QSplitter")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QSplitter::staticMetaObject; })
             // Constructor
@@ -45,7 +45,7 @@ void Init_qsplitter(Module rb_mQt6QtWidgets)
 
     rb_cQSplitterHandle =
         // RubyQt6::QtWidgets::QSplitterHandle
-        define_class_under<QSplitterHandle, QWidget>(rb_mQt6QtWidgets, "QSplitterHandle")
+        define_qlass_under<QSplitterHandle, QWidget>(rb_mQt6QtWidgets, "QSplitterHandle")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QSplitterHandle::staticMetaObject; })
             // Constructor

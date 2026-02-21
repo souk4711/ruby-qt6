@@ -11,7 +11,7 @@ void Init_qstandardpaths(Module rb_mQt6QtCore)
 {
     rb_cQStandardPaths =
         // RubyQt6::QtCore::QStandardPaths
-        define_class_under<QStandardPaths>(rb_mQt6QtCore, "QStandardPaths")
+        define_qlass_under<QStandardPaths>(rb_mQt6QtCore, "QStandardPaths")
             // Static Public Members
             .define_singleton_function("display_name", &QStandardPaths::displayName, Arg("type"))
             .define_singleton_function("find_executable", &QStandardPaths::findExecutable, Arg("executable_name"), Arg("paths") = static_cast<const QStringList &>(QStringList()))

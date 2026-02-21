@@ -14,7 +14,7 @@ void Init_qlayoutitem(Module rb_mQt6QtWidgets)
 {
     rb_cQLayoutItem =
         // RubyQt6::QtWidgets::QLayoutItem
-        define_class_under<QLayoutItem>(rb_mQt6QtWidgets, "QLayoutItem")
+        define_qlass_under<QLayoutItem>(rb_mQt6QtWidgets, "QLayoutItem")
             // RubyQt6-Defined Functions
             .define_singleton_function("_delete_now", [](QLayoutItem *item) -> void { delete item; }, Arg("item").takeOwnership())
             .define_singleton_function("_take_ownership_from_ruby", [](QLayoutItem *) -> void {}, Arg("item").takeOwnership())
@@ -41,7 +41,7 @@ void Init_qlayoutitem(Module rb_mQt6QtWidgets)
 
     rb_cQSpacerItem =
         // RubyQt6::QtWidgets::QSpacerItem
-        define_class_under<QSpacerItem, QLayoutItem>(rb_mQt6QtWidgets, "QSpacerItem")
+        define_qlass_under<QSpacerItem, QLayoutItem>(rb_mQt6QtWidgets, "QSpacerItem")
             // Constructor
             .define_constructor(Constructor<QSpacerItem, int, int, QSizePolicy::Policy, QSizePolicy::Policy>(), Arg("w"), Arg("h"), Arg("h_policy"), Arg("v_policy"))
             // Public Functions
@@ -50,7 +50,7 @@ void Init_qlayoutitem(Module rb_mQt6QtWidgets)
 
     rb_cQWidgetItem =
         // RubyQt6::QtWidgets::QWidgetItem
-        define_class_under<QWidgetItem, QLayoutItem>(rb_mQt6QtWidgets, "QWidgetItem")
+        define_qlass_under<QWidgetItem, QLayoutItem>(rb_mQt6QtWidgets, "QWidgetItem")
             // Constructor
             .define_constructor(Constructor<QWidgetItem, QWidget *>(), Arg("widget"));
 }

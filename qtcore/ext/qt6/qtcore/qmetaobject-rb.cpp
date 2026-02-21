@@ -11,7 +11,7 @@ void Init_qmetaobject(Module rb_mQt6QtCore)
 {
     rb_cQMetaObject =
         // RubyQt6::QtCore::QMetaObject
-        define_class_under<QMetaObject>(rb_mQt6QtCore, "QMetaObject")
+        define_qlass_under<QMetaObject>(rb_mQt6QtCore, "QMetaObject")
             // Public Functions
             .define_method<QObject *(QMetaObject::*)(QObject *) const>("cast", &QMetaObject::cast, Arg("obj"))
             .define_method<const QObject *(QMetaObject::*)(const QObject *) const>("cast", &QMetaObject::cast, Arg("obj"))
@@ -45,5 +45,5 @@ void Init_qmetaobject(Module rb_mQt6QtCore)
 
     rb_cQMetaObjectConnection =
         // RubyQt6::QtCore::QMetaObject::Connection
-        define_class_under<QMetaObject::Connection>(rb_cQMetaObject, "Connection");
+        define_qlass_under<QMetaObject::Connection>(rb_cQMetaObject, "Connection");
 }

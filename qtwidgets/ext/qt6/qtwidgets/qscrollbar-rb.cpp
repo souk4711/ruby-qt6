@@ -9,7 +9,7 @@ void Init_qscrollbar(Module rb_mQt6QtWidgets)
 {
     rb_cQScrollBar =
         // RubyQt6::QtWidgets::QScrollBar
-        define_class_under<QScrollBar, QAbstractSlider>(rb_mQt6QtWidgets, "QScrollBar")
+        define_qlass_under<QScrollBar, QAbstractSlider>(rb_mQt6QtWidgets, "QScrollBar")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QScrollBar::staticMetaObject; })
             // Constructor

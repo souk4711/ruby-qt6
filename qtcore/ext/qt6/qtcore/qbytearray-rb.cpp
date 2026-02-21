@@ -27,7 +27,7 @@ void Init_qbytearray(Module rb_mQt6QtCore)
 {
     rb_cQByteArray =
         // RubyQt6::QtCore::QByteArray
-        define_class_under<QByteArray>(rb_mQt6QtCore, "QByteArray")
+        define_qlass_under<QByteArray>(rb_mQt6QtCore, "QByteArray")
             // RubyQt6-Defined Functions
             .define_method("[]", QByteArray_slice, Arg("start"), Arg("length") = static_cast<qsizetype>(1))
             .define_singleton_function("_operator_compare", [](QByteArray *lhs, QByteArray *rhs) -> int { return lhs->compare(*rhs); }, Arg("lhs"), Arg("rhs"))

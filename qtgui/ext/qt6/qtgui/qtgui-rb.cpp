@@ -1,4 +1,5 @@
 #include "qtgui-rb.hpp"
+#include "qtguipreludes-rb.hpp"
 #include "qtguiversion-rb.hpp"
 
 #include "qabstractfileiconprovider-rb.hpp"
@@ -60,6 +61,7 @@ extern "C" void Init_qtgui()
         Module rb_mQt6 = define_module("RubyQt6");
         Module rb_mQt6QtGui = define_module_under(rb_mQt6, "QtGui");
 
+        Init_qtguipreludes(rb_mQt6);
         Init_qtguiversion(rb_mQt6QtGui);
 
         Init_qabstractfileiconprovider(rb_mQt6QtGui);

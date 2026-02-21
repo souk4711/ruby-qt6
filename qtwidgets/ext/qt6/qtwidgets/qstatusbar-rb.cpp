@@ -9,7 +9,7 @@ void Init_qstatusbar(Module rb_mQt6QtWidgets)
 {
     rb_cQStatusBar =
         // RubyQt6::QtWidgets::QStatusBar
-        define_class_under<QStatusBar, QWidget>(rb_mQt6QtWidgets, "QStatusBar")
+        define_qlass_under<QStatusBar, QWidget>(rb_mQt6QtWidgets, "QStatusBar")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QStatusBar::staticMetaObject; })
             // Constructor

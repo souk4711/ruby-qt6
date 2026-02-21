@@ -45,7 +45,7 @@ Data_Type<QFlags<Enum_T>> define_qflags_under(Module module, char const* name)
 {
     using QFlags_T = QFlags<Enum_T>;
 
-    Data_Type<QFlags_T> qflags = define_class_under<QFlags_T>(module, name);
+    Data_Type<QFlags_T> qflags = define_qlass_under<QFlags_T>(module, name);
     detail::protect(rb_define_method, qflags, "to_i", (RUBY_METHOD_FUNC)qflags_to_i<QFlags_T>, 0);
     detail::protect(rb_define_singleton_method, qflags, "from_int", (RUBY_METHOD_FUNC)qflags_from_int<QFlags_T>, 1);
     return qflags;

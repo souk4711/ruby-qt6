@@ -1,4 +1,5 @@
 #include "qtnetwork-rb.hpp"
+#include "qtnetworkpreludes-rb.hpp"
 #include "qtnetworkversion-rb.hpp"
 
 #include "qnetworkproxy-rb.hpp"
@@ -17,6 +18,7 @@ extern "C" void Init_qtnetwork()
         Module rb_mQt6 = define_module("RubyQt6");
         Module rb_mQt6QtNetwork = define_module_under(rb_mQt6, "QtNetwork");
 
+        Init_qtnetworkpreludes(rb_mQt6);
         Init_qtnetworkversion(rb_mQt6QtNetwork);
 
         Init_qnetworkproxy(rb_mQt6QtNetwork);

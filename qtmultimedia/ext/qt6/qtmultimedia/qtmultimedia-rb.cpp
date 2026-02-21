@@ -1,4 +1,5 @@
 #include "qtmultimedia-rb.hpp"
+#include "qtmultimediapreludes-rb.hpp"
 #include "qtmultimediaversion-rb.hpp"
 #include "qtaudio-rb.hpp"
 #include "qtvideo-rb.hpp"
@@ -39,6 +40,7 @@ extern "C" void Init_qtmultimedia()
         Module rb_mQt6 = define_module("RubyQt6");
         Module rb_mQt6QtMultimedia = define_module_under(rb_mQt6, "QtMultimedia");
 
+        Init_qtmultimediapreludes(rb_mQt6);
         Init_qtmultimediaversion(rb_mQt6QtMultimedia);
         Init_qtaudio(rb_mQt6QtMultimedia);
         Init_qtvideo(rb_mQt6QtMultimedia);

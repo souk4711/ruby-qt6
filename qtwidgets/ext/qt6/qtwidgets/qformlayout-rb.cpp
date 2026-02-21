@@ -13,7 +13,7 @@ void Init_qformlayout(Module rb_mQt6QtWidgets)
 {
     rb_cQFormLayout =
         // RubyQt6::QtWidgets::QFormLayout
-        define_class_under<QFormLayout, QLayout>(rb_mQt6QtWidgets, "QFormLayout")
+        define_qlass_under<QFormLayout, QLayout>(rb_mQt6QtWidgets, "QFormLayout")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QFormLayout::staticMetaObject; })
             // Constructor
@@ -96,7 +96,7 @@ void Init_qformlayout(Module rb_mQt6QtWidgets)
 
     rb_cQFormLayoutTakeRowResult =
         // RubyQt6::QtWidgets::QFormLayout::TakeRowResult
-        define_class_under<QFormLayout::TakeRowResult>(rb_cQFormLayout, "TakeRowResult")
+        define_qlass_under<QFormLayout::TakeRowResult>(rb_cQFormLayout, "TakeRowResult")
             .define_attr("label_item", &QFormLayout::TakeRowResult::labelItem, AttrAccess::Read)
             .define_attr("field_item", &QFormLayout::TakeRowResult::fieldItem, AttrAccess::Read);
 }

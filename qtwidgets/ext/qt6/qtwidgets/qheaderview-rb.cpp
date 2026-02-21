@@ -10,7 +10,7 @@ void Init_qheaderview(Module rb_mQt6QtWidgets)
 {
     rb_cQHeaderView =
         // RubyQt6::QtWidgets::QHeaderView
-        define_class_under<QHeaderView, QAbstractItemView>(rb_mQt6QtWidgets, "QHeaderView")
+        define_qlass_under<QHeaderView, QAbstractItemView>(rb_mQt6QtWidgets, "QHeaderView")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QHeaderView::staticMetaObject; })
             // Constructor

@@ -28,7 +28,7 @@ void Init_qgraphicsitem(Module rb_mQt6QtWidgets)
 {
     rb_cQGraphicsItem =
         // RubyQt6::QtWidgets::QGraphicsItem
-        define_class_under<QGraphicsItem>(rb_mQt6QtWidgets, "QGraphicsItem")
+        define_qlass_under<QGraphicsItem>(rb_mQt6QtWidgets, "QGraphicsItem")
             // RubyQt6-Defined Functions
             .define_singleton_function("_delete_now", [](QGraphicsItem *item) -> void { delete item; }, Arg("item").takeOwnership())
             .define_singleton_function("_take_ownership_from_ruby", [](QGraphicsItem *) -> void {}, Arg("item").takeOwnership())
@@ -290,7 +290,7 @@ void Init_qgraphicsitem(Module rb_mQt6QtWidgets)
 
     rb_cQAbstractGraphicsShapeItem =
         // RubyQt6::QtWidgets::QAbstractGraphicsShapeItem
-        define_class_under<QAbstractGraphicsShapeItem, QGraphicsItem>(rb_mQt6QtWidgets, "QAbstractGraphicsShapeItem")
+        define_qlass_under<QAbstractGraphicsShapeItem, QGraphicsItem>(rb_mQt6QtWidgets, "QAbstractGraphicsShapeItem")
             // Public Functions
             .define_method("brush", &QAbstractGraphicsShapeItem::brush)
             .define_method("pen", &QAbstractGraphicsShapeItem::pen)
@@ -299,7 +299,7 @@ void Init_qgraphicsitem(Module rb_mQt6QtWidgets)
 
     rb_cQGraphicsEllipseItem =
         // RubyQt6::QtWidgets::QGraphicsEllipseItem
-        define_class_under<QGraphicsEllipseItem, QAbstractGraphicsShapeItem>(rb_mQt6QtWidgets, "QGraphicsEllipseItem")
+        define_qlass_under<QGraphicsEllipseItem, QAbstractGraphicsShapeItem>(rb_mQt6QtWidgets, "QGraphicsEllipseItem")
             // Constructor
             .define_constructor(Constructor<QGraphicsEllipseItem, QGraphicsItem *>(), Arg("parent"))
             // Public Functions
@@ -313,7 +313,7 @@ void Init_qgraphicsitem(Module rb_mQt6QtWidgets)
 
     rb_cQGraphicsPathItem =
         // RubyQt6::QtWidgets::QGraphicsPathItem
-        define_class_under<QGraphicsPathItem, QAbstractGraphicsShapeItem>(rb_mQt6QtWidgets, "QGraphicsPathItem")
+        define_qlass_under<QGraphicsPathItem, QAbstractGraphicsShapeItem>(rb_mQt6QtWidgets, "QGraphicsPathItem")
             // Constructor
             .define_constructor(Constructor<QGraphicsPathItem, QGraphicsItem *>(), Arg("parent"))
             // Public Functions
@@ -322,7 +322,7 @@ void Init_qgraphicsitem(Module rb_mQt6QtWidgets)
 
     rb_cQGraphicsPolygonItem =
         // RubyQt6::QtWidgets::QGraphicsPolygonItem
-        define_class_under<QGraphicsPolygonItem, QAbstractGraphicsShapeItem>(rb_mQt6QtWidgets, "QGraphicsPolygonItem")
+        define_qlass_under<QGraphicsPolygonItem, QAbstractGraphicsShapeItem>(rb_mQt6QtWidgets, "QGraphicsPolygonItem")
             // Constructor
             .define_constructor(Constructor<QGraphicsPolygonItem, QGraphicsItem *>(), Arg("parent"))
             // Public Functions
@@ -333,7 +333,7 @@ void Init_qgraphicsitem(Module rb_mQt6QtWidgets)
 
     rb_cQGraphicsRectItem =
         // RubyQt6::QtWidgets::QGraphicsRectItem
-        define_class_under<QGraphicsRectItem, QAbstractGraphicsShapeItem>(rb_mQt6QtWidgets, "QGraphicsRectItem")
+        define_qlass_under<QGraphicsRectItem, QAbstractGraphicsShapeItem>(rb_mQt6QtWidgets, "QGraphicsRectItem")
             // Constructor
             .define_constructor(Constructor<QGraphicsRectItem, QGraphicsItem *>(), Arg("parent"))
             // Public Functions
@@ -343,7 +343,7 @@ void Init_qgraphicsitem(Module rb_mQt6QtWidgets)
 
     rb_cQGraphicsSimpleTextItem =
         // RubyQt6::QtWidgets::QGraphicsSimpleTextItem
-        define_class_under<QGraphicsSimpleTextItem, QAbstractGraphicsShapeItem>(rb_mQt6QtWidgets, "QGraphicsSimpleTextItem")
+        define_qlass_under<QGraphicsSimpleTextItem, QAbstractGraphicsShapeItem>(rb_mQt6QtWidgets, "QGraphicsSimpleTextItem")
             // Constructor
             .define_constructor(Constructor<QGraphicsSimpleTextItem, QGraphicsItem *>(), Arg("parent"))
             // Public Functions
@@ -354,7 +354,7 @@ void Init_qgraphicsitem(Module rb_mQt6QtWidgets)
 
     rb_cQGraphicsItemGroup =
         // RubyQt6::QtWidgets::QGraphicsItemGroup
-        define_class_under<QGraphicsItemGroup, QGraphicsItem>(rb_mQt6QtWidgets, "QGraphicsItemGroup")
+        define_qlass_under<QGraphicsItemGroup, QGraphicsItem>(rb_mQt6QtWidgets, "QGraphicsItemGroup")
             // Constructor
             .define_constructor(Constructor<QGraphicsItemGroup, QGraphicsItem *>(), Arg("parent"))
             // Public Functions
@@ -363,7 +363,7 @@ void Init_qgraphicsitem(Module rb_mQt6QtWidgets)
 
     rb_cQGraphicsLineItem =
         // RubyQt6::QtWidgets::QGraphicsLineItem
-        define_class_under<QGraphicsLineItem, QGraphicsItem>(rb_mQt6QtWidgets, "QGraphicsLineItem")
+        define_qlass_under<QGraphicsLineItem, QGraphicsItem>(rb_mQt6QtWidgets, "QGraphicsLineItem")
             // Constructor
             .define_constructor(Constructor<QGraphicsLineItem, QGraphicsItem *>(), Arg("parent"))
             // Public Functions
@@ -375,7 +375,7 @@ void Init_qgraphicsitem(Module rb_mQt6QtWidgets)
 
     rb_cQGraphicsPixmapItem =
         // RubyQt6::QtWidgets::QGraphicsPixmapItem
-        define_class_under<QGraphicsPixmapItem, QGraphicsItem>(rb_mQt6QtWidgets, "QGraphicsPixmapItem")
+        define_qlass_under<QGraphicsPixmapItem, QGraphicsItem>(rb_mQt6QtWidgets, "QGraphicsPixmapItem")
             // Constructor
             .define_constructor(Constructor<QGraphicsPixmapItem, QGraphicsItem *>(), Arg("parent"))
             // Public Functions

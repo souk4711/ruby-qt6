@@ -14,7 +14,7 @@ void Init_qdialogbuttonbox(Module rb_mQt6QtWidgets)
 {
     rb_cQDialogButtonBox =
         // RubyQt6::QtWidgets::QDialogButtonBox
-        define_class_under<QDialogButtonBox, QWidget>(rb_mQt6QtWidgets, "QDialogButtonBox")
+        define_qlass_under<QDialogButtonBox, QWidget>(rb_mQt6QtWidgets, "QDialogButtonBox")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QDialogButtonBox::staticMetaObject; })
             // Constructor

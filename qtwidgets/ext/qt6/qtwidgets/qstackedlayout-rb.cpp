@@ -12,7 +12,7 @@ void Init_qstackedlayout(Module rb_mQt6QtWidgets)
 {
     rb_cQStackedLayout =
         // RubyQt6::QtWidgets::QStackedLayout
-        define_class_under<QStackedLayout, QLayout>(rb_mQt6QtWidgets, "QStackedLayout")
+        define_qlass_under<QStackedLayout, QLayout>(rb_mQt6QtWidgets, "QStackedLayout")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QStackedLayout::staticMetaObject; })
             // Constructor

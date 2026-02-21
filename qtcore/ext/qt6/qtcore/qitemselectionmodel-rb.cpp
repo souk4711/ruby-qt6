@@ -13,7 +13,7 @@ void Init_qitemselectionmodel(Module rb_mQt6QtCore)
 {
     rb_cQItemSelectionModel =
         // RubyQt6::QtCore::QItemSelectionModel
-        define_class_under<QItemSelectionModel, QObject>(rb_mQt6QtCore, "QItemSelectionModel")
+        define_qlass_under<QItemSelectionModel, QObject>(rb_mQt6QtCore, "QItemSelectionModel")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QItemSelectionModel::staticMetaObject; })
             // Constructor

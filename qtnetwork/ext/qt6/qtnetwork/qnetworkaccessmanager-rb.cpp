@@ -18,7 +18,7 @@ void Init_qnetworkaccessmanager(Module rb_mQt6QtNetwork)
 {
     rb_cQNetworkAccessManager =
         // RubyQt6::QtNetwork::QNetworkAccessManager
-        define_class_under<QNetworkAccessManager, QObject>(rb_mQt6QtNetwork, "QNetworkAccessManager")
+        define_qlass_under<QNetworkAccessManager, QObject>(rb_mQt6QtNetwork, "QNetworkAccessManager")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QNetworkAccessManager::staticMetaObject; })
             // Constructor

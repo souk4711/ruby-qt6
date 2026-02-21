@@ -14,7 +14,7 @@ void Init_qwizard(Module rb_mQt6QtWidgets)
 {
     rb_cQWizard =
         // RubyQt6::QtWidgets::QWizard
-        define_class_under<QWizard, QDialog>(rb_mQt6QtWidgets, "QWizard")
+        define_qlass_under<QWizard, QDialog>(rb_mQt6QtWidgets, "QWizard")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QWizard::staticMetaObject; })
             // Constructor
@@ -130,7 +130,7 @@ void Init_qwizard(Module rb_mQt6QtWidgets)
 
     rb_cQWizardPage =
         // RubyQt6::QtWidgets::QWizardPage
-        define_class_under<QWizardPage, QWidget>(rb_mQt6QtWidgets, "QWizardPage")
+        define_qlass_under<QWizardPage, QWidget>(rb_mQt6QtWidgets, "QWizardPage")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QWizardPage::staticMetaObject; })
             // Constructor

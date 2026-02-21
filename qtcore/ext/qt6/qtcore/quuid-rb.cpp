@@ -17,7 +17,7 @@ void Init_quuid(Module rb_mQt6QtCore)
 {
     rb_cQUuid =
         // RubyQt6::QtCore::QUuid
-        define_class_under<QUuid>(rb_mQt6QtCore, "QUuid")
+        define_qlass_under<QUuid>(rb_mQt6QtCore, "QUuid")
             // RubyQt6-Defined Functions
             .define_method("variant", [](QUuid *self) -> QUuid::Variant { return self->variant(); })
             .define_method("version", [](QUuid *self) -> QUuid::Version { return self->version(); })

@@ -1,0 +1,7 @@
+#include "qtwidgetspreludes-rb.hpp"
+
+RICE4RUBYQT6_USE_NAMESPACE
+
+void Init_qtwidgetspreludes(Module rb_mQt6)
+{
+}

@@ -11,7 +11,7 @@ void Init_qtimer(Module rb_mQt6QtCore)
 {
     rb_cQTimer =
         // RubyQt6::QtCore::QTimer
-        define_class_under<QTimer, QObject>(rb_mQt6QtCore, "QTimer")
+        define_qlass_under<QTimer, QObject>(rb_mQt6QtCore, "QTimer")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QTimer::staticMetaObject; })
             // Constructor

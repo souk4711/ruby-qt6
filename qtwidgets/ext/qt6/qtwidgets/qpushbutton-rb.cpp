@@ -11,7 +11,7 @@ void Init_qpushbutton(Module rb_mQt6QtWidgets)
 {
     rb_cQPushButton =
         // RubyQt6::QtWidgets::QPushButton
-        define_class_under<QPushButton, QAbstractButton>(rb_mQt6QtWidgets, "QPushButton")
+        define_qlass_under<QPushButton, QAbstractButton>(rb_mQt6QtWidgets, "QPushButton")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QPushButton::staticMetaObject; })
             // Constructor

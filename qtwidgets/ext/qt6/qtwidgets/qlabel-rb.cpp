@@ -11,7 +11,7 @@ void Init_qlabel(Module rb_mQt6QtWidgets)
 {
     rb_cQLabel =
         // RubyQt6::QtWidgets::QLabel
-        define_class_under<QLabel, QFrame>(rb_mQt6QtWidgets, "QLabel")
+        define_qlass_under<QLabel, QFrame>(rb_mQt6QtWidgets, "QLabel")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QLabel::staticMetaObject; })
             // Constructor

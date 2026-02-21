@@ -13,7 +13,7 @@ void Init_qicon(Module rb_mQt6QtGui)
 {
     rb_cQIcon =
         // RubyQt6::QtGui::QIcon
-        define_class_under<QIcon>(rb_mQt6QtGui, "QIcon")
+        define_qlass_under<QIcon>(rb_mQt6QtGui, "QIcon")
             // Constructor
             .define_constructor(Constructor<QIcon>())
             .define_constructor(Constructor<QIcon, const QString &>(), Arg("file_name"))

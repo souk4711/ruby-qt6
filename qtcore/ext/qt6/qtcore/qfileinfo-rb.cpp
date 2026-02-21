@@ -12,7 +12,7 @@ void Init_qfileinfo(Module rb_mQt6QtCore)
 {
     rb_cQFileInfo =
         // RubyQt6::QtCore::QFileInfo
-        define_class_under<QFileInfo>(rb_mQt6QtCore, "QFileInfo")
+        define_qlass_under<QFileInfo>(rb_mQt6QtCore, "QFileInfo")
             // Constructor
             .define_constructor(Constructor<QFileInfo>())
             .define_constructor(Constructor<QFileInfo, const QString &>(), Arg("file"))

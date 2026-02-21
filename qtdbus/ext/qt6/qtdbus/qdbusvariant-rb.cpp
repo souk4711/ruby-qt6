@@ -10,7 +10,7 @@ void Init_qdbusvariant(Module rb_mQt6QtDBus)
 
     rb_cQDBusVariant =
         // RubyQt6::QtDBus::QDBusVariant
-        define_class_under<QDBusVariant>(rb_mQt6QtDBus, "QDBusVariant")
+        define_qlass_under<QDBusVariant>(rb_mQt6QtDBus, "QDBusVariant")
             // RubyQt6-Defined Functions
             .define_singleton_function("_qvariant_register_metatype", []() -> int { return qRegisterMetaType<QDBusVariant>(); })
             .define_singleton_function("_qvariant_from_value", [](const QDBusVariant &value) -> QVariant { return QVariant::fromValue(value); })

@@ -9,7 +9,7 @@ void Init_qmenu(Module rb_mQt6QtWidgets)
 {
     rb_cQMenu =
         // RubyQt6::QtWidgets::QMenu
-        define_class_under<QMenu, QWidget>(rb_mQt6QtWidgets, "QMenu")
+        define_qlass_under<QMenu, QWidget>(rb_mQt6QtWidgets, "QMenu")
             // RubyQt6-Defined Functions
             .define_singleton_function("_ioc_qaction_menu", [](QAction *self) -> QMenu * { return self->menu(); })
             .define_singleton_function("_ioc_qaction_set_menu", [](QAction *self, QMenu *menu) -> void { return self->setMenu(menu); })

@@ -13,7 +13,7 @@ void Init_qlistwidget(Module rb_mQt6QtWidgets)
 {
     rb_cQListWidget =
         // RubyQt6::QtWidgets::QListWidget
-        define_class_under<QListWidget, QListView>(rb_mQt6QtWidgets, "QListWidget")
+        define_qlass_under<QListWidget, QListView>(rb_mQt6QtWidgets, "QListWidget")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QListWidget::staticMetaObject; })
             // Constructor
@@ -71,7 +71,7 @@ void Init_qlistwidget(Module rb_mQt6QtWidgets)
 
     rb_cQListWidgetItem =
         // RubyQt6::QtWidgets::QListWidgetItem
-        define_class_under<QListWidgetItem>(rb_mQt6QtWidgets, "QListWidgetItem")
+        define_qlass_under<QListWidgetItem>(rb_mQt6QtWidgets, "QListWidgetItem")
             // RubyQt6-Defined Functions
             .define_singleton_function("_qvariant_register_metatype", []() -> int { return qRegisterMetaType<QListWidgetItem *>(); })
             .define_singleton_function("_qvariant_from_value", [](QListWidgetItem *value) -> QVariant { return QVariant::fromValue(value); })

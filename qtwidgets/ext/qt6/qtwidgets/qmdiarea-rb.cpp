@@ -13,7 +13,7 @@ void Init_qmdiarea(Module rb_mQt6QtWidgets)
 {
     rb_cQMdiArea =
         // RubyQt6::QtWidgets::QMdiArea
-        define_class_under<QMdiArea, QAbstractScrollArea>(rb_mQt6QtWidgets, "QMdiArea")
+        define_qlass_under<QMdiArea, QAbstractScrollArea>(rb_mQt6QtWidgets, "QMdiArea")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QMdiArea::staticMetaObject; })
             // Constructor

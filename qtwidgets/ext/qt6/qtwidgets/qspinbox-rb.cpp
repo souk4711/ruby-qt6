@@ -10,7 +10,7 @@ void Init_qspinbox(Module rb_mQt6QtWidgets)
 {
     rb_cQDoubleSpinBox =
         // RubyQt6::QtWidgets::QDoubleSpinBox
-        define_class_under<QDoubleSpinBox, QAbstractSpinBox>(rb_mQt6QtWidgets, "QDoubleSpinBox")
+        define_qlass_under<QDoubleSpinBox, QAbstractSpinBox>(rb_mQt6QtWidgets, "QDoubleSpinBox")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QDoubleSpinBox::staticMetaObject; })
             // Constructor
@@ -45,7 +45,7 @@ void Init_qspinbox(Module rb_mQt6QtWidgets)
 
     rb_cQSpinBox =
         // RubyQt6::QtWidgets::QSpinBox
-        define_class_under<QSpinBox, QAbstractSpinBox>(rb_mQt6QtWidgets, "QSpinBox")
+        define_qlass_under<QSpinBox, QAbstractSpinBox>(rb_mQt6QtWidgets, "QSpinBox")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QSpinBox::staticMetaObject; })
             // Constructor

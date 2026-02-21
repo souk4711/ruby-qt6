@@ -12,7 +12,7 @@ void Init_qfontmetrics(Module rb_mQt6QtGui)
 {
     rb_cQFontMetrics =
         // RubyQt6::QtGui::QFontMetrics
-        define_class_under<QFontMetrics>(rb_mQt6QtGui, "QFontMetrics")
+        define_qlass_under<QFontMetrics>(rb_mQt6QtGui, "QFontMetrics")
             // Constructor
             .define_constructor(Constructor<QFontMetrics, const QFont &>(), Arg("font"))
             // Public Functions
@@ -51,7 +51,7 @@ void Init_qfontmetrics(Module rb_mQt6QtGui)
 
     rb_cQFontMetricsF =
         // RubyQt6::QtGui::QFontMetricsF
-        define_class_under<QFontMetricsF>(rb_mQt6QtGui, "QFontMetricsF")
+        define_qlass_under<QFontMetricsF>(rb_mQt6QtGui, "QFontMetricsF")
             // Constructor
             .define_constructor(Constructor<QFontMetricsF, const QFont &>(), Arg("font"))
             .define_constructor(Constructor<QFontMetricsF, const QFontMetrics &>(), Arg("font_metrics"))

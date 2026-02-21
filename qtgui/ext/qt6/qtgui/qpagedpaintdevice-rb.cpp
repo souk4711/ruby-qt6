@@ -10,7 +10,7 @@ void Init_qpagedpaintdevice(Module rb_mQt6QtGui)
 {
     rb_cQPagedPaintDevice =
         // RubyQt6::QtGui::QPagedPaintDevice
-        define_class_under<QPagedPaintDevice, QPaintDevice>(rb_mQt6QtGui, "QPagedPaintDevice")
+        define_qlass_under<QPagedPaintDevice, QPaintDevice>(rb_mQt6QtGui, "QPagedPaintDevice")
             // Public Functions
             .define_method("new_page", &QPagedPaintDevice::newPage)
             .define_method("page_layout", &QPagedPaintDevice::pageLayout)

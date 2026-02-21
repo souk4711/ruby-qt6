@@ -10,7 +10,7 @@ void Init_qrubberband(Module rb_mQt6QtWidgets)
 {
     rb_cQRubberBand =
         // RubyQt6::QtWidgets::QRubberBand
-        define_class_under<QRubberBand, QWidget>(rb_mQt6QtWidgets, "QRubberBand")
+        define_qlass_under<QRubberBand, QWidget>(rb_mQt6QtWidgets, "QRubberBand")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QRubberBand::staticMetaObject; })
             // Constructor

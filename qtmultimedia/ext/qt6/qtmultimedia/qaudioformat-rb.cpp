@@ -10,7 +10,7 @@ void Init_qaudioformat(Module rb_mQt6QtMultimedia)
 {
     rb_cQAudioFormat =
         // RubyQt6::QtMultimedia::QAudioFormat
-        define_class_under<QAudioFormat>(rb_mQt6QtMultimedia, "QAudioFormat")
+        define_qlass_under<QAudioFormat>(rb_mQt6QtMultimedia, "QAudioFormat")
             // Constructor
             .define_constructor(Constructor<QAudioFormat>())
             // Public Functions

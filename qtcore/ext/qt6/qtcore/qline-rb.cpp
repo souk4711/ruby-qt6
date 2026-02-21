@@ -10,7 +10,7 @@ void Init_qline(Module rb_mQt6QtCore)
 {
     rb_cQLine =
         // RubyQt6::QtCore::QLine
-        define_class_under<QLine>(rb_mQt6QtCore, "QLine")
+        define_qlass_under<QLine>(rb_mQt6QtCore, "QLine")
             // RubyQt6-Defined Functions
             .define_singleton_function("_operator_equal", [](QLine *lhs, QLine  *rhs) -> bool { return *lhs == *rhs; }, Arg("lhs"), Arg("rhs"))
             .define_singleton_function("_operator_equal", [](QLine *lhs, QLineF *rhs) -> bool { return *lhs == *rhs; }, Arg("lhs"), Arg("rhs"))
@@ -41,7 +41,7 @@ void Init_qline(Module rb_mQt6QtCore)
 
     rb_cQLineF =
         // RubyQt6::QtCore::QLineF
-        define_class_under<QLineF>(rb_mQt6QtCore, "QLineF")
+        define_qlass_under<QLineF>(rb_mQt6QtCore, "QLineF")
             // RubyQt6-Defined Functions
             .define_singleton_function("_operator_equal", [](QLineF *lhs, QLine  *rhs) -> bool { return *lhs == *rhs; }, Arg("lhs"), Arg("rhs"))
             .define_singleton_function("_operator_equal", [](QLineF *lhs, QLineF *rhs) -> bool { return *lhs == *rhs; }, Arg("lhs"), Arg("rhs"))

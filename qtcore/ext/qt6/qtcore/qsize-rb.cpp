@@ -10,7 +10,7 @@ void Init_qsize(Module rb_mQt6QtCore)
 {
     rb_cQSize =
         // RubyQt6::QtCore::QSize
-        define_class_under<QSize>(rb_mQt6QtCore, "QSize")
+        define_qlass_under<QSize>(rb_mQt6QtCore, "QSize")
             // RubyQt6-Defined Functions
             .define_method("*", [](QSize *self, qreal  factor) -> QSize { return *self *  factor; })
             .define_method("+", [](QSize *self, QSize  *other) -> QSize { return *self +  *other; })
@@ -45,7 +45,7 @@ void Init_qsize(Module rb_mQt6QtCore)
 
     rb_cQSizeF =
         // RubyQt6::QtCore::QSizeF
-        define_class_under<QSizeF>(rb_mQt6QtCore, "QSizeF")
+        define_qlass_under<QSizeF>(rb_mQt6QtCore, "QSizeF")
             // RubyQt6-Defined Functions
             .define_method("*", [](QSizeF *self,  qreal  factor) -> QSizeF { return *self *  factor; })
             .define_method("+", [](QSizeF *self, QSizeF  *other) -> QSizeF { return *self +  *other; })

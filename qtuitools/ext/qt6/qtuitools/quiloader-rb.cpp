@@ -13,7 +13,7 @@ void Init_quiloader(Module rb_mQt6QtUiTools)
 {
     rb_cQUiLoader =
         // RubyQt6::QtUiTools::QUiLoader
-        define_class_under<QUiLoader, QObject>(rb_mQt6QtUiTools, "QUiLoader")
+        define_qlass_under<QUiLoader, QObject>(rb_mQt6QtUiTools, "QUiLoader")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QUiLoader::staticMetaObject; })
             // Constructor

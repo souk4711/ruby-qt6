@@ -16,7 +16,7 @@ void Init_qmainwindow(Module rb_mQt6QtWidgets)
 {
     rb_cQMainWindow =
         // RubyQt6::QtWidgets::QMainWindow
-        define_class_under<QMainWindow, QWidget>(rb_mQt6QtWidgets, "QMainWindow")
+        define_qlass_under<QMainWindow, QWidget>(rb_mQt6QtWidgets, "QMainWindow")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QMainWindow::staticMetaObject; })
             // Constructor

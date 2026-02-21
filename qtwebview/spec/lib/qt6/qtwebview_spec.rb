@@ -10,6 +10,7 @@ RSpec.describe RubyQt6::QtWebView do
 
     Dir.glob("ext/**/q*.cpp").each do |cppfile|
       next if cppfile == "ext/qt6/qtwebview/qtwebview-rb.cpp"
+      next if cppfile == "ext/qt6/qtwebview/qtwebviewpreludes-rb.cpp"
       next if cppfile == "ext/qt6/qtwebview/qtwebviewversion-rb.cpp"
       next if cppfile == "ext/qt6/qtwebview/qtwebviewfunctions-rb.cpp"
 

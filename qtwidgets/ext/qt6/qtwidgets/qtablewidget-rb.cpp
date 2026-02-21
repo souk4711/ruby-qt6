@@ -14,7 +14,7 @@ void Init_qtablewidget(Module rb_mQt6QtWidgets)
 {
     rb_cQTableWidget =
         // RubyQt6::QtWidgets::QTableWidget
-        define_class_under<QTableWidget, QTableView>(rb_mQt6QtWidgets, "QTableWidget")
+        define_qlass_under<QTableWidget, QTableView>(rb_mQt6QtWidgets, "QTableWidget")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QTableWidget::staticMetaObject; })
             // Constructor
@@ -95,7 +95,7 @@ void Init_qtablewidget(Module rb_mQt6QtWidgets)
 
     rb_cQTableWidgetItem =
         // RubyQt6::QtWidgets::QTableWidgetItem
-        define_class_under<QTableWidgetItem>(rb_mQt6QtWidgets, "QTableWidgetItem")
+        define_qlass_under<QTableWidgetItem>(rb_mQt6QtWidgets, "QTableWidgetItem")
             // RubyQt6-Defined Functions
             .define_singleton_function("_delete_now", [](QTableWidgetItem *item) -> void { delete item; }, Arg("item").takeOwnership())
             .define_singleton_function("_take_ownership_from_ruby", [](QTableWidgetItem *) -> void {}, Arg("item").takeOwnership())
@@ -147,7 +147,7 @@ void Init_qtablewidget(Module rb_mQt6QtWidgets)
 
     rb_cQTableWidgetSelectionRange =
         // RubyQt6::QtWidgets::QTableWidgetSelectionRange
-        define_class_under<QTableWidgetSelectionRange>(rb_mQt6QtWidgets, "QTableWidgetSelectionRange")
+        define_qlass_under<QTableWidgetSelectionRange>(rb_mQt6QtWidgets, "QTableWidgetSelectionRange")
             // Public Functions
             .define_method("bottom_row", &QTableWidgetSelectionRange::bottomRow)
             .define_method("column_count", &QTableWidgetSelectionRange::columnCount)

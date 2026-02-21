@@ -10,7 +10,7 @@ void Init_qmetamethod(Module rb_mQt6QtCore)
 {
     rb_cQMetaMethod =
         // RubyQt6::QtCore::QMetaMethod
-        define_class_under<QMetaMethod>(rb_mQt6QtCore, "QMetaMethod")
+        define_qlass_under<QMetaMethod>(rb_mQt6QtCore, "QMetaMethod")
             // Public Functions
             .define_method("access", &QMetaMethod::access)
             .define_method("attributes", &QMetaMethod::attributes)

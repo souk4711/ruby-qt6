@@ -51,7 +51,7 @@ void Init_qinputdialog(Module rb_mQt6QtWidgets)
 {
     rb_cQInputDialog =
         // RubyQt6::QtWidgets::QInputDialog
-        define_class_under<QInputDialog, QDialog>(rb_mQt6QtWidgets, "QInputDialog")
+        define_qlass_under<QInputDialog, QDialog>(rb_mQt6QtWidgets, "QInputDialog")
             // RubyQt6-Defined Functions
             .define_singleton_function("get_double", QInputDialog_get_double, Arg("parent"), Arg("title"), Arg("label"), Arg("value") = static_cast<double>(0), Arg("min_value") = static_cast<double>(-2147483647), Arg("max_value") = static_cast<double>(2147483647), Arg("decimals") = static_cast<int>(1), Arg("ok") = static_cast<Object>(Qnil), Arg("flags") = static_cast<Qt::WindowFlags>(Qt::WindowFlags()), Arg("step") = static_cast<double>(1))
             .define_singleton_function("get_int", QInputDialog_get_int, Arg("parent"), Arg("title"), Arg("label"), Arg("value") = static_cast<int>(0), Arg("min_value") = static_cast<int>(-2147483647), Arg("max_value") = static_cast<int>(2147483647), Arg("step") = static_cast<int>(1), Arg("ok") = static_cast<Object>(Qnil), Arg("flags") = static_cast<Qt::WindowFlags>(Qt::WindowFlags()))

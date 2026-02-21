@@ -1,4 +1,5 @@
 #include "qtmultimediawidgets-rb.hpp"
+#include "qtmultimediawidgetspreludes-rb.hpp"
 #include "qtmultimediawidgetsversion-rb.hpp"
 
 #include "qvideowidget-rb.hpp"
@@ -11,6 +12,7 @@ extern "C" void Init_qtmultimediawidgets()
         Module rb_mQt6 = define_module("RubyQt6");
         Module rb_mQt6QtMultimediaWidgets = define_module_under(rb_mQt6, "QtMultimediaWidgets");
 
+        Init_qtmultimediawidgetspreludes(rb_mQt6);
         Init_qtmultimediawidgetsversion(rb_mQt6QtMultimediaWidgets);
 
         Init_qvideowidget(rb_mQt6QtMultimediaWidgets);

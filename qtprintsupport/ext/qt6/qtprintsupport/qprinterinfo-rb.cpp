@@ -9,7 +9,7 @@ void Init_qprinterinfo(Module rb_mQt6QtPrintSupport)
 {
     rb_cQPrinterInfo =
         // RubyQt6::QtPrintSupport::QPrinterInfo
-        define_class_under<QPrinterInfo>(rb_mQt6QtPrintSupport, "QPrinterInfo")
+        define_qlass_under<QPrinterInfo>(rb_mQt6QtPrintSupport, "QPrinterInfo")
             // Constructor
             .define_constructor(Constructor<QPrinterInfo>())
             .define_constructor(Constructor<QPrinterInfo, const QPrinter &>(), Arg("printer"))

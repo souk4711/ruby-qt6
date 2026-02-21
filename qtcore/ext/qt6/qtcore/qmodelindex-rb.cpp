@@ -9,7 +9,7 @@ void Init_qmodelindex(Module rb_mQt6QtCore)
 {
     rb_cQModelIndex =
         // RubyQt6::QtCore::QModelIndex
-        define_class_under<QModelIndex>(rb_mQt6QtCore, "QModelIndex")
+        define_qlass_under<QModelIndex>(rb_mQt6QtCore, "QModelIndex")
             // Constructor
             .define_constructor(Constructor<QModelIndex>())
             // Public Functions

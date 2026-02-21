@@ -10,6 +10,7 @@ RSpec.describe RubyQt6::QtGui do
 
     Dir.glob("ext/**/q*.cpp").each do |cppfile|
       next if cppfile == "ext/qt6/qtgui/qtgui-rb.cpp"
+      next if cppfile == "ext/qt6/qtgui/qtguipreludes-rb.cpp"
       next if cppfile == "ext/qt6/qtgui/qtguiversion-rb.cpp"
 
       it cppfile do

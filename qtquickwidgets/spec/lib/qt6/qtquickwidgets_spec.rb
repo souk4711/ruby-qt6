@@ -10,6 +10,7 @@ RSpec.describe RubyQt6::QtQuickWidgets do
 
     Dir.glob("ext/**/q*.cpp").each do |cppfile|
       next if cppfile == "ext/qt6/qtquickwidgets/qtquickwidgets-rb.cpp"
+      next if cppfile == "ext/qt6/qtquickwidgets/qtquickwidgetspreludes-rb.cpp"
       next if cppfile == "ext/qt6/qtquickwidgets/qtquickwidgetsversion-rb.cpp"
 
       it cppfile do

@@ -12,7 +12,7 @@ void Init_qwindowcapture(Module rb_mQt6QtMultimedia)
 {
     rb_cQWindowCapture =
         // RubyQt6::QtMultimedia::QWindowCapture
-        define_class_under<QWindowCapture, QObject>(rb_mQt6QtMultimedia, "QWindowCapture")
+        define_qlass_under<QWindowCapture, QObject>(rb_mQt6QtMultimedia, "QWindowCapture")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QWindowCapture::staticMetaObject; })
             // Constructor

@@ -13,7 +13,7 @@ void Init_qfontdatabase(Module rb_mQt6QtGui)
 {
     rb_cQFontDatabase =
         // RubyQt6::QtGui::QFontDatabase
-        define_class_under<QFontDatabase>(rb_mQt6QtGui, "QFontDatabase")
+        define_qlass_under<QFontDatabase>(rb_mQt6QtGui, "QFontDatabase")
             // Static Public Members
             .define_singleton_function("add_application_emoji_font_family", &QFontDatabase::addApplicationEmojiFontFamily, Arg("family_name"))
             .define_singleton_function("add_application_fallback_font_family", &QFontDatabase::addApplicationFallbackFontFamily, Arg("script"), Arg("family_name"))

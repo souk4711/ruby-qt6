@@ -13,7 +13,7 @@ void Init_qregularexpression(Module rb_mQt6QtCore)
 {
     rb_cQRegularExpression =
         // RubyQt6::QtCore::QRegularExpression
-        define_class_under<QRegularExpression>(rb_mQt6QtCore, "QRegularExpression")
+        define_qlass_under<QRegularExpression>(rb_mQt6QtCore, "QRegularExpression")
             // Constructor
             .define_constructor(Constructor<QRegularExpression, const QString &, QRegularExpression::PatternOptions>(), Arg("pattern"), Arg("options"))
             // Public Functions
@@ -84,7 +84,7 @@ void Init_qregularexpression(Module rb_mQt6QtCore)
 
     rb_cQRegularExpressionMatch =
         // RubyQt6::QtCore::QRegularExpressionMatch
-        define_class_under<QRegularExpressionMatch>(rb_mQt6QtCore, "QRegularExpressionMatch")
+        define_qlass_under<QRegularExpressionMatch>(rb_mQt6QtCore, "QRegularExpressionMatch")
             // Constructor
             .define_constructor(Constructor<QRegularExpressionMatch>())
             // Public Functions
@@ -109,7 +109,7 @@ void Init_qregularexpression(Module rb_mQt6QtCore)
 
     rb_cQRegularExpressionMatchIterator =
         // RubyQt6::QtCore::QRegularExpressionMatchIterator
-        define_class_under<QRegularExpressionMatchIterator>(rb_mQt6QtCore, "QRegularExpressionMatchIterator")
+        define_qlass_under<QRegularExpressionMatchIterator>(rb_mQt6QtCore, "QRegularExpressionMatchIterator")
             // Public Functions
             .define_method("has_next", &QRegularExpressionMatchIterator::hasNext)
             .define_method("match_options", &QRegularExpressionMatchIterator::matchOptions)

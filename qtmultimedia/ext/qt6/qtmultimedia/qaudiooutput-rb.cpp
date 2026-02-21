@@ -11,7 +11,7 @@ void Init_qaudiooutput(Module rb_mQt6QtMultimedia)
 {
     rb_cQAudioOutput =
         // RubyQt6::QtMultimedia::QAudioOutput
-        define_class_under<QAudioOutput, QObject>(rb_mQt6QtMultimedia, "QAudioOutput")
+        define_qlass_under<QAudioOutput, QObject>(rb_mQt6QtMultimedia, "QAudioOutput")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QAudioOutput::staticMetaObject; })
             // Constructor

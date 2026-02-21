@@ -9,7 +9,7 @@ void Init_qwebenginefullscreenrequest(Module rb_mQt6QtWebEngineCore)
 {
     rb_cQWebEngineFullScreenRequest =
         // RubyQt6::QtWebEngineCore::QWebEngineFullScreenRequest
-        define_class_under<QWebEngineFullScreenRequest>(rb_mQt6QtWebEngineCore, "QWebEngineFullScreenRequest")
+        define_qlass_under<QWebEngineFullScreenRequest>(rb_mQt6QtWebEngineCore, "QWebEngineFullScreenRequest")
             // Public Functions
             .define_method("accept", &QWebEngineFullScreenRequest::accept)
             .define_method("origin", &QWebEngineFullScreenRequest::origin)

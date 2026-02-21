@@ -13,7 +13,7 @@ void Init_qgraphicsview(Module rb_mQt6QtWidgets)
 {
     rb_cQGraphicsView =
         // RubyQt6::QtWidgets::QGraphicsView
-        define_class_under<QGraphicsView, QAbstractScrollArea>(rb_mQt6QtWidgets, "QGraphicsView")
+        define_qlass_under<QGraphicsView, QAbstractScrollArea>(rb_mQt6QtWidgets, "QGraphicsView")
             // RubyQt6-Defined Functions
             .define_method("set_alignment", [](QGraphicsView *self, Qt::AlignmentFlag alignment) -> void { return self->setAlignment(alignment); }, Arg("alignment"))
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QGraphicsView::staticMetaObject; })

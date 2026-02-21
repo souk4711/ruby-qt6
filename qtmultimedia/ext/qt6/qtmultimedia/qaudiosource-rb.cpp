@@ -9,7 +9,7 @@ void Init_qaudiosource(Module rb_mQt6QtMultimedia)
 {
     rb_cQAudioSource =
         // RubyQt6::QtMultimedia::QAudioSource
-        define_class_under<QAudioSource, QObject>(rb_mQt6QtMultimedia, "QAudioSource")
+        define_qlass_under<QAudioSource, QObject>(rb_mQt6QtMultimedia, "QAudioSource")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QAudioSource::staticMetaObject; })
             // Constructor
