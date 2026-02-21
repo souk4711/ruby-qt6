@@ -6,7 +6,6 @@ Ruby Bindings for libQt6, providing access to the Qt framework.
 
 - Ruby 3.4+
 - Qt 6.10+
-- Linux
 
 ## Installation
 

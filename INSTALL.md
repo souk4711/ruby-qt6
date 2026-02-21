@@ -20,6 +20,12 @@ apt install -y qt6-base-dev qt6-base-private-dev ruby-dev
 dnf install -y qt6-qtbase-devel qt6-qtbase-private-devel ruby-devel
 ```
 
+### Windows with MSYS2
+
+```sh
+pacman -S --noconfirm mingw-w64-ucrt-x86_64-qt6-base mingw-w64-ucrt-x86_64-ruby
+```
+
 ## Install ruby-qt6-qtwidgets gem
 
 ### From RubyGems
