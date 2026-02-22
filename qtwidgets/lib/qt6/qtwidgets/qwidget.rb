@@ -55,7 +55,8 @@ module RubyQt6
 
       # @!visibility private
       def add_action(*args)
-        _add_action(*args.map { |arg| T.to_qstr(arg) })
+        args.each_with_index { |_, index| T.args_nth_to_qstr(args, index) }
+        _add_action(*args)
       end
 
       # @!visibility private

@@ -20,7 +20,8 @@ module RubyQt6
 
       # @!visibility private
       def load(*args)
-        _load(*args.map { |arg| T.to_qstr(arg) })
+        args.each_with_index { |_, index| T.args_nth_to_qstr(args, index) }
+        _load(*args)
       end
     end
   end
