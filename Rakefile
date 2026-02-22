@@ -110,8 +110,10 @@ task :compile, [:clobber] do |_, args|
   if args.clobber
     require "parallel"
     sh "rm -rf extensions"
+    Bundler.with_unbundled_env { compile.("rice") }
     Bundler.with_unbundled_env { Parallel.each(LIBS, &compile) }
   else
+    Bundler.with_unbundled_env { compile.("rice") }
     Bundler.with_unbundled_env { LIBS.each(&compile) }
   end
 end

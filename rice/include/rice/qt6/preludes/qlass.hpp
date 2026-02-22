@@ -22,7 +22,7 @@
 #ifndef RICE_QT6_PRELUDES_QLASS_HPP
 #define RICE_QT6_PRELUDES_QLASS_HPP
 
-#include <QtAssert>
+#include <rice/cxx/asserts.hpp>
 
 RICE4RUBYQT6_USE_NAMESPACE
 
@@ -37,8 +37,8 @@ inline Data_Type<T> define_qlass_under(Object parent, Identifier id)
     auto rtypeddata = klass.ruby_data_type();
     auto pair = instance->klass2rtypeddata_.insert({ klassid, rtypeddata });
     if (!pair.second && pair.first->second != rtypeddata) {
-        std::string what = "already registered qlass: " + klass.to_s().str();
-        Q_ASSERT_X(false, "define_qlass_under", what.c_str());
+        std::string msg = "define_qlass_under: already registered qlass: " + klass.to_s().str();
+        assertm(false, msg.c_str());
     }
 
     return klass;
@@ -53,8 +53,8 @@ inline Data_Type<T> declare_qlass_under(Object parent, Identifier id)
     auto klassid = klass.object_id();
     auto iter = instance->klass2rtypeddata_.find(klassid);
     if (iter == instance->klass2rtypeddata_.end()) {
-        std::string what = "unregistered qlass: " + klass.to_s().str();
-        Q_ASSERT_X(false, "declare_qlass_under", what.c_str());
+        std::string msg = "declare_qlass_under: unregistered qlass: " + klass.to_s().str();
+        assertm(false, msg.c_str());
     }
 
     return declare_class_under<T, Base_T>(parent, id.c_str(), iter->second);

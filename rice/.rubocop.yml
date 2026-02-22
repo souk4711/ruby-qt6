@@ -8,4 +8,4 @@ AllCops:
   Exclude:
     - "bin/**/*"
     - "tmp/**/*"
-    - "lib/mkmf-*.rb"
+    - "lib/qt6/mkmf-*.rb"

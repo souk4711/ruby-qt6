@@ -66,6 +66,12 @@ def rubyqt6_extconf(mod, depends:)
     end
   end
 
+  # Add rice library
+  if mod != "Rice"
+    rubyqt6_rice_gem_path = Gem::Specification.find_by_name("ruby-qt6-rice").full_gem_path
+    append_ldflags(File.join(rubyqt6_rice_gem_path, "lib/qt6/rice/rice.so"))
+  end
+
   # Create Makefile
   name = mod.downcase
   create_makefile("qt6/#{name}/#{name}")

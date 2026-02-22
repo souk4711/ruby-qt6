@@ -19,34 +19,13 @@
 // license terms which apply to the Application, with which you must still
 // comply.
 
-#ifndef RICE_QT6_PRELUDES_REGISTRIES_HPP
-#define RICE_QT6_PRELUDES_REGISTRIES_HPP
+#ifndef RICE_CXX_ASSERTS_HPP
+#define RICE_CXX_ASSERTS_HPP
 
-#ifdef _WIN32
-#  ifdef RUBYQT6_BUILD_RICE_LIB
-#    define RUBYQT6_RICE_EXPORT __declspec(dllexport)
-#  else
-#    define RUBYQT6_RICE_EXPORT __declspec(dllimport)
-#  endif
-#else
-#  define RUBYQT6_RICE_EXPORT
-#endif
+// include stdlib stuffs
+#include <cassert>
 
-struct RUBYQT6_RICE_EXPORT RubyQt6_RTypedData_Registries
-{
-    RUBYQT6_RICE_EXPORT static RubyQt6_RTypedData_Registries *instance();
-    static RubyQt6_RTypedData_Registries* instance_;
-
-    std::map<VALUE, rb_data_type_t*> klass2rtypeddata_;
-};
-
-#ifdef RUBYQT6_BUILD_RICE_LIB
-inline RubyQt6_RTypedData_Registries *RubyQt6_RTypedData_Registries::instance()
-{
-    if (instance_ == nullptr) { instance_ = new RubyQt6_RTypedData_Registries; }
-    return instance_;
-}
-inline RubyQt6_RTypedData_Registries *RubyQt6_RTypedData_Registries::instance_ = nullptr;
-#endif
+// use (void) to silence unused warnings
+#define assertm(exp, msg) assert((void(msg), exp))
 
 #endif
