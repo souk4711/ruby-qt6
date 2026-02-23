@@ -1,5 +1,6 @@
 #include "qtwidgetspreludes-rb.hpp"
 
+#include <QMetaObject>
 #include <QByteArray>
 #include <QString>
 #include <QEvent>
@@ -14,6 +15,8 @@
 #include <QModelIndex>
 #include <QPoint>
 #include <QPointF>
+#include <QPolygon>
+#include <QPolygonF>
 #include <QRect>
 #include <QRectF>
 #include <QRegularExpression>
@@ -24,15 +27,43 @@
 #include <QObject>
 #include <QAbstractItemModel>
 
+#include <QBrush>
+#include <QColor>
+#include <QCursor>
+#include <QFont>
+#include <QFontInfo>
+#include <QFontMetrics>
+#include <QIcon>
+#include <QKeySequence>
+#include <QPaintDevice>
+#include <QPagedPaintDevice>
+#include <QPicture>
+#include <QPixmap>
+#include <QPainter>
+#include <QPainterPath>
+#include <QPalette>
+#include <QPen>
+#include <QRegion>
+#include <QTextCursor>
+#include <QAction>
+#include <QMovie>
+#include <QScreen>
+#include <QTextDocument>
+#include <QValidator>
+#include <QWindow>
+
 RICE4RUBYQT6_USE_NAMESPACE
 
 void Init_qtwidgetspreludes(Module rb_mQt6)
 {
     Module rb_mQt6QtCore = define_module_under(rb_mQt6, "QtCore");
+    declare_qlass_under<QMetaObject>(rb_mQt6QtCore, "QMetaObject");
     declare_qlass_under<QByteArray>(rb_mQt6QtCore, "QByteArray");
     declare_qlass_under<QString>(rb_mQt6QtCore, "QString");
     declare_qlass_under<QEvent>(rb_mQt6QtCore, "QEvent");
     declare_qlass_under<QDateTime>(rb_mQt6QtCore, "QDateTime");
+    declare_qlass_under<QDate>(rb_mQt6QtCore, "QDate");
+    declare_qlass_under<QTime>(rb_mQt6QtCore, "QTime");
     declare_qlass_under<QDir>(rb_mQt6QtCore, "QDir");
     declare_qlass_under<QFileInfo>(rb_mQt6QtCore, "QFileInfo");
     declare_qlass_under<QLine>(rb_mQt6QtCore, "QLine");
@@ -43,6 +74,8 @@ void Init_qtwidgetspreludes(Module rb_mQt6)
     declare_qlass_under<QModelIndex>(rb_mQt6QtCore, "QModelIndex");
     declare_qlass_under<QPoint>(rb_mQt6QtCore, "QPoint");
     declare_qlass_under<QPointF>(rb_mQt6QtCore, "QPointF");
+    declare_qlass_under<QPolygon>(rb_mQt6QtCore, "QPolygon");
+    declare_qlass_under<QPolygonF>(rb_mQt6QtCore, "QPolygonF");
     declare_qlass_under<QRect>(rb_mQt6QtCore, "QRect");
     declare_qlass_under<QRectF>(rb_mQt6QtCore, "QRectF");
     declare_qlass_under<QRegularExpression>(rb_mQt6QtCore, "QRegularExpression");
@@ -99,6 +132,32 @@ void Init_qtwidgetspreludes(Module rb_mQt6)
     declare_qlass_under<QFlags<Qt::ToolBarArea>>(rb_mQt, "ToolBarAreas");
     declare_qlass_under<QFlags<Qt::WindowState>>(rb_mQt, "WindowStates");
     declare_qlass_under<QFlags<Qt::WindowType>>(rb_mQt, "WindowFlags");
+
+    Module rb_mQt6QtGui = define_module_under(rb_mQt6, "QtGui");
+    declare_qlass_under<QBrush>(rb_mQt6QtGui, "QBrush");
+    declare_qlass_under<QColor>(rb_mQt6QtGui, "QColor");
+    declare_qlass_under<QCursor>(rb_mQt6QtGui, "QCursor");
+    declare_qlass_under<QFont>(rb_mQt6QtGui, "QFont");
+    declare_qlass_under<QFontInfo>(rb_mQt6QtGui, "QFontInfo");
+    declare_qlass_under<QFontMetrics>(rb_mQt6QtGui, "QFontMetrics");
+    declare_qlass_under<QIcon>(rb_mQt6QtGui, "QIcon");
+    declare_qlass_under<QKeySequence>(rb_mQt6QtGui, "QKeySequence");
+    declare_qlass_under<QPaintDevice>(rb_mQt6QtGui, "QPaintDevice");
+    declare_qlass_under<QPagedPaintDevice>(rb_mQt6QtGui, "QPagedPaintDevice");
+    declare_qlass_under<QPicture>(rb_mQt6QtGui, "QPicture");
+    declare_qlass_under<QPixmap>(rb_mQt6QtGui, "QPixmap");
+    declare_qlass_under<QPainter>(rb_mQt6QtGui, "QPainter");
+    declare_qlass_under<QPainterPath>(rb_mQt6QtGui, "QPainterPath");
+    declare_qlass_under<QPalette>(rb_mQt6QtGui, "QPalette");
+    declare_qlass_under<QPen>(rb_mQt6QtGui, "QPen");
+    declare_qlass_under<QRegion>(rb_mQt6QtGui, "QRegion");
+    declare_qlass_under<QTextCursor>(rb_mQt6QtGui, "QTextCursor");
+    declare_qlass_under<QAction>(rb_mQt6QtGui, "QAction");
+    declare_qlass_under<QMovie>(rb_mQt6QtGui, "QMovie");
+    declare_qlass_under<QScreen>(rb_mQt6QtGui, "QScreen");
+    declare_qlass_under<QTextDocument>(rb_mQt6QtGui, "QTextDocument");
+    declare_qlass_under<QValidator>(rb_mQt6QtGui, "QValidator");
+    declare_qlass_under<QWindow>(rb_mQt6QtGui, "QWindow");
 
     Class rb_cQDir = rb_mQt6QtCore.const_get("QDir").value();
     declare_qlass_under<QFlags<QDir::Filter>>(rb_cQDir, "Filters");
