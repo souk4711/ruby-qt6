@@ -12,7 +12,7 @@ void Init_qvideoframeformat(Module rb_mQt6QtMultimedia)
 {
     rb_cQVideoFrameFormat =
         // RubyQt6::QtMultimedia::QVideoFrameFormat
-        define_class_under<QVideoFrameFormat>(rb_mQt6QtMultimedia, "QVideoFrameFormat")
+        define_qlass_under<QVideoFrameFormat>(rb_mQt6QtMultimedia, "QVideoFrameFormat")
             // Constructor
             .define_constructor(Constructor<QVideoFrameFormat>())
             .define_constructor(Constructor<QVideoFrameFormat, const QSize &, QVideoFrameFormat::PixelFormat>(), Arg("size"), Arg("pixel_format"))

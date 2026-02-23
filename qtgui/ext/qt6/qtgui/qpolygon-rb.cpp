@@ -10,7 +10,7 @@ void Init_qpolygon(Module rb_mQt6QtGui)
 {
     rb_cQPolygon =
         // RubyQt6::QtGui::QPolygon
-        define_class_under<QPolygon, QList<QPoint>>(rb_mQt6QtGui, "QPolygon")
+        define_qlass_under<QPolygon, QList<QPoint>>(rb_mQt6QtGui, "QPolygon")
             // Constructor
             .define_constructor(Constructor<QPolygon>())
             // Public Functions
@@ -34,7 +34,7 @@ void Init_qpolygon(Module rb_mQt6QtGui)
 
     rb_cQPolygonF =
         // RubyQt6::QtGui::QPolygonF
-        define_class_under<QPolygonF, QList<QPointF>>(rb_mQt6QtGui, "QPolygonF")
+        define_qlass_under<QPolygonF, QList<QPointF>>(rb_mQt6QtGui, "QPolygonF")
             // Constructor
             .define_constructor(Constructor<QPolygonF>())
             .define_constructor(Constructor<QPolygonF, const QPolygon &>(), Arg("polygon"))

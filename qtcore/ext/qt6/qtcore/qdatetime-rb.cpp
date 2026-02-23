@@ -35,7 +35,7 @@ void Init_qdatetime(Module rb_mQt6QtCore)
 {
     rb_cQDateTime =
         // RubyQt6::QtCore::QDateTime
-        define_class_under<QDateTime>(rb_mQt6QtCore, "QDateTime")
+        define_qlass_under<QDateTime>(rb_mQt6QtCore, "QDateTime")
             // RubyQt6-Defined Functions
             .define_singleton_function("_operator_compare", QDateTime_operator_compare, Arg("lhs"), Arg("rhs"))
             // Constructor
@@ -106,7 +106,7 @@ void Init_qdatetime(Module rb_mQt6QtCore)
 
     rb_cQDate =
         // RubyQt6::QtCore::QDate
-        define_class_under<QDate>(rb_mQt6QtCore, "QDate")
+        define_qlass_under<QDate>(rb_mQt6QtCore, "QDate")
             // RubyQt6-Defined Functions
             .define_singleton_function("_operator_compare", QDate_operator_compare, Arg("lhs"), Arg("rhs"))
             // Constructor
@@ -158,7 +158,7 @@ void Init_qdatetime(Module rb_mQt6QtCore)
 
     rb_cQTime =
         // RubyQt6::QtCore::QTime
-        define_class_under<QTime>(rb_mQt6QtCore, "QTime")
+        define_qlass_under<QTime>(rb_mQt6QtCore, "QTime")
             // RubyQt6-Defined Functions
             .define_singleton_function("_operator_compare", QTime_operator_compare, Arg("lhs"), Arg("rhs"))
             // Constructor

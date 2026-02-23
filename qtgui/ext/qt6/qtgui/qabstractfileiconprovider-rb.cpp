@@ -9,5 +9,5 @@ void Init_qabstractfileiconprovider(Module rb_mQt6QtGui)
 {
     rb_cQAbstractFileIconProvider =
         // RubyQt6::QtGui::QAbstractFileIconProvider
-        define_class_under<QAbstractFileIconProvider>(rb_mQt6QtGui, "QAbstractFileIconProvider");
+        define_qlass_under<QAbstractFileIconProvider>(rb_mQt6QtGui, "QAbstractFileIconProvider");
 }

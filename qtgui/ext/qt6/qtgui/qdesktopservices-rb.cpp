@@ -11,7 +11,7 @@ void Init_qdesktopservices(Module rb_mQt6QtGui)
 {
     rb_cQDesktopServices =
         // RubyQt6::QtGui::QDesktopServices
-        define_class_under<QDesktopServices>(rb_mQt6QtGui, "QDesktopServices")
+        define_qlass_under<QDesktopServices>(rb_mQt6QtGui, "QDesktopServices")
             // Static Public Members
             .define_singleton_function("open_url", &QDesktopServices::openUrl, Arg("url"));
 }

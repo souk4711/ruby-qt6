@@ -11,7 +11,7 @@ void Init_qabstractbutton(Module rb_mQt6QtWidgets)
 {
     rb_cQAbstractButton =
         // RubyQt6::QtWidgets::QAbstractButton
-        define_class_under<QAbstractButton, QWidget>(rb_mQt6QtWidgets, "QAbstractButton")
+        define_qlass_under<QAbstractButton, QWidget>(rb_mQt6QtWidgets, "QAbstractButton")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QAbstractButton::staticMetaObject; })
             // Public Functions

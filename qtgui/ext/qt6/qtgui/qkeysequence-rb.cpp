@@ -12,7 +12,7 @@ void Init_qkeysequence(Module rb_mQt6QtGui)
 {
     rb_cQKeySequence =
         // RubyQt6::QtGui::QKeySequence
-        define_class_under<QKeySequence>(rb_mQt6QtGui, "QKeySequence")
+        define_qlass_under<QKeySequence>(rb_mQt6QtGui, "QKeySequence")
             // Constructor
             .define_constructor(Constructor<QKeySequence, int>(), Arg("key"))
             .define_constructor(Constructor<QKeySequence, QKeySequence::StandardKey>(), Arg("key"))

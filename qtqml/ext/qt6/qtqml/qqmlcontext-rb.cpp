@@ -12,7 +12,7 @@ void Init_qqmlcontext(Module rb_mQt6QtQml)
 {
     rb_cQQmlContext =
         // RubyQt6::QtQml::QQmlContext
-        define_class_under<QQmlContext, QObject>(rb_mQt6QtQml, "QQmlContext")
+        define_qlass_under<QQmlContext, QObject>(rb_mQt6QtQml, "QQmlContext")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QQmlContext::staticMetaObject; })
             // Constructor
@@ -36,7 +36,7 @@ void Init_qqmlcontext(Module rb_mQt6QtQml)
 
     rb_cQQmlContextPropertyPair =
         // RubyQt6::QtQml::QQmlContext::PropertyPair
-        define_class_under<QQmlContext::PropertyPair>(rb_cQQmlContext, "PropertyPair")
+        define_qlass_under<QQmlContext::PropertyPair>(rb_cQQmlContext, "PropertyPair")
             .define_constructor(Constructor<QQmlContext::PropertyPair>())
             .define_attr("name", &QQmlContext::PropertyPair::name)
             .define_attr("value", &QQmlContext::PropertyPair::value);

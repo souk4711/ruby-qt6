@@ -10,7 +10,7 @@ void Init_qabstractslider(Module rb_mQt6QtWidgets)
 {
     rb_cQAbstractSlider =
         // RubyQt6::QtWidgets::QAbstractSlider
-        define_class_under<QAbstractSlider, QWidget>(rb_mQt6QtWidgets, "QAbstractSlider")
+        define_qlass_under<QAbstractSlider, QWidget>(rb_mQt6QtWidgets, "QAbstractSlider")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QAbstractSlider::staticMetaObject; })
             // Public Functions

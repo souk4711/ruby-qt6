@@ -15,7 +15,7 @@ void Init_qmediarecorder(Module rb_mQt6QtMultimedia)
 {
     rb_cQMediaRecorder =
         // RubyQt6::QtMultimedia::QMediaRecorder
-        define_class_under<QMediaRecorder, QObject>(rb_mQt6QtMultimedia, "QMediaRecorder")
+        define_qlass_under<QMediaRecorder, QObject>(rb_mQt6QtMultimedia, "QMediaRecorder")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QMediaRecorder::staticMetaObject; })
             // Constructor

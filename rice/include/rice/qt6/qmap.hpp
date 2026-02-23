@@ -154,7 +154,7 @@ void define_qmap_under(Module module)
     std::string klassName = typeDetail.rubyName();
     Identifier id(klassName);
 
-    Data_Type<QMap_T> qmap = define_class_under<QMap_T>(module, id);
+    Data_Type<QMap_T> qmap = define_qlass_under<QMap_T>(module, id);
     DefineQMapMethods<QMap_T> qmap_(qmap);
 }
 

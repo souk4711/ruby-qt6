@@ -12,7 +12,7 @@ void Init_qscreencapture(Module rb_mQt6QtMultimedia)
 {
     rb_cQScreenCapture =
         // RubyQt6::QtMultimedia::QScreenCapture
-        define_class_under<QScreenCapture, QObject>(rb_mQt6QtMultimedia, "QScreenCapture")
+        define_qlass_under<QScreenCapture, QObject>(rb_mQt6QtMultimedia, "QScreenCapture")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QScreenCapture::staticMetaObject; })
             // Constructor

@@ -9,7 +9,7 @@ void Init_qurlquery(Module rb_mQt6QtCore)
 {
     rb_cQUrlQuery =
         // RubyQt6::QtCore::QUrlQuery
-        define_class_under<QUrlQuery>(rb_mQt6QtCore, "QUrlQuery")
+        define_qlass_under<QUrlQuery>(rb_mQt6QtCore, "QUrlQuery")
             // Constructor
             .define_constructor(Constructor<QUrlQuery>())
             // Public Functions

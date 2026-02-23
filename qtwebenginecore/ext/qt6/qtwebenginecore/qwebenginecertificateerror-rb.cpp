@@ -10,7 +10,7 @@ void Init_qwebenginecertificateerror(Module rb_mQt6QtWebEngineCore)
 {
     rb_cQWebEngineCertificateError =
         // RubyQt6::QtWebEngineCore::QWebEngineCertificateError
-        define_class_under<QWebEngineCertificateError>(rb_mQt6QtWebEngineCore, "QWebEngineCertificateError")
+        define_qlass_under<QWebEngineCertificateError>(rb_mQt6QtWebEngineCore, "QWebEngineCertificateError")
             // Public Functions
             .define_method("accept_certificate", &QWebEngineCertificateError::acceptCertificate)
             .define_method("certificate_chain", &QWebEngineCertificateError::certificateChain)

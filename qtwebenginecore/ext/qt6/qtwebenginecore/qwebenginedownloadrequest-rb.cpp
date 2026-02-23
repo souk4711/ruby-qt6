@@ -12,7 +12,7 @@ void Init_qwebenginedownloadrequest(Module rb_mQt6QtWebEngineCore)
 {
     rb_cQWebEngineDownloadRequest =
         // RubyQt6::QtWebEngineCore::QWebEngineDownloadRequest
-        define_class_under<QWebEngineDownloadRequest, QObject>(rb_mQt6QtWebEngineCore, "QWebEngineDownloadRequest")
+        define_qlass_under<QWebEngineDownloadRequest, QObject>(rb_mQt6QtWebEngineCore, "QWebEngineDownloadRequest")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QWebEngineDownloadRequest::staticMetaObject; })
             // Public Functions

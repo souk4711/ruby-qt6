@@ -10,7 +10,7 @@ void Init_qactiongroup(Module rb_mQt6QtGui)
 {
     rb_cQActionGroup =
         // RubyQt6::QtGui::QActionGroup
-        define_class_under<QActionGroup, QObject>(rb_mQt6QtGui, "QActionGroup")
+        define_qlass_under<QActionGroup, QObject>(rb_mQt6QtGui, "QActionGroup")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QActionGroup::staticMetaObject; })
             // Constructor

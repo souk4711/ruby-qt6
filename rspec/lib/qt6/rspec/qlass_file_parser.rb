@@ -83,10 +83,10 @@ module RubyQt6
           raise MissingLine.new(expected, line)
         end
 
-        if line.start_with?(/define_class_under<#{name}.*rb_mQt6#{qmod_name}, "#{name}"/)
+        if line.start_with?(/define_qlass_under<#{name}.*rb_mQt6#{qmod_name}, "#{name}"/)
           take_next_line
         else
-          raise MissingLine.new("define_class_under<#{name}...", line)
+          raise MissingLine.new("define_qlass_under<#{name}...", line)
         end
 
         loop do

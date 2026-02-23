@@ -10,7 +10,7 @@ void Init_qaudiodevice(Module rb_mQt6QtMultimedia)
 {
     rb_cQAudioDevice =
         // RubyQt6::QtMultimedia::QAudioDevice
-        define_class_under<QAudioDevice>(rb_mQt6QtMultimedia, "QAudioDevice")
+        define_qlass_under<QAudioDevice>(rb_mQt6QtMultimedia, "QAudioDevice")
             // RubyQt6-Defined Functions
             .define_singleton_function("_operator_equal", [](QAudioDevice *lhs, QAudioDevice *rhs) -> bool { return *lhs == *rhs; }, Arg("lhs"), Arg("rhs"))
             .define_singleton_function("_qvariant_register_metatype", []() -> int { return qRegisterMetaType<QAudioDevice>(); })

@@ -11,7 +11,7 @@ void Init_qabstractspinbox(Module rb_mQt6QtWidgets)
 {
     rb_cQAbstractSpinBox =
         // RubyQt6::QtWidgets::QAbstractSpinBox
-        define_class_under<QAbstractSpinBox, QWidget>(rb_mQt6QtWidgets, "QAbstractSpinBox")
+        define_qlass_under<QAbstractSpinBox, QWidget>(rb_mQt6QtWidgets, "QAbstractSpinBox")
             // RubyQt6-Defined Functions
             .define_method("set_alignment", [](QAbstractSpinBox *self, Qt::AlignmentFlag alignment) -> void { return self->setAlignment(alignment); }, Arg("alignment"))
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QAbstractSpinBox::staticMetaObject; })

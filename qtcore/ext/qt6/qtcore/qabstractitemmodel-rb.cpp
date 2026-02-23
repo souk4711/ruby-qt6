@@ -15,7 +15,7 @@ void Init_qabstractitemmodel(Module rb_mQt6QtCore)
 {
     rb_cQAbstractItemModel =
         // RubyQt6::QtCore::QAbstractItemModel
-        define_class_under<QAbstractItemModel, QObject>(rb_mQt6QtCore, "QAbstractItemModel")
+        define_qlass_under<QAbstractItemModel, QObject>(rb_mQt6QtCore, "QAbstractItemModel")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QAbstractItemModel::staticMetaObject; })
             // Public Functions
@@ -101,7 +101,7 @@ void Init_qabstractitemmodel(Module rb_mQt6QtCore)
 
     rb_cQAbstractTableModel =
         // RubyQt6::QtCore::QAbstractTableModel
-        define_class_under<QAbstractTableModel, QAbstractItemModel>(rb_mQt6QtCore, "QAbstractTableModel")
+        define_qlass_under<QAbstractTableModel, QAbstractItemModel>(rb_mQt6QtCore, "QAbstractTableModel")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QAbstractTableModel::staticMetaObject; })
             // Public Functions
@@ -112,7 +112,7 @@ void Init_qabstractitemmodel(Module rb_mQt6QtCore)
 
     rb_cQAbstractListModel =
         // RubyQt6::QtCore::QAbstractListModel
-        define_class_under<QAbstractListModel, QAbstractItemModel>(rb_mQt6QtCore, "QAbstractListModel")
+        define_qlass_under<QAbstractListModel, QAbstractItemModel>(rb_mQt6QtCore, "QAbstractListModel")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QAbstractListModel::staticMetaObject; })
             // Public Functions

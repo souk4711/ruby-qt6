@@ -1,4 +1,5 @@
 #include "qtquick-rb.hpp"
+#include "qtquickpreludes-rb.hpp"
 #include "qtquickversion-rb.hpp"
 
 #include "qquickitem-rb.hpp"
@@ -13,6 +14,7 @@ extern "C" void Init_qtquick()
         Module rb_mQt6 = define_module("RubyQt6");
         Module rb_mQt6QtQuick = define_module_under(rb_mQt6, "QtQuick");
 
+        Init_qtquickpreludes(rb_mQt6);
         Init_qtquickversion(rb_mQt6QtQuick);
 
         Init_qquickitem(rb_mQt6QtQuick);

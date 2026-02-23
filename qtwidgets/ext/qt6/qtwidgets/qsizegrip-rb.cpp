@@ -9,7 +9,7 @@ void Init_qsizegrip(Module rb_mQt6QtWidgets)
 {
     rb_cQSizeGrip =
         // RubyQt6::QtWidgets::QSizeGrip
-        define_class_under<QSizeGrip, QWidget>(rb_mQt6QtWidgets, "QSizeGrip")
+        define_qlass_under<QSizeGrip, QWidget>(rb_mQt6QtWidgets, "QSizeGrip")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QSizeGrip::staticMetaObject; })
             // Constructor

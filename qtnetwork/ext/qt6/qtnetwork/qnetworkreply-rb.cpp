@@ -10,7 +10,7 @@ void Init_qnetworkreply(Module rb_mQt6QtNetwork)
 {
     rb_cQNetworkReply =
         // RubyQt6::QtNetwork::QNetworkReply
-        define_class_under<QNetworkReply, QIODevice>(rb_mQt6QtNetwork, "QNetworkReply")
+        define_qlass_under<QNetworkReply, QIODevice>(rb_mQt6QtNetwork, "QNetworkReply")
             // RubyQt6-Defined Functions
             .define_singleton_function("_qvariant_register_metatype", []() -> int { return qRegisterMetaType<QNetworkReply *>(); })
             .define_singleton_function("_qvariant_from_value", [](QNetworkReply *value) -> QVariant { return QVariant::fromValue(value); })

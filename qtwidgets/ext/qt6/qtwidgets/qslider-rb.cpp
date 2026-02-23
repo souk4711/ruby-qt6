@@ -10,7 +10,7 @@ void Init_qslider(Module rb_mQt6QtWidgets)
 {
     rb_cQSlider =
         // RubyQt6::QtWidgets::QSlider
-        define_class_under<QSlider, QAbstractSlider>(rb_mQt6QtWidgets, "QSlider")
+        define_qlass_under<QSlider, QAbstractSlider>(rb_mQt6QtWidgets, "QSlider")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QSlider::staticMetaObject; })
             // Constructor

@@ -9,7 +9,7 @@ void Init_qwebengineclienthints(Module rb_mQt6QtWebEngineCore)
 {
     rb_cQWebEngineClientHints =
         // RubyQt6::QtWebEngineCore::QWebEngineClientHints
-        define_class_under<QWebEngineClientHints, QObject>(rb_mQt6QtWebEngineCore, "QWebEngineClientHints")
+        define_qlass_under<QWebEngineClientHints, QObject>(rb_mQt6QtWebEngineCore, "QWebEngineClientHints")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QWebEngineClientHints::staticMetaObject; })
             // Public Functions

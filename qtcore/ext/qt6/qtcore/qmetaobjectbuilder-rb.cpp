@@ -12,7 +12,7 @@ void Init_qmetaobjectbuilder(Module rb_mQt6QtCore)
 {
     rb_cQMetaObjectBuilder =
         // RubyQt6::QtCore::QMetaObjectBuilder
-        define_class_under<QMetaObjectBuilder>(rb_mQt6QtCore, "QMetaObjectBuilder")
+        define_qlass_under<QMetaObjectBuilder>(rb_mQt6QtCore, "QMetaObjectBuilder")
             // Constructor
             .define_constructor(Constructor<QMetaObjectBuilder>())
             // Public Functions
@@ -69,7 +69,7 @@ void Init_qmetaobjectbuilder(Module rb_mQt6QtCore)
 
     rb_cQMetaMethodBuilder =
         // RubyQt6::QtCore::QMetaMethodBuilder
-        define_class_under<QMetaMethodBuilder>(rb_mQt6QtCore, "QMetaMethodBuilder")
+        define_qlass_under<QMetaMethodBuilder>(rb_mQt6QtCore, "QMetaMethodBuilder")
             // Public Functions
             .define_method("access", &QMetaMethodBuilder::access)
             .define_method("attributes", &QMetaMethodBuilder::attributes)
@@ -92,7 +92,7 @@ void Init_qmetaobjectbuilder(Module rb_mQt6QtCore)
 
     rb_cQMetaPropertyBuilder =
         // RubyQt6::QtCore::QMetaPropertyBuilder
-        define_class_under<QMetaPropertyBuilder>(rb_mQt6QtCore, "QMetaPropertyBuilder")
+        define_qlass_under<QMetaPropertyBuilder>(rb_mQt6QtCore, "QMetaPropertyBuilder")
             // Public Functions
             .define_method("has_notify_signal", &QMetaPropertyBuilder::hasNotifySignal)
             .define_method("has_std_cpp_set", &QMetaPropertyBuilder::hasStdCppSet)
@@ -133,7 +133,7 @@ void Init_qmetaobjectbuilder(Module rb_mQt6QtCore)
 
     rb_cQMetaEnumBuilder =
         // RubyQt6::QtCore::QMetaEnumBuilder
-        define_class_under<QMetaEnumBuilder>(rb_mQt6QtCore, "QMetaEnumBuilder")
+        define_qlass_under<QMetaEnumBuilder>(rb_mQt6QtCore, "QMetaEnumBuilder")
             // Public Functions
             .define_method<int (QMetaEnumBuilder::*)(const QByteArray &, int)>("add_key", &QMetaEnumBuilder::addKey, Arg("name"), Arg("value"))
             .define_method<int (QMetaEnumBuilder::*)(const QByteArray &, quint64)>("add_key", &QMetaEnumBuilder::addKey, Arg("name"), Arg("value"))

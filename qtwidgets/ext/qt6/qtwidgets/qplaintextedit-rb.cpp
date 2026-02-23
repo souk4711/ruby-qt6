@@ -17,7 +17,7 @@ void Init_qplaintextedit(Module rb_mQt6QtWidgets)
 {
     rb_cQPlainTextEdit =
         // RubyQt6::QtWidgets::QPlainTextEdit
-        define_class_under<QPlainTextEdit, QAbstractScrollArea>(rb_mQt6QtWidgets, "QPlainTextEdit")
+        define_qlass_under<QPlainTextEdit, QAbstractScrollArea>(rb_mQt6QtWidgets, "QPlainTextEdit")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QPlainTextEdit::staticMetaObject; })
             // Constructor

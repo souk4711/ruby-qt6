@@ -9,7 +9,7 @@ void Init_qfileiconprovider(Module rb_mQt6QtWidgets)
 {
     rb_cQFileIconProvider =
         // RubyQt6::QtWidgets::QFileIconProvider
-        define_class_under<QFileIconProvider, QAbstractFileIconProvider>(rb_mQt6QtWidgets, "QFileIconProvider")
+        define_qlass_under<QFileIconProvider, QAbstractFileIconProvider>(rb_mQt6QtWidgets, "QFileIconProvider")
             // Constructor
             .define_constructor(Constructor<QFileIconProvider>())
             // Public Functions

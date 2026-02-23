@@ -11,7 +11,7 @@ void Init_qstyleditemdelegate(Module rb_mQt6QtWidgets)
 {
     rb_cQStyledItemDelegate =
         // RubyQt6::QtWidgets::QStyledItemDelegate
-        define_class_under<QStyledItemDelegate, QAbstractItemDelegate>(rb_mQt6QtWidgets, "QStyledItemDelegate")
+        define_qlass_under<QStyledItemDelegate, QAbstractItemDelegate>(rb_mQt6QtWidgets, "QStyledItemDelegate")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QStyledItemDelegate::staticMetaObject; })
             // Constructor

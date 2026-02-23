@@ -11,7 +11,7 @@ void Init_qpaintdevice(Module rb_mQt6QtGui)
 {
     rb_cQPaintDevice =
         // RubyQt6::QtGui::QPaintDevice
-        define_class_under<QPaintDevice>(rb_mQt6QtGui, "QPaintDevice")
+        define_qlass_under<QPaintDevice>(rb_mQt6QtGui, "QPaintDevice")
             // Public Functions
             .define_method("color_count", &QPaintDevice::colorCount)
             .define_method("depth", &QPaintDevice::depth)

@@ -15,7 +15,7 @@ void Init_qmessagebox(Module rb_mQt6QtWidgets)
 {
     rb_cQMessageBox =
         // RubyQt6::QtWidgets::QMessageBox
-        define_class_under<QMessageBox, QDialog>(rb_mQt6QtWidgets, "QMessageBox")
+        define_qlass_under<QMessageBox, QDialog>(rb_mQt6QtWidgets, "QMessageBox")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QMessageBox::staticMetaObject; })
             // Constructor

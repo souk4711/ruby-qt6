@@ -12,7 +12,7 @@ void Init_qvideoframeinput(Module rb_mQt6QtMultimedia)
 {
     rb_cQVideoFrameInput =
         // RubyQt6::QtMultimedia::QVideoFrameInput
-        define_class_under<QVideoFrameInput, QObject>(rb_mQt6QtMultimedia, "QVideoFrameInput")
+        define_qlass_under<QVideoFrameInput, QObject>(rb_mQt6QtMultimedia, "QVideoFrameInput")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QVideoFrameInput::staticMetaObject; })
             // Constructor

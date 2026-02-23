@@ -13,7 +13,7 @@ void Init_qimagecapture(Module rb_mQt6QtMultimedia)
 {
     rb_cQImageCapture =
         // RubyQt6::QtMultimedia::QImageCapture
-        define_class_under<QImageCapture, QObject>(rb_mQt6QtMultimedia, "QImageCapture")
+        define_qlass_under<QImageCapture, QObject>(rb_mQt6QtMultimedia, "QImageCapture")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QImageCapture::staticMetaObject; })
             // Constructor

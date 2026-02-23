@@ -12,7 +12,7 @@ void Init_qundoview(Module rb_mQt6QtWidgets)
 {
     rb_cQUndoView =
         // RubyQt6::QtWidgets::QUndoView
-        define_class_under<QUndoView, QListView>(rb_mQt6QtWidgets, "QUndoView")
+        define_qlass_under<QUndoView, QListView>(rb_mQt6QtWidgets, "QUndoView")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QUndoView::staticMetaObject; })
             // Constructor

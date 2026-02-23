@@ -9,7 +9,7 @@ void Init_qfocusframe(Module rb_mQt6QtWidgets)
 {
     rb_cQFocusFrame =
         // RubyQt6::QtWidgets::QFocusFrame
-        define_class_under<QFocusFrame, QWidget>(rb_mQt6QtWidgets, "QFocusFrame")
+        define_qlass_under<QFocusFrame, QWidget>(rb_mQt6QtWidgets, "QFocusFrame")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QFocusFrame::staticMetaObject; })
             // Constructor

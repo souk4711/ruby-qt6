@@ -10,7 +10,7 @@ void Init_qwebenginenavigationrequest(Module rb_mQt6QtWebEngineCore)
 {
     rb_cQWebEngineNavigationRequest =
         // RubyQt6::QtWebEngineCore::QWebEngineNavigationRequest
-        define_class_under<QWebEngineNavigationRequest, QObject>(rb_mQt6QtWebEngineCore, "QWebEngineNavigationRequest")
+        define_qlass_under<QWebEngineNavigationRequest, QObject>(rb_mQt6QtWebEngineCore, "QWebEngineNavigationRequest")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QWebEngineNavigationRequest::staticMetaObject; })
             // Public Functions

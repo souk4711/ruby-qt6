@@ -9,7 +9,7 @@ void Init_qqmlapplicationengine(Module rb_mQt6QtQml)
 {
     rb_cQQmlApplicationEngine =
         // RubyQt6::QtQml::QQmlApplicationEngine
-        define_class_under<QQmlApplicationEngine, QQmlEngine>(rb_mQt6QtQml, "QQmlApplicationEngine")
+        define_qlass_under<QQmlApplicationEngine, QQmlEngine>(rb_mQt6QtQml, "QQmlApplicationEngine")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QQmlApplicationEngine::staticMetaObject; })
             // Constructor

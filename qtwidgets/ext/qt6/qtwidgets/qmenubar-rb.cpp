@@ -9,7 +9,7 @@ void Init_qmenubar(Module rb_mQt6QtWidgets)
 {
     rb_cQMenuBar =
         // RubyQt6::QtWidgets::QMenuBar
-        define_class_under<QMenuBar, QWidget>(rb_mQt6QtWidgets, "QMenuBar")
+        define_qlass_under<QMenuBar, QWidget>(rb_mQt6QtWidgets, "QMenuBar")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QMenuBar::staticMetaObject; })
             // Constructor

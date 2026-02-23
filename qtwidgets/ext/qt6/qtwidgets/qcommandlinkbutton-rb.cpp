@@ -11,7 +11,7 @@ void Init_qcommandlinkbutton(Module rb_mQt6QtWidgets)
 {
     rb_cQCommandLinkButton =
         // RubyQt6::QtWidgets::QCommandLinkButton
-        define_class_under<QCommandLinkButton, QPushButton>(rb_mQt6QtWidgets, "QCommandLinkButton")
+        define_qlass_under<QCommandLinkButton, QPushButton>(rb_mQt6QtWidgets, "QCommandLinkButton")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QCommandLinkButton::staticMetaObject; })
             // Constructor

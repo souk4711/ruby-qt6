@@ -16,7 +16,7 @@ void Init_qstyle(Module rb_mQt6QtWidgets)
 {
     rb_cQStyle =
         // RubyQt6::QtWidgets::QStyle
-        define_class_under<QStyle, QObject>(rb_mQt6QtWidgets, "QStyle")
+        define_qlass_under<QStyle, QObject>(rb_mQt6QtWidgets, "QStyle")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QStyle::staticMetaObject; })
             // Public Functions

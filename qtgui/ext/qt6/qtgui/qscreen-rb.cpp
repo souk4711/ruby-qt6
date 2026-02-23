@@ -11,7 +11,7 @@ void Init_qscreen(Module rb_mQt6QtGui)
 {
     rb_cQScreen =
         // RubyQt6::QtGui::QScreen
-        define_class_under<QScreen, QObject>(rb_mQt6QtGui, "QScreen")
+        define_qlass_under<QScreen, QObject>(rb_mQt6QtGui, "QScreen")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QScreen::staticMetaObject; })
             // Public Functions

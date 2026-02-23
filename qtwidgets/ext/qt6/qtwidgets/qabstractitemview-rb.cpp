@@ -11,7 +11,7 @@ void Init_qabstractitemview(Module rb_mQt6QtWidgets)
 {
     rb_cQAbstractItemView =
         // RubyQt6::QtWidgets::QAbstractItemView
-        define_class_under<QAbstractItemView, QAbstractScrollArea>(rb_mQt6QtWidgets, "QAbstractItemView")
+        define_qlass_under<QAbstractItemView, QAbstractScrollArea>(rb_mQt6QtWidgets, "QAbstractItemView")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QAbstractItemView::staticMetaObject; })
             // Public Functions

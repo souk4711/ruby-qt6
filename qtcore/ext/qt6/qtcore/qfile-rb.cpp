@@ -9,7 +9,7 @@ void Init_qfile(Module rb_mQt6QtCore)
 {
     rb_cQFile =
         // RubyQt6::QtCore::QFile
-        define_class_under<QFile, QFileDevice>(rb_mQt6QtCore, "QFile")
+        define_qlass_under<QFile, QFileDevice>(rb_mQt6QtCore, "QFile")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QFile::staticMetaObject; })
             // Constructor

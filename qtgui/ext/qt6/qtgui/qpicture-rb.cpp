@@ -12,7 +12,7 @@ void Init_qpicture(Module rb_mQt6QtGui)
 {
     rb_cQPicture =
         // RubyQt6::QtGui::QPicture
-        define_class_under<QPicture, QPaintDevice>(rb_mQt6QtGui, "QPicture")
+        define_qlass_under<QPicture, QPaintDevice>(rb_mQt6QtGui, "QPicture")
             // Constructor
             .define_constructor(Constructor<QPicture>())
             // Public Functions

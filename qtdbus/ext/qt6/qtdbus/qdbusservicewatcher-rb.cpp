@@ -14,7 +14,7 @@ void Init_qdbusservicewatcher(Module rb_mQt6QtDBus)
 {
     rb_cQDBusServiceWatcher =
         // RubyQt6::QtDBus::QDBusServiceWatcher
-        define_class_under<QDBusServiceWatcher, QObject>(rb_mQt6QtDBus, "QDBusServiceWatcher")
+        define_qlass_under<QDBusServiceWatcher, QObject>(rb_mQt6QtDBus, "QDBusServiceWatcher")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QDBusServiceWatcher::staticMetaObject; })
             // Constructor

@@ -10,7 +10,7 @@ void Init_qmargins(Module rb_mQt6QtCore)
 {
     rb_cQMargins =
         // RubyQt6::QtCore::QMargins
-        define_class_under<QMargins>(rb_mQt6QtCore, "QMargins")
+        define_qlass_under<QMargins>(rb_mQt6QtCore, "QMargins")
             // RubyQt6-Defined Functions
             .define_singleton_function("_operator_equal", [](QMargins *lhs, QMargins  *rhs) -> bool { return *lhs == *rhs; }, Arg("lhs"), Arg("rhs"))
             .define_singleton_function("_operator_equal", [](QMargins *lhs, QMarginsF *rhs) -> bool { return *lhs == *rhs; }, Arg("lhs"), Arg("rhs"))
@@ -31,7 +31,7 @@ void Init_qmargins(Module rb_mQt6QtCore)
 
     rb_cQMarginsF =
         // RubyQt6::QtCore::QMarginsF
-        define_class_under<QMarginsF>(rb_mQt6QtCore, "QMarginsF")
+        define_qlass_under<QMarginsF>(rb_mQt6QtCore, "QMarginsF")
             // RubyQt6-Defined Functions
             .define_singleton_function("_operator_equal", [](QMarginsF *lhs, QMargins  *rhs) -> bool { return *lhs == *rhs; }, Arg("lhs"), Arg("rhs"))
             .define_singleton_function("_operator_equal", [](QMarginsF *lhs, QMarginsF *rhs) -> bool { return *lhs == *rhs; }, Arg("lhs"), Arg("rhs"))

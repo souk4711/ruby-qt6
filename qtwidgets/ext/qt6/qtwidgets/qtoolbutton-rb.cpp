@@ -12,7 +12,7 @@ void Init_qtoolbutton(Module rb_mQt6QtWidgets)
 {
     rb_cQToolButton =
         // RubyQt6::QtWidgets::QToolButton
-        define_class_under<QToolButton, QAbstractButton>(rb_mQt6QtWidgets, "QToolButton")
+        define_qlass_under<QToolButton, QAbstractButton>(rb_mQt6QtWidgets, "QToolButton")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QToolButton::staticMetaObject; })
             // Constructor

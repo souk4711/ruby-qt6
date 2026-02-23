@@ -9,7 +9,7 @@ void Init_qgroupbox(Module rb_mQt6QtWidgets)
 {
     rb_cQGroupBox =
         // RubyQt6::QtWidgets::QGroupBox
-        define_class_under<QGroupBox, QWidget>(rb_mQt6QtWidgets, "QGroupBox")
+        define_qlass_under<QGroupBox, QWidget>(rb_mQt6QtWidgets, "QGroupBox")
             // RubyQt6-Defined Functions
             .define_method("set_alignment", [](QGroupBox *self, Qt::AlignmentFlag alignment) -> void { return self->setAlignment(alignment); }, Arg("alignment"))
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QGroupBox::staticMetaObject; })

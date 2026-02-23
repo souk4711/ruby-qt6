@@ -12,7 +12,7 @@ void Init_qfont(Module rb_mQt6QtGui)
 {
     rb_cQFont =
         // RubyQt6::QtGui::QFont
-        define_class_under<QFont>(rb_mQt6QtGui, "QFont")
+        define_qlass_under<QFont>(rb_mQt6QtGui, "QFont")
             // RubyQt6-Defined Functions
             .define_singleton_function("_operator_equal", [](QFont *lhs, QFont *rhs) -> bool { return *lhs == *rhs; }, Arg("lhs"), Arg("rhs"))
             // Constructor

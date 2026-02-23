@@ -9,7 +9,7 @@ void Init_qkeysequenceedit(Module rb_mQt6QtWidgets)
 {
     rb_cQKeySequenceEdit =
         // RubyQt6::QtWidgets::QKeySequenceEdit
-        define_class_under<QKeySequenceEdit, QWidget>(rb_mQt6QtWidgets, "QKeySequenceEdit")
+        define_qlass_under<QKeySequenceEdit, QWidget>(rb_mQt6QtWidgets, "QKeySequenceEdit")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QKeySequenceEdit::staticMetaObject; })
             // Constructor

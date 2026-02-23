@@ -12,7 +12,7 @@ void Init_qlayout(Module rb_mQt6QtWidgets)
 {
     rb_cQLayout =
         // RubyQt6::QtWidgets::QLayout
-        define_class_under<QLayout, QObject>(rb_mQt6QtWidgets, "QLayout")
+        define_qlass_under<QLayout, QObject>(rb_mQt6QtWidgets, "QLayout")
             // RubyQt6-Defined Functions
             .define_method("set_alignment", [](QLayout *self, QLayout *l, Qt::AlignmentFlag alignment) -> bool { return self->setAlignment(l, alignment); }, Arg("l"), Arg("alignment"))
             .define_method("set_alignment", [](QLayout *self, QWidget *w, Qt::AlignmentFlag alignment) -> bool { return self->setAlignment(w, alignment); }, Arg("w"), Arg("alignment"))

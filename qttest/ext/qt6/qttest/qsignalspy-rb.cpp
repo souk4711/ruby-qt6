@@ -9,7 +9,7 @@ void Init_qsignalspy(Module rb_mQt6QtTest)
 {
     rb_cQSignalSpy =
         // RubyQt6::QtTest::QSignalSpy
-        define_class_under<QSignalSpy, QList<QList<QVariant>>>(rb_mQt6QtTest, "QSignalSpy")
+        define_qlass_under<QSignalSpy, QList<QList<QVariant>>>(rb_mQt6QtTest, "QSignalSpy")
             // Constructor
             .define_constructor(Constructor<QSignalSpy, const QObject *, const char *>(), Arg("receiver"), Arg("signal"))
             // Public Functions

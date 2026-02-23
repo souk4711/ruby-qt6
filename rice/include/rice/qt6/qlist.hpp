@@ -206,7 +206,7 @@ void define_qlist_under(Module module)
     std::string klassName = typeDetail.rubyName();
     Identifier id(klassName);
 
-    Data_Type<QList_T> qlist = define_class_under<QList_T>(module, id);
+    Data_Type<QList_T> qlist = define_qlass_under<QList_T>(module, id);
     DefineQListMethods<QList_T> qlist_(qlist);
 }
 

@@ -9,7 +9,7 @@ void Init_qdbusinterface(Module rb_mQt6QtDBus)
 {
     rb_cQDBusInterface =
         // RubyQt6::QtDBus::QDBusInterface
-        define_class_under<QDBusInterface, QDBusAbstractInterface>(rb_mQt6QtDBus, "QDBusInterface")
+        define_qlass_under<QDBusInterface, QDBusAbstractInterface>(rb_mQt6QtDBus, "QDBusInterface")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QDBusInterface::staticMetaObject; })
             // Constructor

@@ -14,7 +14,7 @@ void Init_qapplication(Module rb_mQt6QtWidgets)
 {
     rb_cQApplication =
         // RubyQt6::QtWidgets::QApplication
-        define_class_under<QApplication, QGuiApplication>(rb_mQt6QtWidgets, "QApplication")
+        define_qlass_under<QApplication, QGuiApplication>(rb_mQt6QtWidgets, "QApplication")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QApplication::staticMetaObject; })
             // Constructor

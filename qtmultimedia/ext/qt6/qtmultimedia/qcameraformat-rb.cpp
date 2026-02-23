@@ -9,7 +9,7 @@ void Init_qcameraformat(Module rb_mQt6QtMultimedia)
 {
     rb_cQCameraFormat =
         // RubyQt6::QtMultimedia::QCameraFormat
-        define_class_under<QCameraFormat>(rb_mQt6QtMultimedia, "QCameraFormat")
+        define_qlass_under<QCameraFormat>(rb_mQt6QtMultimedia, "QCameraFormat")
             // Constructor
             .define_constructor(Constructor<QCameraFormat>())
             // Public Functions

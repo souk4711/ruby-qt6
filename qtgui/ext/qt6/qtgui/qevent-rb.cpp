@@ -56,34 +56,34 @@ void Init_qevent(Module rb_mQt6QtGui)
 {
     rb_cQActionEvent =
         // RubyQt6::QtGui::QActionEvent
-        define_class_under<QActionEvent, QEvent>(rb_mQt6QtGui, "QActionEvent")
+        define_qlass_under<QActionEvent, QEvent>(rb_mQt6QtGui, "QActionEvent")
             // Public Functions
             .define_method("action", &QActionEvent::action)
             .define_method("before", &QActionEvent::before);
 
     rb_cQApplicationStateChangeEvent =
         // RubyQt6::QtGui::QApplicationStateChangeEvent
-        define_class_under<QApplicationStateChangeEvent, QEvent>(rb_mQt6QtGui, "QApplicationStateChangeEvent")
+        define_qlass_under<QApplicationStateChangeEvent, QEvent>(rb_mQt6QtGui, "QApplicationStateChangeEvent")
             // Public Functions
             .define_method("application_state", &QApplicationStateChangeEvent::applicationState);
 
     rb_cQChildWindowEvent =
         // RubyQt6::QtGui::QChildWindowEvent
-        define_class_under<QChildWindowEvent, QEvent>(rb_mQt6QtGui, "QChildWindowEvent")
+        define_qlass_under<QChildWindowEvent, QEvent>(rb_mQt6QtGui, "QChildWindowEvent")
             // Public Functions
             .define_method("child", &QChildWindowEvent::child);
 
     rb_cQCloseEvent =
         // RubyQt6::QtGui::QCloseEvent
-        define_class_under<QCloseEvent, QEvent>(rb_mQt6QtGui, "QCloseEvent");
+        define_qlass_under<QCloseEvent, QEvent>(rb_mQt6QtGui, "QCloseEvent");
 
     rb_cQDragLeaveEvent =
         // RubyQt6::QtGui::QDragLeaveEvent
-        define_class_under<QDragLeaveEvent, QEvent>(rb_mQt6QtGui, "QDragLeaveEvent");
+        define_qlass_under<QDragLeaveEvent, QEvent>(rb_mQt6QtGui, "QDragLeaveEvent");
 
     rb_cQDropEvent =
         // RubyQt6::QtGui::QDropEvent
-        define_class_under<QDropEvent, QEvent>(rb_mQt6QtGui, "QDropEvent")
+        define_qlass_under<QDropEvent, QEvent>(rb_mQt6QtGui, "QDropEvent")
             // Public Functions
             .define_method("accept_proposed_action", &QDropEvent::acceptProposedAction)
             .define_method("buttons", &QDropEvent::buttons)
@@ -98,7 +98,7 @@ void Init_qevent(Module rb_mQt6QtGui)
 
     rb_cQDragMoveEvent =
         // RubyQt6::QtGui::QDragMoveEvent
-        define_class_under<QDragMoveEvent, QDropEvent>(rb_mQt6QtGui, "QDragMoveEvent")
+        define_qlass_under<QDragMoveEvent, QDropEvent>(rb_mQt6QtGui, "QDragMoveEvent")
             // Public Functions
             .define_method<void (QDragMoveEvent::*)()>("accept", &QDragMoveEvent::accept)
             .define_method<void (QDragMoveEvent::*)(const QRect &)>("accept", &QDragMoveEvent::accept, Arg("r"))
@@ -108,22 +108,22 @@ void Init_qevent(Module rb_mQt6QtGui)
 
     rb_cQDragEnterEvent =
         // RubyQt6::QtGui::QDragEnterEvent
-        define_class_under<QDragEnterEvent, QDragMoveEvent>(rb_mQt6QtGui, "QDragEnterEvent");
+        define_qlass_under<QDragEnterEvent, QDragMoveEvent>(rb_mQt6QtGui, "QDragEnterEvent");
 
     rb_cQExposeEvent =
         // RubyQt6::QtGui::QExposeEvent
-        define_class_under<QExposeEvent, QEvent>(rb_mQt6QtGui, "QExposeEvent");
+        define_qlass_under<QExposeEvent, QEvent>(rb_mQt6QtGui, "QExposeEvent");
 
     rb_cQFileOpenEvent =
         // RubyQt6::QtGui::QFileOpenEvent
-        define_class_under<QFileOpenEvent, QEvent>(rb_mQt6QtGui, "QFileOpenEvent")
+        define_qlass_under<QFileOpenEvent, QEvent>(rb_mQt6QtGui, "QFileOpenEvent")
             // Public Functions
             .define_method("file", &QFileOpenEvent::file)
             .define_method("url", &QFileOpenEvent::url);
 
     rb_cQFocusEvent =
         // RubyQt6::QtGui::QFocusEvent
-        define_class_under<QFocusEvent, QEvent>(rb_mQt6QtGui, "QFocusEvent")
+        define_qlass_under<QFocusEvent, QEvent>(rb_mQt6QtGui, "QFocusEvent")
             // Public Functions
             .define_method("got_focus", &QFocusEvent::gotFocus)
             .define_method("lost_focus", &QFocusEvent::lostFocus)
@@ -131,7 +131,7 @@ void Init_qevent(Module rb_mQt6QtGui)
 
     rb_cQHelpEvent =
         // RubyQt6::QtGui::QHelpEvent
-        define_class_under<QHelpEvent, QEvent>(rb_mQt6QtGui, "QHelpEvent")
+        define_qlass_under<QHelpEvent, QEvent>(rb_mQt6QtGui, "QHelpEvent")
             // Public Functions
             .define_method("global_pos", &QHelpEvent::globalPos)
             .define_method("global_x", &QHelpEvent::globalX)
@@ -142,15 +142,15 @@ void Init_qevent(Module rb_mQt6QtGui)
 
     rb_cQHideEvent =
         // RubyQt6::QtGui::QHideEvent
-        define_class_under<QHideEvent, QEvent>(rb_mQt6QtGui, "QHideEvent");
+        define_qlass_under<QHideEvent, QEvent>(rb_mQt6QtGui, "QHideEvent");
 
     rb_cQIconDragEvent =
         // RubyQt6::QtGui::QIconDragEvent
-        define_class_under<QIconDragEvent, QEvent>(rb_mQt6QtGui, "QIconDragEvent");
+        define_qlass_under<QIconDragEvent, QEvent>(rb_mQt6QtGui, "QIconDragEvent");
 
     rb_cQInputEvent =
         // RubyQt6::QtGui::QInputEvent
-        define_class_under<QInputEvent, QEvent>(rb_mQt6QtGui, "QInputEvent")
+        define_qlass_under<QInputEvent, QEvent>(rb_mQt6QtGui, "QInputEvent")
             // Public Functions
             .define_method("device", &QInputEvent::device)
             .define_method("device_type", &QInputEvent::deviceType)
@@ -161,7 +161,7 @@ void Init_qevent(Module rb_mQt6QtGui)
 
     rb_cQInputMethodEvent =
         // RubyQt6::QtGui::QInputMethodEvent
-        define_class_under<QInputMethodEvent, QEvent>(rb_mQt6QtGui, "QInputMethodEvent")
+        define_qlass_under<QInputMethodEvent, QEvent>(rb_mQt6QtGui, "QInputMethodEvent")
             // Public Functions
             .define_method("attributes", &QInputMethodEvent::attributes)
             .define_method("commit_string", &QInputMethodEvent::commitString)
@@ -172,7 +172,7 @@ void Init_qevent(Module rb_mQt6QtGui)
 
     rb_cQInputMethodQueryEvent =
         // RubyQt6::QtGui::QInputMethodQueryEvent
-        define_class_under<QInputMethodQueryEvent, QEvent>(rb_mQt6QtGui, "QInputMethodQueryEvent")
+        define_qlass_under<QInputMethodQueryEvent, QEvent>(rb_mQt6QtGui, "QInputMethodQueryEvent")
             // Public Functions
             .define_method("queries", &QInputMethodQueryEvent::queries)
             .define_method("set_value", &QInputMethodQueryEvent::setValue, Arg("query"), Arg("value"))
@@ -180,39 +180,39 @@ void Init_qevent(Module rb_mQt6QtGui)
 
     rb_cQMoveEvent =
         // RubyQt6::QtGui::QMoveEvent
-        define_class_under<QMoveEvent, QEvent>(rb_mQt6QtGui, "QMoveEvent")
+        define_qlass_under<QMoveEvent, QEvent>(rb_mQt6QtGui, "QMoveEvent")
             // Public Functions
             .define_method("old_pos", &QMoveEvent::oldPos)
             .define_method("pos", &QMoveEvent::pos);
 
     rb_cQPaintEvent =
         // RubyQt6::QtGui::QPaintEvent
-        define_class_under<QPaintEvent, QEvent>(rb_mQt6QtGui, "QPaintEvent")
+        define_qlass_under<QPaintEvent, QEvent>(rb_mQt6QtGui, "QPaintEvent")
             // Public Functions
             .define_method("rect", &QPaintEvent::rect)
             .define_method("region", &QPaintEvent::region);
 
     rb_cQPlatformSurfaceEvent =
         // RubyQt6::QtGui::QPlatformSurfaceEvent
-        define_class_under<QPlatformSurfaceEvent, QEvent>(rb_mQt6QtGui, "QPlatformSurfaceEvent");
+        define_qlass_under<QPlatformSurfaceEvent, QEvent>(rb_mQt6QtGui, "QPlatformSurfaceEvent");
 
     rb_cQResizeEvent =
         // RubyQt6::QtGui::QResizeEvent
-        define_class_under<QResizeEvent, QEvent>(rb_mQt6QtGui, "QResizeEvent")
+        define_qlass_under<QResizeEvent, QEvent>(rb_mQt6QtGui, "QResizeEvent")
             // Public Functions
             .define_method("old_size", &QResizeEvent::oldSize)
             .define_method("size", &QResizeEvent::size);
 
     rb_cQScreenOrientationChangeEvent =
         // RubyQt6::QtGui::QScreenOrientationChangeEvent
-        define_class_under<QScreenOrientationChangeEvent, QEvent>(rb_mQt6QtGui, "QScreenOrientationChangeEvent")
+        define_qlass_under<QScreenOrientationChangeEvent, QEvent>(rb_mQt6QtGui, "QScreenOrientationChangeEvent")
             // Public Functions
             .define_method("orientation", &QScreenOrientationChangeEvent::orientation)
             .define_method("screen", &QScreenOrientationChangeEvent::screen);
 
     rb_cQScrollEvent =
         // RubyQt6::QtGui::QScrollEvent
-        define_class_under<QScrollEvent, QEvent>(rb_mQt6QtGui, "QScrollEvent")
+        define_qlass_under<QScrollEvent, QEvent>(rb_mQt6QtGui, "QScrollEvent")
             // Public Functions
             .define_method("content_pos", &QScrollEvent::contentPos)
             .define_method("overshoot_distance", &QScrollEvent::overshootDistance)
@@ -220,7 +220,7 @@ void Init_qevent(Module rb_mQt6QtGui)
 
     rb_cQScrollPrepareEvent =
         // RubyQt6::QtGui::QScrollPrepareEvent
-        define_class_under<QScrollPrepareEvent, QEvent>(rb_mQt6QtGui, "QScrollPrepareEvent")
+        define_qlass_under<QScrollPrepareEvent, QEvent>(rb_mQt6QtGui, "QScrollPrepareEvent")
             // Public Functions
             .define_method("content_pos", &QScrollPrepareEvent::contentPos)
             .define_method("content_pos_range", &QScrollPrepareEvent::contentPosRange)
@@ -232,7 +232,7 @@ void Init_qevent(Module rb_mQt6QtGui)
 
     rb_cQShortcutEvent =
         // RubyQt6::QtGui::QShortcutEvent
-        define_class_under<QShortcutEvent, QEvent>(rb_mQt6QtGui, "QShortcutEvent")
+        define_qlass_under<QShortcutEvent, QEvent>(rb_mQt6QtGui, "QShortcutEvent")
             // Public Functions
             .define_method("ambiguous?", &QShortcutEvent::isAmbiguous)
             .define_method("key", &QShortcutEvent::key)
@@ -240,36 +240,36 @@ void Init_qevent(Module rb_mQt6QtGui)
 
     rb_cQShowEvent =
         // RubyQt6::QtGui::QShowEvent
-        define_class_under<QShowEvent, QEvent>(rb_mQt6QtGui, "QShowEvent");
+        define_qlass_under<QShowEvent, QEvent>(rb_mQt6QtGui, "QShowEvent");
 
     rb_cQStatusTipEvent =
         // RubyQt6::QtGui::QStatusTipEvent
-        define_class_under<QStatusTipEvent, QEvent>(rb_mQt6QtGui, "QStatusTipEvent")
+        define_qlass_under<QStatusTipEvent, QEvent>(rb_mQt6QtGui, "QStatusTipEvent")
             // Public Functions
             .define_method("tip", &QStatusTipEvent::tip);
 
     rb_cQToolBarChangeEvent =
         // RubyQt6::QtGui::QToolBarChangeEvent
-        define_class_under<QToolBarChangeEvent, QEvent>(rb_mQt6QtGui, "QToolBarChangeEvent")
+        define_qlass_under<QToolBarChangeEvent, QEvent>(rb_mQt6QtGui, "QToolBarChangeEvent")
             // Public Functions
             .define_method("toggle", &QToolBarChangeEvent::toggle);
 
     rb_cQWhatsThisClickedEvent =
         // RubyQt6::QtGui::QWhatsThisClickedEvent
-        define_class_under<QWhatsThisClickedEvent, QEvent>(rb_mQt6QtGui, "QWhatsThisClickedEvent")
+        define_qlass_under<QWhatsThisClickedEvent, QEvent>(rb_mQt6QtGui, "QWhatsThisClickedEvent")
             // Public Functions
             .define_method("href", &QWhatsThisClickedEvent::href);
 
     rb_cQWindowStateChangeEvent =
         // RubyQt6::QtGui::QWindowStateChangeEvent
-        define_class_under<QWindowStateChangeEvent, QEvent>(rb_mQt6QtGui, "QWindowStateChangeEvent")
+        define_qlass_under<QWindowStateChangeEvent, QEvent>(rb_mQt6QtGui, "QWindowStateChangeEvent")
             // Public Functions
             .define_method("override?", &QWindowStateChangeEvent::isOverride)
             .define_method("old_state", &QWindowStateChangeEvent::oldState);
 
     rb_cQContextMenuEvent =
         // RubyQt6::QtGui::QContextMenuEvent
-        define_class_under<QContextMenuEvent, QInputEvent>(rb_mQt6QtGui, "QContextMenuEvent")
+        define_qlass_under<QContextMenuEvent, QInputEvent>(rb_mQt6QtGui, "QContextMenuEvent")
             // Public Functions
             .define_method("global_pos", &QContextMenuEvent::globalPos)
             .define_method("global_x", &QContextMenuEvent::globalX)
@@ -281,7 +281,7 @@ void Init_qevent(Module rb_mQt6QtGui)
 
     rb_cQKeyEvent =
         // RubyQt6::QtGui::QKeyEvent
-        define_class_under<QKeyEvent, QInputEvent>(rb_mQt6QtGui, "QKeyEvent")
+        define_qlass_under<QKeyEvent, QInputEvent>(rb_mQt6QtGui, "QKeyEvent")
             // Public Functions
             .define_method("count", &QKeyEvent::count)
             .define_method("auto_repeat?", &QKeyEvent::isAutoRepeat)
@@ -296,7 +296,7 @@ void Init_qevent(Module rb_mQt6QtGui)
 
     rb_cQPointerEvent =
         // RubyQt6::QtGui::QPointerEvent
-        define_class_under<QPointerEvent, QInputEvent>(rb_mQt6QtGui, "QPointerEvent")
+        define_qlass_under<QPointerEvent, QInputEvent>(rb_mQt6QtGui, "QPointerEvent")
             // Public Functions
             .define_method("add_passive_grabber", &QPointerEvent::addPassiveGrabber, Arg("point"), Arg("grabber"))
             .define_method("all_points_accepted", &QPointerEvent::allPointsAccepted)
@@ -320,7 +320,7 @@ void Init_qevent(Module rb_mQt6QtGui)
 
     rb_cQSinglePointEvent =
         // RubyQt6::QtGui::QSinglePointEvent
-        define_class_under<QSinglePointEvent, QPointerEvent>(rb_mQt6QtGui, "QSinglePointEvent")
+        define_qlass_under<QSinglePointEvent, QPointerEvent>(rb_mQt6QtGui, "QSinglePointEvent")
             // Public Functions
             .define_method("button", &QSinglePointEvent::button)
             .define_method("buttons", &QSinglePointEvent::buttons)
@@ -335,11 +335,11 @@ void Init_qevent(Module rb_mQt6QtGui)
 
     rb_cQEnterEvent =
         // RubyQt6::QtGui::QEnterEvent
-        define_class_under<QEnterEvent, QSinglePointEvent>(rb_mQt6QtGui, "QEnterEvent");
+        define_qlass_under<QEnterEvent, QSinglePointEvent>(rb_mQt6QtGui, "QEnterEvent");
 
     rb_cQHoverEvent =
         // RubyQt6::QtGui::QHoverEvent
-        define_class_under<QHoverEvent, QSinglePointEvent>(rb_mQt6QtGui, "QHoverEvent")
+        define_qlass_under<QHoverEvent, QSinglePointEvent>(rb_mQt6QtGui, "QHoverEvent")
             // Public Functions
             .define_method("old_pos", &QHoverEvent::oldPos)
             .define_method("old_pos_f", &QHoverEvent::oldPosF)
@@ -347,14 +347,14 @@ void Init_qevent(Module rb_mQt6QtGui)
 
     rb_cQMouseEvent =
         // RubyQt6::QtGui::QMouseEvent
-        define_class_under<QMouseEvent, QSinglePointEvent>(rb_mQt6QtGui, "QMouseEvent")
+        define_qlass_under<QMouseEvent, QSinglePointEvent>(rb_mQt6QtGui, "QMouseEvent")
             // Public Functions
             .define_method("source", &QMouseEvent::source)
             .define_method("flags", &QMouseEvent::flags);
 
     rb_cQNativeGestureEvent =
         // RubyQt6::QtGui::QNativeGestureEvent
-        define_class_under<QNativeGestureEvent, QSinglePointEvent>(rb_mQt6QtGui, "QNativeGestureEvent")
+        define_qlass_under<QNativeGestureEvent, QSinglePointEvent>(rb_mQt6QtGui, "QNativeGestureEvent")
             // Public Functions
             .define_method("delta", &QNativeGestureEvent::delta)
             .define_method("finger_count", &QNativeGestureEvent::fingerCount)
@@ -363,7 +363,7 @@ void Init_qevent(Module rb_mQt6QtGui)
 
     rb_cQTabletEvent =
         // RubyQt6::QtGui::QTabletEvent
-        define_class_under<QTabletEvent, QSinglePointEvent>(rb_mQt6QtGui, "QTabletEvent")
+        define_qlass_under<QTabletEvent, QSinglePointEvent>(rb_mQt6QtGui, "QTabletEvent")
             // Public Functions
             .define_method("pressure", &QTabletEvent::pressure)
             .define_method("rotation", &QTabletEvent::rotation)
@@ -374,7 +374,7 @@ void Init_qevent(Module rb_mQt6QtGui)
 
     rb_cQWheelEvent =
         // RubyQt6::QtGui::QWheelEvent
-        define_class_under<QWheelEvent, QSinglePointEvent>(rb_mQt6QtGui, "QWheelEvent")
+        define_qlass_under<QWheelEvent, QSinglePointEvent>(rb_mQt6QtGui, "QWheelEvent")
             // Public Functions
             .define_method("angle_delta", &QWheelEvent::angleDelta)
             .define_method("has_pixel_delta", &QWheelEvent::hasPixelDelta)
@@ -389,7 +389,7 @@ void Init_qevent(Module rb_mQt6QtGui)
 
     rb_cQTouchEvent =
         // RubyQt6::QtGui::QTouchEvent
-        define_class_under<QTouchEvent, QPointerEvent>(rb_mQt6QtGui, "QTouchEvent")
+        define_qlass_under<QTouchEvent, QPointerEvent>(rb_mQt6QtGui, "QTouchEvent")
             // Public Functions
             .define_method("begin_event?", &QTouchEvent::isBeginEvent)
             .define_method("end_event?", &QTouchEvent::isEndEvent)

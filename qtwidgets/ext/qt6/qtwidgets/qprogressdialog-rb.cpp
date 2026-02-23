@@ -13,7 +13,7 @@ void Init_qprogressdialog(Module rb_mQt6QtWidgets)
 {
     rb_cQProgressDialog =
         // RubyQt6::QtWidgets::QProgressDialog
-        define_class_under<QProgressDialog, QDialog>(rb_mQt6QtWidgets, "QProgressDialog")
+        define_qlass_under<QProgressDialog, QDialog>(rb_mQt6QtWidgets, "QProgressDialog")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QProgressDialog::staticMetaObject; })
             // Constructor

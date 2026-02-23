@@ -10,6 +10,7 @@ RSpec.describe RubyQt6::QtTest do
 
     Dir.glob("ext/**/q*.cpp").each do |cppfile|
       next if cppfile == "ext/qt6/qttest/qttest-rb.cpp"
+      next if cppfile == "ext/qt6/qttest/qttestpreludes-rb.cpp"
       next if cppfile == "ext/qt6/qttest/qttestversion-rb.cpp"
 
       it cppfile do

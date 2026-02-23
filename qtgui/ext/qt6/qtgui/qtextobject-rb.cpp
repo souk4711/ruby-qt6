@@ -14,7 +14,7 @@ void Init_qtextobject(Module rb_mQt6QtGui)
 {
     rb_cQTextBlock =
         // RubyQt6::QtGui::QTextBlock
-        define_class_under<QTextBlock>(rb_mQt6QtGui, "QTextBlock")
+        define_qlass_under<QTextBlock>(rb_mQt6QtGui, "QTextBlock")
             // RubyQt6-Defined Functions
             .define_singleton_function("_operator_equal", [](QTextBlock *lhs, QTextBlock *rhs) -> bool { return *lhs == *rhs; }, Arg("lhs"), Arg("rhs"))
             // Constructor
@@ -53,7 +53,7 @@ void Init_qtextobject(Module rb_mQt6QtGui)
 
     rb_cQTextObject =
         // RubyQt6::QtGui::QTextObject
-        define_class_under<QTextObject, QObject>(rb_mQt6QtGui, "QTextObject")
+        define_qlass_under<QTextObject, QObject>(rb_mQt6QtGui, "QTextObject")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QTextObject::staticMetaObject; })
             // Public Functions
@@ -64,13 +64,13 @@ void Init_qtextobject(Module rb_mQt6QtGui)
 
     rb_cQTextBlockGroup =
         // RubyQt6::QtGui::QTextBlockGroup
-        define_class_under<QTextBlockGroup, QTextObject>(rb_mQt6QtGui, "QTextBlockGroup")
+        define_qlass_under<QTextBlockGroup, QTextObject>(rb_mQt6QtGui, "QTextBlockGroup")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QTextBlockGroup::staticMetaObject; });
 
     rb_cQTextFrame =
         // RubyQt6::QtGui::QTextFrame
-        define_class_under<QTextFrame, QTextObject>(rb_mQt6QtGui, "QTextFrame")
+        define_qlass_under<QTextFrame, QTextObject>(rb_mQt6QtGui, "QTextFrame")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QTextFrame::staticMetaObject; })
             // Public Functions

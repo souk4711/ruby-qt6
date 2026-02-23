@@ -13,7 +13,7 @@ void Init_qpainterpath(Module rb_mQt6QtGui)
 {
     rb_cQPainterPath =
         // RubyQt6::QtGui::QPainterPath
-        define_class_under<QPainterPath>(rb_mQt6QtGui, "QPainterPath")
+        define_qlass_under<QPainterPath>(rb_mQt6QtGui, "QPainterPath")
             // Constructor
             .define_constructor(Constructor<QPainterPath>())
             .define_constructor(Constructor<QPainterPath, const QPointF &>(), Arg("start_point"))
@@ -89,7 +89,7 @@ void Init_qpainterpath(Module rb_mQt6QtGui)
 
     rb_cQPainterPathElement =
         // RubyQt6::QtGui::QPainterPath::Element
-        define_class_under<QPainterPath::Element>(rb_cQPainterPath, "Element")
+        define_qlass_under<QPainterPath::Element>(rb_cQPainterPath, "Element")
             .define_constructor(Constructor<QPainterPath::Element>())
             .define_attr("x", &QPainterPath::Element::x)
             .define_attr("y", &QPainterPath::Element::y)

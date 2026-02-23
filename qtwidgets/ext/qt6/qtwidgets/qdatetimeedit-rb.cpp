@@ -15,7 +15,7 @@ void Init_qdatetimeedit(Module rb_mQt6QtWidgets)
 {
     rb_cQDateTimeEdit =
         // RubyQt6::QtWidgets::QDateTimeEdit
-        define_class_under<QDateTimeEdit, QAbstractSpinBox>(rb_mQt6QtWidgets, "QDateTimeEdit")
+        define_qlass_under<QDateTimeEdit, QAbstractSpinBox>(rb_mQt6QtWidgets, "QDateTimeEdit")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QDateTimeEdit::staticMetaObject; })
             // Constructor
@@ -96,7 +96,7 @@ void Init_qdatetimeedit(Module rb_mQt6QtWidgets)
 
     rb_cQDateEdit =
         // RubyQt6::QtWidgets::QDateEdit
-        define_class_under<QDateEdit, QDateTimeEdit>(rb_mQt6QtWidgets, "QDateEdit")
+        define_qlass_under<QDateEdit, QDateTimeEdit>(rb_mQt6QtWidgets, "QDateEdit")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QDateEdit::staticMetaObject; })
             // Constructor
@@ -106,7 +106,7 @@ void Init_qdatetimeedit(Module rb_mQt6QtWidgets)
 
     rb_cQTimeEdit =
         // RubyQt6::QtWidgets::QTimeEdit
-        define_class_under<QTimeEdit, QDateTimeEdit>(rb_mQt6QtWidgets, "QTimeEdit")
+        define_qlass_under<QTimeEdit, QDateTimeEdit>(rb_mQt6QtWidgets, "QTimeEdit")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QTimeEdit::staticMetaObject; })
             // Constructor

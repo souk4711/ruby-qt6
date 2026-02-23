@@ -13,7 +13,7 @@ void Init_qurl(Module rb_mQt6QtCore)
 {
     rb_cQUrl =
         // RubyQt6::QtCore::QUrl
-        define_class_under<QUrl>(rb_mQt6QtCore, "QUrl")
+        define_qlass_under<QUrl>(rb_mQt6QtCore, "QUrl")
             // RubyQt6-Defined Functions
             .define_method("_to_string", [](QUrl *self, int options) -> QString { return self->toString(QFlag(options)); }, Arg("options"))
             .define_singleton_function("_qvariant_register_metatype", []() -> int { return qRegisterMetaType<QUrl>(); })

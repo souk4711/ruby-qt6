@@ -3491,7 +3491,7 @@ inline auto& define_constant(std::string name, Constant_T value)
      *  \return *this
      */
     template <typename Base_T = void>
-    static Data_Type<T> bind(const Module& klass);
+    static Data_Type<T> bind(const Module& klass, rb_data_type_t *data_type = nullptr);
 
     template<typename T_, typename Base_T>
     friend Rice4RubyQt6::Data_Type<T_> define_class_under(Object parent, Identifier id, Class superKlass);
@@ -3501,6 +3501,9 @@ inline auto& define_constant(std::string name, Constant_T value)
 
     template<typename T_, typename Base_T>
     friend Rice4RubyQt6::Data_Type<T_> define_class(char const * name);
+
+    template<typename T_, typename Base_T>
+    friend Rice4RubyQt6::Data_Type<T_> declare_class_under(Object parent, char const* name, rb_data_type_t *data_type);
 
     template<typename Method_T, typename...Arg_Ts>
     void wrap_native_method(VALUE klass, std::string name, Method_T&& function, const Arg_Ts&...args);
@@ -3555,6 +3558,13 @@ inline auto& define_constant(std::string name, Constant_T value)
    */
   template<typename T, typename Base_T = void>
   Data_Type<T> define_class(char const* name);
+
+  //! Identical to define_class_under, except it use an existed RTypedData.
+  /*! This allows you to bind the Data_Type<T> instance in every DLL on Win32
+   *  to the same RTypedData, see [issue#355](https://github.com/ruby-rice/rice/issues/355).
+   */
+  template<typename T, typename Base_T = void>
+  Data_Type<T> declare_class_under(Object parent, char const* name, rb_data_type_t *data_type);
 }
 
 
@@ -14494,7 +14504,7 @@ namespace Rice4RubyQt6
 
   template<typename T>
   template <typename Base_T>
-  inline Data_Type<T> Data_Type<T>::bind(const Module& klass)
+  inline Data_Type<T> Data_Type<T>::bind(const Module& klass, rb_data_type_t *data_type)
   {
     if (is_bound())
     {
@@ -14504,6 +14514,9 @@ namespace Rice4RubyQt6
 
     klass_ = klass;
 
+  if (data_type) {
+    rb_data_type_ = data_type;
+  } else {
     rb_data_type_ = new rb_data_type_t();
     rb_data_type_->wrap_struct_name = strdup(Rice4RubyQt6::detail::protect(rb_class2name, klass_));
     rb_data_type_->function.dmark = reinterpret_cast<void(*)(void*)>(&Rice4RubyQt6::ruby_mark_internal<T>);
@@ -14516,6 +14529,7 @@ namespace Rice4RubyQt6
     {
       rb_data_type_->parent = Data_Type<Base_T>::ruby_data_type();
     }
+  }
 
     auto instances = unbound_instances();
     for (auto instance: instances)
@@ -14794,6 +14808,19 @@ namespace Rice4RubyQt6
     Class klass = define_class(name, superKlass);
     klass.undef_creation_funcs();
     return Data_Type<T>::template bind<Base_T>(klass);
+  }
+
+  template<typename T, typename Base_T>
+  Data_Type<T> declare_class_under(Object parent, char const* name, rb_data_type_t *data_type)
+  {
+    Identifier id(name);
+    if (Rice4RubyQt6::Data_Type<T>::check_defined(id.str(), parent))
+    {
+      return Data_Type<T>();
+    }
+
+    Class klass = parent.const_get(id).value();
+    return Data_Type<T>::template bind<Base_T>(klass, data_type);
   }
 
   template<typename T>

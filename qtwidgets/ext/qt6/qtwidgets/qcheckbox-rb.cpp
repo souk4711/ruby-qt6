@@ -9,7 +9,7 @@ void Init_qcheckbox(Module rb_mQt6QtWidgets)
 {
     rb_cQCheckBox =
         // RubyQt6::QtWidgets::QCheckBox
-        define_class_under<QCheckBox, QAbstractButton>(rb_mQt6QtWidgets, "QCheckBox")
+        define_qlass_under<QCheckBox, QAbstractButton>(rb_mQt6QtWidgets, "QCheckBox")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QCheckBox::staticMetaObject; })
             // Constructor

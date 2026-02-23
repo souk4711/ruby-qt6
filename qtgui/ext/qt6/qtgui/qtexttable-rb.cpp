@@ -10,7 +10,7 @@ void Init_qtexttable(Module rb_mQt6QtGui)
 {
     rb_cQTextTable =
         // RubyQt6::QtGui::QTextTable
-        define_class_under<QTextTable, QTextFrame>(rb_mQt6QtGui, "QTextTable")
+        define_qlass_under<QTextTable, QTextFrame>(rb_mQt6QtGui, "QTextTable")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QTextTable::staticMetaObject; })
             // Public Functions
@@ -36,7 +36,7 @@ void Init_qtexttable(Module rb_mQt6QtGui)
 
     rb_cQTextTableCell =
         // RubyQt6::QtGui::QTextTableCell
-        define_class_under<QTextTableCell>(rb_mQt6QtGui, "QTextTableCell")
+        define_qlass_under<QTextTableCell>(rb_mQt6QtGui, "QTextTableCell")
             // Public Functions
             .define_method("column", &QTextTableCell::column)
             .define_method("column_span", &QTextTableCell::columnSpan)

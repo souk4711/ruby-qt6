@@ -9,7 +9,7 @@ void Init_qdial(Module rb_mQt6QtWidgets)
 {
     rb_cQDial =
         // RubyQt6::QtWidgets::QDial
-        define_class_under<QDial, QAbstractSlider>(rb_mQt6QtWidgets, "QDial")
+        define_qlass_under<QDial, QAbstractSlider>(rb_mQt6QtWidgets, "QDial")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QDial::staticMetaObject; })
             // Constructor

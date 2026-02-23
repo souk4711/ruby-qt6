@@ -12,7 +12,7 @@ void Init_qwebenginenewwindowrequest(Module rb_mQt6QtWebEngineCore)
 {
     rb_cQWebEngineNewWindowRequest =
         // RubyQt6::QtWebEngineCore::QWebEngineNewWindowRequest
-        define_class_under<QWebEngineNewWindowRequest, QObject>(rb_mQt6QtWebEngineCore, "QWebEngineNewWindowRequest")
+        define_qlass_under<QWebEngineNewWindowRequest, QObject>(rb_mQt6QtWebEngineCore, "QWebEngineNewWindowRequest")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QWebEngineNewWindowRequest::staticMetaObject; })
             // Public Functions

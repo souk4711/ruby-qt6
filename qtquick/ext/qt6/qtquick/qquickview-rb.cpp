@@ -13,7 +13,7 @@ void Init_qquickview(Module rb_mQt6QtQuick)
 {
     rb_cQQuickView =
         // RubyQt6::QtQuick::QQuickView
-        define_class_under<QQuickView, QQuickWindow>(rb_mQt6QtQuick, "QQuickView")
+        define_qlass_under<QQuickView, QQuickWindow>(rb_mQt6QtQuick, "QQuickView")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QQuickView::staticMetaObject; })
             // Constructor

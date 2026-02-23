@@ -14,7 +14,7 @@ void Init_qlineedit(Module rb_mQt6QtWidgets)
 {
     rb_cQLineEdit =
         // RubyQt6::QtWidgets::QLineEdit
-        define_class_under<QLineEdit, QWidget>(rb_mQt6QtWidgets, "QLineEdit")
+        define_qlass_under<QLineEdit, QWidget>(rb_mQt6QtWidgets, "QLineEdit")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QLineEdit::staticMetaObject; })
             // Constructor

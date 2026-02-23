@@ -10,6 +10,7 @@ RSpec.describe RubyQt6::KGuiAddons do
 
     Dir.glob("ext/**/k*.cpp").each do |cppfile|
       next if cppfile == "ext/qt6/kguiaddons/kguiaddons-rb.cpp"
+      next if cppfile == "ext/qt6/kguiaddons/kguiaddonspreludes-rb.cpp"
       next if cppfile == "ext/qt6/kguiaddons/kguiaddonsversion-rb.cpp"
 
       it cppfile do

@@ -36,4 +36,7 @@
 // macros
 #define RICE4RUBYQT6_USE_NAMESPACE using namespace ::Rice4RubyQt6;
 
+// include rice/qt6 stuffs
+#include <rice/qt6/preludes.hpp>
+
 #endif

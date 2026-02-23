@@ -11,7 +11,7 @@ void Init_qstylehints(Module rb_mQt6QtGui)
 {
     rb_cQStyleHints =
         // RubyQt6::QtGui::QStyleHints
-        define_class_under<QStyleHints, QObject>(rb_mQt6QtGui, "QStyleHints")
+        define_qlass_under<QStyleHints, QObject>(rb_mQt6QtGui, "QStyleHints")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QStyleHints::staticMetaObject; })
             // Public Functions

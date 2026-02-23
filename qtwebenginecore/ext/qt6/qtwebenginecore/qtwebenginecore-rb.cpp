@@ -1,4 +1,5 @@
 #include "qtwebenginecore-rb.hpp"
+#include "qtwebenginecorepreludes-rb.hpp"
 #include "qtwebenginecoreversion-rb.hpp"
 
 #include "qwebenginecertificateerror-rb.hpp"
@@ -27,6 +28,7 @@ extern "C" void Init_qtwebenginecore()
         Module rb_mQt6 = define_module("RubyQt6");
         Module rb_mQt6QtWebEngineCore = define_module_under(rb_mQt6, "QtWebEngineCore");
 
+        Init_qtwebenginecorepreludes(rb_mQt6);
         Init_qtwebenginecoreversion(rb_mQt6QtWebEngineCore);
 
         Init_qwebenginecertificateerror(rb_mQt6QtWebEngineCore);

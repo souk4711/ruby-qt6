@@ -1,12 +1,11 @@
 # frozen_string_literal: true
 
 LIBS = %w[
-  QtCore QtGui QtWidgets QtNetwork QtPrintSupport QtTest
+  QtCore QtGui QtWidgets QtDBus QtNetwork QtPrintSupport QtTest
   QtQml QtQuick QtQuickControls2 QtQuickWidgets
   QtMultimedia QtMultimediaWidgets
   QtWebEngineCore QtWebEngineWidgets QtWebView
   QtUiTools
-  QtDBus
   KCoreAddons KGuiAddons KWidgetsAddons
 ].freeze
 
@@ -111,8 +110,10 @@ task :compile, [:clobber] do |_, args|
   if args.clobber
     require "parallel"
     sh "rm -rf extensions"
+    Bundler.with_unbundled_env { compile.("rice") }
     Bundler.with_unbundled_env { Parallel.each(LIBS, &compile) }
   else
+    Bundler.with_unbundled_env { compile.("rice") }
     Bundler.with_unbundled_env { LIBS.each(&compile) }
   end
 end

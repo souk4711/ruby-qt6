@@ -10,7 +10,7 @@ void Init_qitemselection(Module rb_mQt6QtCore)
 {
     rb_cQItemSelectionRange =
         // RubyQt6::QtCore::QItemSelectionRange
-        define_class_under<QItemSelectionRange>(rb_mQt6QtCore, "QItemSelectionRange")
+        define_qlass_under<QItemSelectionRange>(rb_mQt6QtCore, "QItemSelectionRange")
             // Constructor
             .define_constructor(Constructor<QItemSelectionRange>())
             .define_constructor(Constructor<QItemSelectionRange, const QModelIndex &>(), Arg("index"))
@@ -36,7 +36,7 @@ void Init_qitemselection(Module rb_mQt6QtCore)
 
     rb_cQItemSelection =
         // RubyQt6::QtCore::QItemSelection
-        define_class_under<QItemSelection, QList<QItemSelectionRange>>(rb_mQt6QtCore, "QItemSelection")
+        define_qlass_under<QItemSelection, QList<QItemSelectionRange>>(rb_mQt6QtCore, "QItemSelection")
             // RubyQt6-Defined Functions
             .define_singleton_function("_qvariant_register_metatype", []() -> int { return qRegisterMetaType<QItemSelection>(); })
             .define_singleton_function("_qvariant_from_value", [](const QItemSelection &value) -> QVariant { return QVariant::fromValue(value); })

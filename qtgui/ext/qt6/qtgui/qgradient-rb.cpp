@@ -12,7 +12,7 @@ void Init_qgradient(Module rb_mQt6QtGui)
 {
     rb_cQGradient =
         // RubyQt6::QtGui::QGradient
-        define_class_under<QGradient>(rb_mQt6QtGui, "QGradient")
+        define_qlass_under<QGradient>(rb_mQt6QtGui, "QGradient")
             // RubyQt6-Defined Functions
             .define_singleton_function("_operator_equal", [](QGradient *lhs, QGradient *rhs) -> bool { return *lhs == *rhs; }, Arg("lhs"), Arg("rhs"))
             // Constructor
@@ -32,7 +32,7 @@ void Init_qgradient(Module rb_mQt6QtGui)
 
     rb_cQConicalGradient =
         // RubyQt6::QtGui::QConicalGradient
-        define_class_under<QConicalGradient, QGradient>(rb_mQt6QtGui, "QConicalGradient")
+        define_qlass_under<QConicalGradient, QGradient>(rb_mQt6QtGui, "QConicalGradient")
             // Constructor
             .define_constructor(Constructor<QConicalGradient>())
             .define_constructor(Constructor<QConicalGradient, qreal, qreal, qreal>(), Arg("center_x"), Arg("center_y"), Arg("start_angle"))
@@ -46,7 +46,7 @@ void Init_qgradient(Module rb_mQt6QtGui)
 
     rb_cQLinearGradient =
         // RubyQt6::QtGui::QLinearGradient
-        define_class_under<QLinearGradient, QGradient>(rb_mQt6QtGui, "QLinearGradient")
+        define_qlass_under<QLinearGradient, QGradient>(rb_mQt6QtGui, "QLinearGradient")
             // Constructor
             .define_constructor(Constructor<QLinearGradient>())
             .define_constructor(Constructor<QLinearGradient, qreal, qreal, qreal, qreal>(), Arg("start_x"), Arg("start_y"), Arg("final_stop_x"), Arg("final_stop_y"))
@@ -61,7 +61,7 @@ void Init_qgradient(Module rb_mQt6QtGui)
 
     rb_cQRadialGradient =
         // RubyQt6::QtGui::QRadialGradient
-        define_class_under<QRadialGradient, QGradient>(rb_mQt6QtGui, "QRadialGradient")
+        define_qlass_under<QRadialGradient, QGradient>(rb_mQt6QtGui, "QRadialGradient")
             // Constructor
             .define_constructor(Constructor<QRadialGradient>())
             .define_constructor(Constructor<QRadialGradient, qreal, qreal, qreal, qreal, qreal, qreal>(), Arg("cx"), Arg("cy"), Arg("center_radius"), Arg("fx"), Arg("fy"), Arg("focal_radius"))

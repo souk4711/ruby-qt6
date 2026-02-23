@@ -12,7 +12,7 @@ void Init_qabstractscrollarea(Module rb_mQt6QtWidgets)
 {
     rb_cQAbstractScrollArea =
         // RubyQt6::QtWidgets::QAbstractScrollArea
-        define_class_under<QAbstractScrollArea, QFrame>(rb_mQt6QtWidgets, "QAbstractScrollArea")
+        define_qlass_under<QAbstractScrollArea, QFrame>(rb_mQt6QtWidgets, "QAbstractScrollArea")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QAbstractScrollArea::staticMetaObject; })
             // Constructor

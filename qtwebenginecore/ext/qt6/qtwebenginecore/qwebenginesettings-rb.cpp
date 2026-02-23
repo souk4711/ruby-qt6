@@ -10,7 +10,7 @@ void Init_qwebenginesettings(Module rb_mQt6QtWebEngineCore)
 {
     rb_cQWebEngineSettings =
         // RubyQt6::QtWebEngineCore::QWebEngineSettings
-        define_class_under<QWebEngineSettings>(rb_mQt6QtWebEngineCore, "QWebEngineSettings")
+        define_qlass_under<QWebEngineSettings>(rb_mQt6QtWebEngineCore, "QWebEngineSettings")
             // Public Functions
             .define_method("default_text_encoding", &QWebEngineSettings::defaultTextEncoding)
             .define_method("font_family", &QWebEngineSettings::fontFamily, Arg("which"))

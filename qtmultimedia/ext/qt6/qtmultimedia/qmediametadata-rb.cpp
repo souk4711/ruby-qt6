@@ -10,7 +10,7 @@ void Init_qmediametadata(Module rb_mQt6QtMultimedia)
 {
     rb_cQMediaMetaData =
         // RubyQt6::QtMultimedia::QMediaMetaData
-        define_class_under<QMediaMetaData>(rb_mQt6QtMultimedia, "QMediaMetaData")
+        define_qlass_under<QMediaMetaData>(rb_mQt6QtMultimedia, "QMediaMetaData")
             // Constructor
             .define_constructor(Constructor<QMediaMetaData>())
             // Public Functions

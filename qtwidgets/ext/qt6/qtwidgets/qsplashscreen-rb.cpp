@@ -11,7 +11,7 @@ void Init_qsplashscreen(Module rb_mQt6QtWidgets)
 {
     rb_cQSplashScreen =
         // RubyQt6::QtWidgets::QSplashScreen
-        define_class_under<QSplashScreen, QWidget>(rb_mQt6QtWidgets, "QSplashScreen")
+        define_qlass_under<QSplashScreen, QWidget>(rb_mQt6QtWidgets, "QSplashScreen")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QSplashScreen::staticMetaObject; })
             // Constructor

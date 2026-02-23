@@ -11,7 +11,7 @@ void Init_qdir(Module rb_mQt6QtCore)
 {
     rb_cQDir =
         // RubyQt6::QtCore::QDir
-        define_class_under<QDir>(rb_mQt6QtCore, "QDir")
+        define_qlass_under<QDir>(rb_mQt6QtCore, "QDir")
             // RubyQt6-Defined Functions
             .define_method("mkdir", [](QDir *self, const QString &dir_name) -> bool { return self->mkdir(dir_name); }, Arg("dir_name"))
             .define_method("mkdir", [](QDir *self, const QString &dir_name, QFileDevice::Permissions permissions) -> bool { return self->mkdir(dir_name, permissions); }, Arg("dir_name"), Arg("permissions"))

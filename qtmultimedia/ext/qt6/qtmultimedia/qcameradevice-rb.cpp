@@ -10,7 +10,7 @@ void Init_qcameradevice(Module rb_mQt6QtMultimedia)
 {
     rb_cQCameraDevice =
         // RubyQt6::QtMultimedia::QCameraDevice
-        define_class_under<QCameraDevice>(rb_mQt6QtMultimedia, "QCameraDevice")
+        define_qlass_under<QCameraDevice>(rb_mQt6QtMultimedia, "QCameraDevice")
             // RubyQt6-Defined Functions
             .define_singleton_function("_operator_equal", [](QCameraDevice *lhs, QCameraDevice *rhs) -> bool { return *lhs == *rhs; }, Arg("lhs"), Arg("rhs"))
             .define_singleton_function("_qvariant_register_metatype", []() -> int { return qRegisterMetaType<QCameraDevice>(); })

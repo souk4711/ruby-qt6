@@ -9,7 +9,7 @@ void Init_qaudiosink(Module rb_mQt6QtMultimedia)
 {
     rb_cQAudioSink =
         // RubyQt6::QtMultimedia::QAudioSink
-        define_class_under<QAudioSink, QObject>(rb_mQt6QtMultimedia, "QAudioSink")
+        define_qlass_under<QAudioSink, QObject>(rb_mQt6QtMultimedia, "QAudioSink")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QAudioSink::staticMetaObject; })
             // Constructor

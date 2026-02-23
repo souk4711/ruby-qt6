@@ -9,7 +9,7 @@ void Init_qbasictimer(Module rb_mQt6QtCore)
 {
     rb_cQBasicTimer =
         // RubyQt6::QtCore::QBasicTimer
-        define_class_under<QBasicTimer>(rb_mQt6QtCore, "QBasicTimer")
+        define_qlass_under<QBasicTimer>(rb_mQt6QtCore, "QBasicTimer")
             // Constructor
             .define_constructor(Constructor<QBasicTimer>())
             // Public Functions

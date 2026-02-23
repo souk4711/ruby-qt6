@@ -11,7 +11,7 @@ void Init_qpainterpathstroker(Module rb_mQt6QtGui)
 {
     rb_cQPainterPathStroker =
         // RubyQt6::QtGui::QPainterPathStroker
-        define_class_under<QPainterPathStroker>(rb_mQt6QtGui, "QPainterPathStroker")
+        define_qlass_under<QPainterPathStroker>(rb_mQt6QtGui, "QPainterPathStroker")
             // Constructor
             .define_constructor(Constructor<QPainterPathStroker>())
             .define_constructor(Constructor<QPainterPathStroker, const QPen &>(), Arg("pen"))

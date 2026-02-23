@@ -17,7 +17,7 @@ void Init_qtextcursor(Module rb_mQt6QtGui)
 {
     rb_cQTextCursor =
         // RubyQt6::QtGui::QTextCursor
-        define_class_under<QTextCursor>(rb_mQt6QtGui, "QTextCursor")
+        define_qlass_under<QTextCursor>(rb_mQt6QtGui, "QTextCursor")
             // Constructor
             .define_constructor(Constructor<QTextCursor>())
             .define_constructor(Constructor<QTextCursor, QTextDocument *>(), Arg("document"))

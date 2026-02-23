@@ -14,7 +14,7 @@ void Init_qboxlayout(Module rb_mQt6QtWidgets)
 {
     rb_cQBoxLayout =
         // RubyQt6::QtWidgets::QBoxLayout
-        define_class_under<QBoxLayout, QLayout>(rb_mQt6QtWidgets, "QBoxLayout")
+        define_qlass_under<QBoxLayout, QLayout>(rb_mQt6QtWidgets, "QBoxLayout")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QBoxLayout::staticMetaObject; })
             // Constructor
@@ -57,7 +57,7 @@ void Init_qboxlayout(Module rb_mQt6QtWidgets)
 
     rb_cQHBoxLayout =
         // RubyQt6::QtWidgets::QHBoxLayout
-        define_class_under<QHBoxLayout, QBoxLayout>(rb_mQt6QtWidgets, "QHBoxLayout")
+        define_qlass_under<QHBoxLayout, QBoxLayout>(rb_mQt6QtWidgets, "QHBoxLayout")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QHBoxLayout::staticMetaObject; })
             // Constructor
@@ -65,7 +65,7 @@ void Init_qboxlayout(Module rb_mQt6QtWidgets)
 
     rb_cQVBoxLayout =
         // RubyQt6::QtWidgets::QVBoxLayout
-        define_class_under<QVBoxLayout, QBoxLayout>(rb_mQt6QtWidgets, "QVBoxLayout")
+        define_qlass_under<QVBoxLayout, QBoxLayout>(rb_mQt6QtWidgets, "QVBoxLayout")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QVBoxLayout::staticMetaObject; })
             // Constructor

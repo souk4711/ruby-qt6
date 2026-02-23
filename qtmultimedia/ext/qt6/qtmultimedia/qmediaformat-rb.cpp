@@ -12,7 +12,7 @@ void Init_qmediaformat(Module rb_mQt6QtMultimedia)
 {
     rb_cQMediaFormat =
         // RubyQt6::QtMultimedia::QMediaFormat
-        define_class_under<QMediaFormat>(rb_mQt6QtMultimedia, "QMediaFormat")
+        define_qlass_under<QMediaFormat>(rb_mQt6QtMultimedia, "QMediaFormat")
             // Constructor
             .define_constructor(Constructor<QMediaFormat, QMediaFormat::FileFormat>(), Arg("format"))
             // Public Functions

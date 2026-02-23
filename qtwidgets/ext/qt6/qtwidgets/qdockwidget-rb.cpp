@@ -11,7 +11,7 @@ void Init_qdockwidget(Module rb_mQt6QtWidgets)
 {
     rb_cQDockWidget =
         // RubyQt6::QtWidgets::QDockWidget
-        define_class_under<QDockWidget, QWidget>(rb_mQt6QtWidgets, "QDockWidget")
+        define_qlass_under<QDockWidget, QWidget>(rb_mQt6QtWidgets, "QDockWidget")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QDockWidget::staticMetaObject; })
             // Constructor

@@ -11,7 +11,7 @@ void Init_qfontinfo(Module rb_mQt6QtGui)
 {
     rb_cQFontInfo =
         // RubyQt6::QtGui::QFontInfo
-        define_class_under<QFontInfo>(rb_mQt6QtGui, "QFontInfo")
+        define_qlass_under<QFontInfo>(rb_mQt6QtGui, "QFontInfo")
             // Constructor
             .define_constructor(Constructor<QFontInfo, const QFont &>(), Arg("font"))
             // Public Functions

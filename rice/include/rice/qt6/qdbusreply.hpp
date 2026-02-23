@@ -36,7 +36,7 @@ void define_qdbusreply_under(Module module)
     std::string klassName = typeDetail.rubyName();
     Identifier id(klassName);
 
-    define_class_under<QDBusReply_T>(module, id)
+    define_qlass_under<QDBusReply_T>(module, id)
         .define_constructor(Constructor<QDBusReply_T, const QDBusError &>(), Arg("dbus_error") = static_cast<const QDBusError &>(QDBusError()))
         .define_constructor(Constructor<QDBusReply_T, const QDBusMessage &>(), Arg("reply"))
         .define_constructor(Constructor<QDBusReply_T, const QDBusPendingCall &>(), Arg("pcall"))

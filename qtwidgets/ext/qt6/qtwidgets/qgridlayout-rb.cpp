@@ -11,7 +11,7 @@ void Init_qgridlayout(Module rb_mQt6QtWidgets)
 {
     rb_cQGridLayout =
         // RubyQt6::QtWidgets::QGridLayout
-        define_class_under<QGridLayout, QLayout>(rb_mQt6QtWidgets, "QGridLayout")
+        define_qlass_under<QGridLayout, QLayout>(rb_mQt6QtWidgets, "QGridLayout")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QGridLayout::staticMetaObject; })
             // Constructor

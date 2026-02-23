@@ -9,7 +9,7 @@ void Init_qiodevice(Module rb_mQt6QtCore)
 {
     rb_cQIODevice =
         // RubyQt6::QtCore::QIODevice
-        define_class_under<QIODevice, QObject>(rb_mQt6QtCore, "QIODevice")
+        define_qlass_under<QIODevice, QObject>(rb_mQt6QtCore, "QIODevice")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QIODevice::staticMetaObject; })
             // Public Functions

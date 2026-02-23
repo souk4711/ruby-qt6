@@ -10,6 +10,7 @@ RSpec.describe RubyQt6::QtDBus do
 
     Dir.glob("ext/**/q*.cpp").each do |cppfile|
       next if cppfile == "ext/qt6/qtdbus/qtdbus-rb.cpp"
+      next if cppfile == "ext/qt6/qtdbus/qtdbuspreludes-rb.cpp"
       next if cppfile == "ext/qt6/qtdbus/qtdbusversion-rb.cpp"
       next if cppfile == "ext/qt6/qtdbus/qdbus-rb.cpp"
 

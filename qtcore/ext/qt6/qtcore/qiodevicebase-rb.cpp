@@ -11,7 +11,7 @@ void Init_qiodevicebase(Module rb_mQt6QtCore)
 {
     rb_cQIODeviceBase =
         // RubyQt6::QtCore::QIODeviceBase
-        define_class_under<QIODeviceBase>(rb_mQt6QtCore, "QIODeviceBase");
+        define_qlass_under<QIODeviceBase>(rb_mQt6QtCore, "QIODeviceBase");
 
     Data_Type<QIODeviceBase::OpenModeFlag> rb_cQIODeviceBaseOpenModeFlag =
         // RubyQt6::QtCore::QIODeviceBase::OpenModeFlag

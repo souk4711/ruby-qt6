@@ -11,7 +11,7 @@ void Init_qeventloop(Module rb_mQt6QtCore)
 {
     rb_cQEventLoop =
         // RubyQt6::QtCore::QEventLoop
-        define_class_under<QEventLoop, QObject>(rb_mQt6QtCore, "QEventLoop")
+        define_qlass_under<QEventLoop, QObject>(rb_mQt6QtCore, "QEventLoop")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QEventLoop::staticMetaObject; });
 

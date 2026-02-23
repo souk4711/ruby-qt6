@@ -9,7 +9,7 @@ void Init_kguiitem(Module rb_mQt6KWidgetsAddons)
 {
     rb_cKGuiItem =
         // RubyQt6::KWidgetsAddons::KGuiItem
-        define_class_under<KGuiItem>(rb_mQt6KWidgetsAddons, "KGuiItem")
+        define_qlass_under<KGuiItem>(rb_mQt6KWidgetsAddons, "KGuiItem")
             // Constructor
             .define_constructor(Constructor<KGuiItem, const QString &, const QString &, const QString &, const QString &>(), Arg("text"), Arg("icon_name"), Arg("tool_tip"), Arg("whats_this"))
             // Public Functions

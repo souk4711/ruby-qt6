@@ -14,7 +14,7 @@ void Init_qpixmap(Module rb_mQt6QtGui)
 {
     rb_cQPixmap =
         // RubyQt6::QtGui::QPixmap
-        define_class_under<QPixmap, QPaintDevice>(rb_mQt6QtGui, "QPixmap")
+        define_qlass_under<QPixmap, QPaintDevice>(rb_mQt6QtGui, "QPixmap")
             // Constructor
             .define_constructor(Constructor<QPixmap>())
             .define_constructor(Constructor<QPixmap, int, int>(), Arg("w"), Arg("h"))

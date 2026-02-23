@@ -10,6 +10,7 @@ RSpec.describe RubyQt6::QtMultimedia do
 
     Dir.glob("ext/**/q*.cpp").each do |cppfile|
       next if cppfile == "ext/qt6/qtmultimedia/qtmultimedia-rb.cpp"
+      next if cppfile == "ext/qt6/qtmultimedia/qtmultimediapreludes-rb.cpp"
       next if cppfile == "ext/qt6/qtmultimedia/qtmultimediaversion-rb.cpp"
       next if cppfile == "ext/qt6/qtmultimedia/qtaudio-rb.cpp"
       next if cppfile == "ext/qt6/qtmultimedia/qtvideo-rb.cpp"

@@ -14,7 +14,7 @@ void Init_qmdisubwindow(Module rb_mQt6QtWidgets)
 {
     rb_cQMdiSubWindow =
         // RubyQt6::QtWidgets::QMdiSubWindow
-        define_class_under<QMdiSubWindow, QWidget>(rb_mQt6QtWidgets, "QMdiSubWindow")
+        define_qlass_under<QMdiSubWindow, QWidget>(rb_mQt6QtWidgets, "QMdiSubWindow")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QMdiSubWindow::staticMetaObject; })
             // Constructor

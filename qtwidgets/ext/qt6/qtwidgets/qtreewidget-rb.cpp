@@ -11,7 +11,7 @@ void Init_qtreewidget(Module rb_mQt6QtWidgets)
 {
     rb_cQTreeWidget =
         // RubyQt6::QtWidgets::QTreeWidget
-        define_class_under<QTreeWidget, QTreeView>(rb_mQt6QtWidgets, "QTreeWidget")
+        define_qlass_under<QTreeWidget, QTreeView>(rb_mQt6QtWidgets, "QTreeWidget")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QTreeWidget::staticMetaObject; })
             // Constructor
@@ -75,7 +75,7 @@ void Init_qtreewidget(Module rb_mQt6QtWidgets)
 
     rb_cQTreeWidgetItem =
         // RubyQt6::QtWidgets::QTreeWidgetItem
-        define_class_under<QTreeWidgetItem>(rb_mQt6QtWidgets, "QTreeWidgetItem")
+        define_qlass_under<QTreeWidgetItem>(rb_mQt6QtWidgets, "QTreeWidgetItem")
             // RubyQt6-Defined Functions
             .define_singleton_function("_qvariant_register_metatype", []() -> int { return qRegisterMetaType<QTreeWidgetItem *>(); })
             .define_singleton_function("_qvariant_from_value", [](QTreeWidgetItem *value) -> QVariant { return QVariant::fromValue(value); })

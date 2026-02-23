@@ -9,7 +9,7 @@ void Init_qmimetype(Module rb_mQt6QtCore)
 {
     rb_cQMimeType =
         // RubyQt6::QtCore::QMimeType
-        define_class_under<QMimeType>(rb_mQt6QtCore, "QMimeType")
+        define_qlass_under<QMimeType>(rb_mQt6QtCore, "QMimeType")
             // Public Functions
             .define_method("aliases", &QMimeType::aliases)
             .define_method("all_ancestors", &QMimeType::allAncestors)

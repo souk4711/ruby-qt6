@@ -10,7 +10,7 @@ void Init_qtabbar(Module rb_mQt6QtWidgets)
 {
     rb_cQTabBar =
         // RubyQt6::QtWidgets::QTabBar
-        define_class_under<QTabBar, QWidget>(rb_mQt6QtWidgets, "QTabBar")
+        define_qlass_under<QTabBar, QWidget>(rb_mQt6QtWidgets, "QTabBar")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QTabBar::staticMetaObject; })
             // Constructor

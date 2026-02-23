@@ -14,7 +14,7 @@ void Init_qstandarditemmodel(Module rb_mQt6QtGui)
 {
     rb_cQStandardItemModel =
         // RubyQt6::QtGui::QStandardItemModel
-        define_class_under<QStandardItemModel, QAbstractItemModel>(rb_mQt6QtGui, "QStandardItemModel")
+        define_qlass_under<QStandardItemModel, QAbstractItemModel>(rb_mQt6QtGui, "QStandardItemModel")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QStandardItemModel::staticMetaObject; })
             // Constructor
@@ -84,7 +84,7 @@ void Init_qstandarditemmodel(Module rb_mQt6QtGui)
 
     rb_cQStandardItem =
         // RubyQt6::QtGui::QStandardItem
-        define_class_under<QStandardItem>(rb_mQt6QtGui, "QStandardItem")
+        define_qlass_under<QStandardItem>(rb_mQt6QtGui, "QStandardItem")
             // RubyQt6-Defined Functions
             .define_singleton_function("_qvariant_register_metatype", []() -> int { return qRegisterMetaType<QStandardItem *>(); })
             .define_singleton_function("_qvariant_from_value", [](QStandardItem *value) -> QVariant { return QVariant::fromValue(value); })

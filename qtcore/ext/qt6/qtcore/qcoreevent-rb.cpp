@@ -13,7 +13,7 @@ void Init_qcoreevent(Module rb_mQt6QtCore)
 {
     rb_cQEvent =
         // RubyQt6::QtCore::QEvent
-        define_class_under<QEvent>(rb_mQt6QtCore, "QEvent")
+        define_qlass_under<QEvent>(rb_mQt6QtCore, "QEvent")
             // Public Functions
             .define_method("accept", &QEvent::accept)
             .define_method("ignore", &QEvent::ignore)
@@ -210,7 +210,7 @@ void Init_qcoreevent(Module rb_mQt6QtCore)
 
     rb_cQChildEvent =
         // RubyQt6::QtCore::QChildEvent
-        define_class_under<QChildEvent, QEvent>(rb_mQt6QtCore, "QChildEvent")
+        define_qlass_under<QChildEvent, QEvent>(rb_mQt6QtCore, "QChildEvent")
             // Public Functions
             .define_method("added", &QChildEvent::added)
             .define_method("child", &QChildEvent::child)
@@ -219,7 +219,7 @@ void Init_qcoreevent(Module rb_mQt6QtCore)
 
     rb_cQTimerEvent =
         // RubyQt6::QtCore::QTimerEvent
-        define_class_under<QTimerEvent, QEvent>(rb_mQt6QtCore, "QTimerEvent")
+        define_qlass_under<QTimerEvent, QEvent>(rb_mQt6QtCore, "QTimerEvent")
             // Public Functions
             .define_method("id", &QTimerEvent::id)
             .define_method("matches", &QTimerEvent::matches, Arg("timer"))
@@ -227,7 +227,7 @@ void Init_qcoreevent(Module rb_mQt6QtCore)
 
     rb_cQDynamicPropertyChangeEvent =
         // RubyQt6::QtCore::QDynamicPropertyChangeEvent
-        define_class_under<QDynamicPropertyChangeEvent, QEvent>(rb_mQt6QtCore, "QDynamicPropertyChangeEvent")
+        define_qlass_under<QDynamicPropertyChangeEvent, QEvent>(rb_mQt6QtCore, "QDynamicPropertyChangeEvent")
             // Public Functions
             .define_method("property_name", &QDynamicPropertyChangeEvent::propertyName);
 }

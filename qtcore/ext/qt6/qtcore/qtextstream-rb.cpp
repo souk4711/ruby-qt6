@@ -14,7 +14,7 @@ void Init_qtextstream(Module rb_mQt6QtCore)
 {
     rb_cQTextStream =
         // RubyQt6::QtCore::QTextStream
-        define_class_under<QTextStream, QIODeviceBase>(rb_mQt6QtCore, "QTextStream")
+        define_qlass_under<QTextStream, QIODeviceBase>(rb_mQt6QtCore, "QTextStream")
             // Constructor
             .define_constructor(Constructor<QTextStream>())
             .define_constructor(Constructor<QTextStream, QIODevice *>(), Arg("device"))

@@ -9,7 +9,7 @@ void Init_kdatevalidator(Module rb_mQt6KGuiAddons)
 {
     rb_cKDateValidator =
         // RubyQt6::KGuiAddons::KDateValidator
-        define_class_under<KDateValidator, QValidator>(rb_mQt6KGuiAddons, "KDateValidator")
+        define_qlass_under<KDateValidator, QValidator>(rb_mQt6KGuiAddons, "KDateValidator")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &KDateValidator::staticMetaObject; })
             // Constructor

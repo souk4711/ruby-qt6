@@ -1,4 +1,5 @@
 #include "qtwidgets-rb.hpp"
+#include "qtwidgetspreludes-rb.hpp"
 #include "qtwidgetsversion-rb.hpp"
 
 #include "qfileiconprovider-rb.hpp"
@@ -169,6 +170,7 @@ extern "C" void Init_qtwidgets()
         Module rb_mQt6 = define_module("RubyQt6");
         Module rb_mQt6QtWidgets = define_module_under(rb_mQt6, "QtWidgets");
 
+        Init_qtwidgetspreludes(rb_mQt6);
         Init_qtwidgetsversion(rb_mQt6QtWidgets);
 
         Init_qfileiconprovider(rb_mQt6QtWidgets);

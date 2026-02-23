@@ -10,6 +10,7 @@ RSpec.describe RubyQt6::QtMultimediaWidgets do
 
     Dir.glob("ext/**/q*.cpp").each do |cppfile|
       next if cppfile == "ext/qt6/qtmultimediawidgets/qtmultimediawidgets-rb.cpp"
+      next if cppfile == "ext/qt6/qtmultimediawidgets/qtmultimediawidgetspreludes-rb.cpp"
       next if cppfile == "ext/qt6/qtmultimediawidgets/qtmultimediawidgetsversion-rb.cpp"
 
       it cppfile do

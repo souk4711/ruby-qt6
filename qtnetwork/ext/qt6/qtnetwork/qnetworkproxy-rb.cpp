@@ -13,7 +13,7 @@ void Init_qnetworkproxy(Module rb_mQt6QtNetwork)
 {
     rb_cQNetworkProxy =
         // RubyQt6::QtNetwork::QNetworkProxy
-        define_class_under<QNetworkProxy>(rb_mQt6QtNetwork, "QNetworkProxy")
+        define_qlass_under<QNetworkProxy>(rb_mQt6QtNetwork, "QNetworkProxy")
             // Constructor
             .define_constructor(Constructor<QNetworkProxy>())
             // Public Functions
@@ -71,7 +71,7 @@ void Init_qnetworkproxy(Module rb_mQt6QtNetwork)
 
     rb_cQNetworkProxyFactory =
         // RubyQt6::QtNetwork::QNetworkProxyFactory
-        define_class_under<QNetworkProxyFactory>(rb_mQt6QtNetwork, "QNetworkProxyFactory")
+        define_qlass_under<QNetworkProxyFactory>(rb_mQt6QtNetwork, "QNetworkProxyFactory")
             // Public Functions
             .define_method("query_proxy", &QNetworkProxyFactory::queryProxy, Arg("query") = static_cast<const QNetworkProxyQuery &>(QNetworkProxyQuery()))
             // Static Public Members
@@ -83,7 +83,7 @@ void Init_qnetworkproxy(Module rb_mQt6QtNetwork)
 
     rb_cQNetworkProxyQuery =
         // RubyQt6::QtNetwork::QNetworkProxyQuery
-        define_class_under<QNetworkProxyQuery>(rb_mQt6QtNetwork, "QNetworkProxyQuery")
+        define_qlass_under<QNetworkProxyQuery>(rb_mQt6QtNetwork, "QNetworkProxyQuery")
             // Constructor
             .define_constructor(Constructor<QNetworkProxyQuery>())
             // Public Functions

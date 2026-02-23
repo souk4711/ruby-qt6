@@ -9,7 +9,7 @@ void Init_qtextlist(Module rb_mQt6QtGui)
 {
     rb_cQTextList =
         // RubyQt6::QtGui::QTextList
-        define_class_under<QTextList, QTextBlockGroup>(rb_mQt6QtGui, "QTextList")
+        define_qlass_under<QTextList, QTextBlockGroup>(rb_mQt6QtGui, "QTextList")
             // RubyQt6-Defined Functions
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QTextList::staticMetaObject; })
             // Public Functions
