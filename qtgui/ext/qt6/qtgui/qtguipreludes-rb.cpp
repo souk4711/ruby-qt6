@@ -27,6 +27,7 @@
 #include <QAbstractItemModel>
 #include <QCoreApplication>
 #include <QIODevice>
+#include <QFileDevice>
 
 RICE4RUBYQT6_USE_NAMESPACE
 
