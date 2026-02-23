@@ -38,7 +38,8 @@ module RubyQt6
 
       # @!visibility private
       def draw_text(*args)
-        _draw_text(*args.map { |arg| T.to_qstr(arg) })
+        args.each_with_index { |_, index| T.args_nth_to_qstr(args, index) }
+        _draw_text(*args)
       end
     end
   end

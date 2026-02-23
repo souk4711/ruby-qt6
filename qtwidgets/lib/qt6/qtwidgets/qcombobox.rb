@@ -39,7 +39,8 @@ module RubyQt6
 
       # @!visibility private
       def add_item(*args)
-        _add_item(*args.map { |arg| T.to_qstr(arg) })
+        args.each_with_index { |_, index| T.args_nth_to_qstr(args, index) }
+        _add_item(*args)
       end
 
       # @!visibility private

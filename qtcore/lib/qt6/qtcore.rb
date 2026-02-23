@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "qt6/rice"
+
 require_relative "configuration"
 require_relative "ducktyping"
 
