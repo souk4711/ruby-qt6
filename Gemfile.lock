@@ -19,6 +19,7 @@ GEM
   specs:
     date (3.5.1)
     erb (6.0.1)
+    ffi (1.17.3-x64-mingw-ucrt)
     ffi (1.17.3-x86_64-linux-gnu)
     nio4r (2.7.5)
     ostruct (0.6.3)
@@ -42,6 +43,7 @@ GEM
     yard (0.9.38)
 
 PLATFORMS
+  x64-mingw-ucrt
   x86_64-linux
 
 DEPENDENCIES
