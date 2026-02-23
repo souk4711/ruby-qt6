@@ -45,7 +45,9 @@
 #include <QPen>
 #include <QRegion>
 #include <QTextCursor>
+#include <QAbstractFileIconProvider>
 #include <QAction>
+#include <QGuiApplication>
 #include <QMovie>
 #include <QScreen>
 #include <QTextDocument>
@@ -152,7 +154,9 @@ void Init_qtwidgetspreludes(Module rb_mQt6)
     declare_qlass_under<QPen>(rb_mQt6QtGui, "QPen");
     declare_qlass_under<QRegion>(rb_mQt6QtGui, "QRegion");
     declare_qlass_under<QTextCursor>(rb_mQt6QtGui, "QTextCursor");
+    declare_qlass_under<QAbstractFileIconProvider>(rb_mQt6QtGui, "QAbstractFileIconProvider");
     declare_qlass_under<QAction>(rb_mQt6QtGui, "QAction");
+    declare_qlass_under<QGuiApplication>(rb_mQt6QtGui, "QGuiApplication");
     declare_qlass_under<QMovie>(rb_mQt6QtGui, "QMovie");
     declare_qlass_under<QScreen>(rb_mQt6QtGui, "QScreen");
     declare_qlass_under<QTextDocument>(rb_mQt6QtGui, "QTextDocument");
