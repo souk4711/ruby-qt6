@@ -5,6 +5,7 @@
 #include <QPointF>
 #include <QTextLayout>
 #include <QTextLength>
+#include <QAction>
 #include <QScreen>
 
 RICE4RUBYQT6_USE_NAMESPACE
@@ -22,6 +23,9 @@ void Init_t_qtgui(Module rb_mQt6T)
 
     // QList<QTextLength>
     define_qlist_under<QTextLength>(rb_mQt6T);
+
+    // QList<QAction *>
+    define_qlist_under<QAction *>(rb_mQt6T);
 
     // QList<QScreen *>
     define_qlist_under<QScreen *>(rb_mQt6T);

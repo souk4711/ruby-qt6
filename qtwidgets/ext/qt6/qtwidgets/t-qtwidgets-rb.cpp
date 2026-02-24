@@ -23,9 +23,6 @@ void Init_t_qtwidgets(Module rb_mQt6T)
     // QList<QAbstractButton *>
     define_qlist_under<QAbstractButton *>(rb_mQt6T);
 
-    // QList<QAction *>
-    define_qlist_under<QAction *>(rb_mQt6T);
-
     // QList<QMdiSubWindow *>
     define_qlist_under<QMdiSubWindow *>(rb_mQt6T);
 
