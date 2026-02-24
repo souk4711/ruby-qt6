@@ -34,8 +34,9 @@ module RubyQt6
       end
 
       # @!visibility private
-      def display(value)
-        _display(T.to_qstr(value))
+      def display(*args)
+        args.each_with_index { |_, index| T.args_nth_to_qstr(args, index) }
+        _display(*args)
       end
     end
   end
