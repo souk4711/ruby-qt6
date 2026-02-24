@@ -6,8 +6,24 @@ LIBS = %w[
   QtMultimedia QtMultimediaWidgets
   QtWebEngineCore QtWebEngineWidgets QtWebView
   QtUiTools
-  KCoreAddons KGuiAddons KWidgetsAddons
-].freeze
+]
+
+LIBS_Z = %w[
+  qt
+]
+
+if Gem::Platform.local.os == "linux"
+  # Add ruby bindings for KDE Frameworks.
+  LIBS.concat(%w[KCoreAddons KGuiAddons KWidgetsAddons])
+  LIBS_Z.concat(%w[k])
+end
+
+if Gem::Platform.local.os == "mingw"
+  # Currently, Qt WebEngine does not compile with MinGW. Plz see
+  # also https://github.com/msys2/MINGW-packages/pull/17990.
+  LIBS.delete("QtWebEngineCore")
+  LIBS.delete("QtWebEngineWidgets")
+end
 
 namespace :bindgen do
   def bindgen(extension:)
@@ -101,7 +117,7 @@ task :compile, [:clobber] do |_, args|
   compile = lambda do |lib|
     Dir.chdir(lib.downcase) do
       puts "cd #{lib.downcase}"
-      sh "rm -rf tmp" if args.clobber
+      FileUtils.rm_rf("tmp") if args.clobber
       sh "bundle check || bundle install"
       sh "bundle exec rake compile"
     end
@@ -109,7 +125,7 @@ task :compile, [:clobber] do |_, args|
 
   if args.clobber
     require "parallel"
-    sh "rm -rf extensions"
+    FileUtils.rm_rf("extensions")
     Bundler.with_unbundled_env { compile.("rice") }
     Bundler.with_unbundled_env { Parallel.each(LIBS, &compile) }
   else
@@ -128,7 +144,7 @@ task :rubocop do
     end
   end
 
-  libs = LIBS + ["qt", "k"]
+  libs = LIBS + LIBS_Z
   Bundler.with_unbundled_env { libs.each(&rubocop) }
 end
 
@@ -142,7 +158,7 @@ task :spec do
     end
   end
 
-  libs = LIBS + ["qt", "k"]
+  libs = LIBS + LIBS_Z
   Bundler.with_unbundled_env { libs.each(&rspec) }
 end
 
@@ -150,14 +166,14 @@ desc "Run YARD documentation"
 task :yard, [:server] do |_, args|
   src = "tmp/tasks/yardoc/src"
 
-  sh "rm -rf #{src} && mkdir -p #{src}"
+  FileUtils.rm_rf(src)
+  FileUtils.mkdir_p(src)
   sh "cp -rv qt[a-z]*/lib #{src}"
   sh "cp -rv k[a-z]*/lib #{src}"
 
   Dir.chdir(src) do
     yardopts = []
     yardopts << "-n"
-    yardopts << "--exclude lib/mkmf-*.rb"
     sh "yard #{yardopts.join(" ")}"
     sh "yard server" if args.server
   end
