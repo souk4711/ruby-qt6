@@ -33,9 +33,6 @@ Gem::Specification.new do |spec|
 
   spec.add_runtime_dependency("ruby-qt6-rice", "= 2.1.0")
   spec.add_runtime_dependency("ruby-qt6-qtcore", "~> 2.1.0")
-  spec.add_runtime_dependency("ruby-qt6-qtgui", "~> 2.1.0")
-  spec.add_runtime_dependency("ruby-qt6-qtqml", "~> 2.1.0")
-  spec.add_runtime_dependency("ruby-qt6-qtquick", "~> 2.1.0")
 
   # For more information and examples about making a new gem, check out our
   # guide at: https://bundler.io/guides/creating_gem.html
