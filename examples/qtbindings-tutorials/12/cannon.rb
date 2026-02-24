@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'qt6/all'
-
 class CannonField < RubyQt6::Bando::QWidget
   q_object do
     signal 'hit()'
