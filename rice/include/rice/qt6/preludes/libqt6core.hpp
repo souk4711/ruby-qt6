@@ -52,8 +52,8 @@
 #include <QCoreApplication>
 #include <QIODevice>
 #include <QFileDevice>
-
 #include <QList>
+#include <bando/common.hpp>
 
 void declare_qlass_under_libqt6core(Module rb_mQt6)
 {
@@ -173,6 +173,9 @@ void declare_qlass_under_libqt6core(Module rb_mQt6)
     declare_qlass_under<QList<QByteArray>>(rb_mQt6T, "QList≺QByteArray≻");
     declare_qlass_under<QList<QString>>(rb_mQt6T, "QList≺QString≻");
     declare_qlass_under<QList<QObject*>>(rb_mQt6T, "QList≺QObject∗≻");
+
+    Module rb_mQt6Bando = define_module_under(rb_mQt6, "Bando");
+    declare_qlass_under<bando_FunctionName>(rb_mQt6Bando, "FunctionName");
 }
 
 #endif
