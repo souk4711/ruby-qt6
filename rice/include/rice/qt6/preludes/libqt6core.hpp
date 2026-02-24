@@ -37,6 +37,7 @@
 #include <QLocale>
 #include <QMargins>
 #include <QMarginsF>
+#include <QMimeType>
 #include <QModelIndex>
 #include <QPoint>
 #include <QPointF>
@@ -50,6 +51,7 @@
 #include <QObject>
 #include <QAbstractItemModel>
 #include <QCoreApplication>
+#include <QItemSelectionModel>
 #include <QIODevice>
 #include <QFileDevice>
 #include <QList>
@@ -76,6 +78,7 @@ void declare_qlass_under_libqt6core(Module rb_mQt6)
     declare_qlass_under<QLocale>(rb_mQt6QtCore, "QLocale");
     declare_qlass_under<QMargins>(rb_mQt6QtCore, "QMargins");
     declare_qlass_under<QMarginsF>(rb_mQt6QtCore, "QMarginsF");
+    declare_qlass_under<QMimeType>(rb_mQt6QtCore, "QMimeType");
     declare_qlass_under<QModelIndex>(rb_mQt6QtCore, "QModelIndex");
     declare_qlass_under<QPoint>(rb_mQt6QtCore, "QPoint");
     declare_qlass_under<QPointF>(rb_mQt6QtCore, "QPointF");
@@ -89,6 +92,7 @@ void declare_qlass_under_libqt6core(Module rb_mQt6)
     declare_qlass_under<QObject>(rb_mQt6QtCore, "QObject");
     declare_qlass_under<QAbstractItemModel>(rb_mQt6QtCore, "QAbstractItemModel");
     declare_qlass_under<QCoreApplication>(rb_mQt6QtCore, "QCoreApplication");
+    declare_qlass_under<QItemSelectionModel>(rb_mQt6QtCore, "QItemSelectionModel");
     declare_qlass_under<QIODevice>(rb_mQt6QtCore, "QIODevice");
 
     Module rb_mQt = define_module_under(rb_mQt6QtCore, "Qt");
@@ -171,9 +175,13 @@ void declare_qlass_under_libqt6core(Module rb_mQt6)
 
     Module rb_mQt6T = define_module_under(rb_mQt6, "T");
     declare_qlass_under<QList<QByteArray>>(rb_mQt6T, "QList≺QByteArray≻");
+    declare_qlass_under<QList<QFileInfo>>(rb_mQt6T, "QList≺QFileInfo≻");
+    declare_qlass_under<QList<QModelIndex>>(rb_mQt6T, "QList≺QModelIndex≻");
     declare_qlass_under<QList<QString>>(rb_mQt6T, "QList≺QString≻");
+    declare_qlass_under<QList<QUrl>>(rb_mQt6T, "QList≺QUrl≻");
     declare_qlass_under<QList<QVariant>>(rb_mQt6T, "QList≺QVariant≻");
     declare_qlass_under<QList<QObject*>>(rb_mQt6T, "QList≺QObject∗≻");
+    declare_qlass_under<QMap<QString, QVariant>>(rb_mQt6T, "QMap≺QString‚ QVariant≻");
 
     Module rb_mQt6Bando = define_module_under(rb_mQt6, "Bando");
     declare_qlass_under<bando_FunctionName>(rb_mQt6Bando, "FunctionName");
