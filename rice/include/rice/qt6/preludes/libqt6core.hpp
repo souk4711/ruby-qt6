@@ -172,6 +172,7 @@ void declare_qlass_under_libqt6core(Module rb_mQt6)
     Module rb_mQt6T = define_module_under(rb_mQt6, "T");
     declare_qlass_under<QList<QByteArray>>(rb_mQt6T, "QList≺QByteArray≻");
     declare_qlass_under<QList<QString>>(rb_mQt6T, "QList≺QString≻");
+    declare_qlass_under<QList<QVariant>>(rb_mQt6T, "QList≺QVariant≻");
     declare_qlass_under<QList<QObject*>>(rb_mQt6T, "QList≺QObject∗≻");
 
     Module rb_mQt6Bando = define_module_under(rb_mQt6, "Bando");
