@@ -1859,6 +1859,12 @@ namespace Rice4RubyQt6
     Object(Object&& other) = default;
     Object& operator=(Object&& other) = default;
 
+    //! Implicit conversion to VALUE.
+    operator VALUE() const;
+
+    //! Explicitly get the encapsulated VALUE.
+    VALUE value() const;
+
     //! Returns false if the object is nil or false; returns true
     //! otherwise.
     explicit operator bool() const;
@@ -1866,11 +1872,6 @@ namespace Rice4RubyQt6
     //! Returns true if the object is nil, false otherwise.
     bool is_nil() const;
 
-    //! Implicit conversion to VALUE.
-    operator VALUE() const;
-
-    //! Explicitly get the encapsulated VALUE.
-    VALUE value() const;
 
     //! Get the class of an object.
     /*! \return the object's Class.
@@ -2071,6 +2072,10 @@ namespace Rice4RubyQt6
     void remove_const(Identifier name);
 
   protected:
+    //! Checks the encapsulated VALUE is not nil and returns it. If it is nil 
+    //! an exception is thrown.
+    VALUE validated_value() const;
+
     //! Set the encapsulated value.
     void set_value(VALUE value);
 
@@ -2700,7 +2705,7 @@ namespace Rice4RubyQt6
 */
 inline auto& include_module(Module const& inc)
 {
-  detail::protect(rb_include_module, this->value(), inc.value());
+  detail::protect(rb_include_module, this->validated_value(), inc.value());
   return *this;
 }
 
@@ -2724,7 +2729,7 @@ inline auto& include_module(Module const& inc)
 template<typename Method_T, typename...Arg_Ts>
 inline auto& define_method(std::string name, Method_T&& method, const Arg_Ts&...args)
 {
-  this->wrap_native_method(this->value(), name, std::forward<Method_T>(method), args...);
+  this->wrap_native_method(this->validated_value(), name, std::forward<Method_T>(method), args...);
   return *this;
 }
 
@@ -2742,7 +2747,7 @@ inline auto& define_method(std::string name, Method_T&& method, const Arg_Ts&...
 template<typename Function_T, typename...Arg_Ts>
 inline auto& define_function(std::string name, Function_T&& func, const Arg_Ts&...args)
 {
-  this->wrap_native_function(this->value(), name, std::forward<Function_T>(func), args...);
+  this->wrap_native_function(this->validated_value(), name, std::forward<Function_T>(func), args...);
   return *this;
 }
 
@@ -2816,7 +2821,7 @@ template<typename Constant_T>
 inline auto& define_constant(std::string name, Constant_T value)
 {
   using Base_T = detail::remove_cv_recursive_t<Constant_T>;
-  detail::protect(rb_define_const, this->value(), name.c_str(), detail::To_Ruby<Base_T>().convert(value));
+  detail::protect(rb_define_const, this->validated_value(), name.c_str(), detail::To_Ruby<Base_T>().convert(value));
   return *this;
 }
   protected:
@@ -2898,7 +2903,7 @@ namespace Rice4RubyQt6
 */
 inline auto& include_module(Module const& inc)
 {
-  detail::protect(rb_include_module, this->value(), inc.value());
+  detail::protect(rb_include_module, this->validated_value(), inc.value());
   return *this;
 }
 
@@ -2922,7 +2927,7 @@ inline auto& include_module(Module const& inc)
 template<typename Method_T, typename...Arg_Ts>
 inline auto& define_method(std::string name, Method_T&& method, const Arg_Ts&...args)
 {
-  this->wrap_native_method(this->value(), name, std::forward<Method_T>(method), args...);
+  this->wrap_native_method(this->validated_value(), name, std::forward<Method_T>(method), args...);
   return *this;
 }
 
@@ -2940,7 +2945,7 @@ inline auto& define_method(std::string name, Method_T&& method, const Arg_Ts&...
 template<typename Function_T, typename...Arg_Ts>
 inline auto& define_function(std::string name, Function_T&& func, const Arg_Ts&...args)
 {
-  this->wrap_native_function(this->value(), name, std::forward<Function_T>(func), args...);
+  this->wrap_native_function(this->validated_value(), name, std::forward<Function_T>(func), args...);
   return *this;
 }
 
@@ -3014,7 +3019,7 @@ template<typename Constant_T>
 inline auto& define_constant(std::string name, Constant_T value)
 {
   using Base_T = detail::remove_cv_recursive_t<Constant_T>;
-  detail::protect(rb_define_const, this->value(), name.c_str(), detail::To_Ruby<Base_T>().convert(value));
+  detail::protect(rb_define_const, this->validated_value(), name.c_str(), detail::To_Ruby<Base_T>().convert(value));
   return *this;
 }
   };
@@ -3363,7 +3368,7 @@ namespace Rice4RubyQt6
 */
 inline auto& include_module(Module const& inc)
 {
-  detail::protect(rb_include_module, this->value(), inc.value());
+  detail::protect(rb_include_module, this->validated_value(), inc.value());
   return *this;
 }
 
@@ -3387,7 +3392,7 @@ inline auto& include_module(Module const& inc)
 template<typename Method_T, typename...Arg_Ts>
 inline auto& define_method(std::string name, Method_T&& method, const Arg_Ts&...args)
 {
-  this->wrap_native_method(this->value(), name, std::forward<Method_T>(method), args...);
+  this->wrap_native_method(this->validated_value(), name, std::forward<Method_T>(method), args...);
   return *this;
 }
 
@@ -3405,7 +3410,7 @@ inline auto& define_method(std::string name, Method_T&& method, const Arg_Ts&...
 template<typename Function_T, typename...Arg_Ts>
 inline auto& define_function(std::string name, Function_T&& func, const Arg_Ts&...args)
 {
-  this->wrap_native_function(this->value(), name, std::forward<Function_T>(func), args...);
+  this->wrap_native_function(this->validated_value(), name, std::forward<Function_T>(func), args...);
   return *this;
 }
 
@@ -3479,7 +3484,7 @@ template<typename Constant_T>
 inline auto& define_constant(std::string name, Constant_T value)
 {
   using Base_T = detail::remove_cv_recursive_t<Constant_T>;
-  detail::protect(rb_define_const, this->value(), name.c_str(), detail::To_Ruby<Base_T>().convert(value));
+  detail::protect(rb_define_const, this->validated_value(), name.c_str(), detail::To_Ruby<Base_T>().convert(value));
   return *this;
 }
   protected:
@@ -3793,6 +3798,17 @@ namespace Rice4RubyQt6::detail
 
   template<>
   class RubyType<double>
+  {
+  public:
+    using FromRuby_T = double(*)(VALUE);
+
+    static inline FromRuby_T fromRuby = rb_num2dbl;
+    static inline std::string packTemplate = "d*";
+    static inline std::string name = "Float";
+  };
+
+  template<>
+  class RubyType<long double>
   {
   public:
     using FromRuby_T = double(*)(VALUE);
@@ -4536,6 +4552,10 @@ namespace Rice4RubyQt6::detail
         {
           T defaultValue = this->arg()->template defaultValue<T>();
           return this->toRuby_.convert(defaultValue);
+        }
+        else
+        {
+          throw std::runtime_error("Default value not allowed for parameter " + this->arg()->name);
         }
       }
       else
@@ -6075,6 +6095,35 @@ namespace Rice4RubyQt6::detail
   };
 
   template<>
+  struct Type<long double>
+  {
+    static bool verify()
+    {
+      return true;
+    }
+
+    static VALUE rubyKlass()
+    {
+      return rb_cFloat;
+    }
+  };
+
+  template<int N>
+  struct Type<long double[N]>
+  {
+    static bool verify()
+    {
+      define_buffer<long double>();
+      return true;
+    }
+
+    static VALUE rubyKlass()
+    {
+      return rb_cString;
+    }
+  };
+
+  template<>
   struct Type<void>
   {
     static bool verify()
@@ -6596,6 +6645,62 @@ namespace Rice4RubyQt6
       {
         Buffer<double> buffer(data, N);
         Data_Object<Buffer<double>> dataObject(std::move(buffer));
+        return dataObject.value();
+      }
+    private:
+      Arg* arg_ = nullptr;
+    };
+
+    // ===========  long double  ============
+    template<>
+    class To_Ruby<long double>
+    {
+    public:
+      To_Ruby() = default;
+
+      explicit To_Ruby(Arg* arg) : arg_(arg)
+      {}
+
+      VALUE convert(const long double& native)
+      {
+        return protect(rb_float_new, native);
+      }
+
+    private:
+      Arg* arg_ = nullptr;
+    };
+
+    template<>
+    class To_Ruby<long double&>
+    {
+    public:
+      To_Ruby() = default;
+
+      explicit To_Ruby(Arg* arg) : arg_(arg)
+      {}
+
+      VALUE convert(const long double& native)
+      {
+        return protect(rb_float_new, native);
+      }
+
+    private:
+      Arg* arg_ = nullptr;
+    };
+
+    template<int N>
+    class To_Ruby<long double[N]>
+    {
+    public:
+      To_Ruby() = default;
+
+      explicit To_Ruby(Arg* arg) : arg_(arg)
+      {}
+
+      VALUE convert(long double data[N])
+      {
+        Buffer<long double> buffer(data, N);
+        Data_Object<Buffer<long double>> dataObject(std::move(buffer));
         return dataObject.value();
       }
     private:
@@ -7880,6 +7985,86 @@ namespace Rice4RubyQt6::detail
     Reference<double> reference_;
   };
 
+  // ===========  long double  ============
+  template<>
+  class From_Ruby<long double>
+  {
+  public:
+    From_Ruby() = default;
+
+    explicit From_Ruby(Arg* arg) : arg_(arg)
+    {}
+
+    long double is_convertible(VALUE value)
+    {
+      return FromRubyFundamental<long double>::is_convertible(value);
+    }
+
+    long double convert(VALUE value)
+    {
+      return FromRubyFundamental<long double>::convert(value);
+    }
+
+  private:
+    Arg* arg_ = nullptr;
+  };
+
+  template<>
+  class From_Ruby<long double&>
+  {
+  public:
+    using Reference_T = Reference<long double>;
+
+    From_Ruby() = default;
+
+    explicit From_Ruby(Arg* arg) : arg_(arg)
+    {}
+
+    long double is_convertible(VALUE value)
+    {
+      switch (rb_type(value))
+      {
+        case RUBY_T_DATA:
+        {
+          if (Data_Type<Reference_T>::is_descendant(value))
+          {
+            return Convertible::Exact;
+          }
+          [[fallthrough]];
+        }
+        default:
+        {
+          return FromRubyFundamental<long double>::is_convertible(value);
+        }
+      }
+    }
+
+    long double& convert(VALUE value)
+    {
+      switch (rb_type(value))
+      {
+        case RUBY_T_DATA:
+        {
+          if (Data_Type<Reference_T>::is_descendant(value))
+          {
+            Reference_T* reference = unwrap<Reference_T>(value, Data_Type<Reference_T>::ruby_data_type(), false);
+            return reference->get();
+          }
+          [[fallthrough]];
+        }
+        default:
+        {
+          this->reference_ = Reference<long double>(value);
+          return this->reference_.get();
+        }
+      }
+    }
+
+  private:
+    Arg* arg_ = nullptr;
+    Reference<long double> reference_;
+  };
+
   // ===========  float  ============
   template<>
   class From_Ruby<float>
@@ -8973,6 +9158,12 @@ namespace Rice4RubyQt6::detail
     if constexpr (is_complete_v<T>)
     {
       return std::type_index(typeid(T));
+    }
+    else if constexpr (std::is_reference_v<T>)
+    {
+      // For incomplete reference types, strip the reference and use pointer.
+      // Can't form T* when T is a reference type (pointer-to-reference is illegal).
+      return std::type_index(typeid(std::remove_reference_t<T>*));
     }
     else
     {
@@ -12578,16 +12769,9 @@ namespace Rice4RubyQt6
   {
   }
 
-  inline Object::operator bool() const
+  inline VALUE Object::value() const
   {
-    // Bypass getter to not raise exception
-    return RTEST(this->value_.value());
-  }
-
-  inline bool Object::is_nil() const
-  {
-    // Bypass getter to not raise exception
-    return NIL_P(this->value_.value());
+    return this->value_.value();
   }
 
   inline Object::operator VALUE() const
@@ -12595,9 +12779,9 @@ namespace Rice4RubyQt6
     return this->value();
   }
 
-  inline VALUE Object::value() const
+  inline VALUE Object::validated_value() const
   {
-    VALUE result = this->value_.value();
+    VALUE result = this->value();
 
     if (result == Qnil)
     {
@@ -12606,6 +12790,16 @@ namespace Rice4RubyQt6
     }
 
     return result;
+  }
+
+  inline Object::operator bool() const
+  {
+    return RTEST(this->value());
+  }
+
+  inline bool Object::is_nil() const
+  {
+    return NIL_P(this->value());
   }
 
   template<typename ...Parameter_Ts>
@@ -12619,7 +12813,7 @@ namespace Rice4RubyQt6
        easy to duplicate by setting GC.stress to true and calling a constructor
        that takes multiple values like a std::pair wrapper. */
     std::array<VALUE, sizeof...(Parameter_Ts)> values = { detail::To_Ruby<detail::remove_cv_recursive_t<Parameter_Ts>>().convert(std::forward<Parameter_Ts>(args))... };
-    return detail::protect(rb_funcallv, value(), id.id(), (int)values.size(), (const VALUE*)values.data());
+    return detail::protect(rb_funcallv, this->validated_value(), id.id(), (int)values.size(), (const VALUE*)values.data());
   }
 
   template<typename ...Parameter_Ts>
@@ -12627,13 +12821,13 @@ namespace Rice4RubyQt6
   {
     /* IMPORTANT - See call() above */
     std::array<VALUE, sizeof...(Parameter_Ts)> values = { detail::To_Ruby<detail::remove_cv_recursive_t<Parameter_Ts>>().convert(args)... };
-    return detail::protect(rb_funcallv_kw, value(), id.id(), (int)values.size(), (const VALUE*)values.data(), RB_PASS_KEYWORDS);
+    return detail::protect(rb_funcallv_kw, this->validated_value(), id.id(), (int)values.size(), (const VALUE*)values.data(), RB_PASS_KEYWORDS);
   }
 
   template<typename T>
   inline void Object::iv_set(Identifier name, T const& value)
   {
-    detail::protect(rb_ivar_set, this->value(), name.id(), detail::To_Ruby<T>().convert(value));
+    detail::protect(rb_ivar_set, this->validated_value(), name.id(), detail::To_Ruby<T>().convert(value));
   }
 
   inline int Object::compare(Object const& other) const
@@ -12649,66 +12843,71 @@ namespace Rice4RubyQt6
       return this->is_nil() && other.is_nil();
     }
 
-    VALUE result = detail::protect(rb_equal, this->value(), other.value());
+    VALUE result = detail::protect(rb_equal, this->validated_value(), other.validated_value());
     return RB_TEST(result);
   }
 
   inline bool Object::is_eql(const Object& other) const
   {
-    VALUE result = detail::protect(rb_eql, this->value(), other.value());
+    if (this->is_nil() || other.is_nil())
+    {
+      return this->is_nil() && other.is_nil();
+    }
+
+    VALUE result = detail::protect(rb_eql, this->validated_value(), other.validated_value());
     return RB_TEST(result);
   }
 
   inline void Object::freeze()
   {
-    detail::protect(rb_obj_freeze, value());
+    detail::protect(rb_obj_freeze, this->validated_value());
   }
 
   inline bool Object::is_frozen() const
   {
-    return RB_OBJ_FROZEN(value());
+    return RB_OBJ_FROZEN(this->validated_value());
   }
 
   inline int Object::rb_type() const
   {
-    return ::rb_type(this->value());
+    return ::rb_type(this->validated_value());
   }
 
   inline VALUE Object::object_id() const
   {
-    return detail::protect(rb_obj_id, this->value());
+    return detail::protect(rb_obj_id, this->validated_value());
   }
 
   inline bool Object::is_a(Object klass) const
   {
-    VALUE result = detail::protect(rb_obj_is_kind_of, this->value(), klass.value());
+    VALUE result = detail::protect(rb_obj_is_kind_of, this->validated_value(), klass.validated_value());
     return RB_TEST(result);
   }
 
   inline void Object::extend(Module const& mod)
   {
-    detail::protect(rb_extend_object, this->value(), mod.value());
+    detail::protect(rb_extend_object, this->validated_value(), mod.validated_value());
   }
 
   inline bool Object::respond_to(Identifier id) const
   {
-    return bool(rb_respond_to(this->value(), id.id()));
+    return bool(rb_respond_to(this->validated_value(), id.id()));
   }
 
   inline bool Object::is_instance_of(Object klass) const
   {
-    VALUE result = detail::protect(rb_obj_is_instance_of, this->value(), klass.value());
+    VALUE result = detail::protect(rb_obj_is_instance_of, this->validated_value(), klass.validated_value());
     return RB_TEST(result);
   }
 
   inline Object Object::iv_get(Identifier name) const
   {
-    return detail::protect(rb_ivar_get, this->value(), name.id());
+    return detail::protect(rb_ivar_get, this->validated_value(), name.id());
   }
 
   inline Object Object::attr_get(Identifier name) const
   {
-    return detail::protect(rb_attr_get, this->value(), name.id());
+    return detail::protect(rb_attr_get, this->validated_value(), name.id());
   }
 
   inline void Object::set_value(VALUE value)
@@ -12718,20 +12917,20 @@ namespace Rice4RubyQt6
 
   inline Object Object::const_get(Identifier name) const
   {
-    return detail::protect(rb_const_get, this->value(), name.id());
+    return detail::protect(rb_const_get, this->validated_value(), name.id());
   }
 
   inline bool Object::const_defined(Identifier name) const
   {
-    size_t result = detail::protect(rb_const_defined, this->value(), name.id());
+    size_t result = detail::protect(rb_const_defined, this->validated_value(), name.id());
     return bool(result);
   }
 
   inline Object Object::const_set(Identifier name, Object value)
   {
     // We will allow setting constants to Qnil, or the decimal value of 4. This happens
-    // in C++ libraries with enums. Thus skip the value() method that raises excptions
-    detail::protect(rb_const_set, this->value(), name.id(), value.value_.value());
+    // in C++ libraries with enums. Thus use value() instead of validated_value
+    detail::protect(rb_const_set, this->validated_value(), name.id(), value.value());
     return value;
   }
 
@@ -12746,7 +12945,7 @@ namespace Rice4RubyQt6
 
   inline void Object::remove_const(Identifier name)
   {
-    detail::protect(rb_mod_remove_const, this->value(), name.to_sym());
+    detail::protect(rb_mod_remove_const, this->validated_value(), name.to_sym());
   }
 
   inline bool operator==(Object const& lhs, Object const& rhs)
@@ -12908,22 +13107,22 @@ namespace Rice4RubyQt6
 
   inline size_t String::length() const
   {
-    return RSTRING_LEN(value());
+    return RSTRING_LEN(this->value());
   }
 
   inline char String::operator[](ptrdiff_t index) const
   {
-    return RSTRING_PTR(value())[index];
+    return RSTRING_PTR(this->value())[index];
   }
 
   inline char const* String::c_str() const
   {
-    return RSTRING_PTR(value());
+    return RSTRING_PTR(this->value());
   }
 
   inline std::string String::str() const
   {
-    return std::string(RSTRING_PTR(value()), length());
+    return std::string(RSTRING_PTR(this->value()), length());
   }
 
   template<typename T>
@@ -14847,7 +15046,7 @@ namespace Rice4RubyQt6
   template <typename Attribute_T, typename Access_T, typename...Arg_Ts>
   inline Data_Type<T>& Data_Type<T>::define_singleton_attr(std::string name, Attribute_T attribute, Access_T access, const Arg_Ts&...args)
   {
-    VALUE singleton = detail::protect(rb_singleton_class, this->value());
+    VALUE singleton = detail::protect(rb_singleton_class, this->validated_value());
     return this->define_attr_internal<Attribute_T, Access_T>(singleton, name, std::forward<Attribute_T>(attribute), access, args...);
   }
 
@@ -14855,8 +15054,6 @@ namespace Rice4RubyQt6
   template <typename Attribute_T, typename Access_T, typename...Arg_Ts>
   inline Data_Type<T>& Data_Type<T>::define_attr_internal(VALUE klass, std::string name, Attribute_T attribute, Access_T, const Arg_Ts&...args)
   {
-    using Attr_T = typename detail::attribute_traits<Attribute_T>::attr_type;
-
     // Define attribute getter
     if constexpr (std::is_same_v<Access_T, AttrAccess::ReadWriteType> || std::is_same_v<Access_T, AttrAccess::ReadType>)
     {
