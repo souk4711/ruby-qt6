@@ -66,6 +66,9 @@ module RubyQt6
         return default unless qvariant.valid?
 
         case default
+        when TrueClass, FalseClass then QVariant.to_bool(qvariant)
+        when Integer, Float then QVariant.to_double(qvariant)
+        when String then QVariant.to_qstring(qvariant)
         when QStringList then QVariant.to_qstringlist(qvariant)
         else qvariant.value
         end
