@@ -12,4 +12,9 @@ RSpec.describe RubyQt6::QtCore::Private::Inflector do
     expect(inflector.underscore("applicationNameChanged")).to eq("application_name_changed")
     expect(inflector.underscore("destroyed")).to eq("destroyed")
   end
+
+  it "#constantize" do
+    expect(inflector.constantize("QObject")).to eq(QObject)
+    expect(inflector.constantize("RubyQt6::QtCore::QObject")).to eq(QObject)
+  end
 end

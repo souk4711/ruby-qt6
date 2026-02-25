@@ -66,7 +66,7 @@ module RubyQt6
 
       # @!visibility private
       def children
-        _children.map { |child| T.bando_qobject_cast(child) }
+        _children.map { |child| T.qobject_cast(child) }
       end
 
       # @!visibility private
@@ -78,19 +78,19 @@ module RubyQt6
       def find_child(name, options = nil)
         options ||= Qt::FindChildrenRecursively
         child = _find_child(T.to_qanystringview(name), T.to_qflags(options))
-        T.bando_qobject_cast(child)
+        T.qobject_cast(child)
       end
 
       # @!visibility private
       def find_children(name, options = nil)
         options ||= Qt::FindChildrenRecursively
         children = _find_children(T.to_qanystringview(name), T.to_qflags(options))
-        children.map { |child| T.bando_qobject_cast(child) }
+        children.map { |child| T.qobject_cast(child) }
       end
 
       # @!visibility private
       def parent
-        T.bando_qobject_cast(_parent)
+        T.qobject_cast(_parent)
       end
 
       # @!visibility private

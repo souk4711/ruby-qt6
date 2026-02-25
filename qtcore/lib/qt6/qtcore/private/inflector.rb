@@ -17,6 +17,12 @@ module RubyQt6
           str.downcase!
           str
         end
+
+        def constantize(str)
+          str.split("::").reduce(Object) { |constant, name| constant.const_get(name) }
+        rescue NameError
+          nil
+        end
       end
 
       def self.inflector

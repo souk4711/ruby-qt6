@@ -70,9 +70,13 @@ module RubyQt6
       enum_or_flags.to_qflags
     end
 
-    def self.bando_qobject_cast(object)
-      b = object.class.name.start_with?("RubyQt6::Bando::")
-      b ? object._ruby_value : object
+    def self.qobject_cast(object)
+      raise ArgumentError, "Expected type QObject, but got #{object.class}" unless object.is_a?(QObject)
+
+      klass = QtCore::Private.inflector.constantize(object.meta_object.class_name)
+      return object if klass.nil?                                       # Defined in C++, but not yet in Ruby
+      return object._ruby_value if klass.method_defined?(:_ruby_value)  # RubyQt6::Bando::Q..., etc.
+      klass._qobject_cast(object)                                       # QObject, QWidget, etc.
     end
 
     def self.inspect_struct(object, **attributes)

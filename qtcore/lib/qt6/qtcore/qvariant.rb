@@ -30,7 +30,7 @@ module RubyQt6
 
       # @!visibility private
       def self.to_qobject(qvariant)
-        T.bando_qobject_cast(_to_qobject(qvariant))
+        T.qobject_cast(_to_qobject(qvariant))
       end
       private_class_method :to_qobject
 
