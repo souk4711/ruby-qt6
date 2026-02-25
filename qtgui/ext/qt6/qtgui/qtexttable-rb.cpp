@@ -12,6 +12,7 @@ void Init_qtexttable(Module rb_mQt6QtGui)
         // RubyQt6::QtGui::QTextTable
         define_qlass_under<QTextTable, QTextFrame>(rb_mQt6QtGui, "QTextTable")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QTextTable * { return qobject_cast<QTextTable *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QTextTable::staticMetaObject; })
             // Public Functions
             .define_method("resize", &QTextTable::resize, Arg("rows"), Arg("cols"))

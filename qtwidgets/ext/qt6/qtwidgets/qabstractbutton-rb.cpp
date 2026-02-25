@@ -13,6 +13,7 @@ void Init_qabstractbutton(Module rb_mQt6QtWidgets)
         // RubyQt6::QtWidgets::QAbstractButton
         define_qlass_under<QAbstractButton, QWidget>(rb_mQt6QtWidgets, "QAbstractButton")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QAbstractButton * { return qobject_cast<QAbstractButton *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QAbstractButton::staticMetaObject; })
             // Public Functions
             .define_method("auto_exclusive", &QAbstractButton::autoExclusive)

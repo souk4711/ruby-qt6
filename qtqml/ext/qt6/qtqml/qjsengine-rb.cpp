@@ -11,6 +11,7 @@ void Init_qjsengine(Module rb_mQt6QtQml)
         // RubyQt6::QtQml::QJSEngine
         define_qlass_under<QJSEngine, QObject>(rb_mQt6QtQml, "QJSEngine")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QJSEngine * { return qobject_cast<QJSEngine *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QJSEngine::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QJSEngine, QObject *>(), Arg("parent"))

@@ -16,6 +16,7 @@ void Init_qwizard(Module rb_mQt6QtWidgets)
         // RubyQt6::QtWidgets::QWizard
         define_qlass_under<QWizard, QDialog>(rb_mQt6QtWidgets, "QWizard")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QWizard * { return qobject_cast<QWizard *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QWizard::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QWizard, QWidget *>(), Arg("parent"))
@@ -132,6 +133,7 @@ void Init_qwizard(Module rb_mQt6QtWidgets)
         // RubyQt6::QtWidgets::QWizardPage
         define_qlass_under<QWizardPage, QWidget>(rb_mQt6QtWidgets, "QWizardPage")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QWizardPage * { return qobject_cast<QWizardPage *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QWizardPage::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QWizardPage, QWidget *>(), Arg("parent"))

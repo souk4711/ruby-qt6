@@ -13,6 +13,7 @@ void Init_qcolordialog(Module rb_mQt6QtWidgets)
         // RubyQt6::QtWidgets::QColorDialog
         define_qlass_under<QColorDialog, QDialog>(rb_mQt6QtWidgets, "QColorDialog")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QColorDialog * { return qobject_cast<QColorDialog *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QColorDialog::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QColorDialog, const QColor &, QWidget *>(), Arg("initial"), Arg("parent"))

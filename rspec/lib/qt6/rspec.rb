@@ -284,6 +284,14 @@ module RubyQt6
       rbfile_metamethods = rbfile_contents.scan(/(signal|slot) "(.*)"/).map { |method| method[1] }
       rbfile_metamethods = rbfile_metamethods.map { |method| method.split("(")[0] }.uniq
       raise "#{rbfile}: q_object: Mismatch `#{rbfile_metamethods}` != `#{metamethods}`" if rbfile_metamethods != metamethods
+
+      meth = qlass.methods.find { |method| method.type == :rubyqt6_defined_functions && method.rbname == "_qobject_cast" }
+      raise "#{cppfile}: Method _qobject_cast is missing" if meth.nil?
+      raise "#{cppfile}: Method _qobject_cast invalid" unless meth.rawline.include?("[](QObject *object) -> const #{qlass.name} * { return qobject_cast<#{qlass.name} *>(object); })")
+
+      meth = qlass.methods.find { |method| method.type == :rubyqt6_defined_functions && method.rbname == "_static_meta_object" }
+      raise "#{cppfile}: Method _static_meta_object is missing" if meth.nil?
+      raise "#{cppfile}: Method _static_meta_object invalid" unless meth.rawline.include?("[]() -> const QMetaObject * { return &#{qlass.name}::staticMetaObject; })")
     end
   end
 end

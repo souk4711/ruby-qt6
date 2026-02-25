@@ -13,6 +13,7 @@ void Init_qlabel(Module rb_mQt6QtWidgets)
         // RubyQt6::QtWidgets::QLabel
         define_qlass_under<QLabel, QFrame>(rb_mQt6QtWidgets, "QLabel")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QLabel * { return qobject_cast<QLabel *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QLabel::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QLabel, const QString &, QWidget *>(), Arg("text"), Arg("parent"))

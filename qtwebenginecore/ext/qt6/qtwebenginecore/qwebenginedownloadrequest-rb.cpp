@@ -14,6 +14,7 @@ void Init_qwebenginedownloadrequest(Module rb_mQt6QtWebEngineCore)
         // RubyQt6::QtWebEngineCore::QWebEngineDownloadRequest
         define_qlass_under<QWebEngineDownloadRequest, QObject>(rb_mQt6QtWebEngineCore, "QWebEngineDownloadRequest")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QWebEngineDownloadRequest * { return qobject_cast<QWebEngineDownloadRequest *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QWebEngineDownloadRequest::staticMetaObject; })
             // Public Functions
             .define_method("download_directory", &QWebEngineDownloadRequest::downloadDirectory)

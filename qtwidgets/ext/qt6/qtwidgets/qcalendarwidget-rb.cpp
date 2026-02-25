@@ -14,6 +14,7 @@ void Init_qcalendarwidget(Module rb_mQt6QtWidgets)
         // RubyQt6::QtWidgets::QCalendarWidget
         define_qlass_under<QCalendarWidget, QWidget>(rb_mQt6QtWidgets, "QCalendarWidget")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QCalendarWidget * { return qobject_cast<QCalendarWidget *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QCalendarWidget::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QCalendarWidget, QWidget *>(), Arg("parent"))

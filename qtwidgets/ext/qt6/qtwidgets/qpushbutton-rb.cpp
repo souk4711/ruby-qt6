@@ -13,6 +13,7 @@ void Init_qpushbutton(Module rb_mQt6QtWidgets)
         // RubyQt6::QtWidgets::QPushButton
         define_qlass_under<QPushButton, QAbstractButton>(rb_mQt6QtWidgets, "QPushButton")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QPushButton * { return qobject_cast<QPushButton *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QPushButton::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QPushButton, const QString &, QWidget *>(), Arg("text"), Arg("parent"))

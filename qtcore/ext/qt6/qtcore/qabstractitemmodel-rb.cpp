@@ -17,6 +17,7 @@ void Init_qabstractitemmodel(Module rb_mQt6QtCore)
         // RubyQt6::QtCore::QAbstractItemModel
         define_qlass_under<QAbstractItemModel, QObject>(rb_mQt6QtCore, "QAbstractItemModel")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QAbstractItemModel * { return qobject_cast<QAbstractItemModel *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QAbstractItemModel::staticMetaObject; })
             // Public Functions
             .define_method("buddy", &QAbstractItemModel::buddy, Arg("index"))
@@ -103,6 +104,7 @@ void Init_qabstractitemmodel(Module rb_mQt6QtCore)
         // RubyQt6::QtCore::QAbstractTableModel
         define_qlass_under<QAbstractTableModel, QAbstractItemModel>(rb_mQt6QtCore, "QAbstractTableModel")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QAbstractTableModel * { return qobject_cast<QAbstractTableModel *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QAbstractTableModel::staticMetaObject; })
             // Public Functions
             .define_method("drop_mime_data", &QAbstractTableModel::dropMimeData, Arg("data"), Arg("action"), Arg("row"), Arg("column"), Arg("parent"))
@@ -114,6 +116,7 @@ void Init_qabstractitemmodel(Module rb_mQt6QtCore)
         // RubyQt6::QtCore::QAbstractListModel
         define_qlass_under<QAbstractListModel, QAbstractItemModel>(rb_mQt6QtCore, "QAbstractListModel")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QAbstractListModel * { return qobject_cast<QAbstractListModel *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QAbstractListModel::staticMetaObject; })
             // Public Functions
             .define_method("drop_mime_data", &QAbstractListModel::dropMimeData, Arg("data"), Arg("action"), Arg("row"), Arg("column"), Arg("parent"))

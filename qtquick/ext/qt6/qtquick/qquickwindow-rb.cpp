@@ -23,6 +23,7 @@ void Init_qquickwindow(Module rb_mQt6QtQuick)
         // RubyQt6::QtQuick::QQuickWindow
         define_qlass_under<QQuickWindow, QWindow>(rb_mQt6QtQuick, "QQuickWindow")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QQuickWindow * { return qobject_cast<QQuickWindow *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QQuickWindow::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QQuickWindow, QWindow *>(), Arg("parent"))

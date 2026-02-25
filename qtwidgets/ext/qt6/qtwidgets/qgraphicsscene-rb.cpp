@@ -21,6 +21,7 @@ void Init_qgraphicsscene(Module rb_mQt6QtWidgets)
         // RubyQt6::QtWidgets::QGraphicsScene
         define_qlass_under<QGraphicsScene, QObject>(rb_mQt6QtWidgets, "QGraphicsScene")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QGraphicsScene * { return qobject_cast<QGraphicsScene *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QGraphicsScene::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QGraphicsScene, QObject *>(), Arg("parent"))

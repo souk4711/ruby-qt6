@@ -16,6 +16,7 @@ void Init_qlayout(Module rb_mQt6QtWidgets)
             // RubyQt6-Defined Functions
             .define_method("set_alignment", [](QLayout *self, QLayout *l, Qt::AlignmentFlag alignment) -> bool { return self->setAlignment(l, alignment); }, Arg("l"), Arg("alignment"))
             .define_method("set_alignment", [](QLayout *self, QWidget *w, Qt::AlignmentFlag alignment) -> bool { return self->setAlignment(w, alignment); }, Arg("w"), Arg("alignment"))
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QLayout * { return qobject_cast<QLayout *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QLayout::staticMetaObject; })
             // Inherits QLayoutItem
             .define_method("alignment", &QLayout::alignment)

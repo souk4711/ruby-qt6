@@ -13,6 +13,7 @@ void Init_qeventloop(Module rb_mQt6QtCore)
         // RubyQt6::QtCore::QEventLoop
         define_qlass_under<QEventLoop, QObject>(rb_mQt6QtCore, "QEventLoop")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QEventLoop * { return qobject_cast<QEventLoop *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QEventLoop::staticMetaObject; });
 
     Data_Type<QEventLoop::ProcessEventsFlag> rb_cQEventLoopProcessEventsFlag =

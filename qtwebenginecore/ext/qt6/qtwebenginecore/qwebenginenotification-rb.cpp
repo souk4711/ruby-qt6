@@ -13,6 +13,7 @@ void Init_qwebenginenotification(Module rb_mQt6QtWebEngineCore)
         // RubyQt6::QtWebEngineCore::QWebEngineNotification
         define_qlass_under<QWebEngineNotification, QObject>(rb_mQt6QtWebEngineCore, "QWebEngineNotification")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QWebEngineNotification * { return qobject_cast<QWebEngineNotification *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QWebEngineNotification::staticMetaObject; })
             // Public Functions
             .define_method("direction", &QWebEngineNotification::direction)

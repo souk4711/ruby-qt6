@@ -12,6 +12,7 @@ void Init_qsplitter(Module rb_mQt6QtWidgets)
         // RubyQt6::QtWidgets::QSplitter
         define_qlass_under<QSplitter, QFrame>(rb_mQt6QtWidgets, "QSplitter")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QSplitter * { return qobject_cast<QSplitter *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QSplitter::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QSplitter, Qt::Orientation, QWidget *>(), Arg("orientation"), Arg("parent"))
@@ -47,6 +48,7 @@ void Init_qsplitter(Module rb_mQt6QtWidgets)
         // RubyQt6::QtWidgets::QSplitterHandle
         define_qlass_under<QSplitterHandle, QWidget>(rb_mQt6QtWidgets, "QSplitterHandle")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QSplitterHandle * { return qobject_cast<QSplitterHandle *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QSplitterHandle::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QSplitterHandle, Qt::Orientation, QSplitter *>(), Arg("orientation"), Arg("parent"))

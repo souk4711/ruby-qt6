@@ -12,6 +12,7 @@ void Init_qactiongroup(Module rb_mQt6QtGui)
         // RubyQt6::QtGui::QActionGroup
         define_qlass_under<QActionGroup, QObject>(rb_mQt6QtGui, "QActionGroup")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QActionGroup * { return qobject_cast<QActionGroup *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QActionGroup::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QActionGroup, QObject *>(), Arg("parent"))

@@ -11,6 +11,7 @@ void Init_qfile(Module rb_mQt6QtCore)
         // RubyQt6::QtCore::QFile
         define_qlass_under<QFile, QFileDevice>(rb_mQt6QtCore, "QFile")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QFile * { return qobject_cast<QFile *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QFile::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QFile, const QString &>(), Arg("name"))

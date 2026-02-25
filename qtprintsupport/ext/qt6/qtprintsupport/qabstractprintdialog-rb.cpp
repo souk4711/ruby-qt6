@@ -15,6 +15,7 @@ void Init_qabstractprintdialog(Module rb_mQt6QtPrintSupport)
         // RubyQt6::QtPrintSupport::QAbstractPrintDialog
         define_qlass_under<QAbstractPrintDialog, QDialog>(rb_mQt6QtPrintSupport, "QAbstractPrintDialog")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QAbstractPrintDialog * { return qobject_cast<QAbstractPrintDialog *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QAbstractPrintDialog::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QAbstractPrintDialog, QPrinter *, QWidget *>(), Arg("printer"), Arg("parent"))

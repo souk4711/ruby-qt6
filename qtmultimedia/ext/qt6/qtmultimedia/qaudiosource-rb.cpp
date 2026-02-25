@@ -11,6 +11,7 @@ void Init_qaudiosource(Module rb_mQt6QtMultimedia)
         // RubyQt6::QtMultimedia::QAudioSource
         define_qlass_under<QAudioSource, QObject>(rb_mQt6QtMultimedia, "QAudioSource")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QAudioSource * { return qobject_cast<QAudioSource *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QAudioSource::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QAudioSource, const QAudioDevice &, const QAudioFormat &, QObject *>(), Arg("device"), Arg("format"), Arg("parent"))

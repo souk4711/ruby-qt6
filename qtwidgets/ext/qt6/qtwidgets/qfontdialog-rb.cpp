@@ -31,6 +31,7 @@ void Init_qfontdialog(Module rb_mQt6QtWidgets)
             // RubyQt6-Defined Functions
             .define_singleton_function("get_font", QFontDialog_get_font_2, Arg("ok"), Arg("parent") = static_cast<QWidget *>(nullptr))
             .define_singleton_function("get_font", QFontDialog_get_font_5, Arg("ok"), Arg("initial"), Arg("parent") = static_cast<QWidget *>(nullptr), Arg("title") = static_cast<const QString &>(QString()), Arg("options") = static_cast<QFontDialog::FontDialogOptions>(QFontDialog::FontDialogOptions()))
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QFontDialog * { return qobject_cast<QFontDialog *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QFontDialog::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QFontDialog, const QFont &, QWidget *>(), Arg("initial"), Arg("parent"))

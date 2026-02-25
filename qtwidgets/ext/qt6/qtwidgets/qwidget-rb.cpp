@@ -28,6 +28,7 @@ void Init_qwidget(Module rb_mQt6QtWidgets)
             .define_singleton_function("_qvariant_register_metatype", []() -> int { return qRegisterMetaType<QWidget *>(); })
             .define_singleton_function("_qvariant_from_value", [](QWidget *value) -> QVariant { return QVariant::fromValue(value); })
             .define_singleton_function("_qvariant_to_value", [](const QVariant &qvariant) -> QWidget * { return qvariant.value<QWidget *>(); })
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QWidget * { return qobject_cast<QWidget *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QWidget::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QWidget, QWidget *>(), Arg("parent"))

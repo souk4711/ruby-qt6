@@ -13,6 +13,7 @@ void Init_qvideosink(Module rb_mQt6QtMultimedia)
         // RubyQt6::QtMultimedia::QVideoSink
         define_qlass_under<QVideoSink, QObject>(rb_mQt6QtMultimedia, "QVideoSink")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QVideoSink * { return qobject_cast<QVideoSink *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QVideoSink::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QVideoSink, QObject *>(), Arg("parent"))

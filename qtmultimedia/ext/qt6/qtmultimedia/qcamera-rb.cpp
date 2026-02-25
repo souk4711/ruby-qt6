@@ -14,6 +14,7 @@ void Init_qcamera(Module rb_mQt6QtMultimedia)
         // RubyQt6::QtMultimedia::QCamera
         define_qlass_under<QCamera, QObject>(rb_mQt6QtMultimedia, "QCamera")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QCamera * { return qobject_cast<QCamera *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QCamera::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QCamera, QObject *>(), Arg("parent"))

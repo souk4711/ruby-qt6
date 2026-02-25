@@ -32,6 +32,7 @@ void Init_qwebenginepage(Module rb_mQt6QtWebEngineCore)
         // RubyQt6::QtWebEngineCore::QWebEnginePage
         define_qlass_under<QWebEnginePage, QObject>(rb_mQt6QtWebEngineCore, "QWebEnginePage")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QWebEnginePage * { return qobject_cast<QWebEnginePage *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QWebEnginePage::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QWebEnginePage, QObject *>(), Arg("parent"))

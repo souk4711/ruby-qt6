@@ -12,6 +12,7 @@ void Init_qheaderview(Module rb_mQt6QtWidgets)
         // RubyQt6::QtWidgets::QHeaderView
         define_qlass_under<QHeaderView, QAbstractItemView>(rb_mQt6QtWidgets, "QHeaderView")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QHeaderView * { return qobject_cast<QHeaderView *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QHeaderView::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QHeaderView, Qt::Orientation, QWidget *>(), Arg("orientation"), Arg("parent"))

@@ -12,6 +12,7 @@ void Init_qrubberband(Module rb_mQt6QtWidgets)
         // RubyQt6::QtWidgets::QRubberBand
         define_qlass_under<QRubberBand, QWidget>(rb_mQt6QtWidgets, "QRubberBand")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QRubberBand * { return qobject_cast<QRubberBand *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QRubberBand::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QRubberBand, QRubberBand::Shape, QWidget *>(), Arg("shape"), Arg("parent"))

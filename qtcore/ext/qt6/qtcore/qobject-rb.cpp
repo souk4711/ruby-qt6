@@ -33,6 +33,7 @@ void Init_qobject(Module rb_mQt6QtCore)
             // RubyQt6-Defined Functions
             .define_method("_qobject_ptr", [](QObject *self) -> uintptr_t { return (uintptr_t)self; })
             .define_singleton_function("_emit", QObject_emit, Arg("sender"), Arg("signal"), Arg("args"))
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QObject * { return qobject_cast<QObject *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QObject::staticMetaObject; })
             .define_singleton_function("_delete_now", [](QObject *object) -> void { delete object; }, Arg("object").takeOwnership())
             .define_singleton_function("_take_ownership_from_ruby", [](QObject *) -> void {}, Arg("object").takeOwnership())

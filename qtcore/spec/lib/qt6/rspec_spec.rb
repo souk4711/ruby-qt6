@@ -18,12 +18,12 @@ RSpec.describe RubyQt6::RSpec do
 
       r = rs["QObject"]
       expect(r.verified_initialize).to eq(1)
-      expect(r.verified_methods_count).to eq(41)
+      expect(r.verified_methods_count).to eq(42)
       expect(r.verified_enums_count).to eq(0)
 
       qlass = r.qlass
       qlass_methods = qlass.methods.group_by(&:type)
-      expect(qlass_methods[:rubyqt6_defined_functions].count).to eq(5)
+      expect(qlass_methods[:rubyqt6_defined_functions].count).to eq(6)
       expect(qlass_methods[:constructor].count).to eq(1)
       expect(qlass_methods[:inherits]).to eq(nil)
       expect(qlass_methods[:public_functions].count).to eq(28)

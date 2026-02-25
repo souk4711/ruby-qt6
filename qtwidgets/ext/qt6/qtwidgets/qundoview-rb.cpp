@@ -14,6 +14,7 @@ void Init_qundoview(Module rb_mQt6QtWidgets)
         // RubyQt6::QtWidgets::QUndoView
         define_qlass_under<QUndoView, QListView>(rb_mQt6QtWidgets, "QUndoView")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QUndoView * { return qobject_cast<QUndoView *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QUndoView::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QUndoView, QWidget *>(), Arg("parent"))

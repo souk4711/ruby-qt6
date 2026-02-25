@@ -11,6 +11,7 @@ void Init_qcolumnview(Module rb_mQt6QtWidgets)
         // RubyQt6::QtWidgets::QColumnView
         define_qlass_under<QColumnView, QAbstractItemView>(rb_mQt6QtWidgets, "QColumnView")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QColumnView * { return qobject_cast<QColumnView *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QColumnView::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QColumnView, QWidget *>(), Arg("parent"))

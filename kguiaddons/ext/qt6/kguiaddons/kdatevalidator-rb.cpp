@@ -11,6 +11,7 @@ void Init_kdatevalidator(Module rb_mQt6KGuiAddons)
         // RubyQt6::KGuiAddons::KDateValidator
         define_qlass_under<KDateValidator, QValidator>(rb_mQt6KGuiAddons, "KDateValidator")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const KDateValidator * { return qobject_cast<KDateValidator *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &KDateValidator::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<KDateValidator, QObject *>(), Arg("parent"))

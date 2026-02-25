@@ -16,6 +16,7 @@ void Init_qcombobox(Module rb_mQt6QtWidgets)
         // RubyQt6::QtWidgets::QComboBox
         define_qlass_under<QComboBox, QWidget>(rb_mQt6QtWidgets, "QComboBox")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QComboBox * { return qobject_cast<QComboBox *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QComboBox::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QComboBox, QWidget *>(), Arg("parent"))

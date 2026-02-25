@@ -12,6 +12,7 @@ void Init_qdialog(Module rb_mQt6QtWidgets)
         // RubyQt6::QtWidgets::QDialog
         define_qlass_under<QDialog, QWidget>(rb_mQt6QtWidgets, "QDialog")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QDialog * { return qobject_cast<QDialog *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QDialog::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QDialog, QWidget *>(), Arg("parent"))

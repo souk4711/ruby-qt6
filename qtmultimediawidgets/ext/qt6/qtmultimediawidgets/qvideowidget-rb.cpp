@@ -13,6 +13,7 @@ void Init_qvideowidget(Module rb_mQt6QtMultimediaWidgets)
         // RubyQt6::QtMultimediaWidgets::QVideoWidget
         define_qlass_under<QVideoWidget, QWidget>(rb_mQt6QtMultimediaWidgets, "QVideoWidget")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QVideoWidget * { return qobject_cast<QVideoWidget *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QVideoWidget::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QVideoWidget, QWidget *>(), Arg("parent"))

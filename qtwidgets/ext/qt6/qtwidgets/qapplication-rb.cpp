@@ -29,6 +29,7 @@ void Init_qapplication(Module rb_mQt6QtWidgets)
         define_qlass_under<QApplication, QGuiApplication>(rb_mQt6QtWidgets, "QApplication")
             // RubyQt6-Defined Functions
             .define_singleton_function("_new", QApplication_new, Arg("argv"), Return().takeOwnership())
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QApplication * { return qobject_cast<QApplication *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QApplication::staticMetaObject; })
             // Public Functions
             .define_method("auto_sip_enabled", &QApplication::autoSipEnabled)

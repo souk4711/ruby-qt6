@@ -15,6 +15,7 @@ void Init_qimagecapture(Module rb_mQt6QtMultimedia)
         // RubyQt6::QtMultimedia::QImageCapture
         define_qlass_under<QImageCapture, QObject>(rb_mQt6QtMultimedia, "QImageCapture")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QImageCapture * { return qobject_cast<QImageCapture *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QImageCapture::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QImageCapture, QObject *>(), Arg("parent"))

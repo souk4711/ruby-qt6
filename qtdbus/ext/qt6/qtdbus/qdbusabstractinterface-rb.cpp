@@ -11,6 +11,7 @@ void Init_qdbusabstractinterface(Module rb_mQt6QtDBus)
         // RubyQt6::QtDBus::QDBusAbstractInterface
         define_qlass_under<QDBusAbstractInterface, QObject>(rb_mQt6QtDBus, "QDBusAbstractInterface")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QDBusAbstractInterface * { return qobject_cast<QDBusAbstractInterface *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QDBusAbstractInterface::staticMetaObject; })
             // Public Functions
             .define_method("async_call_with_argument_list", &QDBusAbstractInterface::asyncCallWithArgumentList, Arg("method"), Arg("args"))

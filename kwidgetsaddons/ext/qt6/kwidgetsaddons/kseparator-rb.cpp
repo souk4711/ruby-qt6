@@ -11,6 +11,7 @@ void Init_kseparator(Module rb_mQt6KWidgetsAddons)
         // RubyQt6::KWidgetsAddons::KSeparator
         define_qlass_under<KSeparator, QFrame>(rb_mQt6KWidgetsAddons, "KSeparator")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const KSeparator * { return qobject_cast<KSeparator *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &KSeparator::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<KSeparator, Qt::Orientation, QWidget *>(), Arg("orientation"), Arg("parent"))

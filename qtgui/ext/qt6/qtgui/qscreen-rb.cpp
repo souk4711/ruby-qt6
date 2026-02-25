@@ -13,6 +13,7 @@ void Init_qscreen(Module rb_mQt6QtGui)
         // RubyQt6::QtGui::QScreen
         define_qlass_under<QScreen, QObject>(rb_mQt6QtGui, "QScreen")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QScreen * { return qobject_cast<QScreen *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QScreen::staticMetaObject; })
             // Public Functions
             .define_method("angle_between", &QScreen::angleBetween, Arg("a"), Arg("b"))

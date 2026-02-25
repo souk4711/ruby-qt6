@@ -13,6 +13,7 @@ void Init_qsplashscreen(Module rb_mQt6QtWidgets)
         // RubyQt6::QtWidgets::QSplashScreen
         define_qlass_under<QSplashScreen, QWidget>(rb_mQt6QtWidgets, "QSplashScreen")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QSplashScreen * { return qobject_cast<QSplashScreen *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QSplashScreen::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QSplashScreen, const QPixmap &>(), Arg("pixmap"))

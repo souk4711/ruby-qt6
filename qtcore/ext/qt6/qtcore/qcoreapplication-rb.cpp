@@ -32,6 +32,7 @@ void Init_qcoreapplication(Module rb_mQt6QtCore)
             // RubyQt6-Defined Functions
             .define_singleton_function("application_pid", []() -> qint64 { return QCoreApplication::applicationPid(); })
             .define_singleton_function("_new", QCoreApplication_new, Arg("argv"), Return().takeOwnership())
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QCoreApplication * { return qobject_cast<QCoreApplication *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QCoreApplication::staticMetaObject; })
             // Public Functions
             .define_method("check_permission", &QCoreApplication::checkPermission, Arg("permission"))

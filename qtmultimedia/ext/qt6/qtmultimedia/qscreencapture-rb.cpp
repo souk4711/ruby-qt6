@@ -14,6 +14,7 @@ void Init_qscreencapture(Module rb_mQt6QtMultimedia)
         // RubyQt6::QtMultimedia::QScreenCapture
         define_qlass_under<QScreenCapture, QObject>(rb_mQt6QtMultimedia, "QScreenCapture")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QScreenCapture * { return qobject_cast<QScreenCapture *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QScreenCapture::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QScreenCapture, QObject *>(), Arg("parent"))

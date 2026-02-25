@@ -15,6 +15,7 @@ void Init_qitemselectionmodel(Module rb_mQt6QtCore)
         // RubyQt6::QtCore::QItemSelectionModel
         define_qlass_under<QItemSelectionModel, QObject>(rb_mQt6QtCore, "QItemSelectionModel")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QItemSelectionModel * { return qobject_cast<QItemSelectionModel *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QItemSelectionModel::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QItemSelectionModel, QAbstractItemModel *, QObject *>(), Arg("model"), Arg("parent"))

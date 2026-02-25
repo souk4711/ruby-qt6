@@ -34,6 +34,7 @@ void Init_qwebengineprofile(Module rb_mQt6QtWebEngineCore)
         define_qlass_under<QWebEngineProfile, QObject>(rb_mQt6QtWebEngineCore, "QWebEngineProfile")
             // RubyQt6-Defined Functions
             .define_method("_set_notification_presenter", [](QWebEngineProfile *self, Object presenter) -> void { return self->setNotificationPresenter(QWebEngineNotificationFunctor(presenter)); }, Arg("presenter"))
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QWebEngineProfile * { return qobject_cast<QWebEngineProfile *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QWebEngineProfile::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QWebEngineProfile, const QString &, QObject *>(), Arg("name"), Arg("parent"))

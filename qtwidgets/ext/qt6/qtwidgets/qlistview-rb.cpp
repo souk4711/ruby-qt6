@@ -12,6 +12,7 @@ void Init_qlistview(Module rb_mQt6QtWidgets)
         // RubyQt6::QtWidgets::QListView
         define_qlass_under<QListView, QAbstractItemView>(rb_mQt6QtWidgets, "QListView")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QListView * { return qobject_cast<QListView *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QListView::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QListView, QWidget *>(), Arg("parent"))

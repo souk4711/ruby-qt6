@@ -13,6 +13,7 @@ void Init_qaudioinput(Module rb_mQt6QtMultimedia)
         // RubyQt6::QtMultimedia::QAudioInput
         define_qlass_under<QAudioInput, QObject>(rb_mQt6QtMultimedia, "QAudioInput")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QAudioInput * { return qobject_cast<QAudioInput *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QAudioInput::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QAudioInput, QObject *>(), Arg("parent"))

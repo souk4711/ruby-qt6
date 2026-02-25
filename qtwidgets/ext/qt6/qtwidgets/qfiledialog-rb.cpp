@@ -17,6 +17,7 @@ void Init_qfiledialog(Module rb_mQt6QtWidgets)
         // RubyQt6::QtWidgets::QFileDialog
         define_qlass_under<QFileDialog, QDialog>(rb_mQt6QtWidgets, "QFileDialog")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QFileDialog * { return qobject_cast<QFileDialog *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QFileDialog::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QFileDialog, QWidget *>(), Arg("parent"))

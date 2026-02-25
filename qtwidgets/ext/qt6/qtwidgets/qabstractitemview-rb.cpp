@@ -13,6 +13,7 @@ void Init_qabstractitemview(Module rb_mQt6QtWidgets)
         // RubyQt6::QtWidgets::QAbstractItemView
         define_qlass_under<QAbstractItemView, QAbstractScrollArea>(rb_mQt6QtWidgets, "QAbstractItemView")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QAbstractItemView * { return qobject_cast<QAbstractItemView *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QAbstractItemView::staticMetaObject; })
             // Public Functions
             .define_method("alternating_row_colors", &QAbstractItemView::alternatingRowColors)

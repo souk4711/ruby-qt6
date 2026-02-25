@@ -11,6 +11,7 @@ void Init_qtextbrowser(Module rb_mQt6QtWidgets)
         // RubyQt6::QtWidgets::QTextBrowser
         define_qlass_under<QTextBrowser, QTextEdit>(rb_mQt6QtWidgets, "QTextBrowser")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QTextBrowser * { return qobject_cast<QTextBrowser *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QTextBrowser::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QTextBrowser, QWidget *>(), Arg("parent"))

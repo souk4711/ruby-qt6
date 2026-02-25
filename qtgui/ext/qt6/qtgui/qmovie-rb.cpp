@@ -15,6 +15,7 @@ void Init_qmovie(Module rb_mQt6QtGui)
         // RubyQt6::QtGui::QMovie
         define_qlass_under<QMovie, QObject>(rb_mQt6QtGui, "QMovie")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QMovie * { return qobject_cast<QMovie *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QMovie::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QMovie, QObject *>(), Arg("parent"))

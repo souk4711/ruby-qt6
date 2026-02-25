@@ -12,6 +12,7 @@ void Init_qframe(Module rb_mQt6QtWidgets)
         // RubyQt6::QtWidgets::QFrame
         define_qlass_under<QFrame, QWidget>(rb_mQt6QtWidgets, "QFrame")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QFrame * { return qobject_cast<QFrame *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QFrame::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QFrame, QWidget *>(), Arg("parent"))

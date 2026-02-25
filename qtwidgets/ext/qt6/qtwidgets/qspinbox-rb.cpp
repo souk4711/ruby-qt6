@@ -12,6 +12,7 @@ void Init_qspinbox(Module rb_mQt6QtWidgets)
         // RubyQt6::QtWidgets::QDoubleSpinBox
         define_qlass_under<QDoubleSpinBox, QAbstractSpinBox>(rb_mQt6QtWidgets, "QDoubleSpinBox")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QDoubleSpinBox * { return qobject_cast<QDoubleSpinBox *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QDoubleSpinBox::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QDoubleSpinBox, QWidget *>(), Arg("parent"))
@@ -47,6 +48,7 @@ void Init_qspinbox(Module rb_mQt6QtWidgets)
         // RubyQt6::QtWidgets::QSpinBox
         define_qlass_under<QSpinBox, QAbstractSpinBox>(rb_mQt6QtWidgets, "QSpinBox")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QSpinBox * { return qobject_cast<QSpinBox *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QSpinBox::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QSpinBox, QWidget *>(), Arg("parent"))

@@ -17,6 +17,7 @@ void Init_qgraphicstextitem(Module rb_mQt6QtWidgets)
         // RubyQt6::QtWidgets::QGraphicsTextItem
         define_qlass_under<QGraphicsTextItem, QGraphicsObject>(rb_mQt6QtWidgets, "QGraphicsTextItem")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QGraphicsTextItem * { return qobject_cast<QGraphicsTextItem *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QGraphicsTextItem::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QGraphicsTextItem, const QString &, QGraphicsItem *>(), Arg("text"), Arg("parent"))

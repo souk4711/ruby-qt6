@@ -18,6 +18,7 @@ void Init_qstyle(Module rb_mQt6QtWidgets)
         // RubyQt6::QtWidgets::QStyle
         define_qlass_under<QStyle, QObject>(rb_mQt6QtWidgets, "QStyle")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QStyle * { return qobject_cast<QStyle *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QStyle::staticMetaObject; })
             // Public Functions
             .define_method("combined_layout_spacing", &QStyle::combinedLayoutSpacing, Arg("controls1"), Arg("controls2"), Arg("orientation"), Arg("option") = static_cast<QStyleOption *>(nullptr), Arg("widget") = static_cast<QWidget *>(nullptr))

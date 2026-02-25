@@ -11,6 +11,7 @@ void Init_qwebengineclienthints(Module rb_mQt6QtWebEngineCore)
         // RubyQt6::QtWebEngineCore::QWebEngineClientHints
         define_qlass_under<QWebEngineClientHints, QObject>(rb_mQt6QtWebEngineCore, "QWebEngineClientHints")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QWebEngineClientHints * { return qobject_cast<QWebEngineClientHints *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QWebEngineClientHints::staticMetaObject; })
             // Public Functions
             .define_method("arch", &QWebEngineClientHints::arch)

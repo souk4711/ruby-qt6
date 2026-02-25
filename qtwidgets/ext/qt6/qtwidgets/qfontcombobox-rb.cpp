@@ -13,6 +13,7 @@ void Init_qfontcombobox(Module rb_mQt6QtWidgets)
         // RubyQt6::QtWidgets::QFontComboBox
         define_qlass_under<QFontComboBox, QComboBox>(rb_mQt6QtWidgets, "QFontComboBox")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QFontComboBox * { return qobject_cast<QFontComboBox *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QFontComboBox::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QFontComboBox, QWidget *>(), Arg("parent"))

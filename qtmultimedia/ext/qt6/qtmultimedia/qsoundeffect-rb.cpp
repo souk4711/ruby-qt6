@@ -14,6 +14,7 @@ void Init_qsoundeffect(Module rb_mQt6QtMultimedia)
         // RubyQt6::QtMultimedia::QSoundEffect
         define_qlass_under<QSoundEffect, QObject>(rb_mQt6QtMultimedia, "QSoundEffect")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QSoundEffect * { return qobject_cast<QSoundEffect *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QSoundEffect::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QSoundEffect, QObject *>(), Arg("parent"))

@@ -15,6 +15,7 @@ void Init_qnetworkreply(Module rb_mQt6QtNetwork)
             .define_singleton_function("_qvariant_register_metatype", []() -> int { return qRegisterMetaType<QNetworkReply *>(); })
             .define_singleton_function("_qvariant_from_value", [](QNetworkReply *value) -> QVariant { return QVariant::fromValue(value); })
             .define_singleton_function("_qvariant_to_value", [](const QVariant &qvariant) -> QNetworkReply * { return qvariant.value<QNetworkReply *>(); })
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QNetworkReply * { return qobject_cast<QNetworkReply *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QNetworkReply::staticMetaObject; })
             // Public Functions
             .define_method("attribute", &QNetworkReply::attribute, Arg("code"))

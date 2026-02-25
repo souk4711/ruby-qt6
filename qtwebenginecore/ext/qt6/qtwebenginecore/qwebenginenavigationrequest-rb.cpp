@@ -12,6 +12,7 @@ void Init_qwebenginenavigationrequest(Module rb_mQt6QtWebEngineCore)
         // RubyQt6::QtWebEngineCore::QWebEngineNavigationRequest
         define_qlass_under<QWebEngineNavigationRequest, QObject>(rb_mQt6QtWebEngineCore, "QWebEngineNavigationRequest")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QWebEngineNavigationRequest * { return qobject_cast<QWebEngineNavigationRequest *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QWebEngineNavigationRequest::staticMetaObject; })
             // Public Functions
             .define_method("accept", &QWebEngineNavigationRequest::accept)

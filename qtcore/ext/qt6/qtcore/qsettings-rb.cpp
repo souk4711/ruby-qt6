@@ -12,6 +12,7 @@ void Init_qsettings(Module rb_mQt6QtCore)
         // RubyQt6::QtCore::QSettings
         define_qlass_under<QSettings, QObject>(rb_mQt6QtCore, "QSettings")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QSettings * { return qobject_cast<QSettings *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QSettings::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QSettings, QSettings::Format, QSettings::Scope, const QString &, const QString &>(), Arg("format"), Arg("scope"), Arg("organization"), Arg("application"))

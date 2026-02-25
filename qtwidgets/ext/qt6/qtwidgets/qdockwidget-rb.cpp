@@ -13,6 +13,7 @@ void Init_qdockwidget(Module rb_mQt6QtWidgets)
         // RubyQt6::QtWidgets::QDockWidget
         define_qlass_under<QDockWidget, QWidget>(rb_mQt6QtWidgets, "QDockWidget")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QDockWidget * { return qobject_cast<QDockWidget *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QDockWidget::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QDockWidget, const QString &, QWidget *>(), Arg("title"), Arg("parent"))

@@ -14,6 +14,7 @@ void Init_qquickitem(Module rb_mQt6QtQuick)
         // RubyQt6::QtQuick::QQuickItem
         define_qlass_under<QQuickItem, QObject>(rb_mQt6QtQuick, "QQuickItem")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QQuickItem * { return qobject_cast<QQuickItem *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QQuickItem::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QQuickItem, QQuickItem *>(), Arg("parent"))

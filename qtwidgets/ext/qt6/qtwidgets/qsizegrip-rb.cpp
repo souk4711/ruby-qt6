@@ -11,6 +11,7 @@ void Init_qsizegrip(Module rb_mQt6QtWidgets)
         // RubyQt6::QtWidgets::QSizeGrip
         define_qlass_under<QSizeGrip, QWidget>(rb_mQt6QtWidgets, "QSizeGrip")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QSizeGrip * { return qobject_cast<QSizeGrip *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QSizeGrip::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QSizeGrip, QWidget *>(), Arg("parent"))

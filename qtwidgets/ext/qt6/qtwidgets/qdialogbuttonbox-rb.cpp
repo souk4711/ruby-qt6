@@ -16,6 +16,7 @@ void Init_qdialogbuttonbox(Module rb_mQt6QtWidgets)
         // RubyQt6::QtWidgets::QDialogButtonBox
         define_qlass_under<QDialogButtonBox, QWidget>(rb_mQt6QtWidgets, "QDialogButtonBox")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QDialogButtonBox * { return qobject_cast<QDialogButtonBox *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QDialogButtonBox::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QDialogButtonBox, QDialogButtonBox::StandardButtons, Qt::Orientation, QWidget *>(), Arg("buttons"), Arg("orientation"), Arg("parent"))

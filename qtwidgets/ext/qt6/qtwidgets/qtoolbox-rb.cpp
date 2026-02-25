@@ -11,6 +11,7 @@ void Init_qtoolbox(Module rb_mQt6QtWidgets)
         // RubyQt6::QtWidgets::QToolBox
         define_qlass_under<QToolBox, QFrame>(rb_mQt6QtWidgets, "QToolBox")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QToolBox * { return qobject_cast<QToolBox *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QToolBox::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QToolBox, QWidget *>(), Arg("parent"))

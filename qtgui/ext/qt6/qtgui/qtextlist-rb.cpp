@@ -11,6 +11,7 @@ void Init_qtextlist(Module rb_mQt6QtGui)
         // RubyQt6::QtGui::QTextList
         define_qlass_under<QTextList, QTextBlockGroup>(rb_mQt6QtGui, "QTextList")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QTextList * { return qobject_cast<QTextList *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QTextList::staticMetaObject; })
             // Public Functions
             .define_method("add", &QTextList::add, Arg("block"))

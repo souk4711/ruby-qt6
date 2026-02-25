@@ -33,6 +33,7 @@ void Init_qguiapplication(Module rb_mQt6QtGui)
         define_qlass_under<QGuiApplication, QCoreApplication>(rb_mQt6QtGui, "QGuiApplication")
             // RubyQt6-Defined Functions
             .define_singleton_function("_new", QGuiApplication_new, Arg("argv"), Return().takeOwnership())
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QGuiApplication * { return qobject_cast<QGuiApplication *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QGuiApplication::staticMetaObject; })
             // Public Functions
             .define_method("device_pixel_ratio", &QGuiApplication::devicePixelRatio)

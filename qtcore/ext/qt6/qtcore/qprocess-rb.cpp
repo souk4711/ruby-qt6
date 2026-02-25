@@ -12,6 +12,7 @@ void Init_qprocess(Module rb_mQt6QtCore)
         // RubyQt6::QtCore::QProcess
         define_qlass_under<QProcess, QIODevice>(rb_mQt6QtCore, "QProcess")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QProcess * { return qobject_cast<QProcess *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QProcess::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QProcess, QObject *>(), Arg("parent"))

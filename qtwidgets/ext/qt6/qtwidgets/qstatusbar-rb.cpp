@@ -11,6 +11,7 @@ void Init_qstatusbar(Module rb_mQt6QtWidgets)
         // RubyQt6::QtWidgets::QStatusBar
         define_qlass_under<QStatusBar, QWidget>(rb_mQt6QtWidgets, "QStatusBar")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QStatusBar * { return qobject_cast<QStatusBar *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QStatusBar::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QStatusBar, QWidget *>(), Arg("parent"))

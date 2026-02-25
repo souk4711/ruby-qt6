@@ -14,6 +14,7 @@ void Init_qwindowcapture(Module rb_mQt6QtMultimedia)
         // RubyQt6::QtMultimedia::QWindowCapture
         define_qlass_under<QWindowCapture, QObject>(rb_mQt6QtMultimedia, "QWindowCapture")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QWindowCapture * { return qobject_cast<QWindowCapture *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QWindowCapture::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QWindowCapture, QObject *>(), Arg("parent"))

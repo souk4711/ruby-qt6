@@ -11,6 +11,7 @@ void Init_qshortcut(Module rb_mQt6QtGui)
         // RubyQt6::QtGui::QShortcut
         define_qlass_under<QShortcut, QObject>(rb_mQt6QtGui, "QShortcut")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QShortcut * { return qobject_cast<QShortcut *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QShortcut::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QShortcut, const QKeySequence &, QObject *>(), Arg("key"), Arg("parent"))

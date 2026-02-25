@@ -17,6 +17,7 @@ void Init_qdatetimeedit(Module rb_mQt6QtWidgets)
         // RubyQt6::QtWidgets::QDateTimeEdit
         define_qlass_under<QDateTimeEdit, QAbstractSpinBox>(rb_mQt6QtWidgets, "QDateTimeEdit")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QDateTimeEdit * { return qobject_cast<QDateTimeEdit *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QDateTimeEdit::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QDateTimeEdit, const QDateTime &, QWidget *>(), Arg("datetime"), Arg("parent"))
@@ -98,6 +99,7 @@ void Init_qdatetimeedit(Module rb_mQt6QtWidgets)
         // RubyQt6::QtWidgets::QDateEdit
         define_qlass_under<QDateEdit, QDateTimeEdit>(rb_mQt6QtWidgets, "QDateEdit")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QDateEdit * { return qobject_cast<QDateEdit *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QDateEdit::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QDateEdit, QDate, QWidget *>(), Arg("date"), Arg("parent"));
@@ -108,6 +110,7 @@ void Init_qdatetimeedit(Module rb_mQt6QtWidgets)
         // RubyQt6::QtWidgets::QTimeEdit
         define_qlass_under<QTimeEdit, QDateTimeEdit>(rb_mQt6QtWidgets, "QTimeEdit")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QTimeEdit * { return qobject_cast<QTimeEdit *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QTimeEdit::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QTimeEdit, QTime, QWidget *>(), Arg("time"), Arg("parent"));

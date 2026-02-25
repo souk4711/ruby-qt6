@@ -12,6 +12,7 @@ void Init_qabstractitemdelegate(Module rb_mQt6QtWidgets)
         // RubyQt6::QtWidgets::QAbstractItemDelegate
         define_qlass_under<QAbstractItemDelegate, QObject>(rb_mQt6QtWidgets, "QAbstractItemDelegate")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QAbstractItemDelegate * { return qobject_cast<QAbstractItemDelegate *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QAbstractItemDelegate::staticMetaObject; });
             // Signals
             // .define_method("close_editor", &QAbstractItemDelegate::closeEditor, Arg("editor"), Arg("hint") = static_cast<QAbstractItemDelegate::EndEditHint>(QAbstractItemDelegate::EndEditHint::NoHint))

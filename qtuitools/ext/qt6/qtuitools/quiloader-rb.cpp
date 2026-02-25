@@ -15,6 +15,7 @@ void Init_quiloader(Module rb_mQt6QtUiTools)
         // RubyQt6::QtUiTools::QUiLoader
         define_qlass_under<QUiLoader, QObject>(rb_mQt6QtUiTools, "QUiLoader")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QUiLoader * { return qobject_cast<QUiLoader *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QUiLoader::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QUiLoader>())

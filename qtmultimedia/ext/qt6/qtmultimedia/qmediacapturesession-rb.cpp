@@ -22,6 +22,7 @@ void Init_qmediacapturesession(Module rb_mQt6QtMultimedia)
         // RubyQt6::QtMultimedia::QMediaCaptureSession
         define_qlass_under<QMediaCaptureSession, QObject>(rb_mQt6QtMultimedia, "QMediaCaptureSession")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QMediaCaptureSession * { return qobject_cast<QMediaCaptureSession *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QMediaCaptureSession::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QMediaCaptureSession, QObject *>(), Arg("parent"))

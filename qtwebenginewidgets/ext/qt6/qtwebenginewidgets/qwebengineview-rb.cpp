@@ -18,6 +18,7 @@ void Init_qwebengineview(Module rb_mQt6QtWebEngineWidgets)
         // RubyQt6::QtWebEngineWidgets::QWebEngineView
         define_qlass_under<QWebEngineView, QWidget>(rb_mQt6QtWebEngineWidgets, "QWebEngineView")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QWebEngineView * { return qobject_cast<QWebEngineView *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QWebEngineView::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QWebEngineView, QWidget*>(), Arg("parent"))

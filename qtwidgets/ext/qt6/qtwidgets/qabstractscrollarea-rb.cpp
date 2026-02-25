@@ -14,6 +14,7 @@ void Init_qabstractscrollarea(Module rb_mQt6QtWidgets)
         // RubyQt6::QtWidgets::QAbstractScrollArea
         define_qlass_under<QAbstractScrollArea, QFrame>(rb_mQt6QtWidgets, "QAbstractScrollArea")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QAbstractScrollArea * { return qobject_cast<QAbstractScrollArea *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QAbstractScrollArea::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QAbstractScrollArea, QWidget *>(), Arg("parent"))

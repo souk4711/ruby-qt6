@@ -11,6 +11,7 @@ void Init_qgraphicsobject(Module rb_mQt6QtWidgets)
         // RubyQt6::QtWidgets::QGraphicsObject
         define_qlass_under<QGraphicsObject, QObject>(rb_mQt6QtWidgets, "QGraphicsObject")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QGraphicsObject * { return qobject_cast<QGraphicsObject *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QGraphicsObject::staticMetaObject; })
             // Public Functions
             .define_method("grab_gesture", &QGraphicsObject::grabGesture, Arg("type"), Arg("flags") = static_cast<Qt::GestureFlags>(Qt::GestureFlags()))

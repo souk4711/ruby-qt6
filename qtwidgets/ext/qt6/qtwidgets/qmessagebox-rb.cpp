@@ -17,6 +17,7 @@ void Init_qmessagebox(Module rb_mQt6QtWidgets)
         // RubyQt6::QtWidgets::QMessageBox
         define_qlass_under<QMessageBox, QDialog>(rb_mQt6QtWidgets, "QMessageBox")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QMessageBox * { return qobject_cast<QMessageBox *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QMessageBox::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QMessageBox, QMessageBox::Icon, const QString &, const QString &, QMessageBox::StandardButtons, QWidget *>(), Arg("icon"), Arg("title"), Arg("text"), Arg("buttons"), Arg("parent"))

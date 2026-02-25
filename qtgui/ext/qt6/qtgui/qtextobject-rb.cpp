@@ -55,6 +55,7 @@ void Init_qtextobject(Module rb_mQt6QtGui)
         // RubyQt6::QtGui::QTextObject
         define_qlass_under<QTextObject, QObject>(rb_mQt6QtGui, "QTextObject")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QTextObject * { return qobject_cast<QTextObject *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QTextObject::staticMetaObject; })
             // Public Functions
             .define_method("document", &QTextObject::document)
@@ -66,12 +67,14 @@ void Init_qtextobject(Module rb_mQt6QtGui)
         // RubyQt6::QtGui::QTextBlockGroup
         define_qlass_under<QTextBlockGroup, QTextObject>(rb_mQt6QtGui, "QTextBlockGroup")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QTextBlockGroup * { return qobject_cast<QTextBlockGroup *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QTextBlockGroup::staticMetaObject; });
 
     rb_cQTextFrame =
         // RubyQt6::QtGui::QTextFrame
         define_qlass_under<QTextFrame, QTextObject>(rb_mQt6QtGui, "QTextFrame")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QTextFrame * { return qobject_cast<QTextFrame *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QTextFrame::staticMetaObject; })
             // Public Functions
             .define_method("child_frames", &QTextFrame::childFrames)

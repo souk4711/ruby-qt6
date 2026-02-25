@@ -15,6 +15,7 @@ void Init_qvalidator(Module rb_mQt6QtGui)
         // RubyQt6::QtGui::QValidator
         define_qlass_under<QValidator, QObject>(rb_mQt6QtGui, "QValidator")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QValidator * { return qobject_cast<QValidator *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QValidator::staticMetaObject; })
             // Public Functions
             .define_method("fixup", &QValidator::fixup, Arg("input"))
@@ -35,6 +36,7 @@ void Init_qvalidator(Module rb_mQt6QtGui)
         // RubyQt6::QtGui::QDoubleValidator
         define_qlass_under<QDoubleValidator, QValidator>(rb_mQt6QtGui, "QDoubleValidator")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QDoubleValidator * { return qobject_cast<QDoubleValidator *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QDoubleValidator::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QDoubleValidator, QObject *>(), Arg("parent"))
@@ -67,6 +69,7 @@ void Init_qvalidator(Module rb_mQt6QtGui)
         // RubyQt6::QtGui::QIntValidator
         define_qlass_under<QIntValidator, QValidator>(rb_mQt6QtGui, "QIntValidator")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QIntValidator * { return qobject_cast<QIntValidator *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QIntValidator::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QIntValidator, QObject *>(), Arg("parent"))
@@ -86,6 +89,7 @@ void Init_qvalidator(Module rb_mQt6QtGui)
         // RubyQt6::QtGui::QRegularExpressionValidator
         define_qlass_under<QRegularExpressionValidator, QValidator>(rb_mQt6QtGui, "QRegularExpressionValidator")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QRegularExpressionValidator * { return qobject_cast<QRegularExpressionValidator *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QRegularExpressionValidator::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QRegularExpressionValidator, QObject *>(), Arg("parent"))

@@ -15,6 +15,7 @@ void Init_qwindow(Module rb_mQt6QtGui)
         // RubyQt6::QtGui::QWindow
         define_qlass_under<QWindow, QObject>(rb_mQt6QtGui, "QWindow")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QWindow * { return qobject_cast<QWindow *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QWindow::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QWindow, QWindow *>(), Arg("parent"))

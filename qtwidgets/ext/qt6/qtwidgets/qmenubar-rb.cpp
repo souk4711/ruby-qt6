@@ -11,6 +11,7 @@ void Init_qmenubar(Module rb_mQt6QtWidgets)
         // RubyQt6::QtWidgets::QMenuBar
         define_qlass_under<QMenuBar, QWidget>(rb_mQt6QtWidgets, "QMenuBar")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QMenuBar * { return qobject_cast<QMenuBar *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QMenuBar::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QMenuBar, QWidget *>(), Arg("parent"))

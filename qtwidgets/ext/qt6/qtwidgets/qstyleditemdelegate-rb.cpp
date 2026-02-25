@@ -13,6 +13,7 @@ void Init_qstyleditemdelegate(Module rb_mQt6QtWidgets)
         // RubyQt6::QtWidgets::QStyledItemDelegate
         define_qlass_under<QStyledItemDelegate, QAbstractItemDelegate>(rb_mQt6QtWidgets, "QStyledItemDelegate")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QStyledItemDelegate * { return qobject_cast<QStyledItemDelegate *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QStyledItemDelegate::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QStyledItemDelegate, QObject *>(), Arg("parent"))

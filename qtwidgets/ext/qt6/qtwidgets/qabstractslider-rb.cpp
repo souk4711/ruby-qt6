@@ -12,6 +12,7 @@ void Init_qabstractslider(Module rb_mQt6QtWidgets)
         // RubyQt6::QtWidgets::QAbstractSlider
         define_qlass_under<QAbstractSlider, QWidget>(rb_mQt6QtWidgets, "QAbstractSlider")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QAbstractSlider * { return qobject_cast<QAbstractSlider *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QAbstractSlider::staticMetaObject; })
             // Public Functions
             .define_method("has_tracking", &QAbstractSlider::hasTracking)

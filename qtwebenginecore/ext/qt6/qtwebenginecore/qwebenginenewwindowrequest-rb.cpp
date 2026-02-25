@@ -14,6 +14,7 @@ void Init_qwebenginenewwindowrequest(Module rb_mQt6QtWebEngineCore)
         // RubyQt6::QtWebEngineCore::QWebEngineNewWindowRequest
         define_qlass_under<QWebEngineNewWindowRequest, QObject>(rb_mQt6QtWebEngineCore, "QWebEngineNewWindowRequest")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QWebEngineNewWindowRequest * { return qobject_cast<QWebEngineNewWindowRequest *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QWebEngineNewWindowRequest::staticMetaObject; })
             // Public Functions
             .define_method("destination", &QWebEngineNewWindowRequest::destination)

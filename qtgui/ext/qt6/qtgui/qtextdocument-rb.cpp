@@ -21,6 +21,7 @@ void Init_qtextdocument(Module rb_mQt6QtGui)
         // RubyQt6::QtGui::QTextDocument
         define_qlass_under<QTextDocument, QObject>(rb_mQt6QtGui, "QTextDocument")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QTextDocument * { return qobject_cast<QTextDocument *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QTextDocument::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QTextDocument, const QString &, QObject *>(), Arg("text"), Arg("parent"))

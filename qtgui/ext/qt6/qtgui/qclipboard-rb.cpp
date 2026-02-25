@@ -16,6 +16,7 @@ void Init_qclipboard(Module rb_mQt6QtGui)
         // RubyQt6::QtGui::QClipboard
         define_qlass_under<QClipboard, QObject>(rb_mQt6QtGui, "QClipboard")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QClipboard * { return qobject_cast<QClipboard *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QClipboard::staticMetaObject; })
             // Public Functions
             .define_method("clear", &QClipboard::clear, Arg("mode") = static_cast<QClipboard::Mode>(QClipboard::Mode::Clipboard))

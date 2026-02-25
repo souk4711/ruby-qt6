@@ -13,6 +13,7 @@ void Init_qitemdelegate(Module rb_mQt6QtWidgets)
         // RubyQt6::QtWidgets::QItemDelegate
         define_qlass_under<QItemDelegate, QAbstractItemDelegate>(rb_mQt6QtWidgets, "QItemDelegate")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QItemDelegate * { return qobject_cast<QItemDelegate *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QItemDelegate::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QItemDelegate, QObject *>(), Arg("parent"))

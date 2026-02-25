@@ -11,5 +11,6 @@ void Init_qdbusabstractadaptor(Module rb_mQt6QtDBus)
         // RubyQt6::QtDBus::QDBusAbstractAdaptor
         define_qlass_under<QDBusAbstractAdaptor, QObject>(rb_mQt6QtDBus, "QDBusAbstractAdaptor")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QDBusAbstractAdaptor * { return qobject_cast<QDBusAbstractAdaptor *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QDBusAbstractAdaptor::staticMetaObject; });
 }

@@ -19,6 +19,7 @@ void Init_qmediaplayer(Module rb_mQt6QtMultimedia)
         // RubyQt6::QtMultimedia::QMediaPlayer
         define_qlass_under<QMediaPlayer, QObject>(rb_mQt6QtMultimedia, "QMediaPlayer")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QMediaPlayer * { return qobject_cast<QMediaPlayer *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QMediaPlayer::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QMediaPlayer, QObject *>(), Arg("parent"))

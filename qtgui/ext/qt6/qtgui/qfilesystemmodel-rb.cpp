@@ -16,6 +16,7 @@ void Init_qfilesystemmodel(Module rb_mQt6QtGui)
         // RubyQt6::QtGui::QFileSystemModel
         define_qlass_under<QFileSystemModel, QAbstractItemModel>(rb_mQt6QtGui, "QFileSystemModel")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QFileSystemModel * { return qobject_cast<QFileSystemModel *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QFileSystemModel::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QFileSystemModel, QObject *>(), Arg("parent"))

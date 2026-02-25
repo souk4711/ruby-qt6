@@ -18,6 +18,7 @@ void Init_qaction(Module rb_mQt6QtGui)
             .define_singleton_function("_qvariant_register_metatype", []() -> int { return qRegisterMetaType<QAction *>(); })
             .define_singleton_function("_qvariant_from_value", [](QAction *value) -> QVariant { return QVariant::fromValue(value); })
             .define_singleton_function("_qvariant_to_value", [](const QVariant &qvariant) -> QAction * { return qvariant.value<QAction *>(); })
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QAction * { return qobject_cast<QAction *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QAction::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QAction, const QIcon &, const QString &, QObject *>(), Arg("icon"), Arg("text"), Arg("parent"))

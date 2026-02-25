@@ -15,6 +15,7 @@ void Init_qprogressdialog(Module rb_mQt6QtWidgets)
         // RubyQt6::QtWidgets::QProgressDialog
         define_qlass_under<QProgressDialog, QDialog>(rb_mQt6QtWidgets, "QProgressDialog")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QProgressDialog * { return qobject_cast<QProgressDialog *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QProgressDialog::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QProgressDialog, const QString &, const QString &, int, int, QWidget *>(), Arg("label_text"), Arg("cancel_button_text"), Arg("minimum"), Arg("maximum"), Arg("parent"))

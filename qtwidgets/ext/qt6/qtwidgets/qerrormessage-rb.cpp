@@ -11,6 +11,7 @@ void Init_qerrormessage(Module rb_mQt6QtWidgets)
         // RubyQt6::QtWidgets::QErrorMessage
         define_qlass_under<QErrorMessage, QDialog>(rb_mQt6QtWidgets, "QErrorMessage")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QErrorMessage * { return qobject_cast<QErrorMessage *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QErrorMessage::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QErrorMessage, QWidget *>(), Arg("parent"))

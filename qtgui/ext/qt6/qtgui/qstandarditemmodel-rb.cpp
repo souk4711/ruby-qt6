@@ -16,6 +16,7 @@ void Init_qstandarditemmodel(Module rb_mQt6QtGui)
         // RubyQt6::QtGui::QStandardItemModel
         define_qlass_under<QStandardItemModel, QAbstractItemModel>(rb_mQt6QtGui, "QStandardItemModel")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QStandardItemModel * { return qobject_cast<QStandardItemModel *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QStandardItemModel::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QStandardItemModel, QObject *>(), Arg("parent"))

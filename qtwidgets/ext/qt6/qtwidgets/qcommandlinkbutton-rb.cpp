@@ -13,6 +13,7 @@ void Init_qcommandlinkbutton(Module rb_mQt6QtWidgets)
         // RubyQt6::QtWidgets::QCommandLinkButton
         define_qlass_under<QCommandLinkButton, QPushButton>(rb_mQt6QtWidgets, "QCommandLinkButton")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QCommandLinkButton * { return qobject_cast<QCommandLinkButton *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QCommandLinkButton::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QCommandLinkButton, const QString &, const QString &, QWidget *>(), Arg("text"), Arg("description"), Arg("parent"))

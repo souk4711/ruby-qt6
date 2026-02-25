@@ -13,6 +13,7 @@ void Init_qtreeview(Module rb_mQt6QtWidgets)
         // RubyQt6::QtWidgets::QTreeView
         define_qlass_under<QTreeView, QAbstractItemView>(rb_mQt6QtWidgets, "QTreeView")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QTreeView * { return qobject_cast<QTreeView *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QTreeView::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QTreeView, QWidget *>(), Arg("parent"))

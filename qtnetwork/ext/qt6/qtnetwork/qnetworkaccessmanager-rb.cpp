@@ -20,6 +20,7 @@ void Init_qnetworkaccessmanager(Module rb_mQt6QtNetwork)
         // RubyQt6::QtNetwork::QNetworkAccessManager
         define_qlass_under<QNetworkAccessManager, QObject>(rb_mQt6QtNetwork, "QNetworkAccessManager")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QNetworkAccessManager * { return qobject_cast<QNetworkAccessManager *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QNetworkAccessManager::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QNetworkAccessManager, QObject *>(), Arg("parent"))

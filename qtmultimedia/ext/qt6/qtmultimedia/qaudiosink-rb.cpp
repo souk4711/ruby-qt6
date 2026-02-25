@@ -11,6 +11,7 @@ void Init_qaudiosink(Module rb_mQt6QtMultimedia)
         // RubyQt6::QtMultimedia::QAudioSink
         define_qlass_under<QAudioSink, QObject>(rb_mQt6QtMultimedia, "QAudioSink")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QAudioSink * { return qobject_cast<QAudioSink *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QAudioSink::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QAudioSink, const QAudioDevice &, const QAudioFormat &, QObject *>(), Arg("device"), Arg("format"), Arg("parent"))

@@ -11,6 +11,7 @@ void Init_qdbusinterface(Module rb_mQt6QtDBus)
         // RubyQt6::QtDBus::QDBusInterface
         define_qlass_under<QDBusInterface, QDBusAbstractInterface>(rb_mQt6QtDBus, "QDBusInterface")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QDBusInterface * { return qobject_cast<QDBusInterface *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QDBusInterface::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QDBusInterface, const QString &, const QString &, const QString &, const QDBusConnection &, QObject *>(), Arg("service"), Arg("path"), Arg("interface"), Arg("connection"), Arg("parent"));

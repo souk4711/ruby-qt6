@@ -15,6 +15,7 @@ void Init_qformlayout(Module rb_mQt6QtWidgets)
         // RubyQt6::QtWidgets::QFormLayout
         define_qlass_under<QFormLayout, QLayout>(rb_mQt6QtWidgets, "QFormLayout")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QFormLayout * { return qobject_cast<QFormLayout *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QFormLayout::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QFormLayout, QWidget *>(), Arg("parent"))

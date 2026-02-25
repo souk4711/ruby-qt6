@@ -13,6 +13,7 @@ void Init_qstylehints(Module rb_mQt6QtGui)
         // RubyQt6::QtGui::QStyleHints
         define_qlass_under<QStyleHints, QObject>(rb_mQt6QtGui, "QStyleHints")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QStyleHints * { return qobject_cast<QStyleHints *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QStyleHints::staticMetaObject; })
             // Public Functions
             .define_method("accessibility", &QStyleHints::accessibility)

@@ -13,6 +13,7 @@ void Init_qmenu(Module rb_mQt6QtWidgets)
             // RubyQt6-Defined Functions
             .define_singleton_function("_ioc_qaction_menu", [](QAction *self) -> QMenu * { return self->menu(); })
             .define_singleton_function("_ioc_qaction_set_menu", [](QAction *self, QMenu *menu) -> void { return self->setMenu(menu); })
+            .define_singleton_function("_qobject_cast", [](QObject *object) -> const QMenu * { return qobject_cast<QMenu *>(object); })
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QMenu::staticMetaObject; })
             // Constructor
             .define_constructor(Constructor<QMenu, const QString &, QWidget *>(), Arg("title"), Arg("parent"))
