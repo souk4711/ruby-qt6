@@ -30,7 +30,6 @@ module RubyQt6
 
       # @!visibility private
       def set_notification_presenter(presenter)
-        _gc_incref(presenter)
         _set_notification_presenter(presenter)
       end
     end
