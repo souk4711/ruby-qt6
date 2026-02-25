@@ -159,7 +159,7 @@ Data_Type<BC_T> define_bando_qwebenginepage_under(Module module, char const *nam
             .define_method("_ruby_value_handle_event", &BC_T::Class_T_handleEvent, Arg("name"), Arg("event"))
             .define_method("_event", &BC_T::Class_T_handleQObjectEvent, Arg("event"))
             .define_method("_event_filter", &BC_T::Class_T_handleQObjectEventFilter, Arg("watched"), Arg("event"))
-            .define_method("sender", &BC_T::sender);
+            .define_method("_sender", &BC_T::sender);
 
     bando_qlass
         .define_method("trigger_action", [](BC_T *self, QWebEnginePage::WebAction action, bool checked) -> void { return self->C_T::triggerAction(action, checked); }, Arg("action"), Arg("checked") = static_cast<bool>(false));

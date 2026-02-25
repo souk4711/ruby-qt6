@@ -240,7 +240,7 @@ Data_Type<BC_T> define_bando_qwidget_under(Module module, char const *name)
     detail::protect(rb_define_method, bando_qlass, "_ruby_value_handle_event", (RUBY_METHOD_FUNC)bando_qwidget_ruby_value_handle_event<BC_T>, 2);
     detail::protect(rb_define_method, bando_qlass, "_event", (RUBY_METHOD_FUNC)bando_qwidget_event<BC_T>, 1);
     detail::protect(rb_define_method, bando_qlass, "_event_filter", (RUBY_METHOD_FUNC)bando_qwidget_event_filter<BC_T>, 2);
-    detail::protect(rb_define_method, bando_qlass, "sender", (RUBY_METHOD_FUNC)bando_qwidget_sender<BC_T>, 0);
+    detail::protect(rb_define_method, bando_qlass, "_sender", (RUBY_METHOD_FUNC)bando_qwidget_sender<BC_T>, 0);
     detail::protect(rb_define_method, bando_qlass, "minimum_size_hint", (RUBY_METHOD_FUNC)bando_qwidget_minimum_size_hint<BC_T, C_T>, 0);
     detail::protect(rb_define_method, bando_qlass, "size_hint", (RUBY_METHOD_FUNC)bando_qwidget_size_hint<BC_T, C_T>, 0);
     return bando_qlass;

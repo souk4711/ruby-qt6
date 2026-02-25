@@ -71,17 +71,23 @@ module RubyQt6
       qlass.class_eval do
         alias_method :_initialize, :initialize
 
-        def initialize(*args)
-          super
-          _initialize_ruby_value(self, self.class._qmetaobject)
-        end
-
         def self._qmetaobject
           superclass._qmetaobject
         end
 
         def self._rubyqt6_metaobject
           superclass._rubyqt6_metaobject
+        end
+
+        def initialize(*args)
+          super
+          _initialize_ruby_value(self, self.class._qmetaobject)
+        end
+
+        private
+
+        def sender
+          T.qobject_cast(_sender)
         end
       end
       qlass.class_eval(&blk)

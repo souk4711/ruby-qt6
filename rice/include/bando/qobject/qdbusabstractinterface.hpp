@@ -84,7 +84,7 @@ Data_Type<BC_T> define_bando_qdbusabstractinterface_under(Module module, char co
             .define_method("_ruby_value_handle_event", &BC_T::Class_T_handleEvent, Arg("name"), Arg("event"))
             .define_method("_event", &BC_T::Class_T_handleQObjectEvent, Arg("event"))
             .define_method("_event_filter", &BC_T::Class_T_handleQObjectEventFilter, Arg("watched"), Arg("event"))
-            .define_method("sender", &BC_T::sender);
+            .define_method("_sender", &BC_T::sender);
     return bando_qlass;
 }
 

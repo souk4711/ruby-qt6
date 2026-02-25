@@ -124,7 +124,7 @@ Data_Type<BC_T> define_bando_qitemdelegate_under(Module module, char const *name
             .define_method("_ruby_value_handle_event", &BC_T::Class_T_handleEvent, Arg("name"), Arg("event"))
             .define_method("_event", &BC_T::Class_T_handleQObjectEvent, Arg("event"))
             .define_method("_event_filter", &BC_T::Class_T_handleQObjectEventFilter, Arg("watched"), Arg("event"))
-            .define_method("sender", &BC_T::sender);
+            .define_method("_sender", &BC_T::sender);
 
     bando_qlass
         .define_method("create_editor", [](BC_T *self, QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) -> QWidget * { return self->C_T::createEditor(parent, option, index); }, Arg("parent"), Arg("option"), Arg("index"))
