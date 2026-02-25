@@ -23,6 +23,7 @@
 #define RICE_QT6_PRELUDES_LIBQT6CORE_HPP
 
 #include <QMetaObject>
+#include <QAnyStringView>
 #include <QByteArray>
 #include <QChar>
 #include <QString>
@@ -61,6 +62,7 @@ void declare_qlass_under_libqt6core(Module rb_mQt6)
 {
     Module rb_mQt6QtCore = define_module_under(rb_mQt6, "QtCore");
     declare_qlass_under<QMetaObject>(rb_mQt6QtCore, "QMetaObject");
+    declare_qlass_under<QAnyStringView>(rb_mQt6QtCore, "QAnyStringView");
     declare_qlass_under<QByteArray>(rb_mQt6QtCore, "QByteArray");
     declare_qlass_under<QChar>(rb_mQt6QtCore, "QChar");
     declare_qlass_under<QString>(rb_mQt6QtCore, "QString");

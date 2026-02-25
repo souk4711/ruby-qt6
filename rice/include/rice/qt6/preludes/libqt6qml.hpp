@@ -22,9 +22,12 @@
 #ifndef RICE_QT6_PRELUDES_LIBQT6QML_HPP
 #define RICE_QT6_PRELUDES_LIBQT6QML_HPP
 
+#include <QQmlEngine>
+
 void declare_qlass_under_libqt6qml(Module rb_mQt6)
 {
     Module rb_mQt6QtQml = define_module_under(rb_mQt6, "QtQml");
+    declare_qlass_under<QQmlEngine>(rb_mQt6QtQml, "QQmlEngine");
 }
 
 #endif
