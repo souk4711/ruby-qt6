@@ -15,15 +15,25 @@ RICE4RUBYQT6_USE_NAMESPACE
 
 Class rb_cQGuiApplication;
 
+QGuiApplication* QGuiApplication_new(const QList<QByteArray>& strlist)
+{
+    static int argc = strlist.size();
+    static char** argv = new char*[argc];
+    for (int i = 0; i < argc; ++i) {
+        const QByteArray &bytes = strlist[i];
+        argv[i] = strdup(bytes.constData());
+    }
+    return new QGuiApplication(argc, argv);
+}
+
 void Init_qguiapplication(Module rb_mQt6QtGui)
 {
     rb_cQGuiApplication =
         // RubyQt6::QtGui::QGuiApplication
         define_qlass_under<QGuiApplication, QCoreApplication>(rb_mQt6QtGui, "QGuiApplication")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_new", QGuiApplication_new, Arg("argv"), Return().takeOwnership())
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QGuiApplication::staticMetaObject; })
-            // Constructor
-            .define_constructor(Constructor<QGuiApplication, int &, char **>(), Arg("argc"), ArgBuffer("argv"))
             // Public Functions
             .define_method("device_pixel_ratio", &QGuiApplication::devicePixelRatio)
             .define_method("notify", &QGuiApplication::notify, Arg("receiver"), Arg("event"))

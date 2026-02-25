@@ -17,6 +17,12 @@ module RubyQt6
       end
 
       # @!visibility private
+      def self.new
+        argv = _initialize_qApp_argv
+        _new(argv)._initialize_qApp
+      end
+
+      # @!visibility private
       def self.set_application_name(name)
         _set_application_name(T.to_qstr(name))
       end
@@ -37,13 +43,11 @@ module RubyQt6
       end
 
       # @!visibility private
-      alias_method :_initialize, :initialize
-
-      # @return [QCoreApplication]
-      def initialize
-        argv = _initialize_qApp_argv
-        _initialize(argv.size, argv.data)
-        _initialize_qApp
+      def self._initialize_qApp_argv
+        T::QList≺QByteArray≻.new.tap do |argv|
+          argv << T.to_qbytearray($PROGRAM_NAME)
+          ARGV.each { |arg| argv << T.to_qbytearray(arg) }
+        end
       end
 
       # @!visibility private
@@ -53,17 +57,7 @@ module RubyQt6
         end
       end
 
-      private
-
-      # The data referred to by argc and argv must stay valid for the
-      # entire lifetime of the QCoreApplication object. In addition,
-      # argc must be greater than zero and argv must contain at least
-      # one valid character string.
-      def _initialize_qApp_argv
-        argv = [$PROGRAM_NAME] + ARGV
-        $qApp_argv = ::Rice4RubyQt6::Buffer≺char∗≻.new(argv.map(&:bytes))
-      end
-
+      # @!visibility private
       def _initialize_qApp
         $qApp = self
       end

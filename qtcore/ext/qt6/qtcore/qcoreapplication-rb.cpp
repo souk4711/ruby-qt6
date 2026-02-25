@@ -9,6 +9,21 @@ RICE4RUBYQT6_USE_NAMESPACE
 
 Class rb_cQCoreApplication;
 
+QCoreApplication* QCoreApplication_new(const QList<QByteArray>& strlist)
+{
+    // The data referred to by argc and argv must stay valid for the
+    // entire lifetime of the QCoreApplication object. In addition,
+    // argc must be greater than zero and argv must contain at least
+    // one valid character string.
+    static int argc = strlist.size();
+    static char** argv = new char*[argc];
+    for (int i = 0; i < argc; ++i) {
+        const QByteArray &bytes = strlist[i];
+        argv[i] = strdup(bytes.constData());
+    }
+    return new QCoreApplication(argc, argv);
+}
+
 void Init_qcoreapplication(Module rb_mQt6QtCore)
 {
     rb_cQCoreApplication =
@@ -16,9 +31,8 @@ void Init_qcoreapplication(Module rb_mQt6QtCore)
         define_qlass_under<QCoreApplication, QObject>(rb_mQt6QtCore, "QCoreApplication")
             // RubyQt6-Defined Functions
             .define_singleton_function("application_pid", []() -> qint64 { return QCoreApplication::applicationPid(); })
+            .define_singleton_function("_new", QCoreApplication_new, Arg("argv"), Return().takeOwnership())
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QCoreApplication::staticMetaObject; })
-            // Constructor
-            .define_constructor(Constructor<QCoreApplication, int &, char **>(), Arg("argc"), ArgBuffer("argv"))
             // Public Functions
             .define_method("check_permission", &QCoreApplication::checkPermission, Arg("permission"))
             .define_method("install_native_event_filter", &QCoreApplication::installNativeEventFilter, Arg("filter_obj"))

@@ -10,15 +10,26 @@ RICE4RUBYQT6_USE_NAMESPACE
 
 Class rb_cQApplication;
 
+QApplication* QApplication_new(const QList<QByteArray>& strlist)
+{
+    static int argc = strlist.size();
+    static char** argv = new char*[argc];
+    for (int i = 0; i < argc; ++i) {
+        const QByteArray &bytes = strlist[i];
+        argv[i] = strdup(bytes.constData());
+    }
+    return new QApplication(argc, argv);
+}
+
+
 void Init_qapplication(Module rb_mQt6QtWidgets)
 {
     rb_cQApplication =
         // RubyQt6::QtWidgets::QApplication
         define_qlass_under<QApplication, QGuiApplication>(rb_mQt6QtWidgets, "QApplication")
             // RubyQt6-Defined Functions
+            .define_singleton_function("_new", QApplication_new, Arg("argv"), Return().takeOwnership())
             .define_singleton_function("_static_meta_object", []() -> const QMetaObject * { return &QApplication::staticMetaObject; })
-            // Constructor
-            .define_constructor(Constructor<QApplication, int &, char **>(), Arg("argc"), ArgBuffer("argv"))
             // Public Functions
             .define_method("auto_sip_enabled", &QApplication::autoSipEnabled)
             .define_method("notify", &QApplication::notify, Arg("receiver"), Arg("event"))

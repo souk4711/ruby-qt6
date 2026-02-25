@@ -14,7 +14,10 @@ module RubyQt6
       end
 
       # @!visibility private
-      alias_method :_initialize, :initialize
+      def self.new
+        argv = _initialize_qApp_argv
+        _new(argv)._initialize_qApp
+      end
 
       # @!visibility private
       %w[all_widgets top_level_widgets].each do |meth|
@@ -22,13 +25,6 @@ module RubyQt6
           widgets = __send__("_" + meth, *args)
           widgets.map { |w| T.bando_qobject_cast(w) }
         end
-      end
-
-      # @return [QApplication]
-      def initialize
-        argv = _initialize_qApp_argv
-        _initialize(argv.size, argv.data)
-        _initialize_qApp
       end
 
       # @!visibility private
