@@ -8,7 +8,6 @@ module RubyQt6
   module RSpec
     VERIFY_QLASS_VIRTUAL_METHODS = [
       "event", "event_filter",                      # QObject
-      "meta_object",                                # QObject
       "connect_notify", "disconnect_notify",        # QObject
       "paint_engine",                               # QPaintDevice
       "metric",                                     # QPaintDevice
