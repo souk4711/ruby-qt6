@@ -2,6 +2,6 @@
 
 module RubyQt6
   module QtGui
-    QTGUI_RUBYGEM_VERSION = "2.1.1"
+    QTGUI_RUBYGEM_VERSION = "6.0.0"
   end
 end

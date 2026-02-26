@@ -2,6 +2,6 @@
 
 module RubyQt6
   module QtMultimedia
-    QTMULTIMEDIA_RUBYGEM_VERSION = "2.1.0"
+    QTMULTIMEDIA_RUBYGEM_VERSION = "6.0.0"
   end
 end
