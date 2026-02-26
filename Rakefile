@@ -134,6 +134,20 @@ task :compile, [:clobber] do |_, args|
   end
 end
 
+desc "Run Rake release task to publish all the gems to rubygems.org"
+task :release do
+  release = lambda do |lib|
+    Dir.chdir(lib.downcase) do
+      puts "cd #{lib.downcase}"
+      sh "bundle check || bundle install"
+      sh "bundle exec rake release"
+    end
+  end
+
+  libs = %w[rspec rice] + LIBS + LIBS_Z
+  Bundler.with_unbundled_env { libs.each(&release) }
+end
+
 desc "Run Rubocop linter"
 task :rubocop do
   rubocop = lambda do |lib|
