@@ -5,9 +5,17 @@ module RubyQt6
     class QVariantMap
       # @!visibility private
       alias_method :_has_key?, :has_key?
+
+      # @!visibility private
       alias_method :_has_value?, :has_value?
+
+      # @!visibility private
       alias_method :_insert, :insert
+
+      # @!visibility private
       alias_method :_delete, :delete
+
+      # @!visibility private
       alias_method "_[]", :[]
 
       # @!visibility private

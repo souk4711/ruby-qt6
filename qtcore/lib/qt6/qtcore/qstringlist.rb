@@ -6,11 +6,23 @@ module RubyQt6
     class QStringList
       # @!visibility private
       alias_method :_count, :count
+
+      # @!visibility private
       alias_method :_include?, :include?
+
+      # @!visibility private
       alias_method :_index, :index
+
+      # @!visibility private
       alias_method :_insert, :insert
+
+      # @!visibility private
       alias_method :_push, :push
+
+      # @!visibility private
       alias_method :_delete, :delete
+
+      # @!visibility private
       alias_method "_[]=", :[]=
 
       # @!visibility private
