@@ -48,6 +48,17 @@ module RubyQt6
         flags ||= Qt::MatchExactly | Qt::MatchCaseSensitive
         _find_text(T.to_qstr(text), T.to_qflags(flags))
       end
+
+      # @!visibility private
+      def insert_item(*args)
+        args.each_with_index { |_, index| T.args_nth_to_qstr(args, index) }
+        _insert_item(*args)
+      end
+
+      # @!visibility private
+      def set_item_text(index, text)
+        _set_item_text(index, T.to_qstr(text))
+      end
     end
   end
 end
