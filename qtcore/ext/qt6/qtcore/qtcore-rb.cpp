@@ -45,6 +45,8 @@
 
 #include "qobject-rb.hpp"
 #include "qabstractitemmodel-rb.hpp"
+#include "qabstractproxymodel-rb.hpp"
+#include "qsortfilterproxymodel-rb.hpp"
 #include "qcoreapplication-rb.hpp"
 #include "qeventloop-rb.hpp"
 #include "qiodevice-rb.hpp"
@@ -120,6 +122,8 @@ extern "C" void Init_qtcore()
 
         Init_qobject(rb_mQt6QtCore);
         Init_qabstractitemmodel(rb_mQt6QtCore);
+        Init_qabstractproxymodel(rb_mQt6QtCore);
+        Init_qsortfilterproxymodel(rb_mQt6QtCore);
         Init_qcoreapplication(rb_mQt6QtCore);
         Init_qeventloop(rb_mQt6QtCore);
         Init_qiodevice(rb_mQt6QtCore);

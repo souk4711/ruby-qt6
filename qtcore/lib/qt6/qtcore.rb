@@ -74,6 +74,8 @@ require_relative "qtcore/qvariant"
 
 require_relative "qtcore/qobject"
 require_relative "qtcore/qabstractitemmodel"
+require_relative "qtcore/qabstractproxymodel"
+require_relative "qtcore/qsortfilterproxymodel"
 require_relative "qtcore/qabstractlistmodel"
 require_relative "qtcore/qabstracttablemodel"
 require_relative "qtcore/qcoreapplication"
