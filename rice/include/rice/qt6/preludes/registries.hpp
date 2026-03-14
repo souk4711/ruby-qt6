@@ -41,12 +41,12 @@ struct RUBYQT6_RICE_EXPORT RubyQt6_RTypedData_Registries
 };
 
 #ifdef RUBYQT6_BUILD_RICE_LIB
-inline RubyQt6_RTypedData_Registries *RubyQt6_RTypedData_Registries::instance()
+RubyQt6_RTypedData_Registries *RubyQt6_RTypedData_Registries::instance()
 {
     if (instance_ == nullptr) { instance_ = new RubyQt6_RTypedData_Registries; }
     return instance_;
 }
-inline RubyQt6_RTypedData_Registries *RubyQt6_RTypedData_Registries::instance_ = nullptr;
+RubyQt6_RTypedData_Registries *RubyQt6_RTypedData_Registries::instance_ = nullptr;
 #endif
 
 #endif
