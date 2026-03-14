@@ -53,80 +53,6 @@ template <typename Class_T, typename... Arg_Ts> class BandoQWebEnginePage : publ
     void timerEvent(QTimerEvent *event) override { bando_handleEvent<BandoQWebEnginePage>(this, event, bando_FunctionName::timerEvent); };
     QObject *sender() const { return this->Class_T::sender(); }
 
-    void triggerAction(QWebEnginePage::WebAction action, bool checked = false) override {
-        Q_ASSERT(this->value_.rb_type() != RUBY_T_NONE);
-        auto rb_name = Identifier("trigger_action");
-        this->value_.call(rb_name, Object(detail::to_ruby(action)), Object(detail::to_ruby(checked)));
-    };
-
-    bool acceptNavigationRequest(const QUrl &url, QWebEnginePage::NavigationType type, bool isMainFrame) override {
-        auto rb_name = Identifier("accept_navigation_request");
-        if (!this->value_.respond_to(rb_name))
-            return this->Class_T::acceptNavigationRequest(url, type, isMainFrame);
-
-        Q_ASSERT(this->value_.rb_type() != RUBY_T_NONE);
-        auto rb_return = this->value_.call(rb_name, Object(detail::to_ruby(url)), Object(detail::to_ruby(type)), Object(detail::to_ruby(isMainFrame)));
-        return detail::From_Ruby<bool>().convert(rb_return);
-    };
-
-    QStringList chooseFiles(QWebEnginePage::FileSelectionMode mode, const QStringList &oldFiles, const QStringList &acceptedMimeTypes) override {
-        auto rb_name = Identifier("choose_files");
-        if (!this->value_.respond_to(rb_name))
-            return this->Class_T::chooseFiles(mode, oldFiles, acceptedMimeTypes);
-
-        Q_ASSERT(this->value_.rb_type() != RUBY_T_NONE);
-        auto rb_return = this->value_.call(rb_name, Object(detail::to_ruby(mode)), Object(detail::to_ruby(oldFiles)), Object(detail::to_ruby(acceptedMimeTypes)));
-        return detail::From_Ruby<QStringList>().convert(rb_return);
-    };
-
-    QWebEnginePage *createWindow(QWebEnginePage::WebWindowType type) override {
-        auto rb_name = Identifier("create_window");
-        if (!this->value_.respond_to(rb_name))
-            return this->Class_T::createWindow(type);
-
-        Q_ASSERT(this->value_.rb_type() != RUBY_T_NONE);
-        auto rb_return = this->value_.call(rb_name, Object(detail::to_ruby(type)));
-        return detail::From_Ruby<QWebEnginePage *>().convert(rb_return);
-    };
-
-    void javaScriptAlert(const QUrl &securityOrigin, const QString &msg) override {
-        auto rb_name = Identifier("java_script_alert");
-        if (!this->value_.respond_to(rb_name))
-            return this->Class_T::javaScriptAlert(securityOrigin, msg);
-
-        Q_ASSERT(this->value_.rb_type() != RUBY_T_NONE);
-        this->value_.call(rb_name, Object(detail::to_ruby(securityOrigin)), Object(detail::to_ruby(msg)));
-    };
-
-    bool javaScriptConfirm(const QUrl &securityOrigin, const QString &msg) override {
-        auto rb_name = Identifier("java_script_confirm");
-        if (!this->value_.respond_to(rb_name))
-            return this->Class_T::javaScriptConfirm(securityOrigin, msg);
-
-        Q_ASSERT(this->value_.rb_type() != RUBY_T_NONE);
-        auto rb_return = this->value_.call(rb_name, Object(detail::to_ruby(securityOrigin)), Object(detail::to_ruby(msg)));
-        return detail::From_Ruby<bool>().convert(rb_return);
-    };
-
-    void javaScriptConsoleMessage(QWebEnginePage::JavaScriptConsoleMessageLevel level, const QString &message, int lineNumber, const QString &sourceID) override {
-        auto rb_name = Identifier("java_script_console_message");
-        if (!this->value_.respond_to(rb_name))
-            return this->Class_T::javaScriptConsoleMessage(level, message, lineNumber, sourceID);
-
-        Q_ASSERT(this->value_.rb_type() != RUBY_T_NONE);
-        this->value_.call(rb_name, Object(detail::to_ruby(level)), Object(detail::to_ruby(message)), Object(detail::to_ruby(lineNumber)), Object(detail::to_ruby(sourceID)));
-    };
-
-    bool javaScriptPrompt(const QUrl &securityOrigin, const QString &msg, const QString &defaultValue, QString *result) override {
-        auto rb_name = Identifier("java_script_prompt");
-        if (!this->value_.respond_to(rb_name))
-            return this->Class_T::javaScriptPrompt(securityOrigin, msg, defaultValue, result);
-
-        Q_ASSERT(this->value_.rb_type() != RUBY_T_NONE);
-        auto rb_return = this->value_.call(rb_name, Object(detail::to_ruby(securityOrigin)), Object(detail::to_ruby(msg)), Object(detail::to_ruby(defaultValue)), Object(detail::to_ruby(result)));
-        return detail::From_Ruby<bool>().convert(rb_return);
-    };
-
   public:
     bool Class_T_handleQObjectEvent(QEvent *event) { return this->Class_T::event(event); };
     bool Class_T_handleQObjectEventFilter(QObject *watched, QEvent *event) { return this->Class_T::eventFilter(watched, event); };
@@ -147,6 +73,88 @@ template <typename Class_T, typename... Arg_Ts> class BandoQWebEnginePage : publ
     VALUE *value_address_;
 
     QMetaObject *mo_;
+
+  public:
+    void triggerAction(QWebEnginePage::WebAction action, bool checked = false) override {
+        Q_ASSERT(this->value_.rb_type() != RUBY_T_NONE);
+        auto rb_name = Identifier("trigger_action");
+        this->value_.call(rb_name, Object(detail::to_ruby(action)), Object(detail::to_ruby(checked)));
+    };
+
+    bool acceptNavigationRequest(const QUrl &url, QWebEnginePage::NavigationType type, bool isMainFrame) override {
+        Q_ASSERT(this->value_.rb_type() != RUBY_T_NONE);
+        auto rb_name = Identifier("accept_navigation_request");
+        auto rb_return = this->value_.call(rb_name, Object(detail::to_ruby(url)), Object(detail::to_ruby(type)), Object(detail::to_ruby(isMainFrame)));
+        return detail::From_Ruby<bool>().convert(rb_return);
+    };
+
+    QStringList chooseFiles(QWebEnginePage::FileSelectionMode mode, const QStringList &oldFiles, const QStringList &acceptedMimeTypes) override {
+        Q_ASSERT(this->value_.rb_type() != RUBY_T_NONE);
+        auto rb_name = Identifier("choose_files");
+        auto rb_return = this->value_.call(rb_name, Object(detail::to_ruby(mode)), Object(detail::to_ruby(oldFiles)), Object(detail::to_ruby(acceptedMimeTypes)));
+        return detail::From_Ruby<QStringList>().convert(rb_return);
+    };
+
+    QWebEnginePage *createWindow(QWebEnginePage::WebWindowType type) override {
+        Q_ASSERT(this->value_.rb_type() != RUBY_T_NONE);
+        auto rb_name = Identifier("create_window");
+        auto rb_return = this->value_.call(rb_name, Object(detail::to_ruby(type)));
+        return detail::From_Ruby<QWebEnginePage *>().convert(rb_return);
+    };
+
+    void javaScriptAlert(const QUrl &securityOrigin, const QString &msg) override {
+        Q_ASSERT(this->value_.rb_type() != RUBY_T_NONE);
+        auto rb_name = Identifier("java_script_alert");
+        this->value_.call(rb_name, Object(detail::to_ruby(securityOrigin)), Object(detail::to_ruby(msg)));
+    };
+
+    bool javaScriptConfirm(const QUrl &securityOrigin, const QString &msg) override {
+        Q_ASSERT(this->value_.rb_type() != RUBY_T_NONE);
+        auto rb_name = Identifier("java_script_confirm");
+        auto rb_return = this->value_.call(rb_name, Object(detail::to_ruby(securityOrigin)), Object(detail::to_ruby(msg)));
+        return detail::From_Ruby<bool>().convert(rb_return);
+    };
+
+    void javaScriptConsoleMessage(QWebEnginePage::JavaScriptConsoleMessageLevel level, const QString &message, int lineNumber, const QString &sourceID) override {
+        Q_ASSERT(this->value_.rb_type() != RUBY_T_NONE);
+        auto rb_name = Identifier("java_script_console_message");
+        this->value_.call(rb_name, Object(detail::to_ruby(level)), Object(detail::to_ruby(message)), Object(detail::to_ruby(lineNumber)), Object(detail::to_ruby(sourceID)));
+    };
+
+    bool javaScriptPrompt(const QUrl &securityOrigin, const QString &msg, const QString &defaultValue, QString *result) override {
+        Q_ASSERT(this->value_.rb_type() != RUBY_T_NONE);
+        auto rb_name = Identifier("java_script_prompt");
+        auto rb_return = this->value_.call(rb_name, Object(detail::to_ruby(securityOrigin)), Object(detail::to_ruby(msg)), Object(detail::to_ruby(defaultValue)), Object(detail::to_ruby(result)));
+        return detail::From_Ruby<bool>().convert(rb_return);
+    };
+
+    bool Class_T_acceptNavigationRequest(const QUrl &url, QWebEnginePage::NavigationType type, bool isMainFrame) {
+        return this->Class_T::acceptNavigationRequest(url, type, isMainFrame);
+    };
+
+    QStringList Class_T_chooseFiles(QWebEnginePage::FileSelectionMode mode, const QStringList &oldFiles, const QStringList &acceptedMimeTypes) {
+        return this->Class_T::chooseFiles(mode, oldFiles, acceptedMimeTypes);
+    };
+
+    QWebEnginePage *Class_T_createWindow(QWebEnginePage::WebWindowType type) {
+        return this->Class_T::createWindow(type);
+    };
+
+    void Class_T_javaScriptAlert(const QUrl &securityOrigin, const QString &msg) {
+        return this->Class_T::javaScriptAlert(securityOrigin, msg);
+    };
+
+    bool Class_T_javaScriptConfirm(const QUrl &securityOrigin, const QString &msg) {
+        return this->Class_T::javaScriptConfirm(securityOrigin, msg);
+    };
+
+    void Class_T_javaScriptConsoleMessage(QWebEnginePage::JavaScriptConsoleMessageLevel level, const QString &message, int lineNumber, const QString &sourceID) {
+        return this->Class_T::javaScriptConsoleMessage(level, message, lineNumber, sourceID);
+    };
+
+    bool Class_T_javaScriptPrompt(const QUrl &securityOrigin, const QString &msg, const QString &defaultValue, QString *result) {
+        return this->Class_T::javaScriptPrompt(securityOrigin, msg, defaultValue, result);
+    };
 };
 
 template <typename BC_T, typename C_T>
@@ -162,7 +170,14 @@ Data_Type<BC_T> define_bando_qwebenginepage_under(Module module, char const *nam
             .define_method("_sender", &BC_T::sender);
 
     bando_qlass
-        .define_method("trigger_action", [](BC_T *self, QWebEnginePage::WebAction action, bool checked) -> void { return self->C_T::triggerAction(action, checked); }, Arg("action"), Arg("checked") = static_cast<bool>(false));
+        .define_method("trigger_action", [](BC_T *self, QWebEnginePage::WebAction action, bool checked) -> void { return self->C_T::triggerAction(action, checked); }, Arg("action"), Arg("checked") = static_cast<bool>(false))
+        .define_method("accept_navigation_request", &BC_T::Class_T_acceptNavigationRequest, Arg("url"), Arg("type"), Arg("is_main_frame"))
+        .define_method("choose_files", &BC_T::Class_T_chooseFiles, Arg("mode"), Arg("old_files"), Arg("accepted_mime_types"))
+        .define_method("create_window", &BC_T::Class_T_createWindow, Arg("type"))
+        .define_method("java_script_alert", &BC_T::Class_T_javaScriptAlert, Arg("security_origin"), Arg("msg"))
+        .define_method("java_script_confirm", &BC_T::Class_T_javaScriptConfirm, Arg("security_origin"), Arg("msg"))
+        .define_method("java_script_console_message", &BC_T::Class_T_javaScriptConsoleMessage, Arg("level"), Arg("message"), Arg("line_number"), Arg("source_id"))
+        .define_method("java_script_prompt", &BC_T::Class_T_javaScriptPrompt, Arg("security_origin"), Arg("msg"), Arg("default_value"), Arg("result"));
 
     return bando_qlass;
 }
