@@ -118,26 +118,6 @@ template <typename Class_T, typename... Arg_Ts> class BandoQSpinBox : public Cla
         return detail::From_Ruby<QSize>().convert(rb_return);
     };
 
-    QString textFromValue(int value) const override {
-        auto rb_name = Identifier("text_from_value");
-        if (!this->value_.respond_to(rb_name))
-            return this->Class_T::textFromValue(value);
-
-        Q_ASSERT(this->value_.rb_type() != RUBY_T_NONE);
-        auto rb_return = this->value_.call(rb_name, Object(detail::to_ruby(value)));
-        return detail::From_Ruby<QString>().convert(rb_return);
-    }
-
-    int valueFromText(const QString &text) const override {
-        auto rb_name = Identifier("value_from_text");
-        if (!this->value_.respond_to(rb_name))
-            return this->Class_T::valueFromText(text);
-
-        Q_ASSERT(this->value_.rb_type() != RUBY_T_NONE);
-        auto rb_return = this->value_.call(rb_name, Object(detail::to_ruby(text)));
-        return detail::From_Ruby<int>().convert(rb_return);
-    }
-
   public:
     bool Class_T_handleQObjectEvent(QEvent *event) { return this->Class_T::event(event); };
     bool Class_T_handleQObjectEventFilter(QObject *watched, QEvent *event) { return this->Class_T::eventFilter(watched, event); };
@@ -185,6 +165,29 @@ template <typename Class_T, typename... Arg_Ts> class BandoQSpinBox : public Cla
     VALUE *value_address_;
 
     QMetaObject *mo_;
+
+  public:
+    QString textFromValue(int value) const override {
+        Q_ASSERT(this->value_.rb_type() != RUBY_T_NONE);
+        auto rb_name = Identifier("text_from_value");
+        auto rb_return = this->value_.call(rb_name, Object(detail::to_ruby(value)));
+        return detail::From_Ruby<QString>().convert(rb_return);
+    };
+
+    int valueFromText(const QString &text) const override {
+        Q_ASSERT(this->value_.rb_type() != RUBY_T_NONE);
+        auto rb_name = Identifier("value_from_text");
+        auto rb_return = this->value_.call(rb_name, Object(detail::to_ruby(text)));
+        return detail::From_Ruby<int>().convert(rb_return);
+    };
+
+    QString Class_T_textFromValue(int value) {
+        return this->Class_T::textFromValue(value);
+    };
+
+    int Class_T_valueFromText(const QString &text) {
+        return this->Class_T::valueFromText(text);
+    };
 };
 
 template <typename BC_T, typename C_T>
@@ -201,7 +204,9 @@ Data_Type<BC_T> define_bando_qspinbox_under(Module module, char const *name)
 
     bando_qlass
         .define_method("minimum_size_hint", [](BC_T *self) -> QSize { return self->C_T::minimumSizeHint(); })
-        .define_method("size_hint", [](BC_T *self) -> QSize { return self->C_T::sizeHint(); });
+        .define_method("size_hint", [](BC_T *self) -> QSize { return self->C_T::sizeHint(); })
+        .define_method("text_from_value", &BC_T::Class_T_textFromValue, Arg("value"))
+        .define_method("value_from_text", &BC_T::Class_T_valueFromText, Arg("text"));
 
     return bando_qlass;
 }
