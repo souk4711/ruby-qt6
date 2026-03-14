@@ -97,5 +97,6 @@ require_relative "qtcore/qvariantmap"
 
 require_relative "bando/dsl"
 require_relative "bando/qobject"
+require_relative "bando/qsortfilterproxymodel"
 
 RubyQt6.initialize!(RubyQt6::QtCore)

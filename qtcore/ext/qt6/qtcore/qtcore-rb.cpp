@@ -67,6 +67,7 @@
 
 #include "bando-core-rb.hpp"
 #include "bando-qobject-rb.hpp"
+#include "bando-qsortfilterproxymodel-rb.hpp"
 
 RICE4RUBYQT6_USE_NAMESPACE
 
@@ -146,5 +147,6 @@ extern "C" void Init_qtcore()
         Module rb_mQt6Bando = define_module_under(rb_mQt6, "Bando");
         Init_bando_core(rb_mQt6Bando);
         Init_bando_qobject(rb_mQt6Bando);
+        Init_bando_qsortfilterproxymodel(rb_mQt6Bando);
     });
 }
