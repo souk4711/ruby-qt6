@@ -59,6 +59,16 @@ module RubyQt6
       def set_item_text(index, text)
         _set_item_text(index, T.to_qstr(text))
       end
+
+      # @!visibility private
+      def set_current_text(text)
+        _set_current_text(T.to_qstr(text))
+      end
+
+      # @!visibility private
+      def set_edit_text(text)
+        _set_edit_text(T.to_qstr(text))
+      end
     end
   end
 end

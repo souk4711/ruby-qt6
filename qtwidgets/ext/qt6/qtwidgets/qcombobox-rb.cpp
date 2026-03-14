@@ -85,8 +85,8 @@ void Init_qcombobox(Module rb_mQt6QtWidgets)
             .define_method("clear", &QComboBox::clear)
             .define_method("clear_edit_text", &QComboBox::clearEditText)
             .define_method("set_current_index", &QComboBox::setCurrentIndex, Arg("index"))
-            .define_method("set_current_text", &QComboBox::setCurrentText, Arg("text"))
-            .define_method("set_edit_text", &QComboBox::setEditText, Arg("text"));
+            .define_method("_set_current_text", &QComboBox::setCurrentText, Arg("text"))
+            .define_method("_set_edit_text", &QComboBox::setEditText, Arg("text"));
             // Signals
             // .define_method("activated", &QComboBox::activated, Arg("index"))
             // .define_method("current_index_changed", &QComboBox::currentIndexChanged, Arg("index"))
