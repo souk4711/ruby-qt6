@@ -54,6 +54,28 @@ template <typename Class_T, typename... Arg_Ts> class BandoQLayout : public Clas
     void timerEvent(QTimerEvent *event) override { bando_handleEvent<BandoQLayout>(this, event, bando_FunctionName::timerEvent); };
     QObject *sender() const { return this->Class_T::sender(); }
 
+  public:
+    bool Class_T_handleQObjectEvent(QEvent *event) { return this->Class_T::event(event); };
+    bool Class_T_handleQObjectEventFilter(QObject *watched, QEvent *event) { return this->Class_T::eventFilter(watched, event); };
+
+    void Class_T_handleEvent(bando_FunctionName name, QEvent *event) {
+        switch (name)
+        {
+        case bando_FunctionName::childEvent: return this->Class_T::childEvent(static_cast<QChildEvent *>(event));
+        case bando_FunctionName::timerEvent: return this->Class_T::timerEvent(static_cast<QTimerEvent *>(event));
+        default: Q_UNREACHABLE(); break;
+        }
+    };
+
+  public:
+    template <typename BC_T, typename C_T> friend const QMetaObject *bando_metaObject(const BC_T *self);
+
+    Object value_;
+    VALUE *value_address_;
+
+    QMetaObject *mo_;
+
+  public:
     void addItem(QLayoutItem *item) override {
         Q_ASSERT(this->value_.rb_type() != RUBY_T_NONE);
         auto rb_name = Identifier("add_item");
@@ -74,18 +96,18 @@ template <typename Class_T, typename... Arg_Ts> class BandoQLayout : public Clas
         return detail::From_Ruby<QLayoutItem *>().convert(rb_return);
     };
 
-    QLayoutItem *takeAt(int index) override {
-        Q_ASSERT(this->value_.rb_type() != RUBY_T_NONE);
-        auto rb_name = Identifier("take_at");
-        auto rb_return = this->value_.call(rb_name, Object(detail::to_ruby(index)));
-        return detail::From_Ruby<QLayoutItem *>().convert(rb_return);
-    };
-
     QSize sizeHint() const override {
         Q_ASSERT(this->value_.rb_type() != RUBY_T_NONE);
         auto rb_name = Identifier("size_hint");
         auto rb_return = this->value_.call(rb_name);
         return detail::From_Ruby<QSize>().convert(rb_return);
+    };
+
+    QLayoutItem *takeAt(int index) override {
+        Q_ASSERT(this->value_.rb_type() != RUBY_T_NONE);
+        auto rb_name = Identifier("take_at");
+        auto rb_return = this->value_.call(rb_name, Object(detail::to_ruby(index)));
+        return detail::From_Ruby<QLayoutItem *>().convert(rb_return);
     };
 
     Qt::Orientations expandingDirections() const override {
@@ -128,27 +150,6 @@ template <typename Class_T, typename... Arg_Ts> class BandoQLayout : public Clas
         auto rb_name = Identifier("set_geometry");
         this->value_.call(rb_name, Object(detail::to_ruby(r)));
     };
-
-  public:
-    bool Class_T_handleQObjectEvent(QEvent *event) { return this->Class_T::event(event); };
-    bool Class_T_handleQObjectEventFilter(QObject *watched, QEvent *event) { return this->Class_T::eventFilter(watched, event); };
-
-    void Class_T_handleEvent(bando_FunctionName name, QEvent *event) {
-        switch (name)
-        {
-        case bando_FunctionName::childEvent: return this->Class_T::childEvent(static_cast<QChildEvent *>(event));
-        case bando_FunctionName::timerEvent: return this->Class_T::timerEvent(static_cast<QTimerEvent *>(event));
-        default: Q_UNREACHABLE(); break;
-        }
-    };
-
-  public:
-    template <typename BC_T, typename C_T> friend const QMetaObject *bando_metaObject(const BC_T *self);
-
-    Object value_;
-    VALUE *value_address_;
-
-    QMetaObject *mo_;
 };
 
 template <typename BC_T, typename C_T>
