@@ -54,6 +54,28 @@ template <typename Class_T, typename... Arg_Ts> class BandoQItemDelegate : publi
     void timerEvent(QTimerEvent *event) override { bando_handleEvent<BandoQItemDelegate>(this, event, bando_FunctionName::timerEvent); };
     QObject *sender() const { return this->Class_T::sender(); }
 
+  public:
+    bool Class_T_handleQObjectEvent(QEvent *event) { return this->Class_T::event(event); };
+    bool Class_T_handleQObjectEventFilter(QObject *watched, QEvent *event) { return this->Class_T::eventFilter(watched, event); };
+
+    void Class_T_handleEvent(bando_FunctionName name, QEvent *event) {
+        switch (name)
+        {
+        case bando_FunctionName::childEvent: return this->Class_T::childEvent(static_cast<QChildEvent *>(event));
+        case bando_FunctionName::timerEvent: return this->Class_T::timerEvent(static_cast<QTimerEvent *>(event));
+        default: Q_UNREACHABLE(); break;
+        }
+    };
+
+  public:
+    template <typename BC_T, typename C_T> friend const QMetaObject *bando_metaObject(const BC_T *self);
+
+    Object value_;
+    VALUE *value_address_;
+
+    QMetaObject *mo_;
+
+  public:
     QWidget *createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const override {
         Q_ASSERT(this->value_.rb_type() != RUBY_T_NONE);
         auto rb_name = Identifier("create_editor");
@@ -91,27 +113,6 @@ template <typename Class_T, typename... Arg_Ts> class BandoQItemDelegate : publi
         auto rb_name = Identifier("update_editor_geometry");
         this->value_.call(rb_name, Object(detail::to_ruby(editor)), Object(detail::to_ruby(option)), Object(detail::to_ruby(index)));
     };
-
-  public:
-    bool Class_T_handleQObjectEvent(QEvent *event) { return this->Class_T::event(event); };
-    bool Class_T_handleQObjectEventFilter(QObject *watched, QEvent *event) { return this->Class_T::eventFilter(watched, event); };
-
-    void Class_T_handleEvent(bando_FunctionName name, QEvent *event) {
-        switch (name)
-        {
-        case bando_FunctionName::childEvent: return this->Class_T::childEvent(static_cast<QChildEvent *>(event));
-        case bando_FunctionName::timerEvent: return this->Class_T::timerEvent(static_cast<QTimerEvent *>(event));
-        default: Q_UNREACHABLE(); break;
-        }
-    };
-
-  public:
-    template <typename BC_T, typename C_T> friend const QMetaObject *bando_metaObject(const BC_T *self);
-
-    Object value_;
-    VALUE *value_address_;
-
-    QMetaObject *mo_;
 };
 
 template <typename BC_T, typename C_T>
