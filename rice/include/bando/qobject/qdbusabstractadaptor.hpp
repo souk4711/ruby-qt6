@@ -52,14 +52,6 @@ template <typename Class_T, typename... Arg_Ts> class BandoQDBusAbstractAdaptor 
     void timerEvent(QTimerEvent *event) override { bando_handleEvent<BandoQDBusAbstractAdaptor>(this, event, bando_FunctionName::timerEvent); };
     QObject *sender() const { return this->Class_T::sender(); }
 
-    bool autoRelaySignals() const {
-        return this->Class_T::autoRelaySignals();
-    };
-
-    void setAutoRelaySignals(bool enable) {
-        this->Class_T::setAutoRelaySignals(enable);
-    };
-
   public:
     bool Class_T_handleQObjectEvent(QEvent *event) { return this->Class_T::event(event); };
     bool Class_T_handleQObjectEventFilter(QObject *watched, QEvent *event) { return this->Class_T::eventFilter(watched, event); };
@@ -80,6 +72,15 @@ template <typename Class_T, typename... Arg_Ts> class BandoQDBusAbstractAdaptor 
     VALUE *value_address_;
 
     QMetaObject *mo_;
+
+  public:
+    bool Class_T_autoRelaySignals() const {
+        return this->Class_T::autoRelaySignals();
+    };
+
+    void Class_T_setAutoRelaySignals(bool enable) {
+        this->Class_T::setAutoRelaySignals(enable);
+    };
 };
 
 template <typename BC_T, typename C_T>
@@ -95,8 +96,8 @@ Data_Type<BC_T> define_bando_qdbusabstractadaptor_under(Module module, char cons
             .define_method("_sender", &BC_T::sender);
 
     bando_qlass
-        .define_method("auto_relay_signals", &BC_T::autoRelaySignals)
-        .define_method("set_auto_relay_signals", &BC_T::setAutoRelaySignals, Arg("enable"));
+        .define_method("auto_relay_signals", &BC_T::Class_T_autoRelaySignals)
+        .define_method("set_auto_relay_signals", &BC_T::Class_T_setAutoRelaySignals, Arg("enable"));
 
     return bando_qlass;
 }
