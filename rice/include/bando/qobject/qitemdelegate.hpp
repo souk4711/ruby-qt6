@@ -23,11 +23,11 @@
 #define BANDO_QITEMDELEGATE_HPP
 
 #include <bando/common.hpp>
-#include <QChildEvent>
 #include <QEvent>
+#include <QChildEvent>
+#include <QTimerEvent>
 #include <QPainter>
 #include <QStyleOptionViewItem>
-#include <QTimerEvent>
 
 RICE4RUBYQT6_USE_NAMESPACE
 

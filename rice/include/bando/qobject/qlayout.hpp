@@ -23,10 +23,10 @@
 #define BANDO_QLAYOUT_HPP
 
 #include <bando/common.hpp>
-#include <QChildEvent>
 #include <QEvent>
-#include <QLayoutItem>
+#include <QChildEvent>
 #include <QTimerEvent>
+#include <QLayoutItem>
 #include <QWidget>
 
 RICE4RUBYQT6_USE_NAMESPACE

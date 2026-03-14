@@ -23,8 +23,8 @@
 #define BANDO_QWEBENGINEPAGE_HPP
 
 #include <bando/common.hpp>
-#include <QChildEvent>
 #include <QEvent>
+#include <QChildEvent>
 #include <QTimerEvent>
 #include <QWebEnginePage>
 

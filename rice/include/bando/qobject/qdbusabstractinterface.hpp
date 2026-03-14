@@ -23,8 +23,8 @@
 #define BANDO_QDBUSABSTRACTINTERFACE_HPP
 
 #include <bando/common.hpp>
-#include <QChildEvent>
 #include <QEvent>
+#include <QChildEvent>
 #include <QTimerEvent>
 
 RICE4RUBYQT6_USE_NAMESPACE
