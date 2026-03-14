@@ -37,6 +37,12 @@ module RubyQt6
         slot "revert()"
         slot "submit()"
       end
+
+      # @!visibility private
+      def parent(*args)
+        return T.qobject_cast(_parent) if args.empty?
+        _parent(*args)
+      end
     end
   end
 end

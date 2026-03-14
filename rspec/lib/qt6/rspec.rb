@@ -9,6 +9,7 @@ module RubyQt6
     VERIFY_QLASS_VIRTUAL_METHODS = [
       "event", "event_filter",                      # QObject
       "connect_notify", "disconnect_notify",        # QObject
+      "parent",                                     # QObject
       "paint_engine",                               # QPaintDevice
       "metric",                                     # QPaintDevice
       "has_height_for_width", "height_for_width",   # QWidget
@@ -28,12 +29,19 @@ module RubyQt6
     ]
     NO_VERIFY_QLASS_VIRTUAL_METHODS = {
       "QCoreApplication" => ["post_event", "send_event"],
+      "QItemSelectionRange" => ["parent"],
+      "QModelIndex" => ["parent"],
+      "QStandardItem" => ["parent"],
+      "QTreeWidgetItem" => ["parent"],
       "QLayoutItem" => ["has_height_for_width", "height_for_width", "maximum_size", "minimum_size", "size_hint"],
       "QLayout" => ["maximum_size", "minimum_size"],
       "QWidget" => ["maximum_size", "minimum_size", "minimum_size_hint", "size_hint"],
       "QWindow" => ["maximum_size", "minimum_size"]
     }
     NO_VERIFY_QLASS_LEADING_UNDERSCORE_METHODS = {
+      "QSortFilterProxyModel" => ["_parent"],
+      "QFileSystemModel" => ["_parent"],
+      "QStandardItemModel" => ["_parent"],
       "QObject" => ["_connect", "_disconnect"],
       "QApplication" => ["_all_widgets", "_top_level_widgets"]
     }

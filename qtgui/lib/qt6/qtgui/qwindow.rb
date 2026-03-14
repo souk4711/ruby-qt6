@@ -70,6 +70,11 @@ module RubyQt6
       end
 
       # @!visibility private
+      def parent(*args)
+        T.qobject_cast(_parent(*args))
+      end
+
+      # @!visibility private
       def raise(*args)
         Kernel.raise(*args) if args.size.nonzero?
         _raise
