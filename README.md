@@ -81,6 +81,7 @@ call the `#delete_later` method, which will wait for the next event loop iterati
 
 ## Use Cases
 
+- [ruby-netmon-qt](https://github.com/souk4711/ruby-netmon-qt) - A simple network monitor on Linux.
 - [ruby-pass-qt](https://github.com/souk4711/ruby-pass-qt) - A simple GUI for pass on Linux.
 
 ## License
