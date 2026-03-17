@@ -9,6 +9,11 @@ module RubyQt6
       end
 
       # @!visibility private
+      def self.exists(file_name)
+        _exists(T.to_qstr(file_name))
+      end
+
+      # @!visibility private
       alias_method :_initialize, :initialize
 
       # @param name [String, QString]
