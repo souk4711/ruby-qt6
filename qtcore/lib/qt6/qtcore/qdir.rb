@@ -14,6 +14,11 @@ module RubyQt6
       rubyqt6_declare_qflags QDir::SortFlags, QDir::SortFlag
 
       # @!visibility private
+      def self.add_search_path(prefix, path)
+        _add_search_path(T.to_qstr(prefix), T.to_qstr(path))
+      end
+
+      # @!visibility private
       alias_method :_initialize, :initialize
 
       # @return [QDir]

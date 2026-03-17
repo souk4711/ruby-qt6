@@ -59,7 +59,7 @@ void Init_qdir(Module rb_mQt6QtCore)
             .define_method("set_sorting", &QDir::setSorting, Arg("sort"))
             .define_method("sorting", &QDir::sorting)
             // Static Public Members
-            .define_singleton_function<void (*)(const QString &, const QString &)>("add_search_path", &QDir::addSearchPath, Arg("prefix"), Arg("path"))
+            .define_singleton_function<void (*)(const QString &, const QString &)>("_add_search_path", &QDir::addSearchPath, Arg("prefix"), Arg("path"))
             .define_singleton_function("clean_path", &QDir::cleanPath, Arg("path"))
             .define_singleton_function("current", &QDir::current)
             .define_singleton_function("current_path", &QDir::currentPath)
