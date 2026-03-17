@@ -57,6 +57,7 @@ class MainWindow < RubyQt6::Bando::QMainWindow
 
   def context_menu_event(event)
     menu = QMenu.new('', self)
+    menu.set_attribute(Qt::WA_DeleteOnClose)
     menu.add_action(@cut_action)
     menu.add_action(@copy_action)
     menu.add_action(@paste_action)

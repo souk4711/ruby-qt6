@@ -294,7 +294,7 @@ class MainWindow < RubyQt6::Bando::QMainWindow
   end
 
   def create_context_menu
-    @images_table.set_context_menu_policy Qt::ActionsContextMenu
+    @images_table.set_context_menu_policy(Qt::ActionsContextMenu)
     @images_table.add_action(@add_image_act)
     @images_table.add_action(@remove_all_images_act)
   end
