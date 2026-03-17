@@ -44,6 +44,11 @@ module RubyQt6
         self.class._delete_now(self)
       end
 
+      # @!visibility private
+      def set_text(text)
+        _set_text(T.to_qstr(text))
+      end
+
       private
 
       def _take_ownership_from_ruby(item)
