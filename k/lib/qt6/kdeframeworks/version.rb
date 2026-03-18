@@ -2,6 +2,6 @@
 
 module RubyQt6
   module K
-    RUBYGEM_VERSION = "6.0.0"
+    RUBYGEM_VERSION = "6.1.0"
   end
 end
