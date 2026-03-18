@@ -4,8 +4,8 @@ Ruby Bindings for libQt6, providing access to the Qt framework.
 
 ## Requirements
 
-- Ruby 3.4+
-- Qt 6.10+
+- [Ruby](https://www.ruby-lang.org/)
+- [Qt](https://www.qt.io/)
 
 ## Installation
 
@@ -77,7 +77,17 @@ Following types are allocated on the C++ heap when created using `.new`.
 - QStandardItem, QListWidgetItem, QTableWidgetItem, QTreeWidgetItem
 
 You need to trigger immediate deletion by calling the `#delete_now` method if necessary. Or you can
-call the `#delete_later` method, which will wait for the next event loop iteration.
+call the `#delete_later` method, which will wait for the next event loop iteration. For QWidget, you
+can also use `#set_attribute(Qt::WA_DeleteOnClose)` method.
+
+### Compiler Optimize Options
+
+This library does not enable any optimize options by default. You can use `RUBYQT6_CXXFLAGS` environment
+variable to customize them. E.g.
+
+```sh
+RUBYQT6_CXXFLAGS="-Os -fno-fast-math -flto=auto" gem install ruby-qt6-qtwidgets
+```
 
 ## Use Cases
 
