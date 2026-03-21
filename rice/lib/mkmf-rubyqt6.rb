@@ -68,8 +68,10 @@ def rubyqt6_extconf(mod, depends:)
 
   # Add rice library
   if mod != "Rice"
-    rubyqt6_rice_gem_path = Gem::Specification.find_by_name("ruby-qt6-rice").full_gem_path
-    append_ldflags(File.join(rubyqt6_rice_gem_path, "lib/qt6/rice/rice.so"))
+    spec = Gem::Specification.find_by_name("ruby-qt6-rice")
+    rice_so = File.join(spec.full_gem_path, "lib/qt6/rice/rice.so")
+    rice_so = File.join(spec.extension_dir, "qt6/rice/rice.so") unless File.exist?(rice_so)
+    append_ldflags(rice_so)
   end
 
   # Create Makefile
