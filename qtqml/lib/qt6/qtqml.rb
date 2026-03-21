@@ -2,8 +2,8 @@
 
 require "qt6/qtcore"
 
-require_relative "qtqml/version"
-require_relative "qtqml/qtqml"
+require "qt6/qtqml/version"
+require "qt6/qtqml/qtqml"
 require_relative "qtqml/qtqmlversion"
 
 require_relative "qtqml/qjsengine"

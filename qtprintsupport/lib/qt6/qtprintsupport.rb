@@ -4,8 +4,8 @@ require "qt6/qtcore"
 require "qt6/qtgui"
 require "qt6/qtwidgets"
 
-require_relative "qtprintsupport/version"
-require_relative "qtprintsupport/qtprintsupport"
+require "qt6/qtprintsupport/version"
+require "qt6/qtprintsupport/qtprintsupport"
 require_relative "qtprintsupport/qtprintsupportversion"
 
 require_relative "qtprintsupport/qprinter"

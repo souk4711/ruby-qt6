@@ -6,8 +6,8 @@ require "qt6/qtwidgets"
 require "qt6/kcoreaddons"
 require "qt6/kguiaddons"
 
-require_relative "kwidgetsaddons/version"
-require_relative "kwidgetsaddons/kwidgetsaddons"
+require "qt6/kwidgetsaddons/version"
+require "qt6/kwidgetsaddons/kwidgetsaddons"
 require_relative "kwidgetsaddons/kwidgetsaddonsversion"
 
 require_relative "kwidgetsaddons/kguiitem"

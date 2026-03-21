@@ -2,8 +2,8 @@
 
 require "qt6/qtcore"
 
-require_relative "qtdbus/version"
-require_relative "qtdbus/qtdbus"
+require "qt6/qtdbus/version"
+require "qt6/qtdbus/qtdbus"
 require_relative "qtdbus/qtdbusversion"
 require_relative "qtdbus/qdbus"
 

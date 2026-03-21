@@ -4,8 +4,8 @@ require "qt6/qtcore"
 require "qt6/qtgui"
 require "qt6/qtqml"
 
-require_relative "qtquick/version"
-require_relative "qtquick/qtquick"
+require "qt6/qtquick/version"
+require "qt6/qtquick/qtquick"
 require_relative "qtquick/qtquickversion"
 
 require_relative "qtquick/qquickitem"

@@ -6,8 +6,8 @@ require "qt6/qtwidgets"
 require "qt6/qtqml"
 require "qt6/qtquick"
 
-require_relative "qtquickwidgets/version"
-require_relative "qtquickwidgets/qtquickwidgets"
+require "qt6/qtquickwidgets/version"
+require "qt6/qtquickwidgets/qtquickwidgets"
 require_relative "qtquickwidgets/qtquickwidgetsversion"
 
 require_relative "qtquickwidgets/qquickwidget"

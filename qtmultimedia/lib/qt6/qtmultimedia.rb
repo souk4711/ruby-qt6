@@ -3,8 +3,8 @@
 require "qt6/qtcore"
 require "qt6/qtgui"
 
-require_relative "qtmultimedia/version"
-require_relative "qtmultimedia/qtmultimedia"
+require "qt6/qtmultimedia/version"
+require "qt6/qtmultimedia/qtmultimedia"
 require_relative "qtmultimedia/qtmultimediaversion"
 require_relative "qtmultimedia/qtaudio"
 require_relative "qtmultimedia/qtvideo"

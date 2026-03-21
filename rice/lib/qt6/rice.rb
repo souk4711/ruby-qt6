@@ -1,4 +1,4 @@
 # frozen_string_literal: true
 
-require_relative "rice/version"
-require_relative "rice/rice"
+require "qt6/rice/version"
+require "qt6/rice/rice"

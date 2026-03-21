@@ -2,8 +2,8 @@
 
 require "qt6/qtcore"
 
-require_relative "qtgui/version"
-require_relative "qtgui/qtgui"
+require "qt6/qtgui/version"
+require "qt6/qtgui/qtgui"
 require_relative "qtgui/qtguiversion"
 
 require_relative "qtgui/qbrush"

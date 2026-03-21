@@ -3,8 +3,8 @@
 require "qt6/qtcore"
 require "qt6/qtgui"
 
-require_relative "qtwebenginecore/version"
-require_relative "qtwebenginecore/qtwebenginecore"
+require "qt6/qtwebenginecore/version"
+require "qt6/qtwebenginecore/qtwebenginecore"
 require_relative "qtwebenginecore/qtwebenginecoreversion"
 
 require_relative "qtwebenginecore/qwebenginecertificateerror"

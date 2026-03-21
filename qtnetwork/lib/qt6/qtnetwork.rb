@@ -2,8 +2,8 @@
 
 require "qt6/qtcore"
 
-require_relative "qtnetwork/version"
-require_relative "qtnetwork/qtnetwork"
+require "qt6/qtnetwork/version"
+require "qt6/qtnetwork/qtnetwork"
 require_relative "qtnetwork/qtnetworkversion"
 
 require_relative "qtnetwork/qnetworkproxy"

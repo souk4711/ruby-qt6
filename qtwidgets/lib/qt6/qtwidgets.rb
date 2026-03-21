@@ -3,8 +3,8 @@
 require "qt6/qtcore"
 require "qt6/qtgui"
 
-require_relative "qtwidgets/version"
-require_relative "qtwidgets/qtwidgets"
+require "qt6/qtwidgets/version"
+require "qt6/qtwidgets/qtwidgets"
 require_relative "qtwidgets/qtwidgetsversion"
 
 require_relative "qtwidgets/qfileiconprovider"

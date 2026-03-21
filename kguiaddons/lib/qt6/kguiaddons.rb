@@ -4,8 +4,8 @@ require "qt6/qtcore"
 require "qt6/qtgui"
 require "qt6/kcoreaddons"
 
-require_relative "kguiaddons/version"
-require_relative "kguiaddons/kguiaddons"
+require "qt6/kguiaddons/version"
+require "qt6/kguiaddons/kguiaddons"
 require_relative "kguiaddons/kguiaddonsversion"
 
 require_relative "kguiaddons/kdatevalidator"

@@ -2,8 +2,8 @@
 
 require "qt6/qtcore"
 
-require_relative "kcoreaddons/version"
-require_relative "kcoreaddons/kcoreaddons"
+require "qt6/kcoreaddons/version"
+require "qt6/kcoreaddons/kcoreaddons"
 require_relative "kcoreaddons/kcoreaddonsversion"
 
 require_relative "kcoreaddons/kaboutdata"
