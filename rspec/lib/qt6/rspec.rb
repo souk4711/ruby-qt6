@@ -31,6 +31,7 @@ module RubyQt6
       "QCoreApplication" => ["post_event", "send_event"],
       "QItemSelectionRange" => ["parent"],
       "QModelIndex" => ["parent"],
+      "QPersistentModelIndex" => ["parent"],
       "QStandardItem" => ["parent"],
       "QTreeWidgetItem" => ["parent"],
       "QLayoutItem" => ["has_height_for_width", "height_for_width", "maximum_size", "minimum_size", "size_hint"],
