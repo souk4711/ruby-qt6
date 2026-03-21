@@ -214,6 +214,9 @@ module RubyQt6
           raise method.inspect if VERIFY_QLASS_VIRTUAL_METHODS.include?(method.rbname)
         end.call
 
+        # No internal method
+        raise method.inspect if method.rbname.include?("internal_")
+
         # No unknonwn leading underscore method
         if method.rbname.start_with?("_")
           lambda do
