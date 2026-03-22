@@ -9,13 +9,14 @@ Gem::Specification.new do |spec|
   spec.email = ["johndoe@example.com"]
 
   spec.summary = "Ruby Bindings for Qt."
-  spec.description = "Ruby Bindings for Qt."
+  # spec.description = "Ruby Bindings for Qt."
   spec.homepage = "https://github.com/souk4711/ruby-qt6"
+  spec.license = "LGPL-3.0-only WITH LGPL-3.0-linking-exception"
   spec.required_ruby_version = ">= 3.3.0"
 
-  spec.metadata["homepage_uri"] = spec.homepage
-  spec.metadata["source_code_uri"] = "https://github.com/souk4711/ruby-qt6"
-  spec.metadata["changelog_uri"] = "https://github.com/souk4711/ruby-qt6"
+  # spec.metadata["homepage_uri"] = spec.homepage
+  # spec.metadata["source_code_uri"] = "https://github.com/souk4711/ruby-qt6"
+  # spec.metadata["changelog_uri"] = "https://github.com/souk4711/ruby-qt6"
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
@@ -30,24 +31,24 @@ Gem::Specification.new do |spec|
   spec.executables = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
-  spec.add_runtime_dependency("ruby-qt6-rice", "= 6.1.0")
-  spec.add_runtime_dependency("ruby-qt6-qtcore", "~> 6.1.0")
-  spec.add_runtime_dependency("ruby-qt6-qtgui", "~> 6.1.0")
-  spec.add_runtime_dependency("ruby-qt6-qtwidgets", "~> 6.1.0")
-  spec.add_runtime_dependency("ruby-qt6-qtdbus", "~> 6.1.0")
-  spec.add_runtime_dependency("ruby-qt6-qtnetwork", "~> 6.1.0")
-  spec.add_runtime_dependency("ruby-qt6-qtprintsupport", "~> 6.1.0")
-  spec.add_runtime_dependency("ruby-qt6-qttest", "~> 6.1.0")
-  spec.add_runtime_dependency("ruby-qt6-qtqml", "~> 6.1.0")
-  spec.add_runtime_dependency("ruby-qt6-qtquick", "~> 6.1.0")
-  spec.add_runtime_dependency("ruby-qt6-qtquickcontrols2", "~> 6.1.0")
-  spec.add_runtime_dependency("ruby-qt6-qtquickwidgets", "~> 6.1.0")
-  spec.add_runtime_dependency("ruby-qt6-qtmultimedia", "~> 6.1.0")
-  spec.add_runtime_dependency("ruby-qt6-qtmultimediawidgets", "~> 6.1.0")
-  spec.add_runtime_dependency("ruby-qt6-qtwebenginecore", "~> 6.1.0")
-  spec.add_runtime_dependency("ruby-qt6-qtwebenginewidgets", "~> 6.1.0")
-  spec.add_runtime_dependency("ruby-qt6-qtwebview", "~> 6.1.0")
-  spec.add_runtime_dependency("ruby-qt6-qtuitools", "~> 6.1.0")
+  spec.add_runtime_dependency("ruby-qt6-rice", "= 6.2.0")
+  spec.add_runtime_dependency("ruby-qt6-qtcore", "~> 6.2.0")
+  spec.add_runtime_dependency("ruby-qt6-qtgui", "~> 6.2.0")
+  spec.add_runtime_dependency("ruby-qt6-qtwidgets", "~> 6.2.0")
+  spec.add_runtime_dependency("ruby-qt6-qtdbus", "~> 6.2.0")
+  spec.add_runtime_dependency("ruby-qt6-qtnetwork", "~> 6.2.0")
+  spec.add_runtime_dependency("ruby-qt6-qtprintsupport", "~> 6.2.0")
+  spec.add_runtime_dependency("ruby-qt6-qttest", "~> 6.2.0")
+  spec.add_runtime_dependency("ruby-qt6-qtqml", "~> 6.2.0")
+  spec.add_runtime_dependency("ruby-qt6-qtquick", "~> 6.2.0")
+  spec.add_runtime_dependency("ruby-qt6-qtquickcontrols2", "~> 6.2.0")
+  spec.add_runtime_dependency("ruby-qt6-qtquickwidgets", "~> 6.2.0")
+  spec.add_runtime_dependency("ruby-qt6-qtmultimedia", "~> 6.2.0")
+  spec.add_runtime_dependency("ruby-qt6-qtmultimediawidgets", "~> 6.2.0")
+  spec.add_runtime_dependency("ruby-qt6-qtwebenginecore", "~> 6.2.0")
+  spec.add_runtime_dependency("ruby-qt6-qtwebenginewidgets", "~> 6.2.0")
+  spec.add_runtime_dependency("ruby-qt6-qtwebview", "~> 6.2.0")
+  spec.add_runtime_dependency("ruby-qt6-qtuitools", "~> 6.2.0")
 
   # For more information and examples about making a new gem, check out our
   # guide at: https://bundler.io/guides/creating_gem.html

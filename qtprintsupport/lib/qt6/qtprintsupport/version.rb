@@ -2,6 +2,6 @@
 
 module RubyQt6
   module QtPrintSupport
-    QTPRINTSUPPORT_RUBYGEM_VERSION = "6.1.0"
+    QTPRINTSUPPORT_RUBYGEM_VERSION = "6.2.0"
   end
 end

@@ -9,14 +9,14 @@ Gem::Specification.new do |spec|
   spec.email = ["johndoe@example.com"]
 
   spec.summary = "Extend the Rice library with support for the Qt framework."
-  spec.description = "Extend the Rice library with support for the Qt framework."
-
+  # spec.description = "Extend the Rice library with support for the Qt framework."
   spec.homepage = "https://github.com/souk4711/ruby-qt6"
+  spec.license = "LGPL-3.0-only WITH LGPL-3.0-linking-exception"
   spec.required_ruby_version = ">= 3.3.0"
 
-  spec.metadata["homepage_uri"] = spec.homepage
-  spec.metadata["source_code_uri"] = "https://github.com/souk4711/ruby-qt6"
-  spec.metadata["changelog_uri"] = "https://github.com/souk4711/ruby-qt6"
+  # spec.metadata["homepage_uri"] = spec.homepage
+  # spec.metadata["source_code_uri"] = "https://github.com/souk4711/ruby-qt6"
+  # spec.metadata["changelog_uri"] = "https://github.com/souk4711/ruby-qt6"
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.

@@ -2,6 +2,6 @@
 
 module RubyQt6
   module QtUiTools
-    QTUITOOLS_RUBYGEM_VERSION = "6.1.0"
+    QTUITOOLS_RUBYGEM_VERSION = "6.2.0"
   end
 end
