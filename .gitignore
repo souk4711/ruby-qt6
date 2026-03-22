@@ -11,6 +11,7 @@ tmp/
 *.so
 *.o
 *.a
+*.gem
 .rspec_status
 mkmf.log
 
