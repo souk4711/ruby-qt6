@@ -17,7 +17,6 @@ void Init_qtaudio(Module rb_mQt6QtMultimedia)
         define_qenum_value_under(rb_cQtAudioError, "NoError", QtAudio::Error::NoError);
         define_qenum_value_under(rb_cQtAudioError, "OpenError", QtAudio::Error::OpenError);
         define_qenum_value_under(rb_cQtAudioError, "IOError", QtAudio::Error::IOError);
-        define_qenum_value_under(rb_cQtAudioError, "UnderrunError", QtAudio::Error::UnderrunError);
         define_qenum_value_under(rb_cQtAudioError, "FatalError", QtAudio::Error::FatalError);
 
     Data_Type<QtAudio::State> rb_cQtAudioState =

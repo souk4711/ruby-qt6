@@ -358,7 +358,6 @@ void Init_qt_enum_sz(Module rb_mQt6QtCore)
         define_qenum_value_under(rb_cQtWindowType, "Tool", Qt::WindowType::Tool);
         define_qenum_value_under(rb_cQtWindowType, "ToolTip", Qt::WindowType::ToolTip);
         define_qenum_value_under(rb_cQtWindowType, "SplashScreen", Qt::WindowType::SplashScreen);
-        define_qenum_value_under(rb_cQtWindowType, "Desktop", Qt::WindowType::Desktop);
         define_qenum_value_under(rb_cQtWindowType, "SubWindow", Qt::WindowType::SubWindow);
         define_qenum_value_under(rb_cQtWindowType, "ForeignWindow", Qt::WindowType::ForeignWindow);
         define_qenum_value_under(rb_cQtWindowType, "CoverWindow", Qt::WindowType::CoverWindow);

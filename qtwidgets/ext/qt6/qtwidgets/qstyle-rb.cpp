@@ -81,7 +81,6 @@ void Init_qstyle(Module rb_mQt6QtWidgets)
         define_qenum_value_under(rb_cQStyleStateFlag, "State_Children", QStyle::StateFlag::State_Children);
         define_qenum_value_under(rb_cQStyleStateFlag, "State_Item", QStyle::StateFlag::State_Item);
         define_qenum_value_under(rb_cQStyleStateFlag, "State_Sibling", QStyle::StateFlag::State_Sibling);
-        define_qenum_value_under(rb_cQStyleStateFlag, "State_Editing", QStyle::StateFlag::State_Editing);
         define_qenum_value_under(rb_cQStyleStateFlag, "State_KeyboardFocusChange", QStyle::StateFlag::State_KeyboardFocusChange);
         define_qenum_value_under(rb_cQStyleStateFlag, "State_ReadOnly", QStyle::StateFlag::State_ReadOnly);
         define_qenum_value_under(rb_cQStyleStateFlag, "State_Small", QStyle::StateFlag::State_Small);

@@ -445,7 +445,6 @@ void Init_qstyleoption(Module rb_mQt6QtWidgets)
         define_qenum_value_under(rb_cQStyleOptionMenuItemMenuItemType, "SubMenu", QStyleOptionMenuItem::MenuItemType::SubMenu);
         define_qenum_value_under(rb_cQStyleOptionMenuItemMenuItemType, "Scroller", QStyleOptionMenuItem::MenuItemType::Scroller);
         define_qenum_value_under(rb_cQStyleOptionMenuItemMenuItemType, "TearOff", QStyleOptionMenuItem::MenuItemType::TearOff);
-        define_qenum_value_under(rb_cQStyleOptionMenuItemMenuItemType, "Margin", QStyleOptionMenuItem::MenuItemType::Margin);
         define_qenum_value_under(rb_cQStyleOptionMenuItemMenuItemType, "EmptyArea", QStyleOptionMenuItem::MenuItemType::EmptyArea);
 
     Data_Type<QStyleOptionMenuItem::CheckType> rb_cQStyleOptionMenuItemCheckType =

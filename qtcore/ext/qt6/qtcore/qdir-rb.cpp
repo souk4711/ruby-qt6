@@ -96,7 +96,6 @@ void Init_qdir(Module rb_mQt6QtCore)
         define_qenum_value_under(rb_cQDirFilter, "Writable", QDir::Filter::Writable);
         define_qenum_value_under(rb_cQDirFilter, "Executable", QDir::Filter::Executable);
         define_qenum_value_under(rb_cQDirFilter, "PermissionMask", QDir::Filter::PermissionMask);
-        define_qenum_value_under(rb_cQDirFilter, "Modified", QDir::Filter::Modified);
         define_qenum_value_under(rb_cQDirFilter, "Hidden", QDir::Filter::Hidden);
         define_qenum_value_under(rb_cQDirFilter, "System", QDir::Filter::System);
         define_qenum_value_under(rb_cQDirFilter, "AccessMask", QDir::Filter::AccessMask);
