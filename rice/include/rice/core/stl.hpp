@@ -151,9 +151,9 @@ namespace Rice4RubyQt6::stl
       klass_.define_method("initialize", [](VALUE self, VALUE callable) -> void
       {
         // Create std::function that wraps the Ruby callable
-        Function_T* data = new Function_T([callable](auto... args)
+        Function_T* data = new Function_T([callable](auto&&... args)
         {
-          Object result = Object(callable).call("call", args...);
+          Object result = Object(callable).call("call", std::forward<decltype(args)>(args)...);
 
           using Return_T = typename Function_T::result_type;
           if constexpr (!std::is_void_v<Return_T>)
@@ -211,6 +211,146 @@ namespace Rice4RubyQt6
 
 namespace Rice4RubyQt6::detail
 {
+  template<typename Return_T, typename ...Parameter_Ts>
+  inline std::function<Return_T(Parameter_Ts...)> makeRubyFunction(VALUE value)
+  {
+    Pin proc(value);
+
+    return [proc = std::move(proc)](Parameter_Ts... args) -> Return_T
+    {
+      Object result = Object(proc.value()).call("call", std::forward<Parameter_Ts>(args)...);
+
+      if constexpr (!std::is_void_v<Return_T>)
+      {
+        return From_Ruby<std::remove_cv_t<Return_T>>().convert(result);
+      }
+    };
+  }
+
+  template<typename Return_T, typename ...Parameter_Ts>
+  class From_Ruby<std::function<Return_T(Parameter_Ts...)>>
+  {
+  public:
+    using Function_T = std::function<Return_T(Parameter_Ts...)>;
+
+    From_Ruby() = default;
+
+    explicit From_Ruby(Arg* arg) : arg_(arg)
+    {
+    }
+
+    double is_convertible(VALUE value)
+    {
+      switch (rb_type(value))
+      {
+        case RUBY_T_DATA:
+          return Data_Type<Function_T>::is_descendant(value) ? Convertible::Exact : Convertible::None;
+        default:
+          return protect(rb_obj_is_proc, value) == Qtrue ? Convertible::ConstMismatch : Convertible::None;
+      }
+    }
+
+    Function_T convert(VALUE value)
+    {
+      if (Data_Type<Function_T>::is_descendant(value))
+      {
+        return *detail::unwrap<Function_T>(value, Data_Type<Function_T>::ruby_data_type(), false);
+      }
+      else if (protect(rb_obj_is_proc, value) == Qtrue)
+      {
+        return makeRubyFunction<Return_T, Parameter_Ts...>(value);
+      }
+      else
+      {
+        throw Exception(rb_eTypeError, "wrong argument type %s (expected %s)",
+          detail::protect(rb_obj_classname, value), "std::function");
+      }
+    }
+
+  private:
+    Arg* arg_ = nullptr;
+  };
+
+  template<typename Return_T, typename ...Parameter_Ts>
+  class From_Ruby<std::function<Return_T(Parameter_Ts...)>&>
+  {
+  public:
+    using Function_T = std::function<Return_T(Parameter_Ts...)>;
+
+    From_Ruby() = default;
+
+    explicit From_Ruby(Arg* arg) : arg_(arg)
+    {
+    }
+
+    double is_convertible(VALUE value)
+    {
+      return From_Ruby<Function_T>(arg_).is_convertible(value);
+    }
+
+    Function_T& convert(VALUE value)
+    {
+      if (Data_Type<Function_T>::is_descendant(value))
+      {
+        return *detail::unwrap<Function_T>(value, Data_Type<Function_T>::ruby_data_type(), false);
+      }
+      else if (protect(rb_obj_is_proc, value) == Qtrue)
+      {
+        converted_ = makeRubyFunction<Return_T, Parameter_Ts...>(value);
+        return converted_;
+      }
+      else
+      {
+        throw Exception(rb_eTypeError, "wrong argument type %s (expected %s)",
+          detail::protect(rb_obj_classname, value), "std::function");
+      }
+    }
+
+  private:
+    Arg* arg_ = nullptr;
+    Function_T converted_;
+  };
+
+  template<typename Return_T, typename ...Parameter_Ts>
+  class From_Ruby<std::function<Return_T(Parameter_Ts...)>&&>
+  {
+  public:
+    using Function_T = std::function<Return_T(Parameter_Ts...)>;
+
+    From_Ruby() = default;
+
+    explicit From_Ruby(Arg* arg) : arg_(arg)
+    {
+    }
+
+    double is_convertible(VALUE value)
+    {
+      return From_Ruby<Function_T>(arg_).is_convertible(value);
+    }
+
+    Function_T&& convert(VALUE value)
+    {
+      if (Data_Type<Function_T>::is_descendant(value))
+      {
+        return std::move(*detail::unwrap<Function_T>(value, Data_Type<Function_T>::ruby_data_type(), false));
+      }
+      else if (protect(rb_obj_is_proc, value) == Qtrue)
+      {
+        converted_ = makeRubyFunction<Return_T, Parameter_Ts...>(value);
+        return std::move(converted_);
+      }
+      else
+      {
+        throw Exception(rb_eTypeError, "wrong argument type %s (expected %s)",
+          detail::protect(rb_obj_classname, value), "std::function");
+      }
+    }
+
+  private:
+    Arg* arg_ = nullptr;
+    Function_T converted_;
+  };
+
   template<typename Signature_T>
   struct Type<std::function<Signature_T>>
   {
@@ -867,6 +1007,24 @@ namespace Rice4RubyQt6::detail
     Arg* arg_ = nullptr;
   };
 
+  template<>
+  class To_Ruby<std::nullopt_t&>
+  {
+  public:
+    To_Ruby() = default;
+
+    explicit To_Ruby(Arg* arg) : arg_(arg)
+    {}
+
+    VALUE convert(const std::nullopt_t&)
+    {
+      return Qnil;
+    }
+
+  private:
+    Arg* arg_ = nullptr;
+  };
+
   template<typename T>
   class To_Ruby<std::optional<T>>
   {
@@ -1133,8 +1291,12 @@ namespace Rice4RubyQt6::stl
 
     void define_methods()
     {
+#if __cplusplus >= 202002L
+      klass_.define_method<std::string(std::ostringstream::*)() const&>("str", &std::ostringstream::str)
+#else
       klass_.define_method<std::string(std::ostringstream::*)() const>("str", &std::ostringstream::str)
-            .define_method("str=", [](std::ostringstream& stream, const std::string& s) { stream.str(s); }, Arg("str"));
+#endif
+      .define_method("str=", [](std::ostringstream& stream, const std::string& s) { stream.str(s); }, Arg("str"));
 
       rb_define_alias(klass_, "to_s", "str");
     }
@@ -1310,8 +1472,12 @@ namespace Rice4RubyQt6
     private:
       void define_constructors()
       {
-        klass_.define_constructor(Constructor<T>())
-              .define_constructor(Constructor<T, First_Parameter_T, Second_Parameter_T>(), Arg("x").keepAlive(), Arg("y").keepAlive());
+        if constexpr (std::is_default_constructible_v<T>)
+        {
+          klass_.define_constructor(Constructor<T>());
+        }
+
+        klass_.define_constructor(Constructor<T, First_Parameter_T, Second_Parameter_T>(), Arg("x").keepAlive(), Arg("y").keepAlive());
 
         if constexpr (std::is_copy_constructible_v<First_T> && std::is_copy_constructible_v<Second_T>)
         {
@@ -1445,6 +1611,24 @@ namespace Rice4RubyQt6::detail
     explicit To_Ruby(Arg* arg) : arg_(arg)
     {
     }
+
+    VALUE convert(const std::reference_wrapper<T>& data)
+    {
+      return To_Ruby<T&>().convert(data.get());
+    }
+
+  private:
+    Arg* arg_ = nullptr;
+  };
+
+  template<typename T>
+  class To_Ruby<std::reference_wrapper<T>&>
+  {
+  public:
+    To_Ruby() = default;
+
+    explicit To_Ruby(Arg* arg) : arg_(arg)
+    {}
 
     VALUE convert(const std::reference_wrapper<T>& data)
     {
@@ -1618,16 +1802,8 @@ namespace Rice4RubyQt6
             return it != map.end();
           }, Arg("value"));
           rb_define_alias(klass_, "eql?", "==");
+          rb_define_alias(klass_, "has_value", "value?");
         }
-        else
-        {
-          klass_.define_method("value?", [](T&, Mapped_Parameter_T) -> bool
-          {
-              return false;
-          }, Arg("value"));
-        }
-
-        rb_define_alias(klass_, "has_value", "value?");
       }
 
       void define_modify_methods()
@@ -1650,7 +1826,7 @@ namespace Rice4RubyQt6
             }, Arg("key"))
           .define_method("[]=", [](T& map, Key_T key, Mapped_Parameter_T value) -> Mapped_T
             {
-              map[key] = value;
+              map.insert_or_assign(key, value);
               return value;
             }, Arg("key").keepAlive(), Arg("value").keepAlive());
 
@@ -1772,7 +1948,7 @@ namespace Rice4RubyQt6
         // exceptions propogate back to Ruby
         return cpp_protect([&]
         {
-          result->operator[](From_Ruby<T>().convert(key)) = From_Ruby<U>().convert(value);
+          result->insert_or_assign(From_Ruby<T>().convert(key), From_Ruby<U>().convert(value));
           return ST_CONTINUE;
         });
       }
@@ -1960,6 +2136,7 @@ namespace Rice4RubyQt6
     };
   }
 }
+
 
 // =========   monostate.hpp   =========
 
@@ -2222,16 +2399,8 @@ namespace Rice4RubyQt6
             return it != multimap.end();
           }, Arg("value"));
           rb_define_alias(klass_, "eql?", "==");
+          rb_define_alias(klass_, "has_value", "value?");
         }
-        else
-        {
-          klass_.define_method("value?", [](T&, Mapped_Parameter_T) -> bool
-          {
-              return false;
-          }, Arg("value"));
-        }
-
-        rb_define_alias(klass_, "has_value", "value?");
       }
 
       void define_modify_methods()
@@ -2546,6 +2715,7 @@ namespace Rice4RubyQt6
   }
 }
 
+
 // =========   set.hpp   =========
 
 namespace Rice4RubyQt6
@@ -2659,23 +2829,23 @@ namespace Rice4RubyQt6
 
       void define_operators()
       {
+        klass_.define_method("<<", [](T& self, Parameter_T value) -> T&
+        {
+          self.insert(value);
+          return self;
+        }, Arg("value").keepAlive());
+
+        if constexpr (detail::is_comparable_v<Value_T>)
+        {
+          klass_.define_method("==", [](const T& self, const T& other) -> bool
+          {
+            return self == other;
+          }, Arg("other"));
+
+          rb_define_alias(klass_, "eql?", "==");
+        }
+
         klass_
-          .define_method("<<", [](T& self, Parameter_T value) -> T&
-          {
-            self.insert(value);
-            return self;
-          }, Arg("value").keepAlive())
-          .define_method("==", [](const T& self, const T& other) -> bool
-          {
-            if constexpr (detail::is_comparable_v<Value_T>)
-            {
-              return self == other;
-            }
-            else
-            {
-              return false;
-            }
-          }, Arg("other"))
           .define_method("&", [](const T& self, const T& other) -> T
           {
             T result;
@@ -2722,15 +2892,14 @@ namespace Rice4RubyQt6
             return std::includes(self.begin(), self.end(),
                                  other.begin(), other.end());
           }, Arg("other"));
-        
-          rb_define_alias(klass_, "eql?", "==");
-          rb_define_alias(klass_, "intersection", "&");
-          rb_define_alias(klass_, "union", "|");
-          rb_define_alias(klass_, "difference", "-");
-          rb_define_alias(klass_, "proper_subset?", "<");
-          rb_define_alias(klass_, "subset?", "<");
-          rb_define_alias(klass_, "proper_superset?", ">");
-          rb_define_alias(klass_, "superset?", ">");
+
+        rb_define_alias(klass_, "intersection", "&");
+        rb_define_alias(klass_, "union", "|");
+        rb_define_alias(klass_, "difference", "-");
+        rb_define_alias(klass_, "proper_subset?", "<");
+        rb_define_alias(klass_, "subset?", "<");
+        rb_define_alias(klass_, "proper_superset?", ">");
+        rb_define_alias(klass_, "superset?", ">");
       }
 
       void define_enumerable()
@@ -3201,7 +3370,11 @@ namespace Rice4RubyQt6
 
     if constexpr (detail::is_complete_v<T> && !std::is_void_v<T>)
     {
-      result.define_constructor(Constructor<SharedPtr_T, typename SharedPtr_T::element_type*>(), Arg("value").takeOwnership());
+      // is_abstract_v requires a complete type, so it must be nested inside the is_complete_v check
+      if constexpr (!std::is_abstract_v<T>)
+      {
+        result.define_constructor(Constructor<SharedPtr_T, typename SharedPtr_T::element_type*>(), Arg("value").takeOwnership());
+      }
     }
 
     // Forward methods to wrapped T
@@ -3256,7 +3429,7 @@ namespace Rice4RubyQt6::detail
     }
     else if (rb_typeddata_inherited_p(this->inner_rb_data_type_, requestedType))
     {
-      return this->data_.get();
+      return (void*)this->data_.get();
     }
     else
     {
@@ -3853,6 +4026,9 @@ namespace Rice4RubyQt6
   template<typename T>
   Data_Type<std::unique_ptr<T>> define_unique_ptr(std::string klassName)
   {
+    static_assert(detail::is_complete_v<T>,
+      "Rice does not support binding std::unique_ptr<T> when T is incomplete.");
+
     using UniquePtr_T = std::unique_ptr<T>;
     using Data_Type_T = Data_Type<UniquePtr_T>;
 
@@ -3931,7 +4107,7 @@ namespace Rice4RubyQt6::detail
     }
     else if (rb_typeddata_inherited_p(this->inner_rb_data_type_, requestedType))
     {
-      return this->data_.get();
+      return (void*)this->data_.get();
     }
     else
     {
@@ -4139,16 +4315,8 @@ namespace Rice4RubyQt6
               return it != unordered_map.end();
           }, Arg("value"));
           rb_define_alias(klass_, "eql?", "==");
+          rb_define_alias(klass_, "has_value", "value?");
         }
-        else
-        {
-          klass_.define_method("value?", [](T&, Mapped_Parameter_T) -> bool
-          {
-              return false;
-          }, Arg("value"));
-        }
-
-        rb_define_alias(klass_, "has_value", "value?");
       }
 
       void define_modify_methods()
@@ -4171,7 +4339,7 @@ namespace Rice4RubyQt6
             }, Arg("key"))
           .define_method("[]=", [](T& unordered_map, Key_T key, Mapped_Parameter_T value) -> Mapped_T
             {
-              unordered_map[key] = value;
+              unordered_map.insert_or_assign(key, value);
               return value;
             }, Arg("key").keepAlive(), Arg("value").keepAlive());
 
@@ -4293,7 +4461,7 @@ namespace Rice4RubyQt6
         // exceptions propogate back to Ruby
         return cpp_protect([&]
         {
-          result->operator[](From_Ruby<T>().convert(key)) = From_Ruby<U>().convert(value);
+          result->insert_or_assign(From_Ruby<T>().convert(key), From_Ruby<U>().convert(value));
           return ST_CONTINUE;
         });
       }
@@ -4481,6 +4649,7 @@ namespace Rice4RubyQt6
     };
   }
 }
+
 
 // =========   vector.hpp   =========
 
@@ -4789,21 +4958,6 @@ namespace Rice4RubyQt6
             }
           }, Arg("value"));
           rb_define_alias(klass_, "eql?", "==");
-        }
-        else
-        {
-          klass_.define_method("delete", [](T&, Parameter_T) -> std::optional<Value_T>
-          {
-            return std::nullopt;
-          }, Arg("value"))
-          .define_method("include?", [](const T&, Parameter_T)
-          {
-            return false;
-          }, Arg("value"))
-          .define_method("index", [](const T&, Parameter_T) -> std::optional<Difference_T>
-          {
-            return std::nullopt;
-          }, Arg("value"));
         }
       }
 
@@ -5206,6 +5360,24 @@ namespace Rice4RubyQt6
       explicit To_Ruby(Arg* arg) : arg_(arg)
       {
       }
+
+      VALUE convert(const std::vector<bool>::reference& value)
+      {
+        return value ? Qtrue : Qfalse;
+      }
+
+    private:
+      Arg* arg_ = nullptr;
+    };
+
+    template<>
+    class To_Ruby<std::vector<bool>::reference&>
+    {
+    public:
+      To_Ruby() = default;
+
+      explicit To_Ruby(Arg* arg) : arg_(arg)
+      {}
 
       VALUE convert(const std::vector<bool>::reference& value)
       {
