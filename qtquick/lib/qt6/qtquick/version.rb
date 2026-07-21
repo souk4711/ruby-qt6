@@ -2,6 +2,6 @@
 
 module RubyQt6
   module QtQuick
-    QTQUICK_RUBYGEM_VERSION = "6.2.0"
+    QTQUICK_RUBYGEM_VERSION = "6.3.0"
   end
 end

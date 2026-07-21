@@ -2,6 +2,6 @@
 
 module RubyQt6
   module QtWebView
-    QTWEBVIEW_RUBYGEM_VERSION = "6.2.0"
+    QTWEBVIEW_RUBYGEM_VERSION = "6.3.0"
   end
 end

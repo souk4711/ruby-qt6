@@ -2,6 +2,6 @@
 
 module RubyQt6
   module QtWebEngineCore
-    QTWEBENGINECORE_RUBYGEM_VERSION = "6.2.0"
+    QTWEBENGINECORE_RUBYGEM_VERSION = "6.3.0"
   end
 end
