@@ -1,4 +1,5 @@
 #include "qqmlapplicationengine-rb.hpp"
+#include <qchar.h>
 #include <qqmlapplicationengine.h>
 
 RICE4RUBYQT6_USE_NAMESPACE

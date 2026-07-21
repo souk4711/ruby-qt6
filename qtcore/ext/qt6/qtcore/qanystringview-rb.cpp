@@ -1,4 +1,5 @@
 #include "qanystringview-rb.hpp"
+#include <qchar.h>
 #include <qanystringview.h>
 
 #include <QString>

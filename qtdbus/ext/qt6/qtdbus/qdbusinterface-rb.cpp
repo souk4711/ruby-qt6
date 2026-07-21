@@ -1,4 +1,5 @@
 #include "qdbusinterface-rb.hpp"
+#include <qchar.h>
 #include <qdbusinterface.h>
 
 RICE4RUBYQT6_USE_NAMESPACE

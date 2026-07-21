@@ -1,4 +1,5 @@
 #include "qdatetime-rb.hpp"
+#include <qchar.h>
 #include <qdatetime.h>
 #include <rice/qt6/qenum.hpp>
 

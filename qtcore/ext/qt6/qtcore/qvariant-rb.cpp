@@ -1,4 +1,5 @@
 #include "qvariant-rb.hpp"
+#include <qchar.h>
 #include <qvariant.h>
 
 #include <QString>

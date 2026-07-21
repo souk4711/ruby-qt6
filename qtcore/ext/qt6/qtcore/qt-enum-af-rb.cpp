@@ -1,4 +1,5 @@
 #include "qt-enum-af-rb.hpp"
+#include <qchar.h>
 #include <qnamespace.h>
 #include <rice/qt6/qenum.hpp>
 

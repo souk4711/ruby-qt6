@@ -1,4 +1,5 @@
 #include "qdbus-rb.hpp"
+#include <qchar.h>
 #include <qdbusconnection.h>
 #include <rice/qt6/qenum.hpp>
 

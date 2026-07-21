@@ -1,4 +1,5 @@
 #include "qabstractprintdialog-rb.hpp"
+#include <qchar.h>
 #include <qabstractprintdialog.h>
 #include <rice/qt6/qenum.hpp>
 #include <rice/qt6/qflags.hpp>

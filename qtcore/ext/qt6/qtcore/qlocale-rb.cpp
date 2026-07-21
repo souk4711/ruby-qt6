@@ -1,4 +1,5 @@
 #include "qlocale-rb.hpp"
+#include <qchar.h>
 #include <qlocale.h>
 #include <rice/qt6/qenum.hpp>
 #include <rice/qt6/qflags.hpp>

@@ -1,4 +1,5 @@
 #include "qgraphicsview-rb.hpp"
+#include <qchar.h>
 #include <qgraphicsview.h>
 #include <rice/qt6/qenum.hpp>
 #include <rice/qt6/qflags.hpp>

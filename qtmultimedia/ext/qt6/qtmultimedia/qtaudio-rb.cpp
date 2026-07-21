@@ -1,4 +1,5 @@
 #include "qtaudio-rb.hpp"
+#include <qchar.h>
 #include <qtaudio.h>
 #include <rice/qt6/qenum.hpp>
 

@@ -1,4 +1,5 @@
 #include "qtmultimediapreludes-rb.hpp"
+#include <qchar.h>
 #include <rice/qt6/preludes/libqt6core.hpp>
 #include <rice/qt6/preludes/libqt6gui.hpp>
 

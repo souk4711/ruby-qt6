@@ -1,4 +1,5 @@
 #include "qcapturablewindow-rb.hpp"
+#include <qchar.h>
 #include <qcapturablewindow.h>
 
 RICE4RUBYQT6_USE_NAMESPACE

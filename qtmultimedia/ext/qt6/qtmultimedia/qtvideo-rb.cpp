@@ -1,4 +1,5 @@
 #include "qtvideo-rb.hpp"
+#include <qchar.h>
 #include <qtvideo.h>
 #include <rice/qt6/qenum.hpp>
 

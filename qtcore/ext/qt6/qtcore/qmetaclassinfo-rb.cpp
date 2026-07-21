@@ -1,4 +1,5 @@
 #include "qmetaclassinfo-rb.hpp"
+#include <qchar.h>
 #include <qmetaobject.h>
 
 RICE4RUBYQT6_USE_NAMESPACE

@@ -1,4 +1,5 @@
 #include "qtguipreludes-rb.hpp"
+#include <qchar.h>
 #include <rice/qt6/preludes/libqt6core.hpp>
 
 RICE4RUBYQT6_USE_NAMESPACE

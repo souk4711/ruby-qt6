@@ -1,4 +1,5 @@
 #include "qnetworkaccessmanager-rb.hpp"
+#include <qchar.h>
 #include <qnetworkaccessmanager.h>
 #include <rice/qt6/qenum.hpp>
 

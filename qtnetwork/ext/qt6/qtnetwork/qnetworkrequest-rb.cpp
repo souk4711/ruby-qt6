@@ -1,4 +1,5 @@
 #include "qnetworkrequest-rb.hpp"
+#include <qchar.h>
 #include <qnetworkrequest.h>
 #include <rice/qt6/qenum.hpp>
 

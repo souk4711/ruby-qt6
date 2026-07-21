@@ -1,4 +1,5 @@
 #include "qquickstyle-rb.hpp"
+#include <qchar.h>
 #include <qquickstyle.h>
 
 RICE4RUBYQT6_USE_NAMESPACE

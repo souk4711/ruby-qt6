@@ -1,4 +1,5 @@
 #include "qmediametadata-rb.hpp"
+#include <qchar.h>
 #include <qmediametadata.h>
 #include <rice/qt6/qenum.hpp>
 

@@ -1,4 +1,5 @@
 #include "qqmlengine-rb.hpp"
+#include <qchar.h>
 #include <qqmlengine.h>
 
 #include <QQmlContext>

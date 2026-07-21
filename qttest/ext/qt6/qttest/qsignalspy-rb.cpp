@@ -1,4 +1,6 @@
 #include "qsignalspy-rb.hpp"
+#include <qchar.h>
+#include <qbitarray.h>
 #include <qsignalspy.h>
 
 RICE4RUBYQT6_USE_NAMESPACE

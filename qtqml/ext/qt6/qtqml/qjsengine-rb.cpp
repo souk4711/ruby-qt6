@@ -1,4 +1,5 @@
 #include "qjsengine-rb.hpp"
+#include <qchar.h>
 #include <qjsengine.h>
 
 RICE4RUBYQT6_USE_NAMESPACE

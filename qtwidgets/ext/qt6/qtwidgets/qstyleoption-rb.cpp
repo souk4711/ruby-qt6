@@ -1,4 +1,5 @@
 #include "qstyleoption-rb.hpp"
+#include <qchar.h>
 #include <qstyleoption.h>
 #include <rice/qt6/qenum.hpp>
 

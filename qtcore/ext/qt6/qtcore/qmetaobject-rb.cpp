@@ -1,4 +1,5 @@
 #include "qmetaobject-rb.hpp"
+#include <qchar.h>
 #include <qmetaobject.h>
 #include <qobjectdefs.h>
 

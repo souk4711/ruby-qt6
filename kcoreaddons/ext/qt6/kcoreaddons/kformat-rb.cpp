@@ -1,4 +1,5 @@
 #include "kformat-rb.hpp"
+#include <qchar.h>
 #include <kformat.h>
 #include <rice/qt6/qenum.hpp>
 #include <rice/qt6/qflags.hpp>

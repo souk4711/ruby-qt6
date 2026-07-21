@@ -1,4 +1,5 @@
 #include "qiodevicebase-rb.hpp"
+#include <qchar.h>
 #include <qiodevicebase.h>
 #include <rice/qt6/qenum.hpp>
 #include <rice/qt6/qflags.hpp>

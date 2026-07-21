@@ -1,4 +1,5 @@
 #include "t-qtdbus-rb.hpp"
+#include <qchar.h>
 #include <rice/qt6/qdbusreply.hpp>
 
 #include <QList>

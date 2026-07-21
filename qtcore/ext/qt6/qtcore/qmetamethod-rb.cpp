@@ -1,4 +1,5 @@
 #include "qmetamethod-rb.hpp"
+#include <qchar.h>
 #include <qmetaobject.h>
 #include <rice/qt6/qenum.hpp>
 

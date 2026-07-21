@@ -1,4 +1,5 @@
 #include "qimagewriter-rb.hpp"
+#include <qchar.h>
 #include <qimagewriter.h>
 #include <rice/qt6/qenum.hpp>
 

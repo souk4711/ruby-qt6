@@ -1,4 +1,5 @@
 #include "qwindowcapture-rb.hpp"
+#include <qchar.h>
 #include <qwindowcapture.h>
 #include <rice/qt6/qenum.hpp>
 
