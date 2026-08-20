@@ -93,6 +93,7 @@ RUBYQT6_CXXFLAGS="-Os -fno-fast-math -flto=auto" gem install ruby-qt6-qtwidgets
 
 - [ruby-netmon-qt](https://github.com/souk4711/ruby-netmon-qt) - A simple network monitor on Linux.
 - [ruby-pass-qt](https://github.com/souk4711/ruby-pass-qt) - A simple GUI for pass on Linux.
+- [ruby-clash-systray](https://github.com/souk4711/ruby-clash-systray) - A simple system tray for Clash on Linux.
 
 ## License
 
