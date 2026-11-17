@@ -56,7 +56,6 @@ module RubyQt6
       # @!parse class MouseEventFlag        ; end
       # @!parse class MouseEventSource      ; end
       # @!parse class NativeGestureType     ; end
-      # @!parse class NavigationMode        ; end
       # @!parse class Orientation           ; end
       # @!parse class PenCapStyle           ; end
       # @!parse class PenJoinStyle          ; end
@@ -140,7 +139,6 @@ module RubyQt6
       rubyqt6_declare_enum_under Qt, Qt::MouseEventFlag
       rubyqt6_declare_enum_under Qt, Qt::MouseEventSource
       rubyqt6_declare_enum_under Qt, Qt::NativeGestureType
-      rubyqt6_declare_enum_under Qt, Qt::NavigationMode
       rubyqt6_declare_enum_under Qt, Qt::Orientation
       rubyqt6_declare_enum_under Qt, Qt::PenCapStyle
       rubyqt6_declare_enum_under Qt, Qt::PenJoinStyle
