@@ -50,7 +50,6 @@ void Init_qmediametadata(Module rb_mQt6QtMultimedia)
         define_qenum_value_under(rb_cQMediaMetaDataKey, "TrackNumber", QMediaMetaData::Key::TrackNumber);
         define_qenum_value_under(rb_cQMediaMetaDataKey, "Composer", QMediaMetaData::Key::Composer);
         define_qenum_value_under(rb_cQMediaMetaDataKey, "LeadPerformer", QMediaMetaData::Key::LeadPerformer);
-        define_qenum_value_under(rb_cQMediaMetaDataKey, "ThumbnailImage", QMediaMetaData::Key::ThumbnailImage);
         define_qenum_value_under(rb_cQMediaMetaDataKey, "CoverArtImage", QMediaMetaData::Key::CoverArtImage);
         define_qenum_value_under(rb_cQMediaMetaDataKey, "Orientation", QMediaMetaData::Key::Orientation);
         define_qenum_value_under(rb_cQMediaMetaDataKey, "Resolution", QMediaMetaData::Key::Resolution);
