@@ -16,7 +16,11 @@ void Init_qfile(Module rb_mQt6QtCore)
             // Constructor
             .define_constructor(Constructor<QFile, const QString &>(), Arg("name"))
             // Public Functions
+#if QT_VERSION >= QT_VERSION_CHECK(6, 12, 0)
+            .define_method<bool (QFile::*)(const QString &, std::optional<QFileDevice::Permissions>)>("copy", &QFile::copy, Arg("new_name"), Arg("perm") = static_cast<std::optional<QFileDevice::Permissions>>(std::nullopt))
+#else
             .define_method<bool (QFile::*)(const QString &)>("copy", &QFile::copy, Arg("new_name"))
+#endif
             .define_method<bool (QFile::*)() const>("exists", &QFile::exists)
             .define_method("file_name", &QFile::fileName)
             .define_method("filesystem_file_name", &QFile::filesystemFileName)
@@ -36,7 +40,11 @@ void Init_qfile(Module rb_mQt6QtCore)
             .define_method("size", &QFile::size)
             .define_method<QString (QFile::*)() const>("sym_link_target", &QFile::symLinkTarget)
             // Static Public Members
+#if QT_VERSION >= QT_VERSION_CHECK(6, 12, 0)
+            .define_singleton_function<bool (*)(const QString &, const QString &, std::optional<QFileDevice::Permissions>)>("copy", &QFile::copy, Arg("file_name"), Arg("new_name"), Arg("perm") = static_cast<std::optional<QFileDevice::Permissions>>(std::nullopt))
+#else
             .define_singleton_function<bool (*)(const QString &, const QString &)>("copy", &QFile::copy, Arg("file_name"), Arg("new_name"))
+#endif
             .define_singleton_function<QString (*)(const QByteArray &)>("decode_name", &QFile::decodeName, Arg("local_file_name"))
             .define_singleton_function<QString (*)(const char *)>("decode_name", &QFile::decodeName, Arg("local_file_name"))
             .define_singleton_function("encode_name", &QFile::encodeName, Arg("file_name"))
