@@ -73,7 +73,12 @@ void Init_qwindow(Module rb_mQt6QtGui)
             .define_method("set_flag", &QWindow::setFlag, Arg("flag"), Arg("on") = static_cast<bool>(true))
             .define_method("set_flags", &QWindow::setFlags, Arg("flags"))
             .define_method("set_format", &QWindow::setFormat, Arg("format"))
+#if QT_VERSION >= QT_VERSION_CHECK(6, 12, 0)
+            .define_method<void (QWindow::*)(const QPoint &)>("set_frame_position", &QWindow::setFramePosition, Arg("point"))
+            .define_method<void (QWindow::*)(int, int)>("set_frame_position", &QWindow::setFramePosition, Arg("x"), Arg("y"))
+#else
             .define_method("set_frame_position", &QWindow::setFramePosition, Arg("point"))
+#endif
             .define_method("set_icon", &QWindow::setIcon, Arg("icon"))
             .define_method("set_keyboard_grab_enabled", &QWindow::setKeyboardGrabEnabled, Arg("grab"))
             .define_method("set_mask", &QWindow::setMask, Arg("region"))
