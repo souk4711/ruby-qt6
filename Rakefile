@@ -30,7 +30,7 @@ namespace :bindgen do
     require "ruby-bindgen"
 
     clang_args = []
-    clang_args << "-I/usr/lib/clang/21/include"
+    clang_args << "-I/usr/lib/clang/23/include"
     clang_args << "-I./vendor/include"
     clang_args << "-I./vendor/include/#{extension}"
     clang_args << "-xc++"
@@ -99,16 +99,16 @@ namespace :bindgen do
 
     FileUtils.rm_rf("vendor/include")
     FileUtils.mkdir_p("vendor/include")
-    upinc(pkg: "qt6-base-6.10.1-1")
-    upinc(pkg: "qt6-declarative-6.10.1-2")
-    upinc(pkg: "qt6-multimedia-6.10.1-1")
-    upinc(pkg: "qt6-speech-6.10.1-1")
-    upinc(pkg: "qt6-tools-6.10.1-1")
-    upinc(pkg: "qt6-webengine-6.10.1-1")
-    upinc(pkg: "qt6-webview-6.10.1-1")
-    upinc(pkg: "kcoreaddons-6.23.0-1")
-    upinc(pkg: "kguiaddons-6.23.0-1")
-    upinc(pkg: "kwidgetsaddons-6.23.0-1")
+    upinc(pkg: "qt6-base-6.12.0-5")
+    upinc(pkg: "qt6-declarative-6.12.0-4")
+    upinc(pkg: "qt6-multimedia-6.12.0-1")
+    upinc(pkg: "qt6-speech-6.12.0-1")
+    upinc(pkg: "qt6-tools-6.12.0-1")
+    upinc(pkg: "qt6-webengine-6.140.0-1")
+    upinc(pkg: "qt6-webview-6.12.0-1")
+    upinc(pkg: "kcoreaddons-6.32.0-1")
+    upinc(pkg: "kguiaddons-6.32.0-1")
+    upinc(pkg: "kwidgetsaddons-6.32.0-1")
   end
 end
 

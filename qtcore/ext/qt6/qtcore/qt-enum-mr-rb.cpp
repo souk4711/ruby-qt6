@@ -107,15 +107,6 @@ void Init_qt_enum_mr(Module rb_mQt6QtCore)
         define_qenum_value_under(rb_cQtNativeGestureType, "RotateNativeGesture", Qt::NativeGestureType::RotateNativeGesture);
         define_qenum_value_under(rb_cQtNativeGestureType, "SwipeNativeGesture", Qt::NativeGestureType::SwipeNativeGesture);
 
-    Data_Type<Qt::NavigationMode> rb_cQtNavigationMode =
-        // RubyQt6::QtCore::Qt::NavigationMode
-        define_qenum_under<Qt::NavigationMode>(rb_mQt, "NavigationMode");
-        define_qenum_value_under(rb_cQtNavigationMode, "NavigationModeNone", Qt::NavigationMode::NavigationModeNone);
-        define_qenum_value_under(rb_cQtNavigationMode, "NavigationModeKeypadTabOrder", Qt::NavigationMode::NavigationModeKeypadTabOrder);
-        define_qenum_value_under(rb_cQtNavigationMode, "NavigationModeKeypadDirectional", Qt::NavigationMode::NavigationModeKeypadDirectional);
-        define_qenum_value_under(rb_cQtNavigationMode, "NavigationModeCursorAuto", Qt::NavigationMode::NavigationModeCursorAuto);
-        define_qenum_value_under(rb_cQtNavigationMode, "NavigationModeCursorForceVisible", Qt::NavigationMode::NavigationModeCursorForceVisible);
-
     Data_Type<Qt::Orientation> rb_cQtOrientation =
         // RubyQt6::QtCore::Qt::Orientation
         define_qenum_under<Qt::Orientation>(rb_mQt, "Orientation");
