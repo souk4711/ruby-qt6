@@ -63,9 +63,25 @@ More examples can be found in [examples](https://github.com/souk4711/ruby-qt6/tr
 
 ## Notes
 
+### Comparsion of C++ and Ruby
+
+|                           | C++                                                           | Ruby                                       |
+| ------------------------- | ------------------------------------------------------------- | ------------------------------------------ |
+| Module                    | qmake: `QT += widgets`                                        | bundler: `gem "ruby-qt6-qtwidgets"`        |
+| Imports                   | `#include <QtWidgets>`                                        | `require "qt6/qtwidgets"`                  |
+| Instantiation             | `QPushButton *btn = new QPushButton("OK");`                   | `btn = QPushButton.new("OK")`              |
+| Member Function           | `btn->setText("Cancel");`                                     | `btn.set_text("Cancel")`                   |
+| Predicate Member Function | `btn->isFlat();`                                              | `btn.flat?`                                |
+| Inheritance               | `class MyWidget : public QWidget { Q_OBJECT ... };`           | `class MyWidget < RubyQt6::Bando::QWidget` |
+| Virtual Override Function | `void paintEvent(QPaintEvent *event) override;`               | `def paint_event(event)`                   |
+| Call Base Implementation  | `QWidget::paintEvent(event);`                                 | `_paint_event(event)`                      |
+| Signal Definition         | `signals: void mySignal(int val);`                            | `signal "my_signal(int)"`                  |
+| Slot Definition           | `public slots: void onClick();`                               | `slot "on_click()"`                        |
+| Signal-Slot Connection    | `connect(btn, &QPushButton::clicked, this, &MyWin::onClick);` | `btn.clicked.connect(my_win, :on_click)`   |
+
 ### Memory Management
 
-Following types are allocated on the C++ heap when created using `.new`.
+Following types are not collected by the GC when created using `.new`.
 
 - QObject and its subclasses except
   - QCoreApplication, QGuiApplication, QApplication
@@ -80,7 +96,7 @@ You need to trigger immediate deletion by calling the `#delete_now` method if ne
 call the `#delete_later` method, which will wait for the next event loop iteration. For QWidget, you
 can also use `#set_attribute(Qt::WA_DeleteOnClose)` method.
 
-### Compiler Optimize Options
+### Compilation
 
 This library does not enable any optimize options by default. You can use `RUBYQT6_CXXFLAGS` environment
 variable to customize them. E.g.
